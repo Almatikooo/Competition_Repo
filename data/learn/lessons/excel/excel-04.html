@@ -1,0 +1,301 @@
+<div>
+<div class="box box-objectives"><p class="box-title">Learning Objectives</p>
+
+<ul>
+<li>Learn how to create basic formulas.</li>
+<li>Understand relative referencing when copying and pasting formulas.</li>
+<li>Work with complex formulas by controlling the order of mathematical operations.</li>
+<li>Understand formula auditing tools.</li>
+</ul>
+</div>
+<p>This section reviews the fundamental skills for entering formulas into an Excel worksheet. The example used for this chapter is the construction of a personal budget. Most financial advisors recommend that all households construct and maintain a personal budget to achieve and maintain strong financial health. Organizing and maintaining a personal budget is a skill you can practice at any point in your life. Whether you are managing your expenses during college or maintaining the finances of a family of four, a personal budget can be a vital tool when making financial decisions. Excel can make managing your money a fun and rewarding exercise.</p>
+<h2 id="open-the-data-file">Open the Data File</h2>
+<p><em>Download Data File: </em><a href="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/CH2-Data.xlsx" target="_blank" rel="noopener noreferrer">CH2 Data</a></p>
+<ol>
+<li>Open the Data file named <strong>CH2 Data</strong> and use the File/Save As command to save it with the new name <strong>CH2 Personal Budget</strong>.</li>
+</ol>
+<p><strong>Figure 2.1</strong> shows the completed workbook that will be demonstrated in this chapter. Notice that this workbook contains four worksheets. The first worksheet, <strong>Budget Summary</strong>, serves as an overview of the data that was entered and calculated in the second and third worksheets, <strong>Budget Detail </strong>and <strong>Loan Payments</strong>. The second worksheet, <strong>Budget Detail</strong>, provides a detailed list of all the expenses and the third worksheet, <strong>Loan Payments</strong>, provides information regarding car payment and mortgage payment amounts.&nbsp; The last worksheet,&nbsp;<strong>Prepare to Print</strong>, has data that is unrelated to the budget worksheets but will be used in Section 2.4 – Preparing to Print.</p>
+<figure><img alt="Completed personal budget workbook open to Budget Summary worksheet." height="715" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/08/Figure_2.1.png" width="634"><figcaption>Figure 2.1 – The completed Budget Summary worksheet</figcaption></figure>
+<h2 id="creating-a-basic-formula">Creating a Basic Formula</h2>
+<p>When formulas and cell references are used Excel will automatically recalculate when data is changed</p>
+<p>Formulas are used to calculate a variety of mathematical outputs in Excel and can be used to create virtually any custom calculation required for your objective. Furthermore, when constructing a formula in Excel, you use cell addresses that, when added to a formula, become cell references. This means that Excel uses, or references, the number entered into the cell location when performing the calculation. As a result, when the numbers in the cells that are referenced are changed, Excel automatically recalculates the formula and produces a new result. This is what gives Excel the ability to create a variety of what-if scenarios, which will be explained later in the chapter.</p>
+<p>To demonstrate the construction of a basic formula, we will begin working on the <strong>Budget Detail</strong> worksheet, which is shown in <strong>Figure 2.2</strong>. To complete this worksheet, we will enter some data, and then create several formulas and functions. <strong>Table 2.1</strong> provides definitions for each of the spend categories listed in the range A3:A11. When you develop a personal budget, these categories are defined on the basis of how you spend your money. It is likely that every person could have different categories or define the same categories differently. Therefore, it is important to review the definitions in <strong>Table 2.1</strong> to understand how we are defining these categories before proceeding.</p>
+<figure><img alt="" height="710" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.2-1024x710.png" width="1024"><figcaption>Figure 2.2 Budget Detail Worksheet</figcaption></figure>
+<p>Table 2.1 Spend Category Definitions</p>
+<div class="table-wrap"><table>
+
+<thead>
+<tr>
+<th scope="col">Category</th>
+<th scope="col">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Utilities</strong></td>
+<td>Electricity, heat, water, home phone, cable, Internet access</td>
+</tr>
+<tr>
+<td><strong>Cell Phone</strong></td>
+<td>Cell phone plan and equipment charges</td>
+</tr>
+<tr>
+<td><strong>Food</strong></td>
+<td>Groceries</td>
+</tr>
+<tr>
+<td><strong>Gas</strong></td>
+<td>Cost of gas for vehicle</td>
+</tr>
+<tr>
+<td><strong>Clothes</strong></td>
+<td>Clothes, shoes, and accessories</td>
+</tr>
+<tr>
+<td><strong>Insurance</strong></td>
+<td>Renter, homeowner, and/or car insurance</td>
+</tr>
+<tr>
+<td><strong>Entertainment</strong></td>
+<td>Activities like dining out, movie and theater tickets, parties, and so on</td>
+</tr>
+<tr>
+<td><strong>Vacation</strong></td>
+<td>Vacation expenses</td>
+</tr>
+<tr>
+<td><strong>Miscellaneous</strong></td>
+<td>Any other spending categories</td>
+</tr>
+</tbody>
+</table></div>
+<p>The amount of money spent each month for each category, as well as the amount of money spent last year, is already entered into the worksheet. We will write formulas that will calculate the annual (yearly) amount spent, the percent of the total spent each category represents, as well as the percent change from last year’s spending to the current year.</p>
+<p>The first formula will calculate the Annual Spend values. The formula will be constructed so that it takes the values in the Monthly Spend column and multiplies them by 12 (the number of months in a year). This will show how much money will be spent per year for each of the categories listed in Column A.&nbsp; Since the first category is <strong>Utilities</strong>, we will start by creating the formula to multiply the Monthly Spend amount in B3 by 12. This formula will be created in D3 – the Annual Spend cell for the Utilities category.&nbsp; This formula will be written as: <strong>=B3*12</strong></p>
+<ol>
+<li>Switch to the <strong>Budget Detail</strong> worksheet if needed.&nbsp; Click cell <strong>D3</strong>.<strong>Formulas always start with the equal sign.&nbsp;</strong>This signifies to Excel that the contents of the cell should be calculated, not just displayed as basic text or numbers.</li>
+<li>Type an equal sign<strong> =<br>
+</strong><em>When the first character entered into a cell is an equal sign, it signals Excel to perform a calculation.</em></li>
+<li>Type&nbsp;<strong>B3</strong>. <em>This adds B3 to the formula, which is now a cell reference. Excel will use whatever value is entered into cell B3 in the calculation.</em></li>
+<li>Type the * . <em>This is the symbol for multiplication in Excel. As shown in <strong>Table 2.2</strong> the mathematical operators in Excel are slightly different from those found on a typical calculator.</em></li>
+<li>Type the number&nbsp;<strong>12</strong>. <em>This multiplies the value in cell B3 by 12. In this formula, a number, or constant, is used instead of a cell reference because it will not change. In other words, there will always be 12 months in a year.</em></li>
+<li>Press the <strong>ENTER</strong> key.&nbsp;<em>This enters the formula into the cell.</em></li>
+</ol>
+<p>Table 2.2 Excel Mathematical Operators (move up)</p>
+<div class="table-wrap"><table>
+
+<thead>
+<tr>
+<th scope="col">Symbol</th>
+<th scope="col">Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>Addition</td>
+</tr>
+<tr>
+<td>−</td>
+<td>Subtraction</td>
+</tr>
+<tr>
+<td>/</td>
+<td>Division</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Multiplication</td>
+</tr>
+<tr>
+<td>^</td>
+<td>Power/Exponent</td>
+</tr>
+</tbody>
+</table></div>
+<div class="box box-callout"><p class="box-title">Why?</p>
+
+<p><strong>Use Cell References</strong></p>
+<p>Cell references enable Excel to automatically recalculate when one or more inputs in the referenced cells are changed. Cell references also allow you to trace how results are being calculated in a formula. You should <strong>never</strong> use a calculator to determine a mathematical output and type it into the cell location of a worksheet. Doing so eliminates Excel’s cell-referencing benefits as well as your ability to trace a formula to determine how results are being calculated.</p>
+<p><b>Use Universal Constants</b></p>
+<p>There will be times when you are writing formulas that you will need to use universal constants, or numbers that do not change, such as the number of days in a week, weeks or months in a year, and so on.&nbsp; For example, if you are calculating the monthly cost of an item when you know the yearly cost, you will always divide by 12 since there are 12 months in a year.&nbsp; In this case, you use the constant of 12 instead of a cell reference because the number of months in a year never changes.</p>
+</div>
+<p><strong>Figure 2.3</strong> shows how the formula appears in cell D3 before you press the ENTER key. <strong>Figure 2.4</strong> shows the result of the formula after you press the ENTER key, as well as the&nbsp;<strong>formula bar</strong> which displays the formula as it was entered in the cell.</p>
+<p>The Annual Spend for Utilities is $3,000 because the formula is taking the Monthly Spend in cell B3 and multiplying it by 12. If the value in cell B3 is changed, the formula automatically produces a new result.</p>
+<figure><img alt="" height="251" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.3.png" width="596"><figcaption>Figure 2.3 Adding a Formula to a Worksheet</figcaption></figure>
+
+<figure><img alt="" height="335" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.4.png" width="612"><figcaption>Figure 2.4 Formula Output for Annual Spend</figcaption></figure>
+<h2 id="relative-references-copying-and-pasting-formulas">Relative References (Copying and Pasting Formulas)</h2>
+<p>Once a formula is typed into a worksheet, it can be copied and pasted to other cell locations. For example, in cell D3 we have calculated the annual spend for the Utilities category, but this calculation needs to be performed for the rest of the cell locations in Column D. Since we used the B3 cell reference in the formula, Excel automatically adjusts that cell reference when the formula is copied and pasted into the rest of the cell locations in the column. This is called relative referencing and is demonstrated as follows:</p>
+<ol>
+<li>Click cell D3.</li>
+<li>Place the mouse pointer over the Auto Fill Handle in the bottom right corner of the cell.</li>
+<li>When the mouse pointer turns from a white block plus sign to a black plus sign, click and drag down to cell D11. This pastes the formula into the range D4:D11.</li>
+<li>Double click cell D6. Notice that the cell reference in the formula is automatically changed to B6.</li>
+<li>Press the ENTER key.</li>
+</ol>
+<p><strong>Figure 2.5</strong> shows the results added to the rest of the cell locations in the Annual Spend column. For each row, the formula takes the value in the Monthly Spend column and multiplies it by 12. You will also see that cell D6 has been double clicked to show the formula. Notice that Excel automatically changed the original cell reference of B3 to B6. This is the result of relative referencing, which means Excel automatically adjusts a cell reference relative to its original location when it is pasted into new cell locations. In this example, the formula was pasted into eight cell locations below the original cell location. As a result, Excel increased the row number of the original cell reference by a value of one for each row it was pasted into.</p>
+<figure><img alt="" height="386" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.5.png" width="615"><figcaption>Figure 2.5 Relative Reference Example</figcaption></figure>
+
+<div class="box box-callout"><p class="box-title">Why?</p>
+
+<p><strong>Use Relative Referencing</strong></p>
+<p>Relative referencing is a convenient feature in Excel. When you use cell references in a formula, Excel automatically adjusts the cell references when the formula is pasted into new cell locations. If this feature were not available, you would have to manually retype the formula when you want the same calculation applied to other cell locations in a column or row.</p>
+</div>
+<h2 id="creating-complex-formulas-controlling-the-order-of-operation">Creating Complex Formulas (Controlling the Order of Operations)</h2>
+<p>The next formula to be added to the Personal Budget workbook is the percent change over last year (Column F). This formula determines the difference between this year’s Annual Spend values (Column D) and the values in the Last Year Spend column (Column E) and shows the difference in terms of a percentage. This requires that the order of mathematical operations be controlled to get an accurate result.</p>
+<p>Excel uses the standard mathematical order of operations, as defined in Table 2.3.&nbsp; When writing complex formulas it is important to remember this <strong>order of operations.&nbsp;</strong>You want to be sure that your formulas will calculate in the order you intend.&nbsp; To help you remember which operations will be performed first, you can use the acronym PEMDAS.</p>
+<p>P – parentheses<br>
+E – exponents<br>
+MD – multiplication and division<br>
+AS – addition and subtraction</p>
+<p><strong>Table 2.3</strong> shows the standard order of operations (PEMDAS) for a typical formula. To change the order of operations shown in the table, you can use parentheses to process certain mathematical calculations first.</p>
+<p>Table 2.3 Standard Order of Mathematical Operations (PEMDAS)</p>
+<div class="table-wrap"><table>
+
+<thead>
+<tr>
+<th scope="col">Symbol</th>
+<th scope="col">Order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>( )</td>
+<td>Any calculation inside parentheses will be done first.<br>
+If there are layers of parentheses used in a formula, Excel computes the innermost parentheses first and the outermost parentheses last.</td>
+</tr>
+<tr>
+<td>^</td>
+<td>Excel executes any exponential computations next.</td>
+</tr>
+<tr>
+<td>* or /</td>
+<td>Excel performs any multiplication or division computations next.<br>
+When there are multiple instances of these computations in a formula, they are executed in order from left to right.</td>
+</tr>
+<tr>
+<td>+ or −</td>
+<td>Excel performs any addition or subtraction computations last.<br>
+When there are multiple instances of these computations in a formula, they are executed in order from left to right.</td>
+</tr>
+</tbody>
+</table></div>
+<p>To create the Percent Change formula, we will need to use parentheses to control the order of the calculations. We need the difference of the two values to be found before the division is done, so we will use parentheses around the subtraction portion of the formula to indicate that calculation needs to be done first. This formula is added to the worksheet as follows:</p>
+<ol>
+<li>Click cell F3 in the&nbsp;<strong>Budget Detail</strong>&nbsp;worksheet.</li>
+<li>Type an equal sign <strong>=</strong>.</li>
+<li>Type an open parenthesis <strong>(</strong>.</li>
+<li>Click cell D3. This will add a cell reference to cell D3 to the formula. <em>When building formulas, you can click cell locations instead of typing them.</em></li>
+<li>Type a minus sign <strong>−</strong>.</li>
+<li>Click cell E3 to add this cell reference to the formula.</li>
+<li>Type a closing parenthesis <strong>)</strong>.</li>
+<li>Type the slash <strong>/</strong>&nbsp;symbol for division.</li>
+<li>Click cell E3. This completes the formula that will calculate the percent change of last year’s actual spent dollars vs. this year’s budgeted spend dollars (<strong>see Figure 2.6</strong>).</li>
+<li>Press the ENTER key.</li>
+<li>Click cell F3 to activate it.</li>
+<li>Place the mouse pointer over the Auto Fill Handle.</li>
+<li>When the mouse pointer turns from a white block plus sign to a black plus sign, click and drag down to cell F11. This pastes the formula into the range F4:F11.</li>
+</ol>
+<p><strong>Figure 2.6</strong> shows the formula that was added to the&nbsp;<strong>Budget Detail&nbsp;</strong>worksheet to calculate the percent change in spending. The parentheses were added to this formula to control the order of operations. Any mathematical computations placed in parentheses are executed first before the standard order of mathematical operations (see <strong>Table 2.3)</strong>. In this case, if parentheses were not used, Excel would produce an erroneous result for this worksheet.</p>
+<figure><img alt="" height="353" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.6-1024x563.png" width="642"><figcaption>Figure 2.6 Adding the Percent Change Formula</figcaption></figure>
+<p><strong>Figure 2.7</strong> shows the result of the percent change formula if the parentheses are removed. The formula produces a result of a 299900% increase. Since there is no change between the LY spend and the budget Annual Spend, the result should be 0%. However, without the parentheses, Excel is following the standard order of operations. This means the value in cell E3 will be divided by E3 first (3,000/3,000), which is 1. Then, the value of 1 will be subtracted from the value in cell D3 (3,000−1), which is 2,999. Since cell F3 is formatted as a percentage, Excel expresses the output as an increase of 299900%.</p>
+<figure><img alt="" height="260" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.7.png" width="779"><figcaption>Figure 2.7 Removing the Parentheses from the Percent Change Formula</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Integrity Check&lt;</p>
+
+<p><strong>Does the Output of Your Formula Make Sense?</strong></p>
+<p>It is important to note that the accuracy of the output produced by a formula depends on how it is constructed. Therefore, always check the result of your formula to see whether it makes sense with data in your worksheet. As shown in <strong>Figure 2.7</strong>, a poorly constructed formula can give you an inaccurate result. In other words, you can see that there is no change between the Annual Spend and LY Spend for Household Utilities. Therefore, the result of the formula should be 0%. However, since the parentheses were removed in this case, the formula is clearly producing an erroneous result.</p>
+</div>
+<div class="box box-callout"><p class="box-title">Skill Refresher</p>
+
+<p><strong>Formulas</strong></p>
+<ol>
+<li>Type an equal sign <strong>=</strong>.</li>
+<li>Click or type a cell location. If using constants, type a number.</li>
+<li>Type a mathematical operator.</li>
+<li>Click or type a cell location. If using constants, type a number.</li>
+<li>Use parentheses where necessary to control the order of operations.</li>
+<li>Press the ENTER key.</li>
+</ol>
+</div>
+<h2 id="auditing-formulas">Auditing Formulas</h2>
+<p>Excel provides a few tools that you can use to review the formulas entered into a worksheet. For example, instead of showing the outputs for the formulas used in a worksheet, you can have Excel show the formula as it was entered in the cell locations. This is demonstrated as follows:</p>
+<ol>
+<li>With the&nbsp;<strong>Budget Detail</strong>&nbsp;worksheet open, click the Formulas tab of the Ribbon.</li>
+<li>Click the Show Formulas button in the Formula Auditing group of commands. This displays the formulas in the worksheet instead of showing the mathematical outputs.</li>
+<li>Click the Show Formulas button again. The worksheet returns to showing the output of the formulas.</li>
+</ol>
+<p>You can also toggle Show Formulas on and off using the keyboard.&nbsp; Hold down the CTRL key while pressing the ` key.</p>
+<p><strong>Figure 2.8</strong> shows the&nbsp;<strong>Budget Detail</strong>&nbsp;worksheet after activating the Show Formulas command in the Formulas tab of the Ribbon. As shown in the figure, this command allows you to view and check all the formulas in a worksheet without having to click each cell individually. After activating this command, the column widths in your worksheet increase significantly. The column widths were adjusted for the worksheet shown in <strong>Figure 2.8</strong> so all columns can be seen. The column widths return to their previous width when the Show Formulas command is deactivated.</p>
+<figure><img alt="Formula tab open to Show Formulas. Formulas displayed instead of outputs in Columns D &amp; F." height="425" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.8-1024x613.png" width="710"><figcaption>Figure 2.8 Show Formulas Command</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Skill Refresher</p>
+
+<p><strong>Show Formulas</strong></p>
+<ol>
+<li>Click the Formulas tab on the Ribbon.</li>
+<li>Click the Show Formulas button in the Formula Auditing group of commands.</li>
+<li>Click the Show Formulas button again to show formula outputs.</li>
+</ol>
+</div>
+<div class="box box-challenge"><p class="box-title">Keyboard Shortcuts</p>
+
+<p><strong>Show Formulas</strong></p>
+<ul>
+<li>Hold down the CTRL key while pressing the accent symbol<strong> `</strong>. <img alt="Excel for Mac icon" height="19" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="17">&nbsp;Same for Excel for Mac.</li>
+</ul>
+</div>
+<p>Two other tools in the Formula Auditing group of commands are the <strong>Trace Precedents</strong> and <strong>Trace Dependents</strong> commands. These commands are used to trace the cell references used in a formula. A precedent cell is a cell whose value is used in other cells. The Trace Precedents command shows an arrow to indicate the cells or ranges (precedents) which affect the active cell’s value. A dependent cell is a cell whose value depends on the values of other cells in the workbook. The Trace Dependents command shows where any given cell is referenced in a formula. The following is a demonstration of these commands:</p>
+<ol>
+<li>Click cell D3.</li>
+<li>Click the Trace Dependents button in the Formula Auditing group of commands in the Formulas tab of the Ribbon. A blue arrow appears, pointing to cell F3 (see <strong>Figure 2.9</strong>). This indicates that cell D3 is referenced in a formula entered in cell F3.</li>
+<li>Click the Remove Arrows command in the Formula Auditing group of commands in the Formulas tab of the Ribbon. This removes the Trace Dependents arrow.</li>
+<li>Click cell F3.</li>
+<li>Click the Trace Precedents button in the Formula Auditing group of commands in the Formulas tab of the Ribbon. A blue arrow with dots in cells D3 and E3, and pointing to cell F3 appears (see <strong>Figure 2.10</strong>). This indicates that cells D3 and E3 are references in a formula entered in cell F3.</li>
+<li>Click the Remove Arrows command in the Formula Auditing group of commands in the Formulas tab of the Ribbon. This removes the Trace Precedents arrow.</li>
+<li>Save the <strong>CH2 Personal Budget</strong> file.</li>
+</ol>
+<p><strong>Figure 2.9</strong> shows the Trace Dependents arrow on the&nbsp;<strong>Budget Detail</strong>&nbsp;worksheet. The blue dot represents the activated cell. The arrows indicate where the cell is referenced in formulas.</p>
+<figure><img alt="Trace Dependents" height="386" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.9-1024x386.png" width="1024"><figcaption>Figure 2.9 Trace Dependents Example</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Note</p>
+<details>
+<summary>Figure 2.9 Image Description</summary>
+<p>Formula tab open to activate Trace Dependents and blue dot is placed over activated cell. Arrows point to cell locations that contain formulas where active cell is referenced.</p>
+</details>
+</div>
+<p><strong>Figure 2.10</strong> shows the Trace Precedents arrow on the&nbsp;<strong>Budget Detail</strong>&nbsp;worksheet. The blue dots on this arrow indicate the cells that are referenced in the formula contained in the activated cell. The arrow is pointing to the activated cell location that contains the formula.</p>
+<figure><img alt="Formula tab open to activate Trace Precedents and two blue dots on an arrow point out cells referenced in formula of activated cell." height="456" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.10-1024x456.png" width="1024"><figcaption>Figure 2.10 Trace Precedents Example</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Skill Refresher</p>
+
+<p><strong>Trace Dependents</strong></p>
+<ol>
+<li>Click a cell location that contains a number or formula.</li>
+<li>Click the Formulas tab on the Ribbon.</li>
+<li>Click the Trace Dependents button in the Formula Auditing group of commands.</li>
+<li>Use the arrow(s) to determine where the cell is referenced in formulas and functions.</li>
+<li>Click the Remove Arrows button to remove the arrows from the worksheet.</li>
+</ol>
+<p><strong>Trace Precedents</strong></p>
+<ol>
+<li>Click a cell location that contains a formula or function.</li>
+<li>Click the Formulas tab on the Ribbon.</li>
+<li>Click the Trace Precedents button in the Formula Auditing group of commands.</li>
+<li>Use the dot(s) along the line to determine what cells are referenced in the formula or function.</li>
+<li>Click the Remove Arrows button to remove the line with the dots.</li>
+</ol>
+</div>
+<div class="box box-keypoints"><p class="box-title">Key Takeaways</p>
+
+<ul>
+<li>Mathematical computations are conducted through formulas and functions.</li>
+<li>An equal sign <strong>=</strong> precedes all formulas and functions.</li>
+<li>Formulas and functions must be created with cell references to conduct what-if scenarios where mathematical outputs are recalculated when one or more inputs are changed.</li>
+<li>Mathematical operators on a typical calculator are different from those used in Excel. <strong>Table 2.2</strong> “Excel Mathematical Operators”&nbsp;lists Excel mathematical operators.</li>
+<li>When using numerical values in formulas and functions, only use universal constants that do not change, such as days in a week, months in a year, and so on.</li>
+<li>Relative referencing automatically adjusts the cell references in formulas and functions when they are pasted into new locations on a worksheet. This eliminates the need to retype formulas and functions when they are needed in multiple rows or columns on a worksheet.</li>
+<li>Parentheses must be used to control the order of operations when necessary for complex formulas.</li>
+<li>Formula auditing tools such as Trace Dependents, Trace Precedents, and Show Formulas should be used to check the integrity of formulas that have been entered into a worksheet.</li>
+</ul>
+</div>
+</div>
+<details class="attrib"><summary>Attribution</summary>
+<p>Adapted by Mary Schatz from <a href="https://saylordotorg.github.io/text_how-to-use-microsoft-excel-v1.1/index.html" target="_blank" rel="noopener noreferrer">How to Use Microsoft Excel: The Careers in Practice Series</a>,&nbsp;adapted by <a href="https://www.saylor.org" target="_blank" rel="noopener noreferrer">The Saylor Foundation</a> without attribution as requested by the work’s original creator or licensee,&nbsp;and licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 3.0</a>.</p>
+</details>

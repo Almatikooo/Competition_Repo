@@ -1,0 +1,145 @@
+<div></div>
+<div>
+<div class="box box-objectives"><p class="box-title">Learning Objectives</p>
+
+<div>
+<p>By the end of this chapter, the student should be able to:</p>
+<ul>
+<li>Display and describe relationships in bivariate data</li>
+<li>Describe bivariate data numerically&nbsp;</li>
+<li>Understand basic ideas of linear regression</li>
+<li>Predict future value using your regression line</li>
+<li>Understand the impact of influential points and outliers in the context of linear regression</li>
+<li>Apply ideas of inference to linear regression</li>
+</ul>
+</div>
+</div>
+</div>
+<figure><img alt="Man inspecting an engine in an auto shop." height="306" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/09/9.1.jpeg" width="408"><figcaption>Figure 9.1: Auto Mechanic Salaries. Linear regression and correlation can help you determine if an auto mechanic’s salary is related to his work experience.</figcaption></figure>
+<p>Professionals often want to know how two (or more) numeric variables are related. For example, is there a relationship between the grade on the second math exam a student takes and the grade on the final exam? If there is a relationship, what is the relationship and how strong is it?</p>
+<p>In another example, your income may be determined by your education, your profession, your years of experience, and your ability. The amount you pay a repair person for labor is often determined by an initial amount plus an hourly fee.</p>
+<p>The type of data described in these examples is bivariate data — “bi” for two variables.&nbsp; In this chapter, you will be studying the “simple linear regression”.&nbsp; Note that this does not imply that these ideas are “simple” but just that we are working with one independent variable (<em>x</em>) and a linear relationship.&nbsp; This involves data that fits a line in two dimensions.</p>
+<h2 id="bivariate-data">Bivariate Data</h2>
+<div>When we are looking at <a href="#term_473_3408" rel="noopener noreferrer">bivariate data</a> we first need to decide, if possible, does changing one variable seems to lead to a change in the other.&nbsp; A <a href="#term_473_2848" rel="noopener noreferrer">response variable</a> (also called y, dependent variable, predicted variable) measures or records an outcome of a study. An <a href="#term_473_2847" rel="noopener noreferrer">explanatory variable</a> (also called x, independent variable, predictor variable) explains changes in the response variable.</div>
+<p>When considering the relationship between two quantitative variables:</p>
+<ol>
+<li>Start with a graph (scatterplot)</li>
+<li>Look for an overall pattern and deviations from the pattern</li>
+<li>Use numerical descriptions of the data and overall pattern (correlation, coefficient of determination)</li>
+<li>Consider a mathematical model (regression)</li>
+</ol>
+<h2 id="scatterplots">Scatterplots</h2>
+<p>Before we take up the discussion of linear regression and correlation, we need to examine a way to display the relation between two variables <em>x</em> and <em>y</em>. The most common and easiest way is a scatter plot.&nbsp; A scatter plot shows a lot about the relationship between the variables. When you look at a scatterplot, you want to notice the overall pattern and any potential deviations from the pattern.&nbsp; You can determine the strength of the relationship by looking at the scatter plot and seeing how close the points are together. When looking at a scatterplot you always want to note:</p>
+<ol>
+<li>Shape</li>
+<li>Trend</li>
+<li>Strength</li>
+</ol>
+<p>The following scatterplot examples illustrate these concepts.</p>
+<figure><img alt="Six scatterplots showing different patterns. First: positive linear pattern (strong) - shows dots in an almost perfect line from bottom left of graph to top right. Second: linear pattern with one deviation - shows the same pattern as first scatterplot with one outlier in the top left corner. Third: negative linear pattern (strong) - shows dots in an almost perfect line from top left to bottom right of graph. Fourth: negative linear pattern (weak) - shows dots from top left to bottom right of graph nowhere near a perfect line, but not completely random. Fifth: exponential growth pattern - shows a few dots on the x axis from left to right in a horizontal line and then gradually the dots move upwards towards the top right corner creating an upwards curve. Sixth: no pattern - random dots all over the graph." height="439" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/9.2.png" width="446"><figcaption>Figure 9.2: Scatterplot Configurations</figcaption></figure>
+<div></div>
+<h2 id="shape">&nbsp;Shape</h2>
+<p>Although we may see other shapes in a scatter plot, at this point we are only interested in applying these ideas when we see a linear pattern. Linear patterns are quite common. The linear relationship is strong if the points are close to a straight line, except in the case of a horizontal line where there is no relationship. If we think that the points show a linear relationship, we would like to draw a line on the scatter plot. This line can will later be calculated through a process called linear regression. However, we only calculate a regression line if one of the variables helps to explain or predict the other variable.</p>
+<h2 id="trend">Trend</h2>
+<p>If we do see a linear pattern, what sort of relationship is there?&nbsp; A positive trend&nbsp; is seen when increasing x also increases y.&nbsp; On the other hand a negative (inverse) trend is seen when increasing x appears to cause y to decrease. In other words:</p>
+<ul>
+<li>High values of one variable occurring with high values of the other variable or low values of one variable occurring with low values of the other variable.</li>
+<li>High values of one variable occurring with low values of the other variable.</li>
+</ul>
+<h2 id="strength">Strength</h2>
+<p>At this point we can think about the strength of a relationship as how tightly do the points on a scatterplot fit the linear pattern.&nbsp; A stronger relationship has points clustered together closely while in a weaker one, points are more spread out.&nbsp; The strength of a relationship is not always apparent in a scatterplot but we will see numerical measures of this in the future.</p>
+<div class="box box-keypoints"><p class="box-title">Example</p>
+
+<div>
+<div class="box box-callout"><p class="box-title">Example</p>
+<div>
+<div>
+<p>1. Does the scatter plot appear linear? Strong or weak? Positive or negative?</p>
+<figure><img alt="Scatterplot with several points plotted in the first quadrant. The points form a clear pattern, moving upward to the right. The points do not line up , but the overall pattern can be modeled with a line." height="273" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/9.3-1.png" width="411"><figcaption>Figure 9.3: Scatterplot 1</figcaption></figure>
+</div>
+<div>
+<div>
+<div></div>
+</div>
+
+</div>
+</div>
+<div>
+<div>
+<p>2. Does the scatter plot appear linear? Strong or weak? Positive or negative?</p>
+<figure><img alt="Scatterplot with several points plotted in the first quadrant. The points move downward to the right. The overall pattern can be modeled with a line, but the points are widely scattered." height="252" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/9.4-1.png" width="355"><figcaption>Figure 9.4: Scatterplot 2</figcaption></figure>
+<div>
+<div></div>
+</div>
+
+</div>
+</div>
+<div>
+<div>
+<p>3. Does the scatter plot appear linear? Strong or weak? Positive or negative?</p>
+<figure><img alt="Scatter plot with several points plotted all over the first quadrant. There is no pattern." height="269" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/9.5-1.png" width="385"><figcaption>Figure 9.5: Scatterplot 3</figcaption></figure>
+</div>
+<div>
+<div>
+<div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="box box-callout"><p class="box-title">Your turn!</p>
+
+<div>
+<div>
+<div>
+<div>
+<p>Amelia plays basketball for her high school. She wants to improve to play at the college level. She notices that the number of points she scores in a game goes up in response to the number of hours she practices her jump shot each week. She records the following data:</p>
+<div class="table-wrap"><table>
+<caption>Figure 9.6: Amelia’s Points</caption>
+<thead>
+<tr>
+<th><em>X</em> (hours practicing jump shot)</th>
+<th><em>Y</em> (points scored in a game)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>15</td>
+</tr>
+<tr>
+<td>7</td>
+<td>22</td>
+</tr>
+<tr>
+<td>9</td>
+<td>28</td>
+</tr>
+<tr>
+<td>10</td>
+<td>31</td>
+</tr>
+<tr>
+<td>11</td>
+<td>33</td>
+</tr>
+<tr>
+<td>12</td>
+<td>36</td>
+</tr>
+</tbody>
+</table></div>
+<p>Construct a scatter plot and state if what Amelia thinks appears to be true.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="image-references">Image References</h2>
+<p>Figure 9.1: Aaron Huber (2018). “Artist at Work.” Public domain. Retrieved from <a href="https://unsplash.com/photos/KxeFuXta4SE" target="_blank" rel="noopener noreferrer">https://unsplash.com/photos/KxeFuXta4SE</a></p>
+<p>Figure 9.2: Kindred Grey via Virginia Tech (2020). “Figure 9.2” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_9.2.png . Adaptation of Figures 12.6, 12.7, and 12.8 from OpenStax Introductory Statistics (2013) (CC BY 4.0). Retrieved from https://openstax.org/books/introductory-statistics/pages/12-2-scatter-plots</p>
+<p>Figure 9.3: Kindred Grey via Virginia Tech (2020). “Figure 9.3” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_9.3.png . Adaptation of Figure 12.26 from OpenStax Introductory Statistics (2013) (CC BY 4.0). Retrieved from https://openstax.org/books/introductory-statistics/pages/12-practice</p>
+<p>Figure 9.4: Kindred Grey via Virginia Tech (2020). “Figure 9.4” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_9.4.png . Adaptation of Figure 12.27 from OpenStax Introductory Statistics (2013) (CC BY 4.0). Retrieved from https://openstax.org/books/introductory-statistics/pages/12-practice</p>
+<p>Figure 9.5: Kindred Grey via Virginia Tech (2020). “Figure 9.5” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_9.5.png . Adaptation of Figure 12.28 from OpenStax Introductory Statistics (2013) (CC BY 4.0). Retrieved from https://openstax.org/books/introductory-statistics/pages/12-practice</p>
+<div></div>

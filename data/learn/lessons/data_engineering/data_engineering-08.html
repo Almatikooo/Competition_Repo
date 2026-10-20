@@ -1,0 +1,195 @@
+<p>A data lake is a storage repository that holds large volumes of data in its native, raw format. Data lakes scale cost effectively to handle terabytes and petabytes of data, which makes them suitable for handling massive and diverse datasets. The data typically comes from many different sources and can include structured data like relational tables, semistructured data like JSON, XML, or log files, and unstructured data like images, audio, or video.</p>
+<p>Data lakes store all data types in their original, untransformed state and apply transformation only when the data is needed. This approach is known as <em>schema-on-read</em>. In contrast, a <a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/relational-data/data-warehousing.yml" target="_blank" rel="noopener noreferrer">data warehouse</a> enforces structure and applies transformations as it ingests data. This approach is known as <em>schema-on-write</em>.</p>
+<p>:::image type="complex" border="false" source="./images/data-lake-use-cases.jpg" alt-text="Diagram that shows data lake use cases." lightbox="./images/data-lake-use-cases.jpg":::
+The diagram includes five use cases for a data lake: data ingestion, big data processing, analytics and machine learning, business intelligence (BI) and reporting, and data archiving. A connecting line points from these sections and merges into an arrow that points to the data lake.
+:::image-end:::</p>
+<p>Common data lake use cases include:</p>
+<ul>
+<li>
+<p><strong>Data ingestion and movement:</strong> Collect and consolidate data from cloud services, Internet of Things (IoT) devices, on-premises systems, and streaming sources into a single repository.</p>
+</li>
+<li>
+<p><strong>Big data processing:</strong> Handle high-volume, high-velocity data at scale by using distributed processing frameworks.</p>
+</li>
+<li>
+<p><strong>Analytics and machine learning:</strong> Support exploratory analysis, advanced analytics, and AI model training and fine-tuning on large, diverse datasets.</p>
+</li>
+<li>
+<p><strong>Business intelligence (BI) and reporting:</strong> Enable dashboards and reports by integrating curated subsets of lake data into warehouses or BI tools.</p>
+</li>
+<li>
+<p><strong>Data archiving and compliance:</strong> Store historical or raw datasets for long-term retention, auditability, and regulatory compliance.</p>
+</li>
+</ul>
+<h2 id="advantages-of-a-data-lake">Advantages of a data lake</h2>
+<ul>
+<li>
+<p><strong>Retains raw data for future use:</strong> Data lakes store data in its raw format, which ensures long-term availability for future use. This approach is especially valuable in big data environments where the potential insights from the data might not be known in advance. You can also archive data as needed without losing its raw state.</p>
+</li>
+<li>
+<p><strong>Self-service exploration:</strong> Analysts and data scientists can query data directly to experiment and discover patterns.</p>
+</li>
+<li>
+<p><strong>Flexible data support:</strong> Unlike warehouses that require structured formats, data lakes handle structured, semistructured, and unstructured data natively.</p>
+</li>
+<li>
+<p><strong>Scalable and performant:</strong> In distributed architectures, data lakes ingest and process data in parallel at scale. They frequently outperform traditional extract, transform, and load (ETL) pipelines in high-volume workloads. Gain these performance benefits through:</p>
+<ul>
+<li>
+<p><strong>Parallelism:</strong> Distributed compute engines like Apache Spark partition data and run transformations across many nodes at the same time. Traditional ETL frameworks often depend on sequential or limited multithreaded processing.</p>
+</li>
+<li>
+<p><strong>Scalability:</strong> Distributed systems scale horizontally by elastically adding compute and storage nodes as needed. Traditional ETL pipelines usually depend on scaling a single host vertically, which meets resource limits quickly.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Foundation for hybrid architectures:</strong> Data lakes often coexist with warehouses in a lakehouse approach that combines raw storage with structured query performance.</p>
+</li>
+</ul>
+<p>A modern data lake solution comprises two core components:</p>
+<ul>
+<li>
+<p><strong>Storage:</strong> Provides durability, fault tolerance, infinite scalability, and high-throughput ingestion of diverse data types.</p>
+</li>
+<li>
+<p><strong>Processing:</strong> Engines like Spark in Azure Databricks and Microsoft Fabric power these solutions. These engines support large-scale transformations, analytics, and machine learning.</p>
+</li>
+</ul>
+<p>Mature solutions incorporate metadata management, security, and governance to maintain data quality, discoverability, and compliance.</p>
+<h2 id="typical-data-lake-architecture">Typical data lake architecture</h2>
+<p>A typical Azure data lake architecture consists of multiple layers that organize data as it moves through the ingestion, transformation, and consumption stages.</p>
+<p>Common layers include:</p>
+<ul>
+<li>
+<p><strong>Raw (bronze) layer:</strong> Stores ingested data in its original format with minimal transformation.</p>
+</li>
+<li>
+<p><strong>Cleansed (silver) layer:</strong> Contains validated and transformed data optimized for analytics and machine learning workloads.</p>
+</li>
+<li>
+<p><strong>Curated (gold) layer:</strong> Stores aggregated and business-ready datasets that teams use for reporting, dashboards, and downstream data applications.</p>
+</li>
+</ul>
+<p>This layered design, known as the <em>medallion architecture</em>, improves data quality, governance, and performance.</p>
+<h2 id="when-to-use-a-data-lake">When to use a data lake</h2>
+<p>We recommend that you use a data lake for exploratory analytics, advanced data science, and machine learning workloads. Data lakes retain data in raw form and support schema-on-read, so teams can experiment with diverse data types and uncover insights that traditional warehouses might not capture.</p>
+<h3 id="data-lake-as-a-source-for-data-warehouses">Data lake as a source for data warehouses</h3>
+<p>A data lake can function as the upstream source for a data warehouse, where you ingest raw data from source systems and load it into the lake. Modern warehouses like the Fabric Data Warehouse use built-in massively parallel processing (MPP) SQL engines to transform that raw data into a structured format through <a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/relational-data/etl.yml#extract-load-transform-elt" target="_blank" rel="noopener noreferrer">extract, load, transform (ELT)</a>. This approach differs from traditional ETL pipelines, where the ETL engine extracts and transforms data before it loads the data into the warehouse. Both approaches provide flexibility depending on the use case. They balance data quality, performance, and resource utilization and ensure that the warehouse is optimized for analytics.</p>
+<h3 id="event-streaming-and-iot-scenarios">Event streaming and IoT scenarios</h3>
+<p>Data lakes are effective for event streaming and IoT use cases, where high-velocity data must persist at scale without upfront schema limits. Data lakes can ingest and store relational and nonrelational event streams, handle high volumes of small writes with low latency, and support massive parallel throughput. These capabilities make data lakes well suited for applications like real-time monitoring, predictive maintenance, and anomaly detection.</p>
+<p>The following table compares data lakes and data warehouses.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Data lake</th>
+<th>Data warehouse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data type</td>
+<td>Raw, unstructured, semistructured, and structured</td>
+<td>Structured and curated data organized into relational schemas</td>
+</tr>
+<tr>
+<td>Query performance</td>
+<td>Query performance depends on processing engines, and transformation might occur at query time (schema-on-read)</td>
+<td>Optimized for high-performance analytical queries on structured data (schema-on-write)</td>
+</tr>
+<tr>
+<td>Latency</td>
+<td>Higher latency because of processing at query time</td>
+<td>Low latency with preprocessed, structured data</td>
+</tr>
+<tr>
+<td>Data transformation stage</td>
+<td>Transformation occurs at query time, which affects overall processing time</td>
+<td>Transformation occurs during the ETL or ELT process</td>
+</tr>
+<tr>
+<td>Scalability</td>
+<td>Highly scalable and cost effective for large volumes of diverse data</td>
+<td>Scalable but more expensive, especially at large scale</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>Lower storage cost because of low-cost storage for raw data. Compute costs are incurred when data is processed or queried.</td>
+<td>Higher cost because of dedicated compute and performance optimizations for analytical workloads</td>
+</tr>
+<tr>
+<td>Use case fit</td>
+<td>Best for big data, machine learning, and exploratory analytics. In medallion architectures, teams use the gold layer for reporting.</td>
+<td>Ideal for BI, reporting, and structured data analysis</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="challenges-of-data-lakes">Challenges of data lakes</h2>
+<ul>
+<li>
+<p><strong>Scalability and complexity:</strong> The management of petabytes of raw, unstructured, and semistructured data requires robust infrastructure, distributed processing, and careful cost management.</p>
+</li>
+<li>
+<p><strong>Processing bottlenecks:</strong> As data volume and diversity increase, transformation and query workloads can introduce latency, which requires careful pipeline design and workload orchestration.</p>
+</li>
+<li>
+<p><strong>Data integrity risks:</strong> Without strong validation and monitoring, errors or incomplete ingestions can compromise the reliability of the lake's contents.</p>
+</li>
+<li>
+<p><strong>Data quality and governance:</strong> Diverse sources and formats complicate standards enforcement. Metadata management, cataloging, and governance frameworks are critical.</p>
+</li>
+<li>
+<p><strong>Performance at scale:</strong> Query performance and storage efficiency can degrade as the lake grows, which requires optimization strategies like partitioning, indexing, and caching.</p>
+</li>
+<li>
+<p><strong>Security and access control:</strong> Ensuring appropriate permissions and auditing across diverse datasets to prevent misuse of sensitive data requires planning.</p>
+</li>
+<li>
+<p><strong>Discoverability:</strong> Without proper cataloging, lakes can devolve into <em>data swamps</em> where valuable information is present but inaccessible or misunderstood.</p>
+</li>
+</ul>
+<h2 id="technology-choices">Technology choices</h2>
+<p>When you build a comprehensive data lake solution on Azure, consider the following technologies:</p>
+<ul>
+<li>
+<p><a href="https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction" target="_blank" rel="noopener noreferrer">Azure Data Lake Storage</a> combines Azure Blob Storage with data lake capabilities to provide Apache Hadoop-compatible access, hierarchical namespace capabilities, and enhanced security for efficient big data analytics. It handles massive amounts of structured, semistructured, and unstructured data.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/azure/databricks/introduction/" target="_blank" rel="noopener noreferrer">Azure Databricks</a> is a cloud-based data analytics and machine learning platform that combines the best of Spark with deep integration into the Azure ecosystem. It provides a collaborative environment where data engineers, data scientists, and analysts can ingest, process, analyze, and model large volumes of data.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/azure/data-factory/introduction" target="_blank" rel="noopener noreferrer">Azure Data Factory</a> is a cloud-based data integration and ETL service. You can use it to move, transform, and orchestrate data workflows across different sources, whether in the cloud or on-premises.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/fabric/fundamentals/microsoft-fabric-overview" target="_blank" rel="noopener noreferrer">Fabric</a> is an end-to-end data analytics platform that unifies data movement, data science, real-time analytics, and BI into a single software as a service (SaaS) experience.</p>
+<p>Each Fabric tenant is automatically provisioned with a single logical data lake known as <em>OneLake</em>. OneLake is built on Data Lake Storage and provides a unified storage layer that can handle structured and unstructured data.</p>
+</li>
+</ul>
+<h2 id="contributors">Contributors</h2>
+<p><em>Microsoft maintains this article. The following contributors wrote this article.</em></p>
+<p>Principal author:</p>
+<ul>
+<li><a href="https://www.linkedin.com/in/avijit-prasad-96768a42/" target="_blank" rel="noopener noreferrer">Avijit Prasad</a> | Cloud Consultant</li>
+</ul>
+<p>Other contributor:</p>
+<ul>
+<li><a href="https://www.linkedin.com/in/raphael-sayegh/" target="_blank" rel="noopener noreferrer">Raphael Sayegh</a> | Cloud Solution Architect</li>
+</ul>
+<p><em>To see nonpublic LinkedIn profiles, sign in to LinkedIn.</em></p>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/fabric/onelake/onelake-overview" target="_blank" rel="noopener noreferrer">What is OneLake?</a></li>
+<li><a href="https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction" target="_blank" rel="noopener noreferrer">Introduction to Data Lake Storage</a></li>
+<li><a href="https://learn.microsoft.com/training/modules/introduction-to-azure-data-lake-storage/" target="_blank" rel="noopener noreferrer">Training: Introduction to Data Lake Storage</a></li>
+<li><a href="https://learn.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2" target="_blank" rel="noopener noreferrer">Use Data Lake Storage with Azure HDInsight clusters</a></li>
+<li><a href="https://learn.microsoft.com/azure/databricks/connect/unity-catalog/cloud-storage/azure-managed-identities" target="_blank" rel="noopener noreferrer">Use Azure managed identities in Unity Catalog to access storage</a></li>
+<li><a href="https://learn.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2" target="_blank" rel="noopener noreferrer">Load data into Data Lake Storage by using Data Factory</a></li>
+<li><a href="https://learn.microsoft.com/purview/register-scan-adls-gen2" target="_blank" rel="noopener noreferrer">Connect to Data Lake Storage in Microsoft Purview</a></li>
+<li><a href="https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-best-practices" target="_blank" rel="noopener noreferrer">Best practices for using Data Lake Storage</a></li>
+</ul>
+<h2 id="related-resources">Related resources</h2>
+<ul>
+<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/technology-choices/analytical-data-stores.md" target="_blank" rel="noopener noreferrer">Choose an analytical data store in Azure</a></li>
+<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/example-scenario/data/small-medium-data-warehouse.yml" target="_blank" rel="noopener noreferrer">Modern data warehouse for small and medium businesses</a></li>
+</ul>

@@ -1,0 +1,173 @@
+<p>We have seen how to deal with general <a href="#term_171_3295" rel="noopener noreferrer">discrete random variables</a>, but there are also special cases of DRVs.&nbsp; If we can identify them, they can provide us some insight and shortcuts.&nbsp; The first of these is the Binomial Distribution.</p>
+<h2 id="the-binomial-setting">The Binomial Setting</h2>
+<p>There are three characteristics of a <a href="#term_171_3302" rel="noopener noreferrer">binomial experiment</a>.</p>
+<ol>
+<li>There are a fixed number of trials. Think of trials as repetitions of an experiment. The letter <em>n</em> denotes the number of trials.</li>
+<li>There are only two possible outcomes, called “success” and “failure,” for each trial. The letter <em>p</em> denotes the probability of a success on one trial, and <em>q</em> denotes the probability of a failure on one trial. <em>p</em> + <em>q</em> = 1.</li>
+<li>The <em>n</em> trials are <a href="#term_171_3266" rel="noopener noreferrer">independent</a> and are repeated using identical conditions. Because the <em>n</em> trials are independent, the outcome of one trial does not help in predicting the outcome of another trial. Another way of saying this is that for each individual trial, the probability, <em>p</em>, of a success and probability, <em>q</em>, of a failure remain the same.</li>
+</ol>
+<p>For example: At ABC College, the withdrawal rate from an elementary physics course is 30% for any given term. This implies that, for any given term, 70% of the students stay in the class for the entire term. A “success” could be defined as an individual who withdrew. The random variable <em>X</em> = the number of students who withdraw from the randomly selected elementary physics class.</p>
+<p>Any experiment that has characteristics two and three and where <em>n</em> = 1 is called a <a href="#term_171_3303" rel="noopener noreferrer">Bernoulli trial</a> (named after Jacob Bernoulli who, in the late 1600s, studied them extensively). A binomial experiment takes place when the number of successes is counted in one or more Bernoulli trials.</p>
+<p>For example, randomly guessing at a true-false statistics question has only two outcomes. If a success is guessing correctly, then a failure is guessing incorrectly. Suppose Joe always guesses correctly on any statistics true-false question with probability <em>p</em> = 0.6. Then, <em>q</em> = 0.4. This means that for every true-false statistics question Joe answers, his probability of success (<em>p</em> = 0.6) and his probability of failure (<em>q</em> = 0.4) remain the same.&nbsp; This situation meets the Binomial requirements.</p>
+<p>The following example illustrates a problem that is not binomial. It violates the condition of independence. ABC College has a student advisory committee made up of ten staff members and six students. The committee wishes to choose a chairperson and a recorder. What is the probability that the chairperson and recorder are both students? The names of all committee members are put into a box, and two names are drawn without replacement. The first name drawn determines the chairperson and the second name the recorder. There are two trials. However, the trials are not independent because the outcome of the first trial affects the outcome of the second trial. The probability of a student on the first draw is <img alt="\frac{6}{16}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-c6f29cc7d76e51bd6a226d01006ac6e2_l3.png" title="Rendered by QuickLaTeX.com" width="14">. The probability of a student on the second draw is <img alt="\frac{5}{15}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-158200db3e60feefb7101cc3c23f89e6_l3.png" title="Rendered by QuickLaTeX.com" width="14">, when the first draw selects a student. The probability is <img alt="\frac{6}{15}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-1828dde45be57c7905752403655f3f99_l3.png" title="Rendered by QuickLaTeX.com" width="14">, when the first draw selects a staff member. The probability of drawing a student’s name changes for each of the trials and, therefore, violates the condition of independence.</p>
+<div class="box box-keypoints"><p class="box-title">Example</p>
+
+<div>
+<p>Approximately 70% of statistics students do their homework in time for it to be collected and graded. Each student does homework independently. In a statistics class of 50 students, what is the probability that at least 40 will do their homework on time? Students are selected randomly.</p>
+<p>a. This is a binomial problem because there is only a success or a __________, there are a fixed number of trials, and the probability of a success is 0.70 for each trial.</p>
+<div>
+<div>
+<div>
+<div></div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<p>b. If we are interested in the number of students who do their homework on time, then how do we define <em>X</em>?</p>
+</div>
+<div>
+<div>
+<div></div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<p>c. What values does <em>x</em> take on?</p>
+</div>
+<div>
+<div>
+<div></div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<p>d. What is a “failure,” in words?</p>
+</div>
+<div>
+<div>
+<div></div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<p>e. If <em>p</em> + <em>q</em> = 1, then what is <em>q</em>?</p>
+</div>
+<div>
+<div>
+<div></div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<p>f. The words “at least” translate as what kind of inequality for the probability question <em>P</em>(<em>x</em> ____ 40).</p>
+</div>
+<div>
+<div>
+<div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="box box-callout"><p class="box-title">Your turn!</p>
+
+<div>
+<p>Sixty-five percent of people pass the state driver’s exam on the first try. A group of 50 individuals who have taken the driver’s exam is randomly selected. Can we use the binomial here?</p>
+</div>
+</div>
+<h2 id="notation-for-the-binomial">Notation for the Binomial</h2>
+<p>The outcomes of a binomial experiment fit a binomial probability distribution. The random variable <em>X</em> counts the number of successes obtained in the <em>n</em> independent trials.</p>
+<p><em>X</em> ~ <em>B</em>(<em>n</em>, <em>p</em>)</p>
+<p>Read this as “<em>X</em> is a random variable with a binomial distribution.” The parameters are <em>n</em> and <em>p:</em>&nbsp;<em>n</em> = number of trials, <em>p</em> = probability of a success on each trial.</p>
+<p>Since the Binomial counts the number of successes, x, in n trials, the range of vaules for a binomial random variable could be anything from 0 to n (x=0,1,2…, n).</p>
+<h2 id="binomial-probability-function">Binomial&nbsp;Probability&nbsp;Function</h2>
+<p>Once we have decided we can use the binomial for a given situation, we can use the binomial probability function to find the probability of a specific number of successes, P(X=x).&nbsp; The binomial <a href="#term_171_3296" rel="noopener noreferrer">PMF</a> is made up of two parts:</p>
+<p>First, we need to find out how many different ways we can get x successes in n trials.&nbsp; To do this we can use the “Choose” function, also called the binomial coefficient, written as:</p>
+<p>nCx&nbsp;= <img alt="\ {C_x^n} =\binom nx =\frac{n!}{x!(n-x)!}" height="27" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-ccf3602492081b7c5c6fa69bc7254a68_l3.png" title="Rendered by QuickLaTeX.com" width="150"></p>
+<p>Note: The the ! mark is the factorial operator.</p>
+<p>The next part gives us the probability of a single one of those ways to get x successes in n trials.&nbsp; We can do this by using our independent multiplication rule.&nbsp; &nbsp;We multiply the probability of success (p) raised to the number of successes (x) by the probability of failure (q=1-p) raised to the number of failures (n-x).</p>
+<p>p<sup>x</sup>q<sup>(n-x)</sup></p>
+<p>Since we know each of these ways are equally likely and how many ways are possible we can now put the two pieces together. We multiply the probability of one way by how many we have to give us our overall probability of x successes in n trials.</p>
+<p>P(X = x) = <img alt="\frac{n!}{x!(n-x)!}" height="27" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-10f5b81a39929224862b112bcc4604f8_l3.png" title="Rendered by QuickLaTeX.com" width="53">p<sup>x</sup>q<sup>(n-x)</sup></p>
+<p>Unfortunately the binomial does not have a nice form of <a href="#term_171_3297" rel="noopener noreferrer">CDF</a>, but it is simply the sum of PDFs up until that point. Consider the following example to demonstrate this point.</p>
+<div class="box box-keypoints"><p class="box-title">Example</p>
+
+<div>
+<p>It has been stated that about 41% of adult workers have a high school diploma but do not pursue any further education. 20 adult workers are randomly selected.</p>
+<p>Let <em>X</em> = the number of workers who have a high school diploma but do not pursue any further education.</p>
+<p><em>X</em> takes on the values 0, 1, 2, …, 20 where <em>n</em> = 20, <em>p</em> = 0.41, and <em>q</em> = 1 – 0.41 = 0.59. <em>X</em> ~ <em>B</em>(20, 0.41)</p>
+<p>The&nbsp;<em>y</em>-axis contains the probability of&nbsp;<em>x</em>, where&nbsp;<em>X</em>&nbsp;= the number of workers who have only a high school diploma.</p>
+<p>The graph of&nbsp;<em>X</em>&nbsp;~&nbsp;<em>B</em>(20, 0.41) is as follows:</p>
+<figure><img alt="Histogram showing a binomial probability distribution. It is made up of bars that are fairly normally distributed. The x-axis shows values from 0 to 20. The y-axis shows values from 0 to 0.2 in increments of 0.05." height="301" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/4.7-1.png" width="369"><figcaption>Figure 4.7: Workers With Diplomas</figcaption></figure>
+<div>
+
+<p>Find the probability that:</p>
+<p>(a) Exactly 12 of them have a high school diploma</p>
+<div>
+<div></div>
+</div>
+<p>(b) At most 12 of them have a high school diploma but do not pursue any further education. How many adult workers do you expect to have a high school diploma but do not pursue any further education?</p>
+
+<div>
+<div></div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="box box-callout"><p class="box-title">Your turn!</p>
+
+<div>
+<p>About 32% of students participate in a community volunteer program outside of school. If 30 students are selected at random, find:</p>
+<p>(a) The probability that exactly 14 of them participate in a community volunteer program outside of school.&nbsp; First try plugging in to the binomial formula by hand, then check yourself with technology.</p>
+<p>(b) The probability that exactly 14 of them participate in a community volunteer program outside of school. Rely on technology for this cumulative probability.</p>
+</div>
+</div>
+<h2 id="measures-of-the-binomial-distribution">Measures of the Binomial Distribution</h2>
+<p>The mean, <em>μ</em>, and variance, <em>σ</em><sup>2</sup>, for the binomial probability distribution are <em>μ</em> = <em>np</em> and <em>σ</em><sup>2</sup> = <em>npq</em>. The standard deviation, <em>σ</em>, is then <em>σ</em> = <img alt="\sqrt{npq}" height="18" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-372c0a82767a1b48e66c28196d263090_l3.png" title="Rendered by QuickLaTeX.com" width="43">.</p>
+
+<div class="box box-keypoints"><p class="box-title">Example</p>
+
+<div>
+<div>
+<p>In the 2013 <em>Jerry’s Artarama</em> art supplies catalog, there are 560 pages. Eight of the pages feature signature artists. Suppose we randomly sample 100 pages. Let <em>X</em> = the number of pages that feature signature artists.</p>
+<ol>
+<li>What values does <em>x</em> take on?</li>
+<li>What is the probability distribution? Find the following probabilities</li>
+</ol>
+<p>2a. the probability that two pages feature signature artists.</p>
+<p>2b. the probability that at most six pages feature signature artists</p>
+<p>2c. the probability that more than three pages feature signature artists.</p>
+<p>3. Using the formulas, calculate the (3a) mean and (3b) standard deviation.</p>
+<ol type="a"></ol>
+<div>
+<div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="box box-callout"><p class="box-title">Your turn!</p>
+
+<div>
+<p>According to a Gallup poll, 60% of American adults prefer saving over spending. Let <em>X</em> = the number of American adults out of a random sample of 50 who prefer saving to spending.</p>
+<ol type="a">
+<li>What is the probability distribution for <em>X</em>?</li>
+<li>Use your calculator to find the following probabilities:
+<ol type="i">
+<li>the probability that 25 adults in the sample prefer saving over spending</li>
+<li>the probability that at most 20 adults prefer saving</li>
+<li>the probability that more than 30 adults prefer saving</li>
+</ol>
+</li>
+<li>Using the formulas, calculate the (i) mean and (ii) standard deviation of <em>X</em>.</li>
+</ol>
+</div>
+</div>
+<h3 id="image-references">Image References</h3>
+<div>Figure 4.7: Kindred Grey (2020). “Figure 4.7.” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_4.7.png</div>
+<div></div>

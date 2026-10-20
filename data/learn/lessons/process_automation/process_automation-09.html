@@ -1,0 +1,55 @@
+<h2 id="attended-and-unattended-scenarios">Attended and unattended scenarios</h2>
+<p>With any of the automation methods you use, the automation is going to be either
+attended or unattended.</p>
+<p><img alt="Unattended and attended." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/unattended-attended.png">
+Diagram showing a person sitting at a computer unaware of the unattended automation running alongside, and another diagram showing several people sitting at computers that each have attended automation running on demand.
+:::image-end:::</p>
+<p><strong>Attended (human-initiated) scenarios</strong>
+In these scenarios, the automation is executed when users are in front of their
+computers. This is suitable when you want to automate tasks and
+processes at an individual level. The automation is often triggered manually
+whenever the user wants to run it. The process might require
+human interaction or decisions between steps.</p>
+<p><strong>Unattended (fully automated) scenarios</strong>
+In these scenarios, a designated computer or a server is set up to run
+the automation on behalf of a user. The whole automation process is run fully by
+Power Automate, and no interaction or decision is made by a human (with the
+exception of
+<a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/modern-approvals.md" target="_blank" rel="noopener noreferrer">approval</a> flows, in
+which the person doing the approving is considered to be technically a "third
+party" to the automation). The automation process can be triggered automatically
+from another system or service, or on a schedule.</p>
+<p>The following table summarizes the two types of automation scenarios.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Attended</th>
+<th>Unattended</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requires human interaction or decisions</td>
+<td>No human interaction or decisions required</td>
+</tr>
+<tr>
+<td>Manually triggered</td>
+<td>Automatically triggered</td>
+</tr>
+<tr>
+<td>Sign-in isn't required because the automation assumes that the system is already signed in.</td>
+<td>Windows Sign-in is automated with predefined user credentials</td>
+</tr>
+</tbody>
+</table></div>
+<p>You can use a combination of attended and unattended automation in your solution. However, since attended automation requires an active session and unattended automation requires users to be signed out or have a disconnected session, don't mix attended and unattended automation on the same machine or machine group.</p>
+<p>In the expense report example, the approval process can be automated with
+unattended automation. The cash reimbursement process might be better suited to attended
+automation, because Abhay might want to check the details of the bank transaction
+as a final confirmation.</p>
+<p><img alt="Business process that shows a combination of attended and unattended scenarios." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/unattended-attended.png">
+Diagram showing a business process flow with multiple people involved, where emailing approval results and archiving expense reports are unattended automations, and looking up employees' banking details reimbursing cash are attended automations.
+:::image-end:::</p>
+<blockquote>
+<p><a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/separate-flows.md" target="_blank" rel="noopener noreferrer">Next step: Separate flows into smaller automated processes</a></p>
+</blockquote>

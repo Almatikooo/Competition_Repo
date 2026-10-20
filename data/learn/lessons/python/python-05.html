@@ -1,0 +1,363 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Explain what software libraries are and why programmers create and use them.</li>
+<li>Write programs that import and use modules from Python's standard library.</li>
+<li>Find and read documentation for the standard library interactively (in the interpreter) and online.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>How can I use software that other people have written?</li>
+<li>How can I find out what that software does?</li>
+</ul>
+</div>
+<h2 id="most-of-the-power-of-a-programming-language-is-in-its-librar">Most of the power of a programming language is in its libraries.</h2>
+<ul>
+<li>A <em>library</em> is a collection of files (called <em>modules</em>) that contains
+functions for use by other programs.
+<ul>
+<li>May also contain data values (e.g., numerical constants) and other things.</li>
+<li>Library's contents are supposed to be related, but there's no way to enforce that.</li>
+</ul>
+</li>
+<li>The Python <a href="https://docs.python.org/3/library/" target="_blank" rel="noopener noreferrer">standard library</a> is an extensive suite of modules that comes
+with Python itself.</li>
+<li>Many additional libraries are available from <a href="https://pypi.python.org/pypi/" target="_blank" rel="noopener noreferrer">PyPI</a> (the Python Package Index).</li>
+<li>We will see later how to write new libraries.</li>
+</ul>
+<div class="box box-callout">
+<p class="box-title">Libraries and modules</p>
+
+<p>A library is a collection of modules, but the terms are often used
+interchangeably, especially since many libraries only consist of a single
+module, so don't worry if you mix them.</p>
+</div>
+<h2 id="a-program-must-import-a-library-module-before-using-it">A program must import a library module before using it.</h2>
+<ul>
+<li>Use <code>import</code> to load a library module into a program's memory.</li>
+<li>Then refer to things from the module as <code>module_name.thing_name</code>.
+<ul>
+<li>Python uses <code>.</code> to mean "part of".</li>
+</ul>
+</li>
+<li>Using <code>math</code>, one of the modules in the standard library:</li>
+</ul>
+<pre><code class="language-python">import math
+
+print('pi is', math.pi)
+print('cos(pi) is', math.cos(math.pi))
+</code></pre>
+<pre><code class="language-output">pi is 3.141592653589793
+cos(pi) is -1.0
+</code></pre>
+<ul>
+<li>Have to refer to each item with the module's name.
+<ul>
+<li><code>math.cos(pi)</code> won't work: the reference to <code>pi</code>
+doesn't somehow "inherit" the function's reference to <code>math</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="use-help-to-learn-about-the-contents-of-a-library-module">Use <code>help</code> to learn about the contents of a library module.</h2>
+<ul>
+<li>Works just like help for a function.</li>
+</ul>
+<pre><code class="language-python">help(math)
+</code></pre>
+<pre><code class="language-output">Help on module math:
+
+NAME
+    math
+
+MODULE REFERENCE
+    http://docs.python.org/3/library/math
+
+    The following documentation is automatically generated from the Python
+    source files.  It may be incomplete, incorrect or include features that
+    are considered implementation detail and may vary between Python
+    implementations.  When in doubt, consult the module reference at the
+    location listed above.
+
+DESCRIPTION
+    This module is always available.  It provides access to the
+    mathematical functions defined by the C standard.
+
+FUNCTIONS
+    acos(x, /)
+        Return the arc cosine (measured in radians) of x.
+⋮ ⋮ ⋮
+</code></pre>
+<h2 id="import-specific-items-from-a-library-module-to-shorten-progr">Import specific items from a library module to shorten programs.</h2>
+<ul>
+<li>Use <code>from ... import ...</code> to load only specific items from a library module.</li>
+<li>Then refer to them directly without library name as prefix.</li>
+</ul>
+<pre><code class="language-python">from math import cos, pi
+
+print('cos(pi) is', cos(pi))
+</code></pre>
+<pre><code class="language-output">cos(pi) is -1.0
+</code></pre>
+<h2 id="create-an-alias-for-a-library-module-when-importing-it-to-sh">Create an alias for a library module when importing it to shorten programs.</h2>
+<ul>
+<li>Use <code>import ... as ...</code> to give a library a short <em>alias</em> while importing it.</li>
+<li>Then refer to items in the library using that shortened name.</li>
+</ul>
+<pre><code class="language-python">import math as m
+
+print('cos(pi) is', m.cos(m.pi))
+</code></pre>
+<pre><code class="language-output">cos(pi) is -1.0
+</code></pre>
+<ul>
+<li>Commonly used for libraries that are frequently used or have long names.
+<ul>
+<li>E.g., the <code>matplotlib</code> plotting library is often aliased as <code>mpl</code>.</li>
+</ul>
+</li>
+<li>But can make programs harder to understand,
+since readers must learn your program's aliases.</li>
+</ul>
+<div class="box box-challenge">
+<p class="box-title">Exploring the Math Module</p>
+
+<ol>
+<li>What function from the <code>math</code> module can you use to calculate a square root
+<em>without</em> using <code>sqrt</code>?</li>
+<li>Since the library contains this function, why does <code>sqrt</code> exist?</li>
+</ol>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<ol>
+<li>
+<p>Using <code>help(math)</code> we see that we've got <code>pow(x,y)</code> in addition to <code>sqrt(x)</code>,
+so we could use <code>pow(x, 0.5)</code> to find a square root.</p>
+</li>
+<li>
+<p>The <code>sqrt(x)</code> function is arguably more readable than <code>pow(x, 0.5)</code> when
+implementing equations. Readability is a cornerstone of good programming, so it
+makes sense to provide a special function for this specific common case.</p>
+</li>
+</ol>
+<p>Also, the design of Python's <code>math</code> library has its origin in the C standard,
+which includes both <code>sqrt(x)</code> and <code>pow(x,y)</code>, so a little bit of the history
+of programming is showing in Python's function names.</p>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Locating the Right Module</p>
+
+<p>You want to select a random character from a string:</p>
+<pre><code class="language-python">bases = 'ACTTGCTTGAC'
+</code></pre>
+<ol>
+<li>Which <a href="https://docs.python.org/3/library/" target="_blank" rel="noopener noreferrer">standard library</a> module could help you?</li>
+<li>Which function would you select from that module? Are there alternatives?</li>
+<li>Try to write a program that uses the function.</li>
+</ol>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x">Solution</h2>
+<p>The <a href="https://docs.python.org/3/library/random.html" target="_blank" rel="noopener noreferrer">random module</a> seems like it could help.</p>
+<p>The string has 11 characters, each having a positional index from 0 to 10.
+You could use the <a href="https://docs.python.org/3/library/random.html#random.randrange" target="_blank" rel="noopener noreferrer"><code>random.randrange</code></a>
+or <a href="https://docs.python.org/3/library/random.html#random.randint" target="_blank" rel="noopener noreferrer"><code>random.randint</code></a> functions
+to get a random integer between 0 and 10, and then select the <code>bases</code> character at that index:</p>
+<pre><code class="language-python">from random import randrange
+
+random_index = randrange(len(bases))
+print(bases[random_index])
+</code></pre>
+<p>or more compactly:</p>
+<pre><code class="language-python">from random import randrange
+
+print(bases[randrange(len(bases))])
+</code></pre>
+<p>Perhaps you found the <a href="https://docs.python.org/3/library/random.html#random.sample" target="_blank" rel="noopener noreferrer"><code>random.sample</code></a> function?
+It allows for slightly less typing but might be a bit harder to understand just by reading:</p>
+<pre><code class="language-python">from random import sample
+
+print(sample(bases, 1)[0])
+</code></pre>
+<p>Note that this function returns a list of values. We will learn about
+lists in <a href="https://github.com/swcarpentry/python-novice-gapminder/blob/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/11-lists.md" target="_blank" rel="noopener noreferrer">episode 11</a>.</p>
+<p>The simplest and shortest solution is the <a href="https://docs.python.org/3/library/random.html#random.choice" target="_blank" rel="noopener noreferrer"><code>random.choice</code></a>
+function that does exactly what we want:</p>
+<pre><code class="language-python">from random import choice
+
+print(choice(bases))
+</code></pre>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Jigsaw Puzzle (Parson's Problem) Programming Example</p>
+
+<p>Rearrange the following statements so that a random
+DNA base is printed and its index in the string.
+Not all statements may be needed.  Feel free to use/add
+intermediate variables.</p>
+<pre><code class="language-python">bases="ACTTGCTTGAC"
+import math
+import random
+___ = random.randrange(n_bases)
+___ = len(bases)
+print("random base ", bases[___], "base index", ___)
+</code></pre>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x">Solution</h2>
+<pre><code class="language-python">import math 
+import random
+bases = "ACTTGCTTGAC" 
+n_bases = len(bases)
+idx = random.randrange(n_bases)
+print("random base", bases[idx], "base index", idx)
+</code></pre>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">When Is Help Available?</p>
+
+<p>When a colleague of yours types <code>help(math)</code>,
+Python reports an error:</p>
+<pre><code class="language-error">NameError: name 'math' is not defined
+</code></pre>
+<p>What has your colleague forgotten to do?</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x">Solution</h2>
+<p>Importing the math module (<code>import math</code>)</p>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Importing With Aliases</p>
+
+<ol>
+<li>Fill in the blanks so that the program below prints <code>90.0</code>.</li>
+<li>Rewrite the program so that it uses <code>import</code> <em>without</em> <code>as</code>.</li>
+<li>Which form do you find easier to read?</li>
+</ol>
+<pre><code class="language-python">import math as m
+angle = ____.degrees(____.pi / 2)
+print(____)
+</code></pre>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x-x">Solution</h2>
+<pre><code class="language-python">import math as m
+angle = m.degrees(m.pi / 2)
+print(angle)
+</code></pre>
+<p>can be written as</p>
+<pre><code class="language-python">import math
+angle = math.degrees(math.pi / 2)
+print(angle)
+</code></pre>
+<p>Since you just wrote the code and are familiar with it, you might actually
+find the first version easier to read. But when trying to read a huge piece
+of code written by someone else, or when getting back to your own huge piece
+of code after several months, non-abbreviated names are often easier, except
+where there are clear abbreviation conventions.</p>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">There Are Many Ways To Import Libraries!</p>
+
+<p>Match the following print statements with the appropriate library calls.</p>
+<p>Print commands:</p>
+<ol>
+<li><code>print("sin(pi/2) =", sin(pi/2))</code></li>
+<li><code>print("sin(pi/2) =", m.sin(m.pi/2))</code></li>
+<li><code>print("sin(pi/2) =", math.sin(math.pi/2))</code></li>
+</ol>
+<p>Library calls:</p>
+<ol>
+<li><code>from math import sin, pi</code></li>
+<li><code>import math</code></li>
+<li><code>import math as m</code></li>
+<li><code>from math import *</code></li>
+</ol>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x-x-x">Solution</h2>
+<ol>
+<li>Library calls 1 and 4. In order to directly refer to <code>sin</code> and <code>pi</code> without
+the library name as prefix, you need to use the <code>from ... import ...</code>
+statement. Whereas library call 1 specifically imports the two functions
+<code>sin</code> and <code>pi</code>, library call 4 imports all functions in the <code>math</code> module.</li>
+<li>Library call 3. Here <code>sin</code> and <code>pi</code> are referred to with a shortened library
+name <code>m</code> instead of <code>math</code>. Library call 3 does exactly that using the
+<code>import ... as ...</code> syntax - it creates an alias for <code>math</code> in the form of
+the shortened name <code>m</code>.</li>
+<li>Library call 2. Here <code>sin</code> and <code>pi</code> are referred to with the regular library
+name <code>math</code>, so the regular <code>import ...</code> call suffices.</li>
+</ol>
+<p><strong>Note:</strong> although library call 4 works, importing all names from a module using a wildcard
+import is <a href="https://pep8.org/#imports" target="_blank" rel="noopener noreferrer">not recommended</a> as it makes it unclear which names from the module
+are used in the code. In general it is best to make your imports as specific as possible and to
+only import what your code uses. In library call 1, the <code>import</code> statement explicitly tells us
+that the <code>sin</code> function is imported from the <code>math</code> module, but library call 4 does not
+convey this information.</p>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Importing Specific Items</p>
+
+<ol>
+<li>Fill in the blanks so that the program below prints <code>90.0</code>.</li>
+<li>Do you find this version easier to read than preceding ones?</li>
+<li>Why <em>wouldn't</em> programmers always use this form of <code>import</code>?</li>
+</ol>
+<pre><code class="language-python">____ math import ____, ____
+angle = degrees(pi / 2)
+print(angle)
+</code></pre>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x-x-x-x">Solution</h2>
+<pre><code class="language-python">from math import degrees, pi
+angle = degrees(pi / 2)
+print(angle)
+</code></pre>
+<p>Most likely you find this version easier to read since it's less dense.
+The main reason not to use this form of import is to avoid name clashes.
+For instance, you wouldn't import <code>degrees</code> this way if you also wanted to
+use the name <code>degrees</code> for a variable or function of your own. Or if you
+were to also import a function named <code>degrees</code> from another library.</p>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Reading Error Messages</p>
+
+<ol>
+<li>Read the code below and try to identify what the errors are without running it.</li>
+<li>Run the code, and read the error message. What type of error is it?</li>
+</ol>
+<pre><code class="language-python">from math import log
+log(0)
+</code></pre>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x-x-x-x-x">Solution</h2>
+<pre><code class="language-output">---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+&lt;ipython-input-1-d72e1d780bab&gt; in &lt;module&gt;
+      1 from math import log
+----&gt; 2 log(0)
+
+ValueError: math domain error
+</code></pre>
+<ol>
+<li>The logarithm of <code>x</code> is only defined for <code>x &gt; 0</code>, so 0 is outside the
+domain of the function.</li>
+<li>You get an error of type <code>ValueError</code>, indicating that the function
+received an inappropriate argument value. The additional message
+"math domain error" makes it clearer what the problem is.</li>
+</ol>
+</details>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>Most of the power of a programming language is in its libraries.</li>
+<li>A program must import a library module in order to use it.</li>
+<li>Use <code>help</code> to learn about the contents of a library module.</li>
+<li>Import specific items from a library to shorten programs.</li>
+<li>Create an alias for a library when importing it to shorten programs.</li>
+</ul>
+</div>

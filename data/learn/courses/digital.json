@@ -1,0 +1,224 @@
+{
+ "courses": [
+  {
+   "skill": "excel",
+   "summary": "Use spreadsheets with confidence: formulas, workbooks, pivot tables and what Excel can do.",
+   "lessons": [
+    {"id": "excel-1", "title": "Spreadsheets", "wiki": "Spreadsheet",
+     "why": "Spreadsheets are still the most common data tool at work. Formulas and what-if analysis save hours of manual calculation.",
+     "try": "Build a small budget with a total formula, then change one value and watch the total update."},
+    {"id": "excel-2", "title": "Summarising with pivot tables", "wiki": "Pivot table",
+     "why": "A pivot table summarises thousands of rows — totals by month, averages by team — in a few clicks.",
+     "try": "Make a pivot table from a sales list that shows total sales per product."},
+    {"id": "excel-3", "title": "Microsoft Excel", "wiki": "Microsoft Excel",
+     "why": "Excel adds charts, pivot tables and macros (VBA) that automate repetitive steps.",
+     "try": "Record a simple macro that formats a table, then run it on a new sheet."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Spreadsheets were developed as computerised versions of…", "options": ["typewriters", "paper accounting worksheets", "telephone directories", "maps"], "answer": 1, "explain": "Spreadsheets began as computerised analogues of paper accounting worksheets."},
+    {"lesson": 1, "q": "Several worksheets gathered together in one file form a…", "options": ["database", "server", "dashboard", "workbook"], "answer": 3, "explain": "Sheets are gathered together to form a workbook."},
+    {"lesson": 1, "q": "Why are spreadsheets useful for 'what-if' analysis?", "options": ["You can change a value and immediately see the effect on calculated values", "They print faster", "They cannot be edited", "They only store text"], "answer": 0, "explain": "Changing any stored value recalculates the results automatically."},
+    {"lesson": 2, "q": "A pivot table shows…", "options": ["a single cell's formula", "a list of emails", "aggregations such as sums, averages or counts of groups from a larger table", "a weather chart"], "answer": 2, "explain": "Pivot tables aggregate groups of values from a larger table."},
+    {"lesson": 3, "q": "Which macro programming language does Excel include?", "options": ["SQL", "Visual Basic for Applications (VBA)", "HTML", "Python only"], "answer": 1, "explain": "Excel includes the VBA macro language."}
+   ]
+  },
+  {
+   "skill": "digital_literacy",
+   "summary": "Build everyday digital skills: find and judge information, collaborate online and stay safe from scams.",
+   "lessons": [
+    {"id": "digital_literacy-1", "title": "Digital literacy", "wiki": "Digital literacy",
+     "why": "Digital literacy is the foundation for every other tech skill and for most jobs today.",
+     "try": "Pick a news story and check it against two other trustworthy sources before sharing it."},
+    {"id": "digital_literacy-2", "title": "Working together online", "wiki": "Collaborative software",
+     "why": "Shared documents and version history let a team work on one file without emailing copies back and forth.",
+     "try": "Create a shared document, invite a colleague to edit it, and look at its version history together."},
+    {"id": "digital_literacy-3", "title": "Spotting phishing", "wiki": "Phishing",
+     "why": "Phishing is one of the most common ways attackers get in. Spotting it protects you and your organisation.",
+     "try": "Look at a suspicious message and list three warning signs: urgency, strange links, requests for passwords or codes."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Digital literacy is the ability to…", "options": ["type faster than 100 words per minute", "repair hardware", "find, evaluate and communicate information using digital devices and platforms", "write computer viruses"], "answer": 2, "explain": "It means finding, evaluating, creating and communicating information digitally."},
+    {"lesson": 1, "q": "Which literacy focuses on analysing and interpreting media messages and their influence?", "options": ["Media literacy", "Financial literacy", "Data entry", "Numeracy"], "answer": 0, "explain": "Media literacy is about analysing media messages; digital literacy integrates it with practical digital skills."},
+    {"lesson": 2, "q": "Real-time collaborative editing platforms let several users…", "options": ["only read files", "delete other users", "print documents", "edit a single file at the same time"], "answer": 3, "explain": "They allow live, simultaneous and reversible editing of a single file."},
+    {"lesson": 3, "q": "Phishing is…", "options": ["a type of fishing equipment", "a scam that deceives people into revealing sensitive information or installing malware", "a way to back up files", "a data visualisation technique"], "answer": 1, "explain": "Phishing is a form of social engineering and a scam."},
+    {"lesson": 3, "q": "Phishing by SMS text message is called…", "options": ["vishing", "smishing", "whaling", "spear phishing"], "answer": 1, "explain": "SMS phishing is smishing; voice phishing is vishing."}
+   ]
+  },
+  {
+   "skill": "software_dev",
+   "summary": "See how software is built step by step, how Git tracks changes, and how web applications work.",
+   "lessons": [
+    {"id": "software_dev-1", "title": "How software gets built", "wiki": "Software development process",
+     "why": "Knowing how software is planned, built, tested and maintained helps you work well on any tech team.",
+     "try": "Write the steps from an idea to a released app, from requirements to maintenance."},
+    {"id": "software_dev-2", "title": "Version control with Git", "wiki": "Git",
+     "why": "Git keeps every version of your work, so a team can work in parallel and undo mistakes safely.",
+     "try": "Create a free GitHub account and make your first repository with a README file."},
+    {"id": "software_dev-3", "title": "Web applications", "wiki": "Web application",
+     "why": "Most business software now runs in the browser. Web skills let you build tools anyone can open with a link.",
+     "try": "Open your browser's developer tools on any website and inspect the HTML of one element on the page."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "A software development process typically…", "options": ["avoids planning", "divides the overall effort into smaller steps to ensure high-quality results", "only covers printing manuals", "ends when the code compiles"], "answer": 1, "explain": "It divides the effort into smaller steps or sub-processes."},
+    {"lesson": 1, "q": "What does SDLC stand for?", "options": ["System development life cycle", "Simple data list command", "Software delivery licence contract", "Standard design layout code"], "answer": 0, "explain": "The system development life cycle describes the phases of a system's life."},
+    {"lesson": 2, "q": "Who originally created Git?", "options": ["Guido van Rossum", "E. F. Codd", "Linus Torvalds", "Tim Berners-Lee"], "answer": 2, "explain": "Linus Torvalds created Git for developing the Linux kernel."},
+    {"lesson": 2, "q": "Git is a…", "options": ["spreadsheet editor", "web browser", "database", "distributed version control system"], "answer": 3, "explain": "Git is distributed version control software."},
+    {"lesson": 3, "q": "A web application…", "options": ["runs via a web browser", "only runs on paper", "cannot use servers", "is always a static page"], "answer": 0, "explain": "Web apps are built with web technologies and run in the browser."}
+   ]
+  },
+  {
+   "skill": "cloud_devops",
+   "summary": "Understand cloud computing, the DevOps way of working, and how containers package software.",
+   "lessons": [
+    {"id": "cloud_devops-1", "title": "Cloud computing", "wiki": "Cloud computing",
+     "why": "Most new systems run in the cloud, and cloud skills appear in many tech job posts.",
+     "try": "List three services you use every day (email, file storage, video calls) that run in the cloud."},
+    {"id": "cloud_devops-2", "title": "DevOps", "wiki": "DevOps",
+     "why": "DevOps teams release changes faster and more safely by automating builds, tests and deployments.",
+     "try": "Name one manual step in your team's work that automation could make faster and more reliable."},
+    {"id": "cloud_devops-3", "title": "Containers with Docker", "wiki": "Docker (software)",
+     "why": "Containers make software run the same way on a laptop, a server or the cloud.",
+     "try": "Install Docker Desktop and run the hello-world container."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Whose definition of cloud computing is quoted in the lesson?", "options": ["FIFA", "The International Organization for Standardization (ISO)", "The World Health Organization", "UNESCO"], "answer": 1, "explain": "The lesson quotes the ISO definition."},
+    {"lesson": 1, "q": "Cloud computing gives network access to…", "options": ["a scalable, elastic pool of shareable resources provisioned on demand", "a single fixed computer", "printed documents", "paper storage"], "answer": 0, "explain": "That is the ISO definition of cloud computing."},
+    {"lesson": 2, "q": "DevOps is…", "options": ["a programming language", "a graphic design tool", "the integration and automation of software development and IT operations", "a type of cable"], "answer": 2, "explain": "DevOps integrates and automates development and operations."},
+    {"lesson": 2, "q": "Which are generally named as key DevOps principles?", "options": ["Secrecy, manual work and slow feedback", "Paper forms, signatures and stamps", "Colour, font and layout", "Shared ownership, workflow automation and rapid feedback"], "answer": 3, "explain": "DevOps is generally characterised by shared ownership, automation and rapid feedback."},
+    {"lesson": 3, "q": "Docker delivers software in packages called…", "options": ["spreadsheets", "containers", "workbooks", "pivot tables"], "answer": 1, "explain": "Docker uses OS-level virtualisation to deliver software in containers."}
+   ]
+  },
+  {
+   "skill": "linux_networking",
+   "summary": "Get comfortable with Linux, the command line and the TCP/IP protocols that connect the internet.",
+   "lessons": [
+    {"id": "linux_networking-1", "title": "Linux", "wiki": "Linux",
+     "why": "Linux runs most servers and cloud systems, so it is a core skill for IT, cloud and security jobs.",
+     "try": "Try a Linux distribution such as Ubuntu in a virtual machine or a free online terminal."},
+    {"id": "linux_networking-2", "title": "How the internet connects", "wiki": "Internet protocol suite",
+     "why": "Understanding how data travels across networks helps you troubleshoot connections and secure systems.",
+     "try": "Run ping to a website from your computer and note how long the replies take."},
+    {"id": "linux_networking-3", "title": "The command line", "wiki": "Command-line interface",
+     "why": "The command line lets you control computers quickly and automate tasks, especially on servers without a screen.",
+     "try": "Open a terminal and use commands to list files, create a folder and move into it."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Linux is a family of…", "options": ["spreadsheet programs", "web browsers", "free and open-source Unix-like operating systems", "search engines"], "answer": 2, "explain": "Linux is a family of free, open-source Unix-like operating systems."},
+    {"lesson": 1, "q": "Who first released the Linux kernel in 1991?", "options": ["Linus Torvalds", "Guido van Rossum", "Neal Ford", "John Tukey"], "answer": 0, "explain": "Linus Torvalds released the Linux kernel on 17 September 1991."},
+    {"lesson": 2, "q": "Which are the foundational protocols of the internet protocol suite?", "options": ["SQL, CSV and PDF", "SEO, SEM and SMS", "CPU, RAM and SSD", "TCP, UDP and IP"], "answer": 3, "explain": "TCP, UDP and IP are the foundational protocols."},
+    {"lesson": 2, "q": "How many abstraction layers does the internet protocol suite use?", "options": ["Two", "Four", "Seven", "Ten"], "answer": 1, "explain": "Link, internet, transport and application: four layers."},
+    {"lesson": 3, "q": "In a command-line interface you interact with software through…", "options": ["commands typed as lines of text", "only a mouse", "voice only", "printed forms"], "answer": 0, "explain": "Each command is formatted as a line of text."}
+   ]
+  },
+  {
+   "skill": "cybersecurity",
+   "summary": "Learn what cybersecurity protects, how social engineering tricks people, and how teams respond to incidents.",
+   "lessons": [
+    {"id": "cybersecurity-1", "title": "Computer security", "wiki": "Computer security",
+     "why": "As more services go digital, organisations of every size need people who can protect systems and data.",
+     "try": "Turn on two-factor authentication for one of your important accounts."},
+    {"id": "cybersecurity-2", "title": "Social engineering", "wiki": "Social engineering (security)",
+     "why": "Many attacks target people rather than technology. Recognising pressure tactics is a first line of defence.",
+     "try": "Write down how you would check a caller who says they are from your bank and asks for a code."},
+    {"id": "cybersecurity-3", "title": "Handling security incidents", "wiki": "Computer security incident management",
+     "why": "When an attack happens, a clear and practised response limits the damage.",
+     "try": "Find out who you should report a suspected security incident to at your workplace."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Computer security protects software, systems and networks from…", "options": ["power cuts only", "threats such as unauthorised disclosure, theft or damage", "slow typing", "bad handwriting"], "answer": 1, "explain": "It protects against unauthorised disclosure, theft, damage and disruption."},
+    {"lesson": 1, "q": "Which systems does the lesson call particularly sensitive to security breaches?", "options": ["Paper notebooks", "Calculators", "Bicycles", "Power grids, electoral processes and finance"], "answer": 3, "explain": "Systems managing essential services are especially sensitive."},
+    {"lesson": 2, "q": "Social engineering uses…", "options": ["faster computers", "better spreadsheets", "psychological pressure to make people act or reveal confidential information", "stronger cables"], "answer": 2, "explain": "It manipulates people rather than technology."},
+    {"lesson": 2, "q": "Phishing is a type of…", "options": ["social engineering", "data visualisation", "version control", "cloud storage"], "answer": 0, "explain": "The lesson states that phishing is a type of social engineering."},
+    {"lesson": 3, "q": "The primary purpose of incident management is…", "options": ["buying new computers", "a well-understood, predictable response to damaging events and intrusions", "writing marketing emails", "designing logos"], "answer": 1, "explain": "Incident management develops a predictable response, carried out by a response team."}
+   ]
+  },
+  {
+   "skill": "ux_design",
+   "summary": "Design products people find easy and useful: UX basics, usability testing and wireframes.",
+   "lessons": [
+    {"id": "ux_design-1", "title": "User experience design", "wiki": "User experience design",
+     "why": "Good UX reduces mistakes and support calls and keeps users coming back. It is driven by evidence, not taste.",
+     "try": "Use a website or app you dislike and note the three moments where you got stuck."},
+    {"id": "ux_design-2", "title": "Usability testing", "wiki": "Usability testing",
+     "why": "Watching real users exposes confusing designs before they cost money.",
+     "try": "Ask two people to complete one task on a website while thinking aloud, and note where they hesitate."},
+    {"id": "ux_design-3", "title": "Wireframes", "wiki": "Website wireframe",
+     "why": "Wireframes let you agree on layout and priorities quickly, before anyone spends time on visual design or code.",
+     "try": "Sketch a wireframe of a simple sign-up page on paper: the fields, the button and the help text."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "In UX design, decisions are driven by…", "options": ["personal taste only", "the cheapest option", "research, data analysis and test results", "random choice"], "answer": 2, "explain": "UX decisions rest on research, data and testing rather than opinions."},
+    {"lesson": 1, "q": "How does UX design differ from user interface (UI) design?", "options": ["UX covers the whole perceived experience; UI focuses on the interface itself", "They are identical", "UI covers marketing and UX does not", "UX only covers colours"], "answer": 0, "explain": "UI design focuses on the interface; UX covers usability, usefulness, desirability and more."},
+    {"lesson": 2, "q": "Usability testing evaluates a product by…", "options": ["asking only the designer", "counting lines of code", "checking its price", "testing it with real users"], "answer": 3, "explain": "It gives direct input on how real users use the system."},
+    {"lesson": 3, "q": "A website wireframe mainly focuses on…", "options": ["final colours and fonts", "what a screen does — layout, functions and content priority", "the server hardware", "the company logo"], "answer": 1, "explain": "Wireframes focus on what a screen does, not what it looks like."},
+    {"lesson": 3, "q": "Wireframes can be…", "options": ["pencil sketches or drawings made with software", "produced only by programmers", "only 3D printed", "only video recordings"], "answer": 0, "explain": "They can be pencil drawings, whiteboard sketches or made in software."}
+   ]
+  },
+  {
+   "skill": "process_automation",
+   "summary": "Learn how organisations improve and automate processes with BPM, RPA and low-code tools.",
+   "lessons": [
+    {"id": "process_automation-1", "title": "Managing business processes", "wiki": "Business process management",
+     "why": "Before automating, understand and improve the process itself — otherwise you only automate the mess.",
+     "try": "Draw the steps of one process at work (for example approving an invoice) and mark the slowest step."},
+    {"id": "process_automation-2", "title": "Robotic process automation", "wiki": "Robotic process automation",
+     "why": "RPA bots can take over repetitive screen work, such as copying invoice data into a bookkeeping system.",
+     "try": "List three repetitive copy-and-paste tasks in your job that a bot could do."},
+    {"id": "process_automation-3", "title": "Low-code platforms", "wiki": "Low-code development platform",
+     "why": "Low-code tools let non-programmers build simple apps and workflows, putting automation within reach of many office workers.",
+     "try": "Build a simple approval flow in a free low-code or workflow tool."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Business process management (BPM) is the discipline of…", "options": ["printing documents", "discovering, modelling, analysing, improving and automating business processes", "hiring staff", "designing logos"], "answer": 1, "explain": "BPM uses various methods to understand and improve processes."},
+    {"lesson": 1, "q": "According to the lesson, how does BPM differ from RPA?", "options": ["BPM automates workflows; RPA automates tasks by recording repetitive human activities", "They are the same", "RPA is a type of accounting", "BPM is a programming language"], "answer": 0, "explain": "Organisations often combine both."},
+    {"lesson": 2, "q": "RPA automates tasks using scripts that…", "options": ["replace all databases", "design websites", "mimic human interaction with application user interfaces", "translate languages"], "answer": 2, "explain": "RPA follows a predefined workflow by acting on the user interface."},
+    {"lesson": 2, "q": "Which example of RPA does the lesson give?", "options": ["Painting a wall", "Repairing a laptop", "Hosting a meeting", "Extracting invoice data from an email and typing it into a bookkeeping system"], "answer": 3, "explain": "RPA can move data between applications, such as from an email into bookkeeping software."},
+    {"lesson": 3, "q": "A low-code development platform…", "options": ["lets people build applications with little or no code, often visually", "requires writing everything in machine code", "is a type of laptop", "only works offline"], "answer": 0, "explain": "LCDPs usually offer a graphical environment with little coding."}
+   ]
+  },
+  {
+   "skill": "iot_embedded",
+   "summary": "Understand connected devices: the Internet of Things, embedded systems and the sensors behind them.",
+   "lessons": [
+    {"id": "iot_embedded-1", "title": "The Internet of Things", "wiki": "Internet of things",
+     "why": "Factories, farms, buildings and fleets are adding connected sensors. IoT skills help turn their data into savings.",
+     "try": "List three smart devices around you and the data each one collects."},
+    {"id": "iot_embedded-2", "title": "Embedded systems", "wiki": "Embedded system",
+     "why": "Embedded systems are the small dedicated computers inside machines, from washing machines to cars.",
+     "try": "Pick one appliance at home and guess which tasks its embedded computer controls."},
+    {"id": "iot_embedded-3", "title": "Sensors", "wiki": "Sensor",
+     "why": "Sensors are the starting point of any IoT system: they turn real-world changes into data.",
+     "try": "Name a sensor that could help save energy in your workplace and what it would measure."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "The Internet of Things describes…", "options": ["a new social media app", "a type of spreadsheet", "physical objects with sensors and software that exchange data over networks", "printed catalogues"], "answer": 2, "explain": "IoT devices are embedded with sensors, processing and software that exchange data."},
+    {"lesson": 1, "q": "According to the lesson, what is the largest single application of IoT?", "options": ["Smart speakers", "Commercial asset tracking and fleet management", "Video games", "E-books"], "answer": 1, "explain": "Asset tracking and fleet management account for about 22% of the IoT market."},
+    {"lesson": 2, "q": "An embedded system is…", "options": ["a specialised computer system with a dedicated function inside a larger device", "a type of cloud server", "a desktop office suite", "a website"], "answer": 0, "explain": "It is embedded as part of a complete device."},
+    {"lesson": 2, "q": "Modern embedded systems are often based on…", "options": ["typewriters", "spreadsheets", "printers", "microcontrollers"], "answer": 3, "explain": "Microcontrollers combine a processor with memory and peripheral interfaces."},
+    {"lesson": 3, "q": "A sensor is a device that…", "options": ["stores files in the cloud", "detects events or changes in its environment and sends the information to other electronics", "prints labels", "plays music"], "answer": 1, "explain": "Sensors convert a sensed quantity into a signal for other electronics."}
+   ]
+  },
+  {
+   "skill": "digital_marketing",
+   "summary": "Promote products online: digital marketing channels, search engine optimisation and web analytics.",
+   "lessons": [
+    {"id": "digital_marketing-1", "title": "Digital marketing", "wiki": "Digital marketing",
+     "why": "Small businesses increasingly sell online. Digital marketing skills help them reach customers at low cost.",
+     "try": "Pick a local business and list three digital channels it could use to reach new customers."},
+    {"id": "digital_marketing-2", "title": "Search engine optimisation", "wiki": "Search engine optimization",
+     "why": "Appearing in search results brings visitors who are already looking for what you offer, without paying for every click.",
+     "try": "Search for a product your organisation offers and note which competitors appear first, and why."},
+    {"id": "digital_marketing-3", "title": "Measuring with web analytics", "wiki": "Web analytics",
+     "why": "Analytics shows which campaigns actually bring visitors and customers, so the budget goes to what works.",
+     "try": "Open a free web analytics demo account and find the number of visitors and page views for last week."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Digital marketing uses…", "options": ["only printed flyers", "digital technologies and media platforms to promote products and services", "door-to-door sales only", "radio only"], "answer": 1, "explain": "It promotes products through computers, phones and other digital media."},
+    {"lesson": 1, "q": "Which is a digital marketing method listed in the lesson?", "options": ["Double-entry bookkeeping", "Drip irrigation", "Search engine optimization (SEO)", "Ohm's law"], "answer": 2, "explain": "SEO is one of the methods listed."},
+    {"lesson": 2, "q": "SEO focuses on increasing traffic from…", "options": ["unpaid (organic) search results", "paid TV adverts", "printed newspapers", "phone calls"], "answer": 0, "explain": "SEO targets organic search traffic rather than paid advertising."},
+    {"lesson": 3, "q": "Web analytics is…", "options": ["building websites from scratch", "writing advertising slogans", "hosting servers", "the measurement, collection, analysis and reporting of web data"], "answer": 3, "explain": "Web analytics measures and reports web data to optimise web use."},
+    {"lesson": 3, "q": "Which information does web analytics typically provide?", "options": ["Employee salaries", "The number of visitors and page views", "Office temperature", "Stock prices"], "answer": 1, "explain": "It reports visitors, page views and behaviour profiles."}
+   ]
+  }
+ ]
+}

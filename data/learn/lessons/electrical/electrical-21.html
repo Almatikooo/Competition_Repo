@@ -1,0 +1,168 @@
+<p>
+Let's start with a parallel circuit consisting of three resistors and a single battery:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00092.png"> </p>
+<p>
+The first principle to understand about parallel circuits is that the voltage is equal across all components in the circuit.  This is because there are only two sets of electrically common points in a parallel circuit, and voltage measured between sets of common points must always be the same at any given time.  Therefore, in the above circuit, the voltage across R<sub>1</sub> is equal to the voltage across R<sub>2</sub> which is equal to the voltage across R<sub>3</sub> which is equal to the voltage across the battery.  This equality of voltages can be represented in another table for our starting values:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10070.png"> </p>
+<p>
+Just as in the case of series circuits, the same caveat for Ohm's Law applies: values for voltage, current, and resistance must be in the same context in order for the calculations to work correctly.  However, in the above example circuit, we can immediately apply Ohm's Law to each resistor to find its current because we know the voltage across each resistor (9 volts) and the resistance of each resistor:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10071.png"> </p>
+<br>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10072.png"> </p>
+<p>
+At this point we still don't know what the total current or total resistance for this parallel circuit is, so we can't apply Ohm's Law to the rightmost ("Total") column.  However, if we think carefully about what is happening it should become apparent that the total current must equal the sum of all individual resistor ("branch") currents:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00093.png"> </p>
+<p>
+As the total current exits the negative (-) battery terminal at point 8 and travels through the circuit, some of the flow splits off at point 7 to go up through R<sub>1</sub>, some more splits off at point 6 to go up through R<sub>2</sub>, and the remainder goes up through R<sub>3</sub>.  Like a river branching into several smaller streams, the combined flow rates of all streams must equal the flow rate of the whole river.  The same thing is encountered where the currents through R<sub>1</sub>, R<sub>2</sub>, and R<sub>3</sub> join to flow back to the positive terminal of the battery (+) toward point 1: the flow of electrons from point 2 to point 1 must equal the sum of the (branch) currents through R<sub>1</sub>, R<sub>2</sub>, and R<sub>3</sub>.
+</p>
+<p>
+This is the second principle of parallel circuits: the total circuit current is equal to the sum of the individual branch currents.  Using this principle, we can fill in the I<sub>T</sub> spot on our table with the sum of I<sub>R1</sub>, I<sub>R2</sub>, and I<sub>R3</sub>:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10073.png"> </p>
+<p>
+Finally, applying Ohm's Law to the rightmost ("Total") column, we can calculate the total circuit resistance:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10074.png"> </p>
+<p>
+Please note something very important here.  The total circuit resistance is only 625 Ω: <i>less</i> than any one of the individual resistors.  In the series circuit, where the total resistance was the sum of the individual resistances, the total was bound to be <i>greater</i> than any one of the resistors individually.  Here in the parallel circuit, however, the opposite is true: we say that the individual resistances <i>diminish</i> rather than <i>add</i> to make the total.  This principle completes our triad of "rules" for parallel circuits, just as series circuits were found to have three rules for voltage, current, and resistance.  Mathematically, the relationship between total resistance and individual resistances in a parallel circuit looks like this:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10075.png"> </p>
+<p>
+The same basic form of equation works for <i>any</i> number of resistors connected together in parallel, just add as many 1/R terms on the denominator of the fraction as needed to accommodate all parallel resistors in the circuit.
+</p>
+<p>
+Just as with the series circuit, we can use computer analysis to double-check our calculations.  First, of course, we have to describe our example circuit to the computer in terms it can understand.  I'll start by re-drawing the circuit:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00092.png"> </p>
+<p>
+Once again we find that the original numbering scheme used to identify points in the circuit will have to be altered for the benefit of SPICE.  In SPICE, all electrically common points must share identical node numbers.  This is how SPICE knows what's connected to what, and how.  In a simple parallel circuit, all points are electrically common in one of two sets of points.  For our example circuit, the wire connecting the tops of all the components will have one node number and the wire connecting the bottoms of the components will have the other.  Staying true to the convention of including zero as a node number, I choose the numbers 0 and 1:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00094.png"> </p>
+<p>
+An example like this makes the rationale of node numbers in SPICE fairly clear to understand.  By having all components share common sets of numbers, the computer "knows" they're all connected in parallel with each other.
+</p>
+<p>
+In order to display branch currents in SPICE, we need to insert zero-voltage sources in line (in series) with each resistor, and then reference our current measurements to those sources.  For whatever reason, the creators of the SPICE program made it so that current could only be calculated <i>through</i> a voltage source.  This is a somewhat annoying demand of the SPICE simulation program.  With each of these "dummy" voltage sources added, some new node numbers must be created to connect them to their respective branch resistors:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00095.png"> </p>
+<p>
+The dummy voltage sources are all set at 0 volts so as to have no impact on the operation of the circuit.  The circuit description file, or <i>netlist</i>, looks like this:
+</p>
+<br>
+<pre>Parallel circuit
+v1 1 0 
+r1 2 0 10k
+r2 3 0 2k
+r3 4 0 1k
+vr1 1 2 dc 0
+vr2 1 3 dc 0
+vr3 1 4 dc 0
+.dc v1 9 9 1
+.print dc v(2,0) v(3,0) v(4,0)
+.print dc i(vr1) i(vr2) i(vr3)
+.end
+</pre>
+<br>
+<p>
+Running the computer analysis, we get these results (I've annotated the printout with descriptive labels):
+</p>
+<br>
+<pre>v1            v(2)        v(3)        v(4)            
+9.000E+00     9.000E+00   9.000E+00   9.000E+00
+battery       R1 voltage  R2 voltage  R3 voltage
+voltage       
+</pre>
+<br>
+<pre>v1            i(vr1)      i(vr2)      i(vr3)          
+9.000E+00     9.000E-04   4.500E-03   9.000E-03
+battery       R1 current  R2 current  R3 current
+voltage
+</pre>
+<br>
+<p>
+These values do indeed match those calculated through Ohm's Law earlier: 0.9 mA for I<sub>R1</sub>, 4.5 mA for I<sub>R2</sub>, and 9 mA for I<sub>R3</sub>.  Being connected in parallel, of course, all resistors have the same voltage dropped across them (9 volts, same as the battery).
+</p>
+<p>
+In summary, a parallel circuit is defined as one where all components are connected between the same set of electrically common points.  Another way of saying this is that all components are connected across each other's terminals.  From this definition, three rules of parallel circuits follow: all components share the same voltage; resistances diminish to equal a smaller, total resistance; and branch currents add to equal a larger, total current.  Just as in the case of series circuits, all of these rules find root in the definition of a parallel circuit.  If you understand that definition fully, then the rules are nothing more than footnotes to the definition.
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Components in a parallel circuit share the same voltage: E<sub>Total</sub> = E<sub>1</sub> = E<sub>2</sub> = . . . E<sub>n</sub></li>
+<li>Total resistance in a parallel circuit is <i>less</i> than any of the individual resistances: R<sub>Total</sub> = 1 / (1/R<sub>1</sub> + 1/R<sub>2</sub> + . . . 1/R<sub>n</sub>)</li>
+<li>Total current in a parallel circuit is equal to the sum of the individual branch currents: I<sub>Total</sub> = I<sub>1</sub> + I<sub>2</sub> + . . . I<sub>n</sub>.</li>
+</ul>
+<h2 id="conductance">Conductance</h2>
+<p>
+When students first see the parallel resistance equation, the natural question to ask is, "Where did <i>that</i> thing come from?"  It is truly an odd piece of arithmetic, and its origin deserves a good explanation.
+</p>
+<p>
+Resistance, by definition, is the measure of <i>friction</i> a component presents to the flow of electrons through it.  Resistance is symbolized by the capital letter "R" and is measured in the unit of "ohm."  However, we can also think of this electrical property in terms of its inverse: how <i>easy</i> it is for electrons to flow through a component, rather than how <i>difficult</i>.  If <i>resistance</i> is the word we use to symbolize the measure of how difficult it is for electrons to flow, then a good word to express how easy it is for electrons to flow would be <i>conductance</i>.  
+</p>
+<p>
+Mathematically, conductance is the reciprocal, or inverse, of resistance:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10079.png"> </p>
+<p>
+The greater the resistance, the less the conductance, and vice versa.  This should make intuitive sense, resistance and conductance being opposite ways to denote the same essential electrical property.  If two components' resistances are compared and it is found that component "A" has one-half the resistance of component "B," then we could alternatively express this relationship by saying that component "A" is <i>twice</i> as conductive as component "B."  If component "A" has but one-third the resistance of component "B," then we could say it is <i>three times</i> more conductive than component "B," and so on.
+</p>
+<p>
+Carrying this idea further, a symbol and unit were created to represent conductance.  The symbol is the capital letter "G" and the unit is the <i>mho</i>, which is "ohm" spelled backwards (and you didn't think electronics engineers had any sense of humor!).  Despite its appropriateness, the unit of the mho was replaced in later years by the unit of <i>siemens</i> (abbreviated by the capital letter "S").  This decision to change unit names is reminiscent of the change from the temperature unit of degrees <i>Centigrade</i> to degrees <i>Celsius</i>, or the change from the unit of frequency <i>c.p.s.</i> (cycles per second) to <i>Hertz</i>.  If you're looking for a pattern here, Siemens, Celsius, and Hertz are all surnames of famous scientists, the names of which, sadly, tell us less about the nature of the units than the units' original designations.
+</p>
+<p>
+As a footnote, the unit of siemens is never expressed without the last letter "s."  In other words, there is no such thing as a unit of "siemen" as there is in the case of the "ohm" or the "mho."  The reason for this is the proper spelling of the respective scientists' surnames.  The unit for electrical resistance was named after someone named "Ohm," whereas the unit for electrical conductance was named after someone named "Siemens," therefore it would be improper to "singularize" the latter unit as its final "s" does not denote plurality.
+</p>
+<p>
+Back to our parallel circuit example, we should be able to see that multiple paths (branches) for current reduces total resistance for the whole circuit, as electrons are able to flow easier through the whole network of multiple branches than through any one of those branch resistances alone.  In terms of <i>resistance</i>, additional branches result in a lesser total (current meets with less opposition).  In terms of <i>conductance</i>, however, additional branches results in a greater total (electrons flow with greater conductance):
+</p>
+<p>
+Total parallel resistance is <i>less</i> than any one of the individual branch resistances because parallel resistors resist less together than they would separately:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00096.png"> </p>
+<p>
+Total parallel conductance is <i>greater</i> than any of the individual branch conductances because parallel resistors conduct better together than they would separately:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00097.png"> </p>
+<p>
+To be more precise, the total conductance in a parallel circuit is equal to the sum of the individual conductances:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10080.png"> </p>
+<p>
+If we know that conductance is nothing more than the mathematical reciprocal (1/x) of resistance, we can translate each term of the above formula into resistance by substituting the reciprocal of each respective conductance:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10081.png"> </p>
+<p>
+Solving the above equation for total resistance (instead of the reciprocal of total resistance), we can invert (reciprocate) both sides of the equation:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10082.png"> </p>
+<p>
+So, we arrive at our cryptic resistance formula at last!  Conductance (G) is seldom used as a practical measurement, and so the above formula is a common one to see in the analysis of parallel circuits.
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Conductance is the opposite of resistance: the measure of how <i>easy</i> it is for electrons to flow through something.</li>
+<li>Conductance is symbolized with the letter "G" and is measured in units of <i>mhos</i> or <i>Siemens</i>.</li>
+<li>Mathematically, conductance equals the reciprocal of resistance: G = 1/R</li>
+</ul>
+<h2 id="power-calculations">Power calculations</h2>
+<p>
+When calculating the power dissipation of resistive components, use any one of the three power equations to derive the answer from values of voltage, current, and/or resistance pertaining to each component:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10021.png"> </p>
+<p>
+This is easily managed by adding another row to our familiar table of voltages, currents, and resistances:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10084.png"> </p>
+<p>
+Power for any particular table column can be found by the appropriate Ohm's Law equation (<i>appropriate</i> based on what figures are present for E, I, and R in that column).
+</p>
+<p>
+An interesting rule for total power versus individual power is that it is additive for <i>any</i> configuration of circuit: series, parallel, series/parallel, or otherwise.  Power is a measure of rate of work, and since power dissipated <i>must</i> equal the total power applied by the source(s) (as per the Law of Conservation of Energy in physics), circuit configuration has no effect on the mathematics.
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Power is additive in <i>any</i> configuration of resistive circuit: P<sub>Total</sub> = P<sub>1</sub> + P<sub>2</sub> + . . . P<sub>n</sub></li>
+</ul>

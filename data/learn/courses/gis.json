@@ -1,0 +1,682 @@
+{
+ "title": "GIS & Geospatial Analysis",
+ "subtitle": "Raster and vector data, coordinate systems, remote sensing and making maps.",
+ "level": "Beginner",
+ "outcomes": [
+  "Distinguish raster and vector data and their uses",
+  "Work with coordinate reference systems",
+  "Understand satellite remote sensing data",
+  "Build layered maps in QGIS and Python"
+ ],
+ "skill": "gis",
+ "modules": [
+  {
+   "title": "Geospatial concepts",
+   "lessons": [
+    "gis-01",
+    "gis-02",
+    "gis-03",
+    "gis-04"
+   ]
+  },
+  {
+   "title": "Remote sensing",
+   "lessons": [
+    "gis-05",
+    "gis-06"
+   ]
+  },
+  {
+   "title": "Making maps",
+   "lessons": [
+    "gis-07",
+    "gis-08",
+    "gis-09",
+    "gis-10",
+    "gis-11",
+    "gis-12"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "gis-01",
+   "title": "Introduction to Raster Data",
+   "words": 1224,
+   "minutes": 7,
+   "source": "dc-geo",
+   "url": "https://github.com/datacarpentry/organization-geospatial/blob/5d96b1cd0bfd358c9a4e044dbfe9f73075656083/episodes/01-intro-raster-data.Rmd",
+   "toc": [
+    {
+     "id": "data-structures-raster-and-vector",
+     "text": "Data Structures: Raster and Vector",
+     "level": 2
+    },
+    {
+     "id": "about-raster-data",
+     "text": "About Raster Data",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "important-attributes-of-raster-data",
+     "text": "Important Attributes of Raster Data",
+     "level": 2
+    },
+    {
+     "id": "extent",
+     "text": "Extent",
+     "level": 3
+    },
+    {
+     "id": "resolution",
+     "text": "Resolution",
+     "level": 3
+    },
+    {
+     "id": "raster-data-format-for-this-workshop",
+     "text": "Raster Data Format for this Workshop",
+     "level": 2
+    },
+    {
+     "id": "multi-band-raster-data",
+     "text": "Multi-band Raster Data",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "gis-02",
+   "title": "Introduction to Vector Data",
+   "words": 882,
+   "minutes": 5,
+   "source": "dc-geo",
+   "url": "https://github.com/datacarpentry/organization-geospatial/blob/5d96b1cd0bfd358c9a4e044dbfe9f73075656083/episodes/02-intro-vector-data.Rmd",
+   "toc": [
+    {
+     "id": "about-vector-data",
+     "text": "About Vector Data",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "vector-data-format-for-this-workshop",
+     "text": "Vector Data Format for this Workshop",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "gis-03",
+   "title": "Coordinate Reference Systems",
+   "words": 1453,
+   "minutes": 8,
+   "source": "dc-geo",
+   "url": "https://github.com/datacarpentry/organization-geospatial/blob/5d96b1cd0bfd358c9a4e044dbfe9f73075656083/episodes/03-crs.Rmd",
+   "toc": [
+    {
+     "id": "coordinate-reference-systems",
+     "text": "Coordinate Reference Systems",
+     "level": 2
+    },
+    {
+     "id": "components-of-a-crs",
+     "text": "Components of a CRS",
+     "level": 2
+    },
+    {
+     "id": "which-projection-should-i-use",
+     "text": "Which projection should I use?",
+     "level": 2
+    },
+    {
+     "id": "describing-coordinate-reference-systems",
+     "text": "Describing Coordinate Reference Systems",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "format-interoperability",
+     "text": "Format interoperability",
+     "level": 2
+    },
+    {
+     "id": "metadata",
+     "text": "Metadata",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "gis-04",
+   "title": "The Geospatial Landscape",
+   "words": 1195,
+   "minutes": 6,
+   "source": "dc-geo",
+   "url": "https://github.com/datacarpentry/organization-geospatial/blob/5d96b1cd0bfd358c9a4e044dbfe9f73075656083/episodes/04-geo-landscape.Rmd",
+   "toc": [
+    {
+     "id": "standalone-software-packages",
+     "text": "Standalone Software Packages",
+     "level": 2
+    },
+    {
+     "id": "commercial-software",
+     "text": "Commercial software",
+     "level": 3
+    },
+    {
+     "id": "open-source-software",
+     "text": "Open-source software",
+     "level": 3
+    },
+    {
+     "id": "online-cloud-computing",
+     "text": "Online + Cloud computing",
+     "level": 3
+    },
+    {
+     "id": "gui-vs-cli",
+     "text": "GUI vs CLI",
+     "level": 2
+    },
+    {
+     "id": "gis-in-programming-languages",
+     "text": "GIS in programming languages",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "gis-05",
+   "title": "Earth observation data basics",
+   "words": 1790,
+   "minutes": 9,
+   "source": "nasa",
+   "url": "https://www.earthdata.nasa.gov/learn/earth-observation-data-basics",
+   "toc": [
+    {
+     "id": "remote-sensing",
+     "text": "Remote Sensing",
+     "level": 2
+    },
+    {
+     "id": "get-data",
+     "text": "Get Data",
+     "level": 3
+    },
+    {
+     "id": "remote-sensing-data-basics",
+     "text": "Remote Sensing Data Basics",
+     "level": 2
+    },
+    {
+     "id": "orbits",
+     "text": "Orbits",
+     "level": 2
+    },
+    {
+     "id": "resolution",
+     "text": "Resolution",
+     "level": 2
+    },
+    {
+     "id": "the-electromagnetic-spectrum",
+     "text": "The Electromagnetic Spectrum",
+     "level": 2
+    },
+    {
+     "id": "active-instruments",
+     "text": "Active Instruments",
+     "level": 2
+    },
+    {
+     "id": "passive-instruments",
+     "text": "Passive Instruments",
+     "level": 2
+    },
+    {
+     "id": "essential-variables",
+     "text": "Essential Variables",
+     "level": 2
+    },
+    {
+     "id": "data-processing-interpretation-and-analysis",
+     "text": "Data Processing, Interpretation, and Analysis",
+     "level": 2
+    },
+    {
+     "id": "field-spectroscopy",
+     "text": "Field Spectroscopy",
+     "level": 2
+    },
+    {
+     "id": "understanding-metadata",
+     "text": "Understanding Metadata",
+     "level": 2
+    },
+    {
+     "id": "parts-of-the-earthdata-dataset-landing-page",
+     "text": "Parts of the Earthdata Dataset Landing Page",
+     "level": 3
+    },
+    {
+     "id": "technology",
+     "text": "Technology",
+     "level": 2
+    },
+    {
+     "id": "cloud-computing",
+     "text": "Cloud Computing",
+     "level": 3
+    },
+    {
+     "id": "earth-observation-data-and-artificial-intelligence",
+     "text": "Earth Observation Data and Artificial Intelligence",
+     "level": 3
+    },
+    {
+     "id": "synthetic-aperture-radar",
+     "text": "Synthetic Aperture Radar",
+     "level": 2
+    },
+    {
+     "id": "synthetic-aperture-radar-sar",
+     "text": "Synthetic Aperture Radar (SAR)",
+     "level": 2
+    },
+    {
+     "id": "the-sar-handbook",
+     "text": "The SAR Handbook",
+     "level": 2
+    },
+    {
+     "id": "types-of-sar-products",
+     "text": "Types of SAR Products",
+     "level": 2
+    },
+    {
+     "id": "sar-image-interpretation",
+     "text": "SAR Image Interpretation",
+     "level": 2
+    },
+    {
+     "id": "join-our-community-of-nasa-data-users",
+     "text": "Join Our Community of NASA Data Users",
+     "level": 2
+    },
+    {
+     "id": "orbits-x",
+     "text": "Orbits",
+     "level": 2
+    },
+    {
+     "id": "resolution-x",
+     "text": "Resolution",
+     "level": 2
+    },
+    {
+     "id": "the-electromagnetic-spectrum-x",
+     "text": "The Electromagnetic Spectrum",
+     "level": 2
+    },
+    {
+     "id": "active-instruments-x",
+     "text": "Active Instruments",
+     "level": 2
+    },
+    {
+     "id": "passive-instruments-x",
+     "text": "Passive Instruments",
+     "level": 2
+    },
+    {
+     "id": "essential-variables-x",
+     "text": "Essential Variables",
+     "level": 2
+    },
+    {
+     "id": "data-processing-interpretation-and-analysis-x",
+     "text": "Data Processing, Interpretation, and Analysis",
+     "level": 2
+    },
+    {
+     "id": "field-spectroscopy-x",
+     "text": "Field Spectroscopy",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "gis-06",
+   "title": "Data processing levels",
+   "words": 450,
+   "minutes": 3,
+   "source": "nasa",
+   "url": "https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/data-processing-levels",
+   "toc": []
+  },
+  {
+   "id": "gis-07",
+   "title": "Installing QGIS 2.0 and Adding Layers",
+   "words": 2866,
+   "minutes": 15,
+   "source": "ph",
+   "url": "https://github.com/programminghistorian/jekyll/blob/ba71ab64b66ac27d2486d76cd1e6506d4fb13339/en/lessons/qgis-layers.md",
+   "toc": [
+    {
+     "id": "lesson-goals",
+     "text": "Lesson Goals",
+     "level": 2
+    },
+    {
+     "id": "installing-qgis",
+     "text": "Installing QGIS",
+     "level": 2
+    },
+    {
+     "id": "prince-edward-island-data",
+     "text": "Prince Edward Island Data",
+     "level": 3
+    },
+    {
+     "id": "starting-your-gis-project",
+     "text": "Starting Your GIS Project",
+     "level": 2
+    },
+    {
+     "id": "building-a-base-map",
+     "text": "Building a Base Map",
+     "level": 3
+    },
+    {
+     "id": "opening-vectors",
+     "text": "Opening Vectors",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "gis-08",
+   "title": "Creating New Vector Layers in QGIS 2.0",
+   "words": 2664,
+   "minutes": 14,
+   "source": "ph",
+   "url": "https://github.com/programminghistorian/jekyll/blob/ba71ab64b66ac27d2486d76cd1e6506d4fb13339/en/lessons/vector-layers-qgis.md",
+   "toc": [
+    {
+     "id": "lesson-goals",
+     "text": "Lesson Goals",
+     "level": 2
+    },
+    {
+     "id": "getting-started",
+     "text": "Getting Started",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "gis-09",
+   "title": "Georeferencing in QGIS 2.0",
+   "words": 1872,
+   "minutes": 10,
+   "source": "ph",
+   "url": "https://github.com/programminghistorian/jekyll/blob/ba71ab64b66ac27d2486d76cd1e6506d4fb13339/en/lessons/georeferencing-qgis.md",
+   "toc": [
+    {
+     "id": "lesson-goals",
+     "text": "Lesson Goals",
+     "level": 2
+    },
+    {
+     "id": "getting-started",
+     "text": "Getting Started",
+     "level": 2
+    },
+    {
+     "id": "open-the-necessary-gis-layers",
+     "text": "Open the Necessary GIS Layers",
+     "level": 2
+    },
+    {
+     "id": "open-the-georeferencer-tool",
+     "text": "Open the Georeferencer Tool",
+     "level": 2
+    },
+    {
+     "id": "georeference",
+     "text": "Georeference!",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "gis-10",
+   "title": "Introduction",
+   "words": 2790,
+   "minutes": 14,
+   "source": "ph",
+   "url": "https://github.com/programminghistorian/jekyll/blob/ba71ab64b66ac27d2486d76cd1e6506d4fb13339/en/lessons/choropleth-maps-python-folium.md",
+   "toc": [
+    {
+     "id": "lesson-goals",
+     "text": "Lesson Goals",
+     "level": 3
+    },
+    {
+     "id": "other-programming-historian-lessons",
+     "text": "Other Programming Historian lessons",
+     "level": 3
+    },
+    {
+     "id": "lesson-prerequisites",
+     "text": "Lesson Prerequisites",
+     "level": 2
+    },
+    {
+     "id": "python-pandas-and-geopandas",
+     "text": "Python, Pandas, and GeoPandas",
+     "level": 3
+    },
+    {
+     "id": "folium",
+     "text": "Folium",
+     "level": 3
+    },
+    {
+     "id": "google-colab",
+     "text": "Google Colab",
+     "level": 3
+    },
+    {
+     "id": "getting-started",
+     "text": "Getting Started",
+     "level": 2
+    },
+    {
+     "id": "importing-the-libraries",
+     "text": "Importing the Libraries",
+     "level": 3
+    },
+    {
+     "id": "getting-the-fatal-force-data",
+     "text": "Getting the Fatal Force Data",
+     "level": 3
+    },
+    {
+     "id": "inspecting-the-fatal-force-data",
+     "text": "Inspecting the Fatal Force Data",
+     "level": 3
+    },
+    {
+     "id": "getting-the-county-geometry-data",
+     "text": "Getting the County Geometry Data",
+     "level": 3
+    },
+    {
+     "id": "matching-the-two-datasets",
+     "text": "Matching the two Datasets",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "gis-11",
+   "title": "Creating your First Map",
+   "words": 2886,
+   "minutes": 15,
+   "source": "ph",
+   "url": "https://github.com/programminghistorian/jekyll/blob/ba71ab64b66ac27d2486d76cd1e6506d4fb13339/en/lessons/choropleth-maps-python-folium.md",
+   "toc": [
+    {
+     "id": "counting-the-data-by-county",
+     "text": "Counting the Data by County",
+     "level": 3
+    },
+    {
+     "id": "initializing-a-basic-map",
+     "text": "Initializing a Basic Map",
+     "level": 3
+    },
+    {
+     "id": "the-problem-of-unevenly-distributed-data",
+     "text": "The Problem of Unevenly Distributed Data",
+     "level": 2
+    },
+    {
+     "id": "solution-1-the-fisher-jenks-algorithm",
+     "text": "Solution 1: The Fisher-Jenks Algorithm",
+     "level": 3
+    },
+    {
+     "id": "solution-2-creating-a-logarithmic-scale",
+     "text": "Solution 2: Creating a Logarithmic Scale",
+     "level": 3
+    },
+    {
+     "id": "normalizing-population-data",
+     "text": "Normalizing Population Data",
+     "level": 2
+    },
+    {
+     "id": "getting-county-level-population-data",
+     "text": "Getting County-level Population Data",
+     "level": 3
+    },
+    {
+     "id": "adding-county-population-data-to-the-map-dataframe",
+     "text": "Adding County Population Data to the Map DataFrame",
+     "level": 3
+    },
+    {
+     "id": "calculating-the-rate-of-people-killed-per-100k",
+     "text": "Calculating the Rate of People Killed (per 100k)",
+     "level": 3
+    },
+    {
+     "id": "recreating-the-map-with-rates-instead-of-raw-counts",
+     "text": "Recreating the Map with Rates instead of Raw Counts",
+     "level": 3
+    },
+    {
+     "id": "uneven-distribution-of-normalized-data",
+     "text": "Uneven Distribution of Normalized Data",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "gis-12",
+   "title": "Adding an Information Box to the Map",
+   "words": 1186,
+   "minutes": 6,
+   "source": "ph",
+   "url": "https://github.com/programminghistorian/jekyll/blob/ba71ab64b66ac27d2486d76cd1e6506d4fb13339/en/lessons/choropleth-maps-python-folium.md",
+   "toc": [
+    {
+     "id": "adding-data-to-the-geojson-property-dictionary",
+     "text": "Adding Data to the GeoJSON Property Dictionary",
+     "level": 3
+    },
+    {
+     "id": "adding-multiple-data-elements-to-the-information-box",
+     "text": "Adding Multiple Data Elements to the Information Box",
+     "level": 3
+    },
+    {
+     "id": "saving-your-maps",
+     "text": "Saving Your Maps",
+     "level": 2
+    },
+    {
+     "id": "conclusion",
+     "text": "Conclusion",
+     "level": 2
+    },
+    {
+     "id": "acknowledgments",
+     "text": "Acknowledgments",
+     "level": 3
+    },
+    {
+     "id": "footnotes",
+     "text": "Footnotes",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [],
+  "pass_mark": 0,
+  "missing": true
+ },
+ "minutes": 112,
+ "sources": [
+  {
+   "id": "dc-geo",
+   "name": "Data Carpentry · Introduction to Geospatial Concepts",
+   "url": "https://datacarpentry.github.io/organization-geospatial/",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "© The Carpentries, CC BY 4.0",
+   "noncommercial": false
+  },
+  {
+   "id": "nasa",
+   "name": "NASA Earthdata",
+   "url": "https://www.earthdata.nasa.gov/learn",
+   "license": "Public domain (U.S. Government work)",
+   "license_url": "https://www.usa.gov/government-copyright",
+   "attribution": "NASA — a U.S. Government work, not subject to copyright",
+   "noncommercial": false
+  },
+  {
+   "id": "ph",
+   "name": "The Programming Historian",
+   "url": "https://programminghistorian.org/",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "© The Programming Historian, CC BY 4.0",
+   "noncommercial": false
+  }
+ ]
+}

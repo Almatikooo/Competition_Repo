@@ -1,0 +1,519 @@
+{
+ "title": "Solar PV Systems",
+ "subtitle": "How sunlight becomes electricity — cells, modules, system design, grid integration and going solar.",
+ "level": "Beginner",
+ "outcomes": [
+  "Explain solar radiation and how photovoltaic cells work",
+  "Compare PV technologies and what limits their efficiency",
+  "Describe how PV systems are designed and connected to the grid",
+  "Plan a solar installation and its end of life"
+ ],
+ "skill": "solar_pv",
+ "modules": [
+  {
+   "title": "Solar energy basics",
+   "lessons": [
+    "solar_pv-01",
+    "solar_pv-02",
+    "solar_pv-03"
+   ]
+  },
+  {
+   "title": "Photovoltaic technology",
+   "lessons": [
+    "solar_pv-04",
+    "solar_pv-05",
+    "solar_pv-06",
+    "solar_pv-07"
+   ]
+  },
+  {
+   "title": "PV systems and the grid",
+   "lessons": [
+    "solar_pv-08",
+    "solar_pv-09",
+    "solar_pv-10"
+   ]
+  },
+  {
+   "title": "Going solar",
+   "lessons": [
+    "solar_pv-11",
+    "solar_pv-12",
+    "solar_pv-13"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "solar_pv-01",
+   "title": "U.S. Energy Information Administration - EIA - Independent Statistics and Analysis",
+   "words": 299,
+   "minutes": 3,
+   "source": "eia",
+   "url": "https://www.eia.gov/energyexplained/solar/",
+   "toc": [
+    {
+     "id": "energy-from-the-sun",
+     "text": "Energy from the sun",
+     "level": 2
+    },
+    {
+     "id": "solar-thermal-heat-energy",
+     "text": "Solar thermal (heat) energy",
+     "level": 2
+    },
+    {
+     "id": "solar-photovoltaic-systems",
+     "text": "Solar photovoltaic systems",
+     "level": 2
+    },
+    {
+     "id": "benefits-and-limitations-of-solar-energy",
+     "text": "Benefits and limitations of solar energy",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "solar_pv-02",
+   "title": "How does solar work?",
+   "words": 964,
+   "minutes": 5,
+   "source": "doe",
+   "url": "https://www.energy.gov/cmei/systems/how-does-solar-work",
+   "toc": [
+    {
+     "id": "photovoltaics-basics",
+     "text": "Photovoltaics Basics",
+     "level": 2
+    },
+    {
+     "id": "concentrating-solar-thermal-power-basics",
+     "text": "Concentrating Solar-Thermal Power Basics",
+     "level": 2
+    },
+    {
+     "id": "learn-more",
+     "text": "Learn More",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "solar_pv-03",
+   "title": "Solar Radiation Basics",
+   "words": 646,
+   "minutes": 4,
+   "source": "doe",
+   "url": "https://www.energy.gov/cmei/systems/solar-radiation-basics",
+   "toc": [
+    {
+     "id": "what-is-solar-radiation",
+     "text": "What Is Solar Radiation?",
+     "level": 2
+    },
+    {
+     "id": "learn-more",
+     "text": "Learn More",
+     "level": 2
+    },
+    {
+     "id": "how-does-solar-radiation-work",
+     "text": "How Does Solar Radiation Work?",
+     "level": 2
+    },
+    {
+     "id": "types-of-solar-radiation",
+     "text": "Types of Solar Radiation",
+     "level": 2
+    },
+    {
+     "id": "measuring-solar-radiation",
+     "text": "Measuring Solar Radiation",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "solar_pv-04",
+   "title": "U.S. Energy Information Administration - EIA - Independent Statistics and Analysis",
+   "words": 972,
+   "minutes": 5,
+   "source": "eia",
+   "url": "https://www.eia.gov/energyexplained/solar/photovoltaics-and-electricity.php",
+   "toc": [
+    {
+     "id": "photovoltaic-cells",
+     "text": "Photovoltaic cells",
+     "level": 2
+    },
+    {
+     "id": "the-flow-of-electricity-in-a-solar-cell",
+     "text": "The flow of electricity in a solar cell",
+     "level": 2
+    },
+    {
+     "id": "pv-cells-panels-and-arrays",
+     "text": "PV cells, panels, and arrays",
+     "level": 2
+    },
+    {
+     "id": "pv-system-efficiency",
+     "text": "PV system efficiency",
+     "level": 2
+    },
+    {
+     "id": "pv-system-applications",
+     "text": "PV system applications",
+     "level": 2
+    },
+    {
+     "id": "history-of-pv-systems",
+     "text": "History of PV systems",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "solar_pv-05",
+   "title": "PV technology and cells",
+   "words": 1517,
+   "minutes": 8,
+   "source": "doe",
+   "url": "https://www.energy.gov/cmei/systems/solar-photovoltaic-technology-basics",
+   "toc": [
+    {
+     "id": "solar-photovoltaic-technology-basics",
+     "text": "Solar Photovoltaic Technology Basics",
+     "level": 2
+    },
+    {
+     "id": "what-is-photovoltaic-technology",
+     "text": "What Is Photovoltaic Technology?",
+     "level": 3
+    },
+    {
+     "id": "learn-more",
+     "text": "Learn More",
+     "level": 3
+    },
+    {
+     "id": "what-is-a-photovoltaic-system",
+     "text": "What Is a Photovoltaic System?",
+     "level": 3
+    },
+    {
+     "id": "photovoltaic-technology-basics",
+     "text": "Photovoltaic Technology Basics",
+     "level": 3
+    },
+    {
+     "id": "solar-photovoltaic-cell-basics",
+     "text": "Solar Photovoltaic Cell Basics",
+     "level": 2
+    },
+    {
+     "id": "what-is-a-solar-photovoltaic-cell",
+     "text": "What Is a Solar Photovoltaic Cell?",
+     "level": 3
+    },
+    {
+     "id": "learn-more",
+     "text": "Learn More",
+     "level": 3
+    },
+    {
+     "id": "how-do-photovoltaic-cells-work",
+     "text": "How Do Photovoltaic Cells Work?",
+     "level": 3
+    },
+    {
+     "id": "types-of-photovoltaic-cells",
+     "text": "Types of Photovoltaic Cells",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "solar_pv-06",
+   "title": "Solar Photovoltaic Performance and Efficiency Basics",
+   "words": 611,
+   "minutes": 4,
+   "source": "doe",
+   "url": "https://www.energy.gov/cmei/systems/solar-photovoltaic-performance-and-efficiency-basics",
+   "toc": [
+    {
+     "id": "factors-affecting-conversion-efficiency",
+     "text": "Factors Affecting Conversion Efficiency",
+     "level": 2
+    },
+    {
+     "id": "determining-conversion-efficiency",
+     "text": "Determining Conversion Efficiency",
+     "level": 2
+    },
+    {
+     "id": "additional-information",
+     "text": "Additional Information",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "solar_pv-07",
+   "title": "Solar Photovoltaic Manufacturing Basics",
+   "words": 1174,
+   "minutes": 6,
+   "source": "doe",
+   "url": "https://www.energy.gov/cmei/systems/solar-photovoltaic-manufacturing-basics",
+   "toc": [
+    {
+     "id": "pv-module-manufacturing",
+     "text": "PV Module Manufacturing",
+     "level": 2
+    },
+    {
+     "id": "racking-systems",
+     "text": "Racking Systems",
+     "level": 2
+    },
+    {
+     "id": "power-electronics",
+     "text": "Power Electronics",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "solar_pv-08",
+   "title": "Solar Photovoltaic System Design Basics",
+   "words": 656,
+   "minutes": 4,
+   "source": "doe",
+   "url": "https://www.energy.gov/cmei/systems/solar-photovoltaic-system-design-basics",
+   "toc": []
+  },
+  {
+   "id": "solar_pv-09",
+   "title": "Photovoltaic System Design and Energy Yield",
+   "words": 751,
+   "minutes": 4,
+   "source": "doe",
+   "url": "https://www.energy.gov/cmei/systems/photovoltaic-system-design-and-energy-yield",
+   "toc": [
+    {
+     "id": "what-is-photovoltaic-system-design-and-energy-yield",
+     "text": "What is Photovoltaic System Design and Energy Yield?",
+     "level": 3
+    },
+    {
+     "id": "why-is-pv-system-design-and-energy-yield-important",
+     "text": "Why is PV System Design and Energy Yield important?",
+     "level": 3
+    },
+    {
+     "id": "seto-research-in-pv-system-design-and-energy-yield",
+     "text": "SETO Research in PV System Design and Energy Yield",
+     "level": 3
+    },
+    {
+     "id": "additional-resources",
+     "text": "Additional Resources",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "solar_pv-10",
+   "title": "Solar Integration: Inverters and Grid Services Basics",
+   "words": 1292,
+   "minutes": 7,
+   "source": "doe",
+   "url": "https://www.energy.gov/cmei/systems/solar-integration-inverters-and-grid-services-basics",
+   "toc": [
+    {
+     "id": "what-are-inverters",
+     "text": "What are Inverters?",
+     "level": 3
+    },
+    {
+     "id": "toward-an-inverter-based-grid",
+     "text": "Toward an Inverter-Based Grid",
+     "level": 3
+    },
+    {
+     "id": "grid-services-and-inverters",
+     "text": "Grid Services and Inverters",
+     "level": 3
+    },
+    {
+     "id": "types-of-inverters",
+     "text": "Types of Inverters",
+     "level": 3
+    },
+    {
+     "id": "additional-information",
+     "text": "Additional Information",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "solar_pv-11",
+   "title": "Homeowner’s Guide to Solar",
+   "words": 3291,
+   "minutes": 17,
+   "source": "doe",
+   "url": "https://www.energy.gov/cmei/systems/homeowners-guide-solar",
+   "toc": [
+    {
+     "id": "is-solar-for-me",
+     "text": "Is Solar for Me?",
+     "level": 2
+    },
+    {
+     "id": "getting-started",
+     "text": "Getting Started",
+     "level": 2
+    },
+    {
+     "id": "paying-for-solar",
+     "text": "Paying for Solar",
+     "level": 2
+    },
+    {
+     "id": "real-estate",
+     "text": "Real Estate",
+     "level": 2
+    },
+    {
+     "id": "the-basics",
+     "text": "The Basics",
+     "level": 2
+    },
+    {
+     "id": "learn-more-about-how-to-go-solar",
+     "text": "Learn More About How to Go Solar",
+     "level": 2
+    },
+    {
+     "id": "read-stories-from-solar-homeowners",
+     "text": "Read Stories from Solar Homeowners",
+     "level": 2
+    },
+    {
+     "id": "more-on-the-solar-office",
+     "text": "More on the Solar Office",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "solar_pv-12",
+   "title": "U.S. Energy Information Administration - EIA - Independent Statistics and Analysis",
+   "words": 789,
+   "minutes": 4,
+   "source": "eia",
+   "url": "https://www.eia.gov/energyexplained/solar/where-solar-is-found.php",
+   "toc": [
+    {
+     "id": "solar-energy-is-sunshine",
+     "text": "Solar energy is sunshine",
+     "level": 2
+    },
+    {
+     "id": "solar-energy-resources-vary-by-location",
+     "text": "Solar energy resources vary by location",
+     "level": 2
+    },
+    {
+     "id": "electricity-generation-is-the-top-use-of-solar-energy-in-the",
+     "text": "Electricity generation is the top use of solar energy in the United States",
+     "level": 2
+    },
+    {
+     "id": "solar-energy-is-used-throughout-the-world",
+     "text": "Solar energy is used throughout the world",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "solar_pv-13",
+   "title": "End-of-Life Management for Solar Photovoltaics",
+   "words": 1339,
+   "minutes": 7,
+   "source": "doe",
+   "url": "https://www.energy.gov/cmei/systems/end-life-management-solar-photovoltaics",
+   "toc": [
+    {
+     "id": "what-is-end-of-life-management-for-photovoltaics",
+     "text": "What is End-of-Life Management for Photovoltaics?",
+     "level": 2
+    },
+    {
+     "id": "why-is-pv-end-of-life-management-important",
+     "text": "Why Is PV End-of-Life Management Important?",
+     "level": 2
+    },
+    {
+     "id": "can-pv-modules-be-recycled",
+     "text": "Can PV Modules Be Recycled?",
+     "level": 2
+    },
+    {
+     "id": "full-lifecycle-approach-to-pv-end-of-life-management",
+     "text": "Full Lifecycle Approach to PV End-of-Life Management",
+     "level": 2
+    },
+    {
+     "id": "research-in-pv-end-of-life-management",
+     "text": "Research in PV End-of-Life Management",
+     "level": 2
+    },
+    {
+     "id": "additional-awards",
+     "text": "Additional Awards",
+     "level": 2
+    },
+    {
+     "id": "additional-resources",
+     "text": "Additional Resources",
+     "level": 2
+    },
+    {
+     "id": "learn-more",
+     "text": "Learn More",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [],
+  "pass_mark": 0,
+  "missing": true
+ },
+ "minutes": 78,
+ "sources": [
+  {
+   "id": "doe",
+   "name": "U.S. Department of Energy",
+   "url": "https://www.energy.gov/",
+   "license": "Public domain (U.S. Government work)",
+   "license_url": "https://www.usa.gov/government-copyright",
+   "attribution": "U.S. Department of Energy — a U.S. Government work, not subject to copyright",
+   "noncommercial": false
+  },
+  {
+   "id": "eia",
+   "name": "U.S. EIA · Energy Explained",
+   "url": "https://www.eia.gov/energyexplained/",
+   "license": "Public domain (U.S. Government work)",
+   "license_url": "https://www.usa.gov/government-copyright",
+   "attribution": "U.S. Energy Information Administration — a U.S. Government work, not subject to copyright",
+   "noncommercial": false
+  }
+ ]
+}

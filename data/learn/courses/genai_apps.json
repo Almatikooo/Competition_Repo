@@ -1,0 +1,1372 @@
+{
+ "title": "Building Generative AI Applications",
+ "subtitle": "Large language models, chat and search apps, RAG, function calling and AI agents.",
+ "level": "Intermediate",
+ "outcomes": [
+  "Explain how large language models work and compare them",
+  "Build text-generation, chat and search applications",
+  "Ground answers in your own data with RAG",
+  "Design AI agents that use tools"
+ ],
+ "skill": "genai_apps",
+ "modules": [
+  {
+   "title": "Foundations",
+   "lessons": [
+    "genai_apps-01",
+    "genai_apps-02"
+   ]
+  },
+  {
+   "title": "Building apps",
+   "lessons": [
+    "genai_apps-03",
+    "genai_apps-04",
+    "genai_apps-05",
+    "genai_apps-06",
+    "genai_apps-07"
+   ]
+  },
+  {
+   "title": "Grounding and customising",
+   "lessons": [
+    "genai_apps-08",
+    "genai_apps-09",
+    "genai_apps-10",
+    "genai_apps-11"
+   ]
+  },
+  {
+   "title": "AI agents",
+   "lessons": [
+    "genai_apps-12",
+    "genai_apps-13",
+    "genai_apps-14",
+    "genai_apps-15"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "genai_apps-01",
+   "title": "Introduction to Generative AI and Large Language Models",
+   "words": 1831,
+   "minutes": 10,
+   "source": "ms-genai",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/01-introduction-to-genai/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "learning-goals",
+     "text": "Learning Goals",
+     "level": 2
+    },
+    {
+     "id": "scenario-our-educational-startup",
+     "text": "Scenario: our educational startup",
+     "level": 2
+    },
+    {
+     "id": "how-did-we-get-generative-ai",
+     "text": "How did we get Generative AI?",
+     "level": 2
+    },
+    {
+     "id": "a-statistical-approach-to-ai-machine-learning",
+     "text": "A statistical approach to AI: Machine Learning",
+     "level": 3
+    },
+    {
+     "id": "neural-networks-and-modern-virtual-assistants",
+     "text": "Neural networks and modern virtual assistants",
+     "level": 3
+    },
+    {
+     "id": "present-day-generative-ai",
+     "text": "Present day, Generative AI",
+     "level": 3
+    },
+    {
+     "id": "how-do-large-language-models-work",
+     "text": "How do large language models work?",
+     "level": 2
+    },
+    {
+     "id": "how-can-our-startup-leverage-large-language-models",
+     "text": "How can our startup leverage Large Language Models?",
+     "level": 2
+    },
+    {
+     "id": "knowledge-check",
+     "text": "Knowledge check",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "genai_apps-02",
+   "title": "Exploring and comparing different LLMs",
+   "words": 2741,
+   "minutes": 14,
+   "source": "ms-genai",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/02-exploring-and-comparing-different-llms/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "learning-goals",
+     "text": "Learning Goals",
+     "level": 2
+    },
+    {
+     "id": "understand-different-types-of-llms",
+     "text": "Understand different types of LLMs",
+     "level": 2
+    },
+    {
+     "id": "foundation-models-versus-llms",
+     "text": "Foundation Models versus LLMs",
+     "level": 3
+    },
+    {
+     "id": "open-weight-open-source-versus-proprietary-models",
+     "text": "Open-Weight/Open-Source versus Proprietary Models",
+     "level": 3
+    },
+    {
+     "id": "embedding-versus-image-generation-versus-text-and-code-gener",
+     "text": "Embedding versus Image generation versus Text and Code generation",
+     "level": 3
+    },
+    {
+     "id": "encoder-decoder-versus-decoder-only",
+     "text": "Encoder-Decoder versus Decoder-only",
+     "level": 3
+    },
+    {
+     "id": "service-versus-model",
+     "text": "Service versus Model",
+     "level": 3
+    },
+    {
+     "id": "how-to-test-and-iterate-with-different-models-to-understand-",
+     "text": "How to test and iterate with different models to understand performance on Azure",
+     "level": 2
+    },
+    {
+     "id": "improving-llm-results",
+     "text": "Improving LLM results",
+     "level": 2
+    },
+    {
+     "id": "prompt-engineering-with-context",
+     "text": "Prompt Engineering with Context",
+     "level": 3
+    },
+    {
+     "id": "retrieval-augmented-generation-rag",
+     "text": "Retrieval Augmented Generation (RAG)",
+     "level": 3
+    },
+    {
+     "id": "fine-tuned-model",
+     "text": "Fine-tuned model",
+     "level": 3
+    },
+    {
+     "id": "trained-model",
+     "text": "Trained model",
+     "level": 3
+    },
+    {
+     "id": "knowledge-check",
+     "text": "Knowledge check",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "great-work-continue-your-learning",
+     "text": "Great Work, Continue Your Learning",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "genai_apps-03",
+   "title": "Building Text Generation Applications",
+   "words": 2482,
+   "minutes": 13,
+   "source": "ms-genai",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/06-text-generation-apps/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "learning-goals",
+     "text": "Learning goals",
+     "level": 2
+    },
+    {
+     "id": "what-is-a-text-generation-app",
+     "text": "What is a text generation app?",
+     "level": 2
+    },
+    {
+     "id": "console-and-ui-apps-are-limited",
+     "text": "Console and UI apps are limited",
+     "level": 3
+    },
+    {
+     "id": "benefits-of-text-generation-apps",
+     "text": "Benefits of text generation apps",
+     "level": 3
+    },
+    {
+     "id": "what-can-i-build-with-a-text-generation-app",
+     "text": "What can I build with a text generation app?",
+     "level": 3
+    },
+    {
+     "id": "how-can-i-get-started",
+     "text": "How can I get started?",
+     "level": 2
+    },
+    {
+     "id": "libraries-sdks",
+     "text": "Libraries/SDKs",
+     "level": 2
+    },
+    {
+     "id": "first-app-using-openai",
+     "text": "First app using openai",
+     "level": 2
+    },
+    {
+     "id": "install-openai",
+     "text": "Install openai",
+     "level": 3
+    },
+    {
+     "id": "create-a-resource",
+     "text": "Create a resource",
+     "level": 3
+    },
+    {
+     "id": "locate-api-key-and-endpoint",
+     "text": "Locate API key and endpoint",
+     "level": 3
+    },
+    {
+     "id": "setup-configuration-azure",
+     "text": "Setup configuration Azure",
+     "level": 3
+    },
+    {
+     "id": "generate-text",
+     "text": "Generate text",
+     "level": 2
+    },
+    {
+     "id": "multi-turn-conversations",
+     "text": "Multi-turn conversations",
+     "level": 3
+    },
+    {
+     "id": "exercise-your-first-text-generation-app",
+     "text": "Exercise - your first text generation app",
+     "level": 2
+    },
+    {
+     "id": "different-types-of-prompts-for-different-things",
+     "text": "Different types of prompts, for different things",
+     "level": 2
+    },
+    {
+     "id": "a-more-practical-use-case-a-recipe-generator",
+     "text": "A more practical use case: a recipe generator",
+     "level": 2
+    },
+    {
+     "id": "exercise-build-a-recipe-generator",
+     "text": "Exercise - build a recipe generator",
+     "level": 2
+    },
+    {
+     "id": "improve-by-adding-filter-and-shopping-list",
+     "text": "Improve by adding filter and shopping list",
+     "level": 3
+    },
+    {
+     "id": "improve-your-setup",
+     "text": "Improve your setup",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "study-buddy",
+     "text": "Study buddy",
+     "level": 3
+    },
+    {
+     "id": "history-bot",
+     "text": "History bot",
+     "level": 3
+    },
+    {
+     "id": "knowledge-check",
+     "text": "Knowledge check",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "genai_apps-04",
+   "title": "Building Generative AI-Powered Chat Applications",
+   "words": 2200,
+   "minutes": 11,
+   "source": "ms-genai",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/07-building-chat-applications/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "learning-goals",
+     "text": "Learning Goals",
+     "level": 2
+    },
+    {
+     "id": "integrating-generative-ai-into-chat-applications",
+     "text": "Integrating Generative AI into Chat Applications",
+     "level": 2
+    },
+    {
+     "id": "chatbot-or-chat-application",
+     "text": "Chatbot or Chat application?",
+     "level": 3
+    },
+    {
+     "id": "leveraging-pre-built-functionalities-with-sdks-and-apis",
+     "text": "Leveraging pre-built functionalities with SDKs and APIs",
+     "level": 3
+    },
+    {
+     "id": "user-experience-ux",
+     "text": "User Experience (UX)",
+     "level": 2
+    },
+    {
+     "id": "microsoft-s-system-message-framework-for-large-language-mode",
+     "text": "Microsoft's System Message Framework for Large Language Models",
+     "level": 3
+    },
+    {
+     "id": "accessibility",
+     "text": "Accessibility",
+     "level": 3
+    },
+    {
+     "id": "customization-and-fine-tuning-for-domain-specific-language-m",
+     "text": "Customization and Fine-tuning for Domain-Specific Language Models",
+     "level": 2
+    },
+    {
+     "id": "customization-using-a-dsl",
+     "text": "Customization: Using a DSL",
+     "level": 2
+    },
+    {
+     "id": "customization-apply-fine-tuning",
+     "text": "Customization: Apply fine-tuning",
+     "level": 2
+    },
+    {
+     "id": "scenario-a-medical-application",
+     "text": "Scenario: a medical application",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-a-high-quality-ai-driven-chat-experience",
+     "text": "Considerations for a High Quality AI-Driven Chat Experience",
+     "level": 2
+    },
+    {
+     "id": "key-metrics",
+     "text": "Key Metrics",
+     "level": 3
+    },
+    {
+     "id": "implementing-responsible-ai-practices-in-chat-applications",
+     "text": "Implementing Responsible AI Practices in Chat Applications",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "genai_apps-05",
+   "title": "Building a Search Applications",
+   "words": 1247,
+   "minutes": 7,
+   "source": "ms-genai",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/08-building-search-applications/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "learning-goals",
+     "text": "Learning Goals",
+     "level": 2
+    },
+    {
+     "id": "why-build-a-search-application",
+     "text": "Why build a search application?",
+     "level": 2
+    },
+    {
+     "id": "what-is-semantic-search",
+     "text": "What is semantic search?",
+     "level": 2
+    },
+    {
+     "id": "what-are-text-embeddings",
+     "text": "What are Text Embeddings?",
+     "level": 2
+    },
+    {
+     "id": "how-is-the-embedding-index-created",
+     "text": "How is the Embedding index created?",
+     "level": 2
+    },
+    {
+     "id": "vector-databases",
+     "text": "Vector Databases",
+     "level": 3
+    },
+    {
+     "id": "understanding-cosine-similarity",
+     "text": "Understanding cosine similarity",
+     "level": 2
+    },
+    {
+     "id": "what-is-cosine-similarity",
+     "text": "What is cosine similarity?",
+     "level": 3
+    },
+    {
+     "id": "building-your-first-search-application",
+     "text": "Building your first search application",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "genai_apps-06",
+   "title": "Integrating with function calling",
+   "words": 1952,
+   "minutes": 10,
+   "source": "ms-genai",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/11-integrating-with-function-calling/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "learning-goals",
+     "text": "Learning Goals",
+     "level": 2
+    },
+    {
+     "id": "scenario-improving-our-chatbot-with-functions",
+     "text": "Scenario: Improving our chatbot with functions",
+     "level": 2
+    },
+    {
+     "id": "why-function-calling",
+     "text": "Why Function Calling",
+     "level": 2
+    },
+    {
+     "id": "illustrating-the-problem-through-a-scenario",
+     "text": "Illustrating the problem through a scenario",
+     "level": 2
+    },
+    {
+     "id": "use-cases-for-using-function-calls",
+     "text": "Use Cases for using function calls",
+     "level": 2
+    },
+    {
+     "id": "creating-your-first-function-call",
+     "text": "Creating Your First Function Call",
+     "level": 2
+    },
+    {
+     "id": "step-1-creating-messages",
+     "text": "Step 1 - creating messages",
+     "level": 3
+    },
+    {
+     "id": "step-2-creating-functions",
+     "text": "Step 2 - creating functions",
+     "level": 3
+    },
+    {
+     "id": "step-3-making-the-function-call",
+     "text": "Step 3 - Making the function call",
+     "level": 3
+    },
+    {
+     "id": "integrating-function-calls-into-an-application",
+     "text": "Integrating Function Calls into an Application",
+     "level": 2
+    },
+    {
+     "id": "managing-the-flow",
+     "text": "Managing the flow",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "genai_apps-07",
+   "title": "Designing UX for AI Applications",
+   "words": 1334,
+   "minutes": 7,
+   "source": "ms-genai",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/12-designing-ux-for-ai-applications/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "learning-goals",
+     "text": "Learning goals",
+     "level": 2
+    },
+    {
+     "id": "prerequisite",
+     "text": "Prerequisite",
+     "level": 3
+    },
+    {
+     "id": "introduction-to-user-experience-and-understanding-user-needs",
+     "text": "Introduction to User Experience and Understanding User Needs",
+     "level": 2
+    },
+    {
+     "id": "usability",
+     "text": "Usability",
+     "level": 3
+    },
+    {
+     "id": "reliability",
+     "text": "Reliability",
+     "level": 3
+    },
+    {
+     "id": "accessibility",
+     "text": "Accessibility",
+     "level": 3
+    },
+    {
+     "id": "pleasant",
+     "text": "Pleasant",
+     "level": 3
+    },
+    {
+     "id": "designing-ai-applications-for-trust-and-transparency",
+     "text": "Designing AI Applications for Trust and Transparency",
+     "level": 2
+    },
+    {
+     "id": "explainability",
+     "text": "Explainability",
+     "level": 3
+    },
+    {
+     "id": "control",
+     "text": "Control",
+     "level": 3
+    },
+    {
+     "id": "designing-ai-applications-for-collaboration-and-feedback",
+     "text": "Designing AI Applications for Collaboration and Feedback",
+     "level": 2
+    },
+    {
+     "id": "continue-your-learning",
+     "text": "Continue Your Learning!",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "genai_apps-08",
+   "title": "Retrieval Augmented Generation (RAG) and Vector Databases",
+   "words": 1758,
+   "minutes": 9,
+   "source": "ms-genai",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/15-rag-and-vector-databases/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "learning-goals",
+     "text": "Learning Goals",
+     "level": 2
+    },
+    {
+     "id": "our-scenario-enhancing-our-llms-with-our-own-data",
+     "text": "Our Scenario: enhancing our LLMs with our own data",
+     "level": 2
+    },
+    {
+     "id": "retrieval-augmented-generation-rag",
+     "text": "Retrieval Augmented Generation (RAG)",
+     "level": 2
+    },
+    {
+     "id": "how-rags-retrieval-augmented-generation-work",
+     "text": "How RAGs (Retrieval Augmented Generation) work",
+     "level": 3
+    },
+    {
+     "id": "why-would-you-use-rags",
+     "text": "Why would you use RAGs?",
+     "level": 3
+    },
+    {
+     "id": "creating-a-knowledge-base",
+     "text": "Creating a knowledge base",
+     "level": 2
+    },
+    {
+     "id": "vector-databases",
+     "text": "Vector Databases",
+     "level": 3
+    },
+    {
+     "id": "from-text-to-embeddings",
+     "text": "From text to embeddings",
+     "level": 3
+    },
+    {
+     "id": "retrieval-and-vector-search",
+     "text": "Retrieval and Vector Search",
+     "level": 2
+    },
+    {
+     "id": "retrieval",
+     "text": "Retrieval",
+     "level": 3
+    },
+    {
+     "id": "vector-similarity",
+     "text": "Vector Similarity",
+     "level": 3
+    },
+    {
+     "id": "search-index",
+     "text": "Search index",
+     "level": 3
+    },
+    {
+     "id": "re-ranking",
+     "text": "Re-ranking",
+     "level": 3
+    },
+    {
+     "id": "bringing-it-all-together",
+     "text": "Bringing it all together",
+     "level": 2
+    },
+    {
+     "id": "evaluating-our-application",
+     "text": "Evaluating our application",
+     "level": 2
+    },
+    {
+     "id": "evaluation-metrics",
+     "text": "Evaluation Metrics",
+     "level": 3
+    },
+    {
+     "id": "use-cases-for-using-rag-retrieval-augmented-generation-and-v",
+     "text": "Use Cases for using RAG (Retrieval Augmented Generation) and vector databases",
+     "level": 2
+    },
+    {
+     "id": "summary",
+     "text": "Summary",
+     "level": 2
+    },
+    {
+     "id": "learning-does-not-stop-here-continue-the-journey",
+     "text": "Learning does not stop here, continue the Journey",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "genai_apps-09",
+   "title": "README.md",
+   "words": 897,
+   "minutes": 5,
+   "source": "ms-genai",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/16-open-source-models/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "learning-goals",
+     "text": "Learning goals",
+     "level": 2
+    },
+    {
+     "id": "what-are-open-source-models",
+     "text": "What are Open Source Models?",
+     "level": 2
+    },
+    {
+     "id": "benefits-of-open-models",
+     "text": "Benefits of Open Models",
+     "level": 2
+    },
+    {
+     "id": "exploring-different-open-models",
+     "text": "Exploring Different Open Models",
+     "level": 2
+    },
+    {
+     "id": "llama-2",
+     "text": "Llama 2",
+     "level": 3
+    },
+    {
+     "id": "mistral",
+     "text": "Mistral",
+     "level": 3
+    },
+    {
+     "id": "falcon",
+     "text": "Falcon",
+     "level": 3
+    },
+    {
+     "id": "how-to-choose",
+     "text": "How to Choose",
+     "level": 2
+    },
+    {
+     "id": "next-steps",
+     "text": "Next Steps",
+     "level": 2
+    },
+    {
+     "id": "learning-does-not-stop-here-continue-the-journey",
+     "text": "Learning does not stop here, continue the Journey",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "genai_apps-10",
+   "title": "Fine-Tuning Your LLM",
+   "words": 1769,
+   "minutes": 9,
+   "source": "ms-genai",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/18-fine-tuning/README.md",
+   "toc": [
+    {
+     "id": "learning-objectives",
+     "text": "Learning Objectives",
+     "level": 2
+    },
+    {
+     "id": "illustrated-guide",
+     "text": "Illustrated Guide",
+     "level": 2
+    },
+    {
+     "id": "what-is-fine-tuning-for-language-models",
+     "text": "What is fine-tuning for language models?",
+     "level": 2
+    },
+    {
+     "id": "when-and-why-should-we-fine-tune-models",
+     "text": "When and why should we fine-tune models?",
+     "level": 2
+    },
+    {
+     "id": "how-can-we-fine-tune-a-pre-trained-model",
+     "text": "How can we fine-tune a pre-trained model?",
+     "level": 2
+    },
+    {
+     "id": "fine-tuning-on-microsoft-foundry",
+     "text": "Fine-Tuning on Microsoft Foundry",
+     "level": 2
+    },
+    {
+     "id": "step-1-pick-a-training-technique",
+     "text": "Step 1: Pick a training technique",
+     "level": 3
+    },
+    {
+     "id": "step-2-pick-a-training-tier",
+     "text": "Step 2: Pick a training tier",
+     "level": 3
+    },
+    {
+     "id": "step-3-choose-a-base-model",
+     "text": "Step 3: Choose a base model",
+     "level": 3
+    },
+    {
+     "id": "foundry-best-practices",
+     "text": "Foundry best practices",
+     "level": 3
+    },
+    {
+     "id": "fine-tuning-in-action",
+     "text": "Fine-Tuning In Action",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "genai_apps-11",
+   "title": "Introduction to Small Language Models for Generative AI for Beginners",
+   "words": 2840,
+   "minutes": 15,
+   "source": "ms-genai",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/19-slm/README.md",
+   "toc": [
+    {
+     "id": "what-are-small-language-models",
+     "text": "What Are Small Language Models?",
+     "level": 2
+    },
+    {
+     "id": "how-do-small-language-models-work",
+     "text": "How Do Small Language Models Work?",
+     "level": 2
+    },
+    {
+     "id": "learning-objectives",
+     "text": "Learning Objectives",
+     "level": 2
+    },
+    {
+     "id": "the-distinctions-between-large-language-models-llms-and-smal",
+     "text": "The Distinctions between Large Language Models (LLMs) and Small Language Models (SLMs)",
+     "level": 2
+    },
+    {
+     "id": "applications-of-small-language-models",
+     "text": "Applications of Small Language Models",
+     "level": 2
+    },
+    {
+     "id": "introduce-phi-3-phi-3-5-family",
+     "text": "Introduce Phi-3 / Phi-3.5 Family",
+     "level": 2
+    },
+    {
+     "id": "phi-3-3-5-instruct",
+     "text": "Phi-3 / 3.5 Instruct",
+     "level": 3
+    },
+    {
+     "id": "phi-3-3-5-vision",
+     "text": "Phi-3 / 3.5 Vision",
+     "level": 3
+    },
+    {
+     "id": "phi-3-5-moe",
+     "text": "Phi-3.5-MoE",
+     "level": 3
+    },
+    {
+     "id": "how-to-use-phi-3-3-5-family-models",
+     "text": "How to use Phi-3/3.5 Family models",
+     "level": 2
+    },
+    {
+     "id": "inference-via-cloud-apis",
+     "text": "Inference via Cloud APIs",
+     "level": 3
+    },
+    {
+     "id": "running-phi-3-3-5-locally",
+     "text": "Running Phi-3/3.5 Locally",
+     "level": 3
+    },
+    {
+     "id": "what-is-onnx-runtime",
+     "text": "What is ONNX Runtime?",
+     "level": 2
+    },
+    {
+     "id": "what-is-generative-ai",
+     "text": "What is Generative AI?",
+     "level": 2
+    },
+    {
+     "id": "onnx-runtime-for-genai",
+     "text": "ONNX Runtime for GENAI",
+     "level": 2
+    },
+    {
+     "id": "getting-started",
+     "text": "Getting Started",
+     "level": 2
+    },
+    {
+     "id": "install-onnx-runtime",
+     "text": "Install ONNX Runtime:",
+     "level": 3
+    },
+    {
+     "id": "install-the-generative-ai-extensions",
+     "text": "Install the Generative AI Extensions:",
+     "level": 3
+    },
+    {
+     "id": "run-a-model-here-s-a-simple-example-in-python",
+     "text": "Run a Model: Here’s a simple example in Python:",
+     "level": 3
+    },
+    {
+     "id": "demo-using-onnx-runtime-genai-to-call-phi-3-5-vision",
+     "text": "Demo:Using ONNX Runtime GenAI to call Phi-3.5-Vision",
+     "level": 3
+    },
+    {
+     "id": "more",
+     "text": "More",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "genai_apps-12",
+   "title": "Introduction to AI Agents and Agent Use Cases",
+   "words": 1070,
+   "minutes": 6,
+   "source": "ms-agents",
+   "url": "https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/01-intro-to-ai-agents/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "learning-goals",
+     "text": "Learning Goals",
+     "level": 2
+    },
+    {
+     "id": "defining-ai-agents-and-types-of-ai-agents",
+     "text": "Defining AI Agents and Types of AI Agents",
+     "level": 2
+    },
+    {
+     "id": "what-are-ai-agents",
+     "text": "What are AI Agents?",
+     "level": 3
+    },
+    {
+     "id": "the-different-types-of-ai-agents",
+     "text": "The Different Types of AI Agents",
+     "level": 3
+    },
+    {
+     "id": "when-to-use-ai-agents",
+     "text": "When to Use AI Agents",
+     "level": 2
+    },
+    {
+     "id": "basics-of-agentic-solutions",
+     "text": "Basics of Agentic Solutions",
+     "level": 2
+    },
+    {
+     "id": "agent-development",
+     "text": "Agent Development",
+     "level": 3
+    },
+    {
+     "id": "agentic-patterns",
+     "text": "Agentic Patterns",
+     "level": 3
+    },
+    {
+     "id": "agentic-frameworks",
+     "text": "Agentic Frameworks",
+     "level": 3
+    },
+    {
+     "id": "code-samples",
+     "text": "Code Samples",
+     "level": 2
+    },
+    {
+     "id": "got-questions",
+     "text": "Got Questions?",
+     "level": 2
+    },
+    {
+     "id": "smoke-testing-this-agent-optional",
+     "text": "Smoke-Testing This Agent (Optional)",
+     "level": 2
+    },
+    {
+     "id": "previous-lesson",
+     "text": "Previous Lesson",
+     "level": 2
+    },
+    {
+     "id": "next-lesson",
+     "text": "Next Lesson",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "genai_apps-13",
+   "title": "AI Agentic Design Principles",
+   "words": 1002,
+   "minutes": 6,
+   "source": "ms-agents",
+   "url": "https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/03-agentic-design-patterns/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "this-lesson-will-cover",
+     "text": "This Lesson Will Cover",
+     "level": 2
+    },
+    {
+     "id": "learning-goals",
+     "text": "Learning Goals",
+     "level": 2
+    },
+    {
+     "id": "the-agentic-design-principles",
+     "text": "The Agentic Design Principles",
+     "level": 2
+    },
+    {
+     "id": "agent-space",
+     "text": "Agent (Space)",
+     "level": 3
+    },
+    {
+     "id": "agent-time",
+     "text": "Agent (Time)",
+     "level": 3
+    },
+    {
+     "id": "agent-core",
+     "text": "Agent (Core)",
+     "level": 3
+    },
+    {
+     "id": "the-guidelines-to-implement-these-principles",
+     "text": "The Guidelines to Implement These Principles",
+     "level": 2
+    },
+    {
+     "id": "how-to-design-a-travel-agent-using-these-principles-and-guid",
+     "text": "How To Design a Travel Agent using These Principles and Guidelines",
+     "level": 2
+    },
+    {
+     "id": "sample-codes",
+     "text": "Sample Codes",
+     "level": 2
+    },
+    {
+     "id": "got-more-questions-about-ai-agentic-design-patterns",
+     "text": "Got More Questions about AI Agentic Design Patterns?",
+     "level": 2
+    },
+    {
+     "id": "additional-resources",
+     "text": "Additional Resources",
+     "level": 2
+    },
+    {
+     "id": "previous-lesson",
+     "text": "Previous Lesson",
+     "level": 2
+    },
+    {
+     "id": "next-lesson",
+     "text": "Next Lesson",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "genai_apps-14",
+   "title": "Tool Use Design Pattern",
+   "words": 1935,
+   "minutes": 10,
+   "source": "ms-agents",
+   "url": "https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/04-tool-use/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "learning-goals",
+     "text": "Learning Goals",
+     "level": 2
+    },
+    {
+     "id": "what-is-the-tool-use-design-pattern",
+     "text": "What is the Tool Use Design Pattern?",
+     "level": 2
+    },
+    {
+     "id": "what-are-the-use-cases-it-can-be-applied-to",
+     "text": "What are the use cases it can be applied to?",
+     "level": 2
+    },
+    {
+     "id": "what-are-the-elements-building-blocks-needed-to-implement-th",
+     "text": "What are the elements/building blocks needed to implement the tool use design pattern?",
+     "level": 2
+    },
+    {
+     "id": "function-tool-calling",
+     "text": "Function/Tool Calling",
+     "level": 3
+    },
+    {
+     "id": "tool-use-examples-with-agentic-frameworks",
+     "text": "Tool Use Examples with Agentic Frameworks",
+     "level": 2
+    },
+    {
+     "id": "microsoft-agent-framework",
+     "text": "Microsoft Agent Framework",
+     "level": 3
+    },
+    {
+     "id": "microsoft-foundry-agent-service",
+     "text": "Microsoft Foundry Agent Service",
+     "level": 3
+    },
+    {
+     "id": "what-are-the-special-considerations-for-using-the-tool-use-d",
+     "text": "What are the special considerations for using the Tool Use Design Pattern to build trustworthy AI agents?",
+     "level": 2
+    },
+    {
+     "id": "sample-codes",
+     "text": "Sample Codes",
+     "level": 2
+    },
+    {
+     "id": "got-more-questions-about-the-tool-use-design-patterns",
+     "text": "Got More Questions about the Tool Use Design Patterns?",
+     "level": 2
+    },
+    {
+     "id": "additional-resources",
+     "text": "Additional Resources",
+     "level": 2
+    },
+    {
+     "id": "smoke-testing-this-agent-optional",
+     "text": "Smoke-Testing This Agent (Optional)",
+     "level": 2
+    },
+    {
+     "id": "previous-lesson",
+     "text": "Previous Lesson",
+     "level": 2
+    },
+    {
+     "id": "next-lesson",
+     "text": "Next Lesson",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "genai_apps-15",
+   "title": "Agentic RAG",
+   "words": 1994,
+   "minutes": 10,
+   "source": "ms-agents",
+   "url": "https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/05-agentic-rag/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "learning-goals",
+     "text": "Learning Goals",
+     "level": 2
+    },
+    {
+     "id": "what-is-agentic-rag",
+     "text": "What is Agentic RAG?",
+     "level": 2
+    },
+    {
+     "id": "defining-agentic-retrieval-augmented-generation-agentic-rag",
+     "text": "Defining Agentic Retrieval-Augmented Generation (Agentic RAG)",
+     "level": 2
+    },
+    {
+     "id": "owning-the-reasoning-process",
+     "text": "Owning the Reasoning Process",
+     "level": 2
+    },
+    {
+     "id": "iterative-loops-tool-integration-and-memory",
+     "text": "Iterative Loops, Tool Integration, and Memory",
+     "level": 2
+    },
+    {
+     "id": "handling-failure-modes-and-self-correction",
+     "text": "Handling Failure Modes and Self-Correction",
+     "level": 2
+    },
+    {
+     "id": "boundaries-of-agency",
+     "text": "Boundaries of Agency",
+     "level": 2
+    },
+    {
+     "id": "practical-use-cases-and-value",
+     "text": "Practical Use Cases and Value",
+     "level": 2
+    },
+    {
+     "id": "governance-transparency-and-trust",
+     "text": "Governance, Transparency, and Trust",
+     "level": 2
+    },
+    {
+     "id": "conclusion",
+     "text": "Conclusion",
+     "level": 2
+    },
+    {
+     "id": "got-more-questions-about-agentic-rag",
+     "text": "Got More Questions about Agentic RAG?",
+     "level": 3
+    },
+    {
+     "id": "additional-resources",
+     "text": "Additional Resources",
+     "level": 2
+    },
+    {
+     "id": "academic-papers",
+     "text": "Academic Papers",
+     "level": 3
+    },
+    {
+     "id": "smoke-testing-this-agent-optional",
+     "text": "Smoke-Testing This Agent (Optional)",
+     "level": 2
+    },
+    {
+     "id": "previous-lesson",
+     "text": "Previous Lesson",
+     "level": 2
+    },
+    {
+     "id": "next-lesson",
+     "text": "Next Lesson",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [],
+  "pass_mark": 0,
+  "missing": true
+ },
+ "minutes": 142,
+ "sources": [
+  {
+   "id": "ms-agents",
+   "name": "Microsoft · AI Agents for Beginners",
+   "url": "https://github.com/microsoft/ai-agents-for-beginners",
+   "license": "MIT",
+   "license_url": "https://opensource.org/license/mit",
+   "attribution": "© Microsoft Corporation, MIT License",
+   "noncommercial": false
+  },
+  {
+   "id": "ms-genai",
+   "name": "Microsoft · Generative AI for Beginners",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners",
+   "license": "MIT",
+   "license_url": "https://opensource.org/license/mit",
+   "attribution": "© Microsoft Corporation, MIT License",
+   "noncommercial": false
+  }
+ ]
+}

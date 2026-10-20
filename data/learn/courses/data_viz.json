@@ -1,0 +1,886 @@
+{
+ "title": "Data Visualisation",
+ "subtitle": "Choose and build the right chart, then design it so people read it correctly.",
+ "level": "Beginner",
+ "outcomes": [
+  "Pick a chart type that fits your data and message",
+  "Visualise quantities, distributions, proportions and relationships",
+  "Use colour, labels and tables accessibly",
+  "Design honest, meaningful visualisations"
+ ],
+ "skill": "data_viz",
+ "modules": [
+  {
+   "title": "Charts for every question",
+   "lessons": [
+    "data_viz-01",
+    "data_viz-02",
+    "data_viz-03",
+    "data_viz-04"
+   ]
+  },
+  {
+   "title": "Telling the story",
+   "lessons": [
+    "data_viz-05"
+   ]
+  },
+  {
+   "title": "Design guidance from government analysts",
+   "lessons": [
+    "data_viz-06",
+    "data_viz-07",
+    "data_viz-08"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "data_viz-01",
+   "title": "Visualizing Quantities",
+   "words": 1239,
+   "minutes": 7,
+   "source": "ms-ds",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/09-visualization-quantities/README.md",
+   "toc": [
+    {
+     "id": "observe-wingspan-with-matplotlib",
+     "text": "Observe wingspan with Matplotlib",
+     "level": 2
+    },
+    {
+     "id": "build-a-line-plot-about-bird-wingspan-values",
+     "text": "Build a line plot about bird wingspan values",
+     "level": 2
+    },
+    {
+     "id": "filter-your-data",
+     "text": "Filter your data",
+     "level": 2
+    },
+    {
+     "id": "explore-bar-charts",
+     "text": "Explore bar charts",
+     "level": 2
+    },
+    {
+     "id": "comparing-data",
+     "text": "Comparing data",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "data_viz-02",
+   "title": "Visualizing Distributions",
+   "words": 1106,
+   "minutes": 6,
+   "source": "ms-ds",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/10-visualization-distributions/README.md",
+   "toc": [
+    {
+     "id": "explore-the-birds-dataset",
+     "text": "Explore the birds dataset",
+     "level": 2
+    },
+    {
+     "id": "working-with-histograms",
+     "text": "Working with histograms",
+     "level": 2
+    },
+    {
+     "id": "explore-the-dataset-for-distributions-using-text-data",
+     "text": "Explore the dataset for distributions using text data",
+     "level": 2
+    },
+    {
+     "id": "density-plots",
+     "text": "Density plots",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "data_viz-03",
+   "title": "Visualizing Proportions",
+   "words": 850,
+   "minutes": 5,
+   "source": "ms-ds",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/11-visualization-proportions/README.md",
+   "toc": [
+    {
+     "id": "get-to-know-your-mushrooms",
+     "text": "Get to know your mushrooms 🍄",
+     "level": 2
+    },
+    {
+     "id": "pie",
+     "text": "Pie!",
+     "level": 2
+    },
+    {
+     "id": "donuts",
+     "text": "Donuts!",
+     "level": 2
+    },
+    {
+     "id": "waffles",
+     "text": "Waffles!",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "data_viz-04",
+   "title": "Visualizing Relationships: All About Honey 🍯",
+   "words": 1224,
+   "minutes": 7,
+   "source": "ms-ds",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/12-visualization-relationships/README.md",
+   "toc": [
+    {
+     "id": "scatterplots",
+     "text": "Scatterplots",
+     "level": 2
+    },
+    {
+     "id": "line-charts",
+     "text": "Line charts",
+     "level": 2
+    },
+    {
+     "id": "facet-grids",
+     "text": "Facet grids",
+     "level": 2
+    },
+    {
+     "id": "dual-line-plots",
+     "text": "Dual-line Plots",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "data_viz-05",
+   "title": "Making Meaningful Visualizations",
+   "words": 1322,
+   "minutes": 7,
+   "source": "ms-ds",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/13-meaningful-visualizations/README.md",
+   "toc": [
+    {
+     "id": "choose-the-right-chart-type",
+     "text": "Choose the right chart type",
+     "level": 2
+    },
+    {
+     "id": "avoid-deception",
+     "text": "Avoid deception",
+     "level": 2
+    },
+    {
+     "id": "color",
+     "text": "Color",
+     "level": 2
+    },
+    {
+     "id": "styling-your-charts-for-readability",
+     "text": "Styling your charts for readability",
+     "level": 2
+    },
+    {
+     "id": "animation-and-3d-chart-display",
+     "text": "Animation and 3D chart display",
+     "level": 2
+    },
+    {
+     "id": "project-build-a-chart-to-show-a-network-using-d3-js",
+     "text": "Project: Build a chart to show a network using D3.js",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "data_viz-06",
+   "title": "Data visualisation: charts",
+   "words": 9205,
+   "minutes": 47,
+   "source": "analysis-fn",
+   "url": "https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "accessibility-legislation",
+     "text": "Accessibility legislation",
+     "level": 2
+    },
+    {
+     "id": "consequences-for-inaccessible-content",
+     "text": "Consequences for inaccessible content",
+     "level": 3
+    },
+    {
+     "id": "section",
+     "text": "",
+     "level": 3
+    },
+    {
+     "id": "choosing-the-right-chart",
+     "text": "Choosing the right chart",
+     "level": 2
+    },
+    {
+     "id": "what-is-the-message",
+     "text": "What is the message?",
+     "level": 3
+    },
+    {
+     "id": "statistical-relationships",
+     "text": "Statistical relationships",
+     "level": 3
+    },
+    {
+     "id": "publishing-charts",
+     "text": "Publishing charts",
+     "level": 2
+    },
+    {
+     "id": "html-or-image",
+     "text": "HTML or image?",
+     "level": 3
+    },
+    {
+     "id": "chart-size",
+     "text": "Chart size",
+     "level": 3
+    },
+    {
+     "id": "what-to-supply-with-charts",
+     "text": "What to supply with charts",
+     "level": 2
+    },
+    {
+     "id": "titles",
+     "text": "Titles",
+     "level": 3
+    },
+    {
+     "id": "alternative-text",
+     "text": "Alternative text",
+     "level": 3
+    },
+    {
+     "id": "source",
+     "text": "Source",
+     "level": 3
+    },
+    {
+     "id": "data-download",
+     "text": "Data download",
+     "level": 3
+    },
+    {
+     "id": "chart-footnotes",
+     "text": "Chart footnotes",
+     "level": 3
+    },
+    {
+     "id": "formatting-charts",
+     "text": "Formatting charts",
+     "level": 2
+    },
+    {
+     "id": "keep-it-simple",
+     "text": "Keep it simple",
+     "level": 3
+    },
+    {
+     "id": "chart-labels",
+     "text": "Chart labels",
+     "level": 3
+    },
+    {
+     "id": "annotations",
+     "text": "Annotations",
+     "level": 3
+    },
+    {
+     "id": "tick-marks",
+     "text": "Tick marks",
+     "level": 3
+    },
+    {
+     "id": "gridlines",
+     "text": "Gridlines",
+     "level": 3
+    },
+    {
+     "id": "line-for-y-axis",
+     "text": "Line for y-axis",
+     "level": 3
+    },
+    {
+     "id": "communicating-quality-and-uncertainty-in-charts",
+     "text": "Communicating quality and uncertainty in charts",
+     "level": 3
+    },
+    {
+     "id": "example-chart",
+     "text": "Example chart",
+     "level": 2
+    },
+    {
+     "id": "bar-charts",
+     "text": "Bar charts",
+     "level": 2
+    },
+    {
+     "id": "using-bar-charts",
+     "text": "Using bar charts",
+     "level": 3
+    },
+    {
+     "id": "formatting-bar-charts",
+     "text": "Formatting bar charts",
+     "level": 3
+    },
+    {
+     "id": "stacked-bar-charts",
+     "text": "Stacked bar charts",
+     "level": 2
+    },
+    {
+     "id": "using-stacked-bar-charts",
+     "text": "Using stacked bar charts",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "data_viz-07",
+   "title": "Data visualisation: colours",
+   "words": 8252,
+   "minutes": 42,
+   "source": "analysis-fn",
+   "url": "https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "accessibility-legislation",
+     "text": "Accessibility legislation",
+     "level": 2
+    },
+    {
+     "id": "consequences-for-inaccessible-content",
+     "text": "Consequences for inaccessible content",
+     "level": 3
+    },
+    {
+     "id": "section",
+     "text": "",
+     "level": 3
+    },
+    {
+     "id": "what-to-consider-when-using-colour-in-charts",
+     "text": "What to consider when using colour in charts",
+     "level": 2
+    },
+    {
+     "id": "limit-the-number-of-colours-you-use",
+     "text": "Limit the number of colours you use",
+     "level": 3
+    },
+    {
+     "id": "section-x",
+     "text": "",
+     "level": 3
+    },
+    {
+     "id": "use-colour-consistently",
+     "text": "Use colour consistently",
+     "level": 3
+    },
+    {
+     "id": "section-x-x",
+     "text": "",
+     "level": 3
+    },
+    {
+     "id": "consider-colour-associations",
+     "text": "Consider colour associations",
+     "level": 3
+    },
+    {
+     "id": "use-a-plain-background",
+     "text": "Use a plain background",
+     "level": 3
+    },
+    {
+     "id": "consider-colour-contrast-ratios",
+     "text": "Consider colour contrast ratios",
+     "level": 3
+    },
+    {
+     "id": "consider-low-vision-and-colour-blindness",
+     "text": "Consider low vision and colour blindness",
+     "level": 3
+    },
+    {
+     "id": "consider-your-colours-in-greyscale",
+     "text": "Consider your colours in greyscale",
+     "level": 3
+    },
+    {
+     "id": "do-not-rely-on-colour-alone",
+     "text": "Do not rely on colour alone",
+     "level": 3
+    },
+    {
+     "id": "use-the-svg-format",
+     "text": "Use the SVG format",
+     "level": 3
+    },
+    {
+     "id": "our-colour-palettes",
+     "text": "Our colour palettes",
+     "level": 2
+    },
+    {
+     "id": "categorical-data-colour-palette",
+     "text": "Categorical data colour palette",
+     "level": 2
+    },
+    {
+     "id": "what-is-categorical-data",
+     "text": "What is categorical data?",
+     "level": 3
+    },
+    {
+     "id": "palette-table",
+     "text": "Palette table",
+     "level": 3
+    },
+    {
+     "id": "contrast-ratios",
+     "text": "Contrast ratios",
+     "level": 3
+    },
+    {
+     "id": "information-about-these-colours",
+     "text": "Information about these colours",
+     "level": 3
+    },
+    {
+     "id": "ideally-use-just-the-first-four",
+     "text": "Ideally, use just the first four",
+     "level": 3
+    },
+    {
+     "id": "plain-text-alternative",
+     "text": "Plain text alternative",
+     "level": 3
+    },
+    {
+     "id": "using-the-categorical-colour-palette",
+     "text": "Using the categorical colour palette",
+     "level": 3
+    },
+    {
+     "id": "sequential-data-colour-palette",
+     "text": "Sequential data colour palette",
+     "level": 2
+    },
+    {
+     "id": "what-we-mean-by-sequential-data",
+     "text": "What we mean by sequential data",
+     "level": 3
+    },
+    {
+     "id": "choosing-colours-for-sequential-data",
+     "text": "Choosing colours for sequential data",
+     "level": 3
+    },
+    {
+     "id": "palette-table-x",
+     "text": "Palette table",
+     "level": 3
+    },
+    {
+     "id": "contrast-ratios-x",
+     "text": "Contrast ratios",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "data_viz-08",
+   "title": "Data visualisation: tables",
+   "words": 3104,
+   "minutes": 16,
+   "source": "analysis-fn",
+   "url": "https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-tables/",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "accessibility-legislation",
+     "text": "Accessibility legislation",
+     "level": 2
+    },
+    {
+     "id": "consequences-for-inaccessible-content",
+     "text": "Consequences for inaccessible content",
+     "level": 3
+    },
+    {
+     "id": "section",
+     "text": "",
+     "level": 3
+    },
+    {
+     "id": "using-tables-in-publications",
+     "text": "Using tables in publications",
+     "level": 2
+    },
+    {
+     "id": "layout",
+     "text": "Layout",
+     "level": 2
+    },
+    {
+     "id": "comparing-numbers",
+     "text": "Comparing numbers",
+     "level": 3
+    },
+    {
+     "id": "rounding",
+     "text": "Rounding",
+     "level": 3
+    },
+    {
+     "id": "grouping",
+     "text": "Grouping",
+     "level": 3
+    },
+    {
+     "id": "indentation",
+     "text": "Indentation",
+     "level": 3
+    },
+    {
+     "id": "ordering-categories",
+     "text": "Ordering categories",
+     "level": 3
+    },
+    {
+     "id": "ranking-categories",
+     "text": "Ranking categories",
+     "level": 3
+    },
+    {
+     "id": "summary-rows-and-columns",
+     "text": "Summary rows and columns",
+     "level": 3
+    },
+    {
+     "id": "titles",
+     "text": "Titles",
+     "level": 3
+    },
+    {
+     "id": "column-headers-row-labels-and-merged-cells",
+     "text": "Column headers, row labels and merged cells",
+     "level": 3
+    },
+    {
+     "id": "footnotes",
+     "text": "Footnotes",
+     "level": 3
+    },
+    {
+     "id": "source",
+     "text": "Source",
+     "level": 3
+    },
+    {
+     "id": "fonts",
+     "text": "Fonts",
+     "level": 3
+    },
+    {
+     "id": "shading",
+     "text": "Shading",
+     "level": 3
+    },
+    {
+     "id": "gridlines",
+     "text": "Gridlines",
+     "level": 3
+    },
+    {
+     "id": "symbols-and-shorthand",
+     "text": "Symbols and shorthand",
+     "level": 3
+    },
+    {
+     "id": "advice-from-government-digital-service",
+     "text": "Advice from Government Digital Service",
+     "level": 3
+    },
+    {
+     "id": "publication",
+     "text": "Publication",
+     "level": 2
+    },
+    {
+     "id": "using-html",
+     "text": "Using HTML",
+     "level": 3
+    },
+    {
+     "id": "using-an-accessible-document-format",
+     "text": "Using an accessible document format",
+     "level": 3
+    },
+    {
+     "id": "using-an-accessible-pdf-format",
+     "text": "Using an accessible PDF format",
+     "level": 3
+    },
+    {
+     "id": "publishing-reference-tables",
+     "text": "Publishing reference tables",
+     "level": 3
+    },
+    {
+     "id": "related-links",
+     "text": "Related links",
+     "level": 2
+    },
+    {
+     "id": "any-questions",
+     "text": "Any questions?",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [
+   {
+    "q": "You can analyze trends over time using a:",
+    "options": [
+     "line chart",
+     "bar chart",
+     "pie chart"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "data_viz-01",
+    "origin": "bank:ds:17",
+    "source": "ms-ds"
+   },
+   {
+    "q": "You can compare values using this type of chart:",
+    "options": [
+     "line chart",
+     "bar chart",
+     "both of these"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "data_viz-01",
+    "origin": "bank:ds:17",
+    "source": "ms-ds"
+   },
+   {
+    "q": "Histograms can be used to analyze this type of data:",
+    "options": [
+     "textual",
+     "numeric",
+     "both of the above"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "data_viz-02",
+    "origin": "bank:ds:19",
+    "source": "ms-ds"
+   },
+   {
+    "q": "In a histogram, a 'bin' refers to:",
+    "options": [
+     "a class of data",
+     "a grouping of data",
+     "throwaway data"
+    ],
+    "answer": 1,
+    "explain": "",
+    "lesson": "data_viz-02",
+    "origin": "bank:ds:19",
+    "source": "ms-ds"
+   },
+   {
+    "q": "Use this library to build waffle charts:",
+    "options": [
+     "edwaffle",
+     "pywaffle",
+     "yumwaffle"
+    ],
+    "answer": 1,
+    "explain": "",
+    "lesson": "data_viz-03",
+    "origin": "bank:ds:21",
+    "source": "ms-ds"
+   },
+   {
+    "q": "In a donut chart, build your center circle using this syntax:",
+    "options": [
+     "plt.Oval",
+     "plt.Circle",
+     "plt.Edit"
+    ],
+    "answer": 1,
+    "explain": "",
+    "lesson": "data_viz-03",
+    "origin": "bank:ds:21",
+    "source": "ms-ds"
+   },
+   {
+    "q": "A more accessible way to display distribution is:",
+    "options": [
+     "Using datapoint shape variation",
+     "Using datapoint size variation",
+     "Using either of the above"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "data_viz-04",
+    "origin": "bank:ds:23",
+    "source": "ms-ds"
+   },
+   {
+    "q": "Facet grids help visualize",
+    "options": [
+     "a given facet of your data",
+     "outliers in your data",
+     "progression in your data"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "data_viz-04",
+    "origin": "bank:ds:23",
+    "source": "ms-ds"
+   },
+   {
+    "q": "Ensure that your charts are:",
+    "options": [
+     "accessible",
+     "readable",
+     "both of the above"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "data_viz-05",
+    "origin": "bank:ds:25",
+    "source": "ms-ds"
+   },
+   {
+    "q": "D3 is an excellent charting library for use to create:",
+    "options": [
+     "animated visualizations",
+     "infographics",
+     "deep learning"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "data_viz-05",
+    "origin": "bank:ds:25",
+    "source": "ms-ds"
+   }
+  ],
+  "pass_mark": 7,
+  "missing": false
+ },
+ "minutes": 137,
+ "sources": [
+  {
+   "id": "analysis-fn",
+   "name": "UK Government Analysis Function guidance",
+   "url": "https://analysisfunction.civilservice.gov.uk/policy-store/",
+   "license": "Open Government Licence v3.0",
+   "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+   "attribution": "Contains public sector information licensed under the Open Government Licence v3.0",
+   "noncommercial": false
+  },
+  {
+   "id": "ms-ds",
+   "name": "Microsoft · Data Science for Beginners",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners",
+   "license": "MIT",
+   "license_url": "https://opensource.org/license/mit",
+   "attribution": "© Microsoft Corporation, MIT License",
+   "noncommercial": false
+  }
+ ]
+}

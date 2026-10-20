@@ -1,0 +1,101 @@
+<p><a href="https://learn-video.azurefd.net/vod/player?id=8a2c36d9-8117-4576-ad5b-787667d13603" target="_blank" rel="noopener noreferrer"><img alt="Watch the video" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Security-101/b0a31ff7ebb9983d24bcdc6a38a4d008e6e89d0c/images/4-2_placeholder.png"></a></p>
+<p>Security operations forms two parts of zero trust architecture and in this lesson we will learn about both:</p>
+<ul>
+<li>
+<p>How must IT architectures be built to allow centralized log collection?</p>
+</li>
+<li>
+<p>What are the best practices for security operations in modern IT environments?</p>
+</li>
+</ul>
+<h2 id="how-must-it-architectures-be-built-to-allow-centralized-log-">How must IT architectures be built to allow centralized log collection?</h2>
+<p>Centralized log collection is a critical component of modern security operations. It allows organizations to aggregate logs and data from various sources, such as servers, applications, network devices, and security tools, into a central repository for analysis, monitoring, and incident response. Here are some best practices for building IT architectures to support centralized log collection:</p>
+<ol>
+<li><strong>Log Source Integration</strong>:</li>
+</ol>
+<ul>
+<li>
+<p>Ensure that all relevant devices and systems are configured to generate logs. This includes servers, firewalls, routers, switches, applications, and security appliances.</p>
+</li>
+<li>
+<p>Configure log sources to forward logs to a centralized log collector or management system.</p>
+</li>
+</ul>
+<ol start="2">
+<li><strong>Select the right SIEM (Security Information and Event Management) tool</strong>:</li>
+</ol>
+<ul>
+<li>
+<p>Choose a SIEM (Security Information and Event Management) solution that aligns with your organization's needs and scale.</p>
+</li>
+<li>
+<p>Ensure the chosen solution supports log collection, aggregation, analysis, and reporting.</p>
+</li>
+</ul>
+<ol start="3">
+<li><strong>Scalability and Redundancy</strong>:</li>
+</ol>
+<ul>
+<li>
+<p>Design the architecture for scalability to accommodate a growing number of log sources and increased log volume.</p>
+</li>
+<li>
+<p>Implement redundancy for high availability to prevent disruptions due to hardware or network failures.</p>
+</li>
+</ul>
+<ol start="4">
+<li><strong>Securely transport logs</strong>:</li>
+</ol>
+<ul>
+<li>
+<p>Use secure protocols like TLS/SSL or IPsec for transporting logs from sources to the centralized repository.</p>
+</li>
+<li>
+<p>Implement authentication and access controls to ensure only authorized devices can send logs.</p>
+</li>
+</ul>
+<ol start="5">
+<li><strong>Normalization</strong>:</li>
+</ol>
+<ul>
+<li>Standardize log formats and normalize data to ensure consistency and ease of analysis.</li>
+</ul>
+<ol start="6">
+<li><strong>Storage and Retention</strong>:</li>
+</ol>
+<ul>
+<li>
+<p>Determine the appropriate retention period for logs based on compliance and security requirements.</p>
+</li>
+<li>
+<p>Store logs securely, protecting them from unauthorized access and tampering.</p>
+</li>
+</ul>
+<h2 id="what-are-the-best-practices-for-security-operations-in-moder">What are the best practices for security operations in modern IT environments?</h2>
+<p>In addition to centralized log collection, here are some best practices for security operations in modern IT environments:</p>
+<ol>
+<li>
+<p><strong>Continuous Monitoring</strong>: Implement continuous monitoring of network and system activities to detect and respond to threats in real time.</p>
+</li>
+<li>
+<p><strong>Threat Intelligence</strong>: Stay informed about emerging threats and vulnerabilities by leveraging threat intelligence feeds and services.</p>
+</li>
+<li>
+<p><strong>User Training</strong>: Conduct regular security awareness training for employees to mitigate risks associated with social engineering and phishing attacks.</p>
+</li>
+<li>
+<p><strong>Incident Response Plan</strong>: Develop and test an incident response plan to ensure a swift and effective response to security incidents.</p>
+</li>
+<li>
+<p><strong>Security Automation</strong>: Leverage security automation and orchestration tools to streamline incident response and repetitive tasks.</p>
+</li>
+<li>
+<p><strong>Backup and Recovery</strong>: Implement robust backup and disaster recovery solutions to ensure data availability in case of data loss or ransomware attacks.</p>
+</li>
+</ol>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/security/operations/security-operations-videos-and-decks?WT.mc_id=academic-96948-sayoung" target="_blank" rel="noopener noreferrer">Microsoft Security Best Practices module: Security operations | Microsoft Learn</a></li>
+<li><a href="https://learn.microsoft.com/azure/cloud-adoption-framework/secure/security-operations?WT.mc_id=academic-96948-sayoung" target="_blank" rel="noopener noreferrer">Security operations - Cloud Adoption Framework | Microsoft Learn</a></li>
+<li><a href="https://www.digitalguardian.com/blog/what-security-operations-and-analytics-platform-architecture-definition-soapa-how-it-works#:~:text=All%20in%20all%2C%20security%20operations%20and%20analytics%20platform,become%20more%20efficient%20and%20operative%20with%20your%20security." target="_blank" rel="noopener noreferrer">What is Security Operations and Analytics Platform Architecture? A Definition of SOAPA, How It Works, Benefits, and More (digitalguardian.com)</a></li>
+</ul>

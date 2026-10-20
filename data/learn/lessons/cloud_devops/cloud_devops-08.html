@@ -1,0 +1,55 @@
+<p>You must have a way to maintain version control for your code.</p>
+<p>Version control means keeping track of changes to your code over time.</p>
+<p>It allows you to:</p>
+<ul>
+<li>revert to an earlier version whenever you want to</li>
+<li>record your changes and the reasons why you made them, to help future developers understand the process</li>
+<li>work on changes in parallel as a team before merging them together</li>
+</ul>
+<h2 id="making-commits">Making commits</h2>
+<p>Making a commit means making a set of changes permanent. You should:</p>
+<ul>
+<li>write clear commit messages</li>
+<li>group changes according to their purpose</li>
+<li>review new changes</li>
+</ul>
+<h2 id="writing-commit-messages">Writing commit messages</h2>
+<p>You should commit any changes with a clear message explaining the change. Clear commit messages help new or future developers and the public to see the changes you’ve made.</p>
+<p>Your commit messages should:</p>
+<ul>
+<li>describe what you’ve changed and why</li>
+<li>link to any supporting information like development stories, bug reports, or third party documentation</li>
+</ul>
+<p>For example, if the change is helping to fix a bug in a certain browser, your commit message could be:</p>
+<div>
+<p><code>Set cache headers</code> <br><br>
+<code>Browser-name was doing foo, so we need to do X.</code> <br>
+<code>See http://example.com/why-is-this-broken for more details.</code></p>
+</div>
+<h3 id="grouping-changes">Grouping changes</h3>
+<p>When updating code, you should make small separate commits of changes and group the changes according to their purpose.</p>
+<p>For example, if you make several commits in order to fix a bug, you should group those changes together.</p>
+<h3 id="reviewing-changes">Reviewing changes</h3>
+<p>Whenever possible, you should review each others’ code. The process for this could change between teams, but make sure:</p>
+<ul>
+<li>every code change is reviewed by someone who did not write it</li>
+<li>the process does not stop you from <a href="https://www.gov.uk/service-manual/technology/deploying-software-regularly" target="_blank" rel="noopener noreferrer">deploying software regularly</a> or making quick bug fixes</li>
+</ul>
+<h2 id="using-distributed-version-control-systems">Using distributed version control systems</h2>
+<p>You should use a distributed version control system so that:</p>
+<ul>
+<li>everyone involved in the process has a full copy of the code and its history</li>
+<li>it’s easier for developers to create ‘branches’ in their code to explore new features or approaches without encroaching on other work</li>
+<li>developers can continue to work when the network is unavailable, making small incremental commits, merging their changes back with everyone else’s at a later date</li>
+</ul>
+<p>The Government Digital Service (<abbr title="Government Digital Service">GDS</abbr>) and many other government teams use a distributed version control system called Git.</p>
+<p>You can read:</p>
+<ul>
+<li><a href="https://gdstechnology.blog.gov.uk/2014/01/27/how-we-use-github/" target="_blank" rel="noopener noreferrer">a blog post about how <abbr title="Government Digital Service">GDS</abbr> uses Git</a></li>
+<li><a href="https://gds-way.digital.cabinet-office.gov.uk/standards/source-code/working-with-git.html" target="_blank" rel="noopener noreferrer">internal guidance for <abbr title="Government Digital Service">GDS</abbr> teams about using Git</a></li>
+</ul>
+<h2 id="other-uses-for-version-control">Other uses for version control</h2>
+<p>You can also use version control in other parts of the work you’re doing to build your service.</p>
+<p>For example, <a href="https://github.com/w3c/html" target="_blank" rel="noopener noreferrer">see how the World Wide Web Consortium (<abbr title="World Wide Web Consortium">W3C</abbr>) is using Git and GitHub</a> to manage its specifications.</p>
+<h2 id="related-guides">Related guides</h2>
+<p>You may also find the <a href="https://www.gov.uk/service-manual/technology/deploying-software-regularly" target="_blank" rel="noopener noreferrer">Deploying software regularly</a> guide useful.</p>

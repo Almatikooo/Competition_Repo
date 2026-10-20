@@ -1,0 +1,51 @@
+<p>You must build and run your digital service in a way that means it’ll work for users when they need it.</p>
+<p>This could mean you need it to be available 24 hours a day and 365 days a year.</p>
+<p>To achieve the level of uptime you need involves good planning and design.</p>
+<h2 id="design-to-maximise-uptime">Design to maximise uptime</h2>
+<p>Your service should have more possible states than simply ‘on’ or ‘off’. For example you can:</p>
+<ul>
+<li>design your components so that they fall back to minimal functions if something goes wrong</li>
+<li>introduce a read-only mode where users can look at information but not change it</li>
+<li>build in redundancy and avoid single points of failure (eg having only one vendor could be a single point of failure)</li>
+<li>use more than one web server and allow load-balancing between servers, to avoid servers failing</li>
+<li>use database systems which spread data and queries across a cluster, to minimise database crashes</li>
+</ul>
+<p>If your service relies on a third party service and this goes down, you can queue information and process it later.</p>
+<h2 id="issues-that-can-affect-uptime">Issues that can affect uptime</h2>
+<h3 id="underlying-infrastructure-availability">Underlying infrastructure availability</h3>
+<p>Your service depends on the availability of many systems - potentially with multiple suppliers. You may not have a relationship with all of these suppliers. This can become complicated.</p>
+<div>
+<p><strong>Example</strong></p>
+<p>Your team maintains your application, which relies on other teams’ servers and databases. Those systems run on an external infrastructure as a service platform, which depends on networks and power from suppliers outside your control.</p>
+</div>
+<p>You should understand your dependencies and their dependencies and all the intended uptime expectations.</p>
+<h3 id="scheduled-maintenance">Scheduled maintenance</h3>
+<p>Some services do not count pre-arranged maintenance periods as downtime.</p>
+<p>For example, a service could claim 100% uptime even though it shuts down every Monday evening for maintenance.</p>
+<p>You should not hide uptime problems behind multiple maintenance periods. You can classify downtime as planned (scheduled maintenance) or unplanned (other problems), if your service genuinely needs scheduled maintenance.</p>
+<h3 id="suppliers-and-contracts">Suppliers and contracts</h3>
+<p>Do not underestimate how much your supplier contracts can affect your service’s availability.</p>
+<p>You need to fully understand the terms in any contracts you agree, for example:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Service-level_agreement" target="_blank" rel="noopener noreferrer">service level agreements</a></li>
+<li>uptime guarantees</li>
+</ul>
+<p>Suppliers may miss uptime guarantees or service level agreement response times.</p>
+<p>Although they may offer you money or service credits as compensation, you should consider whether this really offsets the effect of the downtime on your users.</p>
+<p>If you’re regularly getting credits for uptime problems, consider whether you’re really getting the offered uptime or service level agreement response from your supplier.</p>
+<h2 id="decide-on-out-of-hours-support">Decide on out-of-hours support</h2>
+<p>If your service fails outside of normal office hours, like evenings and weekends, it’ll be down for a long time unless you’ve got someone responsible for out-of-hours support.</p>
+<p><a href="https://www.gov.uk/service-manual/user-research" target="_blank" rel="noopener noreferrer">Carry out user research</a> to find out whether your users are likely to use your service during these out-of-hours times. If they are you should:</p>
+<ul>
+<li>put someone in your team on call to deal with any problems</li>
+<li>have dedicated 24/7 support</li>
+</ul>
+<h2 id="tell-users-about-downtime">Tell users about downtime</h2>
+<h3 id="deliberate-downtime">Deliberate downtime</h3>
+<p>You may decide that you cannot afford to guarantee your service will be up at all times. If you do this, tell your users when it’ll be down and explain why.</p>
+<h3 id="unanticipated-downtime">Unanticipated downtime</h3>
+<p>You should have a status page you can update when there’s downtime you did not anticipate.</p>
+<h2 id="case-studies-and-examples">Case studies and examples</h2>
+<p>Find out <a href="https://insidegovuk.blog.gov.uk/2015/11/18/what-happens-when-things-go-wrong-on-gov-uk/" target="_blank" rel="noopener noreferrer">what happens when something goes wrong on GOV.UK</a>, from the Inside GOV.UK blog.</p>
+<h2 id="related-guides">Related guides</h2>
+<p>You may also find the <a href="https://www.gov.uk/service-manual/technology/monitoring-the-status-of-your-service" target="_blank" rel="noopener noreferrer">Monitoring the status of your service</a> guide useful.</p>

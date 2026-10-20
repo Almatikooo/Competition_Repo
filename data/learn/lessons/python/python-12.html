@@ -1,0 +1,210 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Be able to read and write globbing expressions that match sets of files.</li>
+<li>Use glob to create lists of files.</li>
+<li>Write for loops to perform operations on files given their names in a list.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>How can I process many data sets with a single command?</li>
+</ul>
+</div>
+<h2 id="use-a-for-loop-to-process-files-given-a-list-of-their-names">Use a <code>for</code> loop to process files given a list of their names.</h2>
+<ul>
+<li>A filename is a character string.</li>
+<li>And lists can contain character strings.</li>
+</ul>
+<pre><code class="language-python">import pandas as pd
+for filename in ['data/gapminder_gdp_africa.csv', 'data/gapminder_gdp_asia.csv']:
+    data = pd.read_csv(filename, index_col='country')
+    print(filename, data.min())
+</code></pre>
+<pre><code class="language-output">data/gapminder_gdp_africa.csv gdpPercap_1952    298.846212
+gdpPercap_1957    335.997115
+gdpPercap_1962    355.203227
+gdpPercap_1967    412.977514
+⋮ ⋮ ⋮
+gdpPercap_1997    312.188423
+gdpPercap_2002    241.165877
+gdpPercap_2007    277.551859
+dtype: float64
+data/gapminder_gdp_asia.csv gdpPercap_1952    331
+gdpPercap_1957    350
+gdpPercap_1962    388
+gdpPercap_1967    349
+⋮ ⋮ ⋮
+gdpPercap_1997    415
+gdpPercap_2002    611
+gdpPercap_2007    944
+dtype: float64
+</code></pre>
+<h2 id="use-glob-glob-to-find-sets-of-files-whose-names-match-a-patt">Use <a href="https://docs.python.org/3/library/glob.html#glob.glob" target="_blank" rel="noopener noreferrer"><code>glob.glob</code></a> to find sets of files whose names match a pattern.</h2>
+<ul>
+<li>In Unix, the term "globbing" means "matching a set of files with a pattern".</li>
+<li>The most common patterns are:
+<ul>
+<li><code>*</code> meaning "match zero or more characters"</li>
+<li><code>?</code> meaning "match exactly one character"</li>
+</ul>
+</li>
+<li>Python's standard library contains the <a href="https://docs.python.org/3/library/glob.html" target="_blank" rel="noopener noreferrer"><code>glob</code></a> module to provide pattern matching functionality</li>
+<li>The <a href="https://docs.python.org/3/library/glob.html" target="_blank" rel="noopener noreferrer"><code>glob</code></a> module contains a function also called <code>glob</code> to match file patterns</li>
+<li>E.g., <code>glob.glob('*.txt')</code> matches all files in the current directory
+whose names end with <code>.txt</code>.</li>
+<li>Result is a (possibly empty) list of character strings.</li>
+</ul>
+<pre><code class="language-python">import glob
+print('all csv files in data directory:', glob.glob('data/*.csv'))
+</code></pre>
+<pre><code class="language-output">all csv files in data directory: ['data/gapminder_all.csv', 'data/gapminder_gdp_africa.csv', \
+'data/gapminder_gdp_americas.csv', 'data/gapminder_gdp_asia.csv', 'data/gapminder_gdp_europe.csv', \
+'data/gapminder_gdp_oceania.csv']
+</code></pre>
+<pre><code class="language-python">print('all PDB files:', glob.glob('*.pdb'))
+</code></pre>
+<pre><code class="language-output">all PDB files: []
+</code></pre>
+<h2 id="use-glob-and-for-to-process-batches-of-files">Use <code>glob</code> and <code>for</code> to process batches of files.</h2>
+<ul>
+<li>Helps a lot if the files are named and stored systematically and consistently
+so that simple patterns will find the right data.</li>
+</ul>
+<pre><code class="language-python">for filename in glob.glob('data/gapminder_*.csv'):
+    data = pd.read_csv(filename)
+    print(filename, data['gdpPercap_1952'].min())
+</code></pre>
+<pre><code class="language-output">data/gapminder_all.csv 298.8462121
+data/gapminder_gdp_africa.csv 298.8462121
+data/gapminder_gdp_americas.csv 1397.717137
+data/gapminder_gdp_asia.csv 331.0
+data/gapminder_gdp_europe.csv 973.5331948
+data/gapminder_gdp_oceania.csv 10039.59564
+</code></pre>
+<ul>
+<li>This includes all data, as well as per-region data.</li>
+<li>Use a more specific pattern in the exercises to exclude the whole data set.</li>
+<li>But note that the minimum of the entire data set is also the minimum of one of the data sets,
+which is a nice check on correctness.</li>
+</ul>
+<div class="box box-challenge">
+<p class="box-title">Determining Matches</p>
+
+<p>Which of these files is <em>not</em> matched by the expression <code>glob.glob('data/*as*.csv')</code>?</p>
+<ol>
+<li><code>data/gapminder_gdp_africa.csv</code></li>
+<li><code>data/gapminder_gdp_americas.csv</code></li>
+<li><code>data/gapminder_gdp_asia.csv</code></li>
+</ol>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<p>1 is not matched by the glob.</p>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Minimum File Size</p>
+
+<p>Modify this program so that it prints the number of records in
+the file that has the fewest records.</p>
+<pre><code class="language-python">import glob
+import pandas as pd
+fewest = ____
+for filename in glob.glob('data/*.csv'):
+    dataframe = pd.____(filename)
+    fewest = min(____, dataframe.shape[0])
+print('smallest file has', fewest, 'records')
+</code></pre>
+<p>Note that the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.shape.html" target="_blank" rel="noopener noreferrer"><code>DataFrame.shape()</code> method</a>
+returns a tuple with the number of rows and columns of the data frame.</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x">Solution</h2>
+<pre><code class="language-python">import glob
+import pandas as pd
+fewest = float('Inf')
+for filename in glob.glob('data/*.csv'):
+    dataframe = pd.read_csv(filename)
+    fewest = min(fewest, dataframe.shape[0])
+print('smallest file has', fewest, 'records')
+</code></pre>
+<p>You might have chosen to initialize the <code>fewest</code> variable with a number greater than the numbers
+you're dealing with, but that could lead to trouble if you reuse the code with bigger numbers.
+Python lets you use positive infinity, which will work no matter how big your numbers are.
+What other special strings does the <a href="https://docs.python.org/3/library/functions.html#float" target="_blank" rel="noopener noreferrer"><code>float</code> function</a> recognize?</p>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Comparing Data</p>
+
+<p>Write a program that reads in the regional data sets
+and plots the average GDP per capita for each region over time
+in a single chart. Pandas will raise an error if it encounters
+non-numeric columns in a dataframe computation so you may need
+to either filter out those columns or tell pandas to ignore them.</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x">Solution</h2>
+<p>This solution builds a useful legend by using the <a href="https://docs.python.org/3/library/stdtypes.html#str.split" target="_blank" rel="noopener noreferrer">string <code>split</code> method</a> to
+extract the <code>region</code> from the path 'data/gapminder_gdp_a_specific_region.csv'.</p>
+<pre><code class="language-python">import glob
+import pandas as pd
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots(1,1)
+for filename in glob.glob('data/gapminder_gdp*.csv'):
+    dataframe = pd.read_csv(filename)
+    # extract &lt;region&gt; from the filename, expected to be in the format 'data/gapminder_gdp_&lt;region&gt;.csv'.
+    # we will split the string using the split method and `_` as our separator,
+    # retrieve the last string in the list that split returns (`&lt;region&gt;.csv`), 
+    # and then remove the `.csv` extension from that string.
+    # NOTE: the pathlib module covered in the next callout also offers
+    # convenient abstractions for working with filesystem paths and could solve this as well:
+    # from pathlib import Path
+    # region = Path(filename).stem.split('_')[-1]
+    region = filename.split('_')[-1][:-4]
+    # extract the years from the columns of the dataframe 
+    headings = dataframe.columns[1:]
+    years = headings.str.split('_').str.get(1)
+    # pandas raises errors when it encounters non-numeric columns in a dataframe computation
+    # but we can tell pandas to ignore them with the `numeric_only` parameter
+    dataframe.mean(numeric_only=True).plot(ax=ax, label=region)
+    # NOTE: another way of doing this selects just the columns with gdp in their name using the filter method
+    # dataframe.filter(like="gdp").mean().plot(ax=ax, label=region)
+# set the title and labels
+ax.set_title('GDP Per Capita for Regions Over Time')
+ax.set_xticks(range(len(years)))
+ax.set_xticklabels(years)
+ax.set_xlabel('Year')
+plt.tight_layout()
+plt.legend()
+plt.show()
+</code></pre>
+</details>
+</div>
+<div class="box box-callout">
+<p class="box-title">Dealing with File Paths</p>
+
+<p>The <a href="https://docs.python.org/3/library/pathlib.html" target="_blank" rel="noopener noreferrer"><code>pathlib</code> module</a> provides useful abstractions for file and path manipulation like
+returning the name of a file without the file extension. This is very useful when looping over files and
+directories. In the example below, we create a <code>Path</code> object and inspect its attributes.</p>
+<pre><code class="language-python">from pathlib import Path
+
+p = Path("data/gapminder_gdp_africa.csv")
+print(p.parent)
+print(p.stem)
+print(p.suffix)
+</code></pre>
+<pre><code class="language-output">data
+gapminder_gdp_africa
+.csv
+</code></pre>
+<p><strong>Hint:</strong> Check all available attributes and methods on the <code>Path</code> object with the <code>dir()</code>
+function.</p>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>Use a <code>for</code> loop to process files given a list of their names.</li>
+<li>Use <code>glob.glob</code> to find sets of files whose names match a pattern.</li>
+<li>Use <code>glob</code> and <code>for</code> to process batches of files.</li>
+</ul>
+</div>

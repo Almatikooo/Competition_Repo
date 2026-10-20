@@ -1,0 +1,486 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Compare and contrast the three stages of skill acquisition.</li>
+<li>Identify a mental model and an analogy that can help to explain it.</li>
+<li>Apply a concept map to explore a simple mental model.</li>
+<li>Understand the limitations of knowledge in the absence of a
+functional mental model.</li>
+<li>Create a formative assessment to diagnose a broken mental model.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>How do people learn?</li>
+<li>Who is a typical Carpentries learner?</li>
+<li>How can we help novices become competent practitioners?</li>
+</ul>
+</div>
+<p>We will now get started with a discussion of how learning works. We will
+begin with some key concepts from educational research and identify how
+these principles are put into practice in Carpentries workshops.</p>
+<h2 id="the-carpentries-pedagogical-model">The Carpentries Pedagogical Model</h2>
+<p>The Carpentries aims to teach computational competence to learners. We
+take an applied approach, avoiding the theoretical and general in favour
+of the practical and specific. By showing learners how to solve specific
+problems with specific tools and providing hands-on practice, we develop
+learners' confidence and lay the foundation for future learning.</p>
+<p>A critical component of this process is that learners are able to
+practice what they are learning in real time, get feedback on what they
+are doing, and then apply those lessons learned to the next step in the
+learning process. Having learners help each other during the workshops
+also helps to reinforce concepts taught during the workshops.</p>
+<p><strong>A Carpentries workshop is an interactive event</strong> -- for learners and
+instructors. We give and receive feedback throughout the course of a
+workshop. We incorporate assessments within the lesson materials and ask
+for feedback on sticky notes during lunch breaks and at the end of each
+day.</p>
+<p>One reason why practice and feedback are so important is because a
+Carpentries workshop is not simply a source of information: It is the
+starting point for development of a new skill. To understand what this
+means, we will start by exploring what research tells us about skill
+acquisition and development of a "mental model."</p>
+<h2 id="the-acquisition-of-skill">The Acquisition of Skill</h2>
+<p>Our approach is based on the work of researchers like Patricia Benner,
+who applied the <a href="https://en.wikipedia.org/wiki/Dreyfus_model_of_skill_acquisition" target="_blank" rel="noopener noreferrer">Dreyfus model of skill
+acquisition</a>
+in her studies of <a href="https://journals.sagepub.com/doi/10.1177/0270467604265061" target="_blank" rel="noopener noreferrer">how nurses progress from novice to
+expert</a> (<a href="https://www.worldcat.org/search?q=au%3ABenner%2C+Patricia+E." target="_blank" rel="noopener noreferrer">see
+also books by
+Benner</a>).
+This work indicates that through practice and formal instruction,
+learners acquire skills and advance through distinct stages. In
+simplified form, three stages of this model are:</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/carpentries/instructor-training/2c5559f28c613a317843175c9c285028fa2169ac/episodes/fig/skill-level.svg">{alt="Three people, labeled from left to right as "Novice", "Competent Practitioner", and "Expert". Underneath,an arrow labelled "Experience level" points from left to right. The "Novice" is quoted, "I am not sure what questions to ask." The Competent Practitioner is quoted, "I am pretty confident, but I still look stuff up a lot!" The Expert is quoted "I have been doing this on a daily basis for years!""}</p>
+<ul>
+<li>
+<p><em>Novice</em>: someone who does not know what they do not know, i.e.,
+they do not yet know what the key ideas in the domain are or how
+they relate. Novices may have difficulty formulating questions, or
+may ask questions that seem irrelevant or off-topic as they rely on
+prior knowledge, without knowing what is or is not related yet.</p>
+<blockquote>
+<p>Example: A <em>novice</em> learner in a Carpentries workshop might never have heard of the bash shell, and therefore may have no understanding of how it relates to their file system or other programs on their computer.</p>
+</blockquote>
+</li>
+<li>
+<p><em>Competent practitioner</em>: someone who has enough understanding for
+everyday purposes. They will not know all the details of how
+something works and their understanding may not be entirely
+accurate, but it is sufficient for completing normal tasks with
+normal effort under normal circumstances.</p>
+<blockquote>
+<p>Example: A <em>competent practitioner</em> in a Carpentries workshop might have used the shell before and understand how to move around directories and use individual programs, but they might not understand how they can fit these programs together to build scripts and automate large tasks.</p>
+</blockquote>
+</li>
+<li>
+<p><em>Expert</em>: someone who can easily handle situations that are out of the ordinary.</p>
+<blockquote>
+<p>Example: An <em>expert</em> in a Carpentries workshop may have experience writing and running shell scripts and, when presented with a problem, immediately sees how these skills can be used to solve the problem.</p>
+</blockquote>
+</li>
+</ul>
+<p>Note that how a person <em>feels</em> about their skill level is not included
+in these definitions! You may or may not consider yourself an expert in
+a particular subject, but may nonetheless function at that level in
+certain contexts. We will come back to the expertise of the Instructor
+and its impact -- positive and negative -- on teaching, in the next
+episode. For now, we are primarily concerned with novices, as this is
+The Carpentries' primary target audience.</p>
+<p>It is common to think of a novice as a sort of an "empty vessel" into
+which knowledge can be "poured." Unfortunately, this analogy includes
+inaccuracies that can generate dangerous misconceptions. In our next
+section, we will briefly explore the nature of "knowledge" through a
+concept that helps us differentiate between novices and competent
+practitioners in a more useful and visual way. This, in turn, will have
+implications for how we teach.</p>
+<h2 id="building-a-mental-model">Building a Mental Model</h2>
+<div class="box box-callout">
+<p class="box-title">Models are not perfect but are still helpful</p>
+
+<p>All models are wrong, but some are useful.</p>
+<ul>
+<li>George Box, statistician</li>
+</ul>
+</div>
+<p>Understanding is never a mirror of reality, even for an expert; rather,
+it is an internal representation based on our experience with a subject.
+This internal representation is often described as a <strong>mental model</strong>. A
+mental model allows us to extrapolate, or make predictions beyond and
+between the narrow limits of experience and memory, filling in gaps to
+the point that things "make sense."</p>
+<p>As we learn, our mental model evolves to become more complex and, most
+importantly, more useful. A useful model makes reasonable predictions
+and fits well within the range of things we are likely to encounter.
+While there will always be inaccuracies -- or "misconceptions" -- these
+do not interfere with day-to-day functioning. A useful model does not
+seize up or break down entirely as new concepts are added.</p>
+<h3 id="the-power-and-limitations-of-analogies">The power (and limitations) of analogies</h3>
+<p>Some mental models can be succinctly summarised by comparison to
+something else that is more universally understood. Good analogies can
+be extraordinarily useful when teaching, because they draw upon an
+existing mental model to fill in another, speeding learning and making a
+memorable connection. However, all analogies have limitations! If you
+choose to use an analogy, be sure its usefulness outweighs its potential
+to generate misconceptions that may interfere with learning.</p>
+<div class="box box-challenge">
+<p class="box-title">Analogy Brainstorm</p>
+
+<ol>
+<li>Think of an analogy to explore. Perhaps you have a favourite that
+relates to your area of professional interest, or a hobby. If you
+prefer to work with an example, consider this analogy from
+education: "teaching is like gardening."</li>
+<li>Share your analogy with a partner or group. (If you have not yet
+done so, be sure to take a moment to introduce yourself, first!)
+What does your analogy convey about the topic? How is it useful? In
+what ways is it wrong?</li>
+</ol>
+<p>This activity should take about 10 minutes.</p>
+</div>
+<div class="box box-callout">
+<p class="box-title">Analogies at Work: "Software Carpentry"</p>
+
+<p>People often ask where our name came from. Greg Wilson has this to say:</p>
+<p>"Brent Gorda and I came up with the name in 1998 to differentiate what
+we were teaching from software engineering. That's about digging the
+Channel Tunnel; we're about the computational equivalent of hanging
+drywall."</p>
+<p>The word "carpentry" acts as a metaphor -- a type of analogy --
+inspiring a comparison with something concrete, hands on, practical, and
+useful. This clearly conveys the purpose of our organisation: to support
+computational skill development among working practitioners who need the
+right tools and practices to be effective day to day.</p>
+</div>
+<p>A mental model may be represented as a collection of concepts and facts,
+connected by relationships. The mental model of an expert in any given
+subject will be far larger and more complex than that of a novice,
+including both more concepts and more detailed and numerous
+relationships. However, <strong>both may be perfectly useful</strong> in certain
+contexts.</p>
+<p>Returning to our example levels of skill development:</p>
+<ul>
+<li>A <em>novice</em> has a minimal mental model of surface features of the
+domain. Inaccuracies based on limited prior knowledge may interfere
+with adding new information. Predictions are likely to borrow
+heavily from mental models of other domains which seem superficially
+similar.</li>
+<li>A <em>competent practitioner</em> has a mental model that is useful for
+everyday purposes. Most new information they are likely to encounter
+will fit well with their existing model. Even though many potential
+elements of their mental model may still be missing or wrong,
+predictions about their area of work are usually accurate.</li>
+<li>An <em>expert</em> has a densely populated and connected mental model that
+is especially good for problem solving. They quickly connect
+concepts that others may not see as being related. They may have
+difficulty explaining how they are thinking in ways that do not rely
+on other features unique to their own mental model.</li>
+</ul>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/carpentries/instructor-training/2c5559f28c613a317843175c9c285028fa2169ac/episodes/fig/mental_models.svg">{alt="Three collections of six circles. The first collection is labelled "Novice" and has only two arrows connecting some of the circles. The second collection, labelled "Competent Practitioner" has six connecting arrows. The third collection, labelled "Expert", is densely connected, with eight connecting arrows."}</p>
+<h3 id="mapping-a-mental-model">Mapping a Mental Model</h3>
+<p>Most people do not naturally visualise a mental model as a diagram of
+concepts and relationships. Mental models are complicated! Yet, visual
+representation of concepts and relationships can be a useful way to
+explore and understand hidden features of a mental model.</p>
+<p>There are certain ways in which you may routinely use visual organisers,
+such as flow charts or biochemical pathway diagrams. A more general tool
+that is useful for exploring any network of concepts and relationships
+is a <strong>concept map</strong>. Pioneered for classroom use by John Novak in the
+1970s, a concept map asks you to identify which concepts are most
+relevant to a topic at hand and -- critically -- to identify how they
+are connected. It can be quite difficult to identify and organise these
+connections! However, the process of forcing abstract knowledge into a
+visual format can force you to name connections that you might otherwise
+have quietly assumed, or illuminate gaps that you may not have been
+aware of. Especially where analogies are not available, concept mapping
+can help you to make your mental model of a concept more clear to
+yourself or others.</p>
+<p>As an example, consider a mental model of the relationship between a
+small ball and water in a full glass.</p>
+<p>The concept map below illustrates a simple mental model that a young
+child might develop after putting the ball in the water.</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/carpentries/instructor-training/2c5559f28c613a317843175c9c285028fa2169ac/episodes/fig/ballwater1a.svg">{alt="Two words inside rectangles, with labeled arrows connecting them. "Ball" is at the left, with an arrow pointing to "Water", at right, labeled as "Pushes out.""}</p>
+<p>Give a child balls of three different sizes, and they might put together
+a somewhat more complex mental model, perhaps illustrated as:</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/carpentries/instructor-training/2c5559f28c613a317843175c9c285028fa2169ac/episodes/fig/ballwater2a.svg">{alt="Four words inside rectangles, with labeled arrows connecting them. "Ball" is at the left, and "Water", at right. "Big Ball" and "Small Ball" are stacked vertically between them. Arrows from "Ball" are labeled "can be MORE" and can be "LESS", and arrows to "water" are labeled as "Pushes out MORE" and "Pushes out "LESS""}</p>
+<div class="box box-challenge">
+<p class="box-title">Mapping a Mental Model</p>
+
+<ol>
+<li>On a piece of paper, draw a simplified concept map of the same concept you discussed in the last activity, but this time without the analogy. What are 3-4 core concepts involved? How are those concepts related?</li>
+</ol>
+<p>If you would like to try out an online tool for this exercise, visit <a href="https://excalidraw.com" target="_blank" rel="noopener noreferrer">Excalidraw</a> at <a href="https://excalidraw.com" target="_blank" rel="noopener noreferrer">https://excalidraw.com</a>.</p>
+<ol start="2">
+<li>In the Etherpad, write some notes on this process. Was it difficult? Do you think it would be a useful exercise prior to teaching about your topic? What challenges might a novice face in creating a concept map of this kind?</li>
+</ol>
+<p>This exercise should take about 5 minutes.</p>
+</div>
+<h2 id="misconceptions">Misconceptions</h2>
+<p>The mental model above connects a ball to the water it can displace,
+recognizing that 'more' ball can move 'more' water. This mental model is
+perfectly functional for a child who wants to have fun splashing water
+around. It may endure in this way for several years of beaches and
+bathtubs.</p>
+<p>However, when this child is asked to predict what would happen to the
+water if a ball were not bigger or smaller but <em>heavier</em> or <em>lighter</em>,
+they will naturally apply their existing mental model to the task.
+BUT...</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/carpentries/instructor-training/2c5559f28c613a317843175c9c285028fa2169ac/episodes/fig/ballwater3a.svg">{alt="A concept map similar to the previous one except with "Heavy Ball" and "Light Ball" in the middle, and a red "X" over the arrows labeled "Pushes out MORE" and "Pushes out LESS""}</p>
+<p>What a surprise! The challenge presented by this new information is that
+it clashes with the pre-existing mental model, to which it seemed to
+apply. This prior knowledge needs to be adjusted to a new understanding
+that incorporates the difference between properties of mass and volume.</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/carpentries/instructor-training/2c5559f28c613a317843175c9c285028fa2169ac/episodes/fig/ballwater4a.svg">{alt="A new concept map. "Ball" remains at left, and "Water", at right. "Size" and "Weight" are stacked vertically between them. Arrows from "Ball" share the label "Can have more or less." One arrow from "size to "water" is labeled "Affects pushing of""}</p>
+<p>When mental models break, learning can occur more slowly than you might
+expect. The longer a prior model was in use, and the more extensively it
+has to be <em>unlearned</em>, the more it can actively interfere with the
+incorporation of new knowledge. Our child may quickly adapt to this new
+information if they had never thought much about mass before and were
+simply trying out an existing mental model on a new situation. However,
+if they had extensive experience with balls that were both larger and
+heavier (for example), it may take longer to unlearn what they thought
+they understood about mass.</p>
+<p>Most mental models worth mapping are not so simple. Yet, forcing complex
+ideas in to this simplified format can be useful when preparing to
+teach, because it forces you to be explicit about exactly what concepts
+are at the heart of your topic, and to name relationships between them.</p>
+<h3 id="types-of-misconceptions">Types of Misconceptions</h3>
+<p>Correcting learners' misconceptions is at least as important as
+presenting them with correct information. There are many ways of
+classifying different types of misconceptions. For our purposes, it is
+useful to consider 3 broad categories:</p>
+<ul>
+<li>Simple <em>factual errors</em>. These exist in isolation from any deeper
+understanding. These are the easiest to correct. Example: believing
+that Vancouver is the capital of British Columbia.</li>
+<li><em>Broken models</em>. These occur when inaccuracies explain relationships
+and generate predictions (often successfully!) in an existing mental
+model. These take time to address, demanding that learners reason
+carefully through examples to see contradictions. Examples:
+believing that motion and acceleration must always be in the same
+direction, or that seasons are related to the shape of the earth's
+orbit.</li>
+<li><em>Fundamental beliefs</em>, which are deeply connected to a learner's
+social identity and are the hardest to change. Examples: "the world
+is only a few thousand years old" or "human beings cannot affect the
+planet's climate". "I am not a computational person" may, arguably,
+also fall into this category of misconception.</li>
+</ul>
+<p>The middle category of misconceptions is the most useful type to watch
+out for in Carpentries workshops. While teaching, we want to expose
+learners' broken models so that we can help them begin to deconstruct
+them and build better ones in their place.</p>
+<div class="box box-challenge">
+<p class="box-title">Anticipating Misconceptions</p>
+
+<p>Describe a misconception you have encountered as a teacher or as a learner.</p>
+<p>This exercise should take about 5 minutes.</p>
+</div>
+<h2 id="using-formative-assessment-to-identify-misconceptions">Using Formative Assessment to Identify Misconceptions</h2>
+<p>In order to effectively root out pre-existing misconceptions that need
+to be un-learned and stop quietly developing misconceptions in their
+tracks, an Instructor needs to be actively and persistently looking for
+them. But how?</p>
+<p>Like so many challenges we will discuss in this training, the answer is
+<strong>feedback</strong>. In this case, we want feedback that allows us to
+<strong>assess</strong> the developing mental model of a trainee in highly specific
+ways, to verify that learning is proceeding according to plan and not
+careening off in some unpredicted direction. We want to get this
+feedback <strong>while we teach</strong> so that we can respond to that information
+and adapt our instruction to get learners back on track.</p>
+<p>This kind of assessment has a name: it is called <strong>formative
+assessment</strong> because it is applied during learning to form the practice
+of teaching and the experience of the learner. This is different from
+exams, for example, which sum up what a participant has learned but are
+not used to guide further progress and are hence called <strong>summative</strong>.</p>
+<p>Feedback from formative assessment illuminates misconceptions for both
+Instructors and learners. It also provides reassurance on both sides
+when learning <em>is</em> proceeding on track! It is far more reliable than
+reading faces or using feelings of comfort as a metric, which tends to
+be what Instructors and learners default to otherwise.</p>
+<div class="box box-challenge">
+<p class="box-title">Formative Assessments</p>
+
+<p>Any instructional tool that generates feedback that is used in a
+formative way can be described as "formative assessment." Based on your
+previous educational experience (or even this training so far!) what
+types of formative assessments do you know about?</p>
+<p>Write your answers in the Etherpad; or go around and have each person in
+the group name one.</p>
+<p>This exercise should take about 5 minutes.</p>
+</div>
+<p>Formative assessments can serve many purposes other than hunting down
+misconceptions, such as verifying engagement or supporting memory
+consolidation. We will discuss some of these functions in later
+episodes. In this section, we are interested quite narrowly in
+evaluating mental models.</p>
+<p>One example of formative assessment that can be used to tease out
+misconceptions is the multiple choice question (MCQ). When designed
+carefully, these can target anticipated misconceptions with surgical
+precision. For example, suppose we are teaching children multi-digit
+addition. A well-designed MCQ would be:</p>
+<pre><code class="language-source">Q: what is 27 + 15 ?
+a) 42
+b) 32
+c) 312
+d) 33
+</code></pre>
+<p>The correct answer is 42, but each of the other answers provides
+valuable insight.</p>
+<div class="box box-challenge">
+<p class="box-title">Identify the Misconceptions</p>
+
+<p>Choose one wrong answer and write in the Etherpad what misconception is
+associated with that wrong answer. This discussion should take about 5
+minutes.</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<ul>
+<li>If the child answers 32, they are throwing away the carry
+completely.</li>
+<li>If they answer 312, they know that they cannot just discard the
+carried '1', but do not understand that it is actually a ten and
+needs to be added into the next column. In other words, they are
+treating each column of numbers as unconnected to its neighbors.</li>
+<li>If they answer 33 then they know they have to carry the 1, but are
+carrying it back into the same column it came from.</li>
+</ul>
+</details>
+</div>
+<p>Each of these incorrect answers has <strong>diagnostic power</strong>. Each answer
+looks like it could be right: silly answers like "a fish!" offer
+therapeutic comedy but do not provide insight; nor do answers that are
+wrong in random ways. "Diagnostic power" means that each of the wrong
+choices helps the instructor figure out precisely what misconceptions
+learners have adopted when they select that choice.</p>
+<p>Formative assessments are most powerful when:</p>
+<ol>
+<li><strong>all learners</strong> are effectively assessed (not only the most vocal
+ones!) AND</li>
+<li>an <strong>instructor responds promptly to the results of the assessment</strong></li>
+</ol>
+<p>An instructor may learn they need to change their pace or review a
+particular concept. Using formative assessment effectively to discover
+and address misconceptions is a teaching skill that you can develop with
+reflective practice.</p>
+<div class="box box-challenge">
+<p class="box-title">Handling Outcomes</p>
+
+<p>Formative assessments allow us as instructors to adapt our instruction
+to our audience. What options do we have if a majority of the class
+chooses:</p>
+<ol>
+<li>mostly one of the wrong answers?</li>
+<li>mostly the right answer?</li>
+<li>an even spread among options?</li>
+</ol>
+<p>Choose one of the above scenarios and compose a suggested response to it
+in the Etherpad.</p>
+<p>This discussion should take about 5 minutes.</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x">Solution</h2>
+<ol>
+<li>If the majority of the class votes for a single wrong answer, you
+have a widespread misconception and can stop to examine and correct
+that misconception.</li>
+<li>If most of the class votes for the right answer, it is ok to explain
+the answer and move on. Helpers can make themselves available to
+assist anyone who still feels uncertain.</li>
+<li>If answers are pretty evenly split between options, learners may be
+guessing randomly, reflecting an absent mental model rather than a
+broken one. In this case it is a good idea to go back to a point
+where everyone was on the same page.</li>
+</ol>
+</details>
+</div>
+<p>Designing a few MCQs with diagnostic power is useful when preparing to
+teach even if they are never used, for the same reason that concept
+mapping can be useful: it forces the instructor to think about the
+learners' mental models and try to anticipate how they might be broken.
+In short, it helps Instructors to put themselves into the learners'
+heads and see the topic from their point of view. We will talk more
+about the process of preparing to teach in a later episode.</p>
+<h2 id="the-importance-of-going-slowly">The Importance of Going Slowly</h2>
+<p>It takes work to actively assess mental models throughout a workshop;
+this also takes time. This can make Instructors feel conflicted about
+using formative assessment routinely. However, the need to conduct
+routine assessment is not the only reason why a workshop <strong>should
+proceed more slowly than you think</strong>.</p>
+<p>One key insight from research on cognitive development is that novices,
+competent practitioners, and experts each need to be taught differently.
+In particular, presenting novices with a pile of facts early on is
+counter-productive, because they do not yet have a model or framework to
+fit those facts into. In fact, <strong>presenting too many facts too soon can
+actually reinforce an incorrect mental model</strong>. (This is a key problem
+with the "empty vessel" analogy described earlier.)</p>
+<p>Most learners coming to Carpentries lessons are novices, and do not have
+a strong mental model of the concepts we are teaching. Thus, our primary
+goal is <strong>not</strong> to teach the syntax of a particular programming
+language, but <strong>to help them construct a working mental model</strong> so that
+they have something to attach facts to. In other words, our goal is to
+teach people <strong>how to think</strong> about programming and data management in a
+way that will allow them to learn more easily on their own or understand
+what they might find online.</p>
+<div class="box box-testimonial">
+<p class="box-title">Testimonial</p>
+<p>If someone feels it is too slow, they will be a bit bored. If they feel
+it is too fast, they will never come back to programming. — Kunal
+Marwaha, SWC Instructor</p>
+</div>
+<p>If our goal is to help novices construct an accurate and useful mental
+model of a new intellectual domain, this will impact our teaching. For
+example, we principally want to help learners form the right categories
+and make connections among concepts. We <em>do not</em> want to overload them
+with a slew of unrelated facts, as this will be confusing.</p>
+<p>An important practical implication of this latter point is the pace at
+which we teach.<br>
+In the first main episode of Software Carpentry's <a href="https://swcarpentry.github.io/shell-novice/" target="_blank" rel="noopener noreferrer">lesson on the Unix
+shell</a>, which covers
+"Navigating Files and Directories", there are only four "commands" for
+40 minutes of teaching. Ten minutes per command may seem glacially slow,
+but that episodes's real purpose is to teach learners about paths; later
+on, they will learn about history, wildcards, pipes and filters,
+command-line arguments, redirection, and all the other big ideas on
+which the shell depends, and without which people cannot understand how
+to use commands.</p>
+<p>That mental model of the shell also includes things like:</p>
+<ul>
+<li>Anything you repeat manually, you will eventually get wrong (so let
+the computer repeat things for you by using tab completion and the
+<code>history</code> command).</li>
+<li>Lots of little tools, combined as needed, are more productive than a
+handful of programs. (This motivates the pipe-and-filter model.)</li>
+</ul>
+<p>These two examples illustrate something else as well. Learning consists
+of more than "just" adding information to mental models; creating
+linkages between concepts and facts is at least as important. Telling
+people that they should not repeat things, and that they should try to
+think (by analogy) in terms of little pieces loosely joined, both set
+the stage for discussing functions. Explicitly referring back to pipes
+and filters in the shell when introducing functions helps solidify both
+ideas.</p>
+<div class="box box-callout">
+<p class="box-title">Meeting Learners Where They Are</p>
+
+<p>One of the strengths of Carpentries workshops is that we meet learners
+<em>where they are</em>. Carpentries Instructors strive to help learners
+progress from whatever starting point they happen to be at, without
+making anyone feel inferior about their current practices or skillsets.
+We do this in part by teaching relevant and useful skills, building an
+inclusive learning environment, and continually getting (and paying
+attention to!) feedback from learners. We will be talking in more depth
+about each of these strategies as we go forward in our workshop.</p>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>Our goal when teaching novices is to help them construct useful
+mental models.</li>
+<li>Exploring our own mental models can help us prepare to convey them.</li>
+<li>Constructing a useful mental model requires practice and corrective
+feedback.</li>
+<li>Formative assessments provide practice for learners and feedback to
+learners and instructors.</li>
+</ul>
+</div>

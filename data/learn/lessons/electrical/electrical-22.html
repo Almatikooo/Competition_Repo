@@ -1,0 +1,114 @@
+<p>
+One of the most common mistakes made by beginning electronics students in their application of Ohm's Laws is mixing the contexts of voltage, current, and resistance.  In other words, a student might mistakenly use a value for I through one resistor and the value for E across a set of interconnected resistors, thinking that they'll arrive at the resistance of that one resistor.  Not so!  Remember this important rule: The variables used in Ohm's Law equations must be <i>common</i> to the same two points in the circuit under consideration.  I cannot overemphasize this rule.  This is especially important in series-parallel combination circuits where nearby components may have different values for both voltage drop <i>and</i> current.
+</p>
+<p>
+When using Ohm's Law to calculate a variable pertaining to a single component, be sure the voltage you're referencing is solely across that single component and the current you're referencing is solely through that single component and the resistance you're referencing is solely for that single component.  Likewise, when calculating a variable pertaining to a set of components in a circuit, be sure that the voltage, current, and resistance values are specific to that complete set of components only!  A good way to remember this is to pay close attention to the <i>two points</i> terminating the component or set of components being analyzed, making sure that the voltage in question is across those two points, that the current in question is the electron flow from one of those points all the way to the other point, that the resistance in question is the equivalent of a single resistor between those two points, and that the power in question is the total power dissipated by all components between those two points.  
+</p>
+<p>
+The "table" method presented for both series and parallel circuits in this chapter is a good way to keep the context of Ohm's Law correct for any kind of circuit configuration.  In a table like the one shown below, you are only allowed to apply an Ohm's Law equation for the values of a single <i>vertical</i> column at a time:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10086.png"> </p>
+<p>
+Deriving values <i>horizontally</i> across columns is allowable as per the principles of series and parallel circuits:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10087.png"> </p>
+<br>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10088.png"> </p>
+<p>
+Not only does the "table" method simplify the management of all relevant quantities, it also facilitates cross-checking of answers by making it easy to solve for the original unknown variables through other methods, or by working backwards to solve for the initially given values from your solutions.  For example, if you have just solved for all unknown voltages, currents, and resistances in a circuit, you can check your work by adding a row at the bottom for power calculations on each resistor, seeing whether or not all the individual power values add up to the total power.  If not, then you must have made a mistake somewhere!  While this technique of "cross-checking" your work is nothing new, using the table to arrange all the data for the cross-check(s) results in a minimum of confusion.
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Apply Ohm's Law to vertical columns in the table.</li>
+<li>Apply rules of series/parallel to horizontal rows in the table.</li>
+<li>Check your calculations by working "backwards" to try to arrive at originally given values (from your first calculated answers), or by solving for a quantity using more than one method (from different given values).</li>
+</ul>
+<h2 id="component-failure-analysis">Component failure analysis</h2>
+<p>
+The job of a technician frequently entails "troubleshooting" (locating and correcting a problem) in malfunctioning circuits.  Good troubleshooting is a demanding and rewarding effort, requiring a thorough understanding of the basic concepts, the ability to formulate hypotheses (proposed explanations of an effect), the ability to judge the value of different hypotheses based on their probability (how likely one particular cause may be over another), and a sense of creativity in applying a solution to rectify the problem.  While it is possible to distill these skills into a scientific methodology, most practiced troubleshooters would agree that troubleshooting involves a touch of art, and that it can take years of experience to fully develop this art.
+</p>
+<p>
+An essential skill to have is a ready and intuitive understanding of how component faults affect circuits in different configurations.  We will explore some of the effects of component faults in both series and parallel circuits here, then to a greater degree at the end of the "Series-Parallel Combination Circuits" chapter.
+</p>
+<p>
+Let's start with a simple series circuit:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00098.png"> </p>
+<p>
+With all components in this circuit functioning at their proper values, we can mathematically determine all currents and voltage drops:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10089.png"> </p>
+<p>
+Now let us suppose that R<sub>2</sub> fails shorted.  <i>Shorted</i> means that the resistor now acts like a straight piece of wire, with little or no resistance.  The circuit will behave as though a "jumper" wire were connected across R<sub>2</sub> (in case you were wondering, "jumper wire" is a common term for a temporary wire connection in a circuit).  What causes the shorted condition of R<sub>2</sub> is no matter to us in this example; we only care about its effect upon the circuit:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00099.png"> </p>
+<p>
+With R<sub>2</sub> shorted, either by a jumper wire or by an internal resistor failure, the total circuit resistance will <i>decrease</i>.  Since the voltage output by the battery is a constant (at least in our ideal simulation here), a decrease in total circuit resistance means that total circuit current <i>must increase</i>:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10090.png"> </p>
+<p>
+As the circuit current increases from 20 milliamps to 60 milliamps, the voltage drops across R<sub>1</sub> and R<sub>3</sub> (which haven't changed resistances) increase as well, so that the two resistors are dropping the whole 9 volts.  R<sub>2</sub>, being bypassed by the very low resistance of the jumper wire, is effectively eliminated from the circuit, the resistance from one lead to the other having been reduced to zero.  Thus, the voltage drop across R<sub>2</sub>, even with the increased total current, is zero volts.
+</p>
+<p>
+On the other hand, if R<sub>2</sub> were to fail "open" -- resistance increasing to nearly infinite levels -- it would also create wide-reaching effects in the rest of the circuit:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00100.png"> </p>
+<br>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10091.png"> </p>
+<p>
+With R<sub>2</sub> at infinite resistance and total resistance being the sum of all individual resistances in a series circuit, the total current decreases to zero.  With zero circuit current, there is no electron flow to produce voltage drops across R<sub>1</sub> or R<sub>3</sub>.  R<sub>2</sub>, on the other hand, will manifest the full supply voltage across its terminals.
+</p>
+<p>
+We can apply the same before/after analysis technique to parallel circuits as well.  First, we determine what a "healthy" parallel circuit should behave like.
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00101.png"> </p>
+<br>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10092.png"> </p>
+<p>
+Supposing that R<sub>2</sub> opens in this parallel circuit, here's what the effects will be:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00102.png"> </p>
+<br>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10093.png"> </p>
+<p>
+Notice that in this parallel circuit, an open branch only affects the current through that branch and the circuit's total current.  Total voltage -- being shared equally across all components in a parallel circuit, will be the same for all resistors.  Due to the fact that the voltage source's tendency is to hold voltage <i>constant</i>, its voltage will not change, and being in parallel with all the resistors, it will hold all the resistors' voltages the same as they were before: 9 volts.  Being that voltage is the only common parameter in a parallel circuit, and the other resistors haven't changed resistance value, their respective branch currents remain unchanged.  
+</p>
+<p>
+This is what happens in a household lamp circuit: all lamps get their operating voltage from power wiring arranged in a parallel fashion.  Turning one lamp on and off (one branch in that parallel circuit closing and opening) doesn't affect the operation of other lamps in the room, only the current in that one lamp (branch circuit) and the total current powering all the lamps in the room:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00357.png"> </p>
+<p>
+In an ideal case (with perfect voltage sources and zero-resistance connecting wire), shorted resistors in a simple parallel circuit will also have no effect on what's happening in other branches of the circuit.  In real life, the effect is not quite the same, and we'll see why in the following example:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00103.png"> </p>
+<br>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10094.png"> </p>
+<p>
+A shorted resistor (resistance of 0 Ω) would theoretically draw infinite current from any finite source of voltage (I=E/0).  In this case, the zero resistance of R<sub>2</sub> decreases the circuit total resistance to zero Ω as well, increasing total current to a value of infinity.  As long as the voltage source holds steady at 9 volts, however, the other branch currents (I<sub>R1</sub> and I<sub>R3</sub>) will remain unchanged.
+</p>
+<p>
+The critical assumption in this "perfect" scheme, however, is that the voltage supply will hold steady at its rated voltage while supplying an infinite amount of current to a short-circuit load.  This is simply not realistic.  Even if the short has a small amount of resistance (as opposed to absolutely zero resistance), no <i>real</i> voltage source could arbitrarily supply a huge overload current and maintain steady voltage at the same time.  This is primarily due to the internal resistance intrinsic to all electrical power sources, stemming from the inescapable physical properties of the materials they're constructed of:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00104.png"> </p>
+<p>
+These internal resistances, small as they may be, turn our simple parallel circuit into a series-parallel combination circuit.  Usually, the internal resistances of voltage sources are low enough that they can be safely ignored, but when high currents resulting from shorted components are encountered, their effects become very noticeable.  In this case, a shorted R<sub>2</sub> would result in almost all the voltage being dropped across the internal resistance of the battery, with almost no voltage left over for resistors R<sub>1</sub>, R<sub>2</sub>, and R<sub>3</sub>:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00105.png"> </p>
+<br>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10095.png"> </p>
+<p>
+Suffice it to say, intentional direct short-circuits across the terminals of any voltage source is a bad idea.  Even if the resulting high current (heat, flashes, sparks) causes no harm to people nearby, the voltage source will likely sustain damage, unless it has been specifically designed to handle short-circuits, which most voltage sources are not.
+</p>
+<p>
+Eventually in this book I will lead you through the analysis of circuits <i>without the use of any numbers</i>, that is, analyzing the effects of component failure in a circuit without knowing exactly how many volts the battery produces, how many ohms of resistance is in each resistor, etc.  This section serves as an introductory step to that kind of analysis.
+</p>
+<p>
+Whereas the normal application of Ohm's Law and the rules of series and parallel circuits is performed with numerical quantities (<i>"quantitative"</i>), this new kind of analysis without precise numerical figures is something I like to call <i>qualitative</i> analysis.  In other words, we will be analyzing the <i>qualities</i> of the effects in a circuit rather than the precise <i>quantities</i>.  The result, for you, will be a much deeper intuitive understanding of electric circuit operation.
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>To determine what would happen in a circuit if a component fails, re-draw that circuit with the equivalent resistance of the failed component in place and re-calculate all values.</li>
+<li>The ability to intuitively determine what will happen to a circuit with any given component fault is a <i>crucial</i> skill for any electronics troubleshooter to develop.  The best way to learn is to experiment with circuit calculations and real-life circuits, paying close attention to what changes with a fault, what remains the same, and <i>why</i>!</li>
+<li>A <i>shorted</i> component is one whose resistance has dramatically decreased.</li>
+<li>An <i>open</i> component is one whose resistance has dramatically increased.  For the record, resistors tend to fail open more often than fail shorted, and they almost never fail unless physically or electrically overstressed (physically abused or overheated).</li>
+</ul>

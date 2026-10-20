@@ -1,0 +1,365 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Explain key differences between integers and floating point numbers.</li>
+<li>Explain key differences between numbers and character strings.</li>
+<li>Use built-in functions to convert between integers, floating point numbers, and strings.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>What kinds of data do programs store?</li>
+<li>How can I convert one type to another?</li>
+</ul>
+</div>
+<h2 id="every-value-has-a-type">Every value has a type.</h2>
+<ul>
+<li>Every value in a program has a specific type.</li>
+<li>Integer (<code>int</code>): represents positive or negative whole numbers like 3 or -512.</li>
+<li>Floating point number (<code>float</code>): represents real numbers like 3.14159 or -2.5.</li>
+<li>Character string (usually called "string", <code>str</code>): text.
+<ul>
+<li>Written in either single quotes or double quotes (as long as they match).</li>
+<li>The quote marks aren't printed when the string is displayed.</li>
+</ul>
+</li>
+</ul>
+<h2 id="use-the-built-in-function-type-to-find-the-type-of-a-value">Use the built-in function <code>type</code> to find the type of a value.</h2>
+<ul>
+<li>Use the built-in function <code>type</code> to find out what type a value has.</li>
+<li>Works on variables as well.
+<ul>
+<li>But remember: the <em>value</em> has the type --- the <em>variable</em> is just a label.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">print(type(52))
+</code></pre>
+<pre><code class="language-output">&lt;class 'int'&gt;
+</code></pre>
+<pre><code class="language-python">fitness = 'average'
+print(type(fitness))
+</code></pre>
+<pre><code class="language-output">&lt;class 'str'&gt;
+</code></pre>
+<h2 id="types-control-what-operations-or-methods-can-be-performed-on">Types control what operations (or methods) can be performed on a given value.</h2>
+<ul>
+<li>A value's type determines what the program can do to it.</li>
+</ul>
+<pre><code class="language-python">print(5 - 3)
+</code></pre>
+<pre><code class="language-output">2
+</code></pre>
+<pre><code class="language-python">print('hello' - 'h')
+</code></pre>
+<pre><code class="language-error">---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+&lt;ipython-input-2-67f5626a1e07&gt; in &lt;module&gt;()
+----&gt; 1 print('hello' - 'h')
+
+TypeError: unsupported operand type(s) for -: 'str' and 'str'
+</code></pre>
+<h2 id="you-can-use-the-and-operators-on-strings">You can use the "+" and "*" operators on strings.</h2>
+<ul>
+<li>"Adding" character strings concatenates them.</li>
+</ul>
+<pre><code class="language-python">full_name = 'Ahmed' + ' ' + 'Walsh'
+print(full_name)
+</code></pre>
+<pre><code class="language-output">Ahmed Walsh
+</code></pre>
+<ul>
+<li>Multiplying a character string by an integer <em>N</em> creates a new string that consists of that character string repeated  <em>N</em> times.
+<ul>
+<li>Since multiplication is repeated addition.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">separator = '=' * 10
+print(separator)
+</code></pre>
+<pre><code class="language-output">==========
+</code></pre>
+<h2 id="strings-have-a-length-but-numbers-don-t">Strings have a length (but numbers don't).</h2>
+<ul>
+<li>The built-in function <code>len</code> counts the number of characters in a string.</li>
+</ul>
+<pre><code class="language-python">print(len(full_name))
+</code></pre>
+<pre><code class="language-output">11
+</code></pre>
+<ul>
+<li>But numbers don't have a length (not even zero).</li>
+</ul>
+<pre><code class="language-python">print(len(52))
+</code></pre>
+<pre><code class="language-error">---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+&lt;ipython-input-3-f769e8e8097d&gt; in &lt;module&gt;()
+----&gt; 1 print(len(52))
+
+TypeError: object of type 'int' has no len()
+</code></pre>
+<h2 id="must-convert-numbers-to-strings-or-vice-versa-when-operating">Must convert numbers to strings or vice versa when operating on them. {#convert-numbers-and-strings}</h2>
+<ul>
+<li>Cannot add numbers and strings.</li>
+</ul>
+<pre><code class="language-python">print(1 + '2')
+</code></pre>
+<pre><code class="language-error">---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+&lt;ipython-input-4-fe4f54a023c6&gt; in &lt;module&gt;()
+----&gt; 1 print(1 + '2')
+
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+</code></pre>
+<ul>
+<li>Not allowed because it's ambiguous: should <code>1 + '2'</code> be <code>3</code> or <code>'12'</code>?</li>
+<li>Some types can be converted to other types by using the type name as a function.</li>
+</ul>
+<pre><code class="language-python">print(1 + int('2'))
+print(str(1) + '2')
+</code></pre>
+<pre><code class="language-output">3
+12
+</code></pre>
+<h2 id="can-mix-integers-and-floats-freely-in-operations">Can mix integers and floats freely in operations.</h2>
+<ul>
+<li>Integers and floating-point numbers can be mixed in arithmetic.
+<ul>
+<li>Python 3 automatically converts integers to floats as needed.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">print('half is', 1 / 2.0)
+print('three squared is', 3.0 ** 2)
+</code></pre>
+<pre><code class="language-output">half is 0.5
+three squared is 9.0
+</code></pre>
+<h2 id="variables-only-change-value-when-something-is-assigned-to-th">Variables only change value when something is assigned to them.</h2>
+<ul>
+<li>If we make one cell in a spreadsheet depend on another,
+and update the latter,
+the former updates automatically.</li>
+<li>This does <strong>not</strong> happen in programming languages.</li>
+</ul>
+<pre><code class="language-python">variable_one = 1
+variable_two = 5 * variable_one
+variable_one = 2
+print('first is', variable_one, 'and second is', variable_two)
+</code></pre>
+<pre><code class="language-output">first is 2 and second is 5
+</code></pre>
+<ul>
+<li>The computer reads the value of <code>variable_one</code> when doing the multiplication,
+creates a new value, and assigns it to <code>variable_two</code>.</li>
+<li>Afterwards, the value of <code>variable_two</code> is set to the new value and <em>not dependent on <code>variable_one</code></em> so its value
+does not automatically change when <code>variable_one</code> changes.</li>
+</ul>
+<div class="box box-challenge">
+<p class="box-title">Fractions</p>
+
+<p>What type of value is 3.4?
+How can you find out?</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<p>It is a floating-point number (often abbreviated "float").
+It is possible to find out by using the built-in function <code>type()</code>.</p>
+<pre><code class="language-python">print(type(3.4))
+</code></pre>
+<pre><code class="language-output">&lt;class 'float'&gt;
+</code></pre>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Automatic Type Conversion</p>
+
+<p>What type of value is 3.25 + 4?</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x">Solution</h2>
+<p>It is a float:
+integers are automatically converted to floats as necessary.</p>
+<pre><code class="language-python">result = 3.25 + 4
+print(result, 'is', type(result))
+</code></pre>
+<pre><code class="language-output">7.25 is &lt;class 'float'&gt;
+</code></pre>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Choose a Type</p>
+
+<p>What type of value (integer, floating point number, or character string)
+would you use to represent each of the following?  Try to come up with more than one good answer for each problem.  For example, in  # 1, when would counting days with a floating point variable make more sense than using an integer?</p>
+<ol>
+<li>Number of days since the start of the year.</li>
+<li>Time elapsed from the start of the year until now in days.</li>
+<li>Serial number of a piece of lab equipment.</li>
+<li>A lab specimen's age</li>
+<li>Current population of a city.</li>
+<li>Average population of a city over time.</li>
+</ol>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x">Solution</h2>
+<p>The answers to the questions are:</p>
+<ol>
+<li>Integer, since the number of days would lie between 1 and 365.</li>
+<li>Floating point, since fractional days are required</li>
+<li>Character string if serial number contains letters and numbers, otherwise integer if the serial number consists only of numerals</li>
+<li>This will vary! How do you define a specimen's age? whole days since collection (integer)? date and time (string)?</li>
+<li>Choose floating point to represent population as large aggregates (eg millions), or integer to represent population in units of individuals.</li>
+<li>Floating point number, since an average is likely to have a fractional part.</li>
+</ol>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Division Types</p>
+
+<p>In Python 3, the <code>//</code> operator performs integer (whole-number) floor division, the <code>/</code> operator performs floating-point
+division, and the <code>%</code> (or <em>modulo</em>) operator calculates and returns the remainder from integer division:</p>
+<pre><code class="language-python">print('5 // 3:', 5 // 3)
+print('5 / 3:', 5 / 3)
+print('5 % 3:', 5 % 3)
+</code></pre>
+<pre><code class="language-output">5 // 3: 1
+5 / 3: 1.6666666666666667
+5 % 3: 2
+</code></pre>
+<p>If <code>num_subjects</code> is the number of subjects taking part in a study,
+and <code>num_per_survey</code> is the number that can take part in a single survey,
+write an expression that calculates the number of surveys needed
+to reach everyone once.</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x">Solution</h2>
+<p>We want the minimum number of surveys that reaches everyone once, which is
+the rounded up value of <code>num_subjects/ num_per_survey</code>. This is
+equivalent to performing a floor division with <code>//</code> and adding 1. Before
+the division we need to subtract 1 from the number of subjects to deal with
+the case where <code>num_subjects</code> is evenly divisible by <code>num_per_survey</code>.</p>
+<pre><code class="language-python">num_subjects = 600
+num_per_survey = 42
+num_surveys = (num_subjects - 1) // num_per_survey + 1
+
+print(num_subjects, 'subjects,', num_per_survey, 'per survey:', num_surveys)
+</code></pre>
+<pre><code class="language-output">600 subjects, 42 per survey: 15
+</code></pre>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Strings to Numbers</p>
+
+<p>Where reasonable, <code>float()</code> will convert a string to a floating point number,
+and <code>int()</code> will convert a floating point number to an integer:</p>
+<pre><code class="language-python">print("string to float:", float("3.4"))
+print("float to int:", int(3.4))
+</code></pre>
+<pre><code class="language-output">string to float: 3.4
+float to int: 3
+</code></pre>
+<p>If the conversion doesn't make sense, however, an error message will occur.</p>
+<pre><code class="language-python">print("string to float:", float("Hello world!"))
+</code></pre>
+<pre><code class="language-error">---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+&lt;ipython-input-5-df3b790bf0a2&gt; in &lt;module&gt;
+----&gt; 1 print("string to float:", float("Hello world!"))
+
+ValueError: could not convert string to float: 'Hello world!'
+</code></pre>
+<p>Given this information, what do you expect the following program to do?</p>
+<p>What does it actually do?</p>
+<p>Why do you think it does that?</p>
+<pre><code class="language-python">print("fractional string to int:", int("3.4"))
+</code></pre>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x-x">Solution</h2>
+<p>What do you expect this program to do? It would not be so unreasonable to expect the Python 3 <code>int</code> command to
+convert the string "3.4" to 3.4 and an additional type conversion to 3. After all, Python 3 performs a lot of other
+magic - isn't that part of its charm?</p>
+<pre><code class="language-python">int("3.4")
+</code></pre>
+<pre><code class="language-output">---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+&lt;ipython-input-2-ec6729dfccdc&gt; in &lt;module&gt;
+----&gt; 1 int("3.4")
+ValueError: invalid literal for int() with base 10: '3.4'
+</code></pre>
+<p>However, Python 3 throws an error. Why? To be consistent, possibly. If you ask Python to perform two consecutive
+typecasts, you must convert it explicitly in code.</p>
+<pre><code class="language-python">int(float("3.4"))
+</code></pre>
+<pre><code class="language-output">3
+</code></pre>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Arithmetic with Different Types</p>
+
+<p>Which of the following will return the floating point number <code>2.0</code>?
+Note: there may be more than one right answer.</p>
+<pre><code class="language-python">first = 1.0
+second = "1"
+third = "1.1"
+</code></pre>
+<ol>
+<li><code>first + float(second)</code></li>
+<li><code>float(second) + float(third)</code></li>
+<li><code>first + int(third)</code></li>
+<li><code>first + int(float(third))</code></li>
+<li><code>int(first) + int(float(third))</code></li>
+<li><code>2.0 * second</code></li>
+</ol>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x-x-x">Solution</h2>
+<p>Answer: 1 and 4</p>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Complex Numbers</p>
+
+<p>Python provides complex numbers,
+which are written as <code>1.0+2.0j</code>.
+If <code>val</code> is a complex number,
+its real and imaginary parts can be accessed using <em>dot notation</em>
+as <code>val.real</code> and <code>val.imag</code>.</p>
+<pre><code class="language-python">a_complex_number = 6 + 2j
+print(a_complex_number.real)
+print(a_complex_number.imag)
+</code></pre>
+<pre><code class="language-output">6.0
+2.0
+</code></pre>
+<ol>
+<li>Why do you think Python uses <code>j</code> instead of <code>i</code> for the imaginary part?</li>
+<li>What do you expect <code>1 + 2j + 3</code> to produce?</li>
+<li>What do you expect <code>4j</code> to be?  What about <code>4 j</code> or <code>4 + j</code>?</li>
+</ol>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x-x-x-x">Solution</h2>
+<ol>
+<li>Standard mathematics treatments typically use <code>i</code> to denote an imaginary number. However, from media reports it
+was an early convention established from electrical engineering that now presents a technically expensive area to
+change. <a href="https://stackoverflow.com/questions/24812444/why-are-complex-numbers-in-python-denoted-with-j-instead-of-i" target="_blank" rel="noopener noreferrer">Stack Overflow provides additional explanation and
+discussion.</a></li>
+<li><code>(4+2j)</code></li>
+<li><code>4j</code> and <code>Syntax Error: invalid syntax</code>. In the latter cases, <code>j</code> is considered a variable and the statement
+depends on if <code>j</code> is defined and if so, its assigned value.</li>
+</ol>
+</details>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>Every value has a type.</li>
+<li>Use the built-in function <code>type</code> to find the type of a value.</li>
+<li>Types control what operations can be done on values.</li>
+<li>Strings can be added and multiplied.</li>
+<li>Strings have a length (but numbers don't).</li>
+<li>Must convert numbers to strings or vice versa when operating on them.</li>
+<li>Can mix integers and floats freely in operations.</li>
+<li>Variables only change value when something is assigned to them.</li>
+</ul>
+</div>

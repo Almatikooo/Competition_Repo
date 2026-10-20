@@ -1,0 +1,671 @@
+<div>
+<h2 id="introduction">Introduction </h2> <p>This guidance is for people in government who need to design charts.</p>
+<p>It does not cover interactive visualisations. However, the approaches discussed are applicable to them.</p>
+<p>To help you implement this guidance, we have provided <a href="https://analysisfunction.civilservice.gov.uk/support/communicating-analysis/introduction-to-data-visualisation-e-learning/" target="_blank" rel="noopener noreferrer">data visualisation e-learning</a> and a <a href="https://analysisfunction.civilservice.gov.uk/policy-store/charts-a-checklist/" target="_blank" rel="noopener noreferrer">charts checklist</a>.</p>
+<a href="#page" rel="noopener noreferrer">Back to top of
+                                                page</a>
+<h2 id="accessibility-legislation">Accessibility legislation</h2> <p>Accessibility legislation came into force in September 2020. This means all content published on public sector websites must meet the level A and AA success criteria in the <a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noopener noreferrer">Web Content Accessibility Guidelines 2.2</a>.</p>
+<p>This includes charts.</p>
+<h3 id="consequences-for-inaccessible-content">Consequences for inaccessible content</h3>
+<p>Content on public sector websites that does not meet the&nbsp;<a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noopener noreferrer">Web Content Accessibility Guidelines 2.2</a>&nbsp;can get complaints related to the&nbsp;<a href="https://www.legislation.gov.uk/uksi/2018/852/contents/made" target="_blank" rel="noopener noreferrer">Public Sector Bodies (Websites and Mobile Applications) Accessibility Regulations 2018</a>&nbsp;and/or the&nbsp;<a href="https://www.legislation.gov.uk/ukpga/2010/15/contents" target="_blank" rel="noopener noreferrer">Equality Act 2010</a>. This could cause reputational damage and loss of public trust.</p>
+<p>Make sure whoever is responsible for the content you publish is aware of this and the possible risks involved.</p>
+<div>
+<div>
+<h3 id="section">
+</h3>
+</div>
+<div>
+<div>
+<p>Many of the success criterion relevant to publishing charts are related to colour contrast. These are outlined in <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/" target="_blank" rel="noopener noreferrer">our colours guidance</a>.</p>
+<p>The other relevant success criteria for charts are:</p>
+<h4>Non-text content</h4>
+<p>This is <a href="https://www.w3.org/TR/WCAG22/#non-text-content" target="_blank" rel="noopener noreferrer">criterion 1.1.1</a> (A level).</p>
+<p>It states:</p>
+<blockquote>
+<p>“All non-text content that is presented to the user has a text alternative that serves the equivalent purpose.”</p>
+</blockquote>
+<p>This means all data visualisations need a text alternative that “serves the equivalent purpose”.</p>
+<p>You need this even if the chart colours meet the contrast requirements set out in other success criterion.</p>
+<p>The text alternative can be a written description or given as a table in an accessible format.</p>
+<p>More detail on alternative text is available in our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/making-analytical-publications-accessible/" target="_blank" rel="noopener noreferrer">‘Making analytical publications accessible’ guidance</a>.</p>
+<h4>Images of text</h4>
+<p>This is <a href="https://www.w3.org/TR/WCAG22/#images-of-text" target="_blank" rel="noopener noreferrer">criterion 1.4.5</a> (AA level).</p>
+<p>It states:</p>
+<blockquote>
+<p>“If the technologies being used can achieve the visual presentation, text is used to convey information rather than images of text except for the following:</p>
+<ul>
+<li>Customizable – the image of text can be visually customized to the user’s requirements</li>
+<li>Essential – a particular presentation of text is essential to the information being conveyed.”</li>
+</ul>
+</blockquote>
+<p>This is applicable when using images of charts rather than building charts into the HTML code of the page.</p>
+<p>It means all text related to the chart should be in the body text of the webpage unless it is essential for it to be in the image of the chart.</p>
+<p>For example, titles and footnotes should be in the body text but annotations can go within the image.</p>
+</div>
+</div>
+</div>
+<a href="#page" rel="noopener noreferrer">Back to top of
+                                                page</a>
+<h2 id="choosing-the-right-chart">Choosing the right chart</h2> <h3 id="what-is-the-message">What is the message?</h3>
+<p>Think about the message your chart is aiming to get across. A good way of thinking about this is to imagine you are describing what the chart is showing over the phone – what would you say?</p>
+<blockquote><p>If you cannot write down the message your chart is giving in a few sentences, you should think again about the chart you have chosen.</p></blockquote>
+<p>Ask yourself: Can I simplify this? Can I break it down in another way? Am I trying to communicate too many messages within one chart?</p>
+<h3 id="statistical-relationships">Statistical relationships</h3>
+<p>After you have decided on the message, consider the statistical relationship you’re trying to show.</p>
+<p>The right chart will depend on the values in your data and the statistical story you’re telling. Try out different options and test your ideas (see the Testing section of this guidance).</p>
+<blockquote><p>The <a href="https://ft-interactive.github.io/visual-vocabulary/" target="_blank" rel="noopener noreferrer">Visual Vocabulary tool from the Financial Times</a> can help you choose the best chart</p></blockquote>
+<h4>Table matching chart types to statistical relationships</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Relationship</th><th>Example</th><th>Recommended chart types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Distribution</td><td>Population by age</td><td>Bar chart, <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/articles/ukpopulationpyramidinteractive/2020-01-08" target="_blank" rel="noopener noreferrer">population pyramid</a>, <a href="https://en.wikipedia.org/wiki/Box_plot" target="_blank" rel="noopener noreferrer">box plot</a>, <a href="https://en.wikipedia.org/wiki/Dot_plot_%28statistics%29" target="_blank" rel="noopener noreferrer">dot plot</a></td>
+</tr>
+<tr>
+<td>Time series</td><td>Price inflation over time</td><td>Line chart, <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/articles/howpopularisyourbirthday/2015-12-18" target="_blank" rel="noopener noreferrer">calendar heat map</a></td>
+</tr>
+<tr>
+<td>Ranking </td><td>Schools ranked by performance</td><td>Bar chart, <a href="https://en.wikipedia.org/wiki/Lollipop_graph" target="_blank" rel="noopener noreferrer">lollipop chart</a>, <a href="https://towardsdatascience.com/slope-charts-why-how-11c2a0bc28be" target="_blank" rel="noopener noreferrer">slope chart</a> </td>
+</tr>
+<tr>
+<td>Deviation</td><td>Rail company performance compared with target</td><td>Bar chart, <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandwellbeing/articles/coronaviruscovid19vaccinationuptakeinschoolpupilsengland/upto22july2022#logistic-regression-for-factors-affecting-coronavirus-vaccination-uptake" target="_blank" rel="noopener noreferrer">dot plot - figure 7 in this release</a></td>
+</tr>
+<tr>
+<td>Correlation</td><td>Relationship between weight and height</td><td><a href="https://en.wikipedia.org/wiki/Scatter_plot" target="_blank" rel="noopener noreferrer">Scatterplot</a>, line graph</td>
+</tr>
+<tr>
+<td>Magnitude</td><td>Average income by region</td><td>Bar chart</td>
+</tr>
+<tr>
+<td>Spatial</td><td>Geographical clusters of notifiable diseases</td><td>Map</td>
+</tr>
+<tr>
+<td>Part-to-whole</td><td>Total economic production by industrial sector</td><td>Bar chart, pie chart, donut chart, <a href="https://www.data-to-viz.com/graph/treemap.html" target="_blank" rel="noopener noreferrer">tree map</a>, <a href="https://en.wikipedia.org/wiki/Bubble_chart" target="_blank" rel="noopener noreferrer">bubble chart</a></td>
+</tr>
+<tr>
+<td>Flow</td><td>Trade between countries</td><td><a href="https://en.wikipedia.org/wiki/Sankey_diagram" target="_blank" rel="noopener noreferrer">Sankey graph</a></td>
+</tr>
+</tbody>
+</table></div>
+<a href="#page" rel="noopener noreferrer">Back to top of
+                                                page</a>
+<h2 id="publishing-charts">Publishing charts</h2> <h3 id="html-or-image">HTML or image?</h3>
+<p>If the website you publish on has the functionality to build charts within the HTML code which meets the accessibility standards, use this functionality.</p>
+<p>For example, if you publish on GOV.UK you can create horizontal bar charts in HTML.</p>
+<p><a href="https://www.gov.uk/government/publications/examples-of-visual-content-to-use-on-govuk/examples-of-visual-content-to-use-on-govuk" target="_blank" rel="noopener noreferrer">Examples of bar charts you can create on GOV.UK.</a></p>
+<p>If you work for the Office for National Statistics or publish on the Explore Education Statistics website, your options for HTML charts are much wider.</p>
+<p>If you cannot publish charts in HTML you will have to upload your chart as an image.</p>
+<h4>Scalable Vector Graphic (SVG) format</h4>
+<p>It is best practice to use the Scalable Vector Graphic (SVG) format when publishing images of charts. Unlike bitmap file types such as JPG or PNG, SVGs retain the same quality no matter what screen resolution or size they are viewed at. This means a user can zoom in and out and the image retains its quality. This adaptability makes it a more accessible format.</p>
+<p>Changing a PNG or JPEG file into an SVG does not make it scalable, it must be done from the source file.</p>
+<p>It is possible to save images of charts made in Microsoft programs, R and Python in the SVG format. More information is in our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/making-analytical-publications-accessible/" target="_blank" rel="noopener noreferrer">‘Making analytical publications accessible’ guidance</a>.</p>
+<h3 id="chart-size">Chart size</h3>
+<p>A chart should follow the natural flow of content. It should not be much wider or narrower than the text around it.</p>
+<a href="#page" rel="noopener noreferrer">Back to top of
+                                                page</a>
+<h2 id="what-to-supply-with-charts">What to supply with charts</h2> <h3 id="titles">Titles</h3>
+<p>All charts need at least one title, but it is considered best practice to give them two. These should be: a headline title and a formal statistical subtitle.</p>
+<p>The headline title should communicate the headline message of the chart. For example ‘Increase in number of people living alone’.</p>
+<p>The statistical subtitle should say what the data is, the geography the data relates to and the time period shown. For example, ‘Figure 1: Number of people living in one person households, England, 1991 to 2021’.</p>
+<p>We advise that one of the titles should have ‘Figure n’ at the start to denote which figure it is in the report. This helps navigation and it can help screen reader users understand there is a figure coming up in the next part of the publication.</p>
+<p>Both titles should be <a href="https://www.nomensa.com/blog/how-structure-headings-web-accessibility" target="_blank" rel="noopener noreferrer">tagged correctly</a> to meet the accessibility legislation. For example, first level subheadings should have a Headings 2 tag, second level subheadings should have a Headings 3 tag and so on.</p>
+<h4>Placement of the title</h4>
+<p>To meet <a href="https://www.w3.org/WAI/WCAG22/Understanding/images-of-text.html" target="_blank" rel="noopener noreferrer">accessibility success criterion 1.4.5</a> titles should be in the body of the page or document, as opposed to within the image.</p>
+<p>This is because images of text are difficult to read for some people and should only be used when essential.</p>
+<p>This does mean the image of the chart can be taken out of context if it is copied and pasted elsewhere. But, while putting the title within the image may make it harder to take a chart out of context, it does not stop it completely as titles can be cropped out. Therefore, we prioritise accessibility and advise for the title and subtitle to be in the body text.</p>
+<h3 id="alternative-text">Alternative text</h3>
+<p>Alternative text is often thought of as the text that sits in the code behind an image, but really it refers to any text that describes non-text content. It is needed so that people with visual or certain cognitive impairments&nbsp;can understand the content communicated by images.</p>
+<p>To meet <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html" target="_blank" rel="noopener noreferrer">accessibility success criterion 1.1.1</a> all non-text content should have alternative text that “serves the equivalent purpose”.</p>
+<p>For charts this can be given by:</p>
+<ul>
+<li>a table of the data presented in the chart</li>
+<li>a text description of the message the chart is presenting</li>
+</ul>
+<p>Which you choose should depend on what you would expect a non-disabled user to get from the chart. If you expect a non-disabled user to read the data from the chart, give a table. If you expect them to take away an overall understanding of the data, give a text description of what you want them to understand. If you expect them to do both, give both.</p>
+<p>The text description should describe what you want users to understand from the chart. It should not repeat the chart title, be a literal description or outline every data point shown. Imagine you are describing what the chart is showing to someone who cannot see it.</p>
+<h4>Placement of text description</h4>
+<p>If you use a text description, our advice is that this should live in the body of the page, directly underneath the chart. In this situation the image of the chart should be marked as decorative and therefore hidden from screen reader software. This is usually done by leaving the ‘alt attribute’ blank but sometimes there will be a box to tick.</p>
+<p>Depending on the length of your publication and how your commentary is written it can be a good idea to place the text description under a subheading. This <a href="https://www.w3.org/TR/WCAG20-TECHS/H42.html#:~:text=Heading%20markup%20will%20allow%20assistive,provide%20some%20other%20auditory%20indicator." target="_blank" rel="noopener noreferrer">subheading should be marked up</a> correctly (given the structure of the page you are publishing on). It should also be specific to the figure, for example “Description of figure 1”.</p>
+<p>If you find the subheadings break up the text too much you can start the text under the chart with “Description of figure 1: . . . ” instead.</p>
+<blockquote><p>Example: in this <a href="https://www.gov.wales/poverty-and-deprivation-national-survey-wales-april-2021-march-2022-html" target="_blank" rel="noopener noreferrer">publication from Welsh Government</a> each chart is followed by a text description that starts with “Description of figure n . . . “</p></blockquote>
+<h4>Images that are links</h4>
+<p>Note: if your chart image links to a larger version of the chart, the image should not be marked as decorative. It should state what happens when someone clicks the link. For example “Larger version of Figure 1”.</p>
+<h4>More information on alternative text</h4>
+<p>More information on alternative text, including the reasoning behind this guidance, can be found in our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/making-analytical-publications-accessible/" target="_blank" rel="noopener noreferrer">‘Making analytical publications accessible’ guidance</a>.</p>
+<h3 id="source">Source</h3>
+<p>You should give the specific data source for each chart and link directly to it if you can. Avoid stating things like ‘Office for National Statistics’ and then linking to the website homepage. You should help users find the data.</p>
+<p>As with titles, this text should be in the body text of the page and not part of the chart image.</p>
+<p>It is best practice to provide source information in the following format:&nbsp;[publication, survey or other source of data] from the [organisation]</p>
+<p>For example: Source: <a href="https://explore-education-statistics.service.gov.uk/find-statistics/childcare-and-early-years-survey-of-parents/2021" target="_blank" rel="noopener noreferrer">Childcare and early years survey of parents</a> from the Department for Education.</p>
+<p>Please note this is recently updated guidance (the older guidance said to use a dash instead of “from the”), so source information may look different across the website until this approach becomes embedded.</p>
+<h3 id="data-download">Data download</h3>
+<p>It is best practice to provide the data displayed in each chart as an accessible data download. Providing data downloads improves the transparency of our data visualisations and allows people to accurately recreate our charts for their own needs.</p>
+<p>Providing an accessible data download is a necessity if it is going to act as the alternative text for your chart. More information on alternative text can be found in our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/making-analytical-publications-accessible/" target="_blank" rel="noopener noreferrer">‘Making analytical publications accessible’ guidance</a>.</p>
+<p>You should link to a data download underneath each chart. The file type and size should be included in the link.</p>
+<p>The text used in the link to the data download should be specific and should not be identical to other links on the same webpage. Using multiple identical links that lead to different places on the same webpage can be very confusing for screen reader users.</p>
+<p>For example avoid repeatedly using ‘Download the data’. Either state the title of the chart, or the figure number. For example: ‘Download the data for number of people living in single person households’ or ‘Download the data for figure 1’.</p>
+<p>More information on providing data downloads is in our ‘<a href="https://analysisfunction.civilservice.gov.uk/policy-store/making-analytical-publications-accessible/" target="_blank" rel="noopener noreferrer">Making analytical publications accessible’ guidance</a>.</p>
+<h3 id="chart-footnotes">Chart footnotes</h3>
+<p>Sometimes, charts come with footnotes. Presentation of these is not consistent across government. Some statistics producers put footnotes under each chart. Others present charts without any footnotes.</p>
+<p>Having lots of footnotes can make publications very long. This causes issues with navigation online as it means lots of scrolling is needed. These problems are worse for users who access content through a mobile device and for those who may have difficulty scrolling due to conditions like arthritis.</p>
+<p>But, footnotes do play an important role in making sure data is not misused.</p>
+<p>Advice for chart footnotes:</p>
+<ul>
+<li>put them in the body text of a page</li>
+<li>limit them to only important information</li>
+<li>be concise</li>
+<li>avoid repetition of survey names</li>
+<li>only refer to the data used in the chart or table.</li>
+<li>do not use superscript text or symbols (see our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/symbols-in-tables-definitions-and-help/" target="_blank" rel="noopener noreferrer">guidance on using symbols and shorthand</a>)</li>
+</ul>
+<a href="#page" rel="noopener noreferrer">Back to top of
+                                                page</a>
+<h2 id="formatting-charts">Formatting charts</h2> <h3 id="keep-it-simple">Keep it simple</h3>
+<p>Avoid:</p>
+<ul>
+<li>shaded backgrounds</li>
+<li>unnecessary borders</li>
+<li>boxes around legends and other content</li>
+<li>patterns, textures and shadows</li>
+<li>3D shapes</li>
+<li>unnecessary data markers on line charts</li>
+<li>thick or dark gridlines</li>
+</ul>
+<h4>Example: a busy chart versus a simple one</h4>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/03/Keep-it-simple.svg" target="_blank" rel="noopener noreferrer"><img alt="large version of busy versus simple chart" height="529" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/03/Keep-it-simple.svg" width="1280"></a></p>
+<p>The example shows two charts next to each other. One shows a ‘busy’ chart with a grey background, dark gridlines and unnecessary data markers and text box borders.&nbsp; The other is a ‘simple’ chart without any of the unnecessary formatting. We advise to keep charts as simple as possible.</p>
+<h3 id="chart-labels">Chart labels</h3>
+<p>All axes, series, sectors and bars used in charts should be clearly labelled so it is clear what the graph is showing.</p>
+<p>In terms of accessibility, chart labels can be considered images of text that are essential. This means placing them within the image of a chart does not fail the legislation.</p>
+<h4>Tips for chart labels</h4>
+<p>1. Right align values on y-axis</p>
+<p>When numerical values are right aligned they are easier to read as all the figures are aligned to the right place -units over units, tens over tens, hundreds over hundreds and so on.</p>
+<p>For example, here is a list of left aligned numbers:</p>
+<ul>
+<li>1</li>
+<li>54</li>
+<li>172</li>
+<li>5,670</li>
+<li>12,620</li>
+</ul>
+<p>The units, tens, hundred and thousands do not line up, this makes comparing the figures more difficult.</p>
+<p>2. Use commas to separate thousands</p>
+<p>When you have large numbers on an axis, use commas to separate thousands. This makes numbers easier to read. For example 121,576 is easier to read than 121576.</p>
+<p>3. Consider font size and type</p>
+<p>If creating an image of your chart, use a large enough font for all labels. Unfortunately, as images often get resized when published it is not possible to suggest a specific minimum font size. This is something you must decide when looking at each chart image.</p>
+<p>Make sure to use a <a href="https://www.impactplus.com/blog/sans-serif-vs-serif-font-which-should-you-use-when#:~:text=A%20serif%20is%20a%20decorative,hence%20the%20%E2%80%9Csans%E2%80%9D)." target="_blank" rel="noopener noreferrer">sans serif font</a> as some people find serif fonts hard to read.</p>
+<p>4. Consider colours</p>
+<p>Consider the colours used for your labels. See the section on ‘<a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-8" target="_blank" rel="noopener noreferrer">Colours for axes and labels’</a> in our colours guidance.</p>
+<p>5. Text should always be horizontal</p>
+<p>When labelling axes, always use horizontal text as vertical or diagonal text is hard to read. This applies to category names on bar charts and y-axis labels on line charts. If it is difficult to fit the labels into the space, try transposing the chart or changing the units.</p>
+<h5>Example: transposing a chart to make labels easier to read</h5>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/03/Transpose-to-fit-labels.svg" target="_blank" rel="noopener noreferrer"><img alt="large version of chart showing horizontal text is easier to read" height="529" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/03/Transpose-to-fit-labels.svg" width="945"></a></p>
+<p>The example shows two charts next to each other. One shows a bar chart with vertical bars. The bar labels are written at an angle along the horizontal axis. The other shows a bar chart with horizontal bars. The bar labels are written horizontally. Horizontal text is easier to read.</p>
+<h3 id="annotations">Annotations</h3>
+<p>Use annotations if they will help to tell the story.</p>
+<p>As with chart labels, annotations can be considered essential images of text so having them within an image does not fail accessibility legislation.</p>
+<p>But, when writing the chart’s alternative text you should incorporate any messages given by annotation.</p>
+<h4>Tips for annotations</h4>
+<ul>
+<li>Use annotations to highlight key features, provide context and aid interpretation</li>
+<li>Make them concise</li>
+<li>Place them as close as possible to the data points of interest</li>
+<li>Do not overuse them as this is likely to overwhelm users and reduce their effectiveness</li>
+<li>Use a black or dark grey, sans serif font</li>
+</ul>
+<blockquote><p>Example: This <a href="https://www.ons.gov.uk/visualisations/dvc775/fig2/Line/index.html" target="_blank" rel="noopener noreferrer">chart showing the number of live births from 1901 to 2018</a>&nbsp;from the Office for National Statistics (ONS).</p>
+<p>Example: This <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/articles/thehistoryofstrikesintheuk/2015-09-21" target="_blank" rel="noopener noreferrer">article from ONS on the history of strikes</a> shows an interesting way of displaying annotations when there are too many to fit on the chart.</p></blockquote>
+<h3 id="tick-marks">Tick marks</h3>
+<p>Tick marks are the small marks that appear at regular intervals on an axis. They indicate the scale or level of detail of the data.</p>
+<h4>Tips for tick marks</h4>
+<ul>
+<li>When an axis shows continuous data (such as an axis showing years on a line chart) you should centrally align labels over tick marks.</li>
+<li>Tick marks should show the regularity of the data but you do not need to label all of them if there is not enough space (remember, you should only use horizontal text).</li>
+<li>If there is space to do so you should always label the final tick.</li>
+<li>When an axis shows categorical data, you do not necessarily need tick marks, but if you do use them labels should be aligned between them.</li>
+</ul>
+<h5>Example: how we advise to use tick marks</h5>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/03/Tick-marks.svg" target="_blank" rel="noopener noreferrer"><img alt="Larger version of tick marks example" height="529" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/03/Tick-marks.svg" width="945"></a>The image shows three axes with different ways of using tick marks. The first axis is a continuous axis of years. Each year has a label and the tick mark sits centrally over this label. The second is a categorical axis where the category labels sit in between two tick marks. The third is a continuous axis of months with every other tick mark labelled.</p>
+<h3 id="gridlines">Gridlines</h3>
+<p>Gridlines are the lines that sit in the background of a chart. They can help people read data points from a chart by linking the chart elements to axis labels.</p>
+<h4>Tips for gridlines</h4>
+<ul>
+<li>Use the right amount of gridlines – generally, we advise a maximum of ten.
+<ul>
+<li>Too many makes the chart too cluttered.</li>
+<li>Too few means they are not useful.</li>
+</ul>
+</li>
+<li>Use a light grey for gridlines – see the <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-8" target="_blank" rel="noopener noreferrer">section on axes and labels in our colours guidance</a>.</li>
+</ul>
+<h5>Example: how we advise to use gridlines</h5>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/gridlines-example.svg" target="_blank" rel="noopener noreferrer"><img alt="Large version of chart showing fewer, lighter gridlines is easier to interpret." height="869" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/gridlines-example.svg" width="2268"></a></p>
+<p>The image shows two versions of the same chart. One has 15 gridlines in a dark grey colour, the other has 8 gridlines in a light grey colour. The chart with fewer, lighter gridlines is easier to interpret.</p>
+<h3 id="line-for-y-axis">Line for y-axis</h3>
+<p>Whether to include a solid line for the y-axis is down to personal preference. You may wish to include one for completeness or you may wish to leave it out as it adds extra clutter. The only time a line for the y-axis is necessary is when there is a break in a numerical y-axis.&nbsp;&nbsp;&nbsp;</p>
+<h3 id="communicating-quality-and-uncertainty-in-charts">Communicating quality and uncertainty in charts</h3>
+<p>Guidance from the Data Quality Hub on ‘<a href="https://analysisfunction.civilservice.gov.uk/policy-store/communicating-quality-uncertainty-and-change/" target="_blank" rel="noopener noreferrer">Communicating quality, uncertainty and change</a>‘ has a useful section on formatting charts to communicate quality and uncertainty in data visualisations. However, please bear in mind, this guidance has not yet been updated to incorporate the accessibility legislation.</p>
+<a href="#page" rel="noopener noreferrer">Back to top of
+                                                page</a>
+<h2 id="example-chart">Example chart</h2> <p>This example shows how to implement the guidance in the three ‘Basics’ sections.</p>
+<h4>Can I have some more? Oliver stays on top of baby names list</h4>
+<h5>Figure 1:&nbsp; Number of baby boys given the top 10 most popular names, England, 2020</h5>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/04/Top-10-baby-names-for-boys-2020.svg" target="_blank" rel="noopener noreferrer"><img alt="Large version of chart showing how to implement the guidance in the three ‘Basics’ sections." height="945" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/04/Top-10-baby-names-for-boys-2020.svg" width="1680"></a></p>
+<h6>Description of figure 1</h6>
+<p>This bar chart shows Oliver is the most popular name given to baby boys in England in 2020. A total of 4,017 boys were named Oliver, followed closely by George, Arthur, Noah, and Muhammad which were all given to over 3,500 babies. The next most popular were Leo, Oscar, and Harry (all given to over 3,000). Archie and Henry completed the top 10 (both given to over 2,500).</p>
+<p>Source: <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/babynamesenglandandwalesbabynamesstatisticsboys" target="_blank" rel="noopener noreferrer">Baby names for boys in England and Wales, 2020 edition</a> from the Office for National Statistics</p>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/04/Figure-1-Top-10-baby-boy-names-England-202.ods" target="_blank" rel="noopener noreferrer">Download the data for Figure 1 (ODS, 4.6KB)</a>.</p>
+<p>Notes:</p>
+<ul>
+<li>Ranking uses exact spellings. Similar names with different spellings are counted separately.</li>
+</ul>
+<h4>Summary of this example</h4>
+<p>This example has:</p>
+<ul>
+<li>a headline title giving the message of the chart in a headline style</li>
+<li>a statistical title with a figure number and information on the data, geography and time period</li>
+<li>an SVG image of the chart which is hidden from screen reader software</li>
+<li>alternative text in the body of the page directly underneath the chart</li>
+<li>a specific source with a link to where you can find the data</li>
+<li>an accessible data download</li>
+</ul>
+<p>It also:</p>
+<ul>
+<li>uses a simple, uncluttered background</li>
+<li>has bars in a colour that meets the contrast requirements with the white background</li>
+<li>uses light coloured gridlines</li>
+<li>has a gap between the bars which is slightly narrower than a single bar (more on this in the bar charts section)</li>
+<li>has comma separators in the x-axis numerical labels</li>
+<li>uses only horizontal text</li>
+</ul>
+<a href="#page" rel="noopener noreferrer">Back to top of
+                                                page</a>
+<h2 id="bar-charts">Bar charts</h2> <h3 id="using-bar-charts">Using bar charts</h3>
+<p>Bar charts are versatile. They work well when comparing the size of different categories.</p>
+<h4>Time series</h4>
+<p>Bars can be used with time series data, as long as the data points are at equal intervals.</p>
+<p>However, when you have more than one time series on a chart, do not use a bar chart, use a line chart instead.</p>
+<h5>Example: use a line chart instead of a bar chart when you have more than one time series</h5>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/03/bar-chart-for-time-series.svg" target="_blank" rel="noopener noreferrer"><img alt="Large version of chart showing when there is more than one time series on a chart, lines display the data better than bars." height="454" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/03/bar-chart-for-time-series.svg" width="945"></a></p>
+<p>The example shows two chart next to one another. One is a clustered bar chart showing two time series as bars. The other is a line chart of the two time series. When you have more than one time series on a chart, lines display the data better than bars.</p>
+<h4>Part-to-whole</h4>
+<p>Part-to-whole relationships can be shown with pie charts and bar charts.</p>
+<p>When two or more categories are fairly equal it is hard to see small differences on a pie chart so it is better to use a bar chart.</p>
+<p>We also advise to limit the categories on a pie chart to a maximum of five. This means bar charts are useful if you have more than five categories to show in a part-to-whole relationship.</p>
+<p>If you want to compare multiple part-to-whole relationships in one chart you can use a <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/#section-9" target="_blank" rel="noopener noreferrer">stacked bar chart</a>.</p>
+<h5>Example: when differences between categories are small, a bar chart is better than a pie chart</h5>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/03/pie-versus-bar-.svg" target="_blank" rel="noopener noreferrer"><img alt="Large version of chart showing bar charts display small differences between categories more clearly than pie charts." height="454" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/03/pie-versus-bar-.svg" width="945"></a></p>
+<p>The example shows a pie chart and a bar chart displaying the same data. The bar chart shows the small differences between the categories more clearly than the pie chart.</p>
+<p>Note: more information on using pie charts is in the pie charts section of this guidance.</p>
+<h4>Ranking</h4>
+<p>Use bar charts to show data ranked in ascending or descending order.</p>
+<p>Always rank bars by value, unless there is a natural order, for example, age or time.</p>
+<blockquote><p>Example: Figure 1 in this <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/culturalidentity/language/articles/languageinenglandandwales/2013-03-04#main-language-in-england-and-wales" target="_blank" rel="noopener noreferrer">release on language in England and Wales (link opens in new tab)</a>&nbsp;ranks bars by value</p></blockquote>
+<h4>Deviation</h4>
+<p>Use bar charts to show how data differs from a fixed value. For example, you might want show how data from different categories compares with an average. Or you might want to show percentage change for different groups.</p>
+<blockquote><p>Example: Figure 7 in this <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/2021#employee-earnings-and-hours-worked" target="_blank" rel="noopener noreferrer">publication on employee earnings from ONS (link opens in a new tab)</a> compares growth in earnings for different occupations</p></blockquote>
+<h4>Distribution</h4>
+<p>Use narrow bars with small gaps to show how data is distributed across a range. A common example is a population pyramid.</p>
+<blockquote><p>Example: these <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/articles/ukpopulationpyramidinteractive/2020-01-08" target="_blank" rel="noopener noreferrer">population pyramids from ONS </a><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/articles/ukpopulationpyramidinteractive/2020-01-08" target="_blank" rel="noopener noreferrer">(link opens in a new tab)</a></p></blockquote>
+<h3 id="formatting-bar-charts">Formatting bar charts</h3>
+<h4>Context</h4>
+<p>When there is a important point on a scale, such as a policy target or a relevant average, you should always include it.</p>
+<blockquote><p>Example: Figure 5 in <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage/articles/exploringtheuksdigitaldivide/2019-03-04#what-is-the-pattern-of-digital-exclusion-across-the-uk" target="_blank" rel="noopener noreferrer">section 4 of this ONS release on the UK’s digital divide (link opens in new tab)</a>.</p></blockquote>
+<h4>Long category names</h4>
+<p>Use horizontal bar charts when you have lots of categories or long category names that do not fit under vertical bars. See the example in the sub-section on labels in the ‘Basics: formatting charts’ section.</p>
+<h4>Colours</h4>
+<p>See our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#page" target="_blank" rel="noopener noreferrer">colours guidance</a> for advice on using colour in bar charts.</p>
+<h4>Gaps between bars</h4>
+<p>The gap between bars should be narrower than the width of a single bar. This makes it easier to compare the categories.</p>
+<h5>Example: gaps between bars should be narrower than the width of a single bar</h5>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/bar-chart-gaps-ordered.svg" target="_blank" rel="noopener noreferrer"><img alt="Large version of chart showing that making the gaps between bars narrower than the width of a single bar makes the bars easier to compare." height="1058" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/bar-chart-gaps-ordered.svg" width="2268"></a></p>
+<p>The example shows two bar charts displaying the same data. They illustrate that making the gaps between bars narrower than the width of a single bar makes the bars easier to compare.</p>
+<h4>Value labels</h4>
+<p>Best practice for using value labels on bars is complicated. This is because of issues related to the placement of the labels.</p>
+<p>Putting labels on the bars can cause issues with text contrast. Also, when bars are very short, labels have to live outside the bar which means figures will not be aligned and therefore, harder to compare.</p>
+<p>The alternative is to put labels at the end of the bars. But this also causes issues with alignment, again making it difficult for users to compare values.</p>
+<p>However, a recent Twitter poll by the Head of ONS Data Visualisation <a href="https://twitter.com/fryford/status/1491494866035085315" target="_blank" rel="noopener noreferrer">suggests users like value labels</a> and actually prefer them to be on the end of the bars.</p>
+<p>Another approach is to create a chart-table combination. But it is not easy to create a good quality image of a chart-table combination with basic software. This means the text in chart-table combinations may be blurry and difficult to read.</p>
+<p>Generally, if you want to use value labels on bars we advise you to <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/#section-13" target="_blank" rel="noopener noreferrer">test your approach</a>.</p>
+<p>And, if in doubt, remember that a well structured table can often be as powerful as a chart.</p>
+<h4>Do not break the numerical axis on bar charts</h4>
+<p>Breaking the numerical axis is when you make the axis start from a number other than zero. This can allow you to “zoom” into the data to see trends more clearly, but it is not always appropriate.</p>
+<p>For example, breaking the numerical axis on a bar chart is problematic and highly controversial. In bar charts you perceive the bars being proportional to each other – breaking the numerical axis distorts these relative proportions.&nbsp;&nbsp;</p>
+<p>If starting the numerical axis at zero stops you from telling the story clearly, consider an alternative chart, such as <a href="https://uc-r.github.io/cleveland-dot-plots" target="_blank" rel="noopener noreferrer">a Cleveland dot plot</a>.</p>
+<p>This <a href="https://digitalblog.ons.gov.uk/2016/07/23/does-the-axis-have-to-start-at-zero-part-2-bar-charts/" target="_blank" rel="noopener noreferrer">blog post on “Does the axis have to start at zero? (Part 2&nbsp; – bar charts)” from the ONS Digital team</a> provides a good summary of this issue. This  tweet from the Office for Statistics Regulation also covers this issue well:</p>
+<blockquote>
+<p lang="en">We have written to <a href="https://twitter.com/hmtreasury?ref_src=twsrc%5Etfw" target="_blank" rel="noopener noreferrer">@hmtreasury</a> about a graph giving a misleading impression of the scale of deceleration in inflation.<a href="https://t.co/1OiOZx12eM" target="_blank" rel="noopener noreferrer">https://t.co/1OiOZx12eM</a><br>It is important that data visualisations follow Government guidance to avoid undermining public confidence in the outputs of departments. <a href="https://t.co/VLary1XHuu" target="_blank" rel="noopener noreferrer">pic.twitter.com/VLary1XHuu</a></p>
+<p>— Office for Statistics Regulation (@StatsRegulation) <a href="https://twitter.com/StatsRegulation/status/1630223124787503105?ref_src=twsrc%5Etfw" target="_blank" rel="noopener noreferrer">February 27, 2023</a></p></blockquote>
+<p>Description of tweet image: A bar chart published by HM Treasury showing inflation statistics where the y-axis starts at 8%. The rates fall from 11.1% in October 2022 to 10.1% in January 2023 but the y-axis starting at 8% exaggerates the drop.</p>
+<a href="#page" rel="noopener noreferrer">Back to top of
+                                                page</a>
+<h2 id="stacked-bar-charts">Stacked bar charts</h2> <h3 id="using-stacked-bar-charts">Using stacked bar charts</h3>
+<h4>Part-to-whole</h4>
+<p>Stacked bar charts are particularly useful when you want to compare multiple part-to-whole relationships in one chart.</p>
+<p>This is because with part-to-whole data, all the bars will be the same length. This makes it easier to compare the size of the categories within the bars.</p>
+<blockquote><p>Example: this <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthinequalities/bulletins/coronavirusandvaccinationratesinpeopleaged18to64yearsbyoccupationengland/31december2021" target="_blank" rel="noopener noreferrer">publication on coronavirus and vaccination rates by occupation (opens in new tab)</a> has several examples of stacked bar charts showing multiple part-to-whole relationships.</p></blockquote>
+<h4>Not part-to-whole</h4>
+<p>Stacked bar charts can be used to present data which is not part-to-whole. But, care should be taken as it is easy for them to become cluttered and hard to read.</p>
+<blockquote>
+<h5>Examples of stacked bars used well for data that is not part-to-whole</h5>
+<p>Example 1: Figure 3.1 in this <a href="https://www.gov.uk/government/statistics/uk-trade-in-numbers/uk-trade-in-numbers-web-version" target="_blank" rel="noopener noreferrer">publication on UK trade (opens in new tab).</a></p>
+<p>Example 2: This chart showing data on <a href="https://www.ons.gov.uk/visualisations/dvc1880/fig1/index.html" target="_blank" rel="noopener noreferrer">COVID-19 infections in school pupils</a>.</p></blockquote>
+<h4>Limit to four categories within the stack</h4>
+<p>Aim for a maximum of four categories within each stack. If you have more than four the chart can get too cluttered.</p>
+<blockquote><p>Example: This article has some <a href="https://www.freecodecamp.org/news/how-to-design-terrible-graphs-3b213d909387/" target="_blank" rel="noopener noreferrer">good examples of bad charts</a>,&nbsp;including a very colourful stacked bar chart.</p></blockquote>
+<p>Try combining some of the categories or using a different type of chart.</p>
+<h5>Example: combining categories in a stacked bar chart</h5>
+<h6>Figure 1: stacked bar chart with eight categories of food</h6>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/stack-bar-lots-categories.svg" target="_blank" rel="noopener noreferrer"><img alt="Large version of chart showing stacked bar charts with more than four categories in each stack can become difficult to read." height="1512" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/stack-bar-lots-categories.svg" width="2457"></a></p>
+<h6>Figure 2: stacked bar chart with three categories of food</h6>
+<p>The legend is presented in the same order as the categories within each bar.</p>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/stacked-bar-combined-categories.svg" target="_blank" rel="noopener noreferrer"><img alt="Large version of chart showing that combining categories in stacked bar charts can make them easier to read." height="1512" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/stacked-bar-combined-categories.svg" width="2457"></a></p>
+<p>This example shows two stacked bar charts. One has eight categories and the other has combined these to make three broader categories. We advise combining categories when appropriate as stacked bar charts with more than four categories in each stack can become difficult to read.</p>
+<h5>Likert scale stacked bars</h5>
+<p>Sometimes, when presenting responses linked to a <a href="https://www.britannica.com/topic/Likert-Scale" target="_blank" rel="noopener noreferrer">Likert scale</a> you may have more than four categories. In this case, we would still suggest you try to aggregate your responses to make your message clearer. Read this <a href="https://stephanieevergreen.com/aggregated-stacked-bars/" target="_blank" rel="noopener noreferrer">guidance on aggregated stacked bars</a>.</p>
+<p>If you cannot aggregate your data you should take care with adjacent colours. Use our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/" target="_blank" rel="noopener noreferrer">colours guidance</a> as a starting point and see the tips on choosing your own palette if you need more colours.</p>
+<h4>First and last categories within the stack</h4>
+<p>Remember: the first and last categories in the stack will be easier to compare than the ones in the middle. Think carefully about what you are trying to communicate.</p>
+<h4>Ordering</h4>
+<p>Consider ordering the categories within the stack from most to least important. Then rank the bars by the most important category. This can help you get a message across more clearly. However you cannot do it when the bars have a fixed order, for example age ranges or years.</p>
+<h5>Example: ranking bars by most important category in the stack</h5>
+<p>The legend is presented in the same order as the categories within each bar.</p>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/ranking-bars-example.svg" target="_blank" rel="noopener noreferrer"><img alt="Larger version of ranking example." height="1512" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/ranking-bars-example.svg" width="2457"></a></p>
+<p>This example is a stacked bar chart showing the percentage of people in each English region who have no pension, a Type 1 pension, a Type 2 pension or another type of pension not specified.</p>
+<p>The data is fictional but it shows the categories in the stacks have been ordered so the no pension category is shown first. The bars have then been ranked so the regions are listed from the region with the highest percentage of people with no pension to the lowest. This presentation draws attention to the percentage of people in each region of England who have no pension</p>
+<h4>Negative values</h4>
+<p>If you use stacked bars for data that isn’t part-to-whole, avoid using them for data where some categories have negative values. Try a small multiples chart instead.</p>
+<p>When negative values are used in a stacked bar chart:</p>
+<ul>
+<li>it can be difficult to read</li>
+<li>it may be impossible to maintain enough colour contrast between the adjacent categories as the order they are presented is likely to change</li>
+<li>the legend labels do not always stay in the same order as the categories in the chart – making it harder to match legend labels to categories</li>
+</ul>
+<h5>Example: stacked bars with negative values versus small multiples</h5>
+<p>Figure 1: Stacked bar chart with negative values</p>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/stacked-bar-neg-values.svg" target="_blank" rel="noopener noreferrer"><img alt="Large version of chart showing a single stacked bar chart with negative values which is difficult to understand as the order of categories is not consistent." height="720" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/stacked-bar-neg-values.svg" width="1280"></a></p>
+<p>Figure 2: Three small bar charts</p>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/small-multis.svg" target="_blank" rel="noopener noreferrer"><img alt="Large version of chart showing the previous data broken down into three separate bar charts so do not rely on colour contrast to tell the categories apart and users are not reliant on using colour to match labels to categories." height="378" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/small-multis.svg" width="1021"></a></p>
+<p>This example shows two ways of showing growth rates. First in a stacked bar chart and then in three small bar charts, each showing an individual category – these are called small multiples. It is easier to work out what is happening in each category when small multiples are used. Also, small multiples do not rely on colour contrast to tell the categories apart and users are not reliant on using colour to match labels to categories.</p>
+<p>But, it can be time consuming and difficult to make small multiple charts when using Microsoft Office programs. If you know of a better way to make small multiples please get in touch to share your expertise, email <a href="mailto:Analysis.Function@ons.gov.uk" target="_blank" rel="noopener noreferrer">Analysis.Function@ons.gov.uk</a>.</p>
+<h3 id="formatting-stacked-bar-charts">Formatting stacked bar charts</h3>
+<h4>Colours</h4>
+<p>See our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-5" target="_blank" rel="noopener noreferrer">colours guidance</a> for advice on using colour in stacked bar charts.</p>
+<h4>Legends</h4>
+<p>If possible, you should try to label stacks directly instead of using a legend.&nbsp; This is more accessible as you are not relying on a user matching the label to the data using colour alone.</p>
+<h5>Example</h5>
+<ul>
+<li><a href="https://gov.wales/trade-survey-wales-2019-html#section-78561" target="_blank" rel="noopener noreferrer">Chart 16 in this release on trade from Welsh Government&nbsp;</a></li>
+</ul>
+<p>If it is not possible or if it would make your chart very cluttered you will need to use a legend. Make sure the order and orientation of the legend matches the order and orientation of the data in the chart. State this above the chart so people who may have difficulties using colour to match labels to data can use this information instead.</p>
+<h5>Example: matching the order and orientation of the legend to the bar</h5>
+<p>The legend for the second chart is presented in the same order as the data within the bars.</p>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/stacked-bar-legend-orientation-new-order.svg" target="_blank" rel="noopener noreferrer"><img alt="Large version of chart showing it is more difficult to match labels to data when the order and/or orientation is different." height="1058" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/stacked-bar-legend-orientation-new-order.svg" width="2457"></a></p>
+<p>The example shows two stacked bar charts showing the same data. One has a legend which matches the order and orientation of the categories in the bars, the other does not. It is more difficult to match labels to data when the order and/or orientation is different.</p>
+<h5>Legends and accessibility</h5>
+<p>In general, we should not rely on colour as the only way to match labels to data. If you have to use legends, see our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-5" target="_blank" rel="noopener noreferrer">colours guidance</a> for more information on how to make stacked bar charts with legends as accessible as possible.</p>
+<h3 id="stacked-bar-chart-example">Stacked bar chart example</h3>
+<p>Example 2 in our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-chart-examples/" target="_blank" rel="noopener noreferrer">guidance showing data visualisation examples</a> demonstrates how to rethink value labels on a stacked bar chart. It also shows alternative ways to communicate the same message.</p>
+<a href="#page" rel="noopener noreferrer">Back to top of
+                                                page</a>
+<h2 id="clustered-bar-charts">Clustered bar charts</h2> <h3 id="using-clustered-bar-charts">Using clustered bar charts</h3>
+<p>Use a clustered bar chart when you want to compare categories within and across different groups.</p>
+<blockquote><p>Example: comparing male and female workers within and across different age groups in figure 1 of this <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/ageing/articles/livinglonger/olderworkersduringthecovid19pandemic" target="_blank" rel="noopener noreferrer">publication about older workers in the pandemic</a>.</p></blockquote>
+<h4>Limit to four bars per cluster</h4>
+<p>Best practice for data visualisation is considered to be two bars per cluster. But, we know there may be times where it is appropriate to have more. In general, we advise a limit of four bars per cluster.</p>
+<p>Having more than four categories can make the chart cluttered. If you have more than four categories, try combining the categories or using a different type of chart.</p>
+<h4>Avoid clustered bar charts for time series data</h4>
+<p>Line charts are better for displaying time series data when there is more than one series. See the example in the <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/#section-7" target="_blank" rel="noopener noreferrer">bar charts section</a>.</p>
+<h3 id="formatting-clustered-bar-charts">Formatting clustered bar charts</h3>
+<h4>Colours</h4>
+<p>See our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts" target="_blank" rel="noopener noreferrer">colours guidance</a> for advice on using colour in clustered bar charts.</p>
+<h4>Gaps between bars and clusters</h4>
+<p>In clustered bar charts the gap between the clusters should be wider than a single bar. If you’re presenting discrete data in clustered bar charts, it is best practice to leave a small gap between the bars in each cluster to increase contrast and help users work out the meaning of the colours.</p>
+<blockquote><p>Examples: see the clustered bar chart examples in our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts" target="_blank" rel="noopener noreferrer">colours guidance</a></p></blockquote>
+<h4>Legends</h4>
+<p>When using clustered bar charts you will often need to use a legend. As with stacked bar charts, make sure the order and orientation of the legend matches the order and orientation of the data in the chart. This should be stated above the chart so people who may have difficulties matching labels to data with colour can use this information instead.</p>
+<p>With horizontal bar charts an alternative option is to label the first cluster directly so you do not need to rely on a legend at all.</p>
+<p>See our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-5" target="_blank" rel="noopener noreferrer">colours guidance</a> for more information.</p>
+<a href="#page" rel="noopener noreferrer">Back to top of
+                                                page</a>
+<h2 id="line-charts">Line charts</h2> <h3 id="using-line-charts">Using line charts</h3>
+<p>Line charts are mainly used for time series data.</p>
+<h3 id="formatting-line-charts">Formatting line charts</h3>
+<h4>Colours for line charts</h4>
+<p>See our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-5" target="_blank" rel="noopener noreferrer">colours guidance</a> for advice on using colour in line charts.</p>
+<h4>Line thickness</h4>
+<p>It is not possible to give a definitive thickness measure for lines on line charts, but remember to make sure they are not too thin. Very thin lines are hard to see.</p>
+<h4>Labelling lines</h4>
+<p>Avoiding using legends unless necessary. This is because legends use colour to match labels to data. This fails <a href="https://www.w3.org/TR/WCAG22/#use-of-color" target="_blank" rel="noopener noreferrer">accessibility success criterion 1.4.1</a>.</p>
+<p>In line charts legends can be avoided by labelling the lines directly. If you cannot place the label on the chart area, put it at the end of the line on the right hand side of the chart.</p>
+<p>Use black or dark grey text for labels. Only use coloured text when the lines are so close together it is not possible to easily see how the labels assign to lines. This is because, in general, the contrast of black or dark grey text against a white background is easier to see than text in a different colour.</p>
+<h5>Example: labelling the lines on a line chart</h5>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/07/line-chart-four-lines.svg" target="_blank" rel="noopener noreferrer"><img alt="Large version of chart showing that labeling line chart lines with black text placed at the end of the line is better than using a legend." height="1512" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/07/line-chart-four-lines.svg" width="2457"></a></p>
+<p>The example shows a line chart with four lines. Each line is labelled with black text placed at the end of the line. This is better than using a legend which relies on users matching labels to lines using colour. It is also better than using coloured text.</p>
+<h4>Data markers</h4>
+<p>Data markers a small shapes on lines that depict the data points in the series.</p>
+<p>It is OK to use data markers but we advise caution. Large data markers or the overuse of them can make a chart cluttered. This is especially true when there are several lines on a chart.</p>
+<p>Remember a chart is there to tell a story not to provide high levels of detail and precision.</p>
+<h4>Textured lines</h4>
+<p>Textured lines are dotted or dashed lines. They are sometimes used to differentiate lines.</p>
+<p>We advise caution when using textured lines. They can make a chart cluttered.</p>
+<p>They may be misinterpreted as showing incomplete, forecasted or provisional data, a target or a subcategory</p>
+<h3 id="considerations-for-line-charts">Considerations for line charts</h3>
+<h4>Volatility</h4>
+<p>Consider the quality of your data before creating a line chart. Avoid focusing too closely on a volatile series.</p>
+<h4>Aim for a maximum for four lines</h4>
+<p>Presenting more than four lines on a line chart can be done, but it often results in the chart becoming too cluttered.</p>
+<h5>Example: a cluttered line chart with eight different coloured lines</h5>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/8-line-chart-new-colours.svg" target="_blank" rel="noopener noreferrer"><img alt="Large version of chart showing a cluttered line chart with eight different coloured lines." height="1512" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/8-line-chart-new-colours.svg" width="2457"></a></p>
+<p>The example shows a fairly cluttered line chart with eight different coloured lines. Each one represents a country in Europe.</p>
+<h5>Alternative example: small multiples</h5>
+<p>Small multiple charts may also be called ‘panel charts’ or ‘lattice plots’.&nbsp; These allow a user to see all the lines individually in a set of small charts. If you use these, it is essential for all the y-axes to have the same scale to avoid misunderstandings. To reduce clutter you can label the y-axis once in each row of small multiple charts.</p>
+<p>The drawback of small multiples is that they are hard to create and the text on them can be very small and sometimes difficult to read.</p>
+<h6>Example: small multiple charts, one chart for each country</h6>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/small-multis-square.svg" target="_blank" rel="noopener noreferrer"><img alt="Large version of chart showing small multiple charts are easier for comparison than one chart with eight different coloured lines." height="1701" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/small-multis-square.svg" width="1890"></a></p>
+<p>This example shows all the lines in the previous chart shown on individual, smaller axes. This allows easier comparison between the lines.</p>
+<h5>Alternative example: focus chart</h5>
+<p>When using focus charts you give a colour to the line showing the series of interest, but use a light grey for all other lines. This allows a user to focus on the series of interest and have some understanding of how it compares with the other lines. It does not allow the user to see much about the other series individually.</p>
+<p>Focus charts should be used when the story you want to tell is about one series and how it compares to a group.</p>
+<h6>Example: focus chart with the UK line as the focus</h6>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2023/05/focus_chart_8_lines_no_tick.svg" target="_blank" rel="noopener noreferrer"><img alt="Larger version of focus chart example" height="720" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2023/05/focus_chart_8_lines_no_tick.svg" width="1280"></a></p>
+<p>The example shows a line chart where most of the lines are a light grey. The line showing the UK’s time series is in dark blue and stands out from the rest.</p>
+<p>See <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-7" target="_blank" rel="noopener noreferrer">more information about the colour palette we recommend for focus charts</a> in our colours guidance.</p>
+<h5>Alternative example: slope chart</h5>
+<p>You can use a slope chart to highlight changes between selected points in time. Slope charts do not show as much detail as the other options, but trends are easily noticed. Think about the story you want to tell.</p>
+<h6>Example: slope chart showing where each country ranked at the start and end of the time period</h6>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2023/07/Slope-chart-example_anonymous.svg" target="_blank" rel="noopener noreferrer"><img alt="Large version of chart showing how slope charts can be used to rank categories at the start and end of a time period." height="1024" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2023/07/Slope-chart-example_anonymous.svg" width="1024"></a></p>
+<p>This example shows a slope chart. This slope chart is made up of two lists of European countries, connected by lines which shows how their ranking has changed over two time points.</p>
+<h4>Breaking the y-axis</h4>
+<p>As discussed in an earlier section the numerical axis should never be broken on a bar chart. However, it is acceptable to break a numerical y-axis on a line chart, when necessary. Line charts are not read in the same way as bar charts so breaking the numerical axis does not mislead in the same way.</p>
+<p>Reasons breaking a numerical y-axis may be useful:</p>
+<ul>
+<li>It can highlight important trends that need emphasising.</li>
+<li>It can allow easier comparisons between lines.</li>
+<li>If values consistently sit within a certain range, never reaching zero, then zero is not of interest.</li>
+</ul>
+<p>Disadvantages of breaking a numerical y-axis:</p>
+<ul>
+<li>It can exaggerate trends and emphasise very small differences between data points.</li>
+<li>There is a risk that users may miss the break or not understand the symbol used to indicate the break</li>
+<li>There is a risk that users may compare graphs which are not equivalent if one has a broken y-axis and the other does not.</li>
+<li>Adding a break increases the amount of mental effort required to interpret the data.</li>
+</ul>
+<p>When deciding whether a break is necessary it is good to consider alternative ways of presenting the data. For example, presenting differences from an average.</p>
+<p>If you decide it is suitable and necessary to break the numerical y-axis you should take care with formatting. Our advice is:</p>
+<ul>
+<li>make the break in the y-axis clear and obvious using a&nbsp;<a href="https://commons.wikimedia.org/wiki/File:Y-axis_break.svg" target="_blank" rel="noopener noreferrer">broken axis symbol&nbsp;</a></li>
+<li>make the x-axis line the same colour and thickness as the gridlines</li>
+<li>make the y-axis and the axis break symbol thicker and darker than the gridlines and x-axis</li>
+<li>ensure the break is from a rounded number – for example, break to focus on 50% to 90% rather than 54.3% to 93.5%.</li>
+<li>mention the break in the text description of the chart (necessary for accessibility)</li>
+</ul>
+<h5>Example: breaking the numerical y-axis on a line chart</h5>
+<h6>Original chart: Percentage of people immunised against diphtheria and Measles Mumps and Rubella (MMR), England, 1991 to 2014</h6>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/immunisation-chart-before.svg" target="_blank" rel="noopener noreferrer"><img alt="Large version of chart showing that on some occasions if the y-axis is not broken it can hide important trends in a chart." height="1701" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/immunisation-chart-before.svg" width="2268"></a>This chart has a y-axis that runs from zero to 100%. It shows the rates of immunisation against diphtheria and MMR from 1991 to 2013 but the full story is not clear.</p>
+<h6>Improved chart: Percentage of people immunised against diphtheria and Measles Mumps and Rubella (MMR) compared with the World Health Organisation (WHO) target, England, 1991 to 2014</h6>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/Immunisation-chart-improved-again.svg" target="_blank" rel="noopener noreferrer"><img alt="Large version of chart showing that breaking the y-axis and the addition of a contextual annotation helps users to understand the chart more clearly." height="1323" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/Immunisation-chart-improved-again.svg" width="2268"></a></p>
+<p>This example shows a break in the y-axis to zoom in on the important part of the chart. It also shows the addition of context by a line showing the WHO target for immunisation levels (95%) and it has contextual annotation about an influential report.</p>
+<p>The break in the y-axis draws attention to the fact that rates of immunisation against diphtheria and MMR fell following the publication of a now fully retracted article by Wakefield AJ et al in The Lancet in 1998 that linked the MMR vaccination to autism. Rates increased a few years later as the report was at first partially retracted in 2004 and then fully retracted in 2010. In 2013 immunistaion rates were higher than they were before 1998. But the annotation also shows that they are still below the WHO target.</p>
+<p>View the <a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/03/MMR-and-Diphtheria-Immunisation-Chart-Data-Download.ods" target="_blank" rel="noopener noreferrer">data in an accessible format (ODS, 4.7KB)</a>.</p>
+<h5>Breaking the y-axis in practice</h5>
+<p>In practice breaking the y-axis can be quite a clunky process. It’s a good idea to speak to your colleagues and your design team, if you have one, to find out:</p>
+<ul>
+<li>Are you able to add break symbols to the axis?</li>
+<li>Could your software enable you to toggle the break on and off?</li>
+</ul>
+<p>Our example has been made by pasting the chart into PowerPoint, adding two lines on the y-axis to make a broken vertical line and then inserting two more lines to make the break more obvious. However, it is also possible to do this using R.</p>
+<p>If you know of a better way to do this, please let us know by emailing <a href="mailto:analysis.function@ons.gov.uk" target="_blank" rel="noopener noreferrer">Analysis.Function@ons.gov.uk</a>.</p>
+<h4>Dual axis line charts</h4>
+<p>Dual axis line charts can be used to present two variables with differing scales.</p>
+<p>In general, we do not recommend using dual axis charts because:</p>
+<ul>
+<li>they can be easily misinterpreted</li>
+<li>the way we display lines in relation to each other can manipulate the data story, even if it is not intentional</li>
+</ul>
+<p>It is best practice to separate the datasets and present them with their own y-axis. Using clear annotations can also help users understand your data and prevent misinterpretation.</p>
+<p>The ONS digital blog post on “<u><a href="https://digitalblog.ons.gov.uk/2019/07/03/dueling-with-axis-the-problems-with-dual-axis-charts/" target="_blank" rel="noopener noreferrer">Dueling</a></u><u><a href="https://digitalblog.ons.gov.uk/2019/07/03/dueling-with-axis-the-problems-with-dual-axis-charts/" target="_blank" rel="noopener noreferrer"> with axis: the problems with dual axis charts</a></u>” provides more information on how dual axis can mislead users.</p>
+<h5>Misinterpretation example</h5>
+<h6><strong>Employment and unemployment rate for people aged 16 to 64, UK, seasonally adjusted</strong></h6>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/12/dual-axis.svg" target="_blank" rel="noopener noreferrer"><img alt="Larger version employment and unemployment rate chart " height="720" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/12/dual-axis.svg" width="1280"></a></p>
+<p>This is a dual axis chart showing the employment rate using the y-axis on the left hand size and the unemployment rate using the y-axis on the right hand side. The employment rate is generally rising from around 72% in 2009 to around 76% in 2022. The unemployment rate is generally falling, from around 7% in 2009 to around 4% in 2022.</p>
+<p>Source: <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/datasets/summaryoflabourmarketstatistics" target="_blank" rel="noopener noreferrer">Summary of labour market statistics</a> from the Office for National Statistics</p>
+<p>Charts like this can be easily misinterpreted. Possible messages a user might get from this chart are:</p>
+<ul>
+<li>The unemployment rate exceeded the employment rate between 2009 and 2015.</li>
+<li>The employment rate is now about twice as high as the unemployment rate.</li>
+</ul>
+<h5>Manipulation example</h5>
+<p>Dual axis line charts can be manipulated to show almost any relationship.</p>
+<h6>Example of how dual axis charts may be manipulated</h6>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2023/01/dual-axis-manipulation-1.svg" target="_blank" rel="noopener noreferrer"><img alt="Larger version of example of dual axis manipulation." height="700" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2023/01/dual-axis-manipulation-1.svg" width="586"></a></p>
+<p>This example has six dual axis line charts. It starts with a faithful representation of the data – fairly flat lines spaced far apart. It then displays the other ways these lines could be shown. These are: lines crossing over, lines converging and diverging, lines separate and then converging, one stable line with lots of change in the other.</p>
+<h5>Dual axis line chart – alternative</h5>
+<h6>Employment and unemployment rate for people aged 16 to 64, UK, seasonally adjusted (using two separate charts)</h6>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/12/dual-axis-two-charts.svg" target="_blank" rel="noopener noreferrer"><img alt="Larger version of example showing dual axis alternative" height="720" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/12/dual-axis-two-charts.svg" width="1280"></a></p>
+<p>This figure shows the same data as figure 15 but now we have used two smaller charts to show the employment and unemployment rates on separate axes. We have also added in annotation explaining that at the start of the coronavirus (COVID-19) pandemic employment rates fell and unemployment rates rose.</p>
+<p>Source: <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/datasets/summaryoflabourmarketstatistics" target="_blank" rel="noopener noreferrer">Summary of labour market statistics</a> from the Office for National Statistics</p>
+<p>Note that we have made it clear that the y-axis does not start at zero for the employment rate chart.</p>
+<p>This presentation is less likely to be misinterpreted or manipulated. It draws attention to the changes in the rates.</p>
+<h4>Breaks in time series</h4>
+<p>Breaks in time series can occur due to missing data points and changes in methods.</p>
+<p>The best way to deal with discontinuity varies depending on the data and the story you are telling. But, it must always be highlighted.</p>
+<p>You do not always have to use a line for a time series with a discontinuity. Displaying the data as individual points may be better.</p>
+<p>If you do use a line, do not join the points either side of the missing data point, even if the line is dotted or dashed. Joining points implies we know something about the data.</p>
+<h5>Example of time series with a break (fictional data)</h5>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2023/07/break-in-time-series_anonymous.svg" target="_blank" rel="noopener noreferrer"><img alt="Large version of chart showing the time series with a break (fictional data)" height="605" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2023/07/break-in-time-series_anonymous.svg" width="1280"></a></p>
+<p>This figure shows two line charts. Both have a discontinuity. One leaves a gap in the line and marks out the gap with two vertical dashed lines and annotation stating the data was not collected in 2020 due to the coronavirus (COVID-19) pandemic. This has a green tick above it. The other shows joins the gap with a dashed line. This has a red cross above it.</p>
+<h5>Examples of breaks in time series</h5>
+<ul>
+<li>Figures 1 and 2 in the&nbsp;<a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/conditionsanddiseases/bulletins/coronaviruscovid19infectionsurveyantibodyandvaccinationdatafortheuk/latest" target="_blank" rel="noopener noreferrer">Coronavirus (COVID-19) Infection Survey, antibody data UK: 1 December 2022 (link opens in a new tab)</a>.</li>
+<li>Main stories section of&nbsp; <a href="https://www.gov.uk/government/statistics/fraud-and-error-in-the-benefit-system-financial-year-2021-to-2022-estimates/fraud-and-error-in-the-benefit-system-financial-year-ending-fye-2022#main-stories" target="_blank" rel="noopener noreferrer">‘Fraud and error in the benefit system Financial Year Ending (FYE) 2022’ (link opens in a new tab)</a>&nbsp;report.</li>
+</ul>
+<p>If you are dealing with breaks in time series caused by impacts of Coronavirus (COVID 19) you might find it useful to read our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/tips-for-communicating-the-impact-of-coronavirus-covid-19/" target="_blank" rel="noopener noreferrer">Tips for communicating the impact of coronavirus (COVID-19)</a>.</p>
+<h4><strong>Aspect ratios&nbsp;</strong></h4>
+<p>The aspect ratio of your chart is the ratio of the chart width to the chart height. In line charts, the aspect ratio you choose alters the slope of the lines. This can be misleading.</p>
+<p>We are not able to give a specific aspect ratio that will work for all line charts. But, <a href="https://eagereyes.org/basics/banking-45-degrees" target="_blank" rel="noopener noreferrer">this article on chart aspect ratios</a> proposes you choose one that makes your line chart “appear reasonably neutral, without either making the changes appear too extreme (by picking an aspect ratio that is too small) or too flat (with an aspect ratio that is too high)”</p>
+<h5>Example: how different aspect ratios affect line charts</h5>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/line-chart-aspect-ratio.svg" target="_blank" rel="noopener noreferrer"><img alt="Large version of chart showing how different aspect ratios affect line charts." height="945" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/05/line-chart-aspect-ratio.svg" width="1680"></a>This example shows the same line chart with three different aspect ratios. Chart 1 has a neutral ratio, this is the best way to present the data. Chart 2 has a high aspect ratio which makes the data look too flat. Chart 3 has a low aspect ratio which makes the data look too extreme.</p>
+<h3 id="line-chart-example">Line chart example</h3>
+<p>Example 1 in our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-chart-examples/" target="_blank" rel="noopener noreferrer">guidance showing data visualisation examples</a> demonstrates how to apply this guidance to a real-life line chart.</p>
+<a href="#page" rel="noopener noreferrer">Back to top of
+                                                page</a>
+<h2 id="pie-charts">Pie charts</h2> <h3 id="using-pie-charts">Using pie charts</h3>
+<p>Pie charts can be useful when showing part-to-whole relationships. This is because these charts clearly show that the ‘parts’ add up to the ‘whole’.</p>
+<p>However, you should be aware that pie charts are not the best in terms of accessibility as they are hard to understand when magnified.</p>
+<p>Pie charts should only be used when:</p>
+<ul>
+<li>there are five categories or fewer</li>
+<li>the categories sum to a meaningful whole (you can combine categories when appropriate, but never remove a category from the ‘whole’)</li>
+<li>there is a dominant category (if several categories are a similar size, use a bar chart instead)</li>
+</ul>
+<h3 id="formatting-pie-charts">Formatting pie charts</h3>
+<h4>Colours</h4>
+<p>When pie charts present two variables we recommend using the dark blue and orange colours from our palette. Put a white border around each sector to enhance the contrast. For more information on using colours in pie charts with more than two variable, see <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts" target="_blank" rel="noopener noreferrer">our colours guidance</a>.</p>
+<h4>Order of categories</h4>
+<p>Rank the categories in a pie chart by size and start the first sector at the 12 o’clock position.</p>
+<h4>Labels</h4>
+<p>Do not use a key, label the categories themselves. This avoids users having to use colour to match the label to the data.</p>
+<h4>Value labels</h4>
+<p>Value labels can be useful on a pie chart (as long as the pie is limited to four categories or fewer)</p>
+<h4>Example</h4>
+<h5>Responses to the “What is your religion?” question on the 2011 Census of England and Wales</h5>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/03/pie-chart-new-order.svg" target="_blank" rel="noopener noreferrer"><img alt="Large version of chart showing how to implement the advice given in this section." height="720" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/03/pie-chart-new-order.svg" width="1280"></a></p>
+<p>The example shows how to implement the advice given in this section. It also shows the following data: 59.3% of responses to the “What is your religion?” question on the 2011 were classed as Christian, 25.1% as No religion, 8.4% as Other and 7.2% as Not stated.</p>
+<p>Source: <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/culturalidentity/religion/articles/religioninenglandandwales2011/2012-12-11" target="_blank" rel="noopener noreferrer">Religion in England and Wales 2011</a></p>
+<a href="#page" rel="noopener noreferrer">Back to top of
+                                                page</a>
+<h2 id="other-chart-types">Other chart types</h2> <p>Many other types of chart are available. Here are some examples:</p>
+<ul>
+<li>Scatter plots</li>
+<li>Box plot</li>
+<li><a href="https://gov.wales/trade-survey-wales-2019-html#section-78565" target="_blank" rel="noopener noreferrer">Static tree map</a></li>
+<li><a href="https://www.ons.gov.uk/visualisations/dvc1797/treemap/exports.html" target="_blank" rel="noopener noreferrer">Interactive tree map</a></li>
+<li><a href="https://www.ons.gov.uk/visualisations/dvc1633/beeswarm/index.html" target="_blank" rel="noopener noreferrer">Dot plot showing distribution</a></li>
+<li><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/articles/howpopularisyourbirthday/2015-12-18" target="_blank" rel="noopener noreferrer">Heat map</a></li>
+<li>Slope charts: <a href="https://www.ons.gov.uk/visualisations/dvc1601/bumpchartf/index.html" target="_blank" rel="noopener noreferrer">baby girl names by age of mother</a> and <a href="https://www.ons.gov.uk/visualisations/dvc1601/bumpchartm/index.html" target="_blank" rel="noopener noreferrer">baby boy names by age of mother</a></li>
+</ul>
+<a href="#page" rel="noopener noreferrer">Back to top of
+                                                page</a>
+<h2 id="testing">Testing&nbsp;</h2> <p>We advise to test your charts with users to see if they are working as you planned.</p>
+<h3 id="ideas-for-testing">Ideas for testing</h3>
+<ul>
+<li>Tweet an image of your chart and ask for general feedback on it</li>
+<li>Tweet an image of your chart alongside a Twitter poll to ask a specific question you want feedback on.</li>
+<li>Post your chart on the Basecamp for Presentation and Dissemination of Statistics and Analysis to ask members for their feedback – <a href="https://3.basecamp.com/4322319/join/vKzhtquyRoCi" target="_blank" rel="noopener noreferrer">join the Basecamp</a> if you are not on it already.</li>
+<li>Ask colleagues for their opinions – avoid picking colleagues that work or have worked on your data.</li>
+<li>Ask your <a href="https://gss.civilservice.gov.uk/about-us/champion-networks/" target="_blank" rel="noopener noreferrer">Presentation or Dissemination champion</a> for help with getting feedback.</li>
+</ul>
+<a href="#page" rel="noopener noreferrer">Back to top of
+                                                page</a>
+<h2 id="resources">Resources </h2> <h3 id="dataconnect22-session-on-making-charts-accessible">DataConnect22 session on making charts accessible</h3>
+<p><a href="https://analysisfunction.civilservice.gov.uk/support/making-charts-accessible-dataconnect22/" target="_blank" rel="noopener noreferrer">Materials from session on “Making charts accessible”</a>&nbsp;delivered as part of DataConnect22. These materials include the recording, slides and plain text versions of slides and the question and answer session.</p>
+<h3 id="using-our-colour-palettes-in-microsoft-r-and-python">Using our colour palettes in Microsoft, R and Python</h3>
+<p>We have created guidance on how to implement all of our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/codes-for-accessible-colours" target="_blank" rel="noopener noreferrer">accessible colour palettes in Microsoft, R and Python</a> on different chart types.</p>
+<h4>R and Python colour palette packages</h4>
+<p>The Analysis Standards and Pipelines (ASAP) team have also created packages in Python and R for the colour palettes.</p>
+<p>They are open source and available for anyone across government to use when creating data visualisations. It will be great for those working in DAP and they will eliminate the need for copy and pasting codes from the webpage.</p>
+<p>For more information on how to install and use the packages, please read about <a href="https://eur03.safelinks.protection.outlook.com/?url=https%3A%2F%2Fbest-practice-and-impact.github.io%2Fafcharts%2F&amp;data=05%7C02%7CJason.Stolborg-Price%40statistics.gov.uk%7Ce7358a15ff74409731f708dd72b453b5%7C078807bfce824688bce00d811684dc46%7C0%7C0%7C638792841010048894%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=evamNWTX7Uid6Ht9q4%2FwZe1WeI3uTiHQ3ja7zWmDfLE%3D&amp;reserved=0" target="_blank" rel="noopener noreferrer">afcharts</a>, or <a href="https://best-practice-and-impact.github.io/py-af-colours/" target="_blank" rel="noopener noreferrer">py_af_colours documentation</a> if you are using Python. There are&nbsp;examples of how to use the afcharts colour palettes in the afcharts <a href="https://eur03.safelinks.protection.outlook.com/?url=https%3A%2F%2Fbest-practice-and-impact.github.io%2Fafcharts%2Farticles%2Fcookbook.html%23using-different-colour-palettes&amp;data=05%7C02%7CJason.Stolborg-Price%40statistics.gov.uk%7Ce7358a15ff74409731f708dd72b453b5%7C078807bfce824688bce00d811684dc46%7C0%7C0%7C638792841010071685%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=gnTwJJRz%2Bsf8NxwZdZPXgkbHhlu2PK1yGSfz%2FwKO150%3D&amp;reserved=0" target="_blank" rel="noopener noreferrer">cookbook.</a></p>
+<p>Please get in touch if you have any questions or feedback, by emailing <a href="mailto:Analysis.Function@ons.gov.uk" target="_blank" rel="noopener noreferrer">Analysis.Function@ons.gov.uk</a>.</p>
+<a href="#page" rel="noopener noreferrer">Back to top of
+                                                page</a>
+<h2 id="related-links">Related links</h2> <p>Resources from the Analysis Function Central Team:</p>
+<ul>
+<li><a href="https://analysisfunction.civilservice.gov.uk/policy-store/charts-a-checklist/" target="_blank" rel="noopener noreferrer">Charts: a checklist</a></li>
+<li><a href="https://analysisfunction.civilservice.gov.uk/support/communicating-analysis/introduction-to-data-visualisation-e-learning/" target="_blank" rel="noopener noreferrer">Data visualisation e-learning</a></li>
+<li><a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts" target="_blank" rel="noopener noreferrer">Data visualisation: colours</a></li>
+<li><a href="https://analysisfunction.civilservice.gov.uk/policy-store/codes-for-accessible-colours/" target="_blank" rel="noopener noreferrer">Using our colour palettes in Microsoft, R and Python</a></li>
+<li><a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-tables/" target="_blank" rel="noopener noreferrer">Data visualisation: tables</a></li>
+<li><a href="https://analysisfunction.civilservice.gov.uk/policy-store/infographics/" target="_blank" rel="noopener noreferrer">Data visualisation: infographics</a></li>
+<li><a href="https://analysisfunction.civilservice.gov.uk/policy-store/releasing-statistics-in-spreadsheets/" target="_blank" rel="noopener noreferrer">Releasing statistics in spreadsheets&nbsp;</a></li>
+<li><a href="https://analysisfunction.civilservice.gov.uk/policy-store/further-resources-for-releasing-statistics-in-spreadsheets/" target="_blank" rel="noopener noreferrer">Resources to use with our releasing statistics in spreadsheets guidance</a></li>
+<li><a href="https://analysisfunction.civilservice.gov.uk/policy-store/making-analytical-publications-accessible/" target="_blank" rel="noopener noreferrer">Making analytical publications accessible</a></li>
+<li><a href="https://analysisfunction.civilservice.gov.uk/policy-store/top-tips-for-designing-dashboards/" target="_blank" rel="noopener noreferrer">Dashboards</a></li>
+</ul>
+<p>Other links</p>
+<ul>
+<li><a href="https://digitalblog.ons.gov.uk/category/dataviz/" target="_blank" rel="noopener noreferrer">ONS blog posts on data visualisation</a></li>
+<li><a href="http://style.ons.gov.uk/category/data-visualisation/" target="_blank" rel="noopener noreferrer">ONS guidance on data visualisation</a></li>
+<li><a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">Colour contrast checker</a></li>
+<li><a href="https://www.youtube.com/channel/UCVY5YwwgpprO_2KEYz-cVrw" target="_blank" rel="noopener noreferrer">Analysis Function YouTube channel&nbsp;</a></li>
+<li><a href="https://stephanieevergreen.com/questions-to-ask/" target="_blank" rel="noopener noreferrer">Questions to ask when you see a graph</a></li>
+<li><a href="https://www.highcharts.com/blog/tutorials/accessible-descriptions-for-interactive-charts/" target="_blank" rel="noopener noreferrer">How to write accessible descriptions for interactive charts</a></li>
+<li><a href="https://gomakethings.com/a-case-study-in-alt-text/" target="_blank" rel="noopener noreferrer">“A case study in alt text” blog</a></li>
+<li><a href="https://analysisfunction.civilservice.gov.uk/blog/automated-data-visualisation-best-practice-in-r-afcharts-release/" target="_blank" rel="noopener noreferrer">Automated data visualisation best practice in R: afcharts release</a></li>
+</ul>
+<a href="#page" rel="noopener noreferrer">Back to top of
+                                                page</a>
+<h2 id="any-questions">Any questions? </h2> <p>If you have any further questions you can:</p>
+<ul>
+<li>email <a href="mailto:Analysis.Function@ons.gov.uk" target="_blank" rel="noopener noreferrer">Analysis.Function@ons.gov.uk</a></li>
+<li>join our <a href="https://3.basecamp.com/4322319/projects/23428781" target="_blank" rel="noopener noreferrer">Basecamp project for accessibility for statistics and analysis</a> or <a href="https://3.basecamp.com/4322319/projects/25844562" target="_blank" rel="noopener noreferrer">presentation and dissemination of statistics and analysis</a>&nbsp;– if you are not on the Cross Government Basecamp, email <a href="mailto:analysis.function@ons.gov.uk?subject=Basecamp invite links" target="_blank" rel="noopener noreferrer">Analysis.Function@ons.gov.uk</a> for an invite link</li>
+<li>contact your departmental <a href="https://analysisfunction.civilservice.gov.uk/government-statistical-service-and-statistician-group/champion-networks/" target="_blank" rel="noopener noreferrer">presentation or web dissemination champion</a></li>
+<li>contact us through Twitter <a href="https://twitter.com/gov_analysis" target="_blank" rel="noopener noreferrer">@gov_analysis</a></li>
+</ul>
+<a href="#page" rel="noopener noreferrer">Back to top of
+                                                page</a>
+</div>

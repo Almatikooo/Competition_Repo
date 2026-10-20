@@ -1,0 +1,770 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Delete, copy and move specified files and/or directories.</li>
+<li>Create files in that hierarchy using an editor or by copying and renaming existing files.</li>
+<li>Create a directory hierarchy that matches a given diagram.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>How can I create, copy, and delete files and directories?</li>
+<li>How can I edit files?</li>
+</ul>
+</div>
+<h2 id="creating-directories">Creating directories</h2>
+<p>We now know how to explore files and directories,
+but how do we create them in the first place?</p>
+<p>In this episode we will learn about creating and moving files and directories,
+using the <code>exercise-data/writing</code> directory as an example.</p>
+<h3 id="step-one-see-where-we-are-and-what-we-already-have">Step one: see where we are and what we already have</h3>
+<p>We should still be in the <code>shell-lesson-data</code> directory on the Desktop,
+which we can check using:</p>
+<pre><code class="language-bash">$ pwd
+</code></pre>
+<pre><code class="language-output">/Users/nelle/Desktop/shell-lesson-data
+</code></pre>
+<p>Next we'll move to the <code>exercise-data/writing</code> directory and see what it contains:</p>
+<pre><code class="language-bash">$ cd exercise-data/writing/
+$ ls -F
+</code></pre>
+<pre><code class="language-output">haiku.txt  LittleWomen.txt
+</code></pre>
+<h3 id="create-a-directory">Create a directory</h3>
+<p>Let's create a new directory called <code>thesis</code> using the command <code>mkdir thesis</code>
+(which has no output):</p>
+<pre><code class="language-bash">$ mkdir thesis
+</code></pre>
+<p>As you might guess from its name,
+<code>mkdir</code> means 'make directory'.
+Since <code>thesis</code> is a relative path
+(i.e., does not have a leading slash, like <code>/what/ever/thesis</code>),
+the new directory is created in the current working directory:</p>
+<pre><code class="language-bash">$ ls -F
+</code></pre>
+<pre><code class="language-output">haiku.txt  LittleWomen.txt  thesis/
+</code></pre>
+<p>Since we've just created the <code>thesis</code> directory, there's nothing in it yet:</p>
+<pre><code class="language-bash">$ ls -F thesis
+</code></pre>
+<p>Note that <code>mkdir</code> is not limited to creating single directories one at a time.
+The <code>-p</code> option allows <code>mkdir</code> to create a directory with nested subdirectories
+in a single operation:</p>
+<pre><code class="language-bash">$ mkdir -p ../project/data ../project/results
+</code></pre>
+<p>Let's use <code>ls -F</code> to list the new directories we just created in the
+<code>project</code> directory:</p>
+<pre><code class="language-bash">$ ls -F ../project
+</code></pre>
+<pre><code class="language-output">data/  results/
+</code></pre>
+<div class="box box-callout">
+<p class="box-title">Two ways of doing the same thing</p>
+
+<p>Using the shell to create a directory is no different than using a file explorer.
+If you open the current directory using your operating system's graphical file explorer,
+the <code>thesis</code> directory will appear there too.
+While the shell and the file explorer are two different ways of interacting with the files,
+the files and directories themselves are the same.</p>
+</div>
+<div class="box box-callout">
+<p class="box-title">Good names for files and directories</p>
+
+<p>Complicated names of files and directories can make your life painful
+when working on the command line. Here we provide a few useful
+tips for the names of your files and directories.</p>
+<ol>
+<li>Don't use spaces.</li>
+</ol>
+<p>Spaces can make a name more meaningful,
+but since spaces are used to separate arguments on the command line
+it is better to avoid them in names of files and directories.
+You can use <code>-</code> or <code>_</code> instead (e.g. <code>north-pacific-gyre/</code> rather than <code>north pacific gyre/</code>).
+To test this out, try typing <code>mkdir north pacific gyre</code> and see what directory (or directories!)
+are made when you check with <code>ls -F</code>.</p>
+<ol start="2">
+<li>Don't begin the name with <code>-</code> (dash).</li>
+</ol>
+<p>Commands treat names starting with <code>-</code> as options.</p>
+<ol start="3">
+<li>Stick with lowercase letters, numbers, <code>.</code> (period or 'full stop'), <code>-</code> (dash) and <code>_</code> (underscore).</li>
+</ol>
+<p>Many other characters have special meanings on the command line.
+We will learn about some of these during this lesson.
+There are special characters that can cause your command to not work as
+expected and can even result in data loss.</p>
+<p>If you need to refer to names of files or directories that have spaces
+or other special characters, you should surround the name in single
+<a href="https://www.gnu.org/software/bash/manual/html_node/Quoting.html" target="_blank" rel="noopener noreferrer">quotes</a> (<code>''</code>).</p>
+<p>It is often good practice
+to use all lowercase letters in names of files and directories;
+Windows and macOS file systems are typically case insensitive
+and therefore unable to distinguish between
+<code>thesis</code> and <code>Thesis</code> in the same directory.</p>
+</div>
+<h3 id="create-a-text-file">Create a text file</h3>
+<p>Let's change our working directory to <code>thesis</code> using <code>cd</code>,
+then run a text editor called Nano to create a file called <code>draft.txt</code>:</p>
+<pre><code class="language-bash">$ cd thesis
+$ nano draft.txt
+</code></pre>
+<div class="box box-callout">
+<p class="box-title">Which Editor?</p>
+
+<p>When we say, '<code>nano</code> is a text editor' we really do mean 'text'. It can
+only work with plain character data, not tables, images, or any other
+human-friendly media. We use it in examples because it is one of the
+least complex text editors. However, because of this trait, it may
+not be powerful enough or flexible enough for the work you need to do
+after this workshop. On Unix systems (such as Linux and macOS),
+many programmers use <a href="https://www.gnu.org/software/emacs/" target="_blank" rel="noopener noreferrer">Emacs</a> or
+<a href="https://www.vim.org/" target="_blank" rel="noopener noreferrer">Vim</a> (both of which require more time to learn),
+or a graphical editor such as <a href="https://gedit-text-editor.org/" target="_blank" rel="noopener noreferrer">Gedit</a>
+or <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">VScode</a>. On Windows, you may wish to
+use <a href="https://notepad-plus-plus.org/" target="_blank" rel="noopener noreferrer">Notepad++</a>.  Windows also has a built-in
+editor called <code>notepad</code> that can be run from the command line in the same
+way as <code>nano</code> for the purposes of this lesson.</p>
+<p>No matter what editor you use, you will need to know where it searches
+for and saves files. If you start it from the shell, it will (probably)
+use your current working directory as its default location. If you use
+your computer's start menu, it may want to save files in your Desktop or
+Documents directory instead. You can change this by navigating to
+another directory the first time you 'Save As...'</p>
+</div>
+<p>Let's type in a few lines of text.</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/swcarpentry/shell-novice/b91d85b848405a4a2fe0a297d8cedb71d68ab9bd/episodes/fig/nano-screenshot.png">{alt="screenshot of nano text editor in action with the text It's not publish or perish any more, it's share and thrive"}</p>
+<p>Once we're happy with our text, we can press <kbd>Ctrl</kbd>+<kbd>O</kbd>
+(press the <kbd>Ctrl</kbd> or <kbd>Control</kbd> key and, while
+holding it down, press the <kbd>O</kbd> key) to write our data to disk. We will be asked
+to provide a name for the file that will contain our text. Press <kbd>Return</kbd> to accept
+the suggested default of <code>draft.txt</code>.</p>
+<p>Once our file is saved, we can use <kbd>Ctrl</kbd>+<kbd>X</kbd> to quit the editor and
+return to the shell.</p>
+<div class="box box-callout">
+<p class="box-title">Control, Ctrl, or ^ Key</p>
+
+<p>The Control key is also called the 'Ctrl' key. There are various ways
+in which using the Control key may be described. For example, you may
+see an instruction to press the <kbd>Control</kbd> key and, while holding it down,
+press the <kbd>X</kbd> key, described as any of:</p>
+<ul>
+<li><code>Control-X</code></li>
+<li><code>Control+X</code></li>
+<li><code>Ctrl-X</code></li>
+<li><code>Ctrl+X</code></li>
+<li><code>^X</code></li>
+<li><code>C-x</code></li>
+</ul>
+<p>In nano, along the bottom of the screen you'll see <code>^G Get Help ^O WriteOut</code>.
+This means that you can use <code>Control-G</code> to get help and <code>Control-O</code> to save your
+file.</p>
+</div>
+<p><code>nano</code> doesn't leave any output on the screen after it exits,
+but <code>ls</code> now shows that we have created a file called <code>draft.txt</code>:</p>
+<pre><code class="language-bash">$ ls
+</code></pre>
+<pre><code class="language-output">draft.txt
+</code></pre>
+<div class="box box-challenge">
+<p class="box-title">Creating Files a Different Way</p>
+
+<p>We have seen how to create text files using the <code>nano</code> editor.
+Now, try the following command:</p>
+<pre><code class="language-bash">$ touch my_file.txt
+</code></pre>
+<ol>
+<li>
+<p>What did the <code>touch</code> command do?
+When you look at your current directory using the GUI file explorer,
+does the file show up?</p>
+</li>
+<li>
+<p>Use <code>ls -l</code> to inspect the files.  How large is <code>my_file.txt</code>?</p>
+</li>
+<li>
+<p>When might you want to create a file this way?</p>
+</li>
+</ol>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<ol>
+<li>
+<p>The <code>touch</code> command generates a new file called <code>my_file.txt</code> in
+your current directory.  You
+can observe this newly generated file by typing <code>ls</code> at the
+command line prompt.  <code>my_file.txt</code> can also be viewed in your
+GUI file explorer.</p>
+</li>
+<li>
+<p>When you inspect the file with <code>ls -l</code>, note that the size of
+<code>my_file.txt</code> is 0 bytes.  In other words, it contains no data.
+If you open <code>my_file.txt</code> using your text editor it is blank.</p>
+</li>
+<li>
+<p>Some programs do not generate output files themselves, but
+instead require that empty files have already been generated.
+When the program is run, it searches for an existing file to
+populate with its output.  The touch command allows you to
+efficiently generate a blank text file to be used by such
+programs.</p>
+</li>
+</ol>
+</details>
+<p>To avoid confusion later on,
+we suggest removing the file you've just created before proceeding with the rest
+of the episode, otherwise future outputs may vary from those given in the lesson.
+To do this, use the following command:</p>
+<pre><code class="language-bash">$ rm my_file.txt
+</code></pre>
+</div>
+<div class="box box-callout">
+<p class="box-title">What's In A Name?</p>
+
+<p>You may have noticed that all of Nelle's files are named 'something dot
+something', and in this part of the lesson, we always used the extension
+<code>.txt</code>.  This is just a convention; we can call a file <code>mythesis</code> or
+almost anything else we want. However, most people use two-part names
+most of the time to help them (and their programs) tell different kinds
+of files apart. The second part of such a name is called the
+<strong>filename extension</strong> and indicates
+what type of data the file holds: <code>.txt</code> signals a plain text file, <code>.pdf</code>
+indicates a PDF document, <code>.cfg</code> is a configuration file full of parameters
+for some program or other, <code>.png</code> is a PNG image, and so on.</p>
+<p>This is just a convention, albeit an important one. Files merely contain
+bytes; it's up to us and our programs to interpret those bytes
+according to the rules for plain text files, PDF documents, configuration
+files, images, and so on.</p>
+<p>Naming a PNG image of a whale as <code>whale.mp3</code> doesn't somehow
+magically turn it into a recording of whale song, though it <em>might</em>
+cause the operating system to associate the file with a music player
+program. In this case, if someone double-clicked <code>whale.mp3</code> in a file
+explorer program, the music player will automatically (and erroneously)
+attempt to open the <code>whale.mp3</code> file.</p>
+</div>
+<h2 id="moving-files-and-directories">Moving files and directories</h2>
+<p>Returning to the <code>shell-lesson-data/exercise-data/writing</code> directory,</p>
+<pre><code class="language-bash">$ cd ~/Desktop/shell-lesson-data/exercise-data/writing
+</code></pre>
+<p>In our <code>thesis</code> directory we have a file <code>draft.txt</code>
+which isn't a particularly informative name,
+so let's change the file's name using <code>mv</code>,
+which is short for 'move':</p>
+<pre><code class="language-bash">$ mv thesis/draft.txt thesis/quotes.txt
+</code></pre>
+<p>The first argument tells <code>mv</code> what we're 'moving',
+while the second is where it's to go.
+In this case,
+we're moving <code>thesis/draft.txt</code> to <code>thesis/quotes.txt</code>,
+which has the same effect as renaming the file.
+Sure enough,
+<code>ls</code> shows us that <code>thesis</code> now contains one file called <code>quotes.txt</code>:</p>
+<pre><code class="language-bash">$ ls thesis
+</code></pre>
+<pre><code class="language-output">quotes.txt
+</code></pre>
+<p>One must be careful when specifying the target file name, since <code>mv</code> will
+silently overwrite any existing file with the same name, which could
+lead to data loss. By default, <code>mv</code> will not ask for confirmation before overwriting files.
+However, an additional option, <code>mv -i</code> (or <code>mv --interactive</code>), will cause <code>mv</code> to request
+such confirmation.</p>
+<p>Note that <code>mv</code> also works on directories.</p>
+<p>Let's move <code>quotes.txt</code> into the current working directory.
+We use <code>mv</code> once again,
+but this time we'll use just the name of a directory as the second argument
+to tell <code>mv</code> that we want to keep the filename
+but put the file somewhere new.
+(This is why the command is called 'move'.)
+In this case,
+the directory name we use is the special directory name <code>.</code> that we mentioned earlier.</p>
+<pre><code class="language-bash">$ mv thesis/quotes.txt .
+</code></pre>
+<p>The effect is to move the file from the directory it was in to the current working directory.
+<code>ls</code> now shows us that <code>thesis</code> is empty:</p>
+<pre><code class="language-bash">$ ls thesis
+</code></pre>
+<pre><code class="language-output">$
+</code></pre>
+<p>Alternatively, we can confirm the file <code>quotes.txt</code> is no longer present in the <code>thesis</code> directory
+by explicitly trying to list it:</p>
+<pre><code class="language-bash">$ ls thesis/quotes.txt
+</code></pre>
+<pre><code class="language-error">ls: cannot access 'thesis/quotes.txt': No such file or directory
+</code></pre>
+<p><code>ls</code> with a filename or directory as an argument only lists the requested file or directory.
+If the file given as the argument doesn't exist, the shell returns an error as we saw above.
+We can use this to see that <code>quotes.txt</code> is now present in our current directory:</p>
+<pre><code class="language-bash">$ ls quotes.txt
+</code></pre>
+<pre><code class="language-output">quotes.txt
+</code></pre>
+<div class="box box-challenge">
+<p class="box-title">Moving Files to a new folder</p>
+
+<p>After running the following commands,
+Jamie realizes that she put the files <code>sucrose.dat</code> and <code>maltose.dat</code> into the wrong folder.
+The files should have been placed in the <code>raw</code> folder.</p>
+<pre><code class="language-bash">$ ls -F
+ analyzed/ raw/
+$ ls -F analyzed
+fructose.dat glucose.dat maltose.dat sucrose.dat
+$ cd analyzed
+</code></pre>
+<p>Fill in the blanks to move these files to the <code>raw/</code> folder
+(i.e. the one she forgot to put them in)</p>
+<pre><code class="language-bash">$ mv sucrose.dat maltose.dat ____/____
+</code></pre>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x">Solution</h2>
+<pre><code class="language-bash">$ mv sucrose.dat maltose.dat ../raw
+</code></pre>
+<p>Recall that <code>..</code> refers to the parent directory (i.e. one above the current directory)
+and that <code>.</code> refers to the current directory.</p>
+</details>
+</div>
+<h2 id="copying-files-and-directories">Copying files and directories</h2>
+<p>The <code>cp</code> command works very much like <code>mv</code>,
+except it copies a file instead of moving it.
+We can check that it did the right thing using <code>ls</code>
+with two paths as arguments --- like most Unix commands,
+<code>ls</code> can be given multiple paths at once:</p>
+<pre><code class="language-bash">$ cp quotes.txt thesis/quotations.txt
+$ ls quotes.txt thesis/quotations.txt
+</code></pre>
+<pre><code class="language-output">quotes.txt   thesis/quotations.txt
+</code></pre>
+<p>The <code>-r</code> or <code>--recursive</code> option for <code>cp</code>
+applies the command not just to the specified directory,
+but to all its contents.</p>
+<p>As an example, we can use this to back up a directory:</p>
+<pre><code class="language-bash">$ cp -r thesis thesis_backup
+</code></pre>
+<p>We can check the result by listing the contents of both the <code>thesis</code> and <code>thesis_backup</code> directory:</p>
+<pre><code class="language-bash">$ ls thesis thesis_backup
+</code></pre>
+<pre><code class="language-output">thesis:
+quotations.txt
+
+thesis_backup:
+quotations.txt
+</code></pre>
+<p>It is important to include the <code>-r</code> flag. If you want to copy a directory and you omit this option
+you will see a message that the directory has been omitted because <code>-r not specified</code>.</p>
+<pre><code class="language-bash">$ cp thesis thesis_backup
+</code></pre>
+<pre><code class="language-error">cp: -r not specified; omitting directory 'thesis'
+</code></pre>
+<div class="box box-callout">
+<p class="box-title">Destination Can Be New Name or Directory</p>
+
+<p>When we use two arguments with <code>mv</code> or <code>cp</code>,
+the second argument can be the location and new name
+we want our file to have. Alternatively,
+if we provide the path to an existing directory as the second argument,
+<code>mv</code>/<code>cp</code> will interpret that to mean that we want the file copied/moved
+to that directory without changing its name.</p>
+<p>For example:</p>
+<pre><code class="language-bash">$ cp quotes.txt thesis
+</code></pre>
+<p>accomplishes the same thing as</p>
+<pre><code class="language-bash">$ cp quotes.txt thesis/quotes.txt
+</code></pre>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Renaming Files</p>
+
+<p>Suppose that you created a plain-text file in your current directory to contain a list of the
+statistical tests you will need to do to analyze your data, and named it <code>statstics.txt</code></p>
+<p>After creating and saving this file you realize you misspelled the filename! You want to
+correct the mistake, which of the following commands could you use to do so?</p>
+<ol>
+<li><code>cp statstics.txt statistics.txt</code></li>
+<li><code>mv statstics.txt statistics.txt</code></li>
+<li><code>mv statstics.txt .</code></li>
+<li><code>cp statstics.txt .</code></li>
+</ol>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x">Solution</h2>
+<ol>
+<li>No.  While this would create a file with the correct name,
+the incorrectly named file still exists in the directory
+and would need to be deleted.</li>
+<li>Yes, this would work to rename the file.</li>
+<li>No, the period(.) indicates where to move the file, but does not provide a new file name;
+identical file names
+cannot be created.</li>
+<li>No, the period(.) indicates where to copy the file, but does not provide a new file name;
+identical file names cannot be created.</li>
+</ol>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Moving and Copying</p>
+
+<p>What is the output of the closing <code>ls</code> command in the sequence shown below?</p>
+<pre><code class="language-bash">$ pwd
+</code></pre>
+<pre><code class="language-output">/Users/jamie/data
+</code></pre>
+<pre><code class="language-bash">$ ls
+</code></pre>
+<pre><code class="language-output">proteins.dat
+</code></pre>
+<pre><code class="language-bash">$ mkdir recombined
+$ mv proteins.dat recombined/
+$ cp recombined/proteins.dat ../proteins-saved.dat
+$ ls
+</code></pre>
+<ol>
+<li><code>proteins-saved.dat recombined</code></li>
+<li><code>recombined</code></li>
+<li><code>proteins.dat recombined</code></li>
+<li><code>proteins-saved.dat</code></li>
+</ol>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x">Solution</h2>
+<p>We start in the <code>/Users/jamie/data</code> directory, and create a new folder called <code>recombined</code>.
+The second line moves (<code>mv</code>) the file <code>proteins.dat</code> to the new folder (<code>recombined</code>).
+The third line makes a copy of the file we just moved.
+The tricky part here is where the file was copied to.
+Recall that <code>..</code> means 'go up a level', so the copied file is now in <code>/Users/jamie</code>.
+Notice that <code>..</code> is interpreted with respect to the current working
+directory, <strong>not</strong> with respect to the location of the file being copied.
+So, the only thing that will show using ls (in <code>/Users/jamie/data</code>) is the recombined folder.</p>
+<ol>
+<li>No, see explanation above.  <code>proteins-saved.dat</code> is located at <code>/Users/jamie</code></li>
+<li>Yes</li>
+<li>No, see explanation above.  <code>proteins.dat</code> is located at <code>/Users/jamie/data/recombined</code></li>
+<li>No, see explanation above.  <code>proteins-saved.dat</code> is located at <code>/Users/jamie</code></li>
+</ol>
+</details>
+</div>
+<h2 id="removing-files-and-directories">Removing files and directories</h2>
+<p>Returning to the <code>shell-lesson-data/exercise-data/writing</code> directory,
+let's tidy up this directory by removing the <code>quotes.txt</code> file we created.
+The Unix command we'll use for this is <code>rm</code> (short for 'remove'):</p>
+<pre><code class="language-bash">$ rm quotes.txt
+</code></pre>
+<p>We can confirm the file has gone using <code>ls</code>:</p>
+<pre><code class="language-bash">$ ls quotes.txt
+</code></pre>
+<pre><code class="language-error">ls: cannot access 'quotes.txt': No such file or directory
+</code></pre>
+<div class="box box-callout">
+<p class="box-title">Deleting Is Forever</p>
+
+<p>The Unix shell doesn't have a trash bin that we can recover deleted
+files from (though most graphical interfaces to Unix do).  Instead,
+when we delete files, they are unlinked from the file system so that
+their storage space on disk can be recycled. Tools for finding and
+recovering deleted files do exist, but there's no guarantee they'll
+work in any particular situation, since the computer may recycle the
+file's disk space right away.</p>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Using rm Safely</p>
+
+<p>What happens when we execute <code>rm -i thesis_backup/quotations.txt</code>?
+Why would we want this protection when using <code>rm</code>?</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x-x">Solution</h2>
+<pre><code class="language-output">rm: remove regular file 'thesis_backup/quotations.txt'? y
+</code></pre>
+<p>The <code>-i</code> option will prompt before (every) removal (use <kbd>Y</kbd> to confirm deletion
+or <kbd>N</kbd> to keep the file).
+The Unix shell doesn't have a trash bin, so all the files removed will disappear forever.
+By using the <code>-i</code> option, we have the chance to check that we are deleting only the files
+that we want to remove.</p>
+</details>
+</div>
+<p>If we try to remove the <code>thesis</code> directory using <code>rm thesis</code>,
+we get an error message:</p>
+<pre><code class="language-bash">$ rm thesis
+</code></pre>
+<pre><code class="language-error">rm: cannot remove 'thesis': Is a directory
+</code></pre>
+<p>This happens because <code>rm</code> by default only works on files, not directories.</p>
+<p><code>rm</code> can remove a directory <em>and all its contents</em> if we use the
+recursive option <code>-r</code>, and it will do so <em>without any confirmation prompts</em>:</p>
+<pre><code class="language-bash">$ rm -r thesis
+</code></pre>
+<p>Given that there is no way to retrieve files deleted using the shell,
+<code>rm -r</code> <em>should be used with great caution</em>
+(you might consider adding the interactive option <code>rm -r -i</code>).</p>
+<h2 id="operations-with-multiple-files-and-directories">Operations with multiple files and directories</h2>
+<p>Oftentimes one needs to copy or move several files at once.
+This can be done by providing a list of individual filenames,
+or specifying a naming pattern using wildcards. Wildcards are
+special characters that can be used to represent unknown characters
+or sets of characters when navigating the Unix file system.</p>
+<div class="box box-challenge">
+<p class="box-title">Copy with Multiple Filenames</p>
+
+<p>For this exercise, you can test the commands in the <code>shell-lesson-data/exercise-data</code> directory.</p>
+<p>We have seen how <code>cp</code> behaves when given two arguments. The second argument can
+be a filename (what to name the copy) or an existing directory (where to put the copy).</p>
+<p><code>cp</code> behaves slightly differently when given three or more arguments.
+Let's try giving <code>cp</code> three arguments.
+In the example below, what does <code>cp</code> do when given several filenames and a directory name?</p>
+<pre><code class="language-bash">$ mkdir backup
+$ cp creatures/minotaur.dat creatures/unicorn.dat backup/
+</code></pre>
+<p>In the example below, what does <code>cp</code> do when given three or more file names?</p>
+<pre><code class="language-bash">$ cd creatures
+$ ls -F
+</code></pre>
+<pre><code class="language-output">basilisk.dat  minotaur.dat  unicorn.dat
+</code></pre>
+<pre><code class="language-bash">$ cp minotaur.dat unicorn.dat basilisk.dat
+</code></pre>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x-x-x">Solution</h2>
+<p>When <code>cp</code> is given three or more arguments,
+the last argument must be a directory.
+<code>cp</code> copies the other files specified
+into that directory. If the last argument
+is a file name, you get an error:</p>
+<pre><code class="language-error">cp: target 'basilisk.dat' is not a directory
+</code></pre>
+</details>
+</div>
+<h3 id="using-wildcards-for-accessing-multiple-files-at-once">Using wildcards for accessing multiple files at once</h3>
+<div class="box box-callout">
+<p class="box-title">Wildcards</p>
+
+<p><code>*</code> is a <strong>wildcard</strong>, which represents zero or more other characters.
+Let's consider the <code>shell-lesson-data/exercise-data/alkanes</code> directory:
+<code>*.pdb</code> represents <code>ethane.pdb</code>, <code>propane.pdb</code>, and every
+file that ends with '.pdb'. On the other hand, <code>p*.pdb</code> only represents
+<code>pentane.pdb</code> and <code>propane.pdb</code>, because the 'p' at the front can only
+represent filenames that begin with the letter 'p'.</p>
+<p><code>?</code> is also a wildcard, but it represents exactly one character.
+So <code>?ethane.pdb</code> could represent <code>methane.pdb</code> whereas
+<code>*ethane.pdb</code> represents both <code>ethane.pdb</code> and <code>methane.pdb</code>.</p>
+<p>Wildcards can be used in combination with each other. For example,
+<code>???ane.pdb</code> indicates three characters followed by <code>ane.pdb</code>,
+giving <code>cubane.pdb  ethane.pdb  octane.pdb</code>.</p>
+<p>When the shell sees a wildcard, it expands the wildcard to create a
+list of matching filenames <em>before</em> running the preceding command.
+As an exception, if a wildcard expression does not match
+any file, Bash will pass the expression as an argument to the command
+as it is. For example, typing <code>ls *.pdf</code> in the <code>alkanes</code> directory
+(which contains only files with names ending with <code>.pdb</code>) results in
+an error message that there is no file called <code>*.pdf</code>.
+However, generally commands like <code>wc</code> and <code>ls</code> see the lists of
+file names matching these expressions, but not the wildcards
+themselves. It is the shell, not the other programs, that expands
+the wildcards.</p>
+</div>
+<div class="box box-challenge">
+<p class="box-title">List filenames matching a pattern</p>
+
+<p>When run in the <code>alkanes</code> directory, which <code>ls</code> command(s) will
+produce this output?</p>
+<p><code>ethane.pdb   methane.pdb</code></p>
+<ol>
+<li><code>ls *t*ane.pdb</code></li>
+<li><code>ls *t?ne.*</code></li>
+<li><code>ls *t??ne.pdb</code></li>
+<li><code>ls ethane.*</code></li>
+</ol>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x-x-x-x">Solution</h2>
+<p>The solution is <code>3.</code></p>
+<p><code>1.</code> shows all files whose names contain zero or more characters (<code>*</code>)
+followed by the letter <code>t</code>,
+then zero or more characters (<code>*</code>) followed by <code>ane.pdb</code>.
+This gives <code>ethane.pdb  methane.pdb  octane.pdb  pentane.pdb</code>.</p>
+<p><code>2.</code> shows all files whose names start with zero or more characters (<code>*</code>) followed by
+the letter <code>t</code>,
+then a single character (<code>?</code>), then <code>ne.</code> followed by zero or more characters (<code>*</code>).
+This will give us <code>octane.pdb</code> and <code>pentane.pdb</code> but doesn't match anything
+which ends in <code>thane.pdb</code>.</p>
+<p><code>3.</code> fixes the problems of option 2 by matching two characters (<code>??</code>) between <code>t</code> and <code>ne</code>.
+This is the solution.</p>
+<p><code>4.</code> only shows files starting with <code>ethane.</code>.</p>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">More on Wildcards</p>
+
+<p>Sam has a directory containing calibration data, datasets, and descriptions of
+the datasets:</p>
+<pre><code class="language-bash">.
+├── 2015-10-23-calibration.txt
+├── 2015-10-23-dataset1.txt
+├── 2015-10-23-dataset2.txt
+├── 2015-10-23-dataset_overview.txt
+├── 2015-10-26-calibration.txt
+├── 2015-10-26-dataset1.txt
+├── 2015-10-26-dataset2.txt
+├── 2015-10-26-dataset_overview.txt
+├── 2015-11-23-calibration.txt
+├── 2015-11-23-dataset1.txt
+├── 2015-11-23-dataset2.txt
+├── 2015-11-23-dataset_overview.txt
+├── backup
+│&nbsp;&nbsp; ├── calibration
+│&nbsp;&nbsp; └── datasets
+└── send_to_bob
+    ├── all_datasets_created_on_a_23rd
+    └── all_november_files
+</code></pre>
+<p>Before heading off to another field trip, she wants to back up her data and
+send some datasets to her colleague Bob. Sam uses the following commands
+to get the job done:</p>
+<pre><code class="language-bash">$ cp *dataset* backup/datasets
+$ cp ____calibration____ backup/calibration
+$ cp 2015-____-____ send_to_bob/all_november_files/
+$ cp ____ send_to_bob/all_datasets_created_on_a_23rd/
+</code></pre>
+<p>Help Sam by filling in the blanks.</p>
+<p>The resulting directory structure should look like this</p>
+<pre><code class="language-bash">.
+├── 2015-10-23-calibration.txt
+├── 2015-10-23-dataset1.txt
+├── 2015-10-23-dataset2.txt
+├── 2015-10-23-dataset_overview.txt
+├── 2015-10-26-calibration.txt
+├── 2015-10-26-dataset1.txt
+├── 2015-10-26-dataset2.txt
+├── 2015-10-26-dataset_overview.txt
+├── 2015-11-23-calibration.txt
+├── 2015-11-23-dataset1.txt
+├── 2015-11-23-dataset2.txt
+├── 2015-11-23-dataset_overview.txt
+├── backup
+│&nbsp;&nbsp; ├── calibration
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 2015-10-23-calibration.txt
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 2015-10-26-calibration.txt
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── 2015-11-23-calibration.txt
+│&nbsp;&nbsp; └── datasets
+│&nbsp;&nbsp;     ├── 2015-10-23-dataset1.txt
+│&nbsp;&nbsp;     ├── 2015-10-23-dataset2.txt
+│&nbsp;&nbsp;     ├── 2015-10-23-dataset_overview.txt
+│&nbsp;&nbsp;     ├── 2015-10-26-dataset1.txt
+│&nbsp;&nbsp;     ├── 2015-10-26-dataset2.txt
+│&nbsp;&nbsp;     ├── 2015-10-26-dataset_overview.txt
+│&nbsp;&nbsp;     ├── 2015-11-23-dataset1.txt
+│&nbsp;&nbsp;     ├── 2015-11-23-dataset2.txt
+│&nbsp;&nbsp;     └── 2015-11-23-dataset_overview.txt
+└── send_to_bob
+    ├── all_datasets_created_on_a_23rd
+    │&nbsp;&nbsp; ├── 2015-10-23-dataset1.txt
+    │&nbsp;&nbsp; ├── 2015-10-23-dataset2.txt
+    │&nbsp;&nbsp; ├── 2015-10-23-dataset_overview.txt
+    │&nbsp;&nbsp; ├── 2015-11-23-dataset1.txt
+    │&nbsp;&nbsp; ├── 2015-11-23-dataset2.txt
+    │&nbsp;&nbsp; └── 2015-11-23-dataset_overview.txt
+    └── all_november_files
+        ├── 2015-11-23-calibration.txt
+        ├── 2015-11-23-dataset1.txt
+        ├── 2015-11-23-dataset2.txt
+        └── 2015-11-23-dataset_overview.txt
+</code></pre>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x-x-x-x-x">Solution</h2>
+<pre><code class="language-bash">$ cp *calibration.txt backup/calibration
+$ cp 2015-11-* send_to_bob/all_november_files/
+$ cp *-23-dataset* send_to_bob/all_datasets_created_on_a_23rd/
+</code></pre>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Organizing Directories and Files</p>
+
+<p>Jamie is working on a project, and she sees that her files aren't very well
+organized:</p>
+<pre><code class="language-bash">$ ls -F
+</code></pre>
+<pre><code class="language-output">analyzed/  fructose.dat    raw/   sucrose.dat
+</code></pre>
+<p>The <code>fructose.dat</code> and <code>sucrose.dat</code> files contain output from her data
+analysis. What command(s) covered in this lesson does she need to run
+so that the commands below will produce the output shown?</p>
+<pre><code class="language-bash">$ ls -F
+</code></pre>
+<pre><code class="language-output">analyzed/   raw/
+</code></pre>
+<pre><code class="language-bash">$ ls analyzed
+</code></pre>
+<pre><code class="language-output">fructose.dat    sucrose.dat
+</code></pre>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x-x-x-x-x-x">Solution</h2>
+<pre><code class="language-bash">mv *.dat analyzed
+</code></pre>
+<p>Jamie needs to move her files <code>fructose.dat</code> and <code>sucrose.dat</code> to the <code>analyzed</code> directory.
+The shell will expand *.dat to match all .dat files in the current directory.
+The <code>mv</code> command then moves the list of .dat files to the 'analyzed' directory.</p>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Reproduce a folder structure</p>
+
+<p>You're starting a new experiment and would like to duplicate the directory
+structure from your previous experiment so you can add new data.</p>
+<p>Assume that the previous experiment is in a folder called <code>2016-05-18</code>,
+which contains a <code>data</code> folder that in turn contains folders named <code>raw</code> and
+<code>processed</code> that contain data files.  The goal is to copy the folder structure
+of the <code>2016-05-18</code> folder into a folder called <code>2016-05-20</code>
+so that your final directory structure looks like this:</p>
+<pre><code class="language-output">2016-05-20/
+└── data
+   ├── processed
+   └── raw
+</code></pre>
+<p>Which of the following set of commands would achieve this objective?
+What would the other commands do?</p>
+<pre><code class="language-bash">$ mkdir 2016-05-20
+$ mkdir 2016-05-20/data
+$ mkdir 2016-05-20/data/processed
+$ mkdir 2016-05-20/data/raw
+</code></pre>
+<pre><code class="language-bash">$ mkdir 2016-05-20
+$ cd 2016-05-20
+$ mkdir data
+$ cd data
+$ mkdir raw processed
+</code></pre>
+<pre><code class="language-bash">$ mkdir 2016-05-20/data/raw
+$ mkdir 2016-05-20/data/processed
+</code></pre>
+<pre><code class="language-bash">$ mkdir -p 2016-05-20/data/raw
+$ mkdir -p 2016-05-20/data/processed
+</code></pre>
+<pre><code class="language-bash">$ mkdir 2016-05-20
+$ cd 2016-05-20
+$ mkdir data
+$ mkdir raw processed
+</code></pre>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x-x-x-x-x-x-x">Solution</h2>
+<p>The first two sets of commands achieve this objective.
+The first set uses relative paths to create the top-level directory before
+the subdirectories.</p>
+<p>The third set of commands will give an error because the default behavior of <code>mkdir</code>
+won't create a subdirectory of a non-existent directory:
+the intermediate level folders must be created first.</p>
+<p>The fourth set of commands achieve this objective. Remember, the <code>-p</code> option,
+followed by a path of one or more
+directories, will cause <code>mkdir</code> to create any intermediate subdirectories as required.</p>
+<p>The final set of commands generates the 'raw' and 'processed' directories at the same level
+as the 'data' directory.</p>
+</details>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li><code>cp [old] [new]</code> copies a file.</li>
+<li><code>mkdir [path]</code> creates a new directory.</li>
+<li><code>mv [old] [new]</code> moves (renames) a file or directory.</li>
+<li><code>rm [path]</code> removes (deletes) a file.</li>
+<li><code>*</code> matches zero or more characters in a filename, so <code>*.txt</code> matches all files ending in <code>.txt</code>.</li>
+<li><code>?</code> matches any single character in a filename, so <code>?.txt</code> matches <code>a.txt</code> but not <code>any.txt</code>.</li>
+<li>Use of the Control key may be described in many ways, including <code>Ctrl-X</code>, <code>Control-X</code>, and <code>^X</code>.</li>
+<li>The shell does not have a trash bin: once something is deleted, it's really gone.</li>
+<li>Most files' names are <code>something.extension</code>. The extension isn't required, and doesn't guarantee anything, but is normally used to indicate the type of data in the file.</li>
+<li>Depending on the type of work you do, you may need a more powerful text editor than Nano.</li>
+</ul>
+</div>

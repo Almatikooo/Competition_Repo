@@ -1,0 +1,362 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Import the Pandas library.</li>
+<li>Use Pandas to load a simple CSV data set.</li>
+<li>Get some basic information about a Pandas DataFrame.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>How can I read tabular data?</li>
+</ul>
+</div>
+<h2 id="use-the-pandas-library-to-do-statistics-on-tabular-data">Use the Pandas library to do statistics on tabular data.</h2>
+<ul>
+<li><a href="https://pandas.pydata.org/" target="_blank" rel="noopener noreferrer">Pandas</a> is a widely-used Python library for statistics, particularly on tabular data.</li>
+<li>Borrows many features from R's dataframes.
+<ul>
+<li>A 2-dimensional table whose columns have names
+and potentially have different data types.</li>
+</ul>
+</li>
+<li>Load Pandas with <code>import pandas as pd</code>. The alias <code>pd</code> is commonly used to refer to the Pandas library in code.</li>
+<li>Read a Comma Separated Values (CSV) data file with <code>pd.read_csv</code>.
+<ul>
+<li>Argument is the name of the file to be read.</li>
+<li>Returns a dataframe that you can assign to a variable</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">import pandas as pd
+
+data_oceania = pd.read_csv('data/gapminder_gdp_oceania.csv')
+print(data_oceania)
+</code></pre>
+<pre><code class="language-output">       country  gdpPercap_1952  gdpPercap_1957  gdpPercap_1962  \
+0    Australia     10039.59564     10949.64959     12217.22686
+1  New Zealand     10556.57566     12247.39532     13175.67800
+
+   gdpPercap_1967  gdpPercap_1972  gdpPercap_1977  gdpPercap_1982  \
+0     14526.12465     16788.62948     18334.19751     19477.00928
+1     14463.91893     16046.03728     16233.71770     17632.41040
+
+   gdpPercap_1987  gdpPercap_1992  gdpPercap_1997  gdpPercap_2002  \
+0     21888.88903     23424.76683     26997.93657     30687.75473
+1     19007.19129     18363.32494     21050.41377     23189.80135
+
+   gdpPercap_2007
+0     34435.36744
+1     25185.00911
+</code></pre>
+<ul>
+<li>The columns in a dataframe are the observed variables, and the rows are the observations.</li>
+<li>Pandas uses backslash <code>\</code> to show wrapped lines when output is too wide to fit the screen.</li>
+<li>Using descriptive dataframe names helps us distinguish between multiple dataframes so we won't accidentally overwrite a dataframe or read from the wrong one.</li>
+</ul>
+<div class="box box-callout">
+<p class="box-title">File Not Found</p>
+
+<p>Our lessons store their data files in a <code>data</code> sub-directory,
+which is why the path to the file is <code>data/gapminder_gdp_oceania.csv</code>.
+If you forget to include <code>data/</code>,
+or if you include it but your copy of the file is somewhere else,
+you will get a <a href="https://github.com/swcarpentry/python-novice-gapminder/blob/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/04-built-in.md" target="_blank" rel="noopener noreferrer">runtime error</a>
+that ends with a line like this:</p>
+<pre><code class="language-error">FileNotFoundError: [Errno 2] No such file or directory: 'data/gapminder_gdp_oceania.csv'
+</code></pre>
+</div>
+<h2 id="use-index-col-to-specify-that-a-column-s-values-should-be-us">Use <code>index_col</code> to specify that a column's values should be used as row headings.</h2>
+<ul>
+<li>Row headings are numbers (0 and 1 in this case).</li>
+<li>Really want to index by country.</li>
+<li>Pass the name of the column to <code>read_csv</code> as its <code>index_col</code> parameter to do this.</li>
+<li>Naming the dataframe <code>data_oceania_country</code> tells us which region the data includes (<code>oceania</code>) and how it is indexed (<code>country</code>).</li>
+</ul>
+<pre><code class="language-python">data_oceania_country = pd.read_csv('data/gapminder_gdp_oceania.csv', index_col='country')
+print(data_oceania_country)
+</code></pre>
+<pre><code class="language-output">             gdpPercap_1952  gdpPercap_1957  gdpPercap_1962  gdpPercap_1967  \
+country
+Australia       10039.59564     10949.64959     12217.22686     14526.12465
+New Zealand     10556.57566     12247.39532     13175.67800     14463.91893
+
+             gdpPercap_1972  gdpPercap_1977  gdpPercap_1982  gdpPercap_1987  \
+country
+Australia       16788.62948     18334.19751     19477.00928     21888.88903
+New Zealand     16046.03728     16233.71770     17632.41040     19007.19129
+
+             gdpPercap_1992  gdpPercap_1997  gdpPercap_2002  gdpPercap_2007
+country
+Australia       23424.76683     26997.93657     30687.75473     34435.36744
+New Zealand     18363.32494     21050.41377     23189.80135     25185.00911
+</code></pre>
+<h2 id="use-the-dataframe-info-method-to-find-out-more-about-a-dataf">Use the <code>DataFrame.info()</code> method to find out more about a dataframe.</h2>
+<pre><code class="language-python">data_oceania_country.info()
+</code></pre>
+<pre><code class="language-output">&lt;class 'pandas.core.frame.DataFrame'&gt;
+Index: 2 entries, Australia to New Zealand
+Data columns (total 12 columns):
+gdpPercap_1952    2 non-null float64
+gdpPercap_1957    2 non-null float64
+gdpPercap_1962    2 non-null float64
+gdpPercap_1967    2 non-null float64
+gdpPercap_1972    2 non-null float64
+gdpPercap_1977    2 non-null float64
+gdpPercap_1982    2 non-null float64
+gdpPercap_1987    2 non-null float64
+gdpPercap_1992    2 non-null float64
+gdpPercap_1997    2 non-null float64
+gdpPercap_2002    2 non-null float64
+gdpPercap_2007    2 non-null float64
+dtypes: float64(12)
+memory usage: 208.0+ bytes
+</code></pre>
+<ul>
+<li>This is a <code>DataFrame</code></li>
+<li>Two rows named <code>'Australia'</code> and <code>'New Zealand'</code></li>
+<li>Twelve columns, each of which has two actual 64-bit floating point values.
+<ul>
+<li>We will talk later about null values, which are used to represent missing observations.</li>
+</ul>
+</li>
+<li>Uses 208 bytes of memory.</li>
+</ul>
+<h2 id="the-dataframe-columns-variable-stores-information-about-the-">The <code>DataFrame.columns</code> variable stores information about the dataframe's columns.</h2>
+<ul>
+<li>Note that this is data, <em>not</em> a method.  (It doesn't have parentheses.)
+<ul>
+<li>Like <code>math.pi</code>.</li>
+<li>So do not use <code>()</code> to try to call it.</li>
+</ul>
+</li>
+<li>Called a <em>member variable</em>, or just <em>member</em>.</li>
+</ul>
+<pre><code class="language-python">print(data_oceania_country.columns)
+</code></pre>
+<pre><code class="language-output">Index(['gdpPercap_1952', 'gdpPercap_1957', 'gdpPercap_1962', 'gdpPercap_1967',
+       'gdpPercap_1972', 'gdpPercap_1977', 'gdpPercap_1982', 'gdpPercap_1987',
+       'gdpPercap_1992', 'gdpPercap_1997', 'gdpPercap_2002', 'gdpPercap_2007'],
+      dtype='object')
+</code></pre>
+<h2 id="use-dataframe-t-to-transpose-a-dataframe">Use <code>DataFrame.T</code> to transpose a dataframe.</h2>
+<ul>
+<li>Sometimes want to treat columns as rows and vice versa.</li>
+<li>Transpose (written <code>.T</code>) doesn't copy the data, just changes the program's view of it.</li>
+<li>Like <code>columns</code>, it is a member variable.</li>
+</ul>
+<pre><code class="language-python">print(data_oceania_country.T)
+</code></pre>
+<pre><code class="language-output">country           Australia  New Zealand
+gdpPercap_1952  10039.59564  10556.57566
+gdpPercap_1957  10949.64959  12247.39532
+gdpPercap_1962  12217.22686  13175.67800
+gdpPercap_1967  14526.12465  14463.91893
+gdpPercap_1972  16788.62948  16046.03728
+gdpPercap_1977  18334.19751  16233.71770
+gdpPercap_1982  19477.00928  17632.41040
+gdpPercap_1987  21888.88903  19007.19129
+gdpPercap_1992  23424.76683  18363.32494
+gdpPercap_1997  26997.93657  21050.41377
+gdpPercap_2002  30687.75473  23189.80135
+gdpPercap_2007  34435.36744  25185.00911
+</code></pre>
+<h2 id="use-dataframe-describe-to-get-summary-statistics-about-data">Use <code>DataFrame.describe()</code> to get summary statistics about data.</h2>
+<p><code>DataFrame.describe()</code> gets the summary statistics of only the columns that have numerical data.
+All other columns are ignored, unless you use the argument <code>include='all'</code>.</p>
+<pre><code class="language-python">print(data_oceania_country.describe())
+</code></pre>
+<pre><code class="language-output">       gdpPercap_1952  gdpPercap_1957  gdpPercap_1962  gdpPercap_1967  \
+count        2.000000        2.000000        2.000000        2.000000
+mean     10298.085650    11598.522455    12696.452430    14495.021790
+std        365.560078      917.644806      677.727301       43.986086
+min      10039.595640    10949.649590    12217.226860    14463.918930
+25%      10168.840645    11274.086022    12456.839645    14479.470360
+50%      10298.085650    11598.522455    12696.452430    14495.021790
+75%      10427.330655    11922.958888    12936.065215    14510.573220
+max      10556.575660    12247.395320    13175.678000    14526.124650
+
+       gdpPercap_1972  gdpPercap_1977  gdpPercap_1982  gdpPercap_1987  \
+count         2.00000        2.000000        2.000000        2.000000
+mean      16417.33338    17283.957605    18554.709840    20448.040160
+std         525.09198     1485.263517     1304.328377     2037.668013
+min       16046.03728    16233.717700    17632.410400    19007.191290
+25%       16231.68533    16758.837652    18093.560120    19727.615725
+50%       16417.33338    17283.957605    18554.709840    20448.040160
+75%       16602.98143    17809.077557    19015.859560    21168.464595
+max       16788.62948    18334.197510    19477.009280    21888.889030
+
+       gdpPercap_1992  gdpPercap_1997  gdpPercap_2002  gdpPercap_2007
+count        2.000000        2.000000        2.000000        2.000000
+mean     20894.045885    24024.175170    26938.778040    29810.188275
+std       3578.979883     4205.533703     5301.853680     6540.991104
+min      18363.324940    21050.413770    23189.801350    25185.009110
+25%      19628.685413    22537.294470    25064.289695    27497.598692
+50%      20894.045885    24024.175170    26938.778040    29810.188275
+75%      22159.406358    25511.055870    28813.266385    32122.777857
+max      23424.766830    26997.936570    30687.754730    34435.367440
+</code></pre>
+<ul>
+<li>Not particularly useful with just two records,
+but very helpful when there are thousands.</li>
+</ul>
+<div class="box box-challenge">
+<p class="box-title">Reading Other Data</p>
+
+<p>Read the data in <code>gapminder_gdp_americas.csv</code>
+(which should be in the same directory as <code>gapminder_gdp_oceania.csv</code>)
+into a variable called <code>data_americas</code>
+and display its summary statistics.</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<p>To read in a CSV, we use <code>pd.read_csv</code> and pass the filename <code>'data/gapminder_gdp_americas.csv'</code> to it.
+We also once again pass the column name <code>'country'</code> to the parameter <code>index_col</code> in order to index by country.
+The summary statistics can be displayed with the <code>DataFrame.describe()</code> method.</p>
+<pre><code class="language-python">data_americas = pd.read_csv('data/gapminder_gdp_americas.csv', index_col='country')
+data_americas.describe()
+</code></pre>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Inspecting Data</p>
+
+<p>After reading the data for the Americas,
+use <code>help(data_americas.head)</code> and <code>help(data_americas.tail)</code>
+to find out what <code>DataFrame.head</code> and <code>DataFrame.tail</code> do.</p>
+<ol>
+<li>What method call will display the first three rows of this data?</li>
+<li>What method call will display the last three columns of this data?
+(Hint: you may need to change your view of the data.)</li>
+</ol>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x">Solution</h2>
+<ol>
+<li>We can check out the first five rows of <code>data_americas</code> by executing <code>data_americas.head()</code>
+which lets us view the beginning of the DataFrame. We can specify the number of rows we wish
+to see by specifying the parameter <code>n</code> in our call to <code>data_americas.head()</code>.
+To view the first three rows, execute:</li>
+</ol>
+<pre><code class="language-python">data_americas.head(n=3)
+</code></pre>
+<pre><code class="language-output">          continent  gdpPercap_1952  gdpPercap_1957  gdpPercap_1962  \
+country
+Argentina  Americas     5911.315053     6856.856212     7133.166023
+Bolivia    Americas     2677.326347     2127.686326     2180.972546
+Brazil     Americas     2108.944355     2487.365989     3336.585802
+
+          gdpPercap_1967  gdpPercap_1972  gdpPercap_1977  gdpPercap_1982  \
+country
+Argentina     8052.953021     9443.038526    10079.026740     8997.897412
+Bolivia       2586.886053     2980.331339     3548.097832     3156.510452
+Brazil        3429.864357     4985.711467     6660.118654     7030.835878
+
+           gdpPercap_1987  gdpPercap_1992  gdpPercap_1997  gdpPercap_2002  \
+country
+Argentina     9139.671389     9308.418710    10967.281950     8797.640716
+Bolivia       2753.691490     2961.699694     3326.143191     3413.262690
+Brazil        7807.095818     6950.283021     7957.980824     8131.212843
+
+           gdpPercap_2007
+country
+Argentina    12779.379640
+Bolivia       3822.137084
+Brazil        9065.800825
+</code></pre>
+<ol start="2">
+<li>To check out the last three rows of <code>data_americas</code>, we would use the command,
+<code>americas.tail(n=3)</code>, analogous to <code>head()</code> used above. However, here we want to look at
+the last three columns so we need to change our view and then use <code>tail()</code>. To do so, we
+create a new DataFrame in which rows and columns are switched:</li>
+</ol>
+<pre><code class="language-python">americas_flipped = data_americas.T
+</code></pre>
+<p>We can then view the last three columns of <code>americas</code> by viewing the last three rows
+of <code>americas_flipped</code>:</p>
+<pre><code class="language-python">americas_flipped.tail(n=3)
+</code></pre>
+<pre><code class="language-output">country        Argentina  Bolivia   Brazil   Canada    Chile Colombia  \
+gdpPercap_1997   10967.3  3326.14  7957.98  28954.9  10118.1  6117.36
+gdpPercap_2002   8797.64  3413.26  8131.21    33329  10778.8  5755.26
+gdpPercap_2007   12779.4  3822.14   9065.8  36319.2  13171.6  7006.58
+
+country        Costa Rica     Cuba Dominican Republic  Ecuador    ...     \
+gdpPercap_1997    6677.05  5431.99             3614.1  7429.46    ...
+gdpPercap_2002    7723.45  6340.65            4563.81  5773.04    ...
+gdpPercap_2007    9645.06   8948.1            6025.37  6873.26    ...
+
+country          Mexico Nicaragua   Panama Paraguay     Peru Puerto Rico  \
+gdpPercap_1997   9767.3   2253.02  7113.69   4247.4  5838.35     16999.4
+gdpPercap_2002  10742.4   2474.55  7356.03  3783.67  5909.02     18855.6
+gdpPercap_2007  11977.6   2749.32  9809.19  4172.84  7408.91     19328.7
+
+country        Trinidad and Tobago United States  Uruguay Venezuela
+gdpPercap_1997             8792.57       35767.4  9230.24   10165.5
+gdpPercap_2002             11460.6       39097.1     7727   8605.05
+gdpPercap_2007             18008.5       42951.7  10611.5   11415.8
+</code></pre>
+<p>This shows the data that we want, but we may prefer to display three columns instead of three rows,
+so we can flip it back:</p>
+<pre><code class="language-python">americas_flipped.tail(n=3).T    
+</code></pre>
+<p><strong>Note:</strong> we could have done the above in a single line of code by 'chaining' the commands:</p>
+<pre><code class="language-python">data_americas.T.tail(n=3).T
+</code></pre>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Reading Files in Other Directories</p>
+
+<p>The data for your current project is stored in a file called <code>microbes.csv</code>,
+which is located in a folder called <code>field_data</code>.
+You are doing analysis in a notebook called <code>analysis.ipynb</code>
+in a sibling folder called <code>thesis</code>:</p>
+<pre><code class="language-output">your_home_directory
++-- field_data/
+|   +-- microbes.csv
++-- thesis/
+    +-- analysis.ipynb
+</code></pre>
+<p>What value(s) should you pass to <code>read_csv</code> to read <code>microbes.csv</code> in <code>analysis.ipynb</code>?</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x">Solution</h2>
+<p>We need to specify the path to the file of interest in the call to <code>pd.read_csv</code>. We first need to 'jump' out of
+the folder <code>thesis</code> using '../' and then into the folder <code>field_data</code> using 'field_data/'. Then we can specify the filename `microbes.csv.
+The result is as follows:</p>
+<pre><code class="language-python">data_microbes = pd.read_csv('../field_data/microbes.csv')
+</code></pre>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Writing Data</p>
+
+<p>As well as the <code>read_csv</code> function for reading data from a file,
+Pandas provides a <code>to_csv</code> function to write dataframes to files.
+Applying what you've learned about reading from files,
+write one of your dataframes to a file called <code>processed.csv</code>.
+You can use <code>help</code> to get information on how to use <code>to_csv</code>.</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x">Solution</h2>
+<p>In order to write the DataFrame <code>data_americas</code> to a file called <code>processed.csv</code>, execute the following command:</p>
+<pre><code class="language-python">data_americas.to_csv('processed.csv')
+</code></pre>
+<p>For help on <code>read_csv</code> or <code>to_csv</code>, you could execute, for example:</p>
+<pre><code class="language-python">help(data_americas.to_csv)
+help(pd.read_csv)
+</code></pre>
+<p>Note that <code>help(to_csv)</code> or <code>help(pd.to_csv)</code> throws an error! This is due to the fact that <code>to_csv</code> is not a global Pandas function, but
+a member function of DataFrames. This means you can only call it on an instance of a DataFrame
+e.g., <code>data_americas.to_csv</code> or <code>data_oceania.to_csv</code></p>
+</details>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>Use the Pandas library to get basic statistics out of tabular data.</li>
+<li>Use <code>index_col</code> to specify that a column's values should be used as row headings.</li>
+<li>Use <code>DataFrame.info</code> to find out more about a dataframe.</li>
+<li>The <code>DataFrame.columns</code> variable stores information about the dataframe's columns.</li>
+<li>Use <code>DataFrame.T</code> to transpose a dataframe.</li>
+<li>Use <code>DataFrame.describe</code> to get summary statistics about data.</li>
+</ul>
+</div>

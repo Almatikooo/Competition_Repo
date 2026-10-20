@@ -1,0 +1,732 @@
+{
+ "title": "Spreadsheets with Excel",
+ "subtitle": "Enter, format and analyse data; write formulas and functions; build charts and tables.",
+ "level": "Beginner",
+ "outcomes": [
+  "Enter, edit and format data professionally",
+  "Write formulas with relative and absolute references",
+  "Use statistical, logical, lookup and finance functions",
+  "Present data with charts, tables and conditional formatting"
+ ],
+ "skill": "excel",
+ "modules": [
+  {
+   "title": "Fundamental skills",
+   "lessons": [
+    "excel-01",
+    "excel-02",
+    "excel-03"
+   ]
+  },
+  {
+   "title": "Formulas and functions",
+   "lessons": [
+    "excel-04",
+    "excel-05",
+    "excel-06",
+    "excel-07",
+    "excel-08",
+    "excel-09"
+   ]
+  },
+  {
+   "title": "Presenting data",
+   "lessons": [
+    "excel-10",
+    "excel-11",
+    "excel-12",
+    "excel-13"
+   ]
+  },
+  {
+   "title": "Working across sheets",
+   "lessons": [
+    "excel-14",
+    "excel-15",
+    "excel-16"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "excel-01",
+   "title": "Overview of Microsoft Excel",
+   "words": 3186,
+   "minutes": 16,
+   "source": "excel",
+   "url": "https://openoregon.pressbooks.pub/beginningexcel19/chapter/1-1-overview-of-microsoft-excel/",
+   "toc": [
+    {
+     "id": "making-decisions-with-excel",
+     "text": "Making Decisions with Excel",
+     "level": 2
+    },
+    {
+     "id": "starting-excel",
+     "text": "Starting Excel",
+     "level": 2
+    },
+    {
+     "id": "excel-for-windows-vs-excel-for-mac",
+     "text": "Excel for Windows vs Excel for Mac",
+     "level": 2
+    },
+    {
+     "id": "navigating-worksheets",
+     "text": "Navigating Worksheets",
+     "level": 2
+    },
+    {
+     "id": "the-excel-ribbon",
+     "text": "The Excel Ribbon",
+     "level": 2
+    },
+    {
+     "id": "group-title-names-on-the-ribbon",
+     "text": "Group Title Names on the Ribbon",
+     "level": 2
+    },
+    {
+     "id": "how-to-customize-the-excel-ribbon",
+     "text": "How to Customize the Excel Ribbon",
+     "level": 2
+    },
+    {
+     "id": "quick-access-toolbar-and-right-click-menu",
+     "text": "Quick Access Toolbar and Right-Click Menu",
+     "level": 2
+    },
+    {
+     "id": "the-file-tab",
+     "text": "The File Tab",
+     "level": 2
+    },
+    {
+     "id": "saving-workbooks-save-as",
+     "text": "Saving Workbooks (Save As)",
+     "level": 2
+    },
+    {
+     "id": "saving-workbooks-in-excel-365",
+     "text": "Saving Workbooks in Excel 365",
+     "level": 2
+    },
+    {
+     "id": "the-status-bar",
+     "text": "The Status Bar",
+     "level": 2
+    },
+    {
+     "id": "excel-help",
+     "text": "Excel Help",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "excel-02",
+   "title": "Entering, Editing, and Managing Data",
+   "words": 3999,
+   "minutes": 20,
+   "source": "excel",
+   "url": "https://openoregon.pressbooks.pub/beginningexcel19/chapter/1-2-entering-editing-and-managing-data/",
+   "toc": [
+    {
+     "id": "entering-data",
+     "text": "Entering Data",
+     "level": 2
+    },
+    {
+     "id": "editing-data",
+     "text": "Editing Data",
+     "level": 2
+    },
+    {
+     "id": "auto-fill",
+     "text": "Auto Fill",
+     "level": 2
+    },
+    {
+     "id": "deleting-data-and-the-undo-command",
+     "text": "Deleting Data and the Undo Command",
+     "level": 2
+    },
+    {
+     "id": "adjusting-columns-and-rows",
+     "text": "Adjusting Columns and Rows",
+     "level": 2
+    },
+    {
+     "id": "hiding-columns-and-rows",
+     "text": "Hiding Columns and Rows",
+     "level": 2
+    },
+    {
+     "id": "inserting-columns-and-rows",
+     "text": "Inserting Columns and Rows",
+     "level": 2
+    },
+    {
+     "id": "moving-data",
+     "text": "Moving Data",
+     "level": 2
+    },
+    {
+     "id": "deleting-columns-and-rows",
+     "text": "Deleting Columns and Rows",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "excel-03",
+   "title": "Formatting and Data Analysis",
+   "words": 3748,
+   "minutes": 19,
+   "source": "excel",
+   "url": "https://openoregon.pressbooks.pub/beginningexcel19/chapter/1-3-formatting-and-data-analysis/",
+   "toc": [
+    {
+     "id": "formatting-data-and-cells",
+     "text": "Formatting Data and Cells",
+     "level": 2
+    },
+    {
+     "id": "data-alignment-wrap-text-merge-cells-and-center",
+     "text": "Data Alignment (Wrap Text, Merge Cells, and Center)",
+     "level": 2
+    },
+    {
+     "id": "entering-multiple-lines-of-text",
+     "text": "Entering Multiple Lines of Text",
+     "level": 2
+    },
+    {
+     "id": "borders-adding-lines-to-a-worksheet",
+     "text": "Borders (Adding Lines to a Worksheet)",
+     "level": 2
+    },
+    {
+     "id": "autosum",
+     "text": "AutoSum",
+     "level": 2
+    },
+    {
+     "id": "moving-renaming-inserting-and-deleting-worksheets",
+     "text": "Moving, Renaming, Inserting, and Deleting Worksheets",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "excel-04",
+   "title": "Formulas",
+   "words": 3483,
+   "minutes": 18,
+   "source": "excel",
+   "url": "https://openoregon.pressbooks.pub/beginningexcel19/chapter/2-1-formulas/",
+   "toc": [
+    {
+     "id": "open-the-data-file",
+     "text": "Open the Data File",
+     "level": 2
+    },
+    {
+     "id": "creating-a-basic-formula",
+     "text": "Creating a Basic Formula",
+     "level": 2
+    },
+    {
+     "id": "relative-references-copying-and-pasting-formulas",
+     "text": "Relative References (Copying and Pasting Formulas)",
+     "level": 2
+    },
+    {
+     "id": "creating-complex-formulas-controlling-the-order-of-operation",
+     "text": "Creating Complex Formulas (Controlling the Order of Operations)",
+     "level": 2
+    },
+    {
+     "id": "auditing-formulas",
+     "text": "Auditing Formulas",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "excel-05",
+   "title": "Introductory Statistical Functions",
+   "words": 4461,
+   "minutes": 23,
+   "source": "excel",
+   "url": "https://openoregon.pressbooks.pub/beginningexcel19/chapter/2-2-statistical-functions/",
+   "toc": [
+    {
+     "id": "the-sum-function",
+     "text": "The SUM Function",
+     "level": 2
+    },
+    {
+     "id": "the-count-function",
+     "text": "The COUNT Function",
+     "level": 2
+    },
+    {
+     "id": "the-average-function",
+     "text": "The AVERAGE Function",
+     "level": 2
+    },
+    {
+     "id": "the-max-and-min-functions",
+     "text": "The MAX and MIN Functions",
+     "level": 2
+    },
+    {
+     "id": "copy-and-paste-formulas-pasting-without-formats",
+     "text": "Copy and Paste Formulas (Pasting without Formats)",
+     "level": 2
+    },
+    {
+     "id": "absolute-references-calculating-percent-of-totals",
+     "text": "Absolute References (Calculating Percent of Totals)",
+     "level": 2
+    },
+    {
+     "id": "sorting-data-multiple-levels",
+     "text": "Sorting Data (Multiple Levels)",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "excel-06",
+   "title": "Functions for Personal Finance",
+   "words": 3834,
+   "minutes": 20,
+   "source": "excel",
+   "url": "https://openoregon.pressbooks.pub/beginningexcel19/chapter/2-3-functions-for-personal-finance/",
+   "toc": [
+    {
+     "id": "the-fundamentals-of-loans-and-leases",
+     "text": "The Fundamentals of Loans and Leases",
+     "level": 2
+    },
+    {
+     "id": "the-pmt-payment-function-for-loans",
+     "text": "The PMT (Payment) Function for Loans",
+     "level": 2
+    },
+    {
+     "id": "the-pmt-function-when-there-is-a-down-payment",
+     "text": "The PMT Function when there is a down payment",
+     "level": 2
+    },
+    {
+     "id": "linking-worksheets-creating-a-summary-worksheet",
+     "text": "Linking Worksheets (Creating a Summary Worksheet)",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "excel-07",
+   "title": "More on Formulas and Functions",
+   "words": 1504,
+   "minutes": 8,
+   "source": "excel",
+   "url": "https://openoregon.pressbooks.pub/beginningexcel19/chapter/3-1-more-on-formulas-and-functions/",
+   "toc": [
+    {
+     "id": "another-use-for-max",
+     "text": "Another use for =MAX",
+     "level": 2
+    },
+    {
+     "id": "quick-analysis-tool",
+     "text": "Quick Analysis Tool",
+     "level": 2
+    },
+    {
+     "id": "percentage-calculation",
+     "text": "Percentage calculation",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "excel-08",
+   "title": "Logical and Lookup Functions",
+   "words": 2593,
+   "minutes": 13,
+   "source": "excel",
+   "url": "https://openoregon.pressbooks.pub/beginningexcel19/chapter/3-2-logical-and-lookup-functions/",
+   "toc": [
+    {
+     "id": "if-function",
+     "text": "IF Function",
+     "level": 2
+    },
+    {
+     "id": "vlookup-function",
+     "text": "VLOOKUP Function",
+     "level": 2
+    },
+    {
+     "id": "error-messages",
+     "text": "Error Messages",
+     "level": 2
+    },
+    {
+     "id": "date-functions",
+     "text": "Date Functions",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "excel-09",
+   "title": "Conditional Formatting",
+   "words": 1325,
+   "minutes": 7,
+   "source": "excel",
+   "url": "https://openoregon.pressbooks.pub/beginningexcel19/chapter/3-3-conditional-formatting/",
+   "toc": [
+    {
+     "id": "making-changes",
+     "text": "Making Changes",
+     "level": 2
+    },
+    {
+     "id": "setting-the-print-area",
+     "text": "Setting the Print Area",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "excel-10",
+   "title": "Choosing a Chart Type",
+   "words": 5475,
+   "minutes": 28,
+   "source": "excel",
+   "url": "https://openoregon.pressbooks.pub/beginningexcel19/chapter/4-1-choosing-a-chart-type/",
+   "toc": [
+    {
+     "id": "time-series-trend-line-chart-1",
+     "text": "Time Series Trend: Line Chart 1",
+     "level": 2
+    },
+    {
+     "id": "adjusting-the-y-axis-scale",
+     "text": "Adjusting the Y-Axis Scale",
+     "level": 2
+    },
+    {
+     "id": "trend-comparisons-line-chart-2",
+     "text": "Trend Comparisons: Line Chart 2",
+     "level": 2
+    },
+    {
+     "id": "frequency-distribution-column-chart-1",
+     "text": "Frequency Distribution: Column Chart 1",
+     "level": 2
+    },
+    {
+     "id": "creating-a-chart-sheet",
+     "text": "Creating a Chart Sheet",
+     "level": 2
+    },
+    {
+     "id": "frequency-comparison-column-chart-2",
+     "text": "Frequency Comparison: Column Chart 2",
+     "level": 2
+    },
+    {
+     "id": "map-charts",
+     "text": "Map Charts",
+     "level": 2
+    },
+    {
+     "id": "funnel-charts",
+     "text": "FUNNEL CHARTS",
+     "level": 2
+    },
+    {
+     "id": "percent-of-total-doughnut-pie-chart",
+     "text": "PERCENT OF TOTAL: DOUGHNUT PIE CHART",
+     "level": 2
+    },
+    {
+     "id": "bar-chart-vs-column-chart",
+     "text": "Bar chart vs Column chart",
+     "level": 2
+    },
+    {
+     "id": "stacked-column-chart",
+     "text": "Stacked Column Chart",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "excel-11",
+   "title": "Formatting Charts",
+   "words": 1115,
+   "minutes": 6,
+   "source": "excel",
+   "url": "https://openoregon.pressbooks.pub/beginningexcel19/chapter/4-2-formatting-charts/",
+   "toc": [
+    {
+     "id": "x-and-y-axis-formats",
+     "text": "X and Y-Axis Formats",
+     "level": 2
+    },
+    {
+     "id": "x-and-y-axis-titles",
+     "text": "X and Y-Axis Titles",
+     "level": 2
+    },
+    {
+     "id": "data-series-labels-and-formats",
+     "text": "Data Series Labels and Formats",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "excel-12",
+   "title": "Table Basics",
+   "words": 3721,
+   "minutes": 19,
+   "source": "excel",
+   "url": "https://openoregon.pressbooks.pub/beginningexcel19/chapter/5-1-table-basics/",
+   "toc": [
+    {
+     "id": "table-properties-structure",
+     "text": "TABLE PROPERTIES & STRUCTURE",
+     "level": 2
+    },
+    {
+     "id": "overview",
+     "text": "OVERVIEW",
+     "level": 2
+    },
+    {
+     "id": "import-and-format-data-as-a-table",
+     "text": "IMPORT AND FORMAT DATA AS A TABLE",
+     "level": 2
+    },
+    {
+     "id": "table-tools-design-tab",
+     "text": "TABLE TOOLS DESIGN TAB",
+     "level": 2
+    },
+    {
+     "id": "viewing-table-data",
+     "text": "VIEWING table data",
+     "level": 2
+    },
+    {
+     "id": "using-panes",
+     "text": "USING PANES",
+     "level": 2
+    },
+    {
+     "id": "freeze-panes",
+     "text": "FREEZE PANES",
+     "level": 2
+    },
+    {
+     "id": "formatting-table-data",
+     "text": "Formatting table Data",
+     "level": 2
+    },
+    {
+     "id": "naming-a-table",
+     "text": "NAMING A TABLE",
+     "level": 2
+    },
+    {
+     "id": "entering-deleting-records",
+     "text": "ENTERING & DELETING RECORDS",
+     "level": 2
+    },
+    {
+     "id": "remove-duplicates",
+     "text": "REMOVE DUPLICATES",
+     "level": 2
+    },
+    {
+     "id": "create-new-columns",
+     "text": "CREATE NEW COLUMNS",
+     "level": 2
+    },
+    {
+     "id": "total-row",
+     "text": "TOTAL ROW",
+     "level": 2
+    },
+    {
+     "id": "center-across-selection",
+     "text": "CENTER ACROSS SELECTION",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "excel-13",
+   "title": "Intermediate Table Skills",
+   "words": 5516,
+   "minutes": 28,
+   "source": "excel",
+   "url": "https://openoregon.pressbooks.pub/beginningexcel19/chapter/5-2-intermediate-table-skills/",
+   "toc": [
+    {
+     "id": "sort-filter-and-analyze-data-with-pivot-tables-subtotals",
+     "text": "SORT, FILTER, AND ANALYZE DATA WITH PIVOT TABLES & SUBTOTALS",
+     "level": 2
+    },
+    {
+     "id": "sorting",
+     "text": "SORTING",
+     "level": 3
+    },
+    {
+     "id": "custom-sort",
+     "text": "CUSTOM SORT",
+     "level": 2
+    },
+    {
+     "id": "custom-list-sort",
+     "text": "CUSTOM LIST SORT",
+     "level": 2
+    },
+    {
+     "id": "filter-data",
+     "text": "FILTER DATA",
+     "level": 2
+    },
+    {
+     "id": "using-criteria-filters",
+     "text": "USING CRITERIA FILTERS",
+     "level": 2
+    },
+    {
+     "id": "slicers",
+     "text": "SLICERS",
+     "level": 2
+    },
+    {
+     "id": "advanced-filters",
+     "text": "ADVANCED FILTERS",
+     "level": 2
+    },
+    {
+     "id": "insert-table",
+     "text": "INSERT TABLE",
+     "level": 2
+    },
+    {
+     "id": "analyzing-worksheet-data",
+     "text": "ANALYZING WORKSHEET DATA",
+     "level": 2
+    },
+    {
+     "id": "introduction-to-pivot-tables",
+     "text": "INTRODUCTION TO PIVOT TABLES",
+     "level": 2
+    },
+    {
+     "id": "formatting-pivot-tables",
+     "text": "FORMATTING PIVOT TABLES",
+     "level": 2
+    },
+    {
+     "id": "now-let-s-create-a-pivotchart",
+     "text": "NOW LET’S CREATE A PIVOTCHART !",
+     "level": 2
+    },
+    {
+     "id": "subtotals",
+     "text": "SUBTOTALS",
+     "level": 2
+    },
+    {
+     "id": "subtotal-outline-view",
+     "text": "SUBTOTAL OUTLINE VIEW",
+     "level": 2
+    },
+    {
+     "id": "adding-a-subtotal-within-a-subtotal",
+     "text": "ADDING A SUBTOTAL WITHIN A SUBTOTAL",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "excel-14",
+   "title": "Multiple Sheet Basics",
+   "words": 1830,
+   "minutes": 10,
+   "source": "excel",
+   "url": "https://openoregon.pressbooks.pub/beginningexcel19/chapter/6-1-multiple-sheet-basics/",
+   "toc": [
+    {
+     "id": "navigating-through-a-multiple-sheet-file",
+     "text": "Navigating Through a Multiple Sheet File",
+     "level": 2
+    },
+    {
+     "id": "copying-a-sheet",
+     "text": "Copying a Sheet",
+     "level": 2
+    },
+    {
+     "id": "moving-and-deleting-sheets",
+     "text": "Moving and Deleting Sheets",
+     "level": 2
+    },
+    {
+     "id": "grouping-and-ungrouping-sheets",
+     "text": "Grouping and Ungrouping Sheets",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "excel-15",
+   "title": "Formulas with 3-D References",
+   "words": 996,
+   "minutes": 5,
+   "source": "excel",
+   "url": "https://openoregon.pressbooks.pub/beginningexcel19/chapter/6-2-formulas-with-3-d-references/",
+   "toc": []
+  },
+  {
+   "id": "excel-16",
+   "title": "Templates",
+   "words": 784,
+   "minutes": 4,
+   "source": "excel",
+   "url": "https://openoregon.pressbooks.pub/beginningexcel19/chapter/6-3-templates/",
+   "toc": []
+  }
+ ],
+ "quiz": {
+  "questions": [],
+  "pass_mark": 0,
+  "missing": true
+ },
+ "minutes": 244,
+ "sources": [
+  {
+   "id": "excel",
+   "name": "Beginning Excel 2019 (Open Oregon)",
+   "url": "https://openoregon.pressbooks.pub/beginningexcel19/",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "Noreen Brown, Barbara Lave, Hallie Puncochar, Julie Romey, Mary Schatz, Art Schneider and Diane Shingledecker, CC BY 4.0",
+   "noncommercial": false
+  }
+ ]
+}

@@ -1,0 +1,202 @@
+{
+ "courses": [
+  {
+   "skill": "solar_pv",
+   "summary": "Learn how solar PV systems turn sunlight into electricity, what solar panels are made of, and how net metering works.",
+   "lessons": [
+    {"id": "solar_pv-1", "title": "Photovoltaic systems", "wiki": "Photovoltaic system",
+     "why": "Solar installation, design and maintenance are growing green jobs as rooftop solar spreads to homes and businesses.",
+     "try": "List the main parts of a rooftop PV system: panels, inverter, mounting and cabling."},
+    {"id": "solar_pv-2", "title": "Solar panels", "wiki": "Solar panel",
+     "why": "Knowing how panels work — and what reduces their output, such as shade and dirt — helps you install and maintain systems well.",
+     "try": "Look at a rooftop or solar farm near you and note which way the panels face and whether anything shades them."},
+    {"id": "solar_pv-3", "title": "Net metering", "wiki": "Net metering",
+     "why": "Net metering rules decide how much a household saves from solar, so installers and advisers need to explain them clearly.",
+     "try": "Find your electricity provider's rules for exporting solar power and summarise them in two sentences."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "In a PV system, what does the solar inverter do?", "options": ["Stores water", "Converts direct current (DC) to alternating current (AC)", "Tracks customer payments", "Cools the panels"], "answer": 1, "explain": "The inverter converts the panels' DC output into AC."},
+    {"lesson": 1, "q": "Why do many utility-scale PV systems use tracking systems?", "options": ["To count visitors", "To measure rainfall", "To follow the sun's path across the sky and generate more electricity", "To reduce cable length"], "answer": 2, "explain": "Tracking the sun produces more electricity than fixed mounting."},
+    {"lesson": 2, "q": "Solar panels are made of modules of…", "options": ["photovoltaic (PV) cells", "lithium-ion cells only", "glass bottles", "copper coins"], "answer": 0, "explain": "PV cells produce excited electrons when exposed to light."},
+    {"lesson": 2, "q": "Which drawback of solar panels does the lesson mention?", "options": ["They produce smoke", "They need constant fuel deliveries", "They only work at night", "They depend on the availability and intensity of sunlight"], "answer": 3, "explain": "Panels depend on sunlight, need cleaning and have high initial costs."},
+    {"lesson": 3, "q": "Net metering lets consumers who generate their own electricity…", "options": ["avoid all electricity bills forever", "use that electricity at any time, not only when it is generated", "sell panels to neighbours", "disconnect from the grid"], "answer": 1, "explain": "Credits let daytime solar power be used later, for example at night."}
+   ]
+  },
+  {
+   "skill": "energy_efficiency",
+   "summary": "Cut energy use and bills: efficiency basics, energy audits and how HVAC systems affect consumption.",
+   "lessons": [
+    {"id": "energy_efficiency-1", "title": "Using energy efficiently", "wiki": "Efficient energy use",
+     "why": "Using less energy for the same result saves money and cuts emissions — one of the quickest climate wins for any building or factory.",
+     "try": "Walk around your home or office and list three ways energy is wasted (lights left on, open doors, old equipment)."},
+    {"id": "energy_efficiency-2", "title": "Energy audits", "wiki": "Energy audit",
+     "why": "An energy audit is the first step to finding savings, which makes auditors valuable to building owners and factories.",
+     "try": "Read one month's electricity bill and note the total use in kWh and the cost."},
+    {"id": "energy_efficiency-3", "title": "Heating, ventilation and air conditioning", "wiki": "Heating, ventilation, and air conditioning",
+     "why": "In hot, humid climates like Malaysia's, air conditioning is a large part of a building's electricity use, so efficient HVAC choices matter.",
+     "try": "Check the thermostat setting where you work and find out what temperature it is set to."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Energy efficiency means…", "options": ["using more energy for better results", "only installing solar panels", "reducing the amount of energy required to provide products and services", "turning off the internet"], "answer": 2, "explain": "Efficiency delivers the same products and services with less energy."},
+    {"lesson": 1, "q": "Which example of energy efficiency does the lesson give?", "options": ["Insulating a building so it needs less heating and cooling energy", "Leaving doors open", "Buying a bigger generator", "Painting walls red"], "answer": 0, "explain": "Insulation keeps comfort while using less heating and cooling."},
+    {"lesson": 1, "q": "What are the two main motivations for energy efficiency named in the lesson?", "options": ["Faster internet and better phones", "More paperwork and higher prices", "Louder machines and brighter lights", "Cost savings and lower greenhouse gas emissions"], "answer": 3, "explain": "Efficiency saves operating costs and supports climate action."},
+    {"lesson": 2, "q": "In commercial and industrial buildings, an energy audit is…", "options": ["a tax inspection", "the first step in finding ways to reduce energy costs and carbon footprint", "a fire drill", "a staff survey"], "answer": 1, "explain": "Audits analyse energy flows to find savings opportunities."},
+    {"lesson": 3, "q": "HVAC stands for…", "options": ["heating, ventilation and air conditioning", "high-voltage alternating current", "home video and computers", "heavy vehicle access control"], "answer": 0, "explain": "HVAC systems regulate temperature, humidity and indoor air quality."}
+   ]
+  },
+  {
+   "skill": "esg_reporting",
+   "summary": "Understand ESG, how companies report on sustainability, and the widely used GRI Standards.",
+   "lessons": [
+    {"id": "esg_reporting-1", "title": "ESG explained", "wiki": "Environmental, social, and governance",
+     "why": "Investors, banks and large customers increasingly ask about ESG, so companies need people who can collect and report this information.",
+     "try": "Pick a company you know and list one environmental, one social and one governance issue that matters for it."},
+    {"id": "esg_reporting-2", "title": "Sustainability reporting", "wiki": "Sustainability reporting",
+     "why": "Sustainability reports turn activities into comparable information that builds trust with customers and investors.",
+     "try": "Find the sustainability report of a listed company and note three things it measures."},
+    {"id": "esg_reporting-3", "title": "The GRI Standards", "wiki": "Global Reporting Initiative",
+     "why": "GRI is among the most widely used reporting standards, so knowing its structure helps you prepare credible reports.",
+     "try": "Visit the GRI website and find the names of the three groups of GRI Standards."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "What do the letters ESG stand for?", "options": ["Energy, safety and growth", "Environmental, social and governance", "Economy, society and government", "Emissions, sales and goods"], "answer": 1, "explain": "ESG covers environmental, social and governance issues."},
+    {"lesson": 1, "q": "In which 2004 report did the term ESG first come to prominence?", "options": ["Limits to Growth", "Our Common Future", "Who Cares Wins", "The Wealth of Nations"], "answer": 2, "explain": "\"Who Cares Wins\" was a joint initiative of financial institutions at the invitation of the UN."},
+    {"lesson": 1, "q": "Which criticism of ESG does the lesson mention?", "options": ["It is too cheap", "It only concerns sports", "It has no supporters", "Greenwashing and a lack of standardisation"], "answer": 3, "explain": "Critics point to data quality, lack of standardisation and greenwashing."},
+    {"lesson": 2, "q": "Sustainability reporting is the disclosure of…", "options": ["non-financial performance information", "only profit figures", "employee passwords", "secret product designs"], "answer": 0, "explain": "It reports environmental, social, economic and governance information."},
+    {"lesson": 3, "q": "The GRI Standards are organised into…", "options": ["Gold, Silver and Bronze Standards", "Universal, Sector and Topic Standards", "Daily, Weekly and Monthly Standards", "Local, State and National Standards"], "answer": 1, "explain": "GRI has Universal, Sector and Topic Standards."}
+   ]
+  },
+  {
+   "skill": "carbon_accounting",
+   "summary": "Measure greenhouse gas emissions: carbon accounting, carbon footprints and GHG inventories.",
+   "lessons": [
+    {"id": "carbon_accounting-1", "title": "Carbon accounting", "wiki": "Carbon accounting",
+     "why": "You cannot cut what you do not measure. Carbon accounting is becoming a standard business skill as reporting requirements grow.",
+     "try": "List the main sources of emissions in your workplace: electricity, fuel, travel and waste."},
+    {"id": "carbon_accounting-2", "title": "Carbon footprints", "wiki": "Carbon footprint",
+     "why": "Footprints let you compare the climate impact of products, trips or companies in one common unit.",
+     "try": "Use a free online calculator to estimate the carbon footprint of your daily commute."},
+    {"id": "carbon_accounting-3", "title": "Greenhouse gas inventories", "wiki": "Greenhouse gas inventory",
+     "why": "An inventory is the organised list of emission sources that reports, targets and audits are built on.",
+     "try": "Draw a simple table for an office inventory with columns for source, amount used, unit and emission factor."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Carbon accounting is…", "options": ["a type of tax return", "a way to buy coal", "a framework of methods to measure and track greenhouse gas emissions", "a banking app"], "answer": 2, "explain": "It measures and tracks how much greenhouse gas an organisation emits."},
+    {"lesson": 1, "q": "What do organisations often set before creating emission-reduction targets?", "options": ["An emissions baseline", "A marketing slogan", "A holiday calendar", "A new logo"], "answer": 0, "explain": "They set a baseline, create targets and track progress."},
+    {"lesson": 2, "q": "Carbon footprints are usually reported in…", "options": ["kilometres per hour", "litres of water", "number of employees", "tonnes of CO2-equivalent"], "answer": 3, "explain": "Footprints use tonnes of CO2-equivalent per unit of comparison."},
+    {"lesson": 2, "q": "A product's carbon footprint covers…", "options": ["only the day it is sold", "its entire life cycle, from production to disposal", "only its packaging", "only transport"], "answer": 1, "explain": "It runs from production along the supply chain to consumption and disposal."},
+    {"lesson": 3, "q": "Greenhouse gas inventories combine different gases into one value using…", "options": ["global warming potential (GWP) values", "exchange rates", "body mass index", "credit scores"], "answer": 0, "explain": "GWP values weight each gas into a single emissions figure."}
+   ]
+  },
+  {
+   "skill": "ev_tech",
+   "summary": "Understand electric vehicles, the lithium-ion batteries that power them, and how charging works.",
+   "lessons": [
+    {"id": "ev_tech-1", "title": "Electric vehicles", "wiki": "Electric vehicle",
+     "why": "EVs are spreading in public transport, delivery fleets and private cars, creating work in servicing, charging and batteries.",
+     "try": "List the electric vehicles you have seen locally — buses, cars, motorbikes — and where they charge."},
+    {"id": "ev_tech-2", "title": "Lithium-ion batteries", "wiki": "Lithium-ion battery",
+     "why": "The battery is the most valuable and safety-critical part of an EV, so battery knowledge is central to EV work.",
+     "try": "Check the battery specification of a phone or laptop you own: its capacity and voltage."},
+    {"id": "ev_tech-3", "title": "Charging stations", "wiki": "Charging station",
+     "why": "Charging networks need planning, installation and maintenance — growing work for electricians and technicians.",
+     "try": "Find the nearest public charging station on a map app and note whether it offers AC or DC charging."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "What held back mass adoption of electric vehicles in the 20th century?", "options": ["They were too loud", "Their limited range", "They were too fast", "There was no electricity"], "answer": 1, "explain": "Limited range hindered EVs, so combustion engines dominated for about 100 years."},
+    {"lesson": 2, "q": "Compared with other rechargeable batteries, lithium-ion batteries generally have…", "options": ["lower energy density", "no use in phones", "higher energy density and a longer cycle life", "no recharging ability"], "answer": 2, "explain": "Li-ion batteries offer higher specific energy, energy density and cycle life."},
+    {"lesson": 2, "q": "The 2019 Nobel Prize in Chemistry recognised contributors to…", "options": ["lithium-ion batteries", "solar panels", "the internet", "electric motors"], "answer": 0, "explain": "The prize honoured the development of Li-ion batteries."},
+    {"lesson": 3, "q": "What are the two main types of EV charging stations?", "options": ["Petrol and diesel pumps", "Wind and water chargers", "Hot and cold chargers", "AC chargers and DC chargers"], "answer": 3, "explain": "Stations supply either alternating current or direct current."},
+    {"lesson": 3, "q": "At an AC charging station, which part converts AC to DC to charge the battery?", "options": ["The steering wheel", "The car's onboard charger", "The tyres", "The headlights"], "answer": 1, "explain": "The onboard charger (OBC) converts AC from the grid into DC."}
+   ]
+  },
+  {
+   "skill": "precision_agri",
+   "summary": "Use data and technology to farm smarter: precision agriculture, drip irrigation and drones.",
+   "lessons": [
+    {"id": "precision_agri-1", "title": "Precision agriculture", "wiki": "Precision agriculture",
+     "why": "Precision farming helps growers raise yields while using less water, fertiliser and fuel — important for food security and farm incomes.",
+     "try": "Pick a crop grown near you and list two pieces of data that would help a farmer manage it better."},
+    {"id": "precision_agri-2", "title": "Drip irrigation", "wiki": "Drip irrigation",
+     "why": "Delivering water straight to the roots saves water and nutrients, which matters more as droughts and costs rise.",
+     "try": "Sketch a drip line for a small garden bed: water source, pipe, and an emitter beside each plant."},
+    {"id": "precision_agri-3", "title": "Agricultural drones", "wiki": "Agricultural drone",
+     "why": "Drones can monitor crop health and spray precisely, cutting labour and chemical use.",
+     "try": "List three things you would want a drone to photograph on a farm, and why."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Precision agriculture is a management strategy that…", "options": ["uses only traditional methods without data", "replaces all farmers with robots", "gathers and analyses plant, animal and field data to support farm decisions", "only applies to fishing"], "answer": 2, "explain": "It combines temporal, spatial and individual data to improve decisions."},
+    {"lesson": 1, "q": "In farm fleet management, vehicles are equipped with…", "options": ["only a radio", "a GPS tracking unit and an onboard controller that sends telemetry data", "paper logbooks only", "no electronics"], "answer": 1, "explain": "Telematics send location, speed, engine hours and fuel use to a server."},
+    {"lesson": 2, "q": "Drip irrigation saves water by…", "options": ["letting water drip slowly to the roots of plants", "flooding entire fields", "spraying water high into the air", "using only rainwater"], "answer": 0, "explain": "It places water directly in the root zone and minimises evaporation."},
+    {"lesson": 2, "q": "In which country was modern drip irrigation invented?", "options": ["Malaysia", "Brazil", "Canada", "Israel"], "answer": 3, "explain": "The system used today was invented in Israel."},
+    {"lesson": 3, "q": "Agricultural drones use multispectral sensors to…", "options": ["play music", "image radiation beyond the visible spectrum, such as near-infrared", "measure wind speed only", "count money"], "answer": 1, "explain": "Multispectral sensors see beyond visible light to assess crop health."}
+   ]
+  },
+  {
+   "skill": "gis",
+   "summary": "Work with maps and location data: GIS basics, remote sensing and the free QGIS software.",
+   "lessons": [
+    {"id": "gis-1", "title": "Geographic information systems", "wiki": "Geographic information system",
+     "why": "Planning, utilities, agriculture, logistics and insurance all rely on location data, so GIS skills transfer across many sectors.",
+     "try": "Think of a decision at work that depends on location (delivery routes, a new branch site) and the map data it needs."},
+    {"id": "gis-2", "title": "Remote sensing", "wiki": "Remote sensing",
+     "why": "Satellites and drones provide up-to-date images for monitoring crops, floods, forests and cities.",
+     "try": "Open a free satellite map of your area and look for changes compared with an older image."},
+    {"id": "gis-3", "title": "QGIS", "wiki": "QGIS",
+     "why": "QGIS is free and open-source, so anyone can start learning professional GIS without a licence fee.",
+     "try": "Install QGIS and open a free basemap of your town."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "A GIS stores, manages, analyses and visualises…", "options": ["only financial data", "geographic data", "music files", "emails"], "answer": 1, "explain": "A GIS works with geographic data."},
+    {"lesson": 1, "q": "Which sectors use GIS according to the lesson?", "options": ["Engineering, planning, transport and insurance, among others", "Only video games", "Only fashion", "Only sports"], "answer": 0, "explain": "GIS supports many fields, from engineering to the natural sciences."},
+    {"lesson": 2, "q": "Remote sensing means acquiring information about an object…", "options": ["by touching it directly", "only through interviews", "without making physical contact with it", "by guessing"], "answer": 2, "explain": "It contrasts with on-site observation."},
+    {"lesson": 2, "q": "Passive remote sensing detects…", "options": ["signals emitted by the sensor itself", "sound waves from microphones", "data typed in by users", "the reflection of sunlight"], "answer": 3, "explain": "Active sensing emits its own signal; passive sensing detects reflected sunlight."},
+    {"lesson": 3, "q": "QGIS is…", "options": ["a paid spreadsheet program", "free and open-source GIS software", "a social network", "a type of drone"], "answer": 1, "explain": "QGIS is free, open-source GIS software for Linux, macOS and Windows."}
+   ]
+  },
+  {
+   "skill": "circular_economy",
+   "summary": "Move from 'take, make, waste' to circular thinking: principles, the waste hierarchy and recycling.",
+   "lessons": [
+    {"id": "circular_economy-1", "title": "The circular economy", "wiki": "Circular economy",
+     "why": "Circular practices cut costs and waste and open new business models such as repair, leasing and refurbishing.",
+     "try": "Choose one product you use and list how it could be shared, repaired or reused before it is recycled."},
+    {"id": "circular_economy-2", "title": "The waste hierarchy", "wiki": "Waste hierarchy",
+     "why": "The waste hierarchy tells you which actions to try first: preventing and reducing waste beats recycling and disposal.",
+     "try": "Rank three ways your workplace could handle paper waste, from most to least preferred."},
+    {"id": "circular_economy-3", "title": "Recycling", "wiki": "Recycling",
+     "why": "Good sorting and recycling recover valuable materials and lower emissions, but only when materials are clean and well separated.",
+     "try": "Check which materials your local recycling service accepts and how they should be sorted."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "A circular economy aims to…", "options": ["make products that break quickly", "increase landfill use", "extend product life by sharing, reusing, repairing and recycling", "stop all production"], "answer": 2, "explain": "It keeps products and materials in use for as long as possible."},
+    {"lesson": 1, "q": "Which is one of the three main principles of a circular economy?", "options": ["Designing out waste and pollution", "Maximising single-use items", "Burning all waste", "Buying new products every year"], "answer": 0, "explain": "The principles: design out waste, keep materials in use, regenerate natural systems."},
+    {"lesson": 2, "q": "The waste hierarchy is usually presented as a…", "options": ["circle of equal options", "random list", "bar code", "pyramid"], "answer": 3, "explain": "It is usually shown as a pyramid, ordered by preference."},
+    {"lesson": 3, "q": "Recycling is the process of…", "options": ["throwing everything into landfill", "converting waste materials into new materials and objects", "burning waste without recovering anything", "importing new raw materials"], "answer": 1, "explain": "Recycling turns waste into new materials and objects."},
+    {"lesson": 3, "q": "In the 'Reduce, Reuse, Recycle' hierarchy, recycling is the…", "options": ["first step", "third step", "only step", "fourth step"], "answer": 1, "explain": "Recycling is the third step, after reducing and reusing."}
+   ]
+  },
+  {
+   "skill": "electrical",
+   "summary": "Learn electrical fundamentals: current, Ohm's law and the safety devices that protect people.",
+   "lessons": [
+    {"id": "electrical-1", "title": "Electric current", "wiki": "Electric current",
+     "why": "Electrical fundamentals are the base for solar, EV, IoT and building-services careers.",
+     "try": "Find the current rating (in amps) printed on a phone charger or an appliance label."},
+    {"id": "electrical-2", "title": "Ohm's law", "wiki": "Ohm's law",
+     "why": "Ohm's law (V = IR) is used every day to size cables, choose components and find faults.",
+     "try": "Calculate the current through a 12-ohm resistor connected to a 12-volt battery."},
+    {"id": "electrical-3", "title": "Residual-current devices", "wiki": "Residual-current device",
+     "why": "RCDs save lives by cutting the power when current leaks, so knowing how they work is basic electrical safety.",
+     "try": "Find the RCD in your home or office distribution board — look for a test button marked 'T'. Do not open the board."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Electric current is…", "options": ["the colour of a wire", "a flow of charged particles through a conductor or space", "a type of battery", "the weight of a cable"], "answer": 1, "explain": "Current is the flow of charged particles such as electrons or ions."},
+    {"lesson": 1, "q": "In SI units, electric current is measured in…", "options": ["volts (V)", "watts (W)", "amperes (A)", "ohms (Ω)"], "answer": 2, "explain": "The ampere (amp) is the SI unit of current."},
+    {"lesson": 2, "q": "Ohm's law is written as…", "options": ["V = IR", "E = mc²", "F = ma", "P = 1/R"], "answer": 0, "explain": "Voltage equals current times resistance."},
+    {"lesson": 2, "q": "A 12-volt battery is connected to a 12-ohm resistor. What current flows?", "options": ["144 amperes", "24 amperes", "0 amperes", "1 ampere"], "answer": 3, "explain": "I = V / R = 12 / 12 = 1 ampere."},
+    {"lesson": 3, "q": "A residual-current device (RCD) interrupts a circuit when…", "options": ["the lights are switched on", "the current in the line and neutral conductors is not equal", "the voltage is exactly normal", "a phone is charging"], "answer": 1, "explain": "An imbalance means current is leaking to ground or through a person."}
+   ]
+  }
+ ]
+}

@@ -1,0 +1,642 @@
+{
+ "title": "Linux Command Line & Networking",
+ "subtitle": "Work confidently in the shell and understand how networks connect computers.",
+ "level": "Beginner",
+ "outcomes": [
+  "Navigate files and directories from the command line",
+  "Combine commands with pipes and filters",
+  "Automate tasks with loops and shell scripts",
+  "Explain key networking and network-security concepts"
+ ],
+ "skill": "linux_networking",
+ "modules": [
+  {
+   "title": "The Unix shell",
+   "lessons": [
+    "linux_networking-01",
+    "linux_networking-02",
+    "linux_networking-03",
+    "linux_networking-04"
+   ]
+  },
+  {
+   "title": "Automating work",
+   "lessons": [
+    "linux_networking-05",
+    "linux_networking-06",
+    "linux_networking-07"
+   ]
+  },
+  {
+   "title": "Networking",
+   "lessons": [
+    "linux_networking-08",
+    "linux_networking-09",
+    "linux_networking-10",
+    "linux_networking-11"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "linux_networking-01",
+   "title": "Introducing the Shell",
+   "words": 1069,
+   "minutes": 6,
+   "source": "swc-shell",
+   "url": "https://github.com/swcarpentry/shell-novice/blob/b91d85b848405a4a2fe0a297d8cedb71d68ab9bd/episodes/01-intro.md",
+   "toc": [
+    {
+     "id": "what-is-the-shell",
+     "text": "What is the Shell?",
+     "level": 3
+    },
+    {
+     "id": "why-use-the-shell",
+     "text": "Why use the shell?",
+     "level": 3
+    },
+    {
+     "id": "let-s-get-started",
+     "text": "Let's get started.",
+     "level": 3
+    },
+    {
+     "id": "nelle-s-pipeline-a-typical-problem",
+     "text": "Nelle's Pipeline: A Typical Problem",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "linux_networking-02",
+   "title": "Navigating Files and Directories",
+   "words": 4012,
+   "minutes": 21,
+   "source": "swc-shell",
+   "url": "https://github.com/swcarpentry/shell-novice/blob/b91d85b848405a4a2fe0a297d8cedb71d68ab9bd/episodes/02-filedir.md",
+   "toc": [
+    {
+     "id": "getting-help",
+     "text": "Getting help",
+     "level": 3
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "exploring-other-directories",
+     "text": "Exploring Other Directories",
+     "level": 3
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "general-syntax-of-a-shell-command",
+     "text": "General Syntax of a Shell Command",
+     "level": 2
+    },
+    {
+     "id": "nelle-s-pipeline-organizing-files",
+     "text": "Nelle's Pipeline: Organizing Files",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "linux_networking-03",
+   "title": "Working With Files and Directories",
+   "words": 3789,
+   "minutes": 19,
+   "source": "swc-shell",
+   "url": "https://github.com/swcarpentry/shell-novice/blob/b91d85b848405a4a2fe0a297d8cedb71d68ab9bd/episodes/03-create.md",
+   "toc": [
+    {
+     "id": "creating-directories",
+     "text": "Creating directories",
+     "level": 2
+    },
+    {
+     "id": "step-one-see-where-we-are-and-what-we-already-have",
+     "text": "Step one: see where we are and what we already have",
+     "level": 3
+    },
+    {
+     "id": "create-a-directory",
+     "text": "Create a directory",
+     "level": 3
+    },
+    {
+     "id": "create-a-text-file",
+     "text": "Create a text file",
+     "level": 3
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "moving-files-and-directories",
+     "text": "Moving files and directories",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "copying-files-and-directories",
+     "text": "Copying files and directories",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "removing-files-and-directories",
+     "text": "Removing files and directories",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "operations-with-multiple-files-and-directories",
+     "text": "Operations with multiple files and directories",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "using-wildcards-for-accessing-multiple-files-at-once",
+     "text": "Using wildcards for accessing multiple files at once",
+     "level": 3
+    },
+    {
+     "id": "solution-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "linux_networking-04",
+   "title": "Pipes and Filters",
+   "words": 2710,
+   "minutes": 14,
+   "source": "swc-shell",
+   "url": "https://github.com/swcarpentry/shell-novice/blob/b91d85b848405a4a2fe0a297d8cedb71d68ab9bd/episodes/04-pipefilter.md",
+   "toc": [
+    {
+     "id": "capturing-output-from-commands",
+     "text": "Capturing output from commands",
+     "level": 2
+    },
+    {
+     "id": "filtering-output",
+     "text": "Filtering output",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "passing-output-to-another-command",
+     "text": "Passing output to another command",
+     "level": 2
+    },
+    {
+     "id": "combining-multiple-commands",
+     "text": "Combining multiple commands",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "tools-designed-to-work-together",
+     "text": "Tools designed to work together",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "nelle-s-pipeline-checking-files",
+     "text": "Nelle's Pipeline: Checking Files",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "linux_networking-05",
+   "title": "Loops",
+   "words": 3140,
+   "minutes": 16,
+   "source": "swc-shell",
+   "url": "https://github.com/swcarpentry/shell-novice/blob/b91d85b848405a4a2fe0a297d8cedb71d68ab9bd/episodes/05-loop.md",
+   "toc": [
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "nelle-s-pipeline-processing-files",
+     "text": "Nelle's Pipeline: Processing Files",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "linux_networking-06",
+   "title": "Shell Scripts",
+   "words": 2341,
+   "minutes": 12,
+   "source": "swc-shell",
+   "url": "https://github.com/swcarpentry/shell-novice/blob/b91d85b848405a4a2fe0a297d8cedb71d68ab9bd/episodes/06-script.md",
+   "toc": [
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "nelle-s-pipeline-creating-a-script",
+     "text": "Nelle's Pipeline: Creating a Script",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solutions",
+     "text": "Solutions",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "linux_networking-07",
+   "title": "Finding Things",
+   "words": 2396,
+   "minutes": 12,
+   "source": "swc-shell",
+   "url": "https://github.com/swcarpentry/shell-novice/blob/b91d85b848405a4a2fe0a297d8cedb71d68ab9bd/episodes/07-find.md",
+   "toc": [
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solutions",
+     "text": "Solutions",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "linux_networking-08",
+   "title": "Networking key concepts",
+   "words": 877,
+   "minutes": 5,
+   "source": "ms-sec",
+   "url": "https://github.com/microsoft/Security-101/blob/b0a31ff7ebb9983d24bcdc6a38a4d008e6e89d0c/3.1%20Networking%20key%20concepts.md",
+   "toc": [
+    {
+     "id": "what-is-ip-addressing",
+     "text": "What is IP addressing?",
+     "level": 2
+    },
+    {
+     "id": "what-is-the-osi-model",
+     "text": "What is the OSI Model?",
+     "level": 2
+    },
+    {
+     "id": "what-is-tcp-udp",
+     "text": "What is TCP/UDP?",
+     "level": 2
+    },
+    {
+     "id": "what-are-port-numbers",
+     "text": "What are Port Numbers?",
+     "level": 2
+    },
+    {
+     "id": "what-is-encryption-at-rest-and-in-transit",
+     "text": "What is encryption at rest and in transit?",
+     "level": 2
+    },
+    {
+     "id": "further-reading",
+     "text": "Further reading",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "linux_networking-09",
+   "title": "Networking zero trust architectures",
+   "words": 814,
+   "minutes": 5,
+   "source": "ms-sec",
+   "url": "https://github.com/microsoft/Security-101/blob/b0a31ff7ebb9983d24bcdc6a38a4d008e6e89d0c/3.2%20Networking%20zero%20trust%20architecture.md",
+   "toc": [
+    {
+     "id": "what-is-network-segmentation",
+     "text": "What is network segmentation?",
+     "level": 2
+    },
+    {
+     "id": "how-does-network-segmentation-help-implement-zero-trust",
+     "text": "How does network segmentation help implement zero trust?",
+     "level": 2
+    },
+    {
+     "id": "what-is-end-to-end-encryption",
+     "text": "What is end-to-end encryption?",
+     "level": 2
+    },
+    {
+     "id": "what-is-sase",
+     "text": "What is SASE?",
+     "level": 2
+    },
+    {
+     "id": "further-reading",
+     "text": "Further reading",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "linux_networking-10",
+   "title": "Network security capabilities",
+   "words": 542,
+   "minutes": 3,
+   "source": "ms-sec",
+   "url": "https://github.com/microsoft/Security-101/blob/b0a31ff7ebb9983d24bcdc6a38a4d008e6e89d0c/3.3%20Network%20security%20capabilities.md",
+   "toc": [
+    {
+     "id": "traditional-firewalls",
+     "text": "Traditional Firewalls",
+     "level": 2
+    },
+    {
+     "id": "web-application-firewalls",
+     "text": "Web Application Firewalls",
+     "level": 2
+    },
+    {
+     "id": "cloud-security-groups",
+     "text": "Cloud security groups",
+     "level": 2
+    },
+    {
+     "id": "content-delivery-network-cdn",
+     "text": "Content Delivery Network (CDN)",
+     "level": 2
+    },
+    {
+     "id": "load-balancers",
+     "text": "Load Balancers",
+     "level": 2
+    },
+    {
+     "id": "bastion-hosts",
+     "text": "Bastion Hosts",
+     "level": 2
+    },
+    {
+     "id": "virtual-private-networks-vpns",
+     "text": "Virtual Private Networks (VPNs)",
+     "level": 2
+    },
+    {
+     "id": "ddos-protection-tooling",
+     "text": "DDoS protection tooling",
+     "level": 2
+    },
+    {
+     "id": "further-reading",
+     "text": "Further reading",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "linux_networking-11",
+   "title": "Using HTTPS",
+   "words": 496,
+   "minutes": 3,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/technology/using-https",
+   "toc": [
+    {
+     "id": "configuring-hsts",
+     "text": "Configuring HSTS",
+     "level": 2
+    },
+    {
+     "id": "serving-your-assets-efficiently",
+     "text": "Serving your assets efficiently",
+     "level": 2
+    },
+    {
+     "id": "further-reading",
+     "text": "Further reading",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [],
+  "pass_mark": 0,
+  "missing": true
+ },
+ "minutes": 116,
+ "sources": [
+  {
+   "id": "govuk-sm",
+   "name": "GOV.UK Service Manual",
+   "url": "https://www.gov.uk/service-manual",
+   "license": "Open Government Licence v3.0",
+   "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+   "attribution": "Contains public sector information licensed under the Open Government Licence v3.0",
+   "noncommercial": false
+  },
+  {
+   "id": "ms-sec",
+   "name": "Microsoft · Security 101",
+   "url": "https://github.com/microsoft/Security-101",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attribution": "Microsoft Security-101, dedicated to the public domain (CC0)",
+   "noncommercial": false
+  },
+  {
+   "id": "swc-shell",
+   "name": "Software Carpentry · The Unix Shell",
+   "url": "https://swcarpentry.github.io/shell-novice/",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "© The Carpentries, CC BY 4.0",
+   "noncommercial": false
+  }
+ ]
+}

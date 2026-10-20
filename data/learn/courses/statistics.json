@@ -1,0 +1,1142 @@
+{
+ "title": "Statistics Fundamentals",
+ "subtitle": "Describe data, reason with probability and draw sound conclusions from samples.",
+ "level": "Beginner",
+ "outcomes": [
+  "Collect data with sound sampling and study design",
+  "Summarise data with tables, graphs, centre and spread",
+  "Use probability and the normal distribution",
+  "Build confidence intervals, run hypothesis tests and fit a regression line"
+ ],
+ "skill": "statistics",
+ "modules": [
+  {
+   "title": "Data and sampling",
+   "lessons": [
+    "statistics-01",
+    "statistics-02",
+    "statistics-03",
+    "statistics-04",
+    "statistics-05"
+   ]
+  },
+  {
+   "title": "Describing data",
+   "lessons": [
+    "statistics-06",
+    "statistics-07",
+    "statistics-08",
+    "statistics-09",
+    "statistics-10",
+    "statistics-11"
+   ]
+  },
+  {
+   "title": "Probability and distributions",
+   "lessons": [
+    "statistics-12",
+    "statistics-13",
+    "statistics-14",
+    "statistics-15"
+   ]
+  },
+  {
+   "title": "Inference",
+   "lessons": [
+    "statistics-16",
+    "statistics-17",
+    "statistics-18",
+    "statistics-19",
+    "statistics-20"
+   ]
+  },
+  {
+   "title": "Relationships between variables",
+   "lessons": [
+    "statistics-21",
+    "statistics-22",
+    "statistics-23",
+    "statistics-24"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "statistics-01",
+   "title": "Introduction to Statistics and Key Terms",
+   "words": 1425,
+   "minutes": 8,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/introduction/",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "the-study-of-statistics",
+     "text": "The Study of Statistics",
+     "level": 2
+    },
+    {
+     "id": "probability",
+     "text": "Probability",
+     "level": 2
+    },
+    {
+     "id": "key-terms",
+     "text": "Key Terms",
+     "level": 2
+    },
+    {
+     "id": "image-references",
+     "text": "Image References",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "statistics-02",
+   "title": "Data Basics",
+   "words": 1376,
+   "minutes": 7,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/types-of-data/",
+   "toc": [
+    {
+     "id": "types-of-data",
+     "text": "Types of Data",
+     "level": 2
+    },
+    {
+     "id": "levels-of-measurement",
+     "text": "Levels of Measurement",
+     "level": 2
+    },
+    {
+     "id": "variation-in-data",
+     "text": "Variation in Data",
+     "level": 2
+    },
+    {
+     "id": "data-analysis",
+     "text": "Data Analysis",
+     "level": 2
+    },
+    {
+     "id": "image-references",
+     "text": "Image References",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "statistics-03",
+   "title": "Data Collection and Observational Studies",
+   "words": 983,
+   "minutes": 5,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/observational-studies/",
+   "toc": [
+    {
+     "id": "data-collection-methods",
+     "text": "Data Collection Methods",
+     "level": 2
+    },
+    {
+     "id": "anecdotal-evidence",
+     "text": "Anecdotal Evidence",
+     "level": 2
+    },
+    {
+     "id": "observational-studies",
+     "text": "Observational Studies",
+     "level": 2
+    },
+    {
+     "id": "image-references",
+     "text": "Image References",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "statistics-04",
+   "title": "Designed Experiments",
+   "words": 1703,
+   "minutes": 9,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/experimental-design-and-ethics/",
+   "toc": [
+    {
+     "id": "observational-studies-vs-experiments",
+     "text": "Observational Studies vs. Experiments",
+     "level": 2
+    },
+    {
+     "id": "randomization",
+     "text": "Randomization",
+     "level": 2
+    },
+    {
+     "id": "replication",
+     "text": "Replication",
+     "level": 2
+    },
+    {
+     "id": "control",
+     "text": "Control",
+     "level": 2
+    },
+    {
+     "id": "more-experimental-design",
+     "text": "More Experimental Design",
+     "level": 2
+    },
+    {
+     "id": "completely-randomized",
+     "text": "Completely Randomized",
+     "level": 2
+    },
+    {
+     "id": "block-design",
+     "text": "Block Design",
+     "level": 2
+    },
+    {
+     "id": "matched-pairs",
+     "text": "Matched Pairs",
+     "level": 2
+    },
+    {
+     "id": "image-references",
+     "text": "Image References",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "statistics-05",
+   "title": "Sampling Techniques and Ethics",
+   "words": 3291,
+   "minutes": 17,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/data-sampling-and-variation-in-data-and-sampling/",
+   "toc": [
+    {
+     "id": "sampling",
+     "text": "Sampling",
+     "level": 2
+    },
+    {
+     "id": "simple-random-sampling",
+     "text": "Simple Random Sampling",
+     "level": 2
+    },
+    {
+     "id": "other-sampling-techniques",
+     "text": "Other Sampling Techniques",
+     "level": 2
+    },
+    {
+     "id": "sampling-and-replacement",
+     "text": "Sampling and Replacement",
+     "level": 2
+    },
+    {
+     "id": "bias-in-samples",
+     "text": "Bias in Samples",
+     "level": 2
+    },
+    {
+     "id": "variation-in-samples",
+     "text": "Variation in Samples",
+     "level": 2
+    },
+    {
+     "id": "size-of-a-sample",
+     "text": "Size of a Sample",
+     "level": 2
+    },
+    {
+     "id": "critical-evaluation",
+     "text": "Critical Evaluation",
+     "level": 2
+    },
+    {
+     "id": "ethics",
+     "text": "Ethics",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "statistics-06",
+   "title": "Introduction to Descriptive Statistics and Frequency Tables",
+   "words": 1782,
+   "minutes": 9,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/frequency-frequency-tables-and-levels-of-measurement/",
+   "toc": [
+    {
+     "id": "descriptive-statistics",
+     "text": "Descriptive Statistics",
+     "level": 2
+    },
+    {
+     "id": "frequency-tables",
+     "text": "Frequency Tables",
+     "level": 2
+    },
+    {
+     "id": "relative-frequencies",
+     "text": "Relative Frequencies",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "statistics-07",
+   "title": "Displaying and Describing Categorical Data",
+   "words": 1671,
+   "minutes": 9,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/displaying-categorical-data/",
+   "toc": [
+    {
+     "id": "descriptive-statistics-for-categorical-data",
+     "text": "Descriptive Statistics for Categorical Data",
+     "level": 2
+    },
+    {
+     "id": "graphical-methods-for-categorical-data",
+     "text": "Graphical Methods for Categorical Data",
+     "level": 2
+    },
+    {
+     "id": "pie-charts",
+     "text": "Pie Charts",
+     "level": 2
+    },
+    {
+     "id": "bar-graphs",
+     "text": "Bar Graphs",
+     "level": 2
+    },
+    {
+     "id": "pie-vs-bar-charts",
+     "text": "Pie vs. Bar Charts",
+     "level": 2
+    },
+    {
+     "id": "percentages-that-add-to-more-or-less-than-100",
+     "text": "Percentages That Add to More (or Less) than 100%",
+     "level": 2
+    },
+    {
+     "id": "omitting-categories-missing-data",
+     "text": "Omitting Categories/Missing Data",
+     "level": 2
+    },
+    {
+     "id": "bar-graph-with-other-unknown-category",
+     "text": "Bar Graph with Other/Unknown Category",
+     "level": 2
+    },
+    {
+     "id": "pie-charts-no-missing-data",
+     "text": "Pie Charts: No Missing Data",
+     "level": 2
+    },
+    {
+     "id": "describing-categorical-data",
+     "text": "Describing Categorical Data",
+     "level": 2
+    },
+    {
+     "id": "mode",
+     "text": "Mode",
+     "level": 2
+    },
+    {
+     "id": "variability",
+     "text": "Variability",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "statistics-08",
+   "title": "Displaying Quantitative Data",
+   "words": 2659,
+   "minutes": 14,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/histograms-frequency-polygons-and-time-series-graphs/",
+   "toc": [
+    {
+     "id": "descriptive-statistics-for-quantitative-data",
+     "text": "Descriptive Statistics for Quantitative Data",
+     "level": 2
+    },
+    {
+     "id": "graphical-methods-for-quantitative-data",
+     "text": "Graphical Methods for Quantitative Data",
+     "level": 2
+    },
+    {
+     "id": "stem-and-leaf-plots",
+     "text": "Stem-And-Leaf Plots",
+     "level": 2
+    },
+    {
+     "id": "comparisons-with-stem-and-leaf-plots",
+     "text": "Comparisons with Stem-and-Leaf Plots",
+     "level": 2
+    },
+    {
+     "id": "line-graphs",
+     "text": "Line Graphs",
+     "level": 2
+    },
+    {
+     "id": "dot-plots",
+     "text": "Dot Plots",
+     "level": 2
+    },
+    {
+     "id": "histograms",
+     "text": "Histograms",
+     "level": 2
+    },
+    {
+     "id": "frequency-polygons",
+     "text": "Frequency Polygons",
+     "level": 2
+    },
+    {
+     "id": "time-series-plots",
+     "text": "Time Series Plots",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "statistics-09",
+   "title": "Measures of Center",
+   "words": 1891,
+   "minutes": 10,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/measures-of-the-center-of-the-data/",
+   "toc": [
+    {
+     "id": "the-mean",
+     "text": "The Mean",
+     "level": 2
+    },
+    {
+     "id": "the-median",
+     "text": "The Median",
+     "level": 2
+    },
+    {
+     "id": "the-mode",
+     "text": "The Mode",
+     "level": 2
+    },
+    {
+     "id": "order-relationship-of-measures-of-center",
+     "text": "Order Relationship of Measures of Center",
+     "level": 2
+    },
+    {
+     "id": "calculating-the-mean-of-grouped-frequency-tables",
+     "text": "Calculating the Mean of Grouped Frequency Tables",
+     "level": 2
+    },
+    {
+     "id": "image-references",
+     "text": "Image References",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "statistics-10",
+   "title": "Measures of Spread",
+   "words": 2464,
+   "minutes": 13,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/measures-of-the-spread-of-the-data/",
+   "toc": [
+    {
+     "id": "the-interquartile-range",
+     "text": "The Interquartile Range",
+     "level": 2
+    },
+    {
+     "id": "the-s-tandard-deviation",
+     "text": "The Standard Deviation",
+     "level": 2
+    },
+    {
+     "id": "calculating-the-standard-deviation",
+     "text": "Calculating the Standard Deviation",
+     "level": 2
+    },
+    {
+     "id": "formulas",
+     "text": "Formulas",
+     "level": 3
+    },
+    {
+     "id": "the-standard-deviation-in-context",
+     "text": "The Standard Deviation in Context",
+     "level": 2
+    },
+    {
+     "id": "z-scores",
+     "text": "Z-scores",
+     "level": 2
+    },
+    {
+     "id": "identifying-unusual-values-with-the-standard-deviation",
+     "text": "Identifying Unusual Values with the Standard Deviation",
+     "level": 2
+    },
+    {
+     "id": "chebyshev-s-rule",
+     "text": "Chebyshev’s Rule",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "statistics-11",
+   "title": "Measures of Location and Outliers",
+   "words": 3008,
+   "minutes": 16,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/measures-of-the-location-of-the-data/",
+   "toc": [
+    {
+     "id": "percentiles",
+     "text": "Percentiles",
+     "level": 2
+    },
+    {
+     "id": "finding-the-kth-percentile-of-a-distribution",
+     "text": "Finding the kth Percentile of a Distribution",
+     "level": 2
+    },
+    {
+     "id": "finding-the-percentile-of-a-value-in-a-data-set",
+     "text": "Finding the Percentile of a Value in a Data Set",
+     "level": 2
+    },
+    {
+     "id": "quartiles",
+     "text": "Quartiles",
+     "level": 2
+    },
+    {
+     "id": "the-median",
+     "text": "The Median",
+     "level": 2
+    },
+    {
+     "id": "finding-quartiles",
+     "text": "Finding Quartiles",
+     "level": 2
+    },
+    {
+     "id": "interpreting-percentiles-quartiles-and-median",
+     "text": "Interpreting Percentiles, Quartiles, and Median",
+     "level": 2
+    },
+    {
+     "id": "five-number-summary",
+     "text": "Five Number Summary",
+     "level": 2
+    },
+    {
+     "id": "interquartile-range",
+     "text": "Interquartile Range",
+     "level": 2
+    },
+    {
+     "id": "fence-rule",
+     "text": "Fence Rule",
+     "level": 2
+    },
+    {
+     "id": "box-plots",
+     "text": "Box Plots",
+     "level": 2
+    },
+    {
+     "id": "image-references",
+     "text": "Image References",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "statistics-12",
+   "title": "Introduction to Probability and Terminology",
+   "words": 2857,
+   "minutes": 15,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/terminology/",
+   "toc": [
+    {
+     "id": "probability",
+     "text": "Probability",
+     "level": 2
+    },
+    {
+     "id": "the-law-of-large-numbers",
+     "text": "The Law of Large Numbers",
+     "level": 2
+    },
+    {
+     "id": "the-classical-approach-to-probability",
+     "text": "The Classical Approach to Probability",
+     "level": 2
+    },
+    {
+     "id": "the-axioms-of-probability",
+     "text": "The Axioms of Probability",
+     "level": 2
+    },
+    {
+     "id": "relationships-between-events",
+     "text": "Relationships Between Events",
+     "level": 2
+    },
+    {
+     "id": "mutually-exclusive",
+     "text": "Mutually exclusive",
+     "level": 3
+    },
+    {
+     "id": "independent-events",
+     "text": "Independent events",
+     "level": 3
+    },
+    {
+     "id": "compound-events",
+     "text": "Compound Events",
+     "level": 2
+    },
+    {
+     "id": "compliments",
+     "text": "Compliments",
+     "level": 3
+    },
+    {
+     "id": "unions",
+     "text": "Unions",
+     "level": 3
+    },
+    {
+     "id": "intersections",
+     "text": "Intersections",
+     "level": 3
+    },
+    {
+     "id": "conditional-probabilities",
+     "text": "Conditional Probabilities",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "statistics-13",
+   "title": "Compound Events",
+   "words": 1979,
+   "minutes": 10,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/compound-events/",
+   "toc": [
+    {
+     "id": "finding-probabilities-of-unions",
+     "text": "Finding Probabilities of Unions",
+     "level": 2
+    },
+    {
+     "id": "for-two-mutually-exclusive-events",
+     "text": "For Two Mutually Exclusive Events",
+     "level": 2
+    },
+    {
+     "id": "for-two-non-mutually-exclusive-events",
+     "text": "For Two Non-Mutually Exclusive Events",
+     "level": 2
+    },
+    {
+     "id": "applying-the-addition-rule-to-multiple-events",
+     "text": "Applying the Addition Rule to Multiple Events",
+     "level": 2
+    },
+    {
+     "id": "more-than-two-mutually-exclusive-events",
+     "text": "More Than Two Mutually Exclusive Events",
+     "level": 2
+    },
+    {
+     "id": "more-than-two-non-mutually-exclusive-events",
+     "text": "More Than Two Non-Mutually Exclusive Events",
+     "level": 2
+    },
+    {
+     "id": "finding-probabilities-of-intersections",
+     "text": "Finding Probabilities of Intersections",
+     "level": 2
+    },
+    {
+     "id": "finding-a-conditional-probability",
+     "text": "Finding a Conditional Probability",
+     "level": 2
+    },
+    {
+     "id": "conditional-probabilities-for-two-independent-events",
+     "text": "Conditional Probabilities for Two Independent Events",
+     "level": 2
+    },
+    {
+     "id": "the-multiplication-rule-for-two-independent-events",
+     "text": "The Multiplication Rule for Two Independent Events",
+     "level": 2
+    },
+    {
+     "id": "showing-independence-of-two-events",
+     "text": "Showing Independence of Two Events",
+     "level": 2
+    },
+    {
+     "id": "applying-the-multiplication-rule-to-multiple-events",
+     "text": "Applying the Multiplication Rule to Multiple Events",
+     "level": 2
+    },
+    {
+     "id": "more-than-two-independent-events",
+     "text": "More than two independent events",
+     "level": 3
+    },
+    {
+     "id": "more-than-two-dependent-events",
+     "text": "More than two dependent events",
+     "level": 3
+    },
+    {
+     "id": "image-references",
+     "text": "Image References",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "statistics-14",
+   "title": "The Binomial Distribution",
+   "words": 1558,
+   "minutes": 8,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/binomial-distribution/",
+   "toc": [
+    {
+     "id": "the-binomial-setting",
+     "text": "The Binomial Setting",
+     "level": 2
+    },
+    {
+     "id": "notation-for-the-binomial",
+     "text": "Notation for the Binomial",
+     "level": 2
+    },
+    {
+     "id": "binomial-probability-function",
+     "text": "Binomial Probability Function",
+     "level": 2
+    },
+    {
+     "id": "measures-of-the-binomial-distribution",
+     "text": "Measures of the Binomial Distribution",
+     "level": 2
+    },
+    {
+     "id": "image-references",
+     "text": "Image References",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "statistics-15",
+   "title": "The Normal Distribution",
+   "words": 2150,
+   "minutes": 11,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/introduction-18/",
+   "toc": [
+    {
+     "id": "the-empirical-rule",
+     "text": "The Empirical Rule",
+     "level": 2
+    },
+    {
+     "id": "finding-normal-probabilities",
+     "text": "Finding Normal Probabilities",
+     "level": 2
+    },
+    {
+     "id": "the-standard-normal-distribution",
+     "text": "The Standard Normal Distribution",
+     "level": 2
+    },
+    {
+     "id": "the-standardizing-process",
+     "text": "The standardizing process",
+     "level": 2
+    },
+    {
+     "id": "the-un-standardizing-process",
+     "text": "The “un-standardizing” process",
+     "level": 2
+    },
+    {
+     "id": "image-references",
+     "text": "Image References",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "statistics-16",
+   "title": "Point Estimation and Sampling Distributions",
+   "words": 1271,
+   "minutes": 7,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/introduction-19/",
+   "toc": [
+    {
+     "id": "statistical-inference",
+     "text": "Statistical Inference",
+     "level": 2
+    },
+    {
+     "id": "point-estimation",
+     "text": "Point Estimation",
+     "level": 2
+    },
+    {
+     "id": "sampling-distributions",
+     "text": "Sampling Distributions",
+     "level": 2
+    },
+    {
+     "id": "unbiased-estimation",
+     "text": "Unbiased Estimation",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "statistics-17",
+   "title": "The Sampling Distribution of the Sample Mean (σ Known)",
+   "words": 1287,
+   "minutes": 7,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/the-central-limit-theorem-for-sample-means-averages/",
+   "toc": [
+    {
+     "id": "the-central-limit-theorem-for-a-sample-mean",
+     "text": "The Central Limit Theorem for a Sample Mean",
+     "level": 2
+    },
+    {
+     "id": "using-the-clt",
+     "text": "Using the CLT",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "statistics-18",
+   "title": "Introduction to Confidence Intervals",
+   "words": 1979,
+   "minutes": 10,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/introduction-20/",
+   "toc": [
+    {
+     "id": "confidence-intervals",
+     "text": "Confidence Intervals",
+     "level": 2
+    },
+    {
+     "id": "calculating-the-confidence-interval",
+     "text": "Calculating the Confidence Interval",
+     "level": 2
+    },
+    {
+     "id": "changing-the-confidence-level",
+     "text": "Changing the Confidence Level",
+     "level": 2
+    },
+    {
+     "id": "finding-the-critical-value",
+     "text": "Finding the Critical Value",
+     "level": 2
+    },
+    {
+     "id": "calculating-the-margin-of-error-moe",
+     "text": "Calculating the Margin of Error (MoE)",
+     "level": 2
+    },
+    {
+     "id": "constructing-the-confidence-interval",
+     "text": "Constructing the Confidence Interval",
+     "level": 2
+    },
+    {
+     "id": "writing-the-interpretation",
+     "text": "Writing the Interpretation",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "statistics-19",
+   "title": "Introduction to Hypothesis Tests",
+   "words": 1962,
+   "minutes": 10,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/null-and-alternative-hypotheses/",
+   "toc": [
+    {
+     "id": "defining-your-hypotheses",
+     "text": "Defining your hypotheses",
+     "level": 2
+    },
+    {
+     "id": "using-the-sample-to-test-the-null-hypothesis",
+     "text": "Using the Sample to Test the Null Hypothesis",
+     "level": 2
+    },
+    {
+     "id": "calculating-a-test-statistic",
+     "text": "Calculating a Test Statistic",
+     "level": 2
+    },
+    {
+     "id": "making-a-decision",
+     "text": "Making a Decision",
+     "level": 2
+    },
+    {
+     "id": "p-value-method",
+     "text": "P-Value Method",
+     "level": 2
+    },
+    {
+     "id": "decision-and-conclusion",
+     "text": "Decision and conclusion",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "statistics-20",
+   "title": "Hypothesis Tests In-Depth",
+   "words": 988,
+   "minutes": 5,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/outcomes-and-the-type-i-and-type-ii-errors/",
+   "toc": [
+    {
+     "id": "rare-events",
+     "text": "Rare Events",
+     "level": 2
+    },
+    {
+     "id": "errors-in-hypothesis-tests",
+     "text": "Errors in Hypothesis Tests",
+     "level": 2
+    },
+    {
+     "id": "statistical-significance-versus-practical-significance",
+     "text": "Statistical Significance Versus Practical Significance",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "statistics-21",
+   "title": "Introduction to Bivariate Data and Scatterplots",
+   "words": 1020,
+   "minutes": 6,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/scatter-plots/",
+   "toc": [
+    {
+     "id": "bivariate-data",
+     "text": "Bivariate Data",
+     "level": 2
+    },
+    {
+     "id": "scatterplots",
+     "text": "Scatterplots",
+     "level": 2
+    },
+    {
+     "id": "shape",
+     "text": "Shape",
+     "level": 2
+    },
+    {
+     "id": "trend",
+     "text": "Trend",
+     "level": 2
+    },
+    {
+     "id": "strength",
+     "text": "Strength",
+     "level": 2
+    },
+    {
+     "id": "image-references",
+     "text": "Image References",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "statistics-22",
+   "title": "Measures of Association",
+   "words": 771,
+   "minutes": 4,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/measures-of-association/",
+   "toc": [
+    {
+     "id": "the-correlation-coefficient-r",
+     "text": "The Correlation Coefficient, r",
+     "level": 2
+    },
+    {
+     "id": "the-coefficient-of-determination-r-2",
+     "text": "The Coefficient of Determination, r 2",
+     "level": 2
+    },
+    {
+     "id": "image-references",
+     "text": "Image References",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "statistics-23",
+   "title": "Modeling Linear Relationships",
+   "words": 1006,
+   "minutes": 6,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/the-regression-equation/",
+   "toc": [
+    {
+     "id": "linear-regression",
+     "text": "Linear Regression",
+     "level": 2
+    },
+    {
+     "id": "understanding-slope",
+     "text": "Understanding Slope",
+     "level": 2
+    },
+    {
+     "id": "understanding-the-y-intercept",
+     "text": "Understanding the Y-Intercept",
+     "level": 2
+    },
+    {
+     "id": "prediction",
+     "text": "Prediction",
+     "level": 2
+    },
+    {
+     "id": "image-references",
+     "text": "Image References",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "statistics-24",
+   "title": "Cautions about Regression",
+   "words": 2834,
+   "minutes": 15,
+   "source": "stats",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/chapter/outliers/",
+   "toc": [
+    {
+     "id": "linearity",
+     "text": "Linearity",
+     "level": 2
+    },
+    {
+     "id": "correlation-does-not-imply-causation",
+     "text": "Correlation Does Not Imply Causation",
+     "level": 2
+    },
+    {
+     "id": "extrapolation",
+     "text": "Extrapolation",
+     "level": 2
+    },
+    {
+     "id": "outliers-and-influential-points",
+     "text": "Outliers and Influential Points",
+     "level": 2
+    },
+    {
+     "id": "identifying-outliers-and-or-influential-points",
+     "text": "Identifying Outliers and/or Influential Points",
+     "level": 2
+    },
+    {
+     "id": "residuals",
+     "text": "Residuals",
+     "level": 2
+    },
+    {
+     "id": "more-on-influential-points",
+     "text": "More on Influential Points",
+     "level": 2
+    },
+    {
+     "id": "image-references",
+     "text": "Image References",
+     "level": 3
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [],
+  "pass_mark": 0,
+  "missing": true
+ },
+ "minutes": 231,
+ "sources": [
+  {
+   "id": "stats",
+   "name": "Significant Statistics (Virginia Tech)",
+   "url": "https://pressbooks.lib.vt.edu/introstatistics/",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "attribution": "John Morgan Russell, Virginia Tech Libraries, adapted from OpenStax Introductory Statistics, CC BY-SA 4.0",
+   "noncommercial": false
+  }
+ ]
+}

@@ -1,0 +1,166 @@
+<p>You must release updates to your software regularly so you:</p>
+<ul>
+<li>avoid making changes to one part of your software system that cause other parts to fail (these are known as ‘breaking changes’)</li>
+<li>have constant feedback from users: this will help you design and build your system in an iterative manner</li>
+<li>create a resilient and easy to change system</li>
+<li>reduce the risk of creating vulnerabilities in your system</li>
+</ul>
+<p>Your software release cycle should be based on how your team can support updates.</p>
+<p>Some teams release weekly, some release daily and some release constantly throughout the day.</p>
+<p>You’ll have to explain how you’re doing this at your <a href="https://www.gov.uk/service-manual/service-assessments" target="_blank" rel="noopener noreferrer">service assessments</a>.</p>
+<h2 id="principles-for-deploying-regularly">Principles for deploying regularly</h2>
+<p>When deploying software you need to:</p>
+<ul>
+<li>deploy little and often</li>
+<li>deploy quality software</li>
+<li>use auditable deployments</li>
+<li>use zero downtime deployments where possible</li>
+</ul>
+<h3 id="deploy-little-and-often">Deploy little and often</h3>
+<p>You should deploy software often and with small changes, so that:</p>
+<ul>
+<li>users benefit from new features or improvements quickly, instead of waiting months for an update</li>
+<li>users can give you feedback quicker, allowing you to iterate your software to meet their needs</li>
+<li>your team gets better at releasing because they do it often</li>
+<li>you identify bugs and cyber security issues more easily because fewer things are changing at the same time: this means they’re cheaper to fix</li>
+<li>you can react quickly to urgent fixes, such as security updates and last minute changes</li>
+<li>your team can move faster through the <a href="https://en.wikipedia.org/wiki/Lean_startup#Build-Measure-Learn" target="_blank" rel="noopener noreferrer">Build-Measure-Learn loop</a> needed for iterative development</li>
+</ul>
+<p>You should measure how long it takes for code changes to hit production so you are aware of how regular your deployment cycle is.</p>
+<h3 id="deploy-quality-software">Deploy quality software</h3>
+<p>To deploy quality software, make sure:</p>
+<ul>
+<li>deployments are consistent across environments: this gives you confidence that your testing is always relevant</li>
+<li>you automate the testing process of the software to routinely check for issues</li>
+</ul>
+<p>Deployment should be a low-risk process. By the time you’re deploying a new version of software into production, you should be sure it’ll work.</p>
+<p>To check the new version will work, you can:</p>
+<ul>
+<li>set up <a href="https://www.gov.uk/service-manual/technology/quality-assurance-testing-your-service-regularly#how-to-test" target="_blank" rel="noopener noreferrer">automated testing</a>
+</li>
+<li>deploy your software to staging servers first</li>
+<li>implement a <a href="https://www.security.gov.uk/policy-and-guidance/secure-by-design/activities/implementing-a-vulnerability-management-process/" target="_blank" rel="noopener noreferrer">vulnerability management process</a>
+</li>
+<li>use <a href="http://martinfowler.com/bliki/BlueGreenDeployment.html" target="_blank" rel="noopener noreferrer">blue green deployment mechanisms</a>
+</li>
+</ul>
+<p>Regular deployments which use the same tools and technologies repeatedly and reliably give you confidence that your deployment mechanism works. This is because you’re constantly testing deployment.</p>
+<h3 id="use-auditable-deployments">Use auditable deployments</h3>
+<p>To keep track of deployment history and get immediate feedback on your deployment, you should:</p>
+<ul>
+<li>know which version of your service is running in each environment at all times</li>
+<li>be able to trace changes back to the initial code commits in the source code repositories after a deployment hits production</li>
+</ul>
+<p>If you combine this approach with small and frequent releases, you can:</p>
+<ul>
+<li>narrow the source of any problems down to a small number of commits</li>
+<li>roll back to a previous version more easily</li>
+<li>confidently ‘roll forward’ with a code change to fix a production issue: you can be a lot more confident your fix will work if you’re making frequent releases</li>
+</ul>
+<h3 id="aim-for-zero-downtime-deployment">Aim for zero downtime deployment</h3>
+<p>Deployments that minimise or limit service disruption are known as zero downtime deployments.</p>
+<p>These can take place during the normal business day, which means staff do not have to work unsociable hours.</p>
+<p>Zero downtime deployments can:</p>
+<ul>
+<li>increase user satisfaction</li>
+<li>lower service operation costs: release windows are often in unsociable hours, and require hands-on skills from operations staff</li>
+<li>prevent difficulties when negotiating emergency releases - for example, for security or critical issues</li>
+</ul>
+<p>You may think that setting up your application to do zero downtime deployments involves lots of work, but downtime can cost you money. You should find out the cost of downtime for your service and decide if you can accept that cost.</p>
+<p><a href="http://continuousdelivery.com/" target="_blank" rel="noopener noreferrer">Find more information and resources about deployment.</a></p>
+<h2 id="how-to-deploy-regularly">How to deploy regularly</h2>
+<p>It’s easier to deploy software regularly if you:</p>
+<ul>
+<li>build a single artifact rather than variations for different environments</li>
+<li>have multiple deployment environments</li>
+<li>manage variable configuration</li>
+<li>secure passwords and keys</li>
+<li>use smoke tests: software tests that check if the most important functions are working</li>
+</ul>
+<h2 id="building-a-single-artifact">Building a single artifact</h2>
+<p>An artifact can be:</p>
+<ul>
+<li>the compiled binary and its dependencies</li>
+<li>a .jar file for JVM languages</li>
+<li>a compressed archive of the source: not including compilation artifacts</li>
+<li>an entire virtual machine image with the application pre-deployed</li>
+</ul>
+<p>You should try to build a <a href="https://en.wikipedia.org/wiki/Artifact_%28software_development%29" target="_blank" rel="noopener noreferrer">single application artifact</a> that’s deployed into each environment, from development machines through test into production.</p>
+<p>Having the same application artifact deployed everywhere means that you:</p>
+<ul>
+<li>can be confident the artifact is tested in the same way as in production</li>
+<li>have a single artifact to represent a deployment, meaning it’s auditable and easy to roll back or upgrade</li>
+</ul>
+<p>Teams often add debugging symbols, optimisations or test code solely to their pre-production environments. This makes it hard to have confidence in the artifact that will go to production.</p>
+<h3 id="managing-artifacts">Managing artifacts</h3>
+<p>You should keep all your artifacts in a central repository. Having one place for your artifacts allows you to:</p>
+<ul>
+<li>give your team access to a shared set of artifacts</li>
+<li>promote your artifacts across environments</li>
+<li>rollback or upgrade more easily</li>
+</ul>
+<p>You’ll need to host your repository yourself or choose a service to host it for you. For example, some teams at GDS use <a href="https://www.aptly.info/" target="_blank" rel="noopener noreferrer">Aptly</a> or <a href="https://www.sonatype.com/download-oss-sonatype" target="_blank" rel="noopener noreferrer">Nexus Repository OSS</a>.</p>
+<h2 id="multiple-deployment-environments">Multiple deployment environments</h2>
+<p>You should have multiple deployment environments so you can phase the rollout of your software and ensure it’s adequately tested.</p>
+<p>At the very least you need a:</p>
+<ul>
+<li>development environment running the latest version of the software</li>
+<li>production environment hosting live users</li>
+</ul>
+<p>You may also have a <a href="https://www.gov.uk/service-manual/technology/working-in-pre-production-environments" target="_blank" rel="noopener noreferrer">staging environment</a> prior to production, or environments dedicated to:</p>
+<ul>
+<li>exploratory testing</li>
+<li>user testing</li>
+<li>performance testing</li>
+<li>security testing</li>
+</ul>
+<h3 id="using-a-pipeline">Using a pipeline</h3>
+<p>You may choose to manage the deployment of your software to your environments using a pipeline.</p>
+<p>This will make sure a version of software is not deployed to a later environment before it has been deployed and tested at an earlier stage.</p>
+<p>For example, GOV.UK deploys to its staging environment first so the development team can be confident the software does what it should before it’s deployed to production.</p>
+<h3 id="deciding-which-environments-to-deploy">Deciding which environments to deploy</h3>
+<p>You also need to decide which of your environments you must deploy to in order to have confidence in your product. Emergency fixes can then skip unnecessary stages that are not part of the normal deployment pipeline so that development is not held up.</p>
+<p>For example, a product owner should not have to sign off a security fix in a user acceptance environment.</p>
+<p>The order of your environments does not have to be strictly linear - you can run some sets of software tests in parallel, for example user acceptance tests and performance tests.</p>
+<p>However, you may find there’s a single production environment that’s later than all others and a single entry point that precedes all others.</p>
+<h2 id="managing-variable-configuration">Managing variable configuration</h2>
+<p>To build a single artifact, your deployment mechanism should provide a way to inject configuration that varies between environments, like URLs of dependent services. For example, passwords and locations for external services like databases.</p>
+<p>Your application should follow the <a href="http://12factor.net/" target="_blank" rel="noopener noreferrer">12 factor principles</a> so that you can inject specific configuration for your environments.</p>
+<h2 id="securing-passwords-and-keys">Securing passwords and keys</h2>
+<p>To secure your software, you must take extra care when managing database passwords or TLS (Transport Layer Security) private keys. Make sure:</p>
+<ul>
+<li>confidential information cannot be accessed outside of the environment it’s intended for</li>
+<li>confidential information is known only by the machines that need to know it</li>
+</ul>
+<p>For example, in a 3-tier app with database, application and web servers:</p>
+<ul>
+<li>the database server does not need to know the TLS private keys for the site</li>
+<li>the web server does not need to know the database credentials</li>
+</ul>
+<p>Learn more about <a href="https://www.security.gov.uk/policy-and-guidance/secure-by-design/principles/" target="_blank" rel="noopener noreferrer">Secure by Design principles</a> for government services.</p>
+<h2 id="using-smoke-tests-after-you-deploy">Using smoke tests after you deploy</h2>
+<p>Once you’ve deployed your software, you should check whether it’s working as expected using a ‘smoke test’.</p>
+<p>If it’s not working, you can cancel or roll back the deployment.</p>
+<p>A good smoke test should:</p>
+<ul>
+<li>be simple and fast</li>
+<li>exercise the software and all its essential dependencies</li>
+<li>
+<a href="https://www.security.gov.uk/policy-and-guidance/secure-by-design/activities/discovering-vulnerabilities/" target="_blank" rel="noopener noreferrer">identify system vulnerabilities</a> and allow you to <a href="https://www.security.gov.uk/policy-and-guidance/secure-by-design/activities/assessing-the-effectiveness-of-security-controls/" target="_blank" rel="noopener noreferrer">assess the effectiveness of security controls</a>
+</li>
+</ul>
+<p>If your software needs a database to be present to operate effectively, your smoke test should exercise an application code path that will fail if the database is not present or returns an error.</p>
+<h3 id="if-a-smoke-test-fails">If a smoke test fails</h3>
+<p>You should plan what to do if a smoke test fails - the simplest option is to manually roll back to a previous version of the application.</p>
+<p>You could also have a system that automatically detects smoke test failures and cancels the deployment, or rolls back to the previous version.</p>
+<p>Ideally the system you have will not add the updated application to the production load balancer until it has been smoke tested and verified (if the application fails the smoke test, it’s discarded).</p>
+<p>This ensures no rollback is necessary, and no interruption in service happens. This works particularly well with the <a href="http://martinfowler.com/bliki/ImmutableServer.html" target="_blank" rel="noopener noreferrer">immutable server pattern.</a></p>
+<h2 id="get-help">Get help</h2>
+<p>Get in touch with the <a href="https://www.gov.uk/service-manual/communities/technology-community-web-operations" target="_blank" rel="noopener noreferrer">web operations community</a> directly to:</p>
+<ul>
+<li>discuss this page</li>
+<li>share ideas across government</li>
+<li>find support from teams that have worked on similar services</li>
+</ul>
+<h2 id="related-guides">Related guides</h2>
+<p>You may also find the <a href="https://www.gov.uk/service-manual/technology/uptime-and-availability-keeping-your-service-online" target="_blank" rel="noopener noreferrer">Uptime and availability</a> guide useful.</p>

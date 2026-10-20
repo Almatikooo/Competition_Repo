@@ -1,0 +1,1255 @@
+{
+ "title": "User-Centred Design",
+ "subtitle": "Research users, make sense of what you learn, design and test — with methods used by government digital teams.",
+ "level": "Beginner",
+ "outcomes": [
+  "Plan user research and run interviews and observation",
+  "Synthesise research with affinity maps, personas and journey maps",
+  "Sketch flows, wireframes and prototypes",
+  "Evaluate designs with usability tests and expert reviews"
+ ],
+ "skill": "ux_design",
+ "modules": [
+  {
+   "title": "Learning about users",
+   "lessons": [
+    "ux_design-01",
+    "ux_design-02",
+    "ux_design-03",
+    "ux_design-04"
+   ]
+  },
+  {
+   "title": "Discover",
+   "lessons": [
+    "ux_design-05",
+    "ux_design-06"
+   ]
+  },
+  {
+   "title": "Make sense of research",
+   "lessons": [
+    "ux_design-07",
+    "ux_design-08",
+    "ux_design-09",
+    "ux_design-10"
+   ]
+  },
+  {
+   "title": "Make",
+   "lessons": [
+    "ux_design-11",
+    "ux_design-12",
+    "ux_design-13",
+    "ux_design-14"
+   ]
+  },
+  {
+   "title": "Validate",
+   "lessons": [
+    "ux_design-15",
+    "ux_design-16",
+    "ux_design-17",
+    "ux_design-18"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "ux_design-01",
+   "title": "Learning about users and their needs",
+   "words": 925,
+   "minutes": 5,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/user-research/start-by-learning-user-needs",
+   "toc": [
+    {
+     "id": "understanding-user-needs",
+     "text": "Understanding user needs",
+     "level": 2
+    },
+    {
+     "id": "researching-users-and-their-needs",
+     "text": "Researching users and their needs",
+     "level": 2
+    },
+    {
+     "id": "when-to-research",
+     "text": "When to research",
+     "level": 3
+    },
+    {
+     "id": "how-to-research",
+     "text": "How to research",
+     "level": 3
+    },
+    {
+     "id": "who-to-research-with",
+     "text": "Who to research with",
+     "level": 3
+    },
+    {
+     "id": "writing-user-needs",
+     "text": "Writing user needs",
+     "level": 2
+    },
+    {
+     "id": "validating-user-needs",
+     "text": "Validating user needs",
+     "level": 2
+    },
+    {
+     "id": "share-your-user-needs",
+     "text": "Share your user needs",
+     "level": 2
+    },
+    {
+     "id": "linking-user-needs-to-user-stories",
+     "text": "Linking user needs to user stories",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ux_design-02",
+   "title": "Plan user research for your service",
+   "words": 1064,
+   "minutes": 6,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/user-research/plan-user-research-for-your-service",
+   "toc": [
+    {
+     "id": "decide-your-objectives-and-approach",
+     "text": "Decide your objectives and approach",
+     "level": 2
+    },
+    {
+     "id": "agree-research-questions",
+     "text": "Agree research questions",
+     "level": 3
+    },
+    {
+     "id": "identify-user-groups",
+     "text": "Identify user groups",
+     "level": 3
+    },
+    {
+     "id": "choose-relevant-research-activities",
+     "text": "Choose relevant research activities",
+     "level": 3
+    },
+    {
+     "id": "decide-your-recruitment-approach",
+     "text": "Decide your recruitment approach",
+     "level": 3
+    },
+    {
+     "id": "map-out-rounds-of-research",
+     "text": "Map out rounds of research",
+     "level": 2
+    },
+    {
+     "id": "focus-on-your-most-important-questions",
+     "text": "Focus on your most important questions",
+     "level": 3
+    },
+    {
+     "id": "work-out-participant-numbers",
+     "text": "Work out participant numbers",
+     "level": 3
+    },
+    {
+     "id": "be-inclusive",
+     "text": "Be inclusive",
+     "level": 3
+    },
+    {
+     "id": "book-ahead",
+     "text": "Book ahead",
+     "level": 3
+    },
+    {
+     "id": "involve-your-team",
+     "text": "Involve your team",
+     "level": 2
+    },
+    {
+     "id": "share-your-findings",
+     "text": "Share your findings",
+     "level": 2
+    },
+    {
+     "id": "examples-and-case-studies",
+     "text": "Examples and case studies",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ux_design-03",
+   "title": "Using in-depth interviews",
+   "words": 913,
+   "minutes": 5,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/user-research/using-in-depth-interviews",
+   "toc": [
+    {
+     "id": "when-to-use-in-depth-interviews",
+     "text": "When to use in-depth interviews",
+     "level": 2
+    },
+    {
+     "id": "steps-to-follow",
+     "text": "Steps to follow",
+     "level": 2
+    },
+    {
+     "id": "plan-the-sessions",
+     "text": "Plan the sessions",
+     "level": 3
+    },
+    {
+     "id": "design-the-interview",
+     "text": "Design the interview",
+     "level": 3
+    },
+    {
+     "id": "do-the-interview",
+     "text": "Do the interview",
+     "level": 3
+    },
+    {
+     "id": "after-the-interview",
+     "text": "After the interview",
+     "level": 3
+    },
+    {
+     "id": "examples-and-case-studies",
+     "text": "Examples and case studies",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ux_design-04",
+   "title": "Contextual research and observation",
+   "words": 1118,
+   "minutes": 6,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/user-research/contextual-research-and-observation",
+   "toc": [
+    {
+     "id": "when-to-do-contextual-research",
+     "text": "When to do contextual research",
+     "level": 2
+    },
+    {
+     "id": "steps-to-follow",
+     "text": "Steps to follow",
+     "level": 2
+    },
+    {
+     "id": "plan-the-research",
+     "text": "Plan the research",
+     "level": 3
+    },
+    {
+     "id": "design-the-visits",
+     "text": "Design the visits",
+     "level": 3
+    },
+    {
+     "id": "work-in-pairs",
+     "text": "Work in pairs",
+     "level": 3
+    },
+    {
+     "id": "create-a-discussion-guide",
+     "text": "Create a discussion guide",
+     "level": 3
+    },
+    {
+     "id": "do-the-research",
+     "text": "Do the research",
+     "level": 3
+    },
+    {
+     "id": "use-the-results",
+     "text": "Use the results",
+     "level": 3
+    },
+    {
+     "id": "examples-and-case-studies",
+     "text": "Examples and case studies",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ux_design-05",
+   "title": "Interviews and contextual inquiry",
+   "words": 652,
+   "minutes": 4,
+   "source": "18f",
+   "url": "https://github.com/18F/methods/blob/6628c6f090ff20ad32ae81e25f2743d33e82292d/_methods/stakeholder-and-user-interviews.md",
+   "toc": [
+    {
+     "id": "stakeholder-and-user-interviews",
+     "text": "Stakeholder and user interviews",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "additional-resources",
+     "text": "Additional resources",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    },
+    {
+     "id": "contextual-inquiry",
+     "text": "Contextual inquiry",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "example",
+     "text": "Example",
+     "level": 3
+    },
+    {
+     "id": "additional-resources",
+     "text": "Additional resources",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    },
+    {
+     "id": "recruiting",
+     "text": "Recruiting",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "ux_design-06",
+   "title": "Hopes, fears and five whys",
+   "words": 482,
+   "minutes": 3,
+   "source": "18f",
+   "url": "https://github.com/18F/methods/blob/6628c6f090ff20ad32ae81e25f2743d33e82292d/_methods/hopes-and-fears.md",
+   "toc": [
+    {
+     "id": "hopes-and-fears",
+     "text": "Hopes and fears",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "example",
+     "text": "Example",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    },
+    {
+     "id": "five-whys",
+     "text": "Five whys",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "ux_design-07",
+   "title": "Analyse a research session",
+   "words": 815,
+   "minutes": 5,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/user-research/analyse-a-research-session",
+   "toc": [
+    {
+     "id": "plan-analysis-sessions",
+     "text": "Plan analysis sessions",
+     "level": 2
+    },
+    {
+     "id": "extract-observations",
+     "text": "Extract observations",
+     "level": 2
+    },
+    {
+     "id": "capturing-observations-during-research-sessions",
+     "text": "Capturing observations during research sessions",
+     "level": 3
+    },
+    {
+     "id": "sort-observations",
+     "text": "Sort observations",
+     "level": 2
+    },
+    {
+     "id": "name-your-groups",
+     "text": "Name your groups",
+     "level": 3
+    },
+    {
+     "id": "determine-findings",
+     "text": "Determine findings",
+     "level": 2
+    },
+    {
+     "id": "decide-actions",
+     "text": "Decide actions",
+     "level": 2
+    },
+    {
+     "id": "share-your-findings",
+     "text": "Share your findings",
+     "level": 2
+    },
+    {
+     "id": "case-studies-and-examples",
+     "text": "Case studies and examples",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ux_design-08",
+   "title": "Affinity mapping and the KJ method",
+   "words": 366,
+   "minutes": 3,
+   "source": "18f",
+   "url": "https://github.com/18F/methods/blob/6628c6f090ff20ad32ae81e25f2743d33e82292d/_methods/affinity-mapping.md",
+   "toc": [
+    {
+     "id": "affinity-mapping",
+     "text": "Affinity mapping",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    },
+    {
+     "id": "kj-method",
+     "text": "KJ method",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "example-from-18f",
+     "text": "Example from 18F",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "ux_design-09",
+   "title": "Personas, journeys and mental models",
+   "words": 750,
+   "minutes": 4,
+   "source": "18f",
+   "url": "https://github.com/18F/methods/blob/6628c6f090ff20ad32ae81e25f2743d33e82292d/_methods/personas.md",
+   "toc": [
+    {
+     "id": "personas",
+     "text": "Personas",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "example",
+     "text": "Example",
+     "level": 3
+    },
+    {
+     "id": "additional-resources",
+     "text": "Additional resources",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    },
+    {
+     "id": "journey-mapping",
+     "text": "Journey mapping",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "additional-resources",
+     "text": "Additional resources",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    },
+    {
+     "id": "mental-modeling",
+     "text": "Mental modeling",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    },
+    {
+     "id": "user-scenarios",
+     "text": "User scenarios",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "additional-resources",
+     "text": "Additional resources",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "ux_design-10",
+   "title": "Creating an experience map",
+   "words": 743,
+   "minutes": 4,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/user-research/creating-an-experience-map",
+   "toc": [
+    {
+     "id": "when-to-use-experience-mapping",
+     "text": "When to use experience mapping",
+     "level": 2
+    },
+    {
+     "id": "steps-to-follow",
+     "text": "Steps to follow",
+     "level": 2
+    },
+    {
+     "id": "preparation",
+     "text": "Preparation",
+     "level": 3
+    },
+    {
+     "id": "identify-common-stages",
+     "text": "Identify common stages",
+     "level": 3
+    },
+    {
+     "id": "build-up-the-experience",
+     "text": "Build up the experience",
+     "level": 3
+    },
+    {
+     "id": "live-with-the-map",
+     "text": "Live with the map",
+     "level": 3
+    },
+    {
+     "id": "draw-a-detailed-map",
+     "text": "Draw a detailed map",
+     "level": 3
+    },
+    {
+     "id": "share-a-summary-map",
+     "text": "Share a summary map",
+     "level": 3
+    },
+    {
+     "id": "examples-of-experience-maps",
+     "text": "Examples of experience maps",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ux_design-11",
+   "title": "Structuring the experience",
+   "words": 509,
+   "minutes": 3,
+   "source": "18f",
+   "url": "https://github.com/18F/methods/blob/6628c6f090ff20ad32ae81e25f2743d33e82292d/_methods/task-flow-analysis.md",
+   "toc": [
+    {
+     "id": "task-flow-analysis",
+     "text": "Task flow analysis",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "additional-resources",
+     "text": "Additional resources",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    },
+    {
+     "id": "site-mapping",
+     "text": "Site mapping",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    },
+    {
+     "id": "card-sorting",
+     "text": "Card sorting",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "example-from-18f",
+     "text": "Example from 18F",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "ux_design-12",
+   "title": "Wireframes and prototypes",
+   "words": 610,
+   "minutes": 4,
+   "source": "18f",
+   "url": "https://github.com/18F/methods/blob/6628c6f090ff20ad32ae81e25f2743d33e82292d/_methods/design-studio.md",
+   "toc": [
+    {
+     "id": "design-studio",
+     "text": "Design studio",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "example-from-18f",
+     "text": "Example from 18F",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    },
+    {
+     "id": "wireframing",
+     "text": "Wireframing",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    },
+    {
+     "id": "prototyping",
+     "text": "Prototyping",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    },
+    {
+     "id": "style-tiles",
+     "text": "Style tiles",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "ux_design-13",
+   "title": "Making prototypes",
+   "words": 676,
+   "minutes": 4,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/design/making-prototypes",
+   "toc": [
+    {
+     "id": "when-to-use-prototypes",
+     "text": "When to use prototypes",
+     "level": 2
+    },
+    {
+     "id": "types-of-prototype",
+     "text": "Types of prototype",
+     "level": 2
+    },
+    {
+     "id": "using-code-prototypes",
+     "text": "Using code prototypes",
+     "level": 2
+    },
+    {
+     "id": "using-the-gov-uk-prototype-kit",
+     "text": "Using the GOV.UK Prototype Kit",
+     "level": 3
+    },
+    {
+     "id": "sharing-code-prototypes",
+     "text": "Sharing code prototypes",
+     "level": 2
+    },
+    {
+     "id": "publishing-on-the-web",
+     "text": "Publishing on the web",
+     "level": 3
+    },
+    {
+     "id": "using-code-collaboration-software",
+     "text": "Using code collaboration software",
+     "level": 3
+    },
+    {
+     "id": "testing-your-prototypes",
+     "text": "Testing your prototypes",
+     "level": 2
+    },
+    {
+     "id": "further-reading",
+     "text": "Further reading",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ux_design-14",
+   "title": "Writing for user interfaces",
+   "words": 1128,
+   "minutes": 6,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/design/writing-for-user-interfaces",
+   "toc": [
+    {
+     "id": "think-about-alternatives-before-you-add-more-words",
+     "text": "Think about alternatives before you add more words",
+     "level": 2
+    },
+    {
+     "id": "keep-copy-short-and-direct",
+     "text": "Keep copy short and direct",
+     "level": 2
+    },
+    {
+     "id": "tone",
+     "text": "Tone",
+     "level": 2
+    },
+    {
+     "id": "do-not-exclude-anyone",
+     "text": "Do not exclude anyone",
+     "level": 2
+    },
+    {
+     "id": "style",
+     "text": "Style",
+     "level": 2
+    },
+    {
+     "id": "headings-and-title",
+     "text": "Headings and <title>",
+     "level": 3
+    },
+    {
+     "id": "pronouns-we-you-me-my",
+     "text": "Pronouns (we, you, me, my)",
+     "level": 3
+    },
+    {
+     "id": "capitalisation-and-punctuation",
+     "text": "Capitalisation and punctuation",
+     "level": 3
+    },
+    {
+     "id": "contractions-abbreviations-and-acronyms",
+     "text": "Contractions, abbreviations and acronyms",
+     "level": 3
+    },
+    {
+     "id": "urls",
+     "text": "URLs",
+     "level": 2
+    },
+    {
+     "id": "legal-content",
+     "text": "Legal content",
+     "level": 2
+    },
+    {
+     "id": "further-reading",
+     "text": "Further reading",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ux_design-15",
+   "title": "Using moderated usability testing",
+   "words": 1327,
+   "minutes": 7,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/user-research/using-moderated-usability-testing",
+   "toc": [
+    {
+     "id": "when-to-use-moderated-usability-testing",
+     "text": "When to use moderated usability testing",
+     "level": 2
+    },
+    {
+     "id": "steps-to-follow",
+     "text": "Steps to follow",
+     "level": 2
+    },
+    {
+     "id": "plan-the-sessions",
+     "text": "Plan the sessions",
+     "level": 3
+    },
+    {
+     "id": "design-the-tasks",
+     "text": "Design the tasks",
+     "level": 3
+    },
+    {
+     "id": "run-a-session",
+     "text": "Run a session",
+     "level": 3
+    },
+    {
+     "id": "testing-with-personal-data",
+     "text": "Testing with personal data",
+     "level": 2
+    },
+    {
+     "id": "using-dummy-data",
+     "text": "Using dummy data",
+     "level": 3
+    },
+    {
+     "id": "researching-with-assistive-technologies",
+     "text": "Researching with assistive technologies",
+     "level": 2
+    },
+    {
+     "id": "understanding-assistive-technologies",
+     "text": "Understanding assistive technologies",
+     "level": 3
+    },
+    {
+     "id": "examples-and-case-studies",
+     "text": "Examples and case studies",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ux_design-16",
+   "title": "Testing with users",
+   "words": 715,
+   "minutes": 4,
+   "source": "18f",
+   "url": "https://github.com/18F/methods/blob/6628c6f090ff20ad32ae81e25f2743d33e82292d/_methods/usability-testing.md",
+   "toc": [
+    {
+     "id": "usability-testing",
+     "text": "Usability testing",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "examples-from-18f",
+     "text": "Examples from 18F",
+     "level": 3
+    },
+    {
+     "id": "additional-resources",
+     "text": "Additional resources",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    },
+    {
+     "id": "visual-preference-testing",
+     "text": "Visual preference testing",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    },
+    {
+     "id": "multivariate-testing",
+     "text": "Multivariate testing",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "ux_design-17",
+   "title": "Expert reviews",
+   "words": 644,
+   "minutes": 4,
+   "source": "18f",
+   "url": "https://github.com/18F/methods/blob/6628c6f090ff20ad32ae81e25f2743d33e82292d/_methods/heuristic-evaluation.md",
+   "toc": [
+    {
+     "id": "heuristic-evaluation",
+     "text": "Heuristic evaluation",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "additional-resources",
+     "text": "Additional resources",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    },
+    {
+     "id": "cognitive-walkthrough",
+     "text": "Cognitive walkthrough",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    },
+    {
+     "id": "content-audit",
+     "text": "Content audit",
+     "level": 2
+    },
+    {
+     "id": "how-to-do-it",
+     "text": "How to do it",
+     "level": 3
+    },
+    {
+     "id": "example",
+     "text": "Example",
+     "level": 3
+    },
+    {
+     "id": "additional-resources",
+     "text": "Additional resources",
+     "level": 3
+    },
+    {
+     "id": "considerations-for-use-in-government",
+     "text": "Considerations for use in government",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "ux_design-18",
+   "title": "Making your service accessible: an introduction",
+   "words": 1422,
+   "minutes": 8,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/helping-people-to-use-your-service/making-your-service-accessible-an-introduction",
+   "toc": [
+    {
+     "id": "how-to-meet-government-accessibility-requirements",
+     "text": "How to meet government accessibility requirements",
+     "level": 2
+    },
+    {
+     "id": "think-about-accessibility-from-the-start",
+     "text": "Think about accessibility from the start",
+     "level": 2
+    },
+    {
+     "id": "budget-for-accessibility",
+     "text": "Budget for accessibility",
+     "level": 3
+    },
+    {
+     "id": "accessibility-is-the-whole-team-s-job",
+     "text": "Accessibility is the whole team’s job",
+     "level": 2
+    },
+    {
+     "id": "do-research-with-disabled-users",
+     "text": "Do research with disabled users",
+     "level": 2
+    },
+    {
+     "id": "what-to-do-about-accessibility-in-discovery",
+     "text": "What to do about accessibility in discovery",
+     "level": 2
+    },
+    {
+     "id": "what-to-do-about-accessibility-in-alpha",
+     "text": "What to do about accessibility in alpha",
+     "level": 2
+    },
+    {
+     "id": "what-to-do-about-accessibility-in-beta",
+     "text": "What to do about accessibility in beta",
+     "level": 2
+    },
+    {
+     "id": "test-for-accessibility",
+     "text": "Test for accessibility",
+     "level": 3
+    },
+    {
+     "id": "get-an-accessibility-audit",
+     "text": "Get an accessibility audit",
+     "level": 3
+    },
+    {
+     "id": "publish-an-accessibility-statement",
+     "text": "Publish an accessibility statement",
+     "level": 3
+    },
+    {
+     "id": "what-to-do-about-accessibility-in-live",
+     "text": "What to do about accessibility in live",
+     "level": 2
+    },
+    {
+     "id": "make-non-digital-parts-of-your-service-accessible",
+     "text": "Make non-digital parts of your service accessible",
+     "level": 2
+    },
+    {
+     "id": "further-reading",
+     "text": "Further reading",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [],
+  "pass_mark": 0,
+  "missing": true
+ },
+ "minutes": 85,
+ "sources": [
+  {
+   "id": "18f",
+   "name": "18F Methods (U.S. GSA)",
+   "url": "https://methods.18f.gov/",
+   "license": "Public domain (CC0)",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attribution": "18F, U.S. General Services Administration — public domain",
+   "noncommercial": false
+  },
+  {
+   "id": "govuk-sm",
+   "name": "GOV.UK Service Manual",
+   "url": "https://www.gov.uk/service-manual",
+   "license": "Open Government Licence v3.0",
+   "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+   "attribution": "Contains public sector information licensed under the Open Government Licence v3.0",
+   "noncommercial": false
+  }
+ ]
+}

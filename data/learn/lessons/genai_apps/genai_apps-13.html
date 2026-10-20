@@ -1,0 +1,110 @@
+<p><a href="https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K" target="_blank" rel="noopener noreferrer"><img alt="How to Design Good AI Agents" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ai-agents-for-beginners/9923c54bcc2df67e7119945e12cd2d45944da2f6/03-agentic-design-patterns/images/lesson-3-thumbnail.png"></a></p>
+<blockquote>
+
+</blockquote>
+
+<h2 id="introduction">Introduction</h2>
+<p>There are many ways to think about building AI Agentic Systems. Given that ambiguity is a feature and not a bug in Generative AI design, it’s sometimes difficult for engineers to figure out where to even start. We have created a set of human-centric UX Design Principles to enable developers to build customer-centric agentic systems to solve their business needs. These design principles are not a prescriptive architecture but rather a starting point for teams who are defining and building out agent experiences.</p>
+<p>In general, agents should:</p>
+<ul>
+<li>Broaden and scale human capacities (brainstorming, problem-solving, automation, etc.)</li>
+<li>Fill in knowledge gaps (get me up-to-speed on knowledge domains, translation, etc.)</li>
+<li>Facilitate and support collaboration in the ways we as individuals prefer to work with others</li>
+<li>Make us better versions of ourselves (e.g., life coach/task master, helping us learn emotional regulation and mindfulness skills, building resilience, etc.)</li>
+</ul>
+<h2 id="this-lesson-will-cover">This Lesson Will Cover</h2>
+<ul>
+<li>What are the Agentic Design Principles</li>
+<li>What are some guidelines to follow while implementing these design principles</li>
+<li>What are some examples of using the design principles</li>
+</ul>
+<h2 id="learning-goals">Learning Goals</h2>
+<p>After completing this lesson, you will be able to:</p>
+<ol>
+<li>Explain what the Agentic Design Principles are</li>
+<li>Explain the guidelines for using the Agentic Design Principles</li>
+<li>Understand how to build an agent using the Agentic Design Principles</li>
+</ol>
+<h2 id="the-agentic-design-principles">The Agentic Design Principles</h2>
+<p><img alt="Agentic Design Principles" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ai-agents-for-beginners/9923c54bcc2df67e7119945e12cd2d45944da2f6/03-agentic-design-patterns/images/agentic-design-principles.png"></p>
+<h3 id="agent-space">Agent (Space)</h3>
+<p>This is the environment in which the agent operates. These principles inform how we design agents for engaging in physical and digital worlds.</p>
+<ul>
+<li><strong>Connecting, not collapsing</strong> – help connect people to other people, events, and actionable knowledge to enable collaboration and connection.</li>
+<li>Agents help connect events, knowledge, and people.</li>
+<li>Agents bring people closer together. They are not designed to replace or belittle people.</li>
+<li><strong>Easily accessible yet occasionally invisible</strong> – agent largely operates in the background and only nudges us when it is relevant and appropriate.
+<ul>
+<li>Agent is easily discoverable and accessible for authorized users on any device or platform.</li>
+<li>Agent supports multimodal inputs and outputs (sound, voice, text, etc.).</li>
+<li>Agent can seamlessly transition between foreground and background; between proactive and reactive, depending on its sensing of user needs.</li>
+<li>Agent may operate in invisible form, yet its background process path and collaboration with other Agents are transparent to and controllable by the user.</li>
+</ul>
+</li>
+</ul>
+<h3 id="agent-time">Agent (Time)</h3>
+<p>This is how the agent operates over time. These principles inform how we design agents interacting across the past, present, and future.</p>
+<ul>
+<li><strong>Past</strong>: Reflecting on history that includes both state and context.
+<ul>
+<li>Agent provides more relevant results based on analysis of richer historical data beyond only the event, people, or states.</li>
+<li>Agent creates connections from past events and actively reflects on memory to engage with current situations.</li>
+</ul>
+</li>
+<li><strong>Now</strong>: Nudging more than notifying.
+<ul>
+<li>Agent embodies a comprehensive approach to interacting with people. When an event happens, the Agent goes beyond static notification or other static formality. Agent can simplify flows or dynamically generate cues to direct the user’s attention at the right moment.</li>
+<li>Agent delivers information based on contextual environment, social and cultural changes and tailored to user intent.</li>
+<li>Agent interaction can be gradual, evolving/growing in complexity to empower users over the long term.</li>
+</ul>
+</li>
+<li><strong>Future</strong>: Adapting and evolving.
+<ul>
+<li>Agent adapts to various devices, platforms, and modalities.</li>
+<li>Agent adapts to user behavior, accessibility needs, and is freely customizable.</li>
+<li>Agent is shaped by and evolves through continuous user interaction.</li>
+</ul>
+</li>
+</ul>
+<h3 id="agent-core">Agent (Core)</h3>
+<p>These are the key elements in the core of an agent’s design.</p>
+<ul>
+<li><strong>Embrace uncertainty but establish trust</strong>.
+<ul>
+<li>A certain level of Agent uncertainty is expected. Uncertainty is a key element of agent design.</li>
+<li>Trust and transparency are foundational layers of Agent design.</li>
+<li>Humans are in control of when the Agent is on/off and Agent status is clearly visible at all times.</li>
+</ul>
+</li>
+</ul>
+<h2 id="the-guidelines-to-implement-these-principles">The Guidelines to Implement These Principles</h2>
+<p>When you’re using the previous design principles, use the following guidelines:</p>
+<ol>
+<li><strong>Transparency</strong>: Inform the user that AI is involved, how it functions (including past actions), and how to give feedback and modify the system.</li>
+<li><strong>Control</strong>: Enable the user to customize, specify preferences and personalize, and have control over the system and its attributes (including the ability to forget).</li>
+<li><strong>Consistency</strong>: Aim for consistent, multi-modal experiences across devices and endpoints. Use familiar UI/UX elements where possible (e.g., microphone icon for voice interaction) and reduce the customer’s cognitive load as much as possible (e.g., aim for concise responses, visual aids, and ‘Learn More’ content).</li>
+</ol>
+<h2 id="how-to-design-a-travel-agent-using-these-principles-and-guid">How To Design a Travel Agent using These Principles and Guidelines</h2>
+<p>Imagine you are designing a Travel Agent, here is how you could think about using the Design Principles and Guidelines:</p>
+<ol>
+<li><strong>Transparency</strong> – Let the user know that the Travel Agent is an AI-enabled Agent. Provide some basic instructions on how to get started (e.g., a “Hello” message, sample prompts). Clearly document this on the product page. Show the list of prompts a user has asked in the past. Make it clear how to give feedback (thumbs up and down, Send Feedback button, etc.). Clearly articulate if the Agent has usage or topic restrictions.</li>
+<li><strong>Control</strong> – Make sure it’s clear how the user can modify the Agent after it’s been created with things like the System Prompt. Enable the user to choose how verbose the Agent is, its writing style, and any caveats on what the Agent should not talk about. Allow the user to view and delete any associated files or data, prompts, and past conversations.</li>
+<li><strong>Consistency</strong> – Make sure the icons for Share Prompt, add a file or photo and tag someone or something are standard and recognizable. Use the paperclip icon to indicate file upload/sharing with the Agent, and an image icon to indicate graphics upload.</li>
+</ol>
+<h2 id="sample-codes">Sample Codes</h2>
+<ul>
+<li>Python: <a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/03-agentic-design-patterns/code_samples/03-python-agent-framework.ipynb" target="_blank" rel="noopener noreferrer">Agent Framework</a></li>
+<li>.NET: <a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.md" target="_blank" rel="noopener noreferrer">Agent Framework</a></li>
+</ul>
+<h2 id="got-more-questions-about-ai-agentic-design-patterns">Got More Questions about AI Agentic Design Patterns?</h2>
+<p>Join the <a href="https://discord.com/invite/ATgtXmAS5D" target="_blank" rel="noopener noreferrer">Microsoft Foundry Discord</a> to meet with other learners, attend office hours and get your AI Agents questions answered.</p>
+<h2 id="additional-resources">Additional Resources</h2>
+<ul>
+<li><a href="https://openai.com" target="_blank" rel="noopener noreferrer">Practices for Governing Agentic AI Systems | OpenAI</a></li>
+<li><a href="https://microsoft.com" target="_blank" rel="noopener noreferrer">The HAX Toolkit Project - Microsoft Research</a></li>
+<li><a href="https://responsibleaitoolbox.ai" target="_blank" rel="noopener noreferrer">Responsible AI Toolbox</a></li>
+</ul>
+<h2 id="previous-lesson">Previous Lesson</h2>
+<p><a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/02-explore-agentic-frameworks/README.md" target="_blank" rel="noopener noreferrer">Exploring Agentic Frameworks</a></p>
+<h2 id="next-lesson">Next Lesson</h2>
+<p><a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/04-tool-use/README.md" target="_blank" rel="noopener noreferrer">Tool Use Design Pattern</a></p>

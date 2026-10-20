@@ -1,0 +1,331 @@
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th><img alt=" Sketchnote by (@sketchthedocs) " loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/sketchnotes/12-Visualizing-Relationships.png"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Visualizing Relationships - <em>Sketchnote by <a href="https://twitter.com/nitya" target="_blank" rel="noopener noreferrer">@nitya</a></em></td>
+</tr>
+</tbody>
+</table></div>
+<p>Continuing with the nature focus of our research, let's discover interesting visualizations to show the relationships between various types of honey, according to a dataset derived from the <a href="https://www.nass.usda.gov/About_NASS/index.php" target="_blank" rel="noopener noreferrer">United States Department of Agriculture</a>.</p>
+<p>This dataset of about 600 items displays honey production in many U.S. states. So, for example, you can look at the number of colonies, yield per colony, total production, stocks, price per pound, and value of the honey produced in a given state from 1998-2012, with one row per year for each state.</p>
+<p>It will be interesting to visualize the relationship between a given state's production per year and, for example, the price of honey in that state. Alternately, you could visualize the relationship between states' honey yield per colony. This year span covers the devastating 'CCD' or 'Colony Collapse Disorder' first seen in 2006 (http://npic.orst.edu/envir/ccd.html), so it is a poignant dataset to study. 🐝</p>
+
+<p>In this lesson, you can use Seaborn, which you have used before, as a good library to visualize relationships between variables. Particularly interesting is the use of Seaborn's <code>relplot</code> function that allows scatter plots and line plots to quickly visualize '<a href="https://seaborn.pydata.org/tutorial/relational.html?highlight=relationships" target="_blank" rel="noopener noreferrer">statistical relationships</a>', which allow the data scientist to better understand how variables relate to each other.</p>
+<h2 id="scatterplots">Scatterplots</h2>
+<p>Use a scatterplot to show how the price of honey has evolved, year over year, per state. Seaborn, using <code>relplot</code>, conveniently groups the state data and displays data points for both categorical and numeric data.</p>
+<p>Let's start by importing the data and Seaborn:</p>
+<pre><code class="language-python">import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+honey = pd.read_csv('../../data/honey.csv')
+honey.head()
+</code></pre>
+<p>You notice that the honey data has several interesting columns, including year and price per pound. Let's explore this data, grouped by U.S. state:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>state</th>
+<th>numcol</th>
+<th>yieldpercol</th>
+<th>totalprod</th>
+<th>stocks</th>
+<th>priceperlb</th>
+<th>prodvalue</th>
+<th>year</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AL</td>
+<td>16000</td>
+<td>71</td>
+<td>1136000</td>
+<td>159000</td>
+<td>0.72</td>
+<td>818000</td>
+<td>1998</td>
+</tr>
+<tr>
+<td>AZ</td>
+<td>55000</td>
+<td>60</td>
+<td>3300000</td>
+<td>1485000</td>
+<td>0.64</td>
+<td>2112000</td>
+<td>1998</td>
+</tr>
+<tr>
+<td>AR</td>
+<td>53000</td>
+<td>65</td>
+<td>3445000</td>
+<td>1688000</td>
+<td>0.59</td>
+<td>2033000</td>
+<td>1998</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>450000</td>
+<td>83</td>
+<td>37350000</td>
+<td>12326000</td>
+<td>0.62</td>
+<td>23157000</td>
+<td>1998</td>
+</tr>
+<tr>
+<td>CO</td>
+<td>27000</td>
+<td>72</td>
+<td>1944000</td>
+<td>1594000</td>
+<td>0.7</td>
+<td>1361000</td>
+<td>1998</td>
+</tr>
+</tbody>
+</table></div>
+<p>Create a basic scatterplot to show the relationship between the price per pound of honey and its U.S. state of origin. Make the <code>y</code> axis tall enough to display all the states:</p>
+<pre><code class="language-python">sns.relplot(x="priceperlb", y="state", data=honey, height=15, aspect=.5);
+</code></pre>
+<p><img alt="scatterplot 1" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/12-visualization-relationships/images/scatter1.png"></p>
+<p>Now, show the same data with a honey color scheme to show how the price evolves over the years. You can do this by adding a 'hue' parameter to show the change, year over year:</p>
+<blockquote>
+<p>✅ Learn more about the <a href="https://seaborn.pydata.org/tutorial/color_palettes.html" target="_blank" rel="noopener noreferrer">color palettes you can use in Seaborn</a> - try a beautiful rainbow color scheme!</p>
+</blockquote>
+<pre><code class="language-python">sns.relplot(x="priceperlb", y="state", hue="year", palette="YlOrBr", data=honey, height=15, aspect=.5);
+</code></pre>
+<p><img alt="scatterplot 2" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/12-visualization-relationships/images/scatter2.png"></p>
+<p>With this color scheme change, you can see that there's obviously a strong progression over the years in terms of honey price per pound. Indeed, if you look at a sample set in the data to verify (pick a given state, Arizona for example) you can see a pattern of price increases year over year, with few exceptions:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>state</th>
+<th>numcol</th>
+<th>yieldpercol</th>
+<th>totalprod</th>
+<th>stocks</th>
+<th>priceperlb</th>
+<th>prodvalue</th>
+<th>year</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AZ</td>
+<td>55000</td>
+<td>60</td>
+<td>3300000</td>
+<td>1485000</td>
+<td>0.64</td>
+<td>2112000</td>
+<td>1998</td>
+</tr>
+<tr>
+<td>AZ</td>
+<td>52000</td>
+<td>62</td>
+<td>3224000</td>
+<td>1548000</td>
+<td>0.62</td>
+<td>1999000</td>
+<td>1999</td>
+</tr>
+<tr>
+<td>AZ</td>
+<td>40000</td>
+<td>59</td>
+<td>2360000</td>
+<td>1322000</td>
+<td>0.73</td>
+<td>1723000</td>
+<td>2000</td>
+</tr>
+<tr>
+<td>AZ</td>
+<td>43000</td>
+<td>59</td>
+<td>2537000</td>
+<td>1142000</td>
+<td>0.72</td>
+<td>1827000</td>
+<td>2001</td>
+</tr>
+<tr>
+<td>AZ</td>
+<td>38000</td>
+<td>63</td>
+<td>2394000</td>
+<td>1197000</td>
+<td>1.08</td>
+<td>2586000</td>
+<td>2002</td>
+</tr>
+<tr>
+<td>AZ</td>
+<td>35000</td>
+<td>72</td>
+<td>2520000</td>
+<td>983000</td>
+<td>1.34</td>
+<td>3377000</td>
+<td>2003</td>
+</tr>
+<tr>
+<td>AZ</td>
+<td>32000</td>
+<td>55</td>
+<td>1760000</td>
+<td>774000</td>
+<td>1.11</td>
+<td>1954000</td>
+<td>2004</td>
+</tr>
+<tr>
+<td>AZ</td>
+<td>36000</td>
+<td>50</td>
+<td>1800000</td>
+<td>720000</td>
+<td>1.04</td>
+<td>1872000</td>
+<td>2005</td>
+</tr>
+<tr>
+<td>AZ</td>
+<td>30000</td>
+<td>65</td>
+<td>1950000</td>
+<td>839000</td>
+<td>0.91</td>
+<td>1775000</td>
+<td>2006</td>
+</tr>
+<tr>
+<td>AZ</td>
+<td>30000</td>
+<td>64</td>
+<td>1920000</td>
+<td>902000</td>
+<td>1.26</td>
+<td>2419000</td>
+<td>2007</td>
+</tr>
+<tr>
+<td>AZ</td>
+<td>25000</td>
+<td>64</td>
+<td>1600000</td>
+<td>336000</td>
+<td>1.26</td>
+<td>2016000</td>
+<td>2008</td>
+</tr>
+<tr>
+<td>AZ</td>
+<td>20000</td>
+<td>52</td>
+<td>1040000</td>
+<td>562000</td>
+<td>1.45</td>
+<td>1508000</td>
+<td>2009</td>
+</tr>
+<tr>
+<td>AZ</td>
+<td>24000</td>
+<td>77</td>
+<td>1848000</td>
+<td>665000</td>
+<td>1.52</td>
+<td>2809000</td>
+<td>2010</td>
+</tr>
+<tr>
+<td>AZ</td>
+<td>23000</td>
+<td>53</td>
+<td>1219000</td>
+<td>427000</td>
+<td>1.55</td>
+<td>1889000</td>
+<td>2011</td>
+</tr>
+<tr>
+<td>AZ</td>
+<td>22000</td>
+<td>46</td>
+<td>1012000</td>
+<td>253000</td>
+<td>1.79</td>
+<td>1811000</td>
+<td>2012</td>
+</tr>
+</tbody>
+</table></div>
+<p>Another way to visualize this progression is to use size, rather than color. For colorblind users, this might be a better option. Edit your visualization to show an increase of price by an increase in dot circumference:</p>
+<pre><code class="language-python">sns.relplot(x="priceperlb", y="state", size="year", data=honey, height=15, aspect=.5);
+</code></pre>
+<p>You can see the size of the dots gradually increasing.</p>
+<p><img alt="scatterplot 3" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/12-visualization-relationships/images/scatter3.png"></p>
+<p>Is this a simple case of supply and demand? Due to factors such as climate change and colony collapse, is there less honey available for purchase year over year, and thus the price increases?</p>
+<p>To discover a correlation between some of the variables in this dataset, let's explore some line charts.</p>
+<h2 id="line-charts">Line charts</h2>
+<p>Question: Is there a clear rise in price of honey per pound year over year? You can most easily discover that by creating a single line chart:</p>
+<pre><code class="language-python">sns.relplot(x="year", y="priceperlb", kind="line", data=honey);
+</code></pre>
+<p>Answer: Yes, with some exceptions around the year 2003:</p>
+<p><img alt="line chart 1" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/12-visualization-relationships/images/line1.png"></p>
+<p>✅ Because Seaborn is aggregating data around one line, it displays "the multiple measurements at each x value by plotting the mean and the 95% confidence interval around the mean". <a href="https://seaborn.pydata.org/tutorial/relational.html" target="_blank" rel="noopener noreferrer">Source</a>. This time-consuming behavior can be disabled by adding <code>ci=None</code>.</p>
+<p>Question: Well, in 2003 can we also see a spike in the honey supply? What if you look at total production year over year?</p>
+<pre><code class="language-python">sns.relplot(x="year", y="totalprod", kind="line", data=honey);
+</code></pre>
+<p><img alt="line chart 2" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/12-visualization-relationships/images/line2.png"></p>
+<p>Answer: Not really. If you look at total production, it actually seems to have increased in that particular year, even though generally speaking the amount of honey being produced is in decline during these years.</p>
+<p>Question: In that case, what could have caused that spike in the price of honey around 2003?</p>
+<p>To discover this, you can explore a facet grid.</p>
+<h2 id="facet-grids">Facet grids</h2>
+<p>Facet grids take one facet of your dataset (in our case, you can choose 'year' to avoid having too many facets produced). Seaborn can then make a plot for each of those facets of your chosen x and y coordinates for more easy visual comparison. Does 2003 stand out in this type of comparison?</p>
+<p>Create a facet grid by continuing to use <code>relplot</code> as recommended by <a href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.html?highlight=facetgrid#seaborn.FacetGrid" target="_blank" rel="noopener noreferrer">Seaborn's documentation</a>.</p>
+<pre><code class="language-python">sns.relplot(
+    data=honey, 
+    x="yieldpercol", y="numcol",
+    col="year", 
+    col_wrap=3,
+    kind="line"
+    )
+</code></pre>
+<p>In this visualization, you can compare the yield per colony and number of colonies year over year, side by side with a wrap set at 3 for the columns:</p>
+<p><img alt="facet grid" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/12-visualization-relationships/images/facet.png"></p>
+<p>For this dataset, nothing particularly stands out with regards to the number of colonies and their yield, year over year and state over state. Is there a different way to look at finding a correlation between these two variables?</p>
+<h2 id="dual-line-plots">Dual-line Plots</h2>
+<p>Try a multiline plot by superimposing two lineplots on top of each other, using Seaborn's 'despine' to remove their top and right spines, and using <code>ax.twinx</code> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.twinx.html" target="_blank" rel="noopener noreferrer">derived from Matplotlib</a>. Twinx allows a chart to share the x axis and display two y axes. So, display the yield per colony and number of colonies, superimposed:</p>
+<pre><code class="language-python">fig, ax = plt.subplots(figsize=(12,6))
+lineplot = sns.lineplot(x=honey['year'], y=honey['numcol'], data=honey, 
+                        label = 'Number of bee colonies', legend=False)
+sns.despine()
+plt.ylabel('# colonies')
+plt.title('Honey Production Year over Year');
+
+ax2 = ax.twinx()
+lineplot2 = sns.lineplot(x=honey['year'], y=honey['yieldpercol'], ax=ax2, color="r", 
+                         label ='Yield per colony', legend=False) 
+sns.despine(right=False)
+plt.ylabel('colony yield')
+ax.figure.legend();
+</code></pre>
+<p><img alt="superimposed plots" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/12-visualization-relationships/images/dual-line.png"></p>
+<p>While nothing jumps out to the eye around the year 2003, it does allow us to end this lesson on a little happier note: while there are overall a declining number of colonies, the number of colonies is stabilizing even if their yield per colony is decreasing.</p>
+<p>Go, bees, go!</p>
+<p>🐝❤️</p>
+<h2 id="challenge">🚀 Challenge</h2>
+<p>In this lesson, you learned a bit more about other uses of scatterplots and line grids, including facet grids. Challenge yourself to create a facet grid using a different dataset, maybe one you used prior to these lessons. Note how long they take to create and how you need to be careful about how many grids you need to draw using these techniques.</p>
+
+<h2 id="review-self-study">Review &amp; Self Study</h2>
+<p>Line plots can be simple or quite complex. Do a bit of reading in the <a href="https://seaborn.pydata.org/generated/seaborn.lineplot.html" target="_blank" rel="noopener noreferrer">Seaborn documentation</a> on the various ways you can build them. Try to enhance the line charts you built in this lesson with other methods listed in the docs.</p>

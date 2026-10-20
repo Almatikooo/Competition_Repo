@@ -1,0 +1,290 @@
+{
+ "courses": [
+  {
+   "skill": "communication",
+   "summary": "Communicate clearly at work: business communication basics, active listening and presenting to a group.",
+   "lessons": [
+    {"id": "communication-1", "title": "Communication at work", "wiki": "Business communication",
+     "why": "Clear communication is valued in every job, and it matters more as AI handles routine tasks and people handle the conversations.",
+     "try": "Rewrite a long email you sent recently so the main request is in the first sentence."},
+    {"id": "communication-2", "title": "Active listening", "wiki": "Active listening",
+     "why": "Listening carefully prevents costly misunderstandings with colleagues and customers, and builds trust.",
+     "try": "In your next conversation, summarise what the other person said before you reply, and ask if you got it right."},
+    {"id": "communication-3", "title": "Public speaking", "wiki": "Public speaking",
+     "why": "Presenting ideas confidently helps you lead meetings, train others and win support for your work.",
+     "try": "Prepare a two-minute talk on a topic you know, with one slide, and practise it out loud."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Business communication takes place…", "options": ["only by letter", "internally between employees and externally with other businesses and consumers", "only between managers", "only in writing"], "answer": 1, "explain": "It happens internally and externally, verbally and non-verbally."},
+    {"lesson": 1, "q": "What can stop a receiver from understanding a message?", "options": ["Using clear words", "Asking questions", "Communication barriers", "Listening carefully"], "answer": 2, "explain": "Barriers can prevent the receiver from understanding the sender."},
+    {"lesson": 2, "q": "The goal of active listening is to…", "options": ["eliminate misunderstandings and establish clear communication", "talk as much as possible", "interrupt the speaker", "avoid eye contact"], "answer": 0, "explain": "Active listening aims to remove misunderstandings between speaker and listener."},
+    {"lesson": 2, "q": "Research shows that active listening…", "options": ["makes meetings longer", "reduces trust", "has no effect", "promotes trust and reduces misunderstandings"], "answer": 3, "explain": "The lesson cites research showing it promotes trust."},
+    {"lesson": 3, "q": "Which three types of speech did Aristotle identify?", "options": ["Short, medium and long", "Deliberative, forensic and epideictic", "Formal, informal and casual", "Written, spoken and sung"], "answer": 1, "explain": "Political, judicial and ceremonial speeches: deliberative, forensic and epideictic."}
+   ]
+  },
+  {
+   "skill": "customer_service",
+   "summary": "Deliver great service in the AI era: customer service basics, customer experience and working with chatbots.",
+   "lessons": [
+    {"id": "customer_service-1", "title": "Customer service", "wiki": "Customer service",
+     "why": "As AI handles routine questions, people in service roles focus on complex and emotional cases — skills that keep their value.",
+     "try": "Write down the three customer questions you answer most often and the one that needs the most human judgement."},
+    {"id": "customer_service-2", "title": "Customer experience", "wiki": "Customer experience",
+     "why": "Customer experience covers every stage of contact, so improving one step can change how customers feel about the whole organisation.",
+     "try": "Map the steps a customer goes through with your organisation, from first contact to after the purchase."},
+    {"id": "customer_service-3", "title": "Chatbots", "wiki": "Chatbot",
+     "why": "Chatbots now answer many routine questions, so knowing how they work helps you design good hand-offs to people.",
+     "try": "Use a company's website chatbot and note the moment it should have handed you over to a person."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Good-quality customer service is usually measured through…", "options": ["the number of emails sent", "office size", "customer retention", "advertising spend"], "answer": 2, "explain": "The lesson says service quality is usually measured through customer retention."},
+    {"lesson": 1, "q": "According to the lesson, how are generative AI and automation changing customer contact work?", "options": ["They resolve routine inquiries, so people focus on complex, emotionally nuanced cases", "They have no effect", "They remove all customer service", "They only answer phone calls"], "answer": 0, "explain": "Routine tier-1 work shrinks while human work concentrates on complex and escalated cases."},
+    {"lesson": 2, "q": "Customer experience (CX) covers…", "options": ["only the payment step", "only complaints", "only advertising", "all stages of interaction: before, during and after purchase"], "answer": 3, "explain": "CX includes pre-purchase, consumption and post-purchase."},
+    {"lesson": 3, "q": "A chatbot is…", "options": ["a call-centre telephone", "software designed to converse through text or speech", "a type of printer", "a delivery robot"], "answer": 1, "explain": "A chatbot functions as a conversation partner through text or speech."},
+    {"lesson": 3, "q": "Modern generative AI chatbots typically use…", "options": ["fine-tuned large language models", "punched cards", "spreadsheets", "fax machines"], "answer": 0, "explain": "GenAI chatbots use fine-tuned LLMs to generate text."}
+   ]
+  },
+  {
+   "skill": "project_mgmt",
+   "summary": "Deliver work on time and on budget: project management basics, Scrum and Kanban boards.",
+   "lessons": [
+    {"id": "project_mgmt-1", "title": "Project management", "wiki": "Project management",
+     "why": "Every change project — new systems, AI tools, process improvements — needs someone to keep scope, time and budget on track.",
+     "try": "For a small project you know, write its scope, deadline and budget in one sentence each."},
+    {"id": "project_mgmt-2", "title": "Scrum", "wiki": "Scrum (project management)",
+     "why": "Scrum is widely used in tech and beyond. Knowing sprints, stand-ups and retrospectives helps you join agile teams.",
+     "try": "Plan a two-week sprint for a small goal: list the tasks and how you would review them at the end."},
+    {"id": "project_mgmt-3", "title": "Kanban boards", "wiki": "Kanban board",
+     "why": "A Kanban board makes work visible, so bottlenecks stand out and the team avoids taking on too much.",
+     "try": "Set up a three-column board — To do, Doing, Done — for your tasks this week."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "What are the primary constraints in project management?", "options": ["Colour, font and layout", "Scope, time and budget", "Weather, traffic and noise", "Hardware, software and cables"], "answer": 1, "explain": "Scope, time and budget are the primary constraints."},
+    {"lesson": 2, "q": "In Scrum, work is completed within time-boxed iterations called…", "options": ["marathons", "chapters", "sprints", "shifts"], "answer": 2, "explain": "Sprints last no longer than a month and commonly two weeks."},
+    {"lesson": 2, "q": "How long can a daily scrum last at most?", "options": ["15 minutes", "1 hour", "3 hours", "A full day"], "answer": 0, "explain": "Daily scrums are time-boxed stand-ups of up to 15 minutes."},
+    {"lesson": 2, "q": "Which meeting at the end of a sprint is the team's internal reflection?", "options": ["The annual general meeting", "The job interview", "The product launch", "The sprint retrospective"], "answer": 3, "explain": "The sprint review is for stakeholders; the retrospective is internal."},
+    {"lesson": 3, "q": "On a Kanban board, cards represent…", "options": ["employees' salaries", "work items, moved across columns as they progress", "customer complaints only", "office furniture"], "answer": 1, "explain": "Cards are work items; columns are the stages of the process."}
+   ]
+  },
+  {
+   "skill": "leadership",
+   "summary": "Lead people well: what leadership is, how coaching develops others, and why emotional intelligence matters.",
+   "lessons": [
+    {"id": "leadership-1", "title": "Leadership", "wiki": "Leadership",
+     "why": "Leadership exists at every level, not only in management titles, and it grows in value as teams adapt to AI.",
+     "try": "Recall a time you influenced a group decision without being the boss. What did you do?"},
+    {"id": "leadership-2", "title": "Coaching", "wiki": "Coaching",
+     "why": "Coaching helps colleagues reach specific goals — a key part of helping a team learn new tools and ways of working.",
+     "try": "Agree one specific goal with a colleague who is learning something new, and plan a short weekly check-in."},
+    {"id": "leadership-3", "title": "Emotional intelligence", "wiki": "Emotional intelligence",
+     "why": "Recognising and managing emotions — your own and other people's — helps you handle pressure, conflict and change.",
+     "try": "After a difficult conversation, write down what you felt, what the other person probably felt, and what you would do differently."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Leadership is the ability to…", "options": ["work alone", "avoid decisions", "influence or guide other individuals, teams or organisations", "only give orders"], "answer": 2, "explain": "Leadership is about influencing or guiding others."},
+    {"lesson": 1, "q": "Some researchers argue that leadership is found…", "options": ["at all levels of institutions, in formal and informal roles", "only in chief executives", "only in the military", "only in politics"], "answer": 0, "explain": "They challenge the view that leadership belongs to one person's role or authority."},
+    {"lesson": 2, "q": "Coaching differs from mentoring by focusing on…", "options": ["general life goals only", "social events", "salary negotiations", "specific tasks or objectives"], "answer": 3, "explain": "Mentoring covers broader development; coaching targets specific goals."},
+    {"lesson": 3, "q": "Emotional intelligence is the ability to…", "options": ["solve maths problems quickly", "perceive, use, understand, manage and handle emotions", "memorise long texts", "type quickly"], "answer": 1, "explain": "EI covers recognising and managing emotions in yourself and others."},
+    {"lesson": 3, "q": "Which 1995 bestseller popularised emotional intelligence?", "options": ["Emotional Intelligence by Daniel Goleman", "Applied Imagination by Alex Osborn", "Thinking, Fast and Slow", "The Lean Startup"], "answer": 0, "explain": "Daniel Goleman's 1995 book made the term popular."}
+   ]
+  },
+  {
+   "skill": "analytical_thinking",
+   "summary": "Think clearly about problems: critical thinking, root cause analysis and the five whys.",
+   "lessons": [
+    {"id": "analytical_thinking-1", "title": "Critical thinking", "wiki": "Critical thinking",
+     "why": "Analytical thinking is one of the skills employers value most, and checking AI outputs makes it even more important.",
+     "try": "Take one claim from a recent news story or report and list the evidence for and against it."},
+    {"id": "analytical_thinking-2", "title": "Root cause analysis", "wiki": "Root cause analysis",
+     "why": "Fixing the root cause stops a problem from coming back, instead of patching symptoms again and again.",
+     "try": "Pick a recurring problem at work and write a timeline from normal operation to the moment it occurred."},
+    {"id": "analytical_thinking-3", "title": "The five whys", "wiki": "Five whys",
+     "why": "The five whys is a quick, low-cost way to dig below the obvious answer in a team discussion.",
+     "try": "Run the five whys on a small problem, such as \"the report was late\", and write down each answer."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Critical thinking is the process of…", "options": ["accepting the first answer you hear", "analysing facts, evidence and arguments to reach sound conclusions", "criticising other people", "memorising facts"], "answer": 1, "explain": "It analyses facts and arguments to reach sound conclusions or informed choices."},
+    {"lesson": 1, "q": "According to Richard W. Paul, critical thinking…", "options": ["is purely innate", "cannot be improved", "can be learned or trained", "is only for philosophers"], "answer": 2, "explain": "He argued critical thinking and analysis are competencies that can be learned."},
+    {"lesson": 2, "q": "Root cause analysis is used to…", "options": ["identify the root causes of faults or problems", "hide problems", "assign blame", "speed up computers"], "answer": 0, "explain": "RCA identifies root causes so that corrective actions prevent recurrence."},
+    {"lesson": 2, "q": "Which technique does ISO/IEC 31010 list for root cause analysis?", "options": ["Net metering", "Pivot tables", "Search engine optimisation", "Five whys"], "answer": 3, "explain": "Five whys, FMEA, fault tree analysis, Ishikawa diagrams and Pareto analysis are listed."},
+    {"lesson": 3, "q": "Who described the five whys technique?", "options": ["Alex Osborn", "Taiichi Ohno at Toyota", "Edward de Bono", "Daniel Goleman"], "answer": 1, "explain": "Taiichi Ohno described it at Toyota Motor Corporation."}
+   ]
+  },
+  {
+   "skill": "creative_thinking",
+   "summary": "Generate and shape new ideas: design thinking, brainstorming and lateral thinking.",
+   "lessons": [
+    {"id": "creative_thinking-1", "title": "Design thinking", "wiki": "Design thinking",
+     "why": "Creative thinking is rising in importance as AI takes over routine work, and design thinking gives it a practical process.",
+     "try": "Interview one customer or colleague about a frustration, then write three ideas to solve it."},
+    {"id": "creative_thinking-2", "title": "Brainstorming", "wiki": "Brainstorming",
+     "why": "Brainstorming gets many ideas on the table fast — and the best idea is often not the first one.",
+     "try": "Set a 10-minute timer and list as many ideas as you can for one problem, without judging any of them."},
+    {"id": "creative_thinking-3", "title": "Lateral thinking", "wiki": "Lateral thinking",
+     "why": "Lateral thinking helps you escape the obvious solution, which is useful when the usual approach keeps failing.",
+     "try": "Take a problem and ask: what would we do if the usual solution were not allowed?"}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Design thinking refers to…", "options": ["a type of software", "a building code", "the cognitive, strategic and practical procedures designers use", "a financial statement"], "answer": 2, "explain": "It is the set of procedures designers use, applied to innovation in products and services."},
+    {"lesson": 2, "q": "During brainstorming, ideas are…", "options": ["noted down but not judged until later", "criticised immediately", "only accepted from managers", "limited to three"], "answer": 0, "explain": "Criticism is held back so people are not inhibited."},
+    {"lesson": 2, "q": "Who popularised the term brainstorming?", "options": ["Edward de Bono", "Alex Faickney Osborn", "Taiichi Ohno", "John Tukey"], "answer": 1, "explain": "Alex Osborn popularised it in Applied Imagination (1953)."},
+    {"lesson": 3, "q": "Lateral thinking means…", "options": ["following only step-by-step logic", "copying competitors", "avoiding problems", "solving problems with an indirect, creative approach that is not immediately obvious"], "answer": 3, "explain": "It is often described as thinking outside the box."},
+    {"lesson": 3, "q": "Who first used the term lateral thinking, in 1967?", "options": ["Edward de Bono", "Daniel Goleman", "Aristotle", "Confucius"], "answer": 0, "explain": "The Maltese psychologist Edward de Bono coined the term."}
+   ]
+  },
+  {
+   "skill": "teaching_training",
+   "summary": "Help others learn: instructional design, how adults learn, and the ADDIE model for building training.",
+   "lessons": [
+    {"id": "teaching_training-1", "title": "Instructional design", "wiki": "Instructional design",
+     "why": "Every organisation adopting AI needs people who can teach colleagues new tools — a growing role for experienced staff.",
+     "try": "Write one clear learning goal for a short training session you could give at work."},
+    {"id": "teaching_training-2", "title": "How adults learn", "wiki": "Adult education",
+     "why": "Adults learn best when learning meets their needs and they take responsibility for it, so design your training around that.",
+     "try": "Ask two colleagues what they most need to learn this year and how they prefer to learn."},
+    {"id": "teaching_training-3", "title": "The ADDIE model", "wiki": "ADDIE Model",
+     "why": "ADDIE gives you a simple checklist so training is planned, built, delivered and then improved.",
+     "try": "Write one sentence for each ADDIE phase for a 30-minute session on a tool you use."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Instructional design is the practice of…", "options": ["designing buildings", "systematically designing, developing and delivering instructional materials and experiences", "writing software only", "managing payroll"], "answer": 1, "explain": "ID designs learning experiences in a consistent, reliable way."},
+    {"lesson": 1, "q": "The instructional design process begins by…", "options": ["buying equipment", "printing certificates", "determining the state and needs of the learner", "choosing a logo"], "answer": 2, "explain": "First understand the learner, then define the goal and the intervention."},
+    {"lesson": 2, "q": "Which kind of adult learning is organised by institutions but carries no credential?", "options": ["Formal learning", "University degrees", "Compulsory schooling", "Non-formal learning"], "answer": 3, "explain": "Non-formal learning is organised but non-credential, often in the workplace."},
+    {"lesson": 3, "q": "What do the letters ADDIE stand for?", "options": ["Analysis, Design, Development, Implementation, Evaluation", "Assess, Draft, Deliver, Improve, End", "Audit, Decide, Do, Inspect, Export", "Aim, Define, Draw, Install, Exit"], "answer": 0, "explain": "ADDIE names its five phases."},
+    {"lesson": 3, "q": "Which is mentioned as a common alternative to ADDIE?", "options": ["Double-entry bookkeeping", "Rapid prototyping", "Net metering", "Drip irrigation"], "answer": 1, "explain": "Rapid prototyping is another common alternative."}
+   ]
+  },
+  {
+   "skill": "bookkeeping",
+   "summary": "Keep accurate books: bookkeeping basics, double-entry and reconciliation.",
+   "lessons": [
+    {"id": "bookkeeping-1", "title": "Bookkeeping", "wiki": "Bookkeeping",
+     "why": "Bookkeeping is changing fast as AI reads invoices automatically. Knowing the principles helps you move into checking, analysis and advisory work.",
+     "try": "List the source documents your team handles in a month: invoices, receipts, payment slips."},
+    {"id": "bookkeeping-2", "title": "Double-entry bookkeeping", "wiki": "Double-entry bookkeeping",
+     "why": "Double-entry keeps the books balanced, which makes errors and fraud easier to detect.",
+     "try": "Record a cash purchase of equipment as two entries: one asset goes up and another goes down."},
+    {"id": "bookkeeping-3", "title": "Bank reconciliation", "wiki": "Bank reconciliation",
+     "why": "Reconciliation catches missing payments, duplicates and fraud before they become expensive problems.",
+     "try": "Compare one week of bank statement lines with your records and mark any that do not match."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Bookkeeping is…", "options": ["designing financial products", "auditing government budgets only", "the recording of financial transactions", "selling insurance"], "answer": 2, "explain": "Bookkeeping records financial transactions as part of accounting."},
+    {"lesson": 1, "q": "Who usually prepares financial reports from the bookkeeper's records?", "options": ["An accountant", "A graphic designer", "A network engineer", "A sales assistant"], "answer": 0, "explain": "The bookkeeper reaches the trial balance; the accountant prepares the reports."},
+    {"lesson": 2, "q": "In double-entry bookkeeping, every transaction is recorded with…", "options": ["a single entry only", "no entries", "three entries", "equal and opposite entries (debits and credits)"], "answer": 3, "explain": "Equal and opposite entries keep the books balanced."},
+    {"lesson": 2, "q": "What is the accounting equation?", "options": ["Assets = Sales − Costs", "Assets = Liabilities + Equity", "Profit = Assets × Equity", "Cash = Revenue + Tax"], "answer": 1, "explain": "Every transaction keeps Assets = Liabilities + Equity in balance."},
+    {"lesson": 3, "q": "Reconciliation ensures that…", "options": ["two sets of records are in agreement", "staff are paid on time", "invoices are printed", "taxes are lower"], "answer": 0, "explain": "It checks that two sets of records, usually account balances, match."}
+   ]
+  },
+  {
+   "skill": "data_entry",
+   "summary": "Move beyond keying in data: what data entry involves, how validation protects quality, and how OCR is changing the job.",
+   "lessons": [
+    {"id": "data_entry-1", "title": "Data entry work", "wiki": "Data entry clerk",
+     "why": "Data entry is among the fastest-declining jobs, so knowing where it is heading helps you plan your next step.",
+     "try": "Time yourself entering ten records and note which errors happen most often."},
+    {"id": "data_entry-2", "title": "Data validation", "wiki": "Data validation",
+     "why": "Validation rules stop bad data at the door. Designing and checking them is a step up from typing data in.",
+     "try": "Write three validation rules for a customer form, for example: a date of birth cannot be in the future."},
+    {"id": "data_entry-3", "title": "Optical character recognition", "wiki": "Optical character recognition",
+     "why": "OCR and AI now read invoices and forms automatically. People who can check, correct and improve these systems stay in demand.",
+     "try": "Photograph a printed document, run it through a free OCR app, and count the errors in the extracted text."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "According to the lesson, what are the key measures of a data entry clerk's job?", "options": ["Creativity and design", "Speed and accuracy", "Sales and marketing", "Leadership and strategy"], "answer": 1, "explain": "Speed and accuracy are the key measures."},
+    {"lesson": 1, "q": "Data is often entered into a computer from…", "options": ["radio broadcasts", "weather stations", "paper documents, using a keyboard", "satellites only"], "answer": 2, "explain": "Clerks often key in data from paper documents."},
+    {"lesson": 2, "q": "Data validation checks input data for…", "options": ["correctness, meaningfulness and security", "colour and font", "file size only", "the author's name"], "answer": 0, "explain": "Validation rules check correctness, meaningfulness and security."},
+    {"lesson": 3, "q": "Optical character recognition (OCR) converts…", "options": ["speech into music", "photos into videos", "numbers into charts", "images of typed, handwritten or printed text into machine-encoded text"], "answer": 3, "explain": "OCR digitises text from scans and photos."},
+    {"lesson": 3, "q": "How did early OCR systems differ from modern ones?", "options": ["They read any handwriting perfectly", "They had to be trained on each character and worked on one font at a time", "They needed no computers", "They only read barcodes"], "answer": 1, "explain": "Modern systems handle most fonts with high accuracy."}
+   ]
+  },
+  {
+   "skill": "graphic_design",
+   "summary": "Create clear visual communication: graphic design, typography and colour theory.",
+   "lessons": [
+    {"id": "graphic_design-1", "title": "Graphic design", "wiki": "Graphic design",
+     "why": "AI can now generate images quickly, so a designer's lasting value lies in understanding the message, the audience and the brand.",
+     "try": "Pick a poster or social media post you like and write down the single message it communicates."},
+    {"id": "graphic_design-2", "title": "Typography", "wiki": "Typography",
+     "why": "Good typography makes text easy to read — a skill that matters in reports, slides and websites, not only in design studios.",
+     "try": "Reformat one slide using a single typeface, two sizes and more space between lines, and compare it with the original."},
+    {"id": "graphic_design-3", "title": "Colour theory", "wiki": "Color theory",
+     "why": "Colour choices affect readability, mood and accessibility, so understanding harmony and contrast improves any design.",
+     "try": "Check the contrast between the text and background colours of one of your designs with a free online contrast checker."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Graphic design creates visual communications intended to…", "options": ["store data", "build engines", "transmit specific messages to social groups", "count inventory"], "answer": 2, "explain": "It communicates specific messages with specific objectives."},
+    {"lesson": 1, "q": "In the communication process, the graphic designer acts as…", "options": ["the encoder or interpreter of the message", "the final customer", "the printer technician", "the accountant"], "answer": 0, "explain": "Designers interpret, order and present visual messages."},
+    {"lesson": 2, "q": "Typography is the art and technique of…", "options": ["repairing printers", "taking photographs", "writing poetry", "arranging type to make written language legible and readable"], "answer": 3, "explain": "Typography arranges type for legibility and readability."},
+    {"lesson": 2, "q": "Which of these is part of arranging type?", "options": ["Choosing a server", "Selecting typefaces, point sizes and line spacing", "Writing SQL queries", "Wiring circuits"], "answer": 1, "explain": "Typefaces, sizes, line lengths and spacing are all typographic choices."},
+    {"lesson": 3, "q": "Colour theory describes…", "options": ["colour mixing, contrast effects, harmony and symbolism", "the weight of paint cans", "computer processor speeds", "tax rates"], "answer": 0, "explain": "It is a body of knowledge about how colours behave together."}
+   ]
+  },
+  {
+   "skill": "healthcare_basics",
+   "summary": "Understand how health care works, how electronic health records are used, and why patient safety matters.",
+   "lessons": [
+    {"id": "healthcare_basics-1", "title": "Health care", "wiki": "Health care",
+     "why": "Health care is a large employer, and technology roles in health need people who understand how care is delivered.",
+     "try": "List the health services your family used last year: primary care, hospital, pharmacy, dental."},
+    {"id": "healthcare_basics-2", "title": "Electronic health records", "wiki": "Electronic health record",
+     "why": "EHRs bring patient data together, making them the foundation of health analytics and digital health jobs.",
+     "try": "List five types of information an electronic health record contains, and who should be allowed to see each."},
+    {"id": "healthcare_basics-3", "title": "Patient safety", "wiki": "Patient safety",
+     "why": "Preventing harm is everyone's job in health care, including the people who build and run its digital systems.",
+     "try": "Think of a hand-over between two people at work or in a clinic, and list what information could get lost."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Health care improves or maintains health through…", "options": ["only building hospitals", "prevention, diagnosis, treatment and cure of illness and injury", "only selling medicine", "sports competitions"], "answer": 1, "explain": "Health care spans prevention, diagnosis, treatment and cure."},
+    {"lesson": 1, "q": "Which barrier to health care access is mentioned in the lesson?", "options": ["Too many doctors", "Clean water", "Financial limitations such as insurance coverage", "Good weather"], "answer": 2, "explain": "Financial, geographical, sociocultural and personal limitations affect access."},
+    {"lesson": 2, "q": "An electronic health record (EHR) is…", "options": ["a systematised digital collection of patient and population health information", "a paper prescription", "a hospital building plan", "a doctor's salary slip"], "answer": 0, "explain": "EHRs store health information digitally and can be shared across settings."},
+    {"lesson": 3, "q": "Patient safety focuses on…", "options": ["hospital car parking", "medicine prices", "staff uniforms", "preventing, reducing, reporting and analysing medical errors and preventable harm"], "answer": 3, "explain": "Patient safety systematically prevents and analyses medical errors."},
+    {"lesson": 3, "q": "According to the WHO figure in the lesson, how many patients globally experience harm due to health care errors?", "options": ["1 in 1,000", "1 in 10", "1 in 2", "None"], "answer": 1, "explain": "The WHO identified that 1 in 10 patients experience harm."}
+   ]
+  },
+  {
+   "skill": "lifelong_learning",
+   "summary": "Keep learning for life: why it matters, how spaced repetition helps memory, and how to think about your own thinking.",
+   "lessons": [
+    {"id": "lifelong_learning-1", "title": "Lifelong learning", "wiki": "Lifelong learning",
+     "why": "Skills change faster than careers, so steady learning keeps you employable as AI reshapes jobs.",
+     "try": "Set one learning goal for the next month and block a regular time slot for it in your calendar."},
+    {"id": "lifelong_learning-2", "title": "Spaced repetition", "wiki": "Spaced repetition",
+     "why": "Reviewing material at increasing intervals helps you remember far more with the same study time.",
+     "try": "Make five flashcards about something you are learning and review them tomorrow, in three days and next week."},
+    {"id": "lifelong_learning-3", "title": "Thinking about your thinking", "wiki": "Metacognition",
+     "why": "Knowing how you learn best helps you choose strategies that work and notice when you are stuck.",
+     "try": "After your next study session, write down what worked, what didn't, and one change you will try."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Lifelong learning is…", "options": ["learning that ends at school", "compulsory training only", "the ongoing, voluntary and self-motivated pursuit of learning", "learning only by watching TV"], "answer": 2, "explain": "It is ongoing, voluntary and self-motivated."},
+    {"lesson": 1, "q": "Why is lifelong learning important, according to the lesson?", "options": ["It supports competitiveness and employability", "It replaces the need for work", "It guarantees promotion", "It is required by every employer"], "answer": 0, "explain": "It also enhances social inclusion, active citizenship and personal development."},
+    {"lesson": 2, "q": "In spaced repetition, difficult flashcards are shown…", "options": ["only once", "never", "less often than easy ones", "more frequently than easy ones"], "answer": 3, "explain": "New and difficult cards appear more often; easy ones less often."},
+    {"lesson": 2, "q": "Spaced repetition exploits which psychological effect?", "options": ["The placebo effect", "The spacing effect", "The halo effect", "The greenhouse effect"], "answer": 1, "explain": "It uses the spacing effect to improve memory."},
+    {"lesson": 3, "q": "Metacognition means…", "options": ["thinking about one's own thinking", "thinking only about the future", "memorising without understanding", "learning a second language"], "answer": 0, "explain": "It is awareness and understanding of your own thought processes."}
+   ]
+  },
+  {
+   "skill": "finance_domain",
+   "summary": "Read the numbers behind a business: financial analysis, budgets and financial statements.",
+   "lessons": [
+    {"id": "finance_domain-1", "title": "Financial analysis", "wiki": "Financial analysis",
+     "why": "Financial analysis turns reports into decisions — buy or lease, borrow or not — and pairs well with data and AI skills.",
+     "try": "Look at a company's published annual report and find its revenue and profit for the last two years."},
+    {"id": "finance_domain-2", "title": "Budgets", "wiki": "Budget",
+     "why": "Budgets turn plans into numbers, so you can set priorities and check progress during the year.",
+     "try": "Make a simple monthly budget for a team activity with expected income and costs, and check whether it ends in surplus or deficit."},
+    {"id": "finance_domain-3", "title": "Financial statements", "wiki": "Financial statement",
+     "why": "Financial statements are the common language of business. Reading them lets you judge an organisation's health.",
+     "try": "Find a published balance sheet and check that assets equal liabilities plus equity."}
+   ],
+   "quiz": [
+    {"lesson": 1, "q": "Financial analysis assesses a business's…", "options": ["office decoration", "viability, stability and profitability", "website colours", "staff hobbies"], "answer": 1, "explain": "It assesses viability, stability and profitability."},
+    {"lesson": 1, "q": "Which decision can financial analysis support?", "options": ["Which font to use", "Where to hold a party", "Whether to buy or lease machinery", "What music to play"], "answer": 2, "explain": "It informs decisions such as acquiring or leasing equipment."},
+    {"lesson": 2, "q": "When expenses exceed income, a budget shows a…", "options": ["deficit", "surplus", "dividend", "refund"], "answer": 0, "explain": "A deficit means expenses exceed income; a surplus is the opposite."},
+    {"lesson": 3, "q": "A balance sheet reports…", "options": ["sales over the year", "cash flows over a period", "staff attendance", "assets, liabilities and owners' equity at a point in time"], "answer": 3, "explain": "A balance sheet is a snapshot at a point in time."},
+    {"lesson": 3, "q": "Which statement reports income, expenses and profits over a period?", "options": ["The balance sheet", "The income statement", "The staff handbook", "The bank card"], "answer": 1, "explain": "The income statement covers an accounting period."}
+   ]
+  }
+ ]
+}

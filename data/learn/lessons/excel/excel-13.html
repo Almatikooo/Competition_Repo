@@ -1,0 +1,431 @@
+<div>
+<div class="box box-objectives"><p class="box-title">Learning Objectives</p>
+
+<ul>
+<li>Sort table data.</li>
+<li>Custom Sort table data.</li>
+<li>Apply Custom List sort options.</li>
+<li>Filter table data using criteria filters.</li>
+<li>Use the Advanced Filter option to filter table data.</li>
+<li>Analyze data with PivotTables &amp; Subtotals.</li>
+</ul>
+</div>
+</div>
+
+<h2 id="sort-filter-and-analyze-data-with-pivot-tables-subtotals"><strong>SORT, FILTER, AND ANALYZE DATA WITH PIVOT TABLES &amp; SUBTOTALS&nbsp;</strong></h2>
+<h3 id="sorting"><strong>SORTING</strong></h3>
+<p>Sorting is one of the most common tools for data management. By arranging data sequentially the information becomes more meaningful. Arranging records in a specific sequence is called sorting. If you sort by one column this is considered a single sort.&nbsp; If you need to sort by more than one column, this is considered a custom sort.</p>
+<p>The field or fields you select to sort are called sort keys. In Excel, you can sort your table by ascending or descending order. Data in ascending order appears lowest to highest, earliest to most recent, or alphabetically from A to Z. &nbsp;Data in descending order in arranged by highest to lowest, most recent to earliest, or alphabetically from Z to A.</p>
+<p>Excel will sort a range of data that is not in a table.&nbsp; However, when working with large sets of information it is wise to make the data a table for integrity. Excel locks the row of information creating a record, thus when sorted, the record remains intact, just reorganized.&nbsp; For example, when you sort the table by last name, all of the records in each row move together. It is always a good idea to save a copy of your worksheet before applying sorts.</p>
+<p>There are multiple places you can find and use sorting tools:</p>
+<ul>
+<li>When you first create a table, Excel automatically enables AutoFilter buttons; a tool used to sort, query, and filter the records in a table.&nbsp; The filter buttons appear to the right of the column headings.&nbsp; When you click the filter button sorting options appear on the menu options.</li>
+</ul>
+
+<figure><img alt="AutoFilter Button Screenshot" height="369" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.23_AutoFilter-Buttons.png" width="1063"><figcaption>Figure 5.23 AutoFilter Buttons</figcaption></figure>
+<ul>
+<li>From the Home tab, in the Editing group, click the ‘Sort &amp; Filter’ button, and then click one of the sorting options on the Sort &amp; Filter menu.</li>
+</ul>
+
+<figure><img alt="Screenshot of the Home Tab, with the Sort and Filter tools circled." height="329" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_6.5_Sort__Filter_Menu_Home_Tab.png" width="2713"><figcaption>Figure 5.24 Sort and Filter Menu</figcaption></figure>
+
+<ul>
+<li>From the Data tab, use the ‘Sort A to Z’ or ‘Sort Z to A’ buttons or for multiple levels select the Sort button to open the Custom Sort dialogue.</li>
+</ul>
+
+<figure><img alt="Screenshot of the Data tab sort options" height="379" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_6.6_DataTab_Sort_buttons.png" width="2720"><figcaption>Figure 5.25 Data Tab Sort options</figcaption></figure>
+
+<ul>
+<li>Right-click anywhere in a table and then point to Sort on the shortcut menu to display the Sort sub-menu.</li>
+</ul>
+
+<figure><img alt="Screenshot of the Right Click Menu" height="301" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_6.7_Right_Click_Sort_Menu.png" width="315"><figcaption>Figure 5.26 Right-Click Menu</figcaption></figure>
+
+<p>Complete a single level sort by following the steps:</p>
+<p>&nbsp;1.&nbsp; In the EmployeeID heading, click the filter button.</p>
+<p>&nbsp;2.&nbsp; Choose to Sort Smallest to Largest.</p>
+<p><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users:&nbsp;</strong>Click the A-Z Ascending button <img alt="Mac Small to Large" height="40" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Mac_ascending.png" width="138"></p>
+<p>Notice Excel arranges in chronological order all the employee data based on the EmployeeID number, however keeping each record together. You will also notice the filter button now displays an up arrow denoting an ascending sort.</p>
+
+<figure><img alt="Sort Screenshot Solution" height="489" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.27_-EmployeeID-Sort.png" width="1151"><figcaption>Figure 5.27 EmployeeID Sort</figcaption></figure>
+<p>The following steps will sort the records in descending order by Current Salary using the ‘Sort Largest to Smallest’ option form the filter button.</p>
+
+<p>&nbsp;1.&nbsp; Click the filter button located in the Current Salary heading.</p>
+<p>&nbsp;2.&nbsp; Choose Sort Largest to Smallest option from the menu.</p>
+<p><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users: click the “<strong>Descending</strong>” button</p>
+<p>Notice the original sort has been overridden, and the information is now organized based on the largest Current Salary. You will see the small arrow on the EmployeeID filter is gone, and an arrow pointing down for Descending Order is visible on the Current Salary filter button.</p>
+
+<figure><img alt="Current Salary Sort Solution Screenshot" height="443" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.28_Current-Salary-Sort.png" width="1181"><figcaption>Figure 5.28 Current Salary Sort</figcaption></figure>
+
+<div>
+<div class="box box-callout"><p class="box-title">Skill Refreshed</p>
+
+<p><strong>Sort a Column</strong></p>
+<ol>
+<li>Click on the filter Click arrow to the right of the header in the column you want to sort.</li>
+<li>Click on the choice AZ<strong>↑ </strong>or ZA↓ to sort your data by that column.</li>
+</ol>
+</div>
+</div>
+<div>
+
+<h2 id="custom-sort"><strong>CUSTOM SORT&nbsp;</strong></h2>
+<p>When you need to sort by more than one level, you must use the Custom Sort option. Complete the following steps to organize the data by Store, Last Name, Current Salary, all in Ascending Order (A-Z).</p>
+<p>&nbsp;1.&nbsp; Select the Data tab, and click the Sort button. Notice the last column sorted by is listed. Change the column heading name by dropping down the <strong>Sort by</strong> menu and select <strong>Store.</strong></p>
+<p>&nbsp;2.&nbsp; Click Add Level.</p>
+<p><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users:&nbsp;</strong>click the + symbol <img alt="Mac Add Sort Level" height="29" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/sort_add.png" width="57"></p>
+<p>&nbsp;3.&nbsp; Click the down arrow in the <strong>Then by</strong> section, and choose the column heading names <strong>as shown below in Figure 5.29</strong>. Note to click Add Level to add the next column heading.&nbsp; The order you select the headings will determine how the table information is sorted.</p>
+<figure><img alt="Screenshot of Custom Sort Dialogue box" height="203" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_7.0_Custom_Sort_box.png" width="445"><figcaption>Figure 5.29 Sort Dialogue Box</figcaption></figure>
+<p>&nbsp;4.&nbsp; Once you select to Sort by column headings, choose the Order by selecting to sort in ascending order (A-Z) for the Store and Last name fields, and Smallest to Largest, for the Current Salary field.</p>
+<p>&nbsp;5.&nbsp; Click OK.</p>
+<p>Notice the information is now sorted by three levels, per <strong>Store</strong>, each employee is organized by <strong>Last Name</strong>, and&nbsp; <strong>Current Salary</strong> in ascending order (smallest to largest). Each of the filter buttons indicates the sort with the up arrow.</p>
+</div>
+
+<figure><img alt="Custom Sort Solution Screenshot" height="510" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.30_Custom-Sort-Visual.png" width="1204"><figcaption>Figure 5.30 Custom Sort Visual</figcaption></figure>
+<div>
+<div>
+<div class="box box-callout"><p class="box-title">Skill Refresher</p>
+
+<p><strong>Custom Sort (Multiple Level Sort)</strong></p>
+<ol>
+<li>Select the Data tab, and click the Sort button.</li>
+<li>Choose Add Level.</li>
+<li>Click the down arrow in the Column field and choose the column heading to sort by.</li>
+<li>Repeat the above steps to add another level and select the next column heading to sort by.</li>
+<li>The order you select the headings will determine how the table information is sorted.</li>
+</ol>
+</div>
+
+</div>
+<h2 id="custom-list-sort"><strong>CUSTOM LIST SORT&nbsp;</strong></h2>
+<p>When sorting you can create custom lists that allow sorting by characteristics that do not sort alphabetically. Example, text items such as high, medium, and low—or S, M, L, XL. Dates commonly require custom lists so you can vary in the way data is sorted by days of the week or months of the year.&nbsp; </p>
+<p>In our case, we want to create a custom list that sorts our stores, which is not, in ascending or descending order.&nbsp; The human resources office likes to order the stores based on the location size.&nbsp; The company headquarters is in Seattle and employs the most people. The next biggest location is San Diego etc.&nbsp; Follow the below steps to create a custom list ordering the stores as shown below:</p>
+</div>
+<p><strong>Seattle</strong></p>
+<p><strong>San Diego</strong></p>
+<p><strong>Portland</strong></p>
+<p><strong>San Francisco</strong></p>
+
+<p><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users:&nbsp;</strong>The steps to create a&nbsp;<strong>custom sort list are different for Excel for Mac. Please skip the below steps and follow the alternate steps below Figure 5.34.</strong></p>
+<p>Follow the below steps to create a custom list ordering:</p>
+
+<ol>
+<li>While clicked in the table, choose the Data tab and click the <strong>Sort</strong> button.</li>
+<li>In the Sort by row, click the drop-down menu in the Order Column for the <strong>Store</strong> heading. Choose <strong>Custom List</strong>.</li>
+</ol>
+
+<figure><img alt="Screenshot of the Custom List opiton" height="261" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_5.31_Custom_List_Dialogue_box.png" width="567"><figcaption>Figure 5.31 Custom List Dialogue Box</figcaption></figure>
+
+<p>3. Click in the <strong>List entries:</strong> box and type <strong>Seattle</strong>, and press enter.&nbsp; Type the remainder of the locations shown in Figure 5.32, pressing enter after each store location typed. Once all locations are entered, click <strong>Add</strong>. Then choose&nbsp; <strong>Ok</strong>.</p>
+
+<figure><img alt="Screenshot of the Custom List Entries dialogue box." height="281" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_8.2_Custom__List__Entries_box.png" width="363"><figcaption>Figure 5.32 Custom List Entries dialogue box</figcaption></figure>
+
+<p>4. You will see the Order of the Store sort update. Click <strong>OK</strong> to close the Sort dialogue box.</p>
+
+<figure><img alt="Screenshot of the Sort Dialogue Box shows the new Custom List order" height="180" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_8.3_Sort_Dialogue_Box__Showing_the_New_Custom_List_Order.png" width="563"><figcaption>Figure 5.33 Sort_Dialogue Box Custom List Order</figcaption></figure>
+
+<p>The custom sort is applied and the table is now sorted by Store, using the custom order, then the Last Name of the employee and then by the Current Salary column.</p>
+
+<figure><img alt="Custom List Sort Solution Screenshot" height="452" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.34_Custom-List-Sort-Visual.png" width="1158"><figcaption>Figure 5.34 Custom List Sort Visual</figcaption></figure>
+<p><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users alternate steps for creating a custom sort list:</strong></p>
+<ol>
+<li>Click the&nbsp;<strong>Excel&nbsp;</strong>menu option and choose&nbsp;<strong>Preferences&nbsp;</strong></li>
+<li>Click on the&nbsp;<strong>Custom List&nbsp;</strong>button <img alt="Mac Custom Lists button" height="40" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/custom_lists.png" width="50"></li>
+<li>Type the list of cities in the “List entries” box as shown in&nbsp;<strong>Figure 5.32 </strong><strong>above</strong> then click the&nbsp;<strong>Add&nbsp;</strong>button and close the Custom List dialog box</li>
+<li>Click anywhere in the table, and then click the <strong>Data tab</strong> and click the&nbsp;<strong>Sort&nbsp;</strong>button</li>
+<li>Click the drop-down menu in the <strong>Order</strong> Column for the <strong>Store</strong> heading. Choose <strong>Custom List</strong></li>
+<li>Click on the custom list of cities that you just created and then click the&nbsp;<strong>OK button twice</strong></li>
+<li>The custom sort is applied and the table is now sorted by Store, using the custom order, then the Last Name of the employee and then by the Current Salary column. See&nbsp;<strong>Figure 5.34 above.</strong></li>
+</ol>
+<div class="box box-callout"><p class="box-title">Skill Refresher</p>
+
+<div>
+<p><strong>Custom List Sort</strong></p>
+<ol>
+<li>Select the Data tab, and click the Sort button.</li>
+<li>Click the drop-down menu in the Order Column of the field needing a custom list created.</li>
+<li>Choose Custom List.</li>
+<li>Click in the List entries box and type the custom list desired.</li>
+<li>Then click Add.</li>
+<li>Click Ok.</li>
+</ol>
+</div>
+</div>
+
+<h2 id="filter-data"><strong>FILTER DATA&nbsp;</strong></h2>
+<p>If your worksheet contains a lot of data, it can be difficult to find information quickly.&nbsp;Applying <strong>Filters</strong> is an efficient and effective way to only show the information needed.&nbsp; Typically when filtering you are searching the data for specific information. Generally speaking, you are searching the data based on a question, or in other words, querying the data, and returning only the information that satisfies the question. The process of filtering records based on one or more filter criteria is called a query. Filtering data hides the rows whose values do not match the search criteria.&nbsp; The information that does not display is not deleted, it is just hidden, and will be redisplayed by removing the filter or applying a new filter.</p>
+<p>Like sorting, Filter options are located in the filter button alongside each field name. By clicking the filter button, you can choose which values in that field to display, hiding the rows or records that do not match that value. The filter lets you choose to display only those records that meet specified criteria such as color, number, or text. In this situation, criteria is defined as; a logical rule by which data is tested and chosen.</p>
+<p>For example, you can filter the table to display a specific name or item by typing it in a Search box. The name you selected acts as the criterion for filtering the table, which results in Excel displaying only those records that match the criterion. The selected checkboxes indicate which items will appear in the table. By default, all of the items are selected. If you deselect an item from the filter menu, it is removed from the filter criterion. Excel will not display any record that contains the unchecked item. As with the previous sort techniques, you can include more than one column when you filter by clicking a second filter button and making choices. After you filter data, you can copy, find, edit, format, chart, or print the filtered data without rearranging or moving it.</p>
+<figure><img alt="Screenshot of the Filter menu dialogue box" height="379" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_8.4_Filter_menu_box.png" width="252"><figcaption>Figure 5.35 Filter Search Menu</figcaption></figure>
+
+<p>Complete the following steps and filter data according to each query.</p>
+<p><strong>How many employees are at a Part-Time (PT) status?</strong></p>
+
+<ol>
+<li>Click the filter button on the <strong>Job Status</strong> column heading.</li>
+<li>Click <strong>Select All</strong>, to deselect options.</li>
+<li>Click the <strong>PT</strong> box to only display the part-time employees.</li>
+<li>From the total row, in cell <strong>I108</strong>, choose the <strong>Count function</strong> count the number of employees at a PT status.</li>
+</ol>
+
+<p>The answer to the question is there are currently are 11 employees at a PT time status.&nbsp; The total row will display the part-time total current salaries, and what the projected salary increase for part-time help will be after COLA adjustments.</p>
+
+<figure><img alt="Part Time Filter Solution Screenshot" height="388" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.36_PT-Filter-Visual.png" width="1227"><figcaption>Figure 5.36 PT Filter Visual</figcaption></figure>
+<h2 id="using-criteria-filters"><strong>USING CRITERIA FILTERS&nbsp;</strong></h2>
+<p>The filters created are limited to selecting records for fields matching a specific value or set of values. For more general criteria, you can use criteria filters, which are expression involving dates and times, numeric values, and text strings. Excel will identify what criteria filter to display based on the information in the column. For example, you can filter the employee data to show only those employees hired within a specific date range. Notice the criteria filter changes to <strong>Date Filters.&nbsp; </strong>If we were looking at the Current Salary column, the filter would be a Numbers Filter.</p>
+<p>Using criteria filters, follow the below steps to search for employees who have been with the company for a specific time period.</p>
+<p><strong>Identify employees who have been with the company between 2013-2016.</strong></p>
+
+<p>&nbsp;1.&nbsp; While clicked in the table, clear any sort or filter applied by clicking the Data tab. In the Sort &amp; Filter group choose the&nbsp;<strong>Clear</strong>&nbsp;button.&nbsp;<img alt="" height="24" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Clear_button.png" width="53"></p>
+<p>&nbsp;2.&nbsp; Click the Filter button in the <strong>Hire Date</strong> column. Select Date Filters, and choose the Between criteria.</p>
+<p><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users:&nbsp;</strong>uncheck the&nbsp;<strong>Select All&nbsp;</strong>checkbox&nbsp;<strong>before</strong> choosing the&nbsp;<strong>Between&nbsp;</strong>option.</p>
+
+<figure><img alt="Screenshot of the Date Filter Menu" height="350" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_8.6_Date_Filter_menu_box-e1579886053807.png" width="356"><figcaption>Figure 5.37 Date Filter Menu</figcaption></figure>
+
+<p>3.&nbsp; Search for employees with a hire date between 2013, and 2016. In the “<strong>is after or equal to”</strong> section type <strong>1/01/2013</strong>, and typing in the “<strong>is before or equal to”</strong> section type <strong>12/31/2016</strong>. Then click<strong> OK</strong>.</p>
+<p><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20"><strong>Mac Users:&nbsp;</strong>Excel for Mac sections simply say “<strong>After”&nbsp;</strong>and&nbsp;<strong>“Before”</strong></p>
+
+<figure><img alt="Screenshot of the Date Filter Between Dialogue Box" height="174" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_8.7_Date_Filter_Between_001.png" width="515"><figcaption>Figure 5.38 Date Filter Between Dialogue Box</figcaption></figure>
+
+<p>4.&nbsp; Sort the filtered table from <strong>Oldest to Newest</strong> by Date Hired.</p>
+<p>5.&nbsp; In the total row section, count the last name names of the employees by applying the count function in cell B108.</p>
+<p>6.&nbsp; In the total row, select cell <strong>I108</strong>, and choose <strong>None</strong> to turn off the count function in the Job Status Column.</p>
+<p>Notice the table total row show 47 employees hired between the specified dates. These employees will be evaluated for a COLA adjustment.</p>
+<p>Notice the filter button displays a filter symbol and an up arrow indicating the column is filtered and sorted in ascending order.</p>
+
+<figure><img alt="Date Filter Solution Screenshot" height="414" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.39_Date-Filter-and-Sort.png" width="1220"><figcaption>Figure 5.39 Date Filter and Sort</figcaption></figure>
+<h2 id="slicers"><strong>SLICERS</strong></h2>
+<p>Another way to filter an Excel table is with slicers. Slicers, generally speaking, are visual filter buttons you can click to filter the table data. Slicers show the current filtered category, which makes it easy to understand what exactly is displayed. For example, a slicer for the Store field would have buttons for the Seattle, San Diego, Portland, and San Francisco locations.</p>
+<p>When slicer buttons are selected, the data is filtered to show only those records that match the criteria.&nbsp; Multiple buttons can be selected at the same time, and a table can have multiple slicers, each linked to a different field. When multiple slicers are used, Excel uses the AND logical operator so filtered records must meet all of the criteria indicated in the slicer. When selecting multiple buttons in a Slicer, use the shift key to select adjacent field names. If the field names are not adjacent, use the non-adjacent selection method,&nbsp; pressing the CTL button, and selecting the field names needed.</p>
+<p>Follow the below steps to filter the table using visual Slicer buttons.</p>
+<p>&nbsp;1.&nbsp; Click in the table area. From the Data tab, choose <strong>Clear</strong> to remove the current sort and filter applied to the data.</p>
+<p>&nbsp;2.&nbsp; To make room for the <strong>Slicer</strong> buttons at the top of the table, we will add 4 rows between the title and the table area.&nbsp; Right-click cell A3. Choose Insert. Select <strong>Entire Row</strong>. Repeat these steps until the table heading starts in row <strong>A9</strong>.</p>
+<p><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac users </strong>should hold down<strong> CTRL key&nbsp;</strong>and click cell A3. Then repeat until the table heading starts in row&nbsp;<strong>A9.</strong></p>
+
+<figure><img alt="Added Rows Screenshot" height="465" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.40_-Added-Rows.png" width="1164"><figcaption>Figure 5.40 Added Rows</figcaption></figure>
+<p>3.&nbsp; Click back into the table area. Choose the <strong>Insert</strong> tab. Click&nbsp; <strong>Slicer</strong>. When the Insert Slicers dialogue box opens, click the <strong>Store</strong> and <strong>Job Status</strong> field names to display as slicers. Click <strong>OK</strong>.</p>
+
+<figure><img alt="Insert Slicer Dialogue Box Screenshot" height="362" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.41_Slicer-Dialogue-Box.png" width="858"><figcaption>Figure 5.41 Slicer Dialogue Box</figcaption></figure>
+<p>4.&nbsp; Move, and re-size the Slicer boxes to fit in the <strong>approximate</strong> area of <strong>I1:J8</strong> and <strong>K1:L8</strong>. Make sure the buttons remain visible. Below is a visual example.</p>
+
+<figure><img alt="Visual Example Slicer Layout" height="398" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.42_Slicer-Layout-Example.png" width="1036"><figcaption>Figure 5.42 Slicer Layout Example</figcaption></figure>
+<p>5.&nbsp; From the <strong>Store</strong> slicer, click the <strong>San Diego</strong> button. Notice the data filters to only show the data for San Diego.&nbsp;</p>
+<p>6.&nbsp; From the <strong>Job Status</strong> slicer click <strong>PT</strong>. Notice the data filters to only show the data for PT employees in&nbsp; San Diego.</p>
+
+<figure><img alt="Slicer Solution Screenshot" height="379" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.43_Slicer-Solution.png" width="1265"><figcaption>Figure 5.43 Slicer Solution</figcaption></figure>
+<p>&nbsp;7.&nbsp; Return to the Store slicer and choose <strong>Seattle</strong> and <strong>Portland</strong>.&nbsp; Note the non-adjacent selection method is needed. Select Seattle first, then press and hold the Ctrl button on the keyboard, and then select <strong>Portland</strong>.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users: hold down the Command key not the Ctrl key before you click on Portland.</strong></p>
+<p>&nbsp;8.&nbsp; Change the Job Status slicer selection to <strong>FT</strong>.</p>
+<p>The table results show there are <strong>61</strong> FT employees in Seattle and Portland.&nbsp; The Projected Salary Increase after the COLA adjustment for the Northwest region is $150,465.80.</p>
+
+<figure><img alt="Non-Adjacent Slicer Solution Screenshot" height="425" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.44_Non-Adjacent-Slicer-Solution.png" width="1255"><figcaption>Figure 5.44 Non-Adjacent Slicer Solution</figcaption></figure>
+<h2 id="advanced-filters"><strong>ADVANCED FILTERS&nbsp;</strong></h2>
+<p>Filter buttons are limited to combining fields using advanced logic or complex criteria. If the data you want to filter requires complex criteria, you can use the<strong> Advanced Filter</strong> dialog box. The Advanced Filter works differently from the <strong>Filter</strong> command in several important ways:</p>
+
+<ul>
+<li>It displays the <strong>Advanced Filter</strong> dialog box instead of the AutoFilter menu.</li>
+<li>You type the advanced criteria in a separate criteria range in a worksheet and above the range of cells or table that you want to filter. Excel uses the separate criteria range in the <strong>Advanced Filter</strong> dialog box as the source for the advanced criteria.</li>
+</ul>
+
+<p>For example, you searched records for employees in the Seattle and San Diego offices AND for employees working at full-time bases, AND have a base salary between the below Salary Ranges:</p>
+
+<figure><img alt="Advanced Filter Criteria" height="165" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_8.9_Advanced_Filter_Criteria_Visual_SMARTART.png" width="709"><figcaption>Figure 5.45 Advanced Filter Criteria</figcaption></figure>
+
+<p>To run the above complex criteria mentioned above follow the below steps:</p>
+
+<ol>
+<li>From the <strong>EmployeeData</strong> sheet, click in the table, then select the Data tab and clear the current filters by selecting the Clear button.</li>
+<li>Select the Table Tools Design tab and turn off the Total Row.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users: just click the Table tab and turn off the Total Row</strong></li>
+<li>Select the <strong>Advanced Filter</strong> sheet. Click cell A10. The criteria mentioned in the above example has already been entered for this advanced filter exercise.&nbsp; Next, you will use an advanced filter to copy the records that match these criteria.</li>
+<li>From the <strong>Data</strong> tab, click the <strong>Advanced</strong> button. The Advanced Filter dialog box opens.</li>
+<li>Click the <strong>Copy to another location</strong> option button to copy matching records from the data range.</li>
+<li>Click in the List range box to make it active, and then navigate to the EmployeesData sheet, click <strong>cell A9</strong>, and then press and hold the <strong>CTRL</strong> and <strong>SHIFT</strong> and <strong>SPACEBAR</strong> to select the entire table. In the List range box, you will see <strong>Employee_DB[#All] </strong>in the list range box.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users: </strong>The keyboard shortcut of “CTRL, SHIFT, SPACEBAR” <strong>does not work</strong> in Exel for Mac.&nbsp;You should click in <strong>Cell A9</strong>, scroll down to the end of the data, hold down the&nbsp;<strong>Shift key</strong> and click in C<strong>ell L112</strong>&nbsp;to select the entire table</li>
+<li>Click, or press the tab key, to move to the Criteria Range box.</li>
+<li>From the Advanced Filter sheet, select A6:D8. You will see <strong>‘Advanced Filter’!Criteria</strong> populate in the criteria range box.</li>
+<li>Click, or press the tab key, to move to the Copy to box, and then click cell A10 to specify the location for inserting the copied records. You will see <strong>‘Advanced Filter’!$A$10</strong> in the Copy to criteria range box.</li>
+</ol>
+<figure><img alt="Screenshot of the Advanced Filter Dialogue Box" height="272" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_9.0_Advanced_Filter_box.png" width="400"><figcaption>Figure 5.46 Advanced Filter Dialogue Box</figcaption></figure>
+
+<p>9.&nbsp; Click <strong>OK</strong> to copy the records that match the advanced filter criteria. Save your work.</p>
+<p>The advanced search results list 7 employees that meet the criteria.&nbsp; Of these 7 employees, only 1 full-time employee in San Diego has a current salary between $70,000 and $80,000 dollars, and 6 full-time Seattle employees have a current salary between $50,000 and $60,000 dollars.</p>
+
+<figure><img alt="Advanced Filter Solution Screenshot" height="499" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.47_Advanced-Filter-Results.png" width="1070"><figcaption>Figure 5.47 Advanced Filter Results</figcaption></figure>
+<h2 id="insert-table"><strong>INSERT TABLE&nbsp;</strong></h2>
+<p><strong>&nbsp;</strong>Let’s review another away to turn a range of data into a table.</p>
+<ol>
+<li>Select the <strong>Advanced Filter</strong> sheet, and click cell A10.</li>
+<li>From the Insert tab, choose <strong>Table</strong>.</li>
+<li>The Create Table dialogue box will appear.</li>
+<li>Make sure “My table has headers” is selected so Excel recognizes the column headings.</li>
+<li>Click <strong>OK</strong>. Excel turns our advance search data into a table.</li>
+<li>Sort the table in ascending order (A-Z), by Store, and Employee ID, then Last Name.&nbsp;<strong>Hint: Click the Data tab, Click the Sort button, add levels for the three fields.</strong></li>
+<li>Autofit the column widths and row height to make sure the heading row is visible.</li>
+<li>Save your work.</li>
+</ol>
+
+<p>Excel turns the information into a table and sorts accordingly:</p>
+
+<figure><img alt="Advanced Filter Table Solution Screenshot" height="435" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.48_Advanced-Filter-Table.png" width="1121"><figcaption>Figure 5.48 Advanced Filter Table</figcaption></figure>
+<h2 id="analyzing-worksheet-data"><strong>ANALYZING WORKSHEET DATA</strong></h2>
+
+<h2 id="introduction-to-pivot-tables"><strong>INTRODUCTION TO PIVOT TABLES</strong></h2>
+<p>Another way to analyze table information is with PivotTables. A PivotTable is a powerful tool that calculates, summarizes, and analyzes table data to compare, patterns, and trends. PivotTables are inserted directly from a table, linking the table data.&nbsp; Generally speaking, when you pivot on the table data you are reorganizing the table information to reveal different levels of detail that allow you to analyze specific subgroups of information and summarize data quickly and easily without having to change the structure or layout of the original table area.</p>
+<p>When you pull table data into a PivotTable there are four main area fields: Rows, Columns, Values, and Filters.&nbsp; The Rows and Columns fields can interchange quickly to summarize the data in different ways or to run new reports based on the question or criteria being asked. The Value field is data from the table that can be calculated, or that contain values that the PivotTable will summarize. The Values field has multiple settings to choose how you want to calculate the data; SUM, COUNT, AVERAGE, MIN, MAX, and can even show the displayed values as a percentage of the total, column total, grand total, and so on. Lastly, is the Filters area, which restricts the PivotTable to only show the values matching specified criteria.</p>
+<p>Four Primary PivotTable Areas:</p>
+<p><img alt="Screenshot of a graphic that displays the four primary pivot table areas" height="263" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/5.38_Four_Primary_PivotTable_Areas.png" width="505"></p>
+<p>Figure 5.49 Four Primary PivotTable Areas</p>
+<p>In our situation, shown below, we will create a PivotTable to summarize employee data to show Projected Salary Increases, for both Part-Time (PT) and Full -Time (FT) employees for all store locations.</p>
+
+<figure><img alt="Screenshot showing parts of a pivot table window" height="392" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/5.39_Parts_Of_A_PivotTable.png" width="618"><figcaption>Figure 5.50 Parts Of A PivotTable</figcaption></figure>
+
+<p>Follow the below steps to explore and build a PivotTable report.</p>
+<ol>
+<li>Click the <strong>EmployeeData</strong> sheet. Click anywhere in the table area.</li>
+<li>From the <strong>Insert</strong> tab, choose <strong>PivotTable</strong>.</li>
+</ol>
+
+<figure><img alt="Screenshot of the Excel window displaying the Insert tab" height="371" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_5.40_Insert_tab-PivotTable.png" width="321"><figcaption>Figure 5.51 Insert PivotTable</figcaption></figure>
+
+<p>3.&nbsp; From the Create PivotTable dialogue box, make sure the PivotTable report will be placed in a <strong>New Worksheet</strong>, and click <strong>OK</strong>.</p>
+
+<figure><img alt="Screenshot of the Create PivotTable dialogue box" height="323" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_5.41_CreatePivotTable_dialogue_box.png" width="338"><figcaption>Figure 5.52 Create PivotTable Dialogue Box</figcaption></figure>
+
+<p>4. Notice a new sheet (Sheet1) is inserted, at the bottom of the workbook, that contains the PivotTable1 area and fields dialogue box.&nbsp; Rename the default name (Sheet 1) to <strong>StorePT</strong>.</p>
+
+<figure><img alt="Screenshot of the PivotTable window" height="367" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_5.42_PivotTable_Window.png" width="579"><figcaption>Figure 5.53 PivotTable Window</figcaption></figure>
+
+<p>5.&nbsp; From the PivotTable pane, drag and drop the <strong>Store</strong> heading to the <strong>Rows</strong> section of PivotTable field area.</p>
+
+<figure><img alt="Screenshot of the PivotTable Row Selection" height="560" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_5.43_PivotTable_Row_Selection.png" width="452"><figcaption>Figure 5.54 PivotTable Row Selection</figcaption></figure>
+
+<p>6.&nbsp;From the PivotTable fields list drag and drop the <strong>Projected Salary Increase</strong> heading to the <strong>Values</strong> section.</p>
+
+<figure><img alt="Screenshot of the PivotTable Value selection" height="394" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_5.44_PivotTable_Value_Selection.png" width="461"><figcaption>Figure 5.55 PivotTable Value Selection</figcaption></figure>
+
+<p>7.&nbsp; Drag and Drop the <strong>Job Status</strong> heading to the <strong>Columns</strong> field section. Notice the Job Status categories display. In this case, displaying Full-Time (FT) and Part-Time (PT) employees.</p>
+
+<figure><img alt="Screenshot of the PivotTable Columns Selection" height="344" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_5.45_PivotTable_Columns_Selection.png" width="483"><figcaption>Figure 5.56 PivotTable Columns Selection</figcaption></figure>
+
+<h2 id="formatting-pivot-tables"><strong>FORMATTING PIVOT TABLES</strong></h2>
+<p>After creating a PivotTable and adding the fields that you want to analyze, you may want to enhance the report to include slicers, or graphs and or format the data to make it easier to read and scan for details. When clicked in the PivotTable area you will see a contextual tab appear on the ribbon, containing PivotTable Tools and two specific tabs; Analyze and Design. <img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users: there is not a “PivotTable Tools” tab but you will see two tabs named: PivotTable Analyze and Design. They are only visible when you have clicked inside the PivotTable area.</strong></p>
+<p>The Analyze tab contains tools specifically for examining data, for example, the ability to insert Slicers, or PivotCharts. The Design tab contains tools that specifically tie to how the table and data visibly display. For example, when you have a lot of data in your PivotTable, it may help to show banded rows or columns for easy scanning or to highlight important data to make it stand out.</p>
+<p>Follow the below steps to add format the PivotTable, and add a PivotChart.</p>
+<ol>
+<li>Click in the PivotTable. From the PivotTable Tools choose the Design tab.</li>
+<li>In the PivotTable Styles gallery select the Light Blue, Pivot Style Medium Style&nbsp; 2 format.</li>
+</ol>
+<figure><img alt="Screenshot of the PivotTable Styles Gallery" height="318" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Light_Blue_Medium_Style_Pivot_2_001.png" width="327"><figcaption>Figure 5.57 Light_Blue Medium Style Pivot 2</figcaption></figure>
+
+<p>3.&nbsp; To format the PivotTable numbers, select B5: D9. Click the Home tab. Apply the Currency number format and decrease the decimal place to zero decimals.</p>
+<p><em>(The alternative method to number formatting in a PivotTable is to expand the menu on value field; Sum of Projected Salary Increase. Click the Value Field Settings. Choose Number Format and apply the desired number format option. <img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users should click the small circle with an “i” &nbsp;next to “Sum Projected Salary Increase” in the Values section then click the Number button to change the Number Format. <img alt="mac pivotable i button" height="39" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/pivottable_i-button.png" width="114">)</em></p>
+<h2 id="now-let-s-create-a-pivotchart"><strong>NOW LET’S CREATE A PIVOTCHART</strong>!</h2>
+<p>4.&nbsp; Click in the PivotTable. Click the Analyze tab. Choose the PivotChart button on the Ribbon.</p>
+<p>5.&nbsp; From the listed chart types, choose Column.&nbsp; And select the 3D Clustered Column option. Click OK.</p>
+<p><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users:&nbsp;</strong>Only a basic, 2D column chart is available when clicking the&nbsp;<strong>Pivot Chart</strong> button. In order to select a different chart type, such as the 3D clustered column option, you must do the following:</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>Click on the 2D chart that was just inserted</li>
+<li>Click the&nbsp;<strong>Design tab</strong> on the Ribbon</li>
+<li>Click the&nbsp;<strong>Change Chart Type&nbsp;</strong>button</li>
+<li>Select the 3D Clustered Column option</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<figure><img alt="Screenshot of the Insert Chart dialogue box" height="410" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/5.47_3D_Clustered_Column_Chart.png" width="436"><figcaption>Figure 5.58 3D Clustered_Column Chart</figcaption></figure>
+
+<p>6.&nbsp; Move the PivotChart under the PivotTable area. Resize accordingly.&nbsp; Save your work.</p>
+<p>Note the formatting changes in the new chart below. The “Job Status” and “Store” buttons are column and row “filters” for the Pivot Chart.</p>
+<p><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users:&nbsp;</strong>Excel for Mac does not insert these formatting changes within a &nbsp;Pivot Chart. You can add a chart title by clicking the “Add Chart Element” button from the Design tab. It is&nbsp;<strong>not possible</strong> to add the “chart filter” buttons as shown in Figure 5.59. The filters on the pivot table can be used to also filter the columns and rows in the Pivot Chart.</p>
+
+<figure><img alt="Solution screenshot" height="474" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.59-PivotTable_Solution.png" width="510"><figcaption>Figure 5.59 PivotTable Solution</figcaption></figure>
+<h2 id="subtotals"><strong>SUBTOTALS</strong></h2>
+<p>Another way to summarize data is by using subtotals. Analyzing a large data range usually includes making calculations on the data. You can summarize the data by applying summary functions such as COUNT, SUM, and AVERAGE to the entire organized range of information. Subtotals, in general, are summary functions applied to parts of an organized data range.</p>
+<p>For example, you can SUM Current Salaries for employees from each Store location. To subtotal the information the data must first be sorted by the Store field. For subtotals, the field that you sort is referred to as the control field. For example, if you choose the Store location as your control field, all of the Seattle, San Diego, Portland, and San Francisco entries will be grouped together within the data range. The SUM function then can be applied to SUM the Current Salary fields for each Store location. Excel calculates and displays the subtotal each time the Store location changes.</p>
+<p>A new row containing a subtotal of that particular location will be inserted, and wherever the field changes a value will display; a subtotal group of records.&nbsp; Excel updates the subtotal automatically when the control field is changed. In theory, when subtotaling, you are adding a calculation row to the set of data.&nbsp; Adding rows that total information in the middle of a table would compromise the integrity of data in the table.&nbsp; The table tools would look at the total as a record, not a calculation. Therefore the Subtotal feature cannot be used in tabling, and can only be applied to a normal range of data. You must convert all tables to a range prior to subtotaling.</p>
+<p>Multiple functions can be applied within the same Subtotal.&nbsp; For example, we will explore how you can SUM Current Salary’s and also provide the AVERAGE Current Salary for each Store location within the same Subtotal. Note Subtotal data can also be filtered.</p>
+<p>The best practice when subtotaling is to follow four rules:</p>
+
+<figure><img alt="Screenshot of four Subtotal Rules" height="431" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/5.49_Subtotal_Rules-1.png" width="708"><figcaption>Figure 5.60 Subtotal Rules</figcaption></figure>
+
+<p>Follow the below steps to Subtotal the Employee Data and provide a total Current Salary per Store.</p>
+
+<ol>
+<li>Select the <strong>Employee Data</strong> sheet. If necessary clear any filters applied to the data by clicking the Data tab and choosing the Clear filter option.</li>
+<li>From the Data tab, choose Sort button. Sort the Store Location, using the preferred Custom List order of Seattle, San Diego, Portland, and San Francisco. If the list we set up previously is not available type the entries in the List entries area. Choose Add, and then OK.</li>
+</ol>
+
+<figure><img alt="Screenshot shows the custom sort, custom list dialogue box" height="434" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_7.9_Custom_Sort_Custom_List_combo_box_subotalsection.png" width="436"><figcaption>Figure 5.61 Custom Sort, Custom List Dialogue Box.</figcaption></figure>
+
+<p>3.&nbsp; Choose the Table Tools Design tab.&nbsp;<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users: </strong>just click the&nbsp;<strong>“Table” tab.&nbsp;</strong></p>
+<p>Select “<strong>Convert to Range</strong>.” Excel will display a message asking if you really want to convert the table back to a normal range.&nbsp; Choose <strong>Yes.</strong></p>
+<figure><img alt="Screenshot of the Table Tools Design tab" height="222" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/5.50_Convert_To_A_Range.png" width="564"><figcaption>Figure 5.62 Convert To A Range</figcaption></figure>
+<p>4.&nbsp;Click the Data tab, in the Outline group find and select the Subtotal Command. (Notice the heading row no longer has filters buttons. The data looks like a table but is not a table. The table tools are not active, and the information is a normal range.)</p>
+<p>5.&nbsp; In the Subtotal dialogue box, choose the Store field in the “<strong>At each change in</strong>.” For the “<strong>Use Function</strong>,” choose <strong>Sum</strong>, and only check <strong>Current Salary</strong>. Click <strong>OK.</strong></p>
+<figure><img alt="Screenshot of the Subtotal Dialogue Box" height="361" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_8.1_Subtotal_Dialogue_Box.png" width="273"><figcaption>Figure 5.64 Subtotal Dialogue Box</figcaption></figure>
+
+<p>6. Notice the Current Salary column is totaled, per location. Save your work.</p>
+
+<figure><img alt="Subtotal Solution Screenshot" height="617" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.65_Subtotal-Solution.png" width="1104"><figcaption>Figure 5.65 Subtotal Solution</figcaption></figure>
+<h2 id="subtotal-outline-view">SUBTOTAL OUTLINE VIEW</h2>
+<div>
+<p>The Outline views, located on the left side panel,&nbsp; show summary statistics. The Outline tool, with levels, allows you to control the expanse of detail displayed in the worksheet. The EmployeeData worksheet has three levels in the outline of its data range:</p>
+<ul>
+<li>Level 1, displays only the grand totals.</li>
+<li>Level 2, displays the total spent at each Store.</li>
+<li>Level 3, displays the total Salary.</li>
+</ul>
+
+<p>Figure 5.66 above shows the Level 3 Outline, all the employee detail per store location. Clicking the outline buttons located to the left of the row numbers lets you choose how much detail you want to see in the worksheet. (Note that the three level numbers are at the top left side of the worksheet, just below the Name box.)</p>
+<p>You will use the outline buttons to expand and collapse different sections of the data range.</p>
+</div>
+<ol>
+<li>Click level 1. Notice it displays the Grand Total.</li>
+<li>Click level 2. Notice the totals for all store locations are displayed.</li>
+</ol>
+
+<figure><img alt="Screenshot of the Subtotal Outline Level 2" height="527" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_8.3_Subtotal_Outline_Level_2.png" width="2507"><figcaption>Figure 5.66 Subtotal Outline Level 2</figcaption></figure>
+
+
+<h2 id="adding-a-subtotal-within-a-subtotal"><strong>ADDING A SUBTOTAL WITHIN A SUBTOTAL</strong></h2>
+<p>As mentioned at the beginning of the section, you can use multiple functions within the same subtotal.&nbsp; We will now explore how you can SUM Current Salary’s and also provide the Average Current Salary for each Store location within the same Subtotal.</p>
+
+<ol>
+<li>Click within the Subtotal data, go to the Outline, click Level 3, to display all the subtotal data.</li>
+<li>From the Data tab, and click Subtotal.</li>
+<li>In the Subtotal dialogue box, select the Store field for the “<strong>At each change in:”</strong> option.</li>
+<li>In the “<strong>Use function:”</strong> section select to display the <strong>Average</strong>.</li>
+<li>Only check the <strong>Current Salary</strong> field in the <strong>“Add subtotal to section:”</strong>. (Note Excel will default check something in this area.&nbsp; Uncheck any other fields.)</li>
+<li>Uncheck <strong>“Replace current subtotals”</strong>; we do not want to replace the current subtotal summing the Current Salary.</li>
+<li>Click OK</li>
+</ol>
+<figure><img alt="Screenshot of the Subtotal Dialogue Box, Subtotal Within A Subtotal" height="332" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_8.4_Subtotal_Dialogue_Box_sub_within_a_sub.png" width="248"><figcaption>Figure 5.67 Subtotal Within A Subtotal</figcaption></figure>
+
+<p>8.&nbsp; Notice each location is now subtotaled showing the Average and Total Current Salary. Excel has also added 4th level to the Outline, accounting for the Averages.&nbsp; Save your work.</p>
+
+<figure><img alt="Subtotal Within A Subtotal Solution Screenshot" height="618" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.68_Solution-Subtotal-Within-A-Subtotal.png" width="1109"><figcaption>Figure 5.68 Solution, Subtotal Within A Subtotal</figcaption></figure>
+<div>
+<div class="box box-keypoints"><p class="box-title">Key Takeaways</p>
+
+<ul>
+<li>A table is made up of a data set that is organized into columns and rows representing fields and records, such as employee information.</li>
+<li>You can create a table by clicking formatting the data set as a table, or using the Insert Table feature.</li>
+<li>Excel offers pre-built table styles, and options to choose from to format a table.</li>
+<li>You can add records (rows) and our fields (columns) to a table. You can then sort to reorganize your data.</li>
+<li>Freezing heading keeps your column headings displayed while you scroll through your table data.</li>
+<li>You can use the filter arrows in the table headings to sort by a single column. When sorting by more than one field, use the&nbsp; Custom Sort option.</li>
+<li>Custom List Sorts can be used when a field needs to be sorted in a special way.</li>
+<li>A slicer is a visual filter button (object) used to filter data in an Excel table. Each unique value in the field is a button.</li>
+<li>A PivotTable is an interactive table that summarizes data from a data source such as a data range or an Excel table.</li>
+<li>The Subtotal tool includes summary statistics for each group of records. Excel organizes subtotals using an outline that can be expanded or contracted to view or hide details about the data.</li>
+</ul>
+</div>
+</div>
+<p><a href="https://openoregon.pressbooks.pub/beginningexcel19/chapter/5-2-intermediate-table-skills/" target="_blank" rel="noopener noreferrer">“5.2 Intermediate Table Skills”</a> by Hallie Puncochar, <a href="https://www.pcc.edu/" target="_blank" rel="noopener noreferrer">Portland Community College</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></p>

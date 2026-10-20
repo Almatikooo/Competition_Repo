@@ -1,0 +1,884 @@
+{
+ "title": "Digital Literacy Essentials",
+ "subtitle": "Communicate, find and judge information, stay safe and take part confidently online.",
+ "level": "Beginner",
+ "outcomes": [
+  "Describe the essential digital skills for life and work",
+  "Choose the right mode of digital communication",
+  "Evaluate online information and sources critically",
+  "Act as a safe, responsible digital citizen"
+ ],
+ "skill": "digital_literacy",
+ "modules": [
+  {
+   "title": "What digital skills are",
+   "lessons": [
+    "digital_literacy-01",
+    "digital_literacy-02"
+   ]
+  },
+  {
+   "title": "Communicating online",
+   "lessons": [
+    "digital_literacy-03",
+    "digital_literacy-04",
+    "digital_literacy-05"
+   ]
+  },
+  {
+   "title": "Digital citizenship",
+   "lessons": [
+    "digital_literacy-06",
+    "digital_literacy-07",
+    "digital_literacy-08",
+    "digital_literacy-09"
+   ]
+  },
+  {
+   "title": "Thinking critically online",
+   "lessons": [
+    "digital_literacy-10",
+    "digital_literacy-11",
+    "digital_literacy-12",
+    "digital_literacy-13",
+    "digital_literacy-14",
+    "digital_literacy-15",
+    "digital_literacy-16",
+    "digital_literacy-17"
+   ]
+  },
+  {
+   "title": "Staying safe",
+   "lessons": [
+    "digital_literacy-18",
+    "digital_literacy-19"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "digital_literacy-01",
+   "title": "Essential digital skills framework",
+   "words": 2139,
+   "minutes": 11,
+   "source": "govuk",
+   "url": "https://www.gov.uk/government/publications/essential-digital-skills-framework/essential-digital-skills-framework",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "digital-foundation-skills",
+     "text": "Digital Foundation Skills",
+     "level": 2
+    },
+    {
+     "id": "digital-foundation-skills-x",
+     "text": "Digital foundation skills",
+     "level": 3
+    },
+    {
+     "id": "digital-foundation-skills-examples",
+     "text": "Digital foundation skills examples",
+     "level": 3
+    },
+    {
+     "id": "communicating",
+     "text": "Communicating",
+     "level": 2
+    },
+    {
+     "id": "skills-for-life",
+     "text": "Skills for life",
+     "level": 3
+    },
+    {
+     "id": "skills-for-life-examples",
+     "text": "Skills for life examples",
+     "level": 3
+    },
+    {
+     "id": "additional-skills-for-work",
+     "text": "Additional skills for work",
+     "level": 3
+    },
+    {
+     "id": "additional-skills-for-work-examples",
+     "text": "Additional skills for work examples",
+     "level": 3
+    },
+    {
+     "id": "handling-information-and-content",
+     "text": "Handling information and content",
+     "level": 2
+    },
+    {
+     "id": "skills-for-life-x",
+     "text": "Skills for life",
+     "level": 3
+    },
+    {
+     "id": "skills-for-life-examples-x",
+     "text": "Skills for life examples",
+     "level": 3
+    },
+    {
+     "id": "additional-skills-for-work-x",
+     "text": "Additional skills for work",
+     "level": 3
+    },
+    {
+     "id": "additional-skills-for-work-examples-x",
+     "text": "Additional skills for work examples",
+     "level": 3
+    },
+    {
+     "id": "transacting",
+     "text": "Transacting",
+     "level": 2
+    },
+    {
+     "id": "skills-for-life-x-x",
+     "text": "Skills for life",
+     "level": 3
+    },
+    {
+     "id": "skills-for-life-examples-x-x",
+     "text": "Skills for life examples",
+     "level": 3
+    },
+    {
+     "id": "additional-skills-for-work-x-x",
+     "text": "Additional skills for work",
+     "level": 3
+    },
+    {
+     "id": "additional-skills-for-work-examples-x-x",
+     "text": "Additional skills for work examples",
+     "level": 3
+    },
+    {
+     "id": "problem-solving",
+     "text": "Problem solving",
+     "level": 2
+    },
+    {
+     "id": "skills-for-life-x-x-x",
+     "text": "Skills for life",
+     "level": 3
+    },
+    {
+     "id": "skills-for-life-examples-x-x-x",
+     "text": "Skills for life examples",
+     "level": 3
+    },
+    {
+     "id": "additional-skills-for-work-x-x-x",
+     "text": "Additional skills for work",
+     "level": 3
+    },
+    {
+     "id": "additional-skills-for-work-examples-x-x-x",
+     "text": "Additional skills for work examples",
+     "level": 3
+    },
+    {
+     "id": "being-safe-and-legal-online",
+     "text": "Being safe and legal online",
+     "level": 2
+    },
+    {
+     "id": "skills-for-life-and-work",
+     "text": "Skills for life and work",
+     "level": 3
+    },
+    {
+     "id": "skills-for-life-examples-x-x-x-x",
+     "text": "Skills for life examples",
+     "level": 3
+    },
+    {
+     "id": "skills-for-work-examples",
+     "text": "Skills for work examples",
+     "level": 3
+    },
+    {
+     "id": "organisations-involved-in-the-consultation-and-update-of-thi",
+     "text": "Organisations involved in the consultation and update of this framework",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "digital_literacy-02",
+   "title": "Introduction to Digital Literacy",
+   "words": 2738,
+   "minutes": 14,
+   "source": "dle",
+   "url": "https://openpress.universityofgalway.ie/digliteracyessentials/chapter/chapter-1/",
+   "toc": [
+    {
+     "id": "overview",
+     "text": "Overview",
+     "level": 2
+    },
+    {
+     "id": "chapter-topics",
+     "text": "Chapter Topics",
+     "level": 3
+    },
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "taking-stock-of-your-digital-self",
+     "text": "Taking Stock of Your Digital Self",
+     "level": 2
+    },
+    {
+     "id": "what-is-digital-literacy",
+     "text": "What is Digital Literacy?",
+     "level": 2
+    },
+    {
+     "id": "the-concept-of-literacy",
+     "text": "The Concept of Literacy",
+     "level": 3
+    },
+    {
+     "id": "the-concept-of-digital",
+     "text": "The Concept of Digital",
+     "level": 3
+    },
+    {
+     "id": "digital-literacy",
+     "text": "Digital Literacy",
+     "level": 3
+    },
+    {
+     "id": "why-is-digital-literacy-important",
+     "text": "Why is Digital Literacy Important?",
+     "level": 2
+    },
+    {
+     "id": "improving-your-digital-literacy-becoming-a-digital-citizen",
+     "text": "Improving Your Digital Literacy: Becoming a Digital Citizen",
+     "level": 2
+    },
+    {
+     "id": "explore-your-digital-identity",
+     "text": "Explore Your Digital Identity",
+     "level": 3
+    },
+    {
+     "id": "references",
+     "text": "References",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "digital_literacy-03",
+   "title": "Modes of Digital Communication",
+   "words": 1986,
+   "minutes": 10,
+   "source": "dle",
+   "url": "https://openpress.universityofgalway.ie/digliteracyessentials/chapter/chapter-2-modes-of-digital-communication/",
+   "toc": [
+    {
+     "id": "overview",
+     "text": "Overview",
+     "level": 2
+    },
+    {
+     "id": "chapter-topics",
+     "text": "Chapter Topics",
+     "level": 3
+    },
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "from-oral-to-print-culture",
+     "text": "From Oral to Print Culture",
+     "level": 2
+    },
+    {
+     "id": "how-the-printing-press-changed-society",
+     "text": "How the Printing Press Changed Society",
+     "level": 3
+    },
+    {
+     "id": "related-articles",
+     "text": "Related Articles",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "digital_literacy-04",
+   "title": "The Next Wave: Electronic-Media Communications",
+   "words": 1776,
+   "minutes": 9,
+   "source": "dle",
+   "url": "https://openpress.universityofgalway.ie/digliteracyessentials/chapter/chapter-2-modes-of-digital-communication/",
+   "toc": [
+    {
+     "id": "related-articles-x",
+     "text": "Related Articles",
+     "level": 3
+    },
+    {
+     "id": "ownership-of-information-before-the-internet",
+     "text": "Ownership of Information Before the Internet",
+     "level": 2
+    },
+    {
+     "id": "why-the-internet-represents-a-communications-revolution",
+     "text": "Why the Internet Represents a Communications Revolution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "digital_literacy-05",
+   "title": "Who Controls the Internet?",
+   "words": 1439,
+   "minutes": 8,
+   "source": "dle",
+   "url": "https://openpress.universityofgalway.ie/digliteracyessentials/chapter/chapter-2-modes-of-digital-communication/",
+   "toc": [
+    {
+     "id": "conclusion-becoming-a-digital-citizen-in-the-new-world",
+     "text": "Conclusion: Becoming a Digital Citizen in the New World",
+     "level": 2
+    },
+    {
+     "id": "references",
+     "text": "References",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "digital_literacy-06",
+   "title": "Understanding Digital Citizenship (Irish remix)",
+   "words": 1714,
+   "minutes": 9,
+   "source": "dle",
+   "url": "https://openpress.universityofgalway.ie/digliteracyessentials/chapter/chapter-3-digital-citizenship/",
+   "toc": [
+    {
+     "id": "overview",
+     "text": "Overview",
+     "level": 2
+    },
+    {
+     "id": "content-advice-this-chapter-includes-content-relating-to-har",
+     "text": "Content advice: This chapter includes content relating to harassment and bullying online. This may be particularly distressing to some readers so caution is advised in this section",
+     "level": 3
+    },
+    {
+     "id": "chapter-topics",
+     "text": "Chapter Topics",
+     "level": 3
+    },
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "social-media",
+     "text": "Social Media",
+     "level": 2
+    },
+    {
+     "id": "your-digital-footprint",
+     "text": "Your Digital Footprint",
+     "level": 3
+    },
+    {
+     "id": "when-social-media-goes-wrong",
+     "text": "When Social Media Goes Wrong",
+     "level": 3
+    },
+    {
+     "id": "losing-your-job-because-of-social-media",
+     "text": "Losing Your Job Because of Social Media",
+     "level": 3
+    },
+    {
+     "id": "social-media-and-relationships",
+     "text": "Social Media and Relationships",
+     "level": 3
+    },
+    {
+     "id": "social-media-tips",
+     "text": "Social Media Tips",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "digital_literacy-07",
+   "title": "Privacy",
+   "words": 2463,
+   "minutes": 13,
+   "source": "dle",
+   "url": "https://openpress.universityofgalway.ie/digliteracyessentials/chapter/chapter-3-digital-citizenship/",
+   "toc": [
+    {
+     "id": "terms-of-use-and-app-permissions",
+     "text": "Terms of Use and App Permissions",
+     "level": 3
+    },
+    {
+     "id": "cookies-and-tracking",
+     "text": "Cookies and Tracking",
+     "level": 3
+    },
+    {
+     "id": "device-fingerprinting",
+     "text": "Device Fingerprinting",
+     "level": 3
+    },
+    {
+     "id": "what-can-you-do-to-prevent-device-fingerprinting",
+     "text": "What can you do to prevent device fingerprinting?",
+     "level": 3
+    },
+    {
+     "id": "security",
+     "text": "Security",
+     "level": 2
+    },
+    {
+     "id": "common-security-threats",
+     "text": "Common Security Threats",
+     "level": 3
+    },
+    {
+     "id": "hacking-and-hacktivism",
+     "text": "Hacking and Hacktivism",
+     "level": 3
+    },
+    {
+     "id": "dos-ddos-attacks",
+     "text": "DoS & DDoS Attacks",
+     "level": 3
+    },
+    {
+     "id": "wireless-networks",
+     "text": "Wireless Networks",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "digital_literacy-08",
+   "title": "Defamation",
+   "words": 1025,
+   "minutes": 6,
+   "source": "dle",
+   "url": "https://openpress.universityofgalway.ie/digliteracyessentials/chapter/chapter-3-digital-citizenship/",
+   "toc": [
+    {
+     "id": "citations-and-credits",
+     "text": "Citations and Credits",
+     "level": 3
+    },
+    {
+     "id": "harassment",
+     "text": "Harassment",
+     "level": 2
+    },
+    {
+     "id": "what-is-harassment",
+     "text": "What Is Harassment?",
+     "level": 3
+    },
+    {
+     "id": "what-is-cyberbullying",
+     "text": "What Is Cyberbullying?",
+     "level": 3
+    },
+    {
+     "id": "related-articles",
+     "text": "Related articles",
+     "level": 3
+    },
+    {
+     "id": "are-you-or-someone-you-know-a-victim-of-harassment",
+     "text": "Are You or Someone You Know a Victim of Harassment?",
+     "level": 3
+    },
+    {
+     "id": "tips-to-avoid-online-harassment",
+     "text": "Tips to Avoid Online Harassment",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "digital_literacy-09",
+   "title": "Health and Wellness",
+   "words": 1474,
+   "minutes": 8,
+   "source": "dle",
+   "url": "https://openpress.universityofgalway.ie/digliteracyessentials/chapter/chapter-3-digital-citizenship/",
+   "toc": [
+    {
+     "id": "ergonomics",
+     "text": "Ergonomics",
+     "level": 3
+    },
+    {
+     "id": "desk-set-up",
+     "text": "Desk Set-Up",
+     "level": 3
+    },
+    {
+     "id": "task-design",
+     "text": "Task Design",
+     "level": 3
+    },
+    {
+     "id": "sleep",
+     "text": "Sleep",
+     "level": 3
+    },
+    {
+     "id": "memory-mood-and-muse",
+     "text": "Memory, Mood, and Muse",
+     "level": 3
+    },
+    {
+     "id": "internet-addiction",
+     "text": "Internet Addiction",
+     "level": 3
+    },
+    {
+     "id": "techniques-for-adjusting-smartphone-habits",
+     "text": "Techniques for Adjusting Smartphone Habits",
+     "level": 3
+    },
+    {
+     "id": "digital-health-and-wellness-tips",
+     "text": "Digital Health and Wellness Tips",
+     "level": 3
+    },
+    {
+     "id": "references",
+     "text": "References",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "digital_literacy-10",
+   "title": "Critical Approaches to Digital Literacy",
+   "words": 2195,
+   "minutes": 11,
+   "source": "dle",
+   "url": "https://openpress.universityofgalway.ie/digliteracyessentials/chapter/chapter-4-critical-approaches-to-digital-literad/",
+   "toc": [
+    {
+     "id": "overview",
+     "text": "Overview",
+     "level": 2
+    },
+    {
+     "id": "chapter-topics",
+     "text": "Chapter Topics:",
+     "level": 3
+    },
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "thinking-about-context",
+     "text": "Thinking About Context",
+     "level": 2
+    },
+    {
+     "id": "learning-to-be-critical",
+     "text": "Learning to Be Critical",
+     "level": 2
+    },
+    {
+     "id": "asking-critical-questions",
+     "text": "Asking Critical Questions",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "digital_literacy-11",
+   "title": "Voices: Who Is Represented in Digital Space and Who Isn’t?",
+   "words": 1775,
+   "minutes": 9,
+   "source": "dle",
+   "url": "https://openpress.universityofgalway.ie/digliteracyessentials/chapter/chapter-4-critical-approaches-to-digital-literad/",
+   "toc": [
+    {
+     "id": "critical-digital-literacies-digital-platforms",
+     "text": "Critical Digital Literacies: Digital Platforms",
+     "level": 2
+    },
+    {
+     "id": "on-bias-in-google-and-wikipedia",
+     "text": "On Bias in Google and Wikipedia",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "digital_literacy-12",
+   "title": "Questioning Digital Platforms",
+   "words": 1487,
+   "minutes": 8,
+   "source": "dle",
+   "url": "https://openpress.universityofgalway.ie/digliteracyessentials/chapter/chapter-4-critical-approaches-to-digital-literad/",
+   "toc": [
+    {
+     "id": "positioning-yourself-online",
+     "text": "Positioning Yourself Online",
+     "level": 2
+    },
+    {
+     "id": "references",
+     "text": "References",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "digital_literacy-13",
+   "title": "Developing Evaluative Literacy Skills",
+   "words": 874,
+   "minutes": 5,
+   "source": "dle",
+   "url": "https://openpress.universityofgalway.ie/digliteracyessentials/chapter/chapter-5-developing-evaluative-literacy-skills/",
+   "toc": [
+    {
+     "id": "chapter-topics",
+     "text": "Chapter Topics",
+     "level": 3
+    },
+    {
+     "id": "introduction-invisible-networks",
+     "text": "Introduction: Invisible Networks",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "digital_literacy-14",
+   "title": "Web Searching: How Google Works",
+   "words": 1643,
+   "minutes": 9,
+   "source": "dle",
+   "url": "https://openpress.universityofgalway.ie/digliteracyessentials/chapter/chapter-5-developing-evaluative-literacy-skills/",
+   "toc": [
+    {
+     "id": "related-articles",
+     "text": "Related Articles",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "digital_literacy-15",
+   "title": "How to Be Critical of Web Search Results",
+   "words": 2357,
+   "minutes": 12,
+   "source": "dle",
+   "url": "https://openpress.universityofgalway.ie/digliteracyessentials/chapter/chapter-5-developing-evaluative-literacy-skills/",
+   "toc": [
+    {
+     "id": "related-articles-x",
+     "text": "Related Articles",
+     "level": 3
+    },
+    {
+     "id": "the-almighty-click-the-internet-and-the-media",
+     "text": "The Almighty Click: The Internet and the Media",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "digital_literacy-16",
+   "title": "Evaluation Toolkit",
+   "words": 2075,
+   "minutes": 11,
+   "source": "dle",
+   "url": "https://openpress.universityofgalway.ie/digliteracyessentials/chapter/chapter-5-developing-evaluative-literacy-skills/",
+   "toc": [
+    {
+     "id": "evaluating-all-types-of-information",
+     "text": "Evaluating All Types of Information",
+     "level": 3
+    },
+    {
+     "id": "evaluating-digital-information",
+     "text": "Evaluating Digital Information",
+     "level": 3
+    },
+    {
+     "id": "resources",
+     "text": "Resources",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "digital_literacy-17",
+   "title": "References",
+   "words": 567,
+   "minutes": 3,
+   "source": "dle",
+   "url": "https://openpress.universityofgalway.ie/digliteracyessentials/chapter/chapter-5-developing-evaluative-literacy-skills/",
+   "toc": []
+  },
+  {
+   "id": "digital_literacy-18",
+   "title": "Common cybersecurity threats",
+   "words": 1254,
+   "minutes": 7,
+   "source": "ms-sec",
+   "url": "https://github.com/microsoft/Security-101/blob/b0a31ff7ebb9983d24bcdc6a38a4d008e6e89d0c/1.2%20Common%20cybersecurity%20threats.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "what-is-a-cybersecurity-threat",
+     "text": "What is a cybersecurity threat?",
+     "level": 2
+    },
+    {
+     "id": "why-do-malicious-actors-want-to-compromise-data-and-it-syste",
+     "text": "Why do malicious actors want to compromise data and IT systems?",
+     "level": 2
+    },
+    {
+     "id": "what-are-the-most-common-types-of-cybersecurity-threats",
+     "text": "What are the most common types of cybersecurity threats?",
+     "level": 2
+    },
+    {
+     "id": "what-is-the-mitre-att-ck-framework",
+     "text": "What is the MITRE ATT&CK framework?",
+     "level": 2
+    },
+    {
+     "id": "where-can-i-keep-up-to-date-with-the-cybersecurity-threat-la",
+     "text": "Where can I keep up to date with the cybersecurity threat landscape?",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "digital_literacy-19",
+   "title": "Joining the Digital Conversation",
+   "words": 3767,
+   "minutes": 19,
+   "source": "dle",
+   "url": "https://openpress.universityofgalway.ie/digliteracyessentials/chapter/chapter-6-joining-the-digital-conversation/",
+   "toc": [
+    {
+     "id": "overview",
+     "text": "Overview",
+     "level": 2
+    },
+    {
+     "id": "chapter-topics",
+     "text": "Chapter Topics",
+     "level": 3
+    },
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "digital-identities-who-are-you-online",
+     "text": "Digital Identities: Who are you online?",
+     "level": 2
+    },
+    {
+     "id": "related-articles",
+     "text": "Related Articles",
+     "level": 3
+    },
+    {
+     "id": "finding-the-conversation",
+     "text": "Finding the Conversation",
+     "level": 2
+    },
+    {
+     "id": "participating-in-the-conversation",
+     "text": "Participating in the Conversation",
+     "level": 2
+    },
+    {
+     "id": "related-articles-x",
+     "text": "Related Articles",
+     "level": 3
+    },
+    {
+     "id": "references",
+     "text": "References",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [],
+  "pass_mark": 0,
+  "missing": true
+ },
+ "minutes": 182,
+ "sources": [
+  {
+   "id": "dle",
+   "name": "Digital Literacy Essentials (University of Galway)",
+   "url": "https://openpress.universityofgalway.ie/digliteracyessentials/",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "University of Galway Open Press, adapted from the Digital Citizenship Toolkit (Michelle Schwartz, ed.), CC BY 4.0",
+   "noncommercial": false
+  },
+  {
+   "id": "govuk",
+   "name": "GOV.UK guidance",
+   "url": "https://www.gov.uk/",
+   "license": "Open Government Licence v3.0",
+   "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+   "attribution": "Contains public sector information licensed under the Open Government Licence v3.0",
+   "noncommercial": false
+  },
+  {
+   "id": "ms-sec",
+   "name": "Microsoft · Security 101",
+   "url": "https://github.com/microsoft/Security-101",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attribution": "Microsoft Security-101, dedicated to the public domain (CC0)",
+   "noncommercial": false
+  }
+ ]
+}

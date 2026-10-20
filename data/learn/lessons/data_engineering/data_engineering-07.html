@@ -1,0 +1,220 @@
+<h2 id="choose-a-data-pipeline-orchestration-technology-in-azure">Choose a data pipeline orchestration technology in Azure</h2>
+<p>Most big data solutions consist of repeated data processing operations, encapsulated in workflows. A pipeline orchestrator helps automate these workflows. It can schedule jobs, run workflows, and coordinate dependencies among tasks.</p>
+<h2 id="options-for-data-pipeline-orchestration">Options for data pipeline orchestration</h2>
+<p>In Azure, the following services and tools meet the core requirements for pipeline orchestration, control flow, and data movement:</p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/data-factory" target="_blank" rel="noopener noreferrer">Azure Data Factory</a></li>
+<li><a href="https://learn.microsoft.com/azure/hdinsight/hdinsight-use-oozie-linux-mac" target="_blank" rel="noopener noreferrer">Apache Oozie on Azure HDInsight</a></li>
+<li><a href="https://learn.microsoft.com/sql/integration-services/sql-server-integration-services" target="_blank" rel="noopener noreferrer">SQL Server Integration Services (SSIS)</a></li>
+<li><a href="https://learn.microsoft.com/fabric/data-factory/data-factory-overview" target="_blank" rel="noopener noreferrer">Fabric Data Factory</a></li>
+</ul>
+<p>You can use these services and tools independently or combine them to create a hybrid solution. For example, the integration runtime (IR) in Data Factory V2 can natively run SSIS packages in a managed Azure compute environment. These services share some functionality, but they have a few key differences.</p>
+<h2 id="key-selection-criteria">Key selection criteria</h2>
+<p>To narrow your options, consider the following factors:</p>
+<ul>
+<li>
+<p>Determine whether you need big data capabilities to move and transform your data. These capabilities typically use multiple gigabytes (GBs) to terabytes (TBs) of data. If you require these capabilities, choose a service designed for big data.</p>
+</li>
+<li>
+<p>Identify whether you need a managed service that can operate at scale. If you do, choose a cloud-based service that doesn't depend on your local processing power.</p>
+</li>
+<li>
+<p>Check whether you have data sources located on-premises. If you do, choose a service that supports both cloud and on-premises data sources or destinations.</p>
+</li>
+<li>
+<p>Check whether you store source data in blob storage on a Hadoop Distributed File System (HDFS). If you do, choose a service that supports Hive queries.</p>
+</li>
+<li>
+<p>Determine whether you need advanced orchestration for complex extract, transform, and load (ETL) workflows across multiple data sources. If you do, choose Fabric Data Factory because it provides a set of connectors, pipeline orchestration, and integration with both on-premises and cloud environments. It's ideal for enterprise-scale data movement and transformation.</p>
+</li>
+</ul>
+<h2 id="capability-matrix">Capability matrix</h2>
+<p>The following tables summarize the key differences in capabilities.</p>
+<h3 id="general-capabilities">General capabilities</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Data Factory</th>
+<th>SSIS</th>
+<th>Oozie on HDInsight</th>
+<th>Fabric Data Factory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Managed</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Cloud-based</td>
+<td>Yes</td>
+<td>No (local)</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Prerequisite</td>
+<td>Azure subscription</td>
+<td>SQL Server</td>
+<td>Azure subscription, HDInsight cluster</td>
+<td>Fabric-enabled workspace</td>
+</tr>
+<tr>
+<td>Management tools</td>
+<td>Azure portal, PowerShell, CLI, .NET SDK</td>
+<td>SQL Server Management Studio (SSMS), PowerShell</td>
+<td>Bash shell, Oozie REST API, Oozie web user interface (UI)</td>
+<td>Copy job, mirroring, pipeline activities, Dataflow Gen2</td>
+</tr>
+<tr>
+<td>Pricing</td>
+<td>Pay per usage</td>
+<td>Licensing, extra features add cost</td>
+<td>Included with HDInsight cluster</td>
+<td>Included with Fabric capacity</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="pipeline-capabilities">Pipeline capabilities</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Data Factory</th>
+<th>SSIS</th>
+<th>Oozie on HDInsight</th>
+<th>Fabric Data Factory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Copy data</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Custom transformations</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes (MapReduce, Pig, and Hive jobs)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Azure Machine Learning scoring</td>
+<td>Yes</td>
+<td>Yes (with scripting)</td>
+<td>No</td>
+<td>Yes (via integration)</td>
+</tr>
+<tr>
+<td>HDInsight on-demand</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Azure Batch</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Pig, Hive, and MapReduce</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Apache Spark</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Run SSIS packages</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Control flow</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Access on-premises data</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="scalability-capabilities">Scalability capabilities</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Data Factory</th>
+<th>SSIS</th>
+<th>Oozie on HDInsight</th>
+<th>Fabric Data Factory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scale up</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Scale out</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes (by adding worker nodes to cluster)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Optimized for big data</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="alternative-approach">Alternative approach</h2>
+<p>In addition to traditional batch-based orchestration, your platform can also use real-time intelligence through the <a href="https://learn.microsoft.com/fabric/real-time-intelligence/event-streams/create-manage-an-eventstream" target="_blank" rel="noopener noreferrer">Fabric Real-Time Intelligence feature</a>. This approach enables continuous streaming data ingestion, in-flight transformation, and event-driven workflows so that you can respond instantly as data arrives. It supports high-value scenarios such as Internet of Things (IoT) telemetry processing, fraud detection, and operational monitoring.</p>
+<h2 id="contributors">Contributors</h2>
+<p><em>Microsoft maintains this article. The following contributors wrote this article.</em></p>
+<p>Principal author:</p>
+<ul>
+<li><a href="https://www.linkedin.com/in/zoinertejada" target="_blank" rel="noopener noreferrer">Zoiner Tejada</a> | CEO and Architect</li>
+</ul>
+<p><em>To see nonpublic LinkedIn profiles, sign in to LinkedIn.</em></p>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/fabric/data-factory/data-factory-overview" target="_blank" rel="noopener noreferrer">Pipelines and activities in Fabric Data Factory</a></li>
+<li><a href="https://learn.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure" target="_blank" rel="noopener noreferrer">Provision the Azure-SSIS integration runtime in Data Factory</a></li>
+<li><a href="https://learn.microsoft.com/azure/hdinsight/hdinsight-use-oozie-linux-mac" target="_blank" rel="noopener noreferrer">Use Oozie to run a workflow on HDInsight</a></li>
+<li><a href="https://blog.fabric.microsoft.com/blog/21597" target="_blank" rel="noopener noreferrer">Medallion architecture in Fabric Real-Time Intelligence</a></li>
+</ul>
+<h2 id="related-resource">Related resource</h2>
+<ul>
+<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/databases/architecture/dataops-mdw.yml" target="_blank" rel="noopener noreferrer">DataOps for the modern data warehouse</a></li>
+</ul>

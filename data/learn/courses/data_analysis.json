@@ -1,0 +1,603 @@
+{
+ "title": "Data Analysis Foundations",
+ "subtitle": "From raw data to insights: defining, preparing, analysing and communicating data.",
+ "level": "Beginner",
+ "outcomes": [
+  "Describe what data science is and the types of data",
+  "Prepare and clean messy datasets with pandas",
+  "Follow the data science lifecycle from question to analysis",
+  "Communicate findings so people act on them"
+ ],
+ "skill": "data_analysis",
+ "modules": [
+  {
+   "title": "Understanding data",
+   "lessons": [
+    "data_analysis-01",
+    "data_analysis-02"
+   ]
+  },
+  {
+   "title": "Working with data",
+   "lessons": [
+    "data_analysis-03",
+    "data_analysis-04"
+   ]
+  },
+  {
+   "title": "The data science lifecycle",
+   "lessons": [
+    "data_analysis-05",
+    "data_analysis-06",
+    "data_analysis-07"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "data_analysis-01",
+   "title": "Defining Data Science",
+   "words": 2153,
+   "minutes": 11,
+   "source": "ms-ds",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/1-Introduction/01-defining-data-science/README.md",
+   "toc": [
+    {
+     "id": "what-is-data",
+     "text": "What is Data?",
+     "level": 2
+    },
+    {
+     "id": "what-is-data-science",
+     "text": "What is Data Science?",
+     "level": 2
+    },
+    {
+     "id": "other-related-fields",
+     "text": "Other Related Fields",
+     "level": 2
+    },
+    {
+     "id": "types-of-data",
+     "text": "Types of Data",
+     "level": 2
+    },
+    {
+     "id": "where-to-get-data",
+     "text": "Where to get Data",
+     "level": 2
+    },
+    {
+     "id": "what-you-can-do-with-data",
+     "text": "What you can do with Data",
+     "level": 2
+    },
+    {
+     "id": "digitalization-and-digital-transformation",
+     "text": "Digitalization and Digital Transformation",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "assignments",
+     "text": "Assignments",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "data_analysis-02",
+   "title": "Defining Data",
+   "words": 1175,
+   "minutes": 6,
+   "source": "ms-ds",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/1-Introduction/03-defining-data/README.md",
+   "toc": [
+    {
+     "id": "how-data-is-described",
+     "text": "How Data is Described",
+     "level": 2
+    },
+    {
+     "id": "raw-data",
+     "text": "Raw Data",
+     "level": 3
+    },
+    {
+     "id": "quantitative-data",
+     "text": "Quantitative Data",
+     "level": 3
+    },
+    {
+     "id": "qualitative-data",
+     "text": "Qualitative Data",
+     "level": 3
+    },
+    {
+     "id": "structured-data",
+     "text": "Structured Data",
+     "level": 3
+    },
+    {
+     "id": "unstructured-data",
+     "text": "Unstructured Data",
+     "level": 3
+    },
+    {
+     "id": "semi-structured",
+     "text": "Semi-structured",
+     "level": 3
+    },
+    {
+     "id": "sources-of-data",
+     "text": "Sources of Data",
+     "level": 2
+    },
+    {
+     "id": "conclusion",
+     "text": "Conclusion",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "data_analysis-03",
+   "title": "Working with Data: Python and the Pandas Library",
+   "words": 2536,
+   "minutes": 13,
+   "source": "ms-ds",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/07-python/README.md",
+   "toc": [
+    {
+     "id": "tabular-data-and-dataframes",
+     "text": "Tabular Data and Dataframes",
+     "level": 2
+    },
+    {
+     "id": "series",
+     "text": "Series",
+     "level": 3
+    },
+    {
+     "id": "dataframe",
+     "text": "DataFrame",
+     "level": 3
+    },
+    {
+     "id": "getting-data",
+     "text": "Getting Data",
+     "level": 3
+    },
+    {
+     "id": "printing-and-plotting",
+     "text": "Printing and Plotting",
+     "level": 3
+    },
+    {
+     "id": "challenge-1-analyzing-covid-spread",
+     "text": "🚀 Challenge 1: Analyzing COVID Spread",
+     "level": 2
+    },
+    {
+     "id": "working-with-unstructured-data",
+     "text": "Working with Unstructured Data",
+     "level": 2
+    },
+    {
+     "id": "challenge-2-analyzing-covid-papers",
+     "text": "🚀 Challenge 2: Analyzing COVID Papers",
+     "level": 2
+    },
+    {
+     "id": "processing-image-data",
+     "text": "Processing Image Data",
+     "level": 2
+    },
+    {
+     "id": "conclusion",
+     "text": "Conclusion",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "data_analysis-04",
+   "title": "Working with Data: Data Preparation",
+   "words": 2063,
+   "minutes": 11,
+   "source": "ms-ds",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/08-data-preparation/README.md",
+   "toc": [
+    {
+     "id": "the-importance-of-cleaning-data",
+     "text": "The importance of cleaning data",
+     "level": 2
+    },
+    {
+     "id": "common-cleaning-goals-and-strategies",
+     "text": "Common cleaning goals and strategies",
+     "level": 2
+    },
+    {
+     "id": "exploring-dataframe-information",
+     "text": "Exploring DataFrame information",
+     "level": 2
+    },
+    {
+     "id": "dealing-with-missing-data",
+     "text": "Dealing with Missing Data",
+     "level": 2
+    },
+    {
+     "id": "removing-duplicate-data",
+     "text": "Removing duplicate data",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "data_analysis-05",
+   "title": "Introduction to the Data Science Lifecycle",
+   "words": 1179,
+   "minutes": 6,
+   "source": "ms-ds",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/4-Data-Science-Lifecycle/14-Introduction/README.md",
+   "toc": [
+    {
+     "id": "capturing",
+     "text": "Capturing",
+     "level": 2
+    },
+    {
+     "id": "processing",
+     "text": "Processing",
+     "level": 2
+    },
+    {
+     "id": "maintaining",
+     "text": "Maintaining",
+     "level": 2
+    },
+    {
+     "id": "storing-data",
+     "text": "Storing Data",
+     "level": 3
+    },
+    {
+     "id": "managing-data",
+     "text": "Managing Data",
+     "level": 3
+    },
+    {
+     "id": "securing-the-data",
+     "text": "Securing the Data",
+     "level": 3
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "data_analysis-06",
+   "title": "The Data Science Lifecycle: Analyzing",
+   "words": 725,
+   "minutes": 4,
+   "source": "ms-ds",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/4-Data-Science-Lifecycle/15-analyzing/README.md",
+   "toc": [
+    {
+     "id": "exploratory-data-analysis",
+     "text": "Exploratory Data Analysis",
+     "level": 2
+    },
+    {
+     "id": "data-profiling-descriptive-statistics-and-pandas",
+     "text": "Data Profiling, Descriptive Statistics, and Pandas",
+     "level": 2
+    },
+    {
+     "id": "sampling-and-querying",
+     "text": "Sampling and Querying",
+     "level": 2
+    },
+    {
+     "id": "exploring-with-visualizations",
+     "text": "Exploring with Visualizations",
+     "level": 2
+    },
+    {
+     "id": "exploring-to-identify-inconsistencies",
+     "text": "Exploring to identify inconsistencies",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "data_analysis-07",
+   "title": "The Data Science Lifecycle: Communication",
+   "words": 3048,
+   "minutes": 16,
+   "source": "ms-ds",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/4-Data-Science-Lifecycle/16-communication/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "what-is-communication",
+     "text": "What is Communication?",
+     "level": 3
+    },
+    {
+     "id": "data-communication-storytelling",
+     "text": "Data Communication & Storytelling",
+     "level": 3
+    },
+    {
+     "id": "types-of-communication",
+     "text": "Types of Communication",
+     "level": 3
+    },
+    {
+     "id": "effective-communication",
+     "text": "Effective Communication",
+     "level": 2
+    },
+    {
+     "id": "your-responsibilities-as-a-communicator",
+     "text": "Your Responsibilities as a communicator",
+     "level": 3
+    },
+    {
+     "id": "1-understand-your-audience-your-channel-your-communication-m",
+     "text": "1. Understand Your Audience, Your Channel & Your Communication Method",
+     "level": 3
+    },
+    {
+     "id": "2-begin-with-the-end-in-mind",
+     "text": "2. Begin With The End In Mind",
+     "level": 3
+    },
+    {
+     "id": "3-approach-it-like-an-actual-story",
+     "text": "3. Approach it Like an Actual Story",
+     "level": 3
+    },
+    {
+     "id": "4-use-meaningful-words-phrases",
+     "text": "4. Use Meaningful Words & Phrases",
+     "level": 3
+    },
+    {
+     "id": "5-use-emotion",
+     "text": "5. Use Emotion",
+     "level": 3
+    },
+    {
+     "id": "communication-case-study",
+     "text": "Communication Case Study",
+     "level": 2
+    },
+    {
+     "id": "conclusion",
+     "text": "Conclusion",
+     "level": 2
+    },
+    {
+     "id": "summary-of-main-points",
+     "text": "Summary of main points",
+     "level": 3
+    },
+    {
+     "id": "recommended-resources-for-self-study",
+     "text": "Recommended Resources for Self Study",
+     "level": 3
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "kind": "bank",
+  "sources": [
+   "ms-ds"
+  ],
+  "questions": [
+   {
+    "q": "Which areas are closely related to data science?",
+    "options": [
+     "Artificial Intelligence",
+     "Machine Learning",
+     "All of the above"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "data_analysis-01",
+    "bank_quiz": 1
+   },
+   {
+    "q": "Which of the following is an example of non-structured data?",
+    "options": [
+     "List of students in class",
+     "Collection of student essays",
+     "Graph of friends of social network users"
+    ],
+    "answer": 1,
+    "explain": "",
+    "lesson": "data_analysis-01",
+    "bank_quiz": 1
+   },
+   {
+    "q": "The teacher is reviewing students’ number of correct answers, what type of data is that?",
+    "options": [
+     "Qualitative Data",
+     "Quantitative Data",
+     "All the above"
+    ],
+    "answer": 1,
+    "explain": "",
+    "lesson": "data_analysis-02",
+    "bank_quiz": 5
+   },
+   {
+    "q": "A company is collecting surveys from their customers to improve their products. What type of data source is this?",
+    "options": [
+     "Primary",
+     "Secondary",
+     "Tertiary"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "data_analysis-02",
+    "bank_quiz": 5
+   },
+   {
+    "q": "Which library would you use to represent a list of grades of students in class?",
+    "options": [
+     "Numpy",
+     "SciPy",
+     "Pandas"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "data_analysis-03",
+    "bank_quiz": 13
+   },
+   {
+    "q": "You have a DataFrame with a list of students, their group number, and average grade. Which operation would you use to compute the average grade per group?",
+    "options": [
+     "average",
+     "avg",
+     "groupby"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "data_analysis-03",
+    "bank_quiz": 13
+   },
+   {
+    "q": "Joining two or more datasets can cause which following issue(s)?",
+    "options": [
+     "Duplicates",
+     "Inconsistent formatting",
+     "All of the above"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "data_analysis-04",
+    "bank_quiz": 15
+   },
+   {
+    "q": "What step of the data science lifecycle is most likely to produce a model?",
+    "options": [
+     "Processing",
+     "Maintenance",
+     "Capturing"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "data_analysis-05",
+    "bank_quiz": 27
+   },
+   {
+    "q": "What questions would a data scientist ask in the capture phase of the data science lifecycle?",
+    "options": [
+     "What are the constraints?",
+     "Does the data make sense?",
+     "Does the model make sense?"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "data_analysis-05",
+    "bank_quiz": 27
+   },
+   {
+    "q": "Which Panda functions provides basic data profiling?",
+    "options": [
+     "pandas()",
+     "isnull()",
+     "describe()"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "data_analysis-06",
+    "bank_quiz": 29
+   },
+   {
+    "q": "What is the purpose of sampling data?",
+    "options": [
+     "Sampling is better than data profiling when looking for errors",
+     "Sampling doesn't serve a purpose",
+     "Sampling is used to analyze data in a large data set because it's hard to analyze all of it"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "data_analysis-06",
+    "bank_quiz": 29
+   },
+   {
+    "q": "Of the options below, which is the most meaningful explanation of a company's yearly progress?",
+    "options": [
+     "We had an excellent year! Our users grew by 30%, our revenue increased by 21%, and we've added 100 new team members.",
+     "We had a great year! Our users grew tremendously, our revenue increased by a lot, and we even added several new team members across all divisions.",
+     "Our progress year was simply phenomenal. I can't overstate how much of an increase we've had with growing our users, our revenue, or our team."
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "data_analysis-07",
+    "bank_quiz": 31
+   }
+  ],
+  "pass_mark": 9
+ },
+ "sources": [
+  {
+   "id": "ms-ds",
+   "name": "Microsoft · Data Science for Beginners",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners",
+   "license": "MIT",
+   "license_url": "https://opensource.org/license/mit",
+   "attribution": "© Microsoft Corporation, MIT License",
+   "noncommercial": false
+  }
+ ],
+ "minutes": 67
+}

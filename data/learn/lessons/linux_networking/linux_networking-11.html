@@ -1,0 +1,33 @@
+<p>Many services collect personal information from users or present information to them which they then use to make important decisions.</p>
+<p>It’s important that you build a service that does not allow this information to be intercepted or modified by malicious third parties as it travels over the internet.</p>
+<p>This means you must make sure your service (including <abbr title="Application Programming Interface">APIs</abbr>) is only accessible through secure connections. For web-based services this means <a href="https://en.wikipedia.org/wiki/HTTPS" target="_blank" rel="noopener noreferrer"><abbr title="Hypertext Transfer Protocol Secure">HTTPS</abbr></a> only, with an <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Strict Transport Security (<abbr title="HTTP Strict Transport Security">HSTS</abbr>) configuration as explained in this guide.</p>
+<p>(<abbr title="Hypertext Transfer Protocol Secure">HTTPS</abbr> describes the use of <abbr title="Transport Layer Security">TLS</abbr>, a lower level protocol previously known as <abbr title="Secure Sockets Layer">SSL</abbr>, to secure <abbr title="Hypertext Transfer Protocol">HTTP</abbr> requests.)</p>
+<h2 id="configuring-hsts">Configuring <abbr title="HTTP Strict Transport Security">HSTS</abbr>
+</h2>
+<p><abbr title="HTTP Strict Transport Security">HSTS</abbr> is an extension to the <abbr title="Hypertext Transfer Protocol Secure">HTTPS</abbr> protocol that tells web browsers that subsequent connections to a site must use <abbr title="Hypertext Transfer Protocol Secure">HTTPS</abbr>, and not an insecure protocol.</p>
+<p>This helps defend users from attacks on subsequent visits to a site. Browser vendors can also preload this configuration in their browsers to defend users on their first connection to the site.</p>
+<p>You should use this <abbr title="HTTP Strict Transport Security">HSTS</abbr> header which the Government Digital Service (<abbr title="Government Digital Service">GDS</abbr>) recommends:</p>
+<p><code>Strict-Transport-Security: max-age=31536000, includeSubDomains; preload;</code></p>
+<p>Read National Cyber Security Centre (<abbr title="National Cyber Security Centre">NCSC</abbr>) guidance on <a href="https://www.ncsc.gov.uk/guidance/tls-external-facing-services" target="_blank" rel="noopener noreferrer">using <abbr title="Transport Layer Security">TLS</abbr> for external-facing services</a>.</p>
+<h2 id="serving-your-assets-efficiently">Serving your assets efficiently</h2>
+<p>The way your users’ browsers access your service’s assets (for example stylesheets, JavaScript, images) may change their opinion of the service, and this can affect its success.</p>
+<p>In particular, how and where they’re hosted can have a dramatic impact on perceived and actual page-load times.</p>
+<p>Do not link to assets hosted by another service, like GOV.UK, as their location may change without notice and break your service.</p>
+<p>Historically, limitations in <abbr title="Hypertext Transfer Protocol">HTTP</abbr>/1.1 have resulted in practices designed to work around these limitations. In response to many of these limitations, <abbr title="Hypertext Transfer Protocol">HTTP</abbr>/2 has been developed which does not require these workarounds, and which will provide better performance once deployed.</p>
+<p><abbr title="Hypertext Transfer Protocol">HTTP</abbr>/1.1 and <abbr title="Hypertext Transfer Protocol">HTTP</abbr>/2 can be concurrently supported by web server software, and if <abbr title="Hypertext Transfer Protocol">HTTP</abbr>/2 is not supported by the browser, <abbr title="Hypertext Transfer Protocol">HTTP</abbr>/1.1 will be used.</p>
+<p>In early 2016, support for <abbr title="Hypertext Transfer Protocol">HTTP</abbr>/2 in web browsers in use was <a href="https://blog.cloudflare.com/cloudflares-impact-on-the-http-2-universe/" target="_blank" rel="noopener noreferrer">measured at around 56%</a>, and rising rapidly.</p>
+<p>Depending on the browsers in use by your users, you may decide to optimise for <abbr title="Hypertext Transfer Protocol">HTTP</abbr>/1.1 users. In this case, common practice is to serve assets from a separate hostname (this avoids sending bulky cookies in requests for assets).</p>
+<p>For example, if your service is at www.servicename.service.gov.uk, you should serve your assets from assets.servicename.service.gov.uk.</p>
+<h2 id="further-reading">Further reading</h2>
+<p>The following videos explain how <abbr title="Hypertext Transfer Protocol Secure">HTTPS</abbr> works:</p>
+<ul>
+<li><a href="http://bit.ly/SM086t" target="_blank" rel="noopener noreferrer">Public Key Cryptography: Diffie-Hellman Key Exchange, from the Art of the Problem channel</a></li>
+<li><a href="http://bit.ly/2mOSKM0" target="_blank" rel="noopener noreferrer">Secure web browsing, from the Computerphile channel</a></li>
+</ul>
+<p>For more detailed information about optimising web application performance and particularly for optimising for <abbr title="Hypertext Transfer Protocol">HTTP</abbr>/1.1 or <abbr title="Hypertext Transfer Protocol">HTTP</abbr>/2, see <a href="https://hpbn.co/optimizing-application-delivery/" target="_blank" rel="noopener noreferrer">Chapter 13 of High Performance Browser Networking</a>.</p>
+<h2 id="related-guides">Related guides</h2>
+<p>You may also find the following guides useful:</p>
+<ul>
+<li><a href="https://www.gov.uk/service-manual/technology/using-progressive-enhancement" target="_blank" rel="noopener noreferrer">Using progressive enhancement</a></li>
+<li><a href="https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices" target="_blank" rel="noopener noreferrer">Designing for different browsers and devices</a></li>
+</ul>

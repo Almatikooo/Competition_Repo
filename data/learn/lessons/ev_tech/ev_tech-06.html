@@ -1,0 +1,100 @@
+<p>
+Back in the early days of electrical measurement technology, a special type of battery known as a <i>mercury standard cell</i> was popularly used as a voltage calibration standard.  The output of a mercury cell was 1.0183 to 1.0194 volts DC (depending on the specific design of cell), and was extremely stable over time.  Advertised drift was around 0.004 percent of rated voltage per year.  Mercury standard cells were sometimes known as <i>Weston cells</i> or <i>cadmium cells</i>.
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00270.png"> </p>
+<p>
+Unfortunately, mercury cells were rather intolerant of any current drain and could not even be measured with an analog voltmeter without compromising accuracy.  Manufacturers typically called for no more than 0.1 mA of current through the cell, and even that figure was considered a <i>momentary</i>, or <i>surge</i> maximum!  Consequently, standard cells could only be measured with a potentiometric (null-balance) device where current drain is almost zero.  Short-circuiting a mercury cell was prohibited, and once short-circuited, the cell could never be relied upon again as a standard device.
+</p>
+<p>
+Mercury standard cells were also susceptible to slight changes in voltage if physically or thermally disturbed.  Two different types of mercury standard cells were developed for different calibration purposes: <i>saturated</i> and <i>unsaturated</i>.  Saturated standard cells provided the greatest voltage stability over time, at the expense of thermal instability.  In other words, their voltage drifted very little with the passage of time (just a few microvolts over the span of a decade!), but tended to vary with changes in temperature (tens of microvolts per degree Celsius).  These cells functioned best in temperature-controlled laboratory environments where long-term stability is paramount.  Unsaturated cells provided thermal stability at the expense of stability over time, the voltage remaining virtually constant with changes in temperature but decreasing steadily by about 100 µV every year.  These cells functioned best as "field" calibration devices where ambient temperature is not precisely controlled.  Nominal voltage for a saturated cell was 1.0186 volts, and 1.019 volts for an unsaturated cell.
+</p>
+<p>
+Modern semiconductor voltage (zener diode regulator) references have superseded standard cell batteries as laboratory and field voltage standards.
+</p>
+<p>
+A fascinating device closely related to primary-cell batteries is the <i>fuel cell</i>, so-called because it harnesses the chemical reaction of combustion to generate an electric current.  The process of chemical oxidation (oxygen ionically bonding with other elements) is capable of producing an electron flow between two electrodes just as well as any combination of metals and electrolytes.  A fuel cell can be thought of as a battery with an externally supplied chemical energy source.
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00271.png"> </p>
+<p>
+To date, the most successful fuel cells constructed are those which run on hydrogen and oxygen, although much research has been done on cells using hydrocarbon fuels.  While "burning" hydrogen, a fuel cell's only waste byproducts are water and a small amount of heat.  When operating on carbon-containing fuels, carbon dioxide is also released as a byproduct.  Because the operating temperature of modern fuel cells is far below that of normal combustion, no oxides of nitrogen (NO<sub>x</sub>) are formed, making it far less polluting, all other factors being equal.
+</p>
+<p>
+The efficiency of energy conversion in a fuel cell from chemical to electrical far exceeds the theoretical Carnot efficiency limit of any internal-combustion engine, which is an exciting prospect for power generation and hybrid electric automobiles.
+</p>
+<p>
+Another type of "battery" is the <i>solar cell</i>, a by-product of the semiconductor revolution in electronics.  The <i>photoelectric effect</i>, whereby electrons are dislodged from atoms under the influence of light, has been known in physics for many decades, but it has only been with recent advances in semiconductor technology that a device existed capable of harnessing this effect to any practical degree.  Conversion efficiencies for silicon solar cells are still quite low, but their benefits as power sources are legion: no moving parts, no noise, no waste products or pollution (aside from the manufacture of solar cells, which is still a fairly "dirty" industry), and indefinite life.  
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00272.png"> </p>
+<p>
+Specific cost of solar cell technology (dollars per kilowatt) is still very high, with little prospect of significant decrease barring some kind of revolutionary advance in technology.  Unlike electronic components made from semiconductor material, which can be made smaller and smaller with less scrap as a result of better quality control, a single solar cell still takes the same amount of ultra-pure silicon to make as it did thirty years ago.  Superior quality control fails to yield the same production gain seen in the manufacture of chips and transistors (where isolated specks of impurity can ruin many microscopic circuits on one wafer of silicon).  The same number of impure inclusions does little to impact the overall efficiency of a 3-inch solar cell.
+</p>
+<p>
+Yet another type of special-purpose "battery" is the <i>chemical detection cell</i>.  Simply put, these cells chemically react with specific substances in the air to create a voltage directly proportional to the concentration of that substance.  A common application for a chemical detection cell is in the detection and measurement of oxygen concentration.  Many portable oxygen analyzers have been designed around these small cells.  Cell chemistry must be designed to match the specific substance(s) to be detected, and the cells do tend to "wear out," as their electrode materials deplete or become contaminated with use.
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li><i>mercury standard cells</i> are special types of batteries which were once used as voltage calibration standards before the advent of precision semiconductor reference devices.</li>
+<li>A <i>fuel cell</i> is a kind of battery that uses a combustible fuel and oxidizer as reactants to generate electricity.  They are promising sources of electrical power in the future, "burning" fuels with very low emissions.</li>
+<li>A <i>solar cell</i> uses ambient light energy to motivate electrons from one electrode to the other, producing voltage (and current, providing an external circuit).</li>
+<li>A <i>chemical detection cell</i> is a special type of voltaic cell which produces voltage proportional to the concentration of an applied substance (usually a specific gas in ambient air).</li>
+</ul>
+<h2 id="practical-considerations">Practical considerations</h2>
+<p>
+When connecting batteries together to form larger "banks" (a <i>battery</i> of batteries?), the constituent batteries must be matched to each other so as to not cause problems.  First we will consider connecting batteries in series for greater voltage:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00273.png"> </p>
+<p>
+We know that the current is equal at all points in a series circuit, so whatever amount of current there is in any one of the series-connected batteries must be the same for all the others as well.  <i>For this reason, each battery must have the same amp-hour rating, or else some of the batteries will become depleted sooner than others, compromising the capacity of the whole bank</i>.  Please note that the total amp-hour capacity of this series battery bank is not affected by the number of batteries.
+</p>
+<p>
+Next, we will consider connecting batteries in parallel for greater current capacity (lower internal resistance), or greater amp-hour capacity:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00274.png"> </p>
+<p>
+We know that the voltage is equal across all branches of a parallel circuit, so we must be sure that these batteries are of equal voltage.  If not, we will have relatively large currents circulating from one battery through another, the higher-voltage batteries overpowering the lower-voltage batteries.  This is not good.
+</p>
+<p>
+On this same theme, we must be sure that any overcurrent protection (circuit breakers or fuses) are installed in such a way as to be effective.  For our series battery bank, one fuse will suffice to protect the wiring from excessive current, since any break in a series circuit stops current through all parts of the circuit:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00275.png"> </p>
+<p>
+With a parallel battery bank, one fuse is adequate for protecting the wiring against load overcurrent (between the parallel-connected batteries and the load), but we have other concerns to protect against as well.  Batteries have been known to internally short-circuit, due to electrode separator failure, causing a problem not unlike that where batteries of unequal voltage are connected in parallel: the good batteries will overpower the failed (lower voltage) battery, causing relatively large currents within the batteries' connecting wires.  To guard against this eventuality, we should protect each and every battery against overcurrent with individual battery fuses, in addition to the load fuse:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00276.png"> </p>
+<p>
+When dealing with secondary-cell batteries, particular attention must be paid to the method and timing of charging.  Different types and construction of batteries have different charging needs, and the manufacturer's recommendations are probably the best guide to follow when designing or maintaining a system.  Two distinct concerns of battery charging are <i>cycling</i> and <i>overcharging</i>.  Cycling refers to the process of charging a battery to a "full" condition and then discharging it to a lower state.  All batteries have a finite (limited) cycle life, and the allowable "depth" of cycle (how far it should be discharged at any time) varies from design to design.  Overcharging is the condition where current continues to be forced backwards through a secondary cell beyond the point where the cell has reached full charge.  With lead-acid cells in particular, overcharging leads to electrolysis of the water ("boiling" the water out of the battery) and shortened life.
+</p>
+<p>
+Any battery containing water in the electrolyte is subject to the production of hydrogen gas due to electrolysis.  This is especially true for overcharged lead-acid cells, but not exclusive to that type.  Hydrogen is an extremely flammable gas (especially in the presence of free oxygen created by the same electrolysis process), odorless and colorless.  Such batteries pose an explosion threat even under normal operating conditions, and must be treated with respect.  The author has been a firsthand witness to a lead-acid battery explosion, where a spark created by the removal of a battery charger (small DC power supply) from an automotive battery ignited hydrogen gas within the battery case, blowing the top off the battery and splashing sulfuric acid everywhere.  This occurred in a high school automotive shop, no less.  If it were not for all the students nearby wearing safety glasses and buttoned-collar overalls, significant injury could have occurred.
+</p>
+<p>
+When connecting and disconnecting charging equipment to a battery, always make the last connection (or first disconnection) at a location away from the battery itself (such as at a point on one of the battery cables, at least a foot away from the battery), so that any resultant spark has little or no chance of igniting hydrogen gas.
+</p>
+<p>
+In large, permanently installed battery banks, batteries are equipped with vent caps above each cell, and hydrogen gas is vented outside of the battery room through hoods immediately over the batteries.  Hydrogen gas is very light and rises quickly.  The greatest danger is when it is allowed to accumulate in an area, awaiting ignition.
+</p>
+<p>
+More modern lead-acid battery designs are sealed, fabricated  to re-combine the electrolyzed hydrogen and oxygen back into water, inside the battery case itself.  Adequate ventilation might still be a good idea, just in case a battery were to develop a leak. <a href="#JOM.bibitem" rel="noopener noreferrer">[JOM]</a>
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Connecting batteries in series increases voltage, but does not increase overall amp-hour capacity.</li>
+<li>All batteries in a series bank <i>must</i> have the same amp-hour rating.</li>
+<li>Connecting batteries in parallel increases total current capacity by decreasing total resistance, and it also increases overall amp-hour capacity.</li>
+<li>All batteries in a parallel bank <i>must</i> have the same voltage rating.</li>
+<li>Batteries can be damaged by excessive <i>cycling</i> and <i>overcharging</i>.</li>
+<li>Water-based electrolyte batteries are capable of generating explosive hydrogen gas, which must not be allowed to accumulate in an area.</li>
+</ul>
+<h2 id="bibliography">Bibliography</h2><br>
+<ol>
+<li>[DOE]“DOE Handbook, Primer on Lead-Acid Storage Batteries”, DOE-HDBK-1084-95, September 1995, pp. 13. at <a href="http://www.hss.energy.gov/NuclearSafety/techstds/standard/hdbk1084/hdbk1084.pdf" target="_blank" rel="noopener noreferrer">http://www.hss.energy.gov/NuclearSafety/techstds/standard/hdbk1084/hdbk1084.pdf</a> </li>
+<li>[JOM]Robert Nelson, “The Basic Chemistry of Gas Recombination in Lead-Acid Batteries”, JOM, 53 (1) (2001), pp. 28-33. at <a href="http://www.tms.org/pubs/journals/JOM/0101/Nelson-0101.html" target="_blank" rel="noopener noreferrer">http://www.tms.org/pubs/journals/JOM/0101/Nelson-0101.html</a></li>
+</ol>
+<br>
+<hr>
+<p>
+<i>Lessons In Electric Circuits</i> copyright (C) 2000-2023 Tony R. Kuphaldt, under the terms and conditions of the <a href="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_A3.html" target="_blank" rel="noopener noreferrer">CC BY License</a>.
+</p>
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_10.html" target="_blank" rel="noopener noreferrer"><img alt="Previous" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/previous.jpg"></a>
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/index.html" target="_blank" rel="noopener noreferrer"><img alt="Contents" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/contents.jpg"></a>
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_12.html" target="_blank" rel="noopener noreferrer"><img alt="Next" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/next.jpg"></a>

@@ -1,0 +1,672 @@
+<p>Modern solutions handle diverse data, such as transactions, events, documents, telemetry, binary assets, and analytical facts. A single data store rarely satisfies all access patterns efficiently. Most production systems adopt <em>polyglot persistence</em>, which means that you select multiple storage models. This article centralizes the canonical definitions of the primary data store models available on Azure and provides comparative tables to accelerate model selection before you choose specific services.</p>
+<p>Use the following steps to select your data models:</p>
+<ol>
+<li>
+<p>Identify workload access patterns, such as point reads, aggregations, full‑text, similarity, time-window scans, and object delivery.</p>
+</li>
+<li>
+<p>Map patterns to the storage models in the following sections.</p>
+</li>
+<li>
+<p>Create a shortlist of Azure services that implement those models.</p>
+</li>
+<li>
+<p>Apply evaluation criteria, such as consistency, latency, scale, governance, and cost.</p>
+</li>
+<li>
+<p>Combine models only where access patterns or life cycles clearly diverge.</p>
+</li>
+</ol>
+<h2 id="how-to-use-this-guide">How to use this guide</h2>
+<p>Each model section includes a concise definition, typical workloads, data characteristics, example scenarios, and links to representative Azure services. Each section also includes a table to help you choose the right Azure service for your use case. In some cases, you can use other articles to make more informed choices about Azure service options. The respective model sections reference those articles.</p>
+<p>Two comparative tables summarize nonrelational model traits to help you quickly evaluate options without repeating content across sections.</p>
+<h2 id="classification-overview">Classification overview</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Primary purpose</th>
+<th>Typical Azure service examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Relational (OLTP)</td>
+<td>Consistent transactional operations</td>
+<td>Azure SQL Database, Azure Database for PostgreSQL, or Azure Database for MySQL</td>
+</tr>
+<tr>
+<td>Nonrelational, such as document, key-value, column-family, and graph</td>
+<td>Flexible schema or relationship-centric workloads</td>
+<td>Azure Cosmos DB APIs, Azure Managed Redis, Managed Cassandra, or HBase</td>
+</tr>
+<tr>
+<td>Time series</td>
+<td>High-ingest timestamped metrics and events</td>
+<td>Azure Data Explorer or Eventhouse in Fabric</td>
+</tr>
+<tr>
+<td>Object and file</td>
+<td>Large binary or semi-structured file storage</td>
+<td>Azure Blob Storage or Azure Data Lake Storage</td>
+</tr>
+<tr>
+<td>Search and indexing</td>
+<td>Full-text and multi-field relevance, secondary indexing</td>
+<td>Azure AI Search</td>
+</tr>
+<tr>
+<td>Vector</td>
+<td>Semantic or approximate nearest neighbor (ANN) similarity</td>
+<td>Azure AI Search or Azure Cosmos DB variants</td>
+</tr>
+<tr>
+<td>Analytics, online analytical processing (OLAP), massively parallel processing (MPP)</td>
+<td>Large-scale historical aggregation or business intelligence (BI)</td>
+<td>Microsoft Fabric, Azure Data Explorer, Azure Analysis Services, or Azure Databricks</td>
+</tr>
+</tbody>
+</table></div>
+<div class="box box-note"><p class="box-title">Note</p>
+<p>A single service might provide multiple models, also known as <em>multimodel</em>. Choose the best-fit model instead of combining models in a way that complicates operations.</p>
+</div>
+<h2 id="relational-data-stores">Relational data stores</h2>
+<p>Relational database management systems organize data into normalized tables by using schema-on-write. They enforce integrity and support atomicity, consistency, isolation, and durability (ACID) transactions and rich SQL queries.</p>
+<p><strong>Strengths:</strong> Multi-row transactional consistency, complex joins, strong relational constraints, and mature tooling for reporting, administration, and governance.</p>
+<p><strong>Considerations:</strong> Horizontal scale generally requires <a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/patterns/sharding.md" target="_blank" rel="noopener noreferrer">sharding</a> or partitioning, and normalization can increase join cost for read-heavy denormalized views.</p>
+<p><strong>Workloads:</strong> Order management, inventory tracking, financial ledger recording, billing, and operational reporting.</p>
+<h3 id="select-an-azure-service-for-relational-data-stores">Select an Azure service for relational data stores</h3>
+<ul>
+<li>
+<p><a href="https://learn.microsoft.com/azure/azure-sql/database/sql-database-paas-overview" target="_blank" rel="noopener noreferrer">SQL Database</a> is a managed relational database for modern cloud applications that use the SQL Server engine.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview" target="_blank" rel="noopener noreferrer">Azure SQL Managed Instance</a> is a near-complete SQL Server environment in the cloud that's ideal for lift-and-shift migrations.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/azure/azure-sql/database/service-tier-hyperscale" target="_blank" rel="noopener noreferrer">SQL Database (Hyperscale)</a> is a highly scalable SQL tier designed for massive workloads with fast autoscaling and rapid backups.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/azure/postgresql/overview" target="_blank" rel="noopener noreferrer">Azure Database for PostgreSQL</a> is a managed PostgreSQL service that supports open-source extensions and flexible deployment options.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/azure/mysql/flexible-server/overview" target="_blank" rel="noopener noreferrer">Azure Database for MySQL</a> is a managed MySQL database for web apps and open-source workloads.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/fabric/database/sql/overview" target="_blank" rel="noopener noreferrer">SQL Database in Fabric</a> is a developer-friendly transactional database, based on SQL Database, that you can use to easily create an operational database in Fabric.</p>
+</li>
+</ul>
+<p>Use the following table to help determine which Azure service meets your use case requirements.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Best for</th>
+<th>Key features</th>
+<th>Example use case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://learn.microsoft.com/azure/azure-sql/database/sql-database-paas-overview" target="_blank" rel="noopener noreferrer">SQL Database</a></td>
+<td>Cloud-native apps</td>
+<td>Managed, elastic pools, Hyperscale, built-in high availability, advanced security</td>
+<td>Building a modern software as a service (SaaS) application by using a scalable SQL back end</td>
+</tr>
+<tr>
+<td><a href="https://learn.microsoft.com/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview" target="_blank" rel="noopener noreferrer">SQL Managed Instance</a></td>
+<td>Legacy enterprise apps</td>
+<td>Full SQL Server compatibility, lift-and-shift support, virtual networks, advanced auditing</td>
+<td>Migrating an on-premises SQL Server app by using minimal code changes</td>
+</tr>
+<tr>
+<td><a href="https://learn.microsoft.com/azure/azure-sql/database/service-tier-hyperscale" target="_blank" rel="noopener noreferrer">SQL Database (Hyperscale)</a></td>
+<td>Global distribution</td>
+<td>Multi-region read scalability, geo-replication, rapid autoscaling</td>
+<td>Serving a globally distributed app that requires high read throughput</td>
+</tr>
+<tr>
+<td><a href="https://learn.microsoft.com/azure/postgresql/overview" target="_blank" rel="noopener noreferrer">Azure Database for PostgreSQL</a></td>
+<td>Open-source, analytics workloads</td>
+<td>PostGIS, hyperscale, elastic clusters, open-source extensions</td>
+<td>Developing a geospatial analytics app by using PostgreSQL and PostGIS</td>
+</tr>
+<tr>
+<td><a href="https://learn.microsoft.com/azure/mysql/flexible-server/overview" target="_blank" rel="noopener noreferrer">Azure Database for MySQL</a></td>
+<td>Lightweight web apps</td>
+<td>Flexible Server, open-source compatibility, cost-effective</td>
+<td>Hosting a WordPress-based e-commerce site</td>
+</tr>
+<tr>
+<td><a href="https://learn.microsoft.com/fabric/database/sql/overview" target="_blank" rel="noopener noreferrer">SQL Database in Fabric</a></td>
+<td>Online transaction processing (OLTP) workloads in the Fabric ecosystem</td>
+<td>Built on the SQL Database engine, scalable, and integrated into Fabric</td>
+<td>Building AI apps on an operational, relational data model that includes native vector search capabilities</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="nonrelational-data-stores">Nonrelational data stores</h2>
+<p>Nonrelational databases, also called <em>NoSQL databases</em>, optimize for flexible schemas, horizontal scale, and specific access or aggregation patterns. They typically relax some aspects of relational behavior, such as schema rigidity and transaction scope, for scalability or agility.</p>
+<h3 id="document-data-stores">Document data stores </h3>
+<p>Use document data stores to store semi-structured documents, often in JSON format, where each document includes named fields and data. The data can be simple values or complex elements, such as lists and child collections. Per-document schema flexibility enables gradual evolution.</p>
+<p><strong>Strengths:</strong> Natural application object mapping, denormalized aggregates, multi-field indexing</p>
+<p><strong>Considerations:</strong> Document size growth, selective transactional scope, need for careful data shape design for high-scale queries</p>
+<p><strong>Workloads:</strong> Product catalogs, content management, profile stores</p>
+<h4>Select an Azure service for document data stores</h4>
+<ul>
+<li>
+<p><a href="https://learn.microsoft.com/azure/cosmos-db/nosql/" target="_blank" rel="noopener noreferrer">Azure Cosmos DB for NoSQL</a> is a schema-less, multi-region NoSQL database that has low-latency reads and writes.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/azure/documentdb/overview" target="_blank" rel="noopener noreferrer">Azure DocumentDB</a> is a globally distributed database that has MongoDB wire protocol compatibility and autoscaling.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/fabric/database/cosmos-db/overview" target="_blank" rel="noopener noreferrer">Azure Cosmos DB in Fabric</a> is a schema-less, NoSQL database that has low-latency reads and writes, simplified management, and built-in Fabric analytics.</p>
+</li>
+</ul>
+<p>Use the following table to help determine which Azure service meets your use case requirements.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Best for</th>
+<th>Key features</th>
+<th>Example use case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://learn.microsoft.com/azure/cosmos-db/nosql/" target="_blank" rel="noopener noreferrer">Azure Cosmos DB for NoSQL</a></td>
+<td>Custom JSON document models that support SQL-like querying</td>
+<td>Rich query language, multi-region writes, time to live (TTL), change feed</td>
+<td>Building a multitenant SaaS platform that supports flexible schemas</td>
+</tr>
+<tr>
+<td><a href="https://learn.microsoft.com/azure/documentdb/overview" target="_blank" rel="noopener noreferrer">Azure DocumentDB</a></td>
+<td>Apps that use MongoDB drivers or JSON-centric APIs</td>
+<td>Global distribution, autoscale, MongoDB-native wire protocol</td>
+<td>Migrating a Node.js app from MongoDB to Azure</td>
+</tr>
+<tr>
+<td><a href="https://learn.microsoft.com/fabric/database/cosmos-db/overview" target="_blank" rel="noopener noreferrer">Azure Cosmos DB in Fabric</a></td>
+<td>Real-time analytics over NoSQL data</td>
+<td>Automatic extract, transform, and load (ETL) to OneLake through Fabric integration</td>
+<td>Transactional apps that include real-time analytical dashboards</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="column-family-data-stores">Column-family data stores </h3>
+<p>A column-family database, also known as a <em>wide-column database</em>, stores sparse data into rows and organizes dynamic columns into column families to support co-access. Column orientation improves scans over selected column sets.</p>
+<p><strong>Strengths:</strong> High write throughput, efficient retrieval of wide or sparse datasets, dynamic schema within families</p>
+<p><strong>Considerations:</strong> Up-front row key and column family design, secondary index support varies, query flexibility lower than relational</p>
+<p><strong>Workloads:</strong> Internet of Things (IoT) telemetry, personalization, analytics preaggregation, time-series style tall data when you don't use a dedicated time-series database</p>
+<h4>Select an Azure service for column-family data stores</h4>
+<ul>
+<li>
+<p><a href="https://learn.microsoft.com/azure/managed-instance-apache-cassandra" target="_blank" rel="noopener noreferrer">Azure Managed Instance for Apache Cassandra</a> is a managed service for open-source Apache Cassandra clusters.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/azure/hdinsight/hbase/apache-hbase-overview" target="_blank" rel="noopener noreferrer">Apache HBase on Azure HDInsight</a> is a scalable NoSQL store for big data workloads built on Apache HBase and the Hadoop ecosystem.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/azure/data-explorer/data-explorer-overview" target="_blank" rel="noopener noreferrer">Azure Data Explorer (Kusto)</a> is an analytics engine for telemetry, logs, and time-series data that uses Kusto Query Language (KQL).</p>
+</li>
+</ul>
+<p>Use the following table to help determine which Azure service meets your use case requirements.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Best for</th>
+<th>Key features</th>
+<th>Example use case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://learn.microsoft.com/azure/managed-instance-apache-cassandra" target="_blank" rel="noopener noreferrer">Azure Managed Instance for Apache Cassandra</a></td>
+<td>New and migrated Cassandra workloads</td>
+<td>Managed, native Apache Cassandra</td>
+<td>IoT device telemetry ingestion that supports Cassandra compatibility</td>
+</tr>
+<tr>
+<td><a href="https://learn.microsoft.com/azure/hdinsight/hbase/apache-hbase-overview" target="_blank" rel="noopener noreferrer">Apache HBase on HDInsight</a></td>
+<td>Hadoop ecosystem, batch analytics</td>
+<td>Hadoop Distributed File System (HDFS) integration, large-scale batch processing</td>
+<td>Batch processing of sensor data in a manufacturing plant</td>
+</tr>
+<tr>
+<td><a href="https://learn.microsoft.com/azure/data-explorer/data-explorer-overview" target="_blank" rel="noopener noreferrer">Azure Data Explorer (Kusto)</a></td>
+<td>High-ingest telemetry, time-series analytics</td>
+<td>KQL, fast ad-hoc queries, time-window functions</td>
+<td>Real-time analytics for application logs and metrics</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="key-value-data-stores">Key-value data stores </h3>
+<p>A key-value data store associates each data value with a unique key. Most key-value stores only support simple query, insert, and delete operations. To modify a value either partially or completely, an application must overwrite the existing data for the entire value. In most implementations, reading or writing a single value is an atomic operation.</p>
+<p><strong>Strengths:</strong> Simplicity, low latency, linear scalability</p>
+<p><strong>Considerations:</strong> Limited query expressiveness, redesign needed for value-based lookups, large value overwrite cost</p>
+<p><strong>Workloads:</strong> Caching, sessions, feature flags, user profiles, recommendation lookups</p>
+<h4>Select an Azure service for key-value data stores</h4>
+<ul>
+<li>
+<p><a href="https://learn.microsoft.com/azure/redis/overview" target="_blank" rel="noopener noreferrer">Azure Managed Redis</a> is a managed in-memory data store based on the latest Redis Enterprise version that provides low latency and high throughput.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/azure/cosmos-db/table/overview" target="_blank" rel="noopener noreferrer">Azure Cosmos DB for Table</a> is a key-value store optimized for fast access to structured NoSQL data.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/azure/cosmos-db/nosql/" target="_blank" rel="noopener noreferrer">Azure Cosmos DB for NoSQL</a> is a document data store that's optimized for fast access to structured NoSQL data and provides horizontal scalability.</p>
+</li>
+</ul>
+<p>Use the following table to help determine which Azure service meets your use case requirements.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Best for</th>
+<th>Key features</th>
+<th>Example use case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://learn.microsoft.com/azure/redis/overview" target="_blank" rel="noopener noreferrer">Azure Managed Redis</a></td>
+<td>High-speed caching, session state, publish-subscribe</td>
+<td>In-memory store, submillisecond latency, Redis protocol</td>
+<td>Caching product pages for an e-commerce site</td>
+</tr>
+<tr>
+<td><a href="https://learn.microsoft.com/azure/cosmos-db/table/overview" target="_blank" rel="noopener noreferrer">Azure Cosmos DB for Table</a></td>
+<td>Migrating existing Azure Table Storage workloads</td>
+<td>Table Storage API compatibility</td>
+<td>Storing user preferences and settings in a mobile app</td>
+</tr>
+<tr>
+<td><a href="https://learn.microsoft.com/azure/cosmos-db/nosql/" target="_blank" rel="noopener noreferrer">Azure Cosmos DB for NoSQL</a></td>
+<td>High-speed caching with massive scale and high availability</td>
+<td>Schema-less, multi-region, autoscale</td>
+<td>Caching, session state, serving layer</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="graph-data-stores">Graph data stores </h3>
+<p>A graph database stores information as nodes and edges. Edges define relationships, and both nodes and edges can have properties similar to table columns. You can analyze connections between entities, such as employees and departments.</p>
+<p><strong>Strengths:</strong> Relationship-first querying patterns, efficient variable-depth traversals</p>
+<p><strong>Considerations:</strong> Overhead if relationships are shallow, requires careful modeling for performance, not ideal for bulk analytical scans</p>
+<p><strong>Workloads:</strong> Social networks, fraud rings, knowledge graphs, supply chain dependencies</p>
+<h4>Select an Azure service for graph data stores</h4>
+<p>Use <a href="https://learn.microsoft.com/sql/relational-databases/graphs/sql-graph-overview" target="_blank" rel="noopener noreferrer">SQL Server graph extensions</a> for storing graph data. The graph extension extends the capabilities of SQL Server, SQL Database, and SQL Managed Instance to enable modeling and querying complex relationships by using graph structures directly within a relational database.</p>
+<h3 id="time-series-data-stores">Time-series data stores </h3>
+<p>Time-series data stores manage a set of values organized by time. They support features like time-based queries and aggregations. They're optimized to ingest and analyze large volumes of data in near real time. They're typically append-only databases.</p>
+<p><strong>Strengths:</strong> Compression, high-volume ingestion, time-window queries and aggregations, out-of-order ingestion handling</p>
+<p><strong>Considerations:</strong> Tag cardinality management, retention cost, downsampling strategy, specialized query languages</p>
+<p><strong>Workloads:</strong> IoT sensor metrics, application telemetry, monitoring, industrial data, and financial market data</p>
+<h4>Select an Azure service for time-series data stores</h4>
+<ul>
+<li>
+<p><a href="https://learn.microsoft.com/azure/data-explorer/data-explorer-overview" target="_blank" rel="noopener noreferrer">Azure Data Explorer</a> is a managed big data storage platform. Use it to query and visualize high volumes of data in near real time. Choose this service if you need a standalone platform as a service (PaaS) solution with granular control over cluster configuration, networking, and scaling.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/fabric/real-time-intelligence/eventhouse" target="_blank" rel="noopener noreferrer">Eventhouse in Microsoft Fabric</a> is part of the Real-Time Intelligence experience in Fabric. It uses KQL databases to handle streaming data. Choose this service if you want a software as a service (SaaS) experience that's integrated with the Fabric ecosystem, including OneLake and other Fabric workloads.</p>
+</li>
+<li>
+<p>Some transactional databases provide limited time-series capabilities as part of their broader feature set or through extensions. For example, Azure Database for PostgreSQL supports <a href="https://github.com/azure/postgresql/extensions/concepts-extensions-considerations#timescaledb" target="_blank" rel="noopener noreferrer">TimescaleDB</a>. Select this option if you need to query time-series data alongside existing transactional data in the database.</p>
+</li>
+</ul>
+<p>When you choose a time-series data store, evaluate the service based on your workload's needs for:</p>
+<ul>
+<li>Ingestion performance</li>
+<li>Ad-hoc queries</li>
+<li>Additional indexes beyond date/time fields</li>
+<li>Time-series analytics and alerts</li>
+</ul>
+<h3 id="object-data-stores">Object data stores </h3>
+<p>Store large binary or semi-structured objects and include metadata that rarely changes or remains immutable.</p>
+<p><strong>Strengths:</strong> Virtually unlimited scale, tiered cost, durability, parallel read capability</p>
+<p><strong>Considerations:</strong> Whole-object operations, metadata query limited, eventual listing behaviors</p>
+<p><strong>Workloads:</strong> Media assets, backups, data lake raw zones, log archives</p>
+<h4>Select an Azure service for object data stores</h4>
+<ul>
+<li>
+<p><a href="https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction" target="_blank" rel="noopener noreferrer">Data Lake Storage</a> is a big data-optimized object store that combines hierarchical namespace and HDFS compatibility for advanced analytics and large-scale data processing.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/azure/storage/blobs/storage-blobs-introduction" target="_blank" rel="noopener noreferrer">Blob Storage</a> is a scalable object store for unstructured data like images, documents, and backups that includes tiered access for cost optimization.</p>
+</li>
+</ul>
+<p>Use the following table to help determine which Azure service meets your use case requirements.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Best for</th>
+<th>Key features</th>
+<th>Example use case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction" target="_blank" rel="noopener noreferrer">Data Lake Storage</a></td>
+<td>Big data analytics and hierarchical data</td>
+<td>HDFS, hierarchical namespace, optimized for analytics</td>
+<td>Storing and querying petabytes of structured and unstructured data by using Azure Data Factory or Azure Databricks</td>
+</tr>
+<tr>
+<td><a href="https://learn.microsoft.com/azure/storage/blobs/storage-blobs-introduction" target="_blank" rel="noopener noreferrer">Blob Storage</a></td>
+<td>General-purpose object storage</td>
+<td>Flat namespace, simple REST API, and tiered storage that includes hot, cool, and archive</td>
+<td>Hosting images, documents, backups, and static website content</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="search-and-indexing-data-stores">Search and indexing data stores </h3>
+<p>A search engine database allows applications to search for information in external data stores. A search engine database can index massive volumes of data and provide near real-time access to these indexes.</p>
+<p><strong>Strengths:</strong> Full-text queries, scoring, linguistic analysis, fuzzy matching</p>
+<p><strong>Considerations:</strong> Eventual consistency of indexes, separate ingestion or indexing pipeline, cost of large index updates</p>
+<p><strong>Workloads:</strong> Site or product search, log search, metadata filtering, multi-attribute discovery</p>
+<h4>Select an Azure service for search data stores</h4>
+<p>For more information, see <a href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/search-options" target="_blank" rel="noopener noreferrer">Choose a search data store in Azure</a>.</p>
+<h3 id="vector-search-data-stores">Vector search data stores</h3>
+<p>Vector search data stores store and retrieve high-dimensional vector representations of data, often generated by machine learning models.</p>
+<p><strong>Strengths:</strong> Semantic search, ANN algorithms</p>
+<p><strong>Considerations:</strong> Indexing complexity, storage overhead, latency versus accuracy, integration challenges</p>
+<p><strong>Workloads:</strong> Semantic document search, recommendation engines, image and video retrieval, fraud and anomaly detection</p>
+<h4>Select an Azure service for vector search data stores</h4>
+<p>For more information, see <a href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/vector-search" target="_blank" rel="noopener noreferrer">Choose an Azure service for vector search</a>.</p>
+<h3 id="analytics-data-stores">Analytics data stores </h3>
+<p>Analytics data stores store big data and persist it throughout an analytics pipeline life cycle.</p>
+<p><strong>Strengths:</strong> Scalable compute and storage, support for SQL and Spark, integration with BI tools, time-series and telemetry analysis</p>
+<p><strong>Considerations:</strong> Cost and complexity of orchestration, query latency for ad-hoc workloads, governance across multiple data domains</p>
+<p><strong>Workloads:</strong> Enterprise reporting, big data analytics, telemetry aggregation, operational dashboards, data science pipelines</p>
+<h4>Select an Azure service for analytics data stores</h4>
+<p>For more information, see <a href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/analytical-data-stores" target="_blank" rel="noopener noreferrer">Choose an analytical data store in Azure</a>.</p>
+<h2 id="comparative-characteristics-core-nonrelational-models">Comparative characteristics (core nonrelational models)  </h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Document</th>
+<th>Column-family</th>
+<th>Key-value</th>
+<th>Graph</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normalization</td>
+<td>Denormalized</td>
+<td>Denormalized</td>
+<td>Denormalized</td>
+<td>Normalized relationships</td>
+</tr>
+<tr>
+<td>Schema approach</td>
+<td>Schema on read</td>
+<td>Column families defined, columns schema on read</td>
+<td>Schema on read</td>
+<td>Schema on read</td>
+</tr>
+<tr>
+<td>Consistency (typical)</td>
+<td>Tunable for each item</td>
+<td>For each row or family</td>
+<td>For each key</td>
+<td>For each edge or traversal semantics</td>
+</tr>
+<tr>
+<td>Atomicity scope</td>
+<td>Document</td>
+<td>Row or family, depending on table implementation</td>
+<td>Single key</td>
+<td>Graph transaction (varies)</td>
+</tr>
+<tr>
+<td>Locking and concurrency</td>
+<td>Optimistic (ETag)</td>
+<td>Pessimistic or optimistic, depending on implementation</td>
+<td>Optimistic (key)</td>
+<td>Optimistic (pattern)</td>
+</tr>
+<tr>
+<td>Access pattern</td>
+<td>Aggregate (entity)</td>
+<td>Wide sparse aggregates</td>
+<td>Point lookup by key</td>
+<td>Relationship traversals</td>
+</tr>
+<tr>
+<td>Indexing</td>
+<td>Primary and secondary</td>
+<td>Primary and limited secondary</td>
+<td>Primary (key)</td>
+<td>Primary and sometimes secondary</td>
+</tr>
+<tr>
+<td>Data shape</td>
+<td>Flexible hierarchical</td>
+<td>Sparse tabular wide</td>
+<td>Opaque value</td>
+<td>Nodes and edges</td>
+</tr>
+<tr>
+<td>Sparse/Wide suitability</td>
+<td>Yes/Yes</td>
+<td>Yes/Yes</td>
+<td>Yes/No</td>
+<td>No/No</td>
+</tr>
+<tr>
+<td>Typical datum size</td>
+<td>Small–medium</td>
+<td>Medium–large</td>
+<td>Small</td>
+<td>Small</td>
+</tr>
+<tr>
+<td>Scale dimension</td>
+<td>Partition count</td>
+<td>Partition and column family width</td>
+<td>Key space</td>
+<td>Node or edge count</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="comparative-characteristics-specialized-nonrelational-models">Comparative characteristics (specialized nonrelational models)  </h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Time series</th>
+<th>Object (blob)</th>
+<th>Search/Indexing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normalization</td>
+<td>Normalized</td>
+<td>Denormalized</td>
+<td>Denormalized</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>Schema on read (tags)</td>
+<td>Opaque value and metadata</td>
+<td>Schema on write (index mapping)</td>
+</tr>
+<tr>
+<td>Atomicity scope</td>
+<td>N/A (append)</td>
+<td>Object</td>
+<td>For each document or index operation</td>
+</tr>
+<tr>
+<td>Access pattern</td>
+<td>Time-slice scans, window aggregation</td>
+<td>Whole-object operations</td>
+<td>Text queries and filters</td>
+</tr>
+<tr>
+<td>Indexing</td>
+<td>Time and optional secondary</td>
+<td>Key (path) only</td>
+<td>Inverted and optional facets</td>
+</tr>
+<tr>
+<td>Data shape</td>
+<td>Tabular (timestamp, tags, value)</td>
+<td>Binary or blob with metadata</td>
+<td>Tokenized text and structured fields</td>
+</tr>
+<tr>
+<td>Write profile</td>
+<td>High-rate append</td>
+<td>Bulk or infrequent updates</td>
+<td>Batch or streaming index</td>
+</tr>
+<tr>
+<td>Read profile</td>
+<td>Aggregated ranges</td>
+<td>Whole or partial downloads</td>
+<td>Ranked result sets</td>
+</tr>
+<tr>
+<td>Growth driver</td>
+<td>Event rate multiplied by retention</td>
+<td>Object count and size</td>
+<td>Indexed document volume</td>
+</tr>
+<tr>
+<td>Consistency tolerance</td>
+<td>Eventual for late data</td>
+<td>Read-after-write for each object</td>
+<td>Eventual for new documents</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="choose-among-models-heuristics">Choose among models (heuristics)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Prefer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Strict multi-entity transactions</td>
+<td>Relational</td>
+</tr>
+<tr>
+<td>Evolving aggregate shape, JSON-centric APIs</td>
+<td>Document</td>
+</tr>
+<tr>
+<td>Extreme low-latency key lookups or caching</td>
+<td>Key-value</td>
+</tr>
+<tr>
+<td>Wide, sparse, write-heavy telemetry</td>
+<td>Column family or time series</td>
+</tr>
+<tr>
+<td>Deep relationship traversal</td>
+<td>Graph</td>
+</tr>
+<tr>
+<td>Massive historical analytical scans</td>
+<td>Analytics or OLAP</td>
+</tr>
+<tr>
+<td>Large unstructured binaries or lake zones</td>
+<td>Object</td>
+</tr>
+<tr>
+<td>Full-text relevance and filtering</td>
+<td>Search and indexing</td>
+</tr>
+<tr>
+<td>High-ingest timestamp metrics with window queries</td>
+<td>Time series</td>
+</tr>
+<tr>
+<td>Rapid similarity (semantic or vector)</td>
+<td>Vector search</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="combine-models-and-avoid-pitfalls">Combine models and avoid pitfalls</h2>
+<p>Use more than one model when the following scenarios apply:</p>
+<ul>
+<li>Access patterns diverge, such as point lookup versus wide analytical scan versus full-text relevance.</li>
+<li>Life cycle and retention differ, such as immutable raw versus curated structured.</li>
+<li>Latency versus throughput requirements conflict.</li>
+</ul>
+<p>Avoid premature fragmentation:</p>
+<ul>
+<li>Use one service when it still meets performance, scale, and governance objectives.</li>
+<li>Centralize shared classification logic, and avoid duplicate transformation pipelines across stores unless necessary.</li>
+</ul>
+<p>Watch for the following common antipatterns:</p>
+<ul>
+<li>Multiple microservices share one database, which creates coupling.</li>
+<li>Teams add another model without operational maturity, such as monitoring or backups.</li>
+<li>A search index becomes the primary data store, which leads to misuse.</li>
+</ul>
+<h2 id="when-to-re-evaluate-your-model-choice">When to re-evaluate your model choice</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Possible action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Increasing ad-hoc joins on a document store</td>
+<td>Introduce relational read model</td>
+</tr>
+<tr>
+<td>High CPU on search index because of analytical aggregations</td>
+<td>Offload to analytics engine</td>
+</tr>
+<tr>
+<td>Large denormalized documents create partial update contention</td>
+<td>Reshape aggregates or split</td>
+</tr>
+<tr>
+<td>Time-window queries slow on column-family store</td>
+<td>Adopt purpose-built time-series database</td>
+</tr>
+<tr>
+<td>Point lookup latency rises with graph traversal depth</td>
+<td>Add derived materialized views</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/cloud-adoption-framework/secure/overview" target="_blank" rel="noopener noreferrer">The Secure methodology in the Cloud Adoption Framework for Azure</a></li>
+<li><a href="https://learn.microsoft.com/security/zero-trust/deploy/data" target="_blank" rel="noopener noreferrer">Zero Trust framework data security</a></li>
+</ul>
+<h2 id="related-resources">Related resources</h2>
+<ul>
+<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/relational-data/online-analytical-processing.md" target="_blank" rel="noopener noreferrer">OLAP guidance</a></li>
+<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/relational-data/online-transaction-processing.md" target="_blank" rel="noopener noreferrer">OLTP guidance</a></li>
+<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/scenarios/data-lake.md" target="_blank" rel="noopener noreferrer">Data lakes overview</a></li>
+<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/relational-data/etl.yml" target="_blank" rel="noopener noreferrer">ETL overview</a></li>
+</ul>
+<p>Use the following articles to choose a specialized data store:</p>
+<ul>
+<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/technology-choices/data-storage.md" target="_blank" rel="noopener noreferrer">Choose a big data storage technology in Azure</a></li>
+<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/technology-choices/search-options.md" target="_blank" rel="noopener noreferrer">Choose a search data store in Azure</a></li>
+<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/guide/technology-choices/vector-search.md" target="_blank" rel="noopener noreferrer">Choose an Azure service for vector search</a></li>
+</ul>
+<p>Learn about reference architectures that use the Azure services in this article:</p>
+<ul>
+<li>The <a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/web-apps/app-service/architectures/baseline-zone-redundant.yml" target="_blank" rel="noopener noreferrer">baseline highly available zone-redundant web application</a> architecture uses SQL Database as its relational data store.</li>
+<li>The <a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/example-scenario/serverless/microservices-with-container-apps-dapr.yml" target="_blank" rel="noopener noreferrer">deploy microservices with Azure Container Apps and Dapr</a> architecture uses SQL Database, Azure Cosmos DB, and Azure Managed Redis as data stores.</li>
+<li>The <a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/ai-ml/architecture/automate-document-classification-durable-functions.yml" target="_blank" rel="noopener noreferrer">automate document classification in Azure</a> architecture uses Azure Cosmos DB as its data store.</li>
+</ul>

@@ -1,0 +1,109 @@
+{
+ "_note": "AI-capability topics tracked in the OpenAlex research feed. Each count is the number of works matching the query in a half-year; momentum = year-over-year change in the topic's share of all AI works (the 'baseline' query), which cancels most indexing lag.",
+ "baseline": {
+  "id": "baseline",
+  "label": "All AI research (baseline)",
+  "query": "\"artificial intelligence\" OR \"machine learning\" OR \"deep learning\""
+ },
+ "topics": [
+  {
+   "id": "llm",
+   "label": "Large language models",
+   "query": "\"large language model\" OR \"large language models\""
+  },
+  {
+   "id": "agents",
+   "label": "AI agents & agentic workflows",
+   "query": "\"AI agent\" OR \"agentic AI\" OR \"LLM agent\" OR \"LLM agents\" OR \"agentic workflow\""
+  },
+  {
+   "id": "codegen",
+   "label": "Code generation",
+   "query": "\"code generation\" OR \"program synthesis\""
+  },
+  {
+   "id": "docai",
+   "label": "Document AI & OCR",
+   "query": "\"document understanding\" OR \"optical character recognition\" OR \"document information extraction\""
+  },
+  {
+   "id": "speech",
+   "label": "Speech recognition & synthesis",
+   "query": "\"speech recognition\" OR \"speech synthesis\" OR \"text-to-speech\""
+  },
+  {
+   "id": "vision",
+   "label": "Computer vision",
+   "query": "\"computer vision\" OR \"object detection\" OR \"image segmentation\""
+  },
+  {
+   "id": "genmedia",
+   "label": "Generative images & media",
+   "query": "\"image generation\" OR \"diffusion model\" OR \"text-to-image\""
+  },
+  {
+   "id": "robotics",
+   "label": "Robot learning & embodied AI",
+   "query": "\"robot learning\" OR \"embodied AI\" OR \"robotic manipulation\""
+  },
+  {
+   "id": "safety",
+   "label": "AI safety, governance & fairness",
+   "query": "\"AI governance\" OR \"responsible AI\" OR \"AI safety\" OR \"algorithmic fairness\""
+  },
+  {
+   "id": "energy",
+   "label": "AI for energy & grids",
+   "query": "(\"machine learning\" OR \"artificial intelligence\") AND (\"renewable energy\" OR \"smart grid\" OR \"energy management\")"
+  },
+  {
+   "id": "health",
+   "label": "AI for health",
+   "query": "(\"machine learning\" OR \"artificial intelligence\") AND (\"clinical\" OR \"medical imaging\" OR \"healthcare\")"
+  },
+  {
+   "id": "agri",
+   "label": "AI for agriculture",
+   "query": "(\"machine learning\" OR \"artificial intelligence\") AND (\"precision agriculture\" OR \"smart farming\" OR \"crop yield\")"
+  }
+ ],
+ "scenarios": [
+  {
+   "id": "slow",
+   "label": "Slow AI disruption",
+   "pace": 0.5,
+   "description": "Adoption is held back by cost, regulation and trust; AI effects arrive at half the current pace."
+  },
+  {
+   "id": "moderate",
+   "label": "Moderate (current trend)",
+   "pace": 1.0,
+   "description": "AI capabilities keep advancing at the pace observed in the latest research and job-post signals."
+  },
+  {
+   "id": "fast",
+   "label": "Fast AI disruption",
+   "pace": 2.0,
+   "description": "Agentic AI scales quickly across offices and industry; AI effects arrive at twice the current pace."
+  }
+ ],
+ "model": {
+  "_note": "Transparent model constants (team assumptions, editable). Annual log-growth units. Raw job-post momentum is clipped to +/- market_momentum_clip, then shrunk with an empirical-Bayes factor prior_sd^2 / (prior_sd^2 + SE^2).",
+  "market_weight": 0.4,
+  "prior_step": 0.04,
+  "role_prior_growing": 0.03,
+  "role_prior_declining": -0.05,
+  "capability_momentum_clip": [
+   -0.5,
+   1.0
+  ],
+  "min_mentions_for_market_signal": 15,
+  "rings": {
+   "surging": 0.08,
+   "rising": 0.02,
+   "declining": -0.02
+  },
+  "momentum_prior_sd": 0.25,
+  "market_momentum_clip": 0.6
+ }
+}

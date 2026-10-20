@@ -1,0 +1,766 @@
+{
+ "title": "Computer Vision",
+ "subtitle": "How computers see: image processing, convolutional networks, transfer learning, detection and segmentation.",
+ "level": "Intermediate",
+ "outcomes": [
+  "Process images and understand pixels and features",
+  "Explain how convolutional neural networks work",
+  "Reuse pre-trained models with transfer learning",
+  "Detect objects and check product quality with vision models"
+ ],
+ "skill": "computer_vision",
+ "modules": [
+  {
+   "title": "Seeing with computers",
+   "lessons": [
+    "computer_vision-01",
+    "computer_vision-02"
+   ]
+  },
+  {
+   "title": "Using deep learning",
+   "lessons": [
+    "computer_vision-03",
+    "computer_vision-04"
+   ]
+  },
+  {
+   "title": "Detection and segmentation",
+   "lessons": [
+    "computer_vision-05",
+    "computer_vision-06"
+   ]
+  },
+  {
+   "title": "Vision in industry",
+   "lessons": [
+    "computer_vision-07",
+    "computer_vision-08",
+    "computer_vision-09"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "computer_vision-01",
+   "title": "Introduction to Computer Vision",
+   "words": 1007,
+   "minutes": 6,
+   "source": "ms-ai",
+   "url": "https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/06-IntroCV/README.md",
+   "toc": [
+    {
+     "id": "opencv",
+     "text": "OpenCV",
+     "level": 2
+    },
+    {
+     "id": "loading-images",
+     "text": "Loading Images",
+     "level": 3
+    },
+    {
+     "id": "image-processing",
+     "text": "Image Processing",
+     "level": 3
+    },
+    {
+     "id": "examples-of-using-computer-vision",
+     "text": "Examples of using Computer Vision",
+     "level": 2
+    },
+    {
+     "id": "example-notebooks-opencv-try-opencv-in-action",
+     "text": "✍️ Example Notebooks: OpenCV try OpenCV in Action",
+     "level": 2
+    },
+    {
+     "id": "conclusion",
+     "text": "Conclusion",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "computer_vision-02",
+   "title": "Convolutional Neural Networks",
+   "words": 599,
+   "minutes": 3,
+   "source": "ms-ai",
+   "url": "https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/07-ConvNets/README.md",
+   "toc": [
+    {
+     "id": "main-ideas-behind-cnn",
+     "text": "Main ideas behind CNN",
+     "level": 2
+    },
+    {
+     "id": "exercises-convolutional-neural-networks",
+     "text": "✍️ Exercises: Convolutional Neural Networks",
+     "level": 2
+    },
+    {
+     "id": "pyramid-architecture",
+     "text": "Pyramid Architecture",
+     "level": 2
+    },
+    {
+     "id": "best-known-cnn-architectures",
+     "text": "Best-Known CNN Architectures",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "computer_vision-03",
+   "title": "Pre-trained Networks and Transfer Learning",
+   "words": 923,
+   "minutes": 5,
+   "source": "ms-ai",
+   "url": "https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/08-TransferLearning/README.md",
+   "toc": [
+    {
+     "id": "pre-trained-models-as-feature-extractors",
+     "text": "Pre-Trained Models as Feature Extractors",
+     "level": 2
+    },
+    {
+     "id": "cats-vs-dogs-dataset",
+     "text": "Cats vs. Dogs Dataset",
+     "level": 2
+    },
+    {
+     "id": "exercise-transfer-learning",
+     "text": "✍️ Exercise: Transfer Learning",
+     "level": 2
+    },
+    {
+     "id": "visualizing-adversarial-cat",
+     "text": "Visualizing Adversarial Cat",
+     "level": 2
+    },
+    {
+     "id": "conclusion",
+     "text": "Conclusion",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "computer_vision-04",
+   "title": "Autoencoders",
+   "words": 946,
+   "minutes": 5,
+   "source": "ms-ai",
+   "url": "https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/09-Autoencoders/README.md",
+   "toc": [
+    {
+     "id": "scenarios-for-using-autoencoders",
+     "text": "Scenarios for using Autoencoders",
+     "level": 2
+    },
+    {
+     "id": "variational-autoencoders-vae",
+     "text": "Variational Autoencoders (VAE)",
+     "level": 2
+    },
+    {
+     "id": "exercises-autoencoders",
+     "text": "✍️ Exercises: Autoencoders",
+     "level": 2
+    },
+    {
+     "id": "properties-of-autoencoders",
+     "text": "Properties of Autoencoders",
+     "level": 2
+    },
+    {
+     "id": "conclusion",
+     "text": "Conclusion",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "computer_vision-05",
+   "title": "Object Detection",
+   "words": 1055,
+   "minutes": 6,
+   "source": "ms-ai",
+   "url": "https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/11-ObjectDetection/README.md",
+   "toc": [
+    {
+     "id": "a-naive-approach-to-object-detection",
+     "text": "A Naive Approach to Object Detection",
+     "level": 2
+    },
+    {
+     "id": "regression-for-object-detection",
+     "text": "Regression for Object Detection",
+     "level": 2
+    },
+    {
+     "id": "datasets-for-object-detection",
+     "text": "Datasets for Object Detection",
+     "level": 2
+    },
+    {
+     "id": "object-detection-metrics",
+     "text": "Object Detection Metrics",
+     "level": 2
+    },
+    {
+     "id": "intersection-over-union",
+     "text": "Intersection over Union",
+     "level": 3
+    },
+    {
+     "id": "average-precision",
+     "text": "Average Precision",
+     "level": 3
+    },
+    {
+     "id": "ap-and-iou",
+     "text": "AP and IoU",
+     "level": 3
+    },
+    {
+     "id": "mean-average-precision-map",
+     "text": "Mean Average Precision - mAP",
+     "level": 3
+    },
+    {
+     "id": "different-object-detection-approaches",
+     "text": "Different Object Detection Approaches",
+     "level": 2
+    },
+    {
+     "id": "r-cnn-region-based-cnn",
+     "text": "R-CNN: Region-Based CNN",
+     "level": 3
+    },
+    {
+     "id": "f-rcnn-fast-r-cnn",
+     "text": "F-RCNN - Fast R-CNN",
+     "level": 3
+    },
+    {
+     "id": "faster-r-cnn",
+     "text": "Faster R-CNN",
+     "level": 3
+    },
+    {
+     "id": "r-fcn-region-based-fully-convolutional-network",
+     "text": "R-FCN: Region-Based Fully Convolutional Network",
+     "level": 3
+    },
+    {
+     "id": "yolo-you-only-look-once",
+     "text": "YOLO - You Only Look Once",
+     "level": 3
+    },
+    {
+     "id": "other-algorithms",
+     "text": "Other Algorithms",
+     "level": 3
+    },
+    {
+     "id": "exercises-object-detection",
+     "text": "✍️ Exercises: Object Detection",
+     "level": 2
+    },
+    {
+     "id": "conclusion",
+     "text": "Conclusion",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "computer_vision-06",
+   "title": "Segmentation",
+   "words": 568,
+   "minutes": 3,
+   "source": "ms-ai",
+   "url": "https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/12-Segmentation/README.md",
+   "toc": [
+    {
+     "id": "segmentation-for-medical-imaging",
+     "text": "Segmentation for Medical Imaging",
+     "level": 2
+    },
+    {
+     "id": "exercises-semantic-segmentation",
+     "text": "✍️ Exercises: Semantic Segmentation",
+     "level": 2
+    },
+    {
+     "id": "conclusion",
+     "text": "Conclusion",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "computer_vision-07",
+   "title": "Train a fruit quality detector",
+   "words": 2641,
+   "minutes": 14,
+   "source": "ms-iot",
+   "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/4-manufacturing/lessons/1-train-fruit-detector/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "using-ai-and-ml-to-sort-food",
+     "text": "Using AI and ML to sort food",
+     "level": 2
+    },
+    {
+     "id": "image-classification-via-machine-learning",
+     "text": "Image classification via Machine Learning",
+     "level": 2
+    },
+    {
+     "id": "train-an-image-classifier",
+     "text": "Train an image classifier",
+     "level": 2
+    },
+    {
+     "id": "custom-vision",
+     "text": "Custom Vision",
+     "level": 2
+    },
+    {
+     "id": "task-create-a-cognitive-services-resource",
+     "text": "Task - create a cognitive services resource",
+     "level": 3
+    },
+    {
+     "id": "task-create-an-image-classifier-project",
+     "text": "Task - create an image classifier project",
+     "level": 3
+    },
+    {
+     "id": "task-train-your-image-classifier-project",
+     "text": "Task - train your image classifier project",
+     "level": 3
+    },
+    {
+     "id": "test-your-image-classifier",
+     "text": "Test your image classifier",
+     "level": 2
+    },
+    {
+     "id": "task-test-your-image-classifier",
+     "text": "Task - test your image classifier",
+     "level": 3
+    },
+    {
+     "id": "retrain-your-image-classifier",
+     "text": "Retrain your image classifier",
+     "level": 2
+    },
+    {
+     "id": "task-retrain-your-image-classifier",
+     "text": "Task - retrain your image classifier",
+     "level": 3
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "computer_vision-08",
+   "title": "Check fruit quality from an IoT device",
+   "words": 1484,
+   "minutes": 8,
+   "source": "ms-iot",
+   "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/4-manufacturing/lessons/2-check-fruit-from-device/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "camera-sensors",
+     "text": "Camera sensors",
+     "level": 2
+    },
+    {
+     "id": "capture-an-image-using-an-iot-device",
+     "text": "Capture an image using an IoT device",
+     "level": 2
+    },
+    {
+     "id": "task-capture-an-image-using-an-iot-device",
+     "text": "Task - capture an image using an IoT device",
+     "level": 3
+    },
+    {
+     "id": "publish-your-image-classifier",
+     "text": "Publish your image classifier",
+     "level": 2
+    },
+    {
+     "id": "model-iterations",
+     "text": "Model iterations",
+     "level": 3
+    },
+    {
+     "id": "task-publish-an-iteration",
+     "text": "Task - publish an iteration",
+     "level": 3
+    },
+    {
+     "id": "classify-images-from-your-iot-device",
+     "text": "Classify images from your IoT device",
+     "level": 2
+    },
+    {
+     "id": "task-classify-images-from-your-iot-device",
+     "text": "Task - classify images from your IoT device",
+     "level": 3
+    },
+    {
+     "id": "improve-the-model",
+     "text": "Improve the model",
+     "level": 2
+    },
+    {
+     "id": "task-improve-the-model",
+     "text": "Task - improve the model",
+     "level": 3
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "computer_vision-09",
+   "title": "Train a stock detector",
+   "words": 1830,
+   "minutes": 10,
+   "source": "ms-iot",
+   "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/5-retail/lessons/1-train-stock-detector/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "object-detection",
+     "text": "Object detection",
+     "level": 2
+    },
+    {
+     "id": "object-detection-vs-image-classification",
+     "text": "Object detection vs image classification",
+     "level": 3
+    },
+    {
+     "id": "how-object-detection-works",
+     "text": "How object detection works",
+     "level": 3
+    },
+    {
+     "id": "use-object-detection-in-retail",
+     "text": "Use object detection in retail",
+     "level": 2
+    },
+    {
+     "id": "train-an-object-detector",
+     "text": "Train an object detector",
+     "level": 2
+    },
+    {
+     "id": "task-create-an-object-detector",
+     "text": "Task - create an object detector",
+     "level": 3
+    },
+    {
+     "id": "task-train-your-object-detector",
+     "text": "Task - train your object detector",
+     "level": 3
+    },
+    {
+     "id": "test-your-object-detector",
+     "text": "Test your object detector",
+     "level": 2
+    },
+    {
+     "id": "task-test-your-object-detector",
+     "text": "Task - test your object detector",
+     "level": 3
+    },
+    {
+     "id": "retrain-your-object-detector",
+     "text": "Retrain your object detector",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [
+   {
+    "q": "_____ computes the vector field that shows where each pixel is moving",
+    "options": [
+     "Sparse Optical Flow",
+     "Dense Optical Flow",
+     "none"
+    ],
+    "answer": 1,
+    "explain": "",
+    "lesson": "computer_vision-01",
+    "origin": "bank:ai:206",
+    "source": "ms-ai"
+   },
+   {
+    "q": "Resizing and Blurring are steps that can be taken during?",
+    "options": [
+     "pre-processing",
+     "training",
+     "image transformation"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "computer_vision-01",
+    "origin": "bank:ai:206",
+    "source": "ms-ai"
+   },
+   {
+    "q": "Convolutional networks generalizes much better",
+    "options": [
+     "True",
+     "False"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "computer_vision-02",
+    "origin": "bank:ai:207",
+    "source": "ms-ai"
+   },
+   {
+    "q": "Dropout layers act as a ____ technique",
+    "options": [
+     "gradient boosting",
+     "training",
+     "regularization"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "computer_vision-03",
+    "origin": "bank:ai:208",
+    "source": "ms-ai"
+   },
+   {
+    "q": "Properties of autoencoders include",
+    "options": [
+     "it is data Specific",
+     "works on unlabeled data",
+     "all of the above"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "computer_vision-04",
+    "origin": "bank:ai:209",
+    "source": "ms-ai"
+   },
+   {
+    "q": "Variational auto-encoders loss function does not consist of which of these?",
+    "options": [
+     "reconstruction loss",
+     "KL loss",
+     "TF loss"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "computer_vision-04",
+    "origin": "bank:ai:209",
+    "source": "ms-ai"
+   },
+   {
+    "q": "Which object detection models are faster?",
+    "options": [
+     "one-pass models",
+     "region proposal networks",
+     "Fast R-CNN"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "computer_vision-05",
+    "origin": "bank:ai:211",
+    "source": "ms-ai"
+   },
+   {
+    "q": "____ extracts features from an input image",
+    "options": [
+     "decoder",
+     "generator",
+     "encoder"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "computer_vision-06",
+    "origin": "bank:ai:212",
+    "source": "ms-ai"
+   },
+   {
+    "q": "The technique custom vision uses to train a model with only a few images is called:",
+    "options": [
+     "Transformational learning",
+     "Transaction learning",
+     "Transfer learning"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "computer_vision-07",
+    "origin": "bank:iot:30",
+    "source": "ms-iot"
+   },
+   {
+    "q": "Image classifiers can be trained using:",
+    "options": [
+     "Only 1 image per tag",
+     "At least 5 images per tag",
+     "At least 50 images per tag"
+    ],
+    "answer": 1,
+    "explain": "",
+    "lesson": "computer_vision-07",
+    "origin": "bank:iot:30",
+    "source": "ms-iot"
+   },
+   {
+    "q": "When images are sent for classification, they then become available to retrain the model:",
+    "options": [
+     "True",
+     "False"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "computer_vision-08",
+    "origin": "bank:iot:32",
+    "source": "ms-iot"
+   },
+   {
+    "q": "What is the best domain to use in Custom Vision for stock counting",
+    "options": [
+     "General",
+     "Food",
+     "Products on shelves"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "computer_vision-09",
+    "origin": "bank:iot:38",
+    "source": "ms-iot"
+   }
+  ],
+  "pass_mark": 9,
+  "missing": false
+ },
+ "minutes": 60,
+ "sources": [
+  {
+   "id": "ms-ai",
+   "name": "Microsoft · AI for Beginners",
+   "url": "https://github.com/microsoft/AI-For-Beginners",
+   "license": "MIT",
+   "license_url": "https://opensource.org/license/mit",
+   "attribution": "© Microsoft Corporation, MIT License",
+   "noncommercial": false
+  },
+  {
+   "id": "ms-iot",
+   "name": "Microsoft · IoT for Beginners",
+   "url": "https://github.com/microsoft/IoT-For-Beginners",
+   "license": "MIT",
+   "license_url": "https://opensource.org/license/mit",
+   "attribution": "© Microsoft Corporation, MIT License",
+   "noncommercial": false
+  }
+ ]
+}

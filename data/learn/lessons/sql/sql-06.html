@@ -1,0 +1,646 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Define aggregation and give examples of its use.</li>
+<li>Write queries that compute aggregated values.</li>
+<li>Trace the execution of a query that performs aggregation.</li>
+<li>Explain how missing data is handled during aggregation.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>How can I calculate sums, averages, and other summary values?</li>
+</ul>
+</div>
+<p>We now want to calculate ranges and averages for our data.
+We know how to select all of the dates from the <code>Visited</code> table:</p>
+<pre><code class="language-sql">SELECT dated FROM Visited;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>dated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1927-02-08</td>
+</tr>
+<tr>
+<td>1927-02-10</td>
+</tr>
+<tr>
+<td>1930-01-07</td>
+</tr>
+<tr>
+<td>1930-01-12</td>
+</tr>
+<tr>
+<td>1930-02-26</td>
+</tr>
+<tr>
+<td>-null-</td>
+</tr>
+<tr>
+<td>1932-01-14</td>
+</tr>
+<tr>
+<td>1932-03-22</td>
+</tr>
+</tbody>
+</table></div>
+<p>but to combine them,
+we must use an <a href="https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/learners/reference.md#aggregation-function" target="_blank" rel="noopener noreferrer">aggregation function</a>
+such as <code>min</code> or <code>max</code>.
+Each of these functions takes a set of records as input,
+and produces a single record as output:</p>
+<pre><code class="language-sql">SELECT min(dated) FROM Visited;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>min(dated)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1927-02-08</td>
+</tr>
+</tbody>
+</table></div>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/swcarpentry/sql-novice-survey/b55949e9edeecffa554cbc4a36b6dee92a2743f4/episodes/fig/sql-aggregation.svg">{alt='SQL Aggregation'}</p>
+<pre><code class="language-sql">SELECT max(dated) FROM Visited;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>max(dated)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1932-03-22</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>min</code> and <code>max</code> are just two of
+the aggregation functions built into SQL.
+Three others are <code>avg</code>,
+<code>count</code>,
+and <code>sum</code>:</p>
+<pre><code class="language-sql">SELECT avg(reading) FROM Survey WHERE quant = 'sal';
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>avg(reading)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7.20333333333333</td>
+</tr>
+</tbody>
+</table></div>
+<pre><code class="language-sql">SELECT count(reading) FROM Survey WHERE quant = 'sal';
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>count(reading)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9</td>
+</tr>
+</tbody>
+</table></div>
+<pre><code class="language-sql">SELECT sum(reading) FROM Survey WHERE quant = 'sal';
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>sum(reading)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>64.83</td>
+</tr>
+</tbody>
+</table></div>
+<p>We used <code>count(reading)</code> here,
+but could have used <code>count(*)</code>,
+since the function doesn't care about the values themselves,
+just how many rows there are.</p>
+<p>Even a column other than <code>reading</code> could be used,
+but note that any <code>NULL</code> value will not be counted
+(to see, try <code>count</code>ing the <code>person</code> column, which contains a
+row with a <code>NULL</code>).
+This perhaps non-obvious behavior
+of aggregation functions is covered later
+in this episode.</p>
+<p>SQL lets us do several aggregations at once.
+We can,
+for example,
+find the range of sensible salinity measurements:</p>
+<pre><code class="language-sql">SELECT min(reading), max(reading) FROM Survey WHERE quant = 'sal' AND reading &lt;= 1.0;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>min(reading)</th>
+<th>max(reading)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.05</td>
+<td>0.21</td>
+</tr>
+</tbody>
+</table></div>
+<p>We can also combine aggregated results with raw results,
+although the output might surprise you:</p>
+<pre><code class="language-sql">SELECT person, count(*) FROM Survey WHERE quant = 'sal' AND reading &lt;= 1.0;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>person</th>
+<th>count(*)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lake</td>
+<td>7</td>
+</tr>
+</tbody>
+</table></div>
+<p>Why does Lake's name appear rather than Roerich's or Dyer's?
+The answer is that when it has to aggregate a field,
+but isn't told how to,
+the database manager chooses an actual value from the input set.
+It might use the first one processed,
+the last one,
+or something else entirely.</p>
+<p>Another important fact is that when there are no values to aggregate ---
+for example, where there are no rows satisfying the <code>WHERE</code> clause ---
+aggregation's result is "don't know"
+rather than zero or some other arbitrary value:</p>
+<pre><code class="language-sql">SELECT person, max(reading), sum(reading) FROM Survey WHERE quant = 'missing';
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>person</th>
+<th>max(reading)</th>
+<th>sum(reading)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-null-</td>
+<td>-null-</td>
+<td>-null-</td>
+</tr>
+</tbody>
+</table></div>
+<p>One final important feature of aggregation functions is that
+they are inconsistent with the rest of SQL in a very useful way.
+If we add two values,
+and one of them is null,
+the result is null.
+By extension,
+if we use <code>sum</code> to add all the values in a set,
+and any of those values are null,
+the result should also be null.
+It's much more useful,
+though,
+for aggregation functions to ignore null values
+and only combine those that are non-null.
+This behavior lets us write our queries as:</p>
+<pre><code class="language-sql">SELECT min(dated) FROM Visited;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>min(dated)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1927-02-08</td>
+</tr>
+</tbody>
+</table></div>
+<p>instead of always having to filter explicitly:</p>
+<pre><code class="language-sql">SELECT min(dated) FROM Visited WHERE dated IS NOT NULL;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>min(dated)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1927-02-08</td>
+</tr>
+</tbody>
+</table></div>
+<p>Aggregating all records at once doesn't always make sense.
+For example,
+suppose we suspect that there is a systematic bias in our data,
+and that some scientists' radiation readings are higher than others.
+We know that this doesn't work:</p>
+<pre><code class="language-sql">SELECT person, count(reading), round(avg(reading), 2)
+FROM  Survey
+WHERE quant = 'rad';
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>person</th>
+<th>count(reading)</th>
+<th>round(avg(reading), 2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>roe</td>
+<td>8</td>
+<td>6.56</td>
+</tr>
+</tbody>
+</table></div>
+<p>because the database manager selects a single arbitrary scientist's name
+rather than aggregating separately for each scientist.
+Since there are only five scientists,
+we could write five queries of the form:</p>
+<pre><code class="language-sql">SELECT person, count(reading), round(avg(reading), 2)
+FROM  Survey
+WHERE quant = 'rad'
+AND   person = 'dyer';
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>person</th>
+<th>count(reading)</th>
+<th>round(avg(reading), 2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dyer</td>
+<td>2</td>
+<td>8.81</td>
+</tr>
+</tbody>
+</table></div>
+<p>but this would be tedious,
+and if we ever had a data set with fifty or five hundred scientists,
+the chances of us getting all of those queries right is small.</p>
+<p>What we need to do is
+tell the database manager to aggregate the hours for each scientist separately
+using a <code>GROUP BY</code> clause:</p>
+<pre><code class="language-sql">SELECT   person, count(reading), round(avg(reading), 2)
+FROM     Survey
+WHERE    quant = 'rad'
+GROUP BY person;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>person</th>
+<th>count(reading)</th>
+<th>round(avg(reading), 2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dyer</td>
+<td>2</td>
+<td>8.81</td>
+</tr>
+<tr>
+<td>lake</td>
+<td>2</td>
+<td>1.82</td>
+</tr>
+<tr>
+<td>pb</td>
+<td>3</td>
+<td>6.66</td>
+</tr>
+<tr>
+<td>roe</td>
+<td>1</td>
+<td>11.25</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>GROUP BY</code> does exactly what its name implies:
+groups all the records with the same value for the specified field together
+so that aggregation can process each batch separately.
+Since all the records in each batch have the same value for <code>person</code>,
+it no longer matters that the database manager
+is picking an arbitrary one to display
+alongside the aggregated <code>reading</code> values.</p>
+<p>Just as we can sort by multiple criteria at once,
+we can also group by multiple criteria.
+To get the average reading by scientist and quantity measured,
+for example,
+we just add another field to the <code>GROUP BY</code> clause:</p>
+<pre><code class="language-sql">SELECT   person, quant, count(reading), round(avg(reading), 2)
+FROM     Survey
+GROUP BY person, quant;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>person</th>
+<th>quant</th>
+<th>count(reading)</th>
+<th>round(avg(reading), 2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-null-</td>
+<td>sal</td>
+<td>1</td>
+<td>0.06</td>
+</tr>
+<tr>
+<td>-null-</td>
+<td>temp</td>
+<td>1</td>
+<td>-26.0</td>
+</tr>
+<tr>
+<td>dyer</td>
+<td>rad</td>
+<td>2</td>
+<td>8.81</td>
+</tr>
+<tr>
+<td>dyer</td>
+<td>sal</td>
+<td>2</td>
+<td>0.11</td>
+</tr>
+<tr>
+<td>lake</td>
+<td>rad</td>
+<td>2</td>
+<td>1.82</td>
+</tr>
+<tr>
+<td>lake</td>
+<td>sal</td>
+<td>4</td>
+<td>0.11</td>
+</tr>
+<tr>
+<td>lake</td>
+<td>temp</td>
+<td>1</td>
+<td>-16.0</td>
+</tr>
+<tr>
+<td>pb</td>
+<td>rad</td>
+<td>3</td>
+<td>6.66</td>
+</tr>
+<tr>
+<td>pb</td>
+<td>temp</td>
+<td>2</td>
+<td>-20.0</td>
+</tr>
+<tr>
+<td>roe</td>
+<td>rad</td>
+<td>1</td>
+<td>11.25</td>
+</tr>
+<tr>
+<td>roe</td>
+<td>sal</td>
+<td>2</td>
+<td>32.05</td>
+</tr>
+</tbody>
+</table></div>
+<p>Note that we have added <code>quant</code> to the list of fields displayed,
+since the results wouldn't make much sense otherwise.</p>
+<p>Let's go one step further and remove all the entries
+where we don't know who took the measurement:</p>
+<pre><code class="language-sql">SELECT   person, quant, count(reading), round(avg(reading), 2)
+FROM     Survey
+WHERE    person IS NOT NULL
+GROUP BY person, quant
+ORDER BY person, quant;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>person</th>
+<th>quant</th>
+<th>count(reading)</th>
+<th>round(avg(reading), 2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dyer</td>
+<td>rad</td>
+<td>2</td>
+<td>8.81</td>
+</tr>
+<tr>
+<td>dyer</td>
+<td>sal</td>
+<td>2</td>
+<td>0.11</td>
+</tr>
+<tr>
+<td>lake</td>
+<td>rad</td>
+<td>2</td>
+<td>1.82</td>
+</tr>
+<tr>
+<td>lake</td>
+<td>sal</td>
+<td>4</td>
+<td>0.11</td>
+</tr>
+<tr>
+<td>lake</td>
+<td>temp</td>
+<td>1</td>
+<td>-16.0</td>
+</tr>
+<tr>
+<td>pb</td>
+<td>rad</td>
+<td>3</td>
+<td>6.66</td>
+</tr>
+<tr>
+<td>pb</td>
+<td>temp</td>
+<td>2</td>
+<td>-20.0</td>
+</tr>
+<tr>
+<td>roe</td>
+<td>rad</td>
+<td>1</td>
+<td>11.25</td>
+</tr>
+<tr>
+<td>roe</td>
+<td>sal</td>
+<td>2</td>
+<td>32.05</td>
+</tr>
+</tbody>
+</table></div>
+<p>Looking more closely,
+this query:</p>
+<ol>
+<li>
+<p>selected records from the <code>Survey</code> table
+where the <code>person</code> field was not null;</p>
+</li>
+<li>
+<p>grouped those records into subsets
+so that the <code>person</code> and <code>quant</code> values in each subset
+were the same;</p>
+</li>
+<li>
+<p>ordered those subsets first by <code>person</code>,
+and then within each sub-group by <code>quant</code>;
+and</p>
+</li>
+<li>
+<p>counted the number of records in each subset,
+calculated the average <code>reading</code> in each,
+and chose a <code>person</code> and <code>quant</code> value from each
+(it doesn't matter which ones,
+since they're all equal).</p>
+</li>
+</ol>
+<div class="box box-challenge">
+<p class="box-title">Counting Temperature Readings</p>
+
+<p>How many temperature readings did Frank Pabodie record,
+and what was their average value?</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<pre><code class="language-sql">SELECT count(reading), avg(reading) FROM Survey WHERE quant = 'temp' AND person = 'pb';
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>count(reading)</th>
+<th>avg(reading)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>-20.0</td>
+</tr>
+</tbody>
+</table></div>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Averaging with NULL</p>
+
+<p>The average of a set of values is the sum of the values
+divided by the number of values.
+Does this mean that the <code>avg</code> function returns 2.0 or 3.0
+when given the values 1.0, <code>null</code>, and 5.0?</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x">Solution</h2>
+<p>The answer is 3.0.
+<code>NULL</code> is not a value; it is the absence of a value.
+As such it is not included in the calculation.</p>
+<p>You can confirm this, by executing this code:</p>
+<pre><code class="language-sql">SELECT AVG(a) FROM (
+    SELECT 1 AS a
+    UNION ALL SELECT NULL
+    UNION ALL SELECT 5);
+</code></pre>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">What Does This Query Do?</p>
+
+<p>We want to calculate the difference between
+each individual radiation reading
+and the average of all the radiation readings.
+We write the query:</p>
+<pre><code class="language-sql">SELECT reading - avg(reading) FROM Survey WHERE quant = 'rad';
+</code></pre>
+<p>What does this actually produce, and can you think of why?</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x">Solution</h2>
+<p>The query produces only one row of results when we what we really want is a result for each of the readings.
+The <code>avg()</code> function produces only a single value, and because it is run first, the table is reduced to a single row.
+The <code>reading</code> value is simply an arbitrary one.</p>
+<p>To achieve what we wanted, we would have to run two queries:</p>
+<pre><code class="language-sql">SELECT avg(reading) FROM Survey WHERE quant='rad';
+</code></pre>
+<p>This produces the average value (6.5625), which we can then insert into a second query:</p>
+<pre><code class="language-sql">SELECT reading - 6.5625 FROM Survey WHERE quant = 'rad';
+</code></pre>
+<p>This produces what we want, but we can combine this into a single query using subqueries.</p>
+<pre><code class="language-sql">SELECT reading - (SELECT avg(reading) FROM Survey WHERE quant='rad') FROM Survey WHERE quant = 'rad';
+</code></pre>
+<p>This way we don't have execute two queries.</p>
+<p>In summary what we have done is to replace <code>avg(reading)</code> with <code>(SELECT avg(reading) FROM Survey WHERE quant='rad')</code> in the original query.</p>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Using the group_concat function</p>
+
+<p>The function <code>group_concat(field, separator)</code>
+concatenates all the values in a field
+using the specified separator character
+(or ',' if the separator isn't specified).
+Use this to produce a one-line list of scientists' names,
+such as:</p>
+<pre><code class="language-sql">William Dyer, Frank Pabodie, Anderson Lake, Valentina Roerich, Frank Danforth
+</code></pre>
+<p>Can you find a way to list all the scientists family names separated by a comma?
+Can you find a way to list all the scientists personal and family names separated by a comma?</p>
+<details class="solution"><summary>Show solution</summary>
+<p>List all the family names separated by a comma:</p>
+<pre><code class="language-sql">SELECT group_concat(family, ',') FROM Person;
+</code></pre>
+<p>List all the full names separated by a comma:</p>
+<pre><code class="language-sql">SELECT group_concat(personal || ' ' || family, ',') FROM Person;
+</code></pre>
+</details>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>Use aggregation functions to combine multiple values.</li>
+<li>Aggregation functions ignore <code>null</code> values.</li>
+<li>Aggregation happens after filtering.</li>
+<li>Use GROUP BY to combine subsets separately.</li>
+<li>If no aggregation function is specified for a field, the query may return an arbitrary value for that field.</li>
+</ul>
+</div>

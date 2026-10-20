@@ -1,0 +1,180 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Explain what an atomic value is.</li>
+<li>Distinguish between atomic and non-atomic values.</li>
+<li>Explain why every value in a database should be atomic.</li>
+<li>Explain what a primary key is and why every record should have one.</li>
+<li>Identify primary keys in database tables.</li>
+<li>Explain why database entries should not contain redundant information.</li>
+<li>Identify redundant information in databases.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>How should I format data in a database, and why?</li>
+</ul>
+</div>
+<p>Now that we have seen how joins work, we can see why the relational
+model is so useful and how best to use it.  The first rule is that
+every value should be <a href="https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/learners/reference.md#atomic" target="_blank" rel="noopener noreferrer">atomic</a>, i.e., not
+contain parts that we might want to work with separately.  We store
+personal and family names in separate columns instead of putting the
+entire name in one column so that we don't have to use substring
+operations to get the name's components.  More importantly, we store
+the two parts of the name separately because splitting on spaces is
+unreliable: just think of a name like "Eloise St. Cyr" or "Jan Mikkel
+Steubart".</p>
+<p>The second rule is that every record should have a unique primary key.
+This can be a serial number that has no intrinsic meaning,
+one of the values in the record (like the <code>id</code> field in the <code>Person</code> table),
+or even a combination of values:
+the triple <code>(taken, person, quant)</code> from the <code>Survey</code> table uniquely identifies every measurement.</p>
+<p>The third rule is that there should be no redundant information.
+For example,
+we could get rid of the <code>Site</code> table and rewrite the <code>Visited</code> table like this:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>id</th>
+<th>lat</th>
+<th>long</th>
+<th>dated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>619</td>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>1927-02-08</td>
+</tr>
+<tr>
+<td>622</td>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>1927-02-10</td>
+</tr>
+<tr>
+<td>734</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>1930-01-07</td>
+</tr>
+<tr>
+<td>735</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>1930-01-12</td>
+</tr>
+<tr>
+<td>751</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>1930-02-26</td>
+</tr>
+<tr>
+<td>752</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>-null-</td>
+</tr>
+<tr>
+<td>837</td>
+<td>-48.87</td>
+<td>-123.40</td>
+<td>1932-01-14</td>
+</tr>
+<tr>
+<td>844</td>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>1932-03-22</td>
+</tr>
+</tbody>
+</table></div>
+<p>In fact,
+we could use a single table that recorded all the information about each reading in each row,
+just as a spreadsheet would.
+The problem is that it's very hard to keep data organized this way consistent:
+if we realize that the date of a particular visit to a particular site is wrong,
+we have to change multiple records in the database.
+What's worse,
+we may have to guess which records to change,
+since other sites may also have been visited on that date.</p>
+<p>The fourth rule is that the units for every value should be stored explicitly.
+Our database doesn't do this,
+and that's a problem:
+Roerich's salinity measurements are several orders of magnitude larger than anyone else's,
+but we don't know if that means she was using parts per million instead of parts per thousand,
+or whether there actually was a saline anomaly at that site in 1932.</p>
+<p>Stepping back,
+data and the tools used to store it have a symbiotic relationship:
+we use tables and joins because it's efficient,
+provided our data is organized a certain way,
+but organize our data that way because we have tools to manipulate it efficiently.
+As anthropologists say,
+the tool shapes the hand that shapes the tool.</p>
+<div class="box box-challenge">
+<p class="box-title">Identifying Atomic Values</p>
+
+<p>Which of the following are atomic values? Which are not? Why?</p>
+<ul>
+<li>New Zealand</li>
+<li>87 Turing Avenue</li>
+<li>January 25, 1971</li>
+<li>the XY coordinate (0.5, 3.3)</li>
+</ul>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<p>New Zealand is the only clear-cut atomic value.</p>
+<p>The address and the XY coordinate contain more than one piece of information
+which should be stored separately:</p>
+<ul>
+<li>House number, street name</li>
+<li>X coordinate, Y coordinate</li>
+</ul>
+<p>The date entry is less clear cut, because it contains month, day, and year elements.
+However, there is a <code>DATE</code> datatype in SQL, and dates should be stored using this format.
+If we need to work with the month, day, or year separately, we can use the SQL functions available for our database software
+(for example <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions050.htm" target="_blank" rel="noopener noreferrer"><code>EXTRACT</code></a> or <a href="https://www.sqlite.org/lang_datefunc.html" target="_blank" rel="noopener noreferrer"><code>STRFTIME</code></a> for SQLite).</p>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Identifying a Primary Key</p>
+
+<p>What is the primary key in this table?
+I.e., what value or combination of values uniquely identifies a record?</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>latitude</th>
+<th>longitude</th>
+<th>date</th>
+<th>temperature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>57.3</td>
+<td>-22.5</td>
+<td>2015-01-09</td>
+<td>-14.2</td>
+</tr>
+</tbody>
+</table></div>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x">Solution</h2>
+<p>Latitude, longitude, and date are all required to uniquely identify the temperature record.</p>
+</details>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>Every value in a database should be atomic.</li>
+<li>Every record should have a unique primary key.</li>
+<li>A database should not contain redundant information.</li>
+<li>Units and similar metadata should be stored with the data.</li>
+</ul>
+</div>

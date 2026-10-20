@@ -1,0 +1,161 @@
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>What are the main attributes of vector data?</li>
+<li>What is the difference between vector and raster data?</li>
+</ul>
+</div>
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Describe the strengths and weaknesses of storing data in vector format.</li>
+<li>Describe the three types of vectors and identify types of data that would be stored in each.</li>
+</ul>
+</div>
+<pre><code class="language-r">source("files/setup.R")
+</code></pre>
+<pre><code class="language-r"># load libraries for demonstration code
+library(terra)
+library(ggplot2)
+
+# read in data for demonstration code
+# learners do not need this data
+NE.States.Boundary.US &lt;- vect("data/NEON-DS-Site-Layout-Files/US-Boundary-Layers/Boundary-US-State-NEast.shp")
+
+lines_HARV &lt;- vect("data/NEON-DS-Site-Layout-Files/HARV/HARV_roads.shp")
+point_HARV &lt;- vect("data/NEON-DS-Site-Layout-Files/HARV/HARVtower_UTM18N.shp")
+</code></pre>
+<h2 id="about-vector-data">About Vector Data</h2>
+<p>Vector data structures represent specific features on the Earth's surface, and
+assign attributes to those features. Vectors are composed of discrete geometric
+locations (x, y values) known as vertices that define the shape of the spatial
+object. The organization of the vertices determines the type of vector that we
+are working with: point, line or polygon.</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/organization-geospatial/5d96b1cd0bfd358c9a4e044dbfe9f73075656083/episodes/fig/dc-spatial-vector/pnt_line_poly.png">{alt='Types of vector objects'}</p>
+<p>Image Source: National Ecological Observatory Network (NEON)</p>
+<ul>
+<li>
+<p><strong>Points:</strong> Each point is defined by a single x, y coordinate. There can be
+many points in a vector point file. Examples of point data include: sampling
+locations, the location of individual trees, or the location of survey plots.</p>
+</li>
+<li>
+<p><strong>Lines:</strong> Lines are composed of many (at least 2) points that are connected.
+For instance, a road or a stream may be represented by a line. This line is
+composed of a series of segments, each "bend" in the road or stream represents a
+vertex that has defined x, y location.</p>
+</li>
+<li>
+<p><strong>Polygons:</strong> A polygon consists of 3 or more vertices that are connected and
+closed. The outlines of survey plot boundaries, lakes, oceans, and states or
+countries are often represented by polygons.</p>
+</li>
+</ul>
+<div class="box box-callout">
+<p class="box-title">Data Tip</p>
+
+<p>Sometimes, boundary layers such as states and countries, are stored as lines
+rather than polygons. However, these boundaries, when represented as a line,
+will not create a closed object with a defined area that can be filled.</p>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Identify Vector Types</p>
+
+<p>The plot below includes examples of two of the three types of vector
+objects. Use the definitions above to identify which features
+are represented by which vector type.</p>
+<pre><code class="language-r">ggplot() +
+  geom_sf(data = NE.States.Boundary.US, aes(color ="color"), 
+      show.legend = "line") +
+    scale_color_manual(name = "", labels = "State Boundary", 
+      values = c("color" = "gray18")) +
+ geom_sf(data = point_HARV, aes(shape = "shape"), color = 
+    "purple") +
+   scale_shape_manual(name = "", labels = "Fisher Tower", 
+      values = c("shape" = 19)) +
+ ggtitle("Fisher Tower location in Harvard Forest field site") + 
+   theme(legend.background = element_rect(color = NA)) 
+</code></pre>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<p>State boundaries are polygons. The Fisher Tower location is
+a point. There are no line features shown.</p>
+</details>
+</div>
+<p>Vector data has some important advantages:</p>
+<ul>
+<li>The geometry itself contains information about what the dataset creator thought was important</li>
+<li>The geometry structures hold information in themselves - why choose point over polygon, for instance?</li>
+<li>Each geometry feature can carry multiple attributes instead of just one, e.g. a database of cities can have attributes for name, country, population, etc</li>
+<li>Data storage can be very efficient compared to rasters</li>
+</ul>
+<p>The downsides of vector data include:</p>
+<ul>
+<li>potential loss of detail compared to raster</li>
+<li>potential bias in datasets - what didn't get recorded?</li>
+<li>Calculations involving multiple vector layers need to do math on the
+geometry as well as the attributes, so can be slow compared to raster math.</li>
+</ul>
+<p>Vector datasets are in use in many industries besides geospatial fields. For
+instance, computer graphics are largely vector-based, although the data
+structures in use tend to join points using arcs and complex curves rather than
+straight lines. Computer-aided design (CAD) is also vector- based. The
+difference is that geospatial datasets are accompanied by information tying
+their features to real-world locations.</p>
+<h2 id="vector-data-format-for-this-workshop">Vector Data Format for this Workshop</h2>
+<p>Like raster data, vector data can also come in many different formats. For this
+workshop, we will use the Shapefile format which has the extension <code>.shp</code>. A
+<code>.shp</code> file stores the geographic coordinates of each vertice in the vector, as
+well as metadata including:</p>
+<ul>
+<li><strong>Extent</strong> - the spatial extent of the shapefile (i.e. geographic area that
+the shapefile covers). The spatial extent for a shapefile represents the
+combined extent for all spatial objects in the shapefile.</li>
+<li><strong>Object type</strong> - whether the shapefile includes points, lines, or polygons.</li>
+<li><strong>Coordinate reference system (CRS)</strong></li>
+<li><strong>Other attributes</strong> - for example, a line shapefile that contains the
+locations of streams, might contain the name of each stream.</li>
+</ul>
+<p>Because the structure of points, lines, and polygons are different, each
+individual shapefile can only contain one vector type (all points, all lines
+or all polygons). You will not find a mixture of point, line and polygon
+objects in a single shapefile.</p>
+<div class="box box-challenge">
+<p class="box-title">Extent Challenge</p>
+
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/organization-geospatial/5d96b1cd0bfd358c9a4e044dbfe9f73075656083/episodes/fig/dc-spatial-vector/spatial_extent.png">{alt='Spatial extent image'}
+In the image above, the dashed boxes around each set of objects
+seems to imply that the three objects have the same extent. Is this
+accurate? If not, which object(s) have a different extent?</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x">Solution</h2>
+<p>The lines and polygon objects have the same extent. The extent for
+the points object is smaller in the vertical direction than the
+other two because there are no points on the line at y = 8.</p>
+</details>
+</div>
+<div class="box box-callout">
+<p class="box-title">More Resources</p>
+
+<p>More about shapefiles can be found on
+<a href="https://en.wikipedia.org/wiki/Shapefile" target="_blank" rel="noopener noreferrer">Wikipedia</a></p>
+</div>
+<div class="box box-callout">
+<p class="box-title">Why not both?</p>
+
+<p>Very few formats can contain both raster and vector data - in fact, most are
+even more restrictive than that. Vector datasets are usually locked to one
+geometry type, e.g. points only. Raster datasets can usually only encode one
+data type, for example you can't have a multiband GeoTIFF where one layer is
+integer data and another is floating-point. There are sound reasons for this -
+format standards are easier to define and maintain, and so is metadata. The
+effects of particular data manipulations are more predictable if you are
+confident that all of your input data has the same characteristics.</p>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>Vector data structures represent specific features on the Earth's surface along with attributes of those features.</li>
+<li>Vector objects are either points, lines, or polygons.</li>
+</ul>
+</div>

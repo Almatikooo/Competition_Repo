@@ -1,0 +1,696 @@
+<p>Hey there, future developer! 👋 Ready to join millions of coders around the world? I'm genuinely excited to introduce you to GitHub – think of it as the social media platform for programmers, except instead of sharing photos of your lunch, we're sharing code and building incredible things together!</p>
+<p>Here's what absolutely blows my mind: every app on your phone, every website you visit, and most of the tools you'll learn to use were built by teams of developers collaborating on platforms just like GitHub. That music app you love? Someone like you contributed to it. That game you can't put down? Yep, probably built with GitHub collaboration. And now YOU'RE going to learn how to be part of that amazing community!</p>
+<p>I know this might feel like a lot at first – heck, I remember staring at my first GitHub page thinking "What on earth does any of this mean?" But here's the thing: every single developer started exactly where you are right now. By the end of this lesson, you'll have your very own GitHub repository (think of it as your personal project showcase in the cloud), and you'll know how to save your work, share it with others, and even contribute to projects that millions of people use.</p>
+<p>We're going to take this journey together, one step at a time. No rushing, no pressure – just you, me, and some really cool tools that are about to become your new best friends!</p>
+<p><img alt="Intro to GitHub" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Web-Dev-For-Beginners/78085398be0dea7abaaf5eda914817f46f6ddbbc/sketchnotes/webdev101-github.png"></p>
+<blockquote>
+<p>Sketchnote by <a href="https://twitter.com/girlie_mac" target="_blank" rel="noopener noreferrer">Tomomi Imura</a></p>
+</blockquote>
+<pre><code class="language-mermaid">journey
+    title Your GitHub Adventure Today
+    section Setup
+      Install Git: 4: You
+      Create Account: 5: You
+      First Repository: 5: You
+    section Master Git
+      Local Changes: 4: You
+      Commits &amp; Pushes: 5: You
+      Branching: 4: You
+    section Collaborate
+      Fork Projects: 4: You
+      Pull Requests: 5: You
+      Open Source: 5: You
+</code></pre>
+
+
+<h2 id="introduction">Introduction</h2>
+<p>Before we dive into the really exciting stuff, let's get your computer ready for some GitHub magic! Think of this like organizing your art supplies before creating a masterpiece – having the right tools ready makes everything so much smoother and way more fun.</p>
+<p>I'm going to walk you through each setup step personally, and I promise it's not nearly as intimidating as it might look at first glance. If something doesn't click right away, that's completely normal! I remember setting up my first development environment and feeling like I was trying to read ancient hieroglyphics. Every single developer has been exactly where you are right now, wondering if they're doing it right. Spoiler alert: if you're here learning, you're already doing it right! 🌟</p>
+<p>In this lesson, we'll cover:</p>
+<ul>
+<li>tracking the work you do on your machine</li>
+<li>working on projects with others</li>
+<li>how to contribute to open source software</li>
+</ul>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Let's get your computer ready for some GitHub magic! Don't worry – this setup is something you only need to do once, and then you'll be all set for your entire coding journey.</p>
+<p>Alright, let's start with the foundation! First, we need to check if Git is already hanging out on your computer. Git is basically like having a super-smart assistant that remembers every single change you make to your code – way better than frantically hitting Ctrl+S every two seconds (we've all been there!).</p>
+<p>Let's see if Git is already installed by typing this magic command in your terminal:
+<code>git --version</code></p>
+<p>If Git isn't there yet, no worries! Just head over to <a href="https://git-scm.com/downloads" target="_blank" rel="noopener noreferrer">download Git</a> and grab it. Once you've got it installed, we need to introduce Git to you properly:</p>
+<blockquote>
+<p>💡 <strong>First Time Setup</strong>: These commands tell Git who you are. This information will be attached to every commit you make, so choose a name and email you're comfortable sharing publicly.</p>
+</blockquote>
+<pre><code class="language-bash">git config --global user.name "your-name"
+git config --global user.email "your-email"
+</code></pre>
+<p>To check if Git is already configured you can type:</p>
+<pre><code class="language-bash">git config --list
+</code></pre>
+<p>You'll also need a GitHub account, a code editor (like Visual Studio Code), and you'll need to open your terminal (or: command prompt).</p>
+<p>Navigate to <a href="https://github.com/" target="_blank" rel="noopener noreferrer">github.com</a> and create an account if you haven't already, or log in and fill out your profile.</p>
+<p>💡 <strong>Modern tip</strong>: Consider setting up <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh" target="_blank" rel="noopener noreferrer">SSH keys</a> or using <a href="https://cli.github.com/" target="_blank" rel="noopener noreferrer">GitHub CLI</a> for easier authentication without passwords.</p>
+<p>✅ GitHub isn't the only code repository in the world; there are others, but GitHub is the best known</p>
+<h3 id="preparation">Preparation</h3>
+<p>You'll need both a folder with a code project on your local machine (laptop or PC), and a public repository on GitHub, which will serve as an example for how to contribute to the projects of others.</p>
+<h3 id="keeping-your-code-safe">Keeping Your Code Safe</h3>
+<p>Let's talk about security for a moment – but don't worry, we're not going to overwhelm you with scary stuff! Think of these security practices like locking your car or your house. They're simple habits that become second nature and keep your hard work protected.</p>
+<p>We'll show you the modern, secure ways to work with GitHub right from the start. This way, you'll develop good habits that will serve you well throughout your coding career.</p>
+<p>When working with GitHub, it's important to follow security best practices:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Security Area</th>
+<th>Best Practice</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Authentication</strong></td>
+<td>Use SSH keys or Personal Access Tokens</td>
+<td>Passwords are less secure and being phased out</td>
+</tr>
+<tr>
+<td><strong>Two-Factor Authentication</strong></td>
+<td>Enable 2FA on your GitHub account</td>
+<td>Adds an extra layer of account protection</td>
+</tr>
+<tr>
+<td><strong>Repository Security</strong></td>
+<td>Never commit sensitive information</td>
+<td>API keys and passwords should never be in public repos</td>
+</tr>
+<tr>
+<td><strong>Dependency Management</strong></td>
+<td>Enable Dependabot for updates</td>
+<td>Keeps your dependencies secure and up-to-date</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>⚠️ <strong>Critical Security Reminder</strong>: Never commit API keys, passwords, or other sensitive information to any repository. Use environment variables and <code>.gitignore</code> files to protect sensitive data.</p>
+</blockquote>
+<p><strong>Modern Authentication Setup:</strong></p>
+<pre><code class="language-bash"># Generate SSH key (modern ed25519 algorithm)
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+# Set up Git to use SSH
+git remote set-url origin git@github.com:username/repository.git
+</code></pre>
+<blockquote>
+<p>💡 <strong>Pro Tip</strong>: SSH keys eliminate the need to enter passwords repeatedly and are more secure than traditional authentication methods.</p>
+</blockquote>
+<hr>
+<h2 id="managing-your-code-like-a-pro">Managing Your Code Like a Pro</h2>
+<p>Okay, THIS is where things get really exciting! 🎉 We're about to learn how to track and manage your code like the pros do, and honestly, this is one of my favorite things to teach because it's such a game-changer.</p>
+<p>Picture this: you're writing an amazing story, and you want to keep track of every draft, every brilliant edit, and every "wait, that's genius!" moment along the way. That's exactly what Git does for your code! It's like having the most incredible time-traveling notebook that remembers EVERYTHING – every keystroke, every change, every "oops, that broke everything" moment that you can instantly undo.</p>
+<p>I'll be honest – this might feel overwhelming at first. When I started, I thought "Why can't I just save my files like normal?" But trust me on this: once Git clicks for you (and it will!), you'll have one of those lightbulb moments where you think "How did I EVER code without this?" It's like discovering you can fly when you've been walking everywhere your whole life!</p>
+<p>Let's say you have a folder locally with some code project and you want to start tracking your progress using git - the version control system. Some people compare using git to writing a love letter to your future self. Reading your commit messages days or weeks or months later you'll be able to recall why you made a decision, or "rollback" a change - that is, when you write good "commit messages".</p>
+<pre><code class="language-mermaid">flowchart TD
+    A[📁 Your Project Files] --&gt; B{Is it a Git Repository?}
+    B --&gt;|No| C[git init]
+    B --&gt;|Yes| D[Make Changes]
+    C --&gt; D
+    D --&gt; E[git add .]
+    E --&gt; F["git commit -m 'message'"]
+    F --&gt; G[git push]
+    G --&gt; H[🌟 Code on GitHub!]
+    
+    H --&gt; I{Want to collaborate?}
+    I --&gt;|Yes| J[Fork &amp; Clone]
+    I --&gt;|No| D
+    J --&gt; K[Create Branch]
+    K --&gt; L[Make Changes]
+    L --&gt; M[Pull Request]
+    M --&gt; N[🎉 Contributing!]
+    
+    style A fill:#fff59d
+    style H fill:#c8e6c9
+    style N fill:#ff4081,color:#fff
+</code></pre>
+<h3 id="task-create-your-first-repository">Task: Create Your First Repository!</h3>
+<blockquote>
+<p>🎯 <strong>Your Mission (and I'm so excited for you!)</strong>: We're going to create your very first GitHub repository together! By the time we're done here, you'll have your own little corner of the internet where your code lives, and you'll have made your first "commit" (that's developer speak for saving your work in a really smart way).</p>
+<p>This is honestly such a special moment – you're about to officially join the global community of developers! I still remember the thrill of creating my first repo and thinking "Wow, I'm really doing this!"</p>
+</blockquote>
+<p>Let's walk through this adventure together, step by step. Take your time with each part – there's no prize for rushing, and I promise every single step will make sense. Remember, every coding superstar you admire was once sitting exactly where you are, about to create their first repository. How cool is that?</p>
+<blockquote>
+<p>Check out video</p>
+<p><a href="https://www.youtube.com/watch?v=9R31OUPpxU4" target="_blank" rel="noopener noreferrer"><img alt="Git and GitHub basics video" loading="lazy" src="https://img.youtube.com/vi/9R31OUPpxU4/0.jpg"></a></p>
+</blockquote>
+<p><strong>Let's Do This Together:</strong></p>
+<ol>
+<li>
+<p><strong>Create your repository on GitHub</strong>. Head over to GitHub.com and look for that bright green <strong>New</strong> button (or the <strong>+</strong> sign in the top right corner). Click it and select <strong>New repository</strong>.</p>
+<p>Here's what to do:</p>
+<ol>
+<li>Give your repository a name – make it something meaningful to you!</li>
+<li>Add a description if you want (this helps others understand what your project is about)</li>
+<li>Decide if you want it public (everyone can see it) or private (just for you)</li>
+<li>I recommend checking the box to add a README file – it's like the front page of your project</li>
+<li>Click <strong>Create repository</strong> and celebrate – you just created your first repo! 🎉</li>
+</ol>
+</li>
+<li>
+<p><strong>Navigate to your project folder</strong>. Now let's open up your terminal (don't worry, it's not as scary as it looks!). We need to tell your computer where your project files are. Type this command:</p>
+<pre><code class="language-bash">cd [name of your folder]
+</code></pre>
+<p><strong>What we're doing here:</strong></p>
+<ul>
+<li>We're basically saying "Hey computer, take me to my project folder"</li>
+<li>This is like opening a specific folder on your desktop, but we're doing it with text commands</li>
+<li>Replace <code>[name of your folder]</code> with the actual name of your project folder</li>
+</ul>
+</li>
+<li>
+<p><strong>Turn your folder into a Git repository</strong>. This is where the magic happens! Type:</p>
+<pre><code class="language-bash">git init
+</code></pre>
+<p><strong>Here's what just happened (pretty cool stuff!):</strong></p>
+<ul>
+<li>Git just created a hidden <code>.git</code> folder in your project – you won't see it, but it's there!</li>
+<li>Your regular folder is now a "repository" that can track every change you make</li>
+<li>Think of it like giving your folder superpowers to remember everything</li>
+</ul>
+</li>
+<li>
+<p><strong>Check what's happening</strong>. Let's see what Git thinks about your project right now:</p>
+<pre><code class="language-bash">git status
+</code></pre>
+<p><strong>Understanding what Git is telling you:</strong></p>
+<p>You might see something that looks like this:</p>
+<pre><code class="language-output">Changes not staged for commit:
+(use "git add &lt;file&gt;..." to update what will be committed)
+(use "git restore &lt;file&gt;..." to discard changes in working directory)
+
+     modified:   file.txt
+     modified:   file2.txt
+</code></pre>
+<p><strong>Don't panic! Here's what this means:</strong></p>
+<ul>
+<li>Files in <strong>red</strong> are files that have changes but aren't ready to be saved yet</li>
+<li>Files in <strong>green</strong> (when you see them) are ready to be saved</li>
+<li>Git is being helpful by telling you exactly what you can do next</li>
+</ul>
+<blockquote>
+<p>💡 <strong>Pro tip</strong>: The <code>git status</code> command is your best friend! Use it anytime you're confused about what's going on. It's like asking Git "Hey, what's the situation right now?"</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Get your files ready to save</strong> (this is called "staging"):</p>
+<pre><code class="language-bash">git add .
+</code></pre>
+<p><strong>What we just did:</strong></p>
+<ul>
+<li>We told Git "Hey, I want to include ALL my files in the next save"</li>
+<li>The <code>.</code> is like saying "everything in this folder"</li>
+<li>Now your files are "staged" and ready for the next step</li>
+</ul>
+<p><strong>Want to be more selective?</strong> You can add just specific files:</p>
+<pre><code class="language-bash">git add [file or folder name]
+</code></pre>
+<p><strong>Why might you want to do this?</strong></p>
+<ul>
+<li>Sometimes you want to save related changes together</li>
+<li>It helps you organize your work into logical chunks</li>
+<li>Makes it easier to understand what changed and when</li>
+</ul>
+<p><strong>Changed your mind?</strong> No worries! You can unstage files like this:</p>
+<pre><code class="language-bash"># Unstage everything
+git reset
+
+# Unstage just one file
+git reset [file name]
+</code></pre>
+<p>Don't worry – this doesn't delete your work, it just takes files out of the "ready to save" pile.</p>
+</li>
+<li>
+<p><strong>Save your work permanently</strong> (making your first commit!):</p>
+<pre><code class="language-bash">git commit -m "first commit"
+</code></pre>
+<p><strong>🎉 Congratulations! You just made your first commit!</strong></p>
+<p><strong>Here's what just happened:</strong></p>
+<ul>
+<li>Git took a "snapshot" of all your staged files at this exact moment</li>
+<li>Your commit message "first commit" explains what this save point is about</li>
+<li>Git gave this snapshot a unique ID so you can always find it later</li>
+<li>You've officially started tracking your project's history!</li>
+</ul>
+<blockquote>
+<p>💡 <strong>Future commit messages</strong>: For your next commits, be more descriptive! Instead of "updated stuff", try "Add contact form to homepage" or "Fix navigation menu bug". Your future self will thank you!</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Connect your local project to GitHub</strong>. Right now, your project exists only on your computer. Let's connect it to your GitHub repository so you can share it with the world!</p>
+<p>First, go to your GitHub repository page and copy the URL. Then come back here and type:</p>
+<pre><code class="language-bash">git remote add origin https://github.com/username/repository_name.git
+</code></pre>
+<p>(Replace that URL with your actual repository URL!)</p>
+<p><strong>What we just did:</strong></p>
+<ul>
+<li>We created a connection between your local project and your GitHub repository</li>
+<li>"Origin" is just a nickname for your GitHub repository – it's like adding a contact to your phone</li>
+<li>Now your local Git knows where to send your code when you're ready to share it</li>
+</ul>
+<p>💡 <strong>Easier way</strong>: If you have GitHub CLI installed, you can do this in one command:</p>
+<pre><code class="language-bash">gh repo create my-repo --public --push --source=.
+</code></pre>
+</li>
+<li>
+<p><strong>Send your code to GitHub</strong> (the big moment!):</p>
+<pre><code class="language-bash">git push -u origin main
+</code></pre>
+<p><strong>🚀 This is it! You're uploading your code to GitHub!</strong></p>
+<p><strong>What's happening:</strong></p>
+<ul>
+<li>Your commits are traveling from your computer to GitHub</li>
+<li>The <code>-u</code> flag sets up a permanent connection so future pushes are easier</li>
+<li>"main" is the name of your primary branch (like the main folder)</li>
+<li>After this, you can just type <code>git push</code> for future uploads!</li>
+</ul>
+<p>💡 <strong>Quick note</strong>: If your branch is called something else (like "master"), use that name instead. You can check with <code>git branch --show-current</code>.</p>
+</li>
+<li>
+<p><strong>Your new daily coding rhythm</strong> (this is where it gets addictive!):</p>
+<p>From now on, whenever you make changes to your project, you've got this simple three-step dance:</p>
+<pre><code class="language-bash">git add .
+git commit -m "describe what you changed"
+git push
+</code></pre>
+<p><strong>This becomes your coding heartbeat:</strong></p>
+<ul>
+<li>Make some awesome changes to your code ✨</li>
+<li>Stage them with <code>git add</code> ("Hey Git, pay attention to these changes!")</li>
+<li>Save them with <code>git commit</code> and a descriptive message (future you will thank you!)</li>
+<li>Share them with the world using <code>git push</code> 🚀</li>
+<li>Rinse and repeat – seriously, this becomes as natural as breathing!</li>
+</ul>
+<p>I love this workflow because it's like having multiple save points in a video game. Made a change you love? Commit it! Want to try something risky? No problem – you can always go back to your last commit if things go sideways!</p>
+<blockquote>
+<p>💡 <strong>Tip</strong>: You might also want to adopt a <code>.gitignore</code> file to prevent files you don't want to track from showing up on GitHub - like that notes file you store in the same folder but has no place on a public repository. You can find templates for <code>.gitignore</code> files at <a href="https://github.com/github/gitignore" target="_blank" rel="noopener noreferrer">.gitignore templates</a> or create one using <a href="https://www.toptal.com/developers/gitignore" target="_blank" rel="noopener noreferrer">gitignore.io</a>.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="first-repository-check-in-how-did-that-feel">🧠 <strong>First Repository Check-in: How Did That Feel?</strong></h3>
+<p><strong>Take a moment to celebrate and reflect:</strong></p>
+<ul>
+<li>How did it feel to see your code appear on GitHub for the first time?</li>
+<li>Which step felt the most confusing, and which felt surprisingly easy?</li>
+<li>Can you explain the difference between <code>git add</code>, <code>git commit</code>, and <code>git push</code> in your own words?</li>
+</ul>
+<pre><code class="language-mermaid">stateDiagram-v2
+    [*] --&gt; LocalFiles: Create project
+    LocalFiles --&gt; Staged: git add .
+    Staged --&gt; Committed: git commit
+    Committed --&gt; GitHub: git push
+    GitHub --&gt; [*]: Success! 🎉
+    
+    note right of Staged
+        Files ready to save
+    end note
+    
+    note right of Committed
+        Snapshot created
+    end note
+</code></pre>
+<blockquote>
+<p><strong>Remember</strong>: Even experienced developers sometimes forget the exact commands. Having this workflow become muscle memory takes practice - you're doing great!</p>
+</blockquote>
+<h4>Modern Git workflows</h4>
+<p>Consider adopting these modern practices:</p>
+<ul>
+<li><strong>Conventional Commits</strong>: Use a standardized commit message format like <code>feat:</code>, <code>fix:</code>, <code>docs:</code>, etc. Learn more at <a href="https://www.conventionalcommits.org/" target="_blank" rel="noopener noreferrer">conventionalcommits.org</a></li>
+<li><strong>Atomic commits</strong>: Make each commit represent a single logical change</li>
+<li><strong>Frequent commits</strong>: Commit often with descriptive messages rather than large, infrequent commits</li>
+</ul>
+<h4>Commit messages</h4>
+<p>A great Git commit subject line completes the following sentence:
+If applied, this commit will </p>
+<p>For the subject use the imperative, present tense: "change" not "changed" nor "changes".
+As in the subject, in the body (optional) also use the imperative, present tense. The body should include the motivation for the change and contrast this with previous behavior. You're explaining the <code>why</code>, not the <code>how</code>.</p>
+<p>✅ Take a few minutes to surf around GitHub. Can you find a really great commit message? Can you find a really minimal one? What information do you think is the most important and useful to convey in a commit message?</p>
+<h2 id="working-with-others-the-fun-part">Working with Others (The Fun Part!)</h2>
+<p>Hold onto your hat because THIS is where GitHub becomes absolutely magical! 🪄 You've mastered managing your own code, but now we're diving into my absolute favorite part – collaborating with amazing people from all over the world.</p>
+<p>Picture this: you wake up tomorrow and see that someone in Tokyo improved your code while you were sleeping. Then someone in Berlin fixes a bug you've been stuck on. By afternoon, a developer in São Paulo has added a feature you never even thought of. That's not science fiction – that's just Tuesday in the GitHub universe!</p>
+<p>What gets me really excited is that the collaboration skills you're about to learn? These are the EXACT same workflows that teams at Google, Microsoft, and your favorite startups use every single day. You're not just learning a cool tool – you're learning the secret language that makes the entire software world work together.</p>
+<p>Seriously, once you experience the rush of having someone merge your first pull request, you'll understand why developers get so passionate about open source. It's like being part of the world's biggest, most creative team project!</p>
+<blockquote>
+<p>Check out video</p>
+<p><a href="https://www.youtube.com/watch?v=bFCM-PC3cu8" target="_blank" rel="noopener noreferrer"><img alt="Git and GitHub basics video" loading="lazy" src="https://img.youtube.com/vi/bFCM-PC3cu8/0.jpg"></a></p>
+</blockquote>
+<p>The main reason for putting things on GitHub was to make it possible to collaborate with other developers.</p>
+<pre><code class="language-mermaid">flowchart LR
+    A[🔍 Find Project] --&gt; B[🍴 Fork Repository]
+    B --&gt; C[📥 Clone to Local]
+    C --&gt; D[🌿 Create Branch]
+    D --&gt; E[✏️ Make Changes]
+    E --&gt; F[💾 Commit Changes]
+    F --&gt; G[📤 Push Branch]
+    G --&gt; H[🔄 Create Pull Request]
+    H --&gt; I{Maintainer Review}
+    I --&gt;|✅ Approved| J[🎉 Merge!]
+    I --&gt;|❓ Changes Requested| K[📝 Make Updates]
+    K --&gt; F
+    J --&gt; L[🧹 Clean Up Branches]
+    
+    style A fill:#e3f2fd
+    style J fill:#e8f5e8
+    style L fill:#fff3e0
+</code></pre>
+<p>In your repository, navigate to <code>Insights &gt; Community</code> to see how your project compares to recommended community standards.</p>
+<p>Want to make your repository look professional and welcoming? Head over to your repository and click on <code>Insights &gt; Community</code>. This cool feature shows you how your project compares to what the GitHub community considers "good repository practices."</p>
+<blockquote>
+<p>🎯 <strong>Making Your Project Shine</strong>: A well-organized repository with good documentation is like having a clean, welcoming storefront. It tells people you care about your work and makes others want to contribute!</p>
+</blockquote>
+<p><strong>Here's what makes a repository awesome:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>What to Add</th>
+<th>Why It's Important</th>
+<th>What It Does for You</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Description</strong></td>
+<td>First impression matters!</td>
+<td>People know instantly what your project does</td>
+</tr>
+<tr>
+<td><strong>README</strong></td>
+<td>Your project's front page</td>
+<td>Like a friendly tour guide for new visitors</td>
+</tr>
+<tr>
+<td><strong>Contributing Guidelines</strong></td>
+<td>Shows you welcome help</td>
+<td>People know exactly how they can help you</td>
+</tr>
+<tr>
+<td><strong>Code of Conduct</strong></td>
+<td>Creates a friendly space</td>
+<td>Everyone feels welcome to participate</td>
+</tr>
+<tr>
+<td><strong>License</strong></td>
+<td>Legal clarity</td>
+<td>Others know how they can use your code</td>
+</tr>
+<tr>
+<td><strong>Security Policy</strong></td>
+<td>Shows you're responsible</td>
+<td>Demonstrates professional practices</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>💡 <strong>Pro Tip</strong>: GitHub provides templates for all of these files. When creating a new repository, check the boxes to automatically generate these files.</p>
+</blockquote>
+<p><strong>Modern GitHub Features to Explore:</strong></p>
+<p>🤖 <strong>Automation &amp; CI/CD:</strong></p>
+<ul>
+<li><strong>GitHub Actions</strong> for automated testing and deployment</li>
+<li><strong>Dependabot</strong> for automatic dependency updates</li>
+</ul>
+<p>💬 <strong>Community &amp; Project Management:</strong></p>
+<ul>
+<li><strong>GitHub Discussions</strong> for community conversations beyond issues</li>
+<li><strong>GitHub Projects</strong> for kanban-style project management</li>
+<li><strong>Branch protection rules</strong> to enforce code quality standards</li>
+</ul>
+<p>All these resources will benefit onboarding new team members. And those are typically the kind of things new contributors look at before even looking at your code, to find out if your project is the right place for them to be spending their time.</p>
+<p>✅ README files, although they take time to prepare, are often neglected by busy maintainers. Can you find an example of a particularly descriptive one? Note: there are some <a href="https://www.makeareadme.com/" target="_blank" rel="noopener noreferrer">tools to help create good READMEs</a> that you might like to try.</p>
+<h3 id="task-merge-some-code">Task: Merge some code</h3>
+<p>Contributing docs help people contribute to the project. It explains what types of contributions you're looking for and how the process works. Contributors will need to go through a series of steps to be able to contribute to your repo on GitHub:</p>
+<ol>
+<li><strong>Forking your repo</strong> You will probably want people to <em>fork</em> your project. Forking means creating a replica of your repository on their GitHub profile.</li>
+<li><strong>Clone</strong>. From there they will clone the project to their local machine.</li>
+<li><strong>Create a branch</strong>. You will want to ask them to create a <em>branch</em> for their work.</li>
+<li><strong>Focus their change on one area</strong>. Ask contributors to concentrate their contributions on one thing at a time - that way the chances that you can <em>merge</em> in their work is higher. Imagine they write a bug fix, add a new feature, and update several tests - what if you want to, or can only implement 2 out of 3, or 1 out of 3 changes?</li>
+</ol>
+<p>✅ Imagine a situation where branches are particularly critical to writing and shipping good code. What use cases can you think of?</p>
+<blockquote>
+<p>Note, be the change you want to see in the world, and create branches for your own work as well. Any commits you make will be made on the branch you’re currently “checked out” to. Use <code>git status</code> to see which branch that is.</p>
+</blockquote>
+<p>Let's go through a contributor workflow. Assume the contributor has already <em>forked</em> and <em>cloned</em> the repo so they have a Git repo ready to be worked on, on their local machine:</p>
+<ol>
+<li>
+<p><strong>Create a branch</strong>. Use the command <code>git branch</code> to create a branch that will contain the changes they mean to contribute:</p>
+<pre><code class="language-bash">git branch [branch-name]
+</code></pre>
+<blockquote>
+<p>💡 <strong>Modern Approach</strong>: You can also create and switch to the new branch in one command:</p>
+</blockquote>
+<pre><code class="language-bash">git switch -c [branch-name]
+</code></pre>
+</li>
+<li>
+<p><strong>Switch to working branch</strong>. Switch to the specified branch and update the working directory with <code>git switch</code>:</p>
+<pre><code class="language-bash">git switch [branch-name]
+</code></pre>
+<blockquote>
+<p>💡 <strong>Modern Note</strong>: <code>git switch</code> is the modern replacement for <code>git checkout</code> when changing branches. It's clearer and safer for beginners.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Do work</strong>. At this point you want to add your changes. Don't forget to tell Git about it with the following commands:</p>
+<pre><code class="language-bash">git add .
+git commit -m "my changes"
+</code></pre>
+<blockquote>
+<p>⚠️ <strong>Commit Message Quality</strong>: Ensure you give your commit a good name, both for your sake and the maintainer of the repo you are helping on. Be specific about what you changed!</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Combine your work with the <code>main</code> branch</strong>. At some point you are done working and you want to combine your work with that of the <code>main</code> branch. The <code>main</code> branch might have changed meanwhile so make sure you first update it to the latest with the following commands:</p>
+<pre><code class="language-bash">git switch main
+git pull
+</code></pre>
+<p>At this point you want to make sure that any <em>conflicts</em>, situations where Git can't easily <em>combine</em> the changes happens in your working branch. Therefore run the following commands:</p>
+<pre><code class="language-bash">git switch [branch_name]
+git merge main
+</code></pre>
+<p>The <code>git merge main</code> command will bring in all changes from <code>main</code> into your branch. Hopefully you can just continue. If not, VS Code will tell you where Git is <em>confused</em> and you just alter the affected files to say which content is the most accurate.</p>
+<p>💡 <strong>Modern alternative</strong>: Consider using <code>git rebase</code> for a cleaner history:</p>
+<pre><code class="language-bash">git rebase main
+</code></pre>
+<p>This replays your commits on top of the latest main branch, creating a linear history.</p>
+</li>
+<li>
+<p><strong>Send your work to GitHub</strong>. Sending your work to GitHub means two things. Pushing your branch to your repo and then open up a PR, Pull Request.</p>
+<pre><code class="language-bash">git push --set-upstream origin [branch-name]
+</code></pre>
+<p>The above command creates the branch on your forked repo.</p>
+</li>
+</ol>
+<h3 id="collaboration-skills-check-ready-to-work-with-others">🤝 <strong>Collaboration Skills Check: Ready to Work with Others?</strong></h3>
+<p><strong>Let's see how you're feeling about collaboration:</strong></p>
+<ul>
+<li>Does the idea of forking and pull requests make sense to you now?</li>
+<li>What's one thing about working with branches that you want to practice more?</li>
+<li>How comfortable do you feel about contributing to someone else's project?</li>
+</ul>
+<pre><code class="language-mermaid">mindmap
+  root((Git Collaboration))
+    Branching
+      Feature branches
+      Bug fix branches
+      Experimental work
+    Pull Requests
+      Code review
+      Discussion
+      Testing
+    Best Practices
+      Clear commit messages
+      Small focused changes
+      Good documentation
+</code></pre>
+<blockquote>
+<p><strong>Confidence booster</strong>: Every single developer you admire was once nervous about their first pull request. The GitHub community is incredibly welcoming to newcomers!</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>Open a PR</strong>. Next, you want to open up a PR. You do that by navigating to the forked repo on GitHub. You will see an indication on GitHub where it asks whether you want to create a new PR, you click that and you are taken to an interface where you can change commit message title, give it a more suitable description. Now the maintainer of the repo you forked will see this PR and <em>fingers crossed</em> they will appreciate and <em>merge</em> your PR. You are now a contributor, yay :)</p>
+<p>💡 <strong>Modern tip</strong>: You can also create PRs using GitHub CLI:</p>
+<pre><code class="language-bash">gh pr create --title "Your PR title" --body "Description of changes"
+</code></pre>
+<p>🔧 <strong>Best practices for PRs</strong>:</p>
+<ul>
+<li>Link to related issues using keywords like "Fixes #123"</li>
+<li>Add screenshots for UI changes</li>
+<li>Request specific reviewers</li>
+<li>Use draft PRs for work-in-progress</li>
+<li>Ensure all CI checks pass before requesting review</li>
+</ul>
+</li>
+<li>
+<p><strong>Clean up</strong>. It's considered good practice to <em>clean up</em> after you successfully merge a PR. You want to clean up both your local branch and the branch you pushed to GitHub. First let's delete it locally with the following command:</p>
+<pre><code class="language-bash">git branch -d [branch-name]
+</code></pre>
+<p>Ensure you go the GitHub page for the forked repo next and remove the remote branch you just pushed to it.</p>
+</li>
+</ol>
+<p><code>Pull request</code> seems like a silly term because really you want to push your changes to the project. But the maintainer (project owner) or core team needs to consider your changes before merging it with the project's "main" branch, so you're really requesting a change decision from a maintainer.</p>
+<p>A pull request is the place to compare and discuss the differences introduced on a branch with reviews, comments, integrated tests, and more. A good pull request follows roughly the same rules as a commit message. You can add a reference to an issue in the issue tracker, when your work for instance fixes an issue. This is done using a <code>#</code> followed by the number of your issue. For example <code>#97</code>.</p>
+<p>🤞Fingers crossed that all checks pass and the project owner(s) merge your changes into the project🤞</p>
+<p>Update your current local working branch with all new commits from the corresponding remote branch on GitHub:</p>
+<p><code>git pull</code></p>
+<h2 id="contributing-to-open-source-your-chance-to-make-an-impact">Contributing to Open Source (Your Chance to Make an Impact!)</h2>
+<p>Are you ready for something that's going to absolutely blow your mind? 🤯 Let's talk about contributing to open source projects – and I'm getting goosebumps just thinking about sharing this with you!</p>
+<p>This is your chance to become part of something truly extraordinary. Imagine improving the tools that millions of developers use every day, or fixing a bug in an app that your friends love. That's not just a dream – that's what open source contribution is all about!</p>
+<p>Here's what gives me chills every time I think about it: every single tool you've been learning with – your code editor, the frameworks we'll explore, even the browser you're reading this in – started with someone exactly like you making their very first contribution. That brilliant developer who built your favorite VS Code extension? They were once a beginner clicking "create pull request" with shaky hands, just like you're about to do.</p>
+<p>And here's the most beautiful part: the open source community is like the internet's biggest group hug. Most projects actively look for newcomers and have issues tagged "good first issue" specifically for people like you! Maintainers genuinely get excited when they see new contributors because they remember their own first steps.</p>
+<pre><code class="language-mermaid">flowchart TD
+    A[🔍 Explore GitHub] --&gt; B[🏷️ Find "good first issue"]
+    B --&gt; C[📖 Read Contributing Guidelines]
+    C --&gt; D[🍴 Fork Repository]
+    D --&gt; E[💻 Set Up Local Environment]
+    E --&gt; F[🌿 Create Feature Branch]
+    F --&gt; G[✨ Make Your Contribution]
+    G --&gt; H[🧪 Test Your Changes]
+    H --&gt; I[📝 Write Clear Commit]
+    I --&gt; J[📤 Push &amp; Create PR]
+    J --&gt; K[💬 Engage with Feedback]
+    K --&gt; L[🎉 Merged! You're a Contributor!]
+    L --&gt; M[🌟 Find Next Issue]
+    
+    style A fill:#e1f5fe
+    style L fill:#c8e6c9
+    style M fill:#fff59d
+</code></pre>
+<p>You're not just learning to code here – you're preparing to join a global family of builders who wake up every day thinking "How can we make the digital world a little bit better?" Welcome to the club! 🌟</p>
+<p>First, let's find a repository (or <strong>repo</strong>) on GitHub of interest to you and to which you'd like to contribute a change. You will want to copy its contents to your machine.</p>
+<p>✅ A good way to find 'beginner-friendly' repos is to <a href="https://github.blog/2020-01-22-browse-good-first-issues-to-start-contributing-to-open-source/" target="_blank" rel="noopener noreferrer">search by the tag 'good-first-issue'</a>.</p>
+<p><img alt="Copy a repo locally" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Web-Dev-For-Beginners/78085398be0dea7abaaf5eda914817f46f6ddbbc/1-getting-started-lessons/2-github-basics/images/clone_repo.png"></p>
+<p>There are several ways of copying code. One way is to "clone" the contents of the repository, using HTTPS, SSH, or using the GitHub CLI (Command Line Interface).</p>
+<p>Open your terminal and clone the repository like so:</p>
+<pre><code class="language-bash"># Using HTTPS
+git clone https://github.com/ProjectURL
+
+# Using SSH (requires SSH key setup)
+git clone git@github.com:username/repository.git
+
+# Using GitHub CLI
+gh repo clone username/repository
+</code></pre>
+<p>To work on the project, switch to the right folder:
+<code>cd ProjectURL</code></p>
+<p>You can also open the entire project using:</p>
+<ul>
+<li><strong><a href="https://github.com/features/codespaces" target="_blank" rel="noopener noreferrer">GitHub Codespaces</a></strong> - GitHub's cloud development environment with VS Code in the browser</li>
+<li><strong><a href="https://desktop.github.com/" target="_blank" rel="noopener noreferrer">GitHub Desktop</a></strong> - A GUI application for Git operations</li>
+<li><strong><a href="https://github.dev" target="_blank" rel="noopener noreferrer">GitHub.dev</a></strong> - Press the <code>.</code> key on any GitHub repo to open VS Code in the browser</li>
+<li><strong>VS Code</strong> with the GitHub Pull Requests extension</li>
+</ul>
+<p>Lastly, you can download the code in a zipped folder.</p>
+<h3 id="a-few-more-interesting-things-about-github">A few more interesting things about GitHub</h3>
+<p>You can star, watch and/or "fork" any public repository on GitHub. You can find your starred repositories in the top-right drop-down menu. It's like bookmarking, but for code.</p>
+<p>Projects have an issue tracker, mostly on GitHub in the "Issues" tab unless indicated otherwise, where people discuss issues related to the project. And the Pull Requests tab is where people discuss and review changes that are in progress.</p>
+<p>Projects might also have discussion in forums, mailing lists, or chat channels like Slack, Discord or IRC.</p>
+<p>🔧 <strong>Modern GitHub features</strong>:</p>
+<ul>
+<li><strong>GitHub Discussions</strong> - Built-in forum for community conversations</li>
+<li><strong>GitHub Sponsors</strong> - Support maintainers financially</li>
+<li><strong>Security tab</strong> - Vulnerability reports and security advisories</li>
+<li><strong>Actions tab</strong> - See automated workflows and CI/CD pipelines</li>
+<li><strong>Insights tab</strong> - Analytics about contributors, commits, and project health</li>
+<li><strong>Projects tab</strong> - GitHub's built-in project management tools</li>
+</ul>
+<p>✅ Take a look around your new GitHub repo and try a few things, like editing settings, adding information to your repo, creating a project (like a Kanban board), and setting up GitHub Actions for automation. There's a lot you can do!</p>
+<hr>
+<h2 id="challenge">🚀 Challenge</h2>
+<p>Alright, it's time to put your shiny new GitHub superpowers to the test! 🚀 Here's a challenge that's going to make everything click in the most satisfying way:</p>
+<p>Grab a friend (or that family member who's always asking what you're up to with all this "computer stuff") and embark on a collaborative coding adventure together! This is where the real magic happens – create a project, let them fork it, make some branches, and merge changes like the pros you're becoming.</p>
+<p>I'm not gonna lie – you'll probably laugh at some point (especially when you both try to change the same line), maybe scratch your heads in confusion, but you'll definitely have those amazing "aha!" moments that make all the learning worth it. Plus, there's something special about sharing that first successful merge with someone else – it's like a tiny celebration of how far you've come!</p>
+<p>Don't have a coding buddy yet? No worries at all! The GitHub community is packed with incredibly welcoming people who remember what it was like to be new. Look for repositories with "good first issue" labels – they're basically saying "Hey beginners, come learn with us!" How awesome is that?</p>
+
+
+<h2 id="review-keep-learning">Review &amp; Keep Learning</h2>
+<p>Whew! 🎉 Look at you – you've just conquered GitHub basics like an absolute champion! If your brain feels a little full right now, that's completely normal and honestly a good sign. You've just learned tools that took me weeks to feel comfortable with when I started.</p>
+<p>Git and GitHub are incredibly powerful (like, seriously powerful), and every developer I know – including the ones who seem like wizards now – had to practice and stumble around a bit before it all clicked. The fact that you've made it through this lesson means you're already on your way to mastering some of the most important tools in a developer's toolkit.</p>
+<p>Here are some absolutely fantastic resources to help you practice and become even more awesome:</p>
+<ul>
+<li><a href="https://opensource.guide/how-to-contribute/#how-to-submit-a-contribution" target="_blank" rel="noopener noreferrer">Contributing to open source software guide</a> – Your roadmap to making a difference</li>
+<li><a href="https://training.github.com/downloads/github-git-cheat-sheet/" target="_blank" rel="noopener noreferrer">Git cheatsheet</a> – Keep this handy for quick reference!</li>
+</ul>
+<p>And remember: practice makes progress, not perfection! The more you use Git and GitHub, the more natural it becomes. GitHub has created some amazing interactive courses that let you practice in a safe environment:</p>
+<ul>
+<li><a href="https://github.com/skills/introduction-to-github" target="_blank" rel="noopener noreferrer">Introduction to GitHub</a></li>
+<li><a href="https://github.com/skills/communicate-using-markdown" target="_blank" rel="noopener noreferrer">Communicate using Markdown</a></li>
+<li><a href="https://github.com/skills/github-pages" target="_blank" rel="noopener noreferrer">GitHub Pages</a></li>
+<li><a href="https://github.com/skills/resolve-merge-conflicts" target="_blank" rel="noopener noreferrer">Managing merge conflicts</a></li>
+</ul>
+<p><strong>Feeling adventurous? Check out these modern tools:</strong></p>
+<ul>
+<li><a href="https://cli.github.com/manual/" target="_blank" rel="noopener noreferrer">GitHub CLI documentation</a> – For when you want to feel like a command-line wizard</li>
+<li><a href="https://docs.github.com/en/codespaces" target="_blank" rel="noopener noreferrer">GitHub Codespaces documentation</a> – Code in the cloud!</li>
+<li><a href="https://docs.github.com/en/actions" target="_blank" rel="noopener noreferrer">GitHub Actions documentation</a> – Automate all the things</li>
+<li><a href="https://www.atlassian.com/git/tutorials/comparing-workflows" target="_blank" rel="noopener noreferrer">Git best practices</a> – Level up your workflow game</li>
+</ul>
+<h2 id="github-copilot-agent-challenge">GitHub Copilot Agent Challenge 🚀</h2>
+<p>Use the Agent mode to complete the following challenge:</p>
+<p><strong>Description:</strong> Create a collaborative web development project that demonstrates the complete GitHub workflow you've learned in this lesson. This challenge will help you practice repository creation, collaboration features, and modern Git workflows in a real-world scenario.</p>
+<p><strong>Prompt:</strong> Create a new public GitHub repository for a simple "Web Development Resources" project. The repository should include a well-structured README.md file listing useful web development tools and resources, organized by categories (HTML, CSS, JavaScript, etc.). Set up the repository with proper community standards including a license, contributing guidelines, and a code of conduct. Create at least two feature branches: one for adding CSS resources and another for JavaScript resources. Make commits to each branch with descriptive commit messages, then create pull requests to merge the changes back to main. Enable GitHub features like Issues, Discussions, and set up a basic GitHub Actions workflow for automated checks.</p>
+<h2 id="your-github-mastery-timeline">🚀 Your GitHub Mastery Timeline</h2>
+<h3 id="what-you-can-do-in-the-next-5-minutes">⚡ <strong>What You Can Do in the Next 5 Minutes</strong></h3>
+<ul>
+<li>[ ] Star this repository and 3 other projects that interest you</li>
+<li>[ ] Set up two-factor authentication on your GitHub account</li>
+<li>[ ] Create a simple README for your first repository</li>
+<li>[ ] Follow 5 developers whose work inspires you</li>
+</ul>
+<h3 id="what-you-can-accomplish-this-hour">🎯 <strong>What You Can Accomplish This Hour</strong></h3>
+<ul>
+<li>[ ] Complete the post-lesson quiz and reflect on your GitHub journey</li>
+<li>[ ] Set up SSH keys for password-free GitHub authentication</li>
+<li>[ ] Create your first meaningful commit with a great commit message</li>
+<li>[ ] Explore GitHub's "Explore" tab to discover trending projects</li>
+<li>[ ] Practice forking a repository and making a small change</li>
+</ul>
+<h3 id="your-week-long-github-adventure">📅 <strong>Your Week-Long GitHub Adventure</strong></h3>
+<ul>
+<li>[ ] Complete the GitHub Skills courses (Introduction to GitHub, Markdown)</li>
+<li>[ ] Make your first pull request to an open source project</li>
+<li>[ ] Set up a GitHub Pages site to showcase your work</li>
+<li>[ ] Join GitHub Discussions on projects you're interested in</li>
+<li>[ ] Create a repository with proper community standards (README, License, etc.)</li>
+<li>[ ] Try GitHub Codespaces for cloud-based development</li>
+</ul>
+<h3 id="your-month-long-transformation">🌟 <strong>Your Month-Long Transformation</strong></h3>
+<ul>
+<li>[ ] Contribute to 3 different open source projects</li>
+<li>[ ] Mentor someone new to GitHub (pay it forward!)</li>
+<li>[ ] Set up automated workflows with GitHub Actions</li>
+<li>[ ] Build a portfolio showcasing your GitHub contributions</li>
+<li>[ ] Participate in Hacktoberfest or similar community events</li>
+<li>[ ] Become a maintainer of your own project that others contribute to</li>
+</ul>
+<h3 id="final-github-mastery-check-in">🎓 <strong>Final GitHub Mastery Check-in</strong></h3>
+<p><strong>Celebrate how far you've come:</strong></p>
+<ul>
+<li>What's your favorite thing about using GitHub?</li>
+<li>Which collaboration feature excites you most?</li>
+<li>How confident do you feel about contributing to open source now?</li>
+<li>What's the first project you want to contribute to?</li>
+</ul>
+<pre><code class="language-mermaid">journey
+    title Your GitHub Confidence Journey
+    section Today
+      Nervous: 3: You
+      Curious: 4: You
+      Excited: 5: You
+    section This Week
+      Practicing: 4: You
+      Contributing: 5: You
+      Connecting: 5: You
+    section Next Month
+      Collaborating: 5: You
+      Leading: 5: You
+      Inspiring Others: 5: You
+</code></pre>
+<blockquote>
+<p>🌍 <strong>Welcome to the global developer community!</strong> You now have the tools to collaborate with millions of developers worldwide. Your first contribution might seem small, but remember - every major open source project started with someone making their very first commit. The question isn't if you'll make an impact, but what amazing project will benefit from your unique perspective first! 🚀</p>
+</blockquote>
+<p>Remember: every expert was once a beginner. You've got this! 💪</p>

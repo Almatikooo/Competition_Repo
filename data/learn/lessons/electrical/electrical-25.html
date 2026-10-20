@@ -1,0 +1,172 @@
+<p>
+Let's take another look at our example series circuit, this time numbering the points in the circuit for voltage reference:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00110.png"> </p>
+<p>
+If we were to connect a voltmeter between points 2 and 1, red test lead to point 2 and black test lead to point 1, the meter would register +45 volts.  Typically the "+" sign is not shown, but rather implied, for positive readings in digital meter displays.  However, for this lesson the polarity of the voltage reading is very important and so I will show positive numbers explicitly:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10106.png"> </p>
+<p>
+When a voltage is specified with a double subscript (the characters "2-1" in the notation "E<sub>2-1</sub>"), it means the voltage at the first point (2) as measured in reference to the second point (1).  A voltage specified as "E<sub>cd</sub>" would mean the voltage as indicated by a digital meter with the red test lead on point "c" and the black test lead on point "d": the voltage at "c" in reference to "d".
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00435.png"> </p>
+<p>
+If we were to take that same voltmeter and measure the voltage drop across each resistor, stepping around the circuit in a clockwise direction with the red test lead of our meter on the point ahead and the black test lead on the point behind, we would obtain the following readings:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10107.png"> </p>
+<br>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00436.png"> </p>
+<p>
+We should already be familiar with the general principle for series circuits stating that individual voltage drops add up to the total applied voltage, but measuring voltage drops in this manner and paying attention to the polarity (mathematical sign) of the readings reveals another facet of this principle: that the voltages measured as such all add up to zero:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10108.png"> </p>
+<p>
+This principle is known as <i>Kirchhoff's Voltage Law</i> (discovered in 1847 by Gustav R. Kirchhoff, a German physicist), and it can be stated as such:
+</p>
+<blockquote>
+<b>"The algebraic sum of all voltages in a loop must equal zero"</b>
+</blockquote>
+<p>
+By <i>algebraic</i>, I mean accounting for signs (polarities) as well as magnitudes.  By <i>loop</i>, I mean any path traced from one point in a circuit around to other points in that circuit, and finally back to the initial point.  In the above example the loop was formed by following points in this order: 1-2-3-4-1.  It doesn't matter which point we start at or which direction we proceed in tracing the loop; the voltage sum will still equal zero.  To demonstrate, we can tally up the voltages in loop 3-2-1-4-3 of the same circuit:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10109.png"> </p>
+<p>
+This may make more sense if we re-draw our example series circuit so that all components are represented in a straight line:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00111.png"> </p>
+<p>
+It's still the same series circuit, just with the components arranged in a different form.  Notice the polarities of the resistor voltage drops with respect to the battery: the battery's voltage is negative on the left and positive on the right, whereas all the resistor voltage drops are oriented the other way: positive on the left and negative on the right.  This is because the resistors are <i>resisting</i> the flow of electrons being pushed by the battery.  In other words, the "push" exerted by the resistors <i>against</i> the flow of electrons <i>must</i> be in a direction opposite the source of electromotive force.
+</p>
+<p>
+Here we see what a digital voltmeter would indicate across each component in this circuit, black lead on the left and red lead on the right, as laid out in horizontal fashion:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00112.png"> </p>
+<p>
+If we were to take that same voltmeter and read voltage across combinations of components, starting with only R<sub>1</sub> on the left and progressing across the whole string of components, we will see how the voltages add algebraically (to zero):
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00113.png"> </p>
+<p>
+The fact that series voltages add up should be no mystery, but we notice that the <i>polarity</i> of these voltages makes a lot of difference in how the figures add.  While reading voltage across R<sub>1</sub>, R<sub>1</sub>--R<sub>2</sub>, and R<sub>1</sub>--R<sub>2</sub>--R<sub>3</sub> (I'm using a "double-dash" symbol "--" to represent the <i>series</i> connection between resistors R<sub>1</sub>, R<sub>2</sub>, and R<sub>3</sub>), we see how the voltages measure successively larger (albeit negative) magnitudes, because the polarities of the individual voltage drops are in the same orientation (positive left, negative right).  The sum of the voltage drops across R<sub>1</sub>, R<sub>2</sub>, and R<sub>3</sub> equals 45 volts, which is the same as the battery's output, except that the battery's polarity is opposite that of the resistor voltage drops (negative left, positive right), so we end up with 0 volts measured across the whole string of components.
+</p>
+<p>
+That we should end up with exactly 0 volts across the whole string should be no mystery, either.  Looking at the circuit, we can see that the far left of the string (left side of R<sub>1</sub>: point number 2) is directly connected to the far right of the string (right side of battery: point number 2), as necessary to complete the circuit.  Since these two points are directly connected, they are <i>electrically common</i> to each other.  And, as such, the voltage between those two electrically common points <i>must</i> be zero.
+</p>
+<p>
+Kirchhoff's Voltage Law (sometimes denoted as <i>KVL</i> for short) will work for <i>any</i> circuit configuration at all, not just simple series.  Note how it works for this parallel circuit:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00114.png"> </p>
+<p>
+Being a parallel circuit, the voltage across every resistor is the same as the supply voltage: 6 volts.  Tallying up voltages around loop 2-3-4-5-6-7-2, we get:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10110.png"> </p>
+<p>
+Note how I label the final (sum) voltage as E<sub>2-2</sub>.  Since we began our loop-stepping sequence at point 2 and ended at point 2, the algebraic sum of those voltages will be the same as the voltage measured between the same point (E<sub>2-2</sub>), which of course must be zero.
+</p>
+<p>
+The fact that this circuit is parallel instead of series has nothing to do with the validity of Kirchhoff's Voltage Law.  For that matter, the circuit could be a "black box" -- its component configuration completely hidden from our view, with only a set of exposed terminals for us to measure voltage between -- and KVL would still hold true:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00115.png"> </p>
+<p>
+Try any order of steps from any terminal in the above diagram, stepping around back to the original terminal, and you'll find that the algebraic sum of the voltages <i>always</i> equals zero.
+</p>
+<p>
+Furthermore, the "loop" we trace for KVL doesn't even have to be a real current path in the closed-circuit sense of the word.  All we have to do to comply with KVL is to begin and end at the same point in the circuit, tallying voltage drops and polarities as we go between the next and the last point.  Consider this absurd example, tracing "loop" 2-3-6-3-2 in the same parallel resistor circuit:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00114.png"> </p>
+<br>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10111.png"> </p>
+<p>
+KVL can be used to determine an unknown voltage in a complex circuit, where all other voltages around a particular "loop" are known.  Take the following complex circuit (actually two series circuits joined by a single wire at the bottom) as an example:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00116.png"> </p>
+<p>
+To make the problem simpler, I've omitted resistance values and simply given voltage drops across each resistor.  The two series circuits share a common wire between them (wire 7-8-9-10), making voltage measurements <i>between</i> the two circuits possible.  If we wanted to determine the voltage between points 4 and 3, we could set up a KVL equation with the voltage between those points as the unknown:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10112.png"> </p>
+<br>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00358.png"> </p>
+<br>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00359.png"> </p>
+<br>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00360.png"> </p>
+<br>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00361.png"> </p>
+<p>
+Stepping around the loop 3-4-9-8-3, we write the voltage drop figures as a digital voltmeter would register them, measuring with the red test lead on the point ahead and black test lead on the point behind as we progress around the loop.  Therefore, the voltage from point 9 to point 4 is a positive (+) 12 volts because the "red lead" is on point 9 and the "black lead" is on point 4.  The voltage from point 3 to point 8 is a positive (+) 20 volts because the "red lead" is on point 3 and the "black lead" is on point 8.  The voltage from point 8 to point 9 is zero, of course, because those two points are electrically common.  
+</p>
+<p>
+Our final answer for the voltage from point 4 to point 3 is a negative (-) 32 volts, telling us that point 3 is actually positive with respect to point 4, precisely what a digital voltmeter would indicate with the red lead on point 4 and the black lead on point 3: 
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00117.png"> </p>
+<p>
+In other words, the initial placement of our "meter leads" in this KVL problem was "backwards."  Had we generated our KVL equation starting with E<sub>3-4</sub> instead of E<sub>4-3</sub>, stepping around the same loop with the opposite meter lead orientation, the final answer would have been E<sub>3-4</sub> = +32 volts:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00437.png"> </p>
+<p>
+It is important to realize that neither approach is "wrong."  In both cases, we arrive at the correct assessment of voltage between the two points, 3 and 4: point 3 is positive with respect to point 4, and the voltage between them is 32 volts.
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Kirchhoff's Voltage Law (KVL): <i>"The algebraic sum of all voltages in a loop must equal zero"</i></li>
+</ul>
+<h2 id="current-divider-circuits">Current divider circuits</h2>
+<p>
+Let's analyze a simple parallel circuit, determining the branch currents through individual resistors:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00118.png"> </p>
+<p>
+Knowing that voltages across all components in a parallel circuit are the same, we can fill in our voltage/current/resistance table with 6 volts across the top row:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10113.png"> </p>
+<p>
+Using Ohm's Law (I=E/R) we can calculate each branch current:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10114.png"> </p>
+<p>
+Knowing that branch currents add up in parallel circuits to equal the total current, we can arrive at total current by summing 6 mA, 2 mA, and 3 mA:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10115.png"> </p>
+<p>
+The final step, of course, is to figure total resistance.  This can be done with Ohm's Law (R=E/I) in the "total" column, or with the parallel resistance formula from individual resistances.  Either way, we'll get the same answer:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10116.png"> </p>
+<p>
+Once again, it should be apparent that the current through each resistor is related to its resistance, given that the voltage across all resistors is the same.  Rather than being directly proportional, the relationship here is one of inverse proportion.  For example, the current through R<sub>1</sub> is twice as much as the current through R<sub>3</sub>, which has twice the resistance of R<sub>1</sub>.
+</p>
+<p>
+If we were to change the supply voltage of this circuit, we find that (surprise!) these proportional ratios do not change:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10117.png"> </p>
+<p>
+The current through R<sub>1</sub> is still exactly twice that of R<sub>3</sub>, despite the fact that the source voltage has changed.  The proportionality between different branch currents is strictly a function of resistance.
+</p>
+<p>
+Also reminiscent of voltage dividers is the fact that branch currents are fixed proportions of the total current.  Despite the fourfold increase in supply voltage, the ratio between any branch current and the total current remains unchanged:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10118.png"> </p>
+<p>
+For this reason a parallel circuit is often called a <i>current divider</i> for its ability to proportion -- or divide -- the total current into fractional parts.  With a little bit of algebra, we can derive a formula for determining parallel resistor current given nothing more than total current, individual resistance, and total resistance:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10119.png"> </p>
+<p>
+The ratio of total resistance to individual resistance is the same ratio as individual (branch) current to total current.  This is known as the <i>current divider formula</i>, and it is a short-cut method for determining branch currents in a parallel circuit when the total current is known.
+</p>
+<p>
+Using the original parallel circuit as an example, we can re-calculate the branch currents using this formula, if we start by knowing the total current and total resistance:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10120.png"> </p>
+<p>
+If you take the time to compare the two divider formulae, you'll see that they are remarkably similar.  Notice, however, that the ratio in the voltage divider formula is R<sub>n</sub> (individual resistance) divided by R<sub>Total</sub>, and how the ratio in the current divider formula is R<sub>Total</sub> divided by R<sub>n</sub>:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10121.png"> </p>
+<p>
+It is quite easy to confuse these two equations, getting the resistance ratios backwards.  One way to help remember the proper form is to keep in mind that both ratios in the voltage and current divider equations must equal less than one.  After all these are <i>divider</i> equations, not <i>multiplier</i> equations!  If the fraction is upside-down, it will provide a ratio greater than one, which is incorrect.  Knowing that total resistance in a series (voltage divider) circuit is always greater than any of the individual resistances, we know that the fraction for that formula must be R<sub>n</sub> over R<sub>Total</sub>.  Conversely, knowing that total resistance in a parallel (current divider) circuit is always less then any of the individual resistances, we know that the fraction for that formula must be R<sub>Total</sub> over R<sub>n</sub>.
+</p>
+<p>
+Current divider circuits also find application in electric meter circuits, where a fraction of a measured current is desired to be routed through a sensitive detection device.  Using the current divider formula, the proper shunt resistor can be sized to proportion just the right amount of current for the device in any given instance:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00119.png"> </p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Parallel circuits proportion, or "divide," the total circuit current among individual branch currents, the proportions being strictly dependent upon resistances: I<sub>n</sub> = I<sub>Total</sub> (R<sub>Total</sub> / R<sub>n</sub>)</li>
+</ul>

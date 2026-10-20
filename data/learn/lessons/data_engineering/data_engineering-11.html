@@ -1,0 +1,356 @@
+<h2 id="choose-a-stream-processing-technology-in-azure">Choose a stream processing technology in Azure</h2>
+<p>This article compares technology choices for real-time stream processing in Azure.</p>
+<h2 id="streaming-data-overview">Streaming data overview</h2>
+<p>Organizations often have various data sources that simultaneously emit messages, records, or data. The amount of data can range from a few bytes to several megabytes (MB). Streaming data is emitted at high volume in a continuous, incremental manner that can be processed in near real-time. This type of data includes information that companies use for real-time analytics and visibility into various aspects of their business, such as application logs, geolocation updates, events, and sensor readings.</p>
+<p>Streaming data often has the following characteristics:</p>
+<ul>
+<li>
+<p><strong>Imperfect data integrity:</strong> Temporary errors at the source might result in missing data elements. The continuous nature of the stream can introduce data inconsistency. So stream processing and analytics systems typically include logic for data validation to mitigate these errors.</p>
+</li>
+<li>
+<p><strong>Continuous data flow:</strong> A data stream has no beginning or end, so you have to constantly collect data. For example, server activity logs accumulate as long as the server runs.</p>
+</li>
+<li>
+<p><strong>Diverse data formats:</strong> You might stream data in multiple formats, such as JSON, Avro, and CSV. And it might include various data types, such as strings, numbers, dates, and binary types. Stream-processing systems must handle these data variations.</p>
+</li>
+<li>
+<p><strong>Time-sensitive data order:</strong> Individual elements in a data stream contain timestamps. And the data stream itself might be time-sensitive and lose value after a specific time. In some cases, you need to preserve the data processing order.</p>
+</li>
+</ul>
+<h2 id="technology-options-for-real-time-processing">Technology options for real-time processing</h2>
+<p>To help you choose the right technology, this section outlines common options in Azure, from ingestion to consumption. Each subsection highlights recommended technologies based on their role within the streaming processing flow.</p>
+<h3 id="high-level-stream-processing-flow">High-level stream processing flow</h3>
+<p><img alt="A diagram that shows the data flow for a stream processing solution." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/architecture-center/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/images/stream-processing.svg">
+Left to right, the diagram shows a four-stage numbered streaming data pipeline: 1 Stream producers, 2 Stream ingestion, 3 Stream processing, 4 Streaming sinks. At the far left a tall box contains Mobile apps above Customer-facing apps. To its right three stacked producer boxes: the top box labeled Device endpoint metrics contains IoT Hub left of IoT Edge; the middle box labeled CDC generated from databases contains Azure Cosmos DB left of SQL Database; the bottom box labeled metrics and events from custom applications contains AKS left of Functions. Right-pointing arrows from each producer box converge on the ingestion box, which lists (top row left to right) Event Hubs and Event Grid, and (bottom row) HDInsight Kafka left of Confluent Kafka. A single arrow leads to the processing box showing (top row) Stream Analytics, Eventstream, Functions, and below them an inset Spark Structured Streaming box containing Fabric left of Azure Databricks. Another arrow points to the sinks box listing Azure Data Explorer above Blob Storage, Azure Cosmos DB above One Lake, and Eventhouse at the bottom.
+:::image-end:::</p>
+<p><em>Download a <a href="https://arch-center.azureedge.net/stream-processing.vsdx" target="_blank" rel="noopener noreferrer">Visio file</a> of this architecture.</em></p>
+<h3 id="stream-producers">Stream producers</h3>
+<p>Stream producers generate and push data into Azure ingestion services. They continuously produce data from sources like Internet of Things (IoT) devices, application logs, or databases.</p>
+<p>Stream producers provide the following benefits:</p>
+<ul>
+<li>
+<p><strong>Capture near real-time data.</strong> Producers can continually collect data from sources such as IoT devices, user interactions, and application logs. They stream the data into Azure services like Azure Event Hubs or Azure IoT Hub.</p>
+</li>
+<li>
+<p><strong>Optimize throughput with batching and compression.</strong> Producers can batch messages and apply compression to minimize data size during transmission. These capabilities enhance efficiency.</p>
+</li>
+<li>
+<p><strong>Ensure reliable transmission with error handling and retries.</strong> Producers can manage network disruptions or broker failures through automatic retries to ensure dependable data delivery.</p>
+</li>
+<li>
+<p><strong>Guarantee data integrity with idempotence.</strong> You can configure producers to support <em>exactly once delivery</em>, which prevents duplicate messages and ensures a consistent data flow.</p>
+</li>
+</ul>
+<h4>Components</h4>
+<ul>
+<li>
+<p><a href="https://learn.microsoft.com/azure/iot-hub/iot-concepts-and-iot-hub" target="_blank" rel="noopener noreferrer">IoT Hub</a> ingests IoT data. It provides features like bi-directional communication, device authentication, and offline message buffering. It's ideal for managing IoT devices and their data streams.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server" target="_blank" rel="noopener noreferrer">Change data capture (CDC)</a> producers include Azure databases such as <a href="https://learn.microsoft.com/azure/azure-sql/database/change-data-capture-overview" target="_blank" rel="noopener noreferrer">Azure SQL Database</a> and <a href="https://learn.microsoft.com/azure/cosmos-db/change-feed" target="_blank" rel="noopener noreferrer">Azure Cosmos DB</a>.</p>
+<p>To access CDC data, you can use connectors, such as Debezium for SQL Database or the Azure Cosmos DB change feed. These connectors are often hosted on Azure Functions or Azure App Service environments. If you use the Microsoft Fabric eventstreams feature, you don't need separate applications, such as Debezium, to connect CDC producers with downstream consumers.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/azure/well-architected/service-guides/app-service-web-apps" target="_blank" rel="noopener noreferrer">Custom applications</a> like Debezium can also be hosted as standalone applications on managed services, such as Azure Kubernetes Service (AKS) or App Service environments. This approach provides more control or customization.</p>
+</li>
+</ul>
+<h4>General capabilities</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>IoT Hub</th>
+<th>CDC producers</th>
+<th>Custom applications</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Device metics and logs</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Managed service</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Scalability</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="stream-ingestion">Stream ingestion</h3>
+<p>Producers, such as web and mobile applications, IoT devices, and sensors, continuously generate data. The stream processing pipeline must efficiently ingest this data for real-time and batch analysis.</p>
+<p>Consider the following factors:</p>
+<ul>
+<li>
+<p><strong>Data velocity:</strong> Determine how to handle high-frequency data from multiple sources, which often varies in format and size.</p>
+</li>
+<li>
+<p><strong>Scalability:</strong> Ensure that the ingestion layer can scale dynamically as data volume, variety, and velocity increase.</p>
+</li>
+<li>
+<p><strong>Data integrity and reliability:</strong> Prevent data loss or duplication during transmission.</p>
+</li>
+</ul>
+<h4>Stream ingestion components</h4>
+<ul>
+<li>
+<p><a href="https://learn.microsoft.com/azure/well-architected/service-guides/azure-event-hubs" target="_blank" rel="noopener noreferrer">Event Hubs</a> is a real-time data ingestion service that can handle millions of events per second, which makes it ideal for high-throughput scenarios. It can scale dynamically and process massive volumes of data with low latency.</p>
+<p>Event Hubs supports features like partitioning for parallel processing and data retention policies. It integrates with Azure services like Azure Stream Analytics, Fabric, Azure Databricks, and Azure Functions. Event Hubs also integrates with Apache Kafka, and you can run existing Kafka workloads without any code changes.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/azure/well-architected/service-guides/azure-event-grid" target="_blank" rel="noopener noreferrer">Event Grid</a> is a fully managed event-routing service. It ingests, distributes, and reacts to events from various sources, so it's ideal for real-time, event-driven architectures. It efficiently handles event notifications and integrates with Azure services, custom applications, and partner systems. Event Grid plays a critical role in stream ingestion.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction" target="_blank" rel="noopener noreferrer">Kafka on Azure HDInsight</a> is a managed Apache Kafka service for real-time data ingestion and processing at scale. Use this service to capture and store streaming data from various sources, such as IoT devices, application logs, and social media feeds. This service provides extra control of a Kafka configuration on a managed infrastructure.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/azure/partner-solutions/apache-kafka-confluent-cloud/overview" target="_blank" rel="noopener noreferrer">Apache Kafka on Confluent Cloud</a> is a fully managed Apache Kafka service for real-time data ingestion. It integrates with Azure to simplify deployment and scaling. This solution includes features like schema registry, ksqlDB for stream queries, and enterprise-grade security. Use this option if you use Confluent's extended ecosystem of connectors and stream processing tools.</p>
+</li>
+</ul>
+<h4>Stream ingestion general capabilities</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Event Hubs</th>
+<th>Kafka on HDInsight</th>
+<th>Kafka on Confluent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Message retention</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Message size limit</td>
+<td>1 MB</td>
+<td>Configurable</td>
+<td>Configurable</td>
+</tr>
+<tr>
+<td>Managed service</td>
+<td>Yes</td>
+<td>Managed infrastructure as a service</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Autoscale</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Partner offering</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Pricing model</td>
+<td><a href="https://azure.microsoft.com/pricing/details/event-hubs/" target="_blank" rel="noopener noreferrer">Based on tier</a></td>
+<td><a href="https://azure.microsoft.com/pricing/details/hdinsight/" target="_blank" rel="noopener noreferrer">Per cluster hour</a></td>
+<td><a href="https://marketplace.microsoft.com/product/confluentinc.confluent-cloud-azure-prod?tab=PlansAndPrice" target="_blank" rel="noopener noreferrer">Consumption models</a></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="stream-processing">Stream processing</h3>
+<p>This step involves processes that transform data in real-time and filter, aggregate, enrich, or analyze ingested data.</p>
+<p>Consider the following factors:</p>
+<ul>
+<li>
+<p><strong>Stateful versus stateless processing:</strong> Decide whether your processing depends on previously seen data (stateful) or independent events (stateless).</p>
+</li>
+<li>
+<p><strong>Event time handling:</strong> Account for scenarios where you must process data streams from multiple sources together, especially for late-arriving records.</p>
+</li>
+<li>
+<p><strong>Windowing:</strong> Use sliding or tumbling windows to manage time-based aggregations and analytics.</p>
+</li>
+<li>
+<p><strong>Fault tolerance:</strong> Ensure that the system can recover from failures without data loss or reprocessing errors.</p>
+</li>
+</ul>
+<h4>Stream processing components</h4>
+<ul>
+<li>
+<p><a href="https://learn.microsoft.com/azure/stream-analytics/stream-analytics-introduction" target="_blank" rel="noopener noreferrer">Stream Analytics</a> is a managed service that uses a SQL-based query language to enable real-time analytics. Use this service for simple processing tasks like filtering, aggregating, and joining data streams. It integrates seamlessly with Event Hubs, IoT Hub, and Azure Blob Storage for input and output. Stream Analytics best suits low-complexity, real-time tasks where a simple, managed solution with SQL-based queries is sufficient.</p>
+</li>
+<li>
+<p><a href="https://spark.apache.org/streaming/" target="_blank" rel="noopener noreferrer">Spark Structured Streaming</a> is supported by services such as <a href="https://learn.microsoft.com/azure/well-architected/service-guides/iot-hub/reliability" target="_blank" rel="noopener noreferrer">Fabric</a> and <a href="https://learn.microsoft.com/azure/well-architected/service-guides/azure-databricks" target="_blank" rel="noopener noreferrer">Azure Databricks</a>. These services provide a unified analytics platform that's built on Apache Spark and can handle complex data transformations, machine learning pipelines, and big data workloads. Spark streaming APIs support deep integration with Delta Lake for data versioning and consistency.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/fabric/real-time-intelligence/event-streams/overview" target="_blank" rel="noopener noreferrer">Fabric eventstreams</a> is a real-time data streaming capability within Fabric, which is a unified analytics platform. Eventstreams enables seamless ingestion, processing, and integration of streaming data for real-time analytics and applications. Users can access eventstreams with minimal technical expertise. It provides drag-and-drop interfaces to set up data pipelines.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/azure/well-architected/service-guides/azure-functions" target="_blank" rel="noopener noreferrer">Azure Functions</a> is a  serverless compute service for event-driven processing. It's useful for lightweight tasks, like transforming data or triggering workflows based on real-time events. Azure functions are stateless by design. The durable functions feature extends capabilities to support stateful workflows for complex event coordination.</p>
+</li>
+</ul>
+<h4>Stream processing general capabilities</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Stream Analytics</th>
+<th>Spark Structured Streaming (Fabric, Azure Databricks)</th>
+<th>Fabric eventstreams</th>
+<th>Azure Functions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Micro-batch processing</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Event-based processing</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Stateful processing</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Support for check pointing</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Low-code interface</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pricing model</td>
+<td><a href="https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption" target="_blank" rel="noopener noreferrer">Streaming units</a></td>
+<td>Yes</td>
+<td><a href="https://azure.microsoft.com/pricing/details/microsoft-fabric/" target="_blank" rel="noopener noreferrer">Fabric SKU</a></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="streaming-sinks">Streaming sinks</h3>
+<p>After the system processes the data, it directs the data to appropriate destinations, or <em>sinks</em>, for storage, further analysis, or use in real-time applications. These destinations can include databases, data lakes, analytics tools, or dashboards for visualization.</p>
+<p>Consider the following factors:</p>
+<ul>
+<li>
+<p><strong>Data consumption and usage:</strong> Use Power BI for real-time analytics or reporting dashboards. It integrates well with Azure services and provides live visualizations of data streams.</p>
+</li>
+<li>
+<p><strong>Low-latency requirements:</strong> Determine whether your system must deliver analytics on real-time data streams, such as device metrics and application logs. Some applications might also require ultra-low latency for reads and writes, which makes them suitable for operational analytics or real-time applications.</p>
+</li>
+<li>
+<p><strong>Scalability and volume:</strong> Assess your workload's need to ingest large volumes of data, support diverse data formats, and scale efficiently and cost-effectively.</p>
+</li>
+</ul>
+<h4>Streaming sinks components</h4>
+<ul>
+<li>
+<p><a href="https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction" target="_blank" rel="noopener noreferrer">Azure Data Lake Storage</a> is a scalable, distributed, and cost-effective solution for storing unstructured and semi-structured data. It supports petabyte-scale storage and high-throughput workloads for storing large volumes of streaming data. It also enables fast read and write operations, which support analytics on streaming data and real-time data pipelines.</p>
+</li>
+<li>
+<p>A <a href="https://learn.microsoft.com/fabric/real-time-intelligence/eventhouse" target="_blank" rel="noopener noreferrer">Fabric eventhouse</a> is a KQL database for real-time analytics and exploration on vent-based data, such as metrics and log data, time-series data, and IoT data. It supports ingestion of millions of events per second with low latency. This feature enables near-instant access to streaming data. An eventhouse deeply integrates with the Fabric ecosystem. It enables users to query and analyze streaming data immediately by using tools like Power BI.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/azure/well-architected/service-guides/cosmos-db" target="_blank" rel="noopener noreferrer">Azure Cosmos DB</a> is a NoSQL database for low-latency, globally distributed, and highly scalable data storage. It delivers high throughput and can handle large volumes of streaming data with consistent performance.</p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/azure/well-architected/service-guides/azure-sql-database" target="_blank" rel="noopener noreferrer">SQL Database</a> is a fully managed, cloud-based relational database service. It's built on the SQL Server engine. So it provides the capabilities of a traditional SQL Server database with the benefits of cloud-based scalability, reliability, and reduced management overhead.</p>
+</li>
+</ul>
+<h4>Streaming sinks general capabilities</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Data Lake Storage</th>
+<th>Fabric eventhouse</th>
+<th>Azure Cosmos DB</th>
+<th>SQL Database</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>General purpose object store</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Streaming data aggregations</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Low-latency reads and writes for JSON documents</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Structured data aggregations for Power BI</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Pricing model</td>
+<td>Per GB or TB</td>
+<td><a href="https://azure.microsoft.com/pricing/details/microsoft-fabric/" target="_blank" rel="noopener noreferrer">Fabric SKU</a></td>
+<td><a href="https://learn.microsoft.com/azure/cosmos-db/request-units" target="_blank" rel="noopener noreferrer">Request units</a></td>
+<td><a href="https://azure.microsoft.com/pricing/details/azure-sql-database/single/" target="_blank" rel="noopener noreferrer">Database transaction unit (DTU) or vCore</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="contributors">Contributors</h2>
+<p><em>Microsoft maintains this article. The following contributors wrote this article.</em></p>
+<p>Principal author:</p>
+<ul>
+<li><a href="https://www.linkedin.com/in/pratimavalavala" target="_blank" rel="noopener noreferrer">Pratima Valavala</a> | Principal Solution Architect</li>
+</ul>
+<p><em>To see nonpublic LinkedIn profiles, sign in to LinkedIn.</em></p>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/fabric/real-time-intelligence/eventhouse" target="_blank" rel="noopener noreferrer">Fabric Eventhouse</a></li>
+<li><a href="https://learn.microsoft.com/azure/well-architected/service-guides/iot-hub/reliability" target="_blank" rel="noopener noreferrer">Fabric</a></li>
+<li><a href="https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction" target="_blank" rel="noopener noreferrer">Data Lake Storage</a></li>
+</ul>
+<p>Explore the following training modules:</p>
+<ul>
+<li><a href="https://learn.microsoft.com/training/modules/explore-azure-functions" target="_blank" rel="noopener noreferrer">Explore Azure Functions</a></li>
+<li><a href="https://learn.microsoft.com/training/modules/introduction-to-data-streaming" target="_blank" rel="noopener noreferrer">Get started with Stream Analytics</a></li>
+<li><a href="https://learn.microsoft.com/training/modules/perform-advanced-streaming-data-transformations-with-spark-kafka" target="_blank" rel="noopener noreferrer">Perform advanced streaming data transformations</a></li>
+<li><a href="https://learn.microsoft.com/training/modules/use-apache-spark-azure-databricks" target="_blank" rel="noopener noreferrer">Use Apache Spark in Azure Databricks</a></li>
+</ul>
+<h2 id="related-resource">Related resource</h2>
+<ul>
+<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/reference-architectures/data/stream-processing-stream-analytics.yml" target="_blank" rel="noopener noreferrer">Stream processing with Stream Analytics</a></li>
+</ul>

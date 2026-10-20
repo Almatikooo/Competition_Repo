@@ -1,0 +1,1825 @@
+{
+ "_note": "Skill taxonomy. 'hn' = regex used to count mentions in live job posts (null = the tech-centric HN job board is not a representative source for this skill; the forecast then relies on the cited baseline and AI-capability signals). 'wef' = baseline prior from a cited claim. 'ai' = team-assumed sensitivity (annual log-growth points at moderate pace) to each tracked AI capability: negative = substitution, positive = complementarity. 'hours' = estimated learning hours from zero to working proficiency (estimate).",
+ "categories": {
+  "ai_data": {
+   "en": "AI & Data",
+   "ms": "AI & Data",
+   "zh": "AI 与数据"
+  },
+  "digital": {
+   "en": "Digital & Tech",
+   "ms": "Digital & Teknologi",
+   "zh": "数字与技术"
+  },
+  "green": {
+   "en": "Green & Sustainability",
+   "ms": "Hijau & Kelestarian",
+   "zh": "绿色与可持续"
+  },
+  "human": {
+   "en": "Human & Business",
+   "ms": "Insan & Perniagaan",
+   "zh": "人文与商业"
+  }
+ },
+ "skills": [
+  {
+   "id": "python",
+   "category": "ai_data",
+   "name": {
+    "en": "Python programming",
+    "ms": "Pengaturcaraan Python",
+    "zh": "Python 编程"
+   },
+   "hours": 60,
+   "prereqs": [],
+   "related": {
+    "software_dev": 0.4,
+    "excel": 0.15
+   },
+   "aliases": [
+    "python",
+    "pandas",
+    "numpy",
+    "jupyter"
+   ],
+   "hn": "\\bpython\\b",
+   "wef": "wef_skill_ai_bigdata",
+   "ai": {
+    "codegen": -0.01,
+    "llm": 0.01
+   },
+   "sdgs": [
+    {
+     "target": "9.5",
+     "why": "Programming is a core capability for upgrading industry technology."
+    }
+   ],
+   "practice": "Automate a weekly report from a CSV export of synthetic sales data.",
+   "short": "Python"
+  },
+  {
+   "id": "sql",
+   "category": "ai_data",
+   "name": {
+    "en": "SQL & databases",
+    "ms": "SQL & pangkalan data",
+    "zh": "SQL 与数据库"
+   },
+   "hours": 30,
+   "prereqs": [],
+   "related": {
+    "excel": 0.35,
+    "data_analysis": 0.3
+   },
+   "aliases": [
+    "\\bsql\\b(?!\\s*account)",
+    "mysql",
+    "postgres",
+    "postgresql",
+    "database",
+    "pangkalan data",
+    "数据库",
+    "oracle db"
+   ],
+   "hn": "\\bsql\\b|postgres|mysql|bigquery|snowflake|clickhouse",
+   "wef": "wef_skill_ai_bigdata",
+   "ai": {
+    "codegen": -0.01
+   },
+   "sdgs": [
+    {
+     "target": "17.18",
+     "why": "Well-managed databases make timely, reliable data available for decisions."
+    }
+   ],
+   "practice": "Answer ten business questions on a public sample database.",
+   "short": "SQL"
+  },
+  {
+   "id": "data_analysis",
+   "category": "ai_data",
+   "name": {
+    "en": "Data analysis",
+    "ms": "Analisis data",
+    "zh": "数据分析"
+   },
+   "hours": 60,
+   "prereqs": [],
+   "related": {
+    "excel": 0.5,
+    "statistics": 0.4,
+    "bookkeeping": 0.2,
+    "finance_domain": 0.25,
+    "analytical_thinking": 0.25
+   },
+   "aliases": [
+    "data analysis",
+    "data analytics",
+    "analisis data",
+    "数据分析",
+    "reporting",
+    "kpi",
+    "insights",
+    "analytics"
+   ],
+   "hn": "data analy(st|sis|tics)|\\banalytics\\b",
+   "wef": "wef_skill_ai_bigdata",
+   "ai": {
+    "llm": -0.02,
+    "agents": -0.01
+   },
+   "sdgs": [
+    {
+     "target": "17.18",
+     "why": "Analysts turn raw data into reliable evidence for decisions."
+    },
+    {
+     "target": "8.2",
+     "why": "Data-driven decisions raise productivity."
+    }
+   ],
+   "practice": "Analyse an open dataset from data.gov.my and write a one-page insight brief.",
+   "short": "Data analysis"
+  },
+  {
+   "id": "data_viz",
+   "category": "ai_data",
+   "name": {
+    "en": "Data visualisation & BI dashboards",
+    "ms": "Visualisasi data & papan pemuka BI",
+    "zh": "数据可视化与 BI 仪表板"
+   },
+   "hours": 30,
+   "prereqs": [],
+   "related": {
+    "excel": 0.4,
+    "data_analysis": 0.5,
+    "graphic_design": 0.2
+   },
+   "aliases": [
+    "power bi",
+    "tableau",
+    "dashboard",
+    "data visualisation",
+    "data visualization",
+    "looker",
+    "visualisasi data",
+    "可视化",
+    "papan pemuka"
+   ],
+   "hn": "tableau|power ?bi\\b|looker|data visuali[sz]ation|business intelligence|dashboards?",
+   "wef": "wef_skill_ai_bigdata",
+   "ai": {
+    "llm": -0.01
+   },
+   "sdgs": [
+    {
+     "target": "17.18",
+     "why": "Dashboards make data accessible and timely for decision-makers."
+    }
+   ],
+   "practice": "Build a Power BI dashboard on an open data.gov.my dataset.",
+   "short": "Data viz & BI"
+  },
+  {
+   "id": "statistics",
+   "category": "ai_data",
+   "name": {
+    "en": "Statistics",
+    "ms": "Statistik",
+    "zh": "统计学"
+   },
+   "hours": 50,
+   "prereqs": [],
+   "related": {
+    "data_analysis": 0.4,
+    "analytical_thinking": 0.2
+   },
+   "aliases": [
+    "statistics",
+    "statistical",
+    "regression",
+    "hypothesis test",
+    "statistik",
+    "统计"
+   ],
+   "hn": "statistic|a/b test|experimentation|causal inference|econometric",
+   "wef": null,
+   "ai": {
+    "llm": 0.01
+   },
+   "sdgs": [
+    {
+     "target": "17.18",
+     "why": "Sound statistics underpin reliable data."
+    }
+   ],
+   "practice": "Run an A/B-test analysis on a public sample dataset.",
+   "short": "Statistics"
+  },
+  {
+   "id": "machine_learning",
+   "category": "ai_data",
+   "name": {
+    "en": "Machine learning",
+    "ms": "Pembelajaran mesin",
+    "zh": "机器学习"
+   },
+   "hours": 120,
+   "prereqs": [
+    "python",
+    "statistics"
+   ],
+   "related": {
+    "statistics": 0.3,
+    "data_analysis": 0.2
+   },
+   "aliases": [
+    "machine learning",
+    "scikit-learn",
+    "sklearn",
+    "deep learning",
+    "pytorch",
+    "tensorflow",
+    "pembelajaran mesin",
+    "机器学习",
+    "neural network"
+   ],
+   "hn": "machine learning|\\bml\\b|deep learning|pytorch|tensorflow|scikit",
+   "wef": "wef_skill_ai_bigdata",
+   "ai": {
+    "llm": 0.03,
+    "vision": 0.01,
+    "codegen": -0.01
+   },
+   "sdgs": [
+    {
+     "target": "9.5",
+     "why": "ML expertise upgrades the technological capability of industry and research."
+    }
+   ],
+   "practice": "Train and evaluate a model on an open Kaggle dataset; document its limitations.",
+   "short": "Machine learning"
+  },
+  {
+   "id": "genai_apps",
+   "category": "ai_data",
+   "name": {
+    "en": "Generative-AI application development (LLMs, RAG, agents)",
+    "ms": "Pembangunan aplikasi AI generatif",
+    "zh": "生成式 AI 应用开发"
+   },
+   "hours": 60,
+   "prereqs": [
+    "python"
+   ],
+   "related": {
+    "software_dev": 0.3,
+    "prompt_eng": 0.35
+   },
+   "aliases": [
+    "\\bllms?\\b",
+    "large language model",
+    "\\brag\\b",
+    "langchain",
+    "openai api",
+    "vector database",
+    "ai agent",
+    "chatbot development",
+    "llamaindex"
+   ],
+   "hn": "\\bllms?\\b|large language model|generative ai|\\bgen ?ai\\b|\\brag\\b|retrieval.augmented|langchain|llamaindex|vector (db|database|search)|\\bai agents?\\b|agentic|openai|anthropic",
+   "wef": "wef_skill_ai_bigdata",
+   "ai": {
+    "llm": 0.07,
+    "agents": 0.06
+   },
+   "sdgs": [
+    {
+     "target": "9.5",
+     "why": "Builds national capability in a frontier technology."
+    },
+    {
+     "target": "8.2",
+     "why": "AI applications raise productivity through technological upgrading."
+    }
+   ],
+   "practice": "Build a small retrieval-augmented Q&A bot over public HR policy documents.",
+   "short": "GenAI app dev"
+  },
+  {
+   "id": "prompt_eng",
+   "category": "ai_data",
+   "name": {
+    "en": "AI tools & prompt engineering at work",
+    "ms": "Alat AI & kejuruteraan prompt",
+    "zh": "AI 工具与提示工程"
+   },
+   "hours": 15,
+   "prereqs": [],
+   "related": {
+    "digital_literacy": 0.4,
+    "communication": 0.15
+   },
+   "aliases": [
+    "chatgpt",
+    "copilot",
+    "prompt engineering",
+    "prompting",
+    "generative ai tools",
+    "ai tools",
+    "gemini",
+    "提示词"
+   ],
+   "hn": "prompt engineering|chatgpt|copilot|ai.assisted|ai.native|ai tools",
+   "wef": "wef_skill_ai_bigdata",
+   "ai": {
+    "llm": 0.06,
+    "agents": 0.04
+   },
+   "sdgs": [
+    {
+     "target": "4.4",
+     "why": "AI fluency is now a relevant skill for decent jobs."
+    },
+    {
+     "target": "8.2",
+     "why": "Closes the AI-training gap that limits productivity gains."
+    }
+   ],
+   "practice": "Rebuild one weekly task with an AI assistant and measure the time saved.",
+   "short": "AI tools at work"
+  },
+  {
+   "id": "mlops",
+   "category": "ai_data",
+   "name": {
+    "en": "MLOps & model deployment",
+    "ms": "MLOps & pelaksanaan model",
+    "zh": "MLOps 与模型部署"
+   },
+   "hours": 80,
+   "prereqs": [
+    "machine_learning",
+    "cloud_devops"
+   ],
+   "related": {
+    "cloud_devops": 0.4,
+    "data_engineering": 0.3
+   },
+   "aliases": [
+    "mlops",
+    "model deployment",
+    "mlflow",
+    "kubeflow",
+    "model serving",
+    "vllm"
+   ],
+   "hn": "mlops|\\bml (platform|infrastructure|infra|ops)\\b|model serving|inference|mlflow|kubeflow|vllm|\\bgpus?\\b",
+   "wef": "wef_skill_ai_bigdata",
+   "ai": {
+    "llm": 0.04,
+    "agents": 0.02
+   },
+   "sdgs": [
+    {
+     "target": "9.1",
+     "why": "Reliable AI infrastructure is part of resilient digital infrastructure."
+    }
+   ],
+   "practice": "Deploy a model behind an API with monitoring.",
+   "short": "MLOps"
+  },
+  {
+   "id": "data_engineering",
+   "category": "ai_data",
+   "name": {
+    "en": "Data engineering & pipelines",
+    "ms": "Kejuruteraan data",
+    "zh": "数据工程"
+   },
+   "hours": 90,
+   "prereqs": [
+    "sql",
+    "python"
+   ],
+   "related": {
+    "sql": 0.4,
+    "cloud_devops": 0.3
+   },
+   "aliases": [
+    "data engineering",
+    "\\betl\\b",
+    "airflow",
+    "\\bspark\\b",
+    "data pipeline",
+    "\\bdbt\\b",
+    "kafka",
+    "data warehouse"
+   ],
+   "hn": "data engineer|\\bspark\\b|airflow|\\bdbt\\b|kafka|\\betl\\b|data pipelines?|data warehous|databricks",
+   "wef": "wef_skill_ai_bigdata",
+   "ai": {
+    "llm": 0.02,
+    "codegen": -0.01
+   },
+   "sdgs": [
+    {
+     "target": "17.18",
+     "why": "Pipelines deliver timely, reliable data at scale."
+    }
+   ],
+   "practice": "Build a pipeline that ingests an open dataset daily.",
+   "short": "Data engineering"
+  },
+  {
+   "id": "ai_governance",
+   "category": "ai_data",
+   "name": {
+    "en": "Responsible AI & AI governance",
+    "ms": "AI bertanggungjawab & tadbir urus AI",
+    "zh": "负责任 AI 与 AI 治理"
+   },
+   "hours": 30,
+   "prereqs": [],
+   "related": {
+    "analytical_thinking": 0.2,
+    "communication": 0.15
+   },
+   "aliases": [
+    "ai governance",
+    "responsible ai",
+    "ai ethics",
+    "ai risk",
+    "\\bpdpa\\b",
+    "data protection",
+    "personal data protection"
+   ],
+   "hn": "ai safety|responsible ai|ai governance|ai ethics|ai alignment|alignment research|model alignment|trust (and|&) safety|ai policy|red.?team|\\bevals?\\b|model evaluation",
+   "wef": null,
+   "ai": {
+    "safety": 0.06,
+    "llm": 0.03,
+    "agents": 0.02
+   },
+   "sdgs": [
+    {
+     "target": "16.6",
+     "why": "Accountable, transparent use of AI in institutions."
+    },
+    {
+     "target": "10.2",
+     "why": "Fairness checks stop AI from excluding people by age, gender or background."
+    }
+   ],
+   "practice": "Write a one-page AI risk assessment for a tool your organisation uses, using the NIST AI RMF.",
+   "short": "Responsible AI"
+  },
+  {
+   "id": "computer_vision",
+   "category": "ai_data",
+   "name": {
+    "en": "Computer vision",
+    "ms": "Penglihatan komputer",
+    "zh": "计算机视觉"
+   },
+   "hours": 80,
+   "prereqs": [
+    "machine_learning"
+   ],
+   "related": {
+    "machine_learning": 0.35
+   },
+   "aliases": [
+    "computer vision",
+    "opencv",
+    "image recognition",
+    "object detection",
+    "yolo"
+   ],
+   "hn": "computer vision|image processing|opencv|\\bperception\\b|image recognition|object detection",
+   "wef": null,
+   "ai": {
+    "vision": 0.04,
+    "robotics": 0.02
+   },
+   "sdgs": [
+    {
+     "target": "9.5",
+     "why": "Vision systems upgrade inspection, agriculture and manufacturing."
+    }
+   ],
+   "practice": "Fine-tune an image classifier on an open dataset, e.g. plant-disease images.",
+   "short": "Computer vision"
+  },
+  {
+   "id": "excel",
+   "category": "digital",
+   "name": {
+    "en": "Spreadsheets (Excel / Google Sheets)",
+    "ms": "Hamparan (Excel / Google Sheets)",
+    "zh": "电子表格 (Excel)"
+   },
+   "hours": 25,
+   "prereqs": [],
+   "related": {
+    "data_analysis": 0.3,
+    "bookkeeping": 0.25
+   },
+   "aliases": [
+    "\\bexcel\\b",
+    "spreadsheet",
+    "google sheets",
+    "vlookup",
+    "pivot table",
+    "hamparan",
+    "电子表格",
+    "lembaran kerja"
+   ],
+   "hn": null,
+   "wef": "wef_skill_techlit",
+   "ai": {
+    "llm": -0.01,
+    "agents": -0.01
+   },
+   "sdgs": [
+    {
+     "target": "4.4",
+     "why": "Core digital skill for employment."
+    }
+   ],
+   "practice": "Rebuild a monthly report with pivot tables and lookups on synthetic data.",
+   "short": "Spreadsheets"
+  },
+  {
+   "id": "digital_literacy",
+   "category": "digital",
+   "name": {
+    "en": "Digital literacy & productivity tools",
+    "ms": "Literasi digital & alat produktiviti",
+    "zh": "数字素养与办公工具"
+   },
+   "hours": 15,
+   "prereqs": [],
+   "related": {
+    "excel": 0.3,
+    "prompt_eng": 0.2
+   },
+   "aliases": [
+    "microsoft office",
+    "ms office",
+    "office 365",
+    "microsoft 365",
+    "microsoft word",
+    "ms word",
+    "powerpoint",
+    "google workspace",
+    "literasi digital"
+   ],
+   "hn": null,
+   "wef": "wef_skill_techlit",
+   "ai": {
+    "llm": 0.02
+   },
+   "sdgs": [
+    {
+     "target": "4.4",
+     "why": "Baseline digital skills open access to decent jobs."
+    },
+    {
+     "target": "5.b",
+     "why": "ICT skills are a lever for women's economic empowerment."
+    }
+   ],
+   "practice": "Move one paper-based process to a shared cloud workflow.",
+   "short": "Digital literacy"
+  },
+  {
+   "id": "software_dev",
+   "category": "digital",
+   "name": {
+    "en": "Software development",
+    "ms": "Pembangunan perisian",
+    "zh": "软件开发"
+   },
+   "hours": 200,
+   "prereqs": [],
+   "related": {
+    "python": 0.4,
+    "genai_apps": 0.2
+   },
+   "aliases": [
+    "software development",
+    "javascript",
+    "typescript",
+    "react",
+    "node\\.?js",
+    "\\bjava\\b",
+    "c#",
+    "web development",
+    "\\bhtml\\b",
+    "\\bcss\\b",
+    "\\bgit\\b",
+    "programming",
+    "pengaturcaraan",
+    "编程"
+   ],
+   "hn": "software engineer|backend|back-end|full.?stack|javascript|typescript|react|node\\.?js|\\bjava\\b|golang|\\brust\\b|\\bruby\\b|django|rails",
+   "wef": "wef_skill_techlit",
+   "ai": {
+    "codegen": -0.04,
+    "agents": -0.02,
+    "llm": 0.02
+   },
+   "sdgs": [
+    {
+     "target": "9.c",
+     "why": "Software extends access to digital services."
+    }
+   ],
+   "practice": "Ship a small web app with a public GitHub repository.",
+   "short": "Software dev"
+  },
+  {
+   "id": "cloud_devops",
+   "category": "digital",
+   "name": {
+    "en": "Cloud & DevOps",
+    "ms": "Awan & DevOps",
+    "zh": "云计算与 DevOps"
+   },
+   "hours": 100,
+   "prereqs": [
+    "linux_networking"
+   ],
+   "related": {
+    "linux_networking": 0.4,
+    "software_dev": 0.25
+   },
+   "aliases": [
+    "\\baws\\b",
+    "azure",
+    "google cloud",
+    "\\bgcp\\b",
+    "docker",
+    "kubernetes",
+    "ci/cd",
+    "devops",
+    "terraform"
+   ],
+   "hn": "\\baws\\b|\\bgcp\\b|google cloud|\\bazure\\b|kubernetes|\\bk8s\\b|docker|terraform|devops|\\bsre\\b|site reliability|ci/cd",
+   "wef": "wef_skill_cyber",
+   "ai": {
+    "llm": 0.02,
+    "codegen": -0.01
+   },
+   "sdgs": [
+    {
+     "target": "9.1",
+     "why": "Cloud operations keep digital infrastructure reliable and resilient."
+    }
+   ],
+   "practice": "Containerise an app with Docker and deploy it with CI/CD.",
+   "short": "Cloud & DevOps"
+  },
+  {
+   "id": "linux_networking",
+   "category": "digital",
+   "name": {
+    "en": "Linux & networking fundamentals",
+    "ms": "Asas Linux & rangkaian",
+    "zh": "Linux 与网络基础"
+   },
+   "hours": 40,
+   "prereqs": [],
+   "related": {
+    "cloud_devops": 0.3,
+    "cybersecurity": 0.2
+   },
+   "aliases": [
+    "linux",
+    "networking",
+    "tcp/ip",
+    "\\bccna\\b",
+    "network administration",
+    "rangkaian komputer",
+    "网络管理",
+    "\\bunix\\b",
+    "\\bbash\\b"
+   ],
+   "hn": "\\blinux\\b|networking|tcp/ip|network engineer|\\bunix\\b",
+   "wef": "wef_skill_cyber",
+   "ai": {},
+   "sdgs": [
+    {
+     "target": "9.c",
+     "why": "Network skills expand reliable ICT access."
+    }
+   ],
+   "practice": "Set up a home-lab Linux server and document its network configuration.",
+   "short": "Linux & networking"
+  },
+  {
+   "id": "cybersecurity",
+   "category": "digital",
+   "name": {
+    "en": "Cybersecurity",
+    "ms": "Keselamatan siber",
+    "zh": "网络安全"
+   },
+   "hours": 120,
+   "prereqs": [
+    "linux_networking"
+   ],
+   "related": {
+    "linux_networking": 0.35,
+    "cloud_devops": 0.2
+   },
+   "aliases": [
+    "cybersecurity",
+    "cyber security",
+    "information security",
+    "penetration testing",
+    "\\bsiem\\b",
+    "soc analyst",
+    "firewall",
+    "keselamatan siber",
+    "网络安全"
+   ],
+   "hn": "security engineer|cyber ?security|appsec|infosec|security operations|\\bsoc\\b|penetration test|threat|vulnerabilit|zero.trust",
+   "wef": "wef_skill_cyber",
+   "ai": {
+    "llm": 0.02,
+    "agents": 0.02
+   },
+   "sdgs": [
+    {
+     "target": "9.1",
+     "why": "Protects critical digital infrastructure."
+    },
+    {
+     "target": "16.6",
+     "why": "Secure systems keep public institutions trustworthy."
+    }
+   ],
+   "practice": "Complete beginner hands-on security labs and write up three findings.",
+   "short": "Cybersecurity"
+  },
+  {
+   "id": "ux_design",
+   "category": "digital",
+   "name": {
+    "en": "UX/UI design",
+    "ms": "Reka bentuk UX/UI",
+    "zh": "UX/UI 设计"
+   },
+   "hours": 100,
+   "prereqs": [],
+   "related": {
+    "graphic_design": 0.45,
+    "creative_thinking": 0.3
+   },
+   "aliases": [
+    "\\bux\\b",
+    "ui/ux",
+    "user experience",
+    "figma",
+    "wireframe",
+    "prototyping",
+    "user research",
+    "usability"
+   ],
+   "hn": "\\bux\\b|ui/ux|product designer|figma|user research|interaction design|design systems?",
+   "wef": "wef_skill_creative",
+   "ai": {
+    "genmedia": -0.02,
+    "llm": 0.01
+   },
+   "sdgs": [
+    {
+     "target": "10.2",
+     "why": "Accessible, inclusive design widens access to services."
+    }
+   ],
+   "practice": "Redesign a public-service form and test it with five users.",
+   "short": "UX/UI design"
+  },
+  {
+   "id": "process_automation",
+   "category": "digital",
+   "name": {
+    "en": "Process automation (RPA, Power Automate, low-code)",
+    "ms": "Automasi proses (RPA, low-code)",
+    "zh": "流程自动化 (RPA/低代码)"
+   },
+   "hours": 50,
+   "prereqs": [],
+   "related": {
+    "excel": 0.3,
+    "bookkeeping": 0.15,
+    "data_entry": 0.1
+   },
+   "aliases": [
+    "\\brpa\\b",
+    "uipath",
+    "power automate",
+    "automation anywhere",
+    "workflow automation",
+    "\\bmacros?\\b",
+    "\\bvba\\b",
+    "zapier",
+    "automasi",
+    "自动化"
+   ],
+   "hn": "\\brpa\\b|uipath|power automate|zapier|workflow automation|low.?code|no.?code|automation engineer|\\bn8n\\b",
+   "wef": "wef_skill_techlit",
+   "ai": {
+    "agents": 0.05,
+    "llm": 0.03,
+    "docai": 0.02
+   },
+   "sdgs": [
+    {
+     "target": "8.2",
+     "why": "Automation raises productivity through technological upgrading."
+    },
+    {
+     "target": "8.5",
+     "why": "Moves people from repetitive tasks to higher-value, decent work."
+    }
+   ],
+   "practice": "Automate an invoice-matching or report-routing flow on synthetic data.",
+   "short": "Process automation"
+  },
+  {
+   "id": "iot_embedded",
+   "category": "digital",
+   "name": {
+    "en": "IoT & embedded systems",
+    "ms": "IoT & sistem terbenam",
+    "zh": "物联网与嵌入式系统"
+   },
+   "hours": 100,
+   "prereqs": [],
+   "related": {
+    "electrical": 0.4,
+    "python": 0.15
+   },
+   "aliases": [
+    "\\biot\\b",
+    "internet of things",
+    "arduino",
+    "raspberry pi",
+    "embedded",
+    "microcontroller",
+    "\\bsensors?\\b",
+    "\\bplc\\b"
+   ],
+   "hn": "\\biot\\b|embedded|firmware|microcontroller|\\brtos\\b|\\bfpga\\b|\\bpcb\\b",
+   "wef": null,
+   "ai": {
+    "robotics": 0.01,
+    "energy": 0.02
+   },
+   "sdgs": [
+    {
+     "target": "9.4",
+     "why": "Sensors and connected devices make industry more resource-efficient."
+    }
+   ],
+   "practice": "Build a sensor prototype that logs energy or soil data to the cloud.",
+   "short": "IoT & embedded"
+  },
+  {
+   "id": "digital_marketing",
+   "category": "digital",
+   "name": {
+    "en": "Digital marketing & growth analytics",
+    "ms": "Pemasaran digital & analitik",
+    "zh": "数字营销与增长分析"
+   },
+   "hours": 50,
+   "prereqs": [],
+   "related": {
+    "graphic_design": 0.3,
+    "communication": 0.2,
+    "data_analysis": 0.15
+   },
+   "aliases": [
+    "digital marketing",
+    "\\bseo\\b",
+    "social media marketing",
+    "google ads",
+    "facebook ads",
+    "content marketing",
+    "pemasaran digital",
+    "数字营销",
+    "google analytics"
+   ],
+   "hn": "growth market|digital marketing|\\bseo\\b|\\bsem\\b|performance marketing|marketing analytics|content marketing|social media",
+   "wef": null,
+   "ai": {
+    "llm": -0.02,
+    "genmedia": -0.02
+   },
+   "sdgs": [
+    {
+     "target": "8.3",
+     "why": "Helps micro and small enterprises grow online."
+    }
+   ],
+   "practice": "Plan and measure a small campaign for a local SME using free analytics tools.",
+   "short": "Digital marketing"
+  },
+  {
+   "id": "solar_pv",
+   "category": "green",
+   "name": {
+    "en": "Solar PV systems",
+    "ms": "Sistem solar PV",
+    "zh": "太阳能光伏系统"
+   },
+   "hours": 80,
+   "prereqs": [
+    "electrical"
+   ],
+   "related": {
+    "electrical": 0.35,
+    "energy_efficiency": 0.25
+   },
+   "aliases": [
+    "\\bsolar\\b",
+    "photovoltaic",
+    "pv system",
+    "\\bgcpv\\b",
+    "太阳能"
+   ],
+   "hn": null,
+   "wef": "wef_skill_env",
+   "ai": {
+    "energy": 0.02
+   },
+   "sdgs": [
+    {
+     "target": "7.2",
+     "why": "Directly increases the share of renewable energy."
+    },
+    {
+     "target": "13.2",
+     "why": "Cuts power-sector emissions."
+    }
+   ],
+   "practice": "Size a rooftop PV system for a sample house using public solar-irradiance data.",
+   "short": "Solar PV"
+  },
+  {
+   "id": "energy_efficiency",
+   "category": "green",
+   "name": {
+    "en": "Energy management & efficiency auditing",
+    "ms": "Pengurusan & audit kecekapan tenaga",
+    "zh": "能源管理与能效审计"
+   },
+   "hours": 60,
+   "prereqs": [],
+   "related": {
+    "electrical": 0.3,
+    "data_analysis": 0.2
+   },
+   "aliases": [
+    "energy audit",
+    "energy efficiency",
+    "energy management",
+    "\\bhvac\\b",
+    "kecekapan tenaga",
+    "能效"
+   ],
+   "hn": null,
+   "wef": "wef_skill_env",
+   "ai": {
+    "energy": 0.03
+   },
+   "sdgs": [
+    {
+     "target": "7.3",
+     "why": "Directly improves energy efficiency."
+    },
+    {
+     "target": "13.2",
+     "why": "Lower energy use means lower emissions."
+    }
+   ],
+   "practice": "Do a walk-through energy audit of a home or office and estimate the savings.",
+   "short": "Energy efficiency"
+  },
+  {
+   "id": "esg_reporting",
+   "category": "green",
+   "name": {
+    "en": "ESG & sustainability reporting",
+    "ms": "Pelaporan ESG & kelestarian",
+    "zh": "ESG 与可持续发展报告"
+   },
+   "hours": 40,
+   "prereqs": [],
+   "related": {
+    "bookkeeping": 0.3,
+    "data_analysis": 0.25,
+    "finance_domain": 0.25
+   },
+   "aliases": [
+    "\\besg\\b",
+    "sustainability report",
+    "sustainability reporting",
+    "\\bgri\\b",
+    "laporan kelestarian",
+    "可持续发展报告"
+   ],
+   "hn": null,
+   "wef": "wef_skill_env",
+   "ai": {
+    "llm": -0.01,
+    "docai": -0.01
+   },
+   "sdgs": [
+    {
+     "target": "12.6",
+     "why": "Companies integrate sustainability information into their reporting."
+    },
+    {
+     "target": "13.2",
+     "why": "Disclosure drives climate measures in business planning."
+    }
+   ],
+   "practice": "Draft a mini sustainability disclosure for a fictional SME.",
+   "short": "ESG reporting"
+  },
+  {
+   "id": "carbon_accounting",
+   "category": "green",
+   "name": {
+    "en": "Carbon (GHG) accounting",
+    "ms": "Perakaunan karbon (GHG)",
+    "zh": "碳 (温室气体) 核算"
+   },
+   "hours": 40,
+   "prereqs": [
+    "excel"
+   ],
+   "related": {
+    "bookkeeping": 0.25,
+    "esg_reporting": 0.3,
+    "data_analysis": 0.2
+   },
+   "aliases": [
+    "carbon accounting",
+    "\\bghg\\b",
+    "greenhouse gas",
+    "carbon footprint",
+    "scope [123]",
+    "emissions inventory",
+    "碳核算"
+   ],
+   "hn": null,
+   "wef": "wef_skill_env",
+   "ai": {
+    "energy": 0.01,
+    "llm": -0.01
+   },
+   "sdgs": [
+    {
+     "target": "13.2",
+     "why": "Measuring emissions is the first step of any climate plan."
+    },
+    {
+     "target": "12.6",
+     "why": "Feeds credible sustainability reporting."
+    }
+   ],
+   "practice": "Build a Scope 1–2 emissions inventory for a fictional office.",
+   "short": "Carbon accounting"
+  },
+  {
+   "id": "ev_tech",
+   "category": "green",
+   "name": {
+    "en": "EV & battery technology",
+    "ms": "Teknologi EV & bateri",
+    "zh": "电动汽车与电池技术"
+   },
+   "hours": 80,
+   "prereqs": [
+    "electrical"
+   ],
+   "related": {
+    "electrical": 0.35,
+    "iot_embedded": 0.15
+   },
+   "aliases": [
+    "electric vehicle",
+    "ev charging",
+    "battery",
+    "\\bbms\\b",
+    "kenderaan elektrik",
+    "电动汽车"
+   ],
+   "hn": null,
+   "wef": "wef_skill_env",
+   "ai": {
+    "robotics": 0.01,
+    "energy": 0.02
+   },
+   "sdgs": [
+    {
+     "target": "11.6",
+     "why": "Electric mobility improves urban air quality."
+    },
+    {
+     "target": "13.2",
+     "why": "Cuts transport emissions."
+    }
+   ],
+   "practice": "Map charging options and battery-safety checks for a fictional delivery fleet.",
+   "short": "EV & batteries"
+  },
+  {
+   "id": "precision_agri",
+   "category": "green",
+   "name": {
+    "en": "Smart & precision agriculture",
+    "ms": "Pertanian pintar & persis",
+    "zh": "智慧与精准农业"
+   },
+   "hours": 60,
+   "prereqs": [],
+   "related": {
+    "gis": 0.3,
+    "iot_embedded": 0.2
+   },
+   "aliases": [
+    "precision agriculture",
+    "smart farming",
+    "agritech",
+    "fertigation",
+    "pertanian pintar",
+    "drone spraying",
+    "智慧农业",
+    "agriculture",
+    "pertanian"
+   ],
+   "hn": null,
+   "wef": "wef_skill_env",
+   "ai": {
+    "agri": 0.04,
+    "vision": 0.02,
+    "robotics": 0.01
+   },
+   "sdgs": [
+    {
+     "target": "2.4",
+     "why": "Sustainable, resilient food production."
+    },
+    {
+     "target": "6.4",
+     "why": "Precision irrigation increases water-use efficiency."
+    }
+   ],
+   "practice": "Analyse open satellite or weather data for a sample farm plot.",
+   "short": "Precision agri"
+  },
+  {
+   "id": "gis",
+   "category": "green",
+   "name": {
+    "en": "GIS & geospatial analysis",
+    "ms": "GIS & analisis geospatial",
+    "zh": "GIS 与地理空间分析"
+   },
+   "hours": 50,
+   "prereqs": [],
+   "related": {
+    "data_analysis": 0.25,
+    "precision_agri": 0.2
+   },
+   "aliases": [
+    "\\bgis\\b",
+    "arcgis",
+    "qgis",
+    "geospatial",
+    "remote sensing"
+   ],
+   "hn": null,
+   "wef": null,
+   "ai": {
+    "vision": 0.02,
+    "agri": 0.01,
+    "energy": 0.01
+   },
+   "sdgs": [
+    {
+     "target": "11.6",
+     "why": "Maps support cleaner, better-planned cities."
+    },
+    {
+     "target": "2.4",
+     "why": "Geospatial data guides sustainable land use."
+    }
+   ],
+   "practice": "Map public facilities in your district with QGIS and open data.",
+   "short": "GIS"
+  },
+  {
+   "id": "circular_economy",
+   "category": "green",
+   "name": {
+    "en": "Circular economy & waste management",
+    "ms": "Ekonomi kitaran & pengurusan sisa",
+    "zh": "循环经济与废物管理"
+   },
+   "hours": 30,
+   "prereqs": [],
+   "related": {
+    "esg_reporting": 0.2
+   },
+   "aliases": [
+    "recycling",
+    "waste management",
+    "circular economy",
+    "kitar semula",
+    "pengurusan sisa",
+    "回收"
+   ],
+   "hn": null,
+   "wef": "wef_skill_env",
+   "ai": {},
+   "sdgs": [
+    {
+     "target": "12.5",
+     "why": "Directly reduces waste through reduction, reuse and recycling."
+    }
+   ],
+   "practice": "Design a waste-reduction plan for a fictional café.",
+   "short": "Circular economy"
+  },
+  {
+   "id": "electrical",
+   "category": "green",
+   "name": {
+    "en": "Electrical & electronics fundamentals",
+    "ms": "Asas elektrik & elektronik",
+    "zh": "电气与电子基础"
+   },
+   "hours": 150,
+   "prereqs": [],
+   "related": {
+    "iot_embedded": 0.3
+   },
+   "aliases": [
+    "electrical",
+    "electronics",
+    "circuit",
+    "wiring",
+    "elektrik",
+    "elektronik",
+    "电气",
+    "电子",
+    "power systems",
+    "chargeman",
+    "wireman"
+   ],
+   "hn": "electrical engineer|electronics|power systems|hardware engineer|power electronics",
+   "wef": null,
+   "ai": {
+    "energy": 0.01,
+    "robotics": 0.01
+   },
+   "sdgs": [
+    {
+     "target": "7.2",
+     "why": "Electrical skills are the backbone of renewable-energy installation."
+    },
+    {
+     "target": "9.1",
+     "why": "Builds and maintains reliable infrastructure."
+    }
+   ],
+   "practice": "Assemble and test basic circuits and log your measurements.",
+   "short": "Electrical"
+  },
+  {
+   "id": "communication",
+   "category": "human",
+   "name": {
+    "en": "Communication & stakeholder management",
+    "ms": "Komunikasi & pengurusan pihak berkepentingan",
+    "zh": "沟通与利益相关者管理"
+   },
+   "hours": 30,
+   "prereqs": [],
+   "related": {
+    "customer_service": 0.3,
+    "teaching_training": 0.3,
+    "leadership": 0.25
+   },
+   "aliases": [
+    "communication",
+    "presentation",
+    "stakeholder",
+    "public speaking",
+    "komunikasi",
+    "沟通",
+    "report writing",
+    "negotiation"
+   ],
+   "hn": null,
+   "wef": null,
+   "ai": {
+    "llm": 0.01
+   },
+   "sdgs": [
+    {
+     "target": "8.5",
+     "why": "Transferable human skills keep people employable as tasks change."
+    }
+   ],
+   "practice": "Present a five-minute data story to a non-technical audience.",
+   "short": "Communication"
+  },
+  {
+   "id": "customer_service",
+   "category": "human",
+   "name": {
+    "en": "Customer service & CX",
+    "ms": "Khidmat pelanggan & CX",
+    "zh": "客户服务与客户体验"
+   },
+   "hours": 20,
+   "prereqs": [],
+   "related": {
+    "communication": 0.3
+   },
+   "aliases": [
+    "customer service",
+    "customer support",
+    "call cent(re|er)",
+    "helpdesk",
+    "\\bcrm\\b",
+    "khidmat pelanggan",
+    "客户服务",
+    "complaint handling",
+    "zendesk"
+   ],
+   "hn": "customer (support|success|experience|service)|support engineer|technical support|help ?desk",
+   "wef": null,
+   "ai": {
+    "llm": -0.05,
+    "speech": -0.04,
+    "agents": -0.03
+   },
+   "sdgs": [
+    {
+     "target": "8.5",
+     "why": "Service jobs are a major source of decent employment."
+    }
+   ],
+   "practice": "Write an escalation playbook for cases an AI chatbot cannot solve.",
+   "short": "Customer service"
+  },
+  {
+   "id": "project_mgmt",
+   "category": "human",
+   "name": {
+    "en": "Project & agile delivery management",
+    "ms": "Pengurusan projek & agile",
+    "zh": "项目与敏捷交付管理"
+   },
+   "hours": 60,
+   "prereqs": [],
+   "related": {
+    "leadership": 0.3,
+    "communication": 0.2
+   },
+   "aliases": [
+    "project management",
+    "\\bscrum\\b",
+    "\\bagile\\b",
+    "kanban",
+    "\\bpmp\\b",
+    "project coordinator",
+    "pengurusan projek",
+    "项目管理",
+    "\\bjira\\b"
+   ],
+   "hn": "project manager|program manager|technical program|\\bscrum\\b|\\bagile\\b|delivery manager",
+   "wef": null,
+   "ai": {
+    "agents": -0.01,
+    "llm": 0.01
+   },
+   "sdgs": [
+    {
+     "target": "9.4",
+     "why": "Delivers the upgrade projects that make industry more efficient."
+    }
+   ],
+   "practice": "Run a small project with a Kanban board and a written retrospective.",
+   "short": "Project mgmt"
+  },
+  {
+   "id": "leadership",
+   "category": "human",
+   "name": {
+    "en": "Leadership & people development",
+    "ms": "Kepimpinan & pembangunan insan",
+    "zh": "领导力与人才培养"
+   },
+   "hours": 40,
+   "prereqs": [],
+   "related": {
+    "communication": 0.3,
+    "teaching_training": 0.2
+   },
+   "aliases": [
+    "team lead",
+    "supervisor",
+    "leadership",
+    "managed a team",
+    "mentoring",
+    "kepimpinan",
+    "领导",
+    "people management",
+    "coaching"
+   ],
+   "hn": "engineering manager|team lead|tech lead|head of|people manager",
+   "wef": "wef_skill_leadership",
+   "ai": {
+    "llm": 0.02
+   },
+   "sdgs": [
+    {
+     "target": "5.5",
+     "why": "Inclusive leadership widens equal opportunities to lead."
+    }
+   ],
+   "practice": "Mentor a colleague through a new tool and collect feedback.",
+   "short": "Leadership"
+  },
+  {
+   "id": "analytical_thinking",
+   "category": "human",
+   "name": {
+    "en": "Analytical & critical thinking",
+    "ms": "Pemikiran analitikal & kritis",
+    "zh": "分析与批判性思维"
+   },
+   "hours": 30,
+   "prereqs": [],
+   "related": {
+    "data_analysis": 0.3,
+    "statistics": 0.2
+   },
+   "aliases": [
+    "problem solving",
+    "analytical",
+    "critical thinking",
+    "root cause",
+    "penyelesaian masalah",
+    "分析能力"
+   ],
+   "hn": null,
+   "wef": "wef_skill_analytical",
+   "ai": {
+    "llm": 0.02
+   },
+   "sdgs": [
+    {
+     "target": "4.4",
+     "why": "A foundational skill for employment across sectors."
+    }
+   ],
+   "practice": "Do a root-cause analysis of a recurring problem at work.",
+   "short": "Analytical thinking"
+  },
+  {
+   "id": "creative_thinking",
+   "category": "human",
+   "name": {
+    "en": "Creative & design thinking",
+    "ms": "Pemikiran kreatif & reka bentuk",
+    "zh": "创造性与设计思维"
+   },
+   "hours": 30,
+   "prereqs": [],
+   "related": {
+    "graphic_design": 0.3,
+    "ux_design": 0.3
+   },
+   "aliases": [
+    "creative",
+    "creativity",
+    "design thinking",
+    "brainstorm",
+    "ideation",
+    "kreatif",
+    "创意"
+   ],
+   "hn": null,
+   "wef": "wef_skill_creative",
+   "ai": {
+    "genmedia": -0.01,
+    "llm": 0.02
+   },
+   "sdgs": [
+    {
+     "target": "9.5",
+     "why": "Creativity drives innovation."
+    }
+   ],
+   "practice": "Run a design-thinking workshop on a community problem.",
+   "short": "Creative thinking"
+  },
+  {
+   "id": "teaching_training",
+   "category": "human",
+   "name": {
+    "en": "Teaching, coaching & training design",
+    "ms": "Pengajaran, bimbingan & reka bentuk latihan",
+    "zh": "教学、辅导与培训设计"
+   },
+   "hours": 60,
+   "prereqs": [],
+   "related": {
+    "communication": 0.35,
+    "leadership": 0.2
+   },
+   "aliases": [
+    "teaching",
+    "training",
+    "trainer",
+    "lecturer",
+    "tutor",
+    "curriculum",
+    "instructional design",
+    "pengajar",
+    "latihan",
+    "培训",
+    "教学",
+    "facilitator"
+   ],
+   "hn": null,
+   "wef": null,
+   "ai": {
+    "llm": 0.01
+   },
+   "sdgs": [
+    {
+     "target": "4.4",
+     "why": "Trainers multiply relevant skills for decent jobs."
+    },
+    {
+     "target": "4.3",
+     "why": "Expands access to technical and vocational learning."
+    }
+   ],
+   "practice": "Design a 30-minute micro-lesson that teaches an AI tool to colleagues.",
+   "short": "Teaching & training"
+  },
+  {
+   "id": "bookkeeping",
+   "category": "human",
+   "name": {
+    "en": "Bookkeeping & accounting operations",
+    "ms": "Simpan kira & operasi perakaunan",
+    "zh": "簿记与会计操作"
+   },
+   "hours": 60,
+   "prereqs": [],
+   "related": {
+    "excel": 0.3,
+    "finance_domain": 0.3
+   },
+   "aliases": [
+    "bookkeeping",
+    "accounts payable",
+    "accounts receivable",
+    "invoicing",
+    "reconciliation",
+    "payroll",
+    "general ledger",
+    "simpan kira",
+    "perakaunan",
+    "会计",
+    "簿记",
+    "sql accounting",
+    "autocount",
+    "\\bubs\\b"
+   ],
+   "hn": null,
+   "wef": null,
+   "ai": {
+    "docai": -0.06,
+    "agents": -0.04,
+    "llm": -0.02
+   },
+   "sdgs": [
+    {
+     "target": "8.10",
+     "why": "Sound bookkeeping supports access to finance for small businesses."
+    }
+   ],
+   "practice": "Reconcile a synthetic ledger and flag anomalies.",
+   "short": "Bookkeeping"
+  },
+  {
+   "id": "data_entry",
+   "category": "human",
+   "name": {
+    "en": "Data entry & records processing",
+    "ms": "Kemasukan data & pemprosesan rekod",
+    "zh": "数据录入与记录处理"
+   },
+   "hours": 10,
+   "prereqs": [],
+   "related": {
+    "excel": 0.2
+   },
+   "aliases": [
+    "data entry",
+    "data input",
+    "kemasukan data",
+    "数据录入",
+    "key in",
+    "keying",
+    "typing"
+   ],
+   "hn": null,
+   "wef": null,
+   "ai": {
+    "docai": -0.1,
+    "llm": -0.05,
+    "agents": -0.04
+   },
+   "sdgs": [
+    {
+     "target": "8.5",
+     "why": "Many entry-level jobs today; reskilling keeps these workers in decent work."
+    }
+   ],
+   "practice": null,
+   "short": "Data entry"
+  },
+  {
+   "id": "graphic_design",
+   "category": "human",
+   "name": {
+    "en": "Graphic design & visual production",
+    "ms": "Reka bentuk grafik",
+    "zh": "平面设计与视觉制作"
+   },
+   "hours": 80,
+   "prereqs": [],
+   "related": {
+    "ux_design": 0.3,
+    "creative_thinking": 0.3
+   },
+   "aliases": [
+    "graphic design",
+    "photoshop",
+    "illustrator",
+    "indesign",
+    "canva",
+    "adobe",
+    "reka bentuk grafik",
+    "平面设计",
+    "branding"
+   ],
+   "hn": null,
+   "wef": null,
+   "ai": {
+    "genmedia": -0.07
+   },
+   "sdgs": [
+    {
+     "target": "8.3",
+     "why": "Creative services support small-business growth."
+    }
+   ],
+   "practice": "Create a visual identity with accessibility (contrast) checks.",
+   "short": "Graphic design"
+  },
+  {
+   "id": "healthcare_basics",
+   "category": "human",
+   "name": {
+    "en": "Healthcare domain knowledge",
+    "ms": "Pengetahuan domain kesihatan",
+    "zh": "医疗领域知识"
+   },
+   "hours": 60,
+   "prereqs": [],
+   "related": {
+    "communication": 0.15
+   },
+   "aliases": [
+    "healthcare",
+    "hospital",
+    "clinic",
+    "patient",
+    "nursing",
+    "medical",
+    "kesihatan",
+    "医疗",
+    "pharmacy",
+    "clinical"
+   ],
+   "hn": "healthcare|health ?tech|clinical|medical|hospital|patients?\\b|\\behr\\b|\\bemr\\b",
+   "wef": null,
+   "ai": {
+    "health": 0.03
+   },
+   "sdgs": [
+    {
+     "target": "3.8",
+     "why": "Supports access to quality health services."
+    }
+   ],
+   "practice": "Summarise a WHO open-course module into a staff briefing.",
+   "short": "Healthcare"
+  },
+  {
+   "id": "lifelong_learning",
+   "category": "human",
+   "name": {
+    "en": "Learning agility & lifelong learning",
+    "ms": "Ketangkasan & pembelajaran sepanjang hayat",
+    "zh": "学习敏捷与终身学习"
+   },
+   "hours": 15,
+   "prereqs": [],
+   "related": {},
+   "aliases": [
+    "self-taught",
+    "online courses",
+    "continuous learning",
+    "coursera",
+    "udemy"
+   ],
+   "hn": null,
+   "wef": "wef_skill_curiosity",
+   "ai": {
+    "llm": 0.02
+   },
+   "sdgs": [
+    {
+     "target": "4.4",
+     "why": "Lifelong learning keeps skills relevant for decent jobs."
+    }
+   ],
+   "practice": "Keep a weekly learning log for one month.",
+   "short": "Lifelong learning"
+  },
+  {
+   "id": "finance_domain",
+   "category": "human",
+   "name": {
+    "en": "Finance & financial analysis",
+    "ms": "Kewangan & analisis kewangan",
+    "zh": "金融与财务分析"
+   },
+   "hours": 60,
+   "prereqs": [],
+   "related": {
+    "bookkeeping": 0.35,
+    "excel": 0.2,
+    "data_analysis": 0.2
+   },
+   "aliases": [
+    "financial analysis",
+    "budgeting",
+    "forecasting",
+    "fp&a",
+    "financial reporting",
+    "banking",
+    "kewangan",
+    "金融",
+    "\\baudit\\b",
+    "investment"
+   ],
+   "hn": "fintech|financial (services|analyst|planning)|fp&a|banking|payments",
+   "wef": null,
+   "ai": {
+    "llm": -0.01,
+    "agents": -0.01
+   },
+   "sdgs": [
+    {
+     "target": "8.10",
+     "why": "Financial analysis strengthens financial institutions and access to finance."
+    }
+   ],
+   "practice": "Build a budget-vs-actual model for a fictional SME.",
+   "short": "Finance"
+  }
+ ]
+}

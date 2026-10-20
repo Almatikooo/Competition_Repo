@@ -1,0 +1,142 @@
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_1.html" target="_blank" rel="noopener noreferrer"><img alt="Previous" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/previous.jpg"></a>
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/index.html" target="_blank" rel="noopener noreferrer"><img alt="Contents" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/contents.jpg"></a>
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_3.html" target="_blank" rel="noopener noreferrer"><img alt="Next" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/next.jpg"></a>
+<hr>
+<ul>
+<li><a href="#xtocid87160" rel="noopener noreferrer"><u>How voltage, current, and resistance relate</u></a></li>
+<li><a href="#xtocid87161" rel="noopener noreferrer"><u>An analogy for Ohm's Law</u></a></li>
+<li><a href="#xtocid87162" rel="noopener noreferrer"><u>Power in electric circuits</u></a></li>
+<li><a href="#xtocid87163" rel="noopener noreferrer"><u>Calculating electric power</u></a></li>
+<li><a href="#xtocid87164" rel="noopener noreferrer"><u>Resistors</u></a></li>
+<li><a href="#xtocid87165" rel="noopener noreferrer"><u>Nonlinear conduction</u></a></li>
+<li><a href="#xtocid87166" rel="noopener noreferrer"><u>Circuit wiring</u></a></li>
+<li><a href="#xtocid87167" rel="noopener noreferrer"><u>Polarity of voltage drops</u></a></li>
+<li><a href="#xtocid87168" rel="noopener noreferrer"><u>Computer simulation of electric circuits</u></a></li>
+<li><a href="#xtocid87169" rel="noopener noreferrer"><u>Contributors</u></a></li></ul>
+<blockquote>
+<p>
+<i>"One microampere flowing in one ohm causes a one microvolt potential drop."</i>
+</p>
+<p>
+<b>Georg Simon Ohm</b>
+</p>
+</blockquote>
+<h2 id="how-voltage-current-and-resistance-relate">How voltage, current, and resistance relate</h2>
+<p>
+An electric circuit is formed when a conductive path is created to allow free electrons to continuously move.  This continuous movement of free electrons through the conductors of a circuit is called a <i>current</i>, and it is often referred to in terms of "flow," just like the flow of a liquid through a hollow pipe. 
+</p>
+<p>
+The force motivating electrons to "flow" in a circuit is called <i>voltage</i>.  Voltage is a specific measure of potential energy that is always relative between two points.  When we speak of a certain amount of voltage being present in a circuit, we are referring to the measurement of how much <i>potential</i> energy exists to move electrons from one particular point in that circuit to another particular point.  Without reference to <i>two</i> particular points, the term "voltage" has no meaning.
+</p>
+<p>
+Free electrons tend to move through conductors with some degree of friction, or opposition to motion.  This opposition to motion is more properly called <i>resistance</i>.  The amount of current in a circuit depends on the amount of voltage available to motivate the electrons, and also the amount of resistance in the circuit to oppose electron flow.  Just like voltage, resistance is a quantity relative between two points.  For this reason, the quantities of voltage and resistance are often stated as being "between" or "across" two points in a circuit.
+</p>
+<p>
+To be able to make meaningful statements about these quantities in circuits, we need to be able to describe their quantities in the same way that we might quantify mass, temperature, volume, length, or any other kind of physical quantity.  For mass we might use the units of "kilogram" or "gram."  For temperature we might use degrees Fahrenheit or degrees Celsius.  Here are the standard units of measurement for electrical current, voltage, and resistance:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10001.png"> </p>
+<p>
+The "symbol" given for each quantity is the standard alphabetical letter used to represent that quantity in an algebraic equation.  Standardized letters like these are common in the disciplines of physics and engineering, and are internationally recognized.  The "unit abbreviation" for each quantity represents the alphabetical symbol used as a shorthand notation for its particular unit of measurement.  And, yes, that strange-looking "horseshoe" symbol is the capital Greek letter Ω, just a character in a <i>foreign</i> alphabet (apologies to any Greek readers here).
+</p>
+<p>
+Each unit of measurement is named after a famous experimenter in electricity: The <i>amp</i> after the Frenchman Andre M. Ampere, the <i>volt</i> after the Italian Alessandro Volta, and the <i>ohm</i> after the German Georg Simon Ohm.
+</p>
+<p>
+The mathematical symbol for each quantity is meaningful as well.  The "R" for resistance and the "V" for voltage are both self-explanatory, whereas "I" for current seems a bit weird.  The "I" is thought to have been meant to represent "Intensity" (of electron flow), and the other symbol for voltage, "E," stands for "Electromotive force."  From what research I've been able to do, there seems to be some dispute over the meaning of "I."  The symbols "E" and "V" are  interchangeable for the most part, although some texts reserve "E" to represent voltage across a source (such as a battery or generator) and "V" to represent voltage across anything else. 
+</p>
+<p>
+All of these symbols are expressed using capital letters, except in cases where a quantity (especially voltage or current) is described in terms of a brief period of time (called an "instantaneous" value).  For example, the voltage of a battery, which is stable over a long period of time, will be symbolized with a capital letter "E," while the voltage peak of a lightning strike at the very instant it hits a power line would most likely be symbolized with a lower-case letter "e" (or lower-case "v") to designate that value as being at a single moment in time.  This same lower-case convention holds true for current as well, the lower-case letter "i" representing current at some instant in time.  Most direct-current (DC) measurements, however, being stable over time, will be symbolized with capital letters.
+</p>
+<p>
+One foundational unit of electrical measurement, often taught in the beginnings of electronics courses but used infrequently afterwards, is the unit of the <i>coulomb</i>, which is a measure of electric charge proportional to the number of electrons in an imbalanced state.  One coulomb of charge is equal to 6,250,000,000,000,000,000 electrons.  The symbol for electric charge quantity is the capital letter "Q," with the unit of coulombs abbreviated by the capital letter "C."  It so happens that the unit for electron flow, the amp, is equal to 1 coulomb of electrons passing by a given point in a circuit in 1 second of time.  Cast in these terms, current is the <i>rate of electric charge motion</i> through a conductor.
+</p>
+<p>
+As stated before, voltage is the measure of <i>potential energy per unit charge</i> available to motivate electrons from one point to another.  Before we can precisely define what a "volt" is, we must understand how to measure this quantity we call "potential energy."  The general metric unit for energy of any kind is the <i>joule</i>, equal to the amount of work performed by a force of 1 newton exerted through a motion of 1 meter (in the same direction).  In British units, this is slightly less than 3/4 pound of force exerted over a distance of 1 foot.  Put in common terms, it takes about 1 joule of energy to lift a 3/4 pound weight 1 foot off the ground, or to drag something a distance of 1 foot using a parallel pulling force of 3/4 pound.  Defined in these scientific terms, 1 volt is equal to 1 joule of electric potential energy per (divided by) 1 coulomb of charge.  Thus, a 9 volt battery releases 9 joules of energy for every coulomb of electrons moved through a circuit.
+</p>
+<p>
+These units and symbols for electrical quantities will become very important to know as we begin to explore the relationships between them in circuits.  The first, and perhaps most important, relationship between current, voltage, and resistance is called Ohm's Law, discovered by Georg Simon Ohm and published in his 1827 paper, <i>The Galvanic Circuit Investigated Mathematically</i>.  Ohm's principal discovery was that the amount of electric current through a metal conductor in a circuit is directly proportional to the voltage impressed across it, for any given temperature.  Ohm expressed his discovery in the form of a simple equation, describing how voltage, current, and resistance interrelate:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10002.png"> </p>
+<p>
+In this algebraic expression, voltage (E) is equal to current (I) multiplied by resistance (R).  Using algebra techniques, we can manipulate this equation into two variations, solving for I and for R, respectively:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10003.png"> </p>
+<p>
+Let's see how these equations might work to help us analyze simple circuits:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00032.png"> </p>
+<p>
+In the above circuit, there is only one source of voltage (the battery, on the left) and only one source of resistance to current (the lamp, on the right).  This makes it very easy to apply Ohm's Law.  If we know the values of any two of the three quantities (voltage, current, and resistance) in this circuit, we can use Ohm's Law to determine the third.
+</p>
+<p>
+In this first example, we will calculate the amount of current (I) in a circuit, given values of voltage (E) and resistance (R):
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00033.png"> </p>
+<p>
+What is the amount of current (I) in this circuit?
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10004.png"> </p>
+<p>
+In this second example, we will calculate the amount of resistance (R) in a circuit, given values of voltage (E) and current (I):
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00034.png"> </p>
+<p>
+What is the amount of resistance (R) offered by the lamp?
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10005.png"> </p>
+<p>
+In the last example, we will calculate the amount of voltage supplied by a battery, given values of current (I) and resistance (R):
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00035.png"> </p>
+<p>
+What is the amount of voltage provided by the battery?
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10006.png"> </p>
+<p>
+Ohm's Law is a very simple and useful tool for analyzing electric circuits.  It is used so often in the study of electricity and electronics that it needs to be committed to memory by the serious student.  For those who are not yet comfortable with algebra, there's a trick to remembering how to solve for any one quantity, given the other two.  First, arrange the letters E, I, and R in a triangle like this:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00036.png"> </p>
+<p>
+If you know E and I, and wish to determine R, just eliminate R from the picture and see what's left:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00037.png"> </p>
+<p>
+If you know E and R, and wish to determine I, eliminate I and see what's left:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00038.png"> </p>
+<p>
+Lastly, if you know I and R, and wish to determine E, eliminate E and see what's left:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00039.png"> </p>
+<p>
+Eventually, you'll have to be familiar with algebra to seriously study electricity and electronics, but this tip can make your first calculations a little easier to remember.  If you are comfortable with algebra, all you need to do is commit E=IR to memory and derive the other two formulae from that when you need them! 
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Voltage measured in <i>volts</i>, symbolized by the letters "E" or "V".</li>
+<li>Current measured in <i>amps</i>, symbolized by the letter "I".</li>
+<li>Resistance measured in <i>ohms</i>, symbolized by the letter "R".</li>
+<li>Ohm's Law: E = IR ; I = E/R ; R = E/I</li>
+</ul>
+<h2 id="an-analogy-for-ohm-s-law">An analogy for Ohm's Law</h2>
+<p>
+Ohm's Law also makes intuitive sense if you apply it to the water-and-pipe analogy.  If we have a water pump that exerts pressure (voltage) to push water around a "circuit" (current) through a restriction (resistance), we can model how the three variables interrelate.  If the resistance to water flow stays the same and the pump pressure increases, the flow rate must also increase.
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10008.png"> </p>
+<p>
+If the pressure stays the same and the resistance increases (making it more difficult for the water to flow), then the flow rate must decrease:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10009.png"> </p>
+<p>
+If the flow rate were to stay the same while the resistance to flow decreased, the required pressure from the pump would necessarily decrease: 
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10010.png"> </p>
+<p>
+As odd as it may seem, the actual mathematical relationship between pressure, flow, and resistance is actually more complex for fluids like water than it is for electrons.  If you pursue further studies in physics, you will discover this for yourself.  Thankfully for the electronics student, the mathematics of Ohm's Law is very straightforward and simple.  
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>With resistance steady, current follows voltage (an increase in voltage means an increase in current, and vice versa).</li>
+<li>With voltage steady, changes in current and resistance are opposite (an increase in current means a decrease in resistance, and vice versa).</li>
+<li>With current steady, voltage follows resistance (an increase in resistance means an increase in voltage).</li>
+</ul>

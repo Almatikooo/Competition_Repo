@@ -1,0 +1,425 @@
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th><img alt=" Sketchnote by (@sketchthedocs) " loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/sketchnotes/08-DataPreparation.png"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Preparation - <em>Sketchnote by <a href="https://twitter.com/nitya" target="_blank" rel="noopener noreferrer">@nitya</a></em></td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Depending on its source, raw data may contain some inconsistencies that will cause challenges in analysis and modeling. In other words, this data can be categorized as “dirty” and will need to be cleaned up. This lesson focuses on techniques for cleaning and transforming the data to handle challenges of missing, inaccurate, or incomplete data. Topics covered in this lesson will utilize Python and the Pandas library and will be <a href="https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/08-data-preparation/notebook.ipynb" target="_blank" rel="noopener noreferrer">demonstrated in the notebook</a> within this directory.</p>
+<h2 id="the-importance-of-cleaning-data">The importance of cleaning data</h2>
+<ul>
+<li>
+<p><strong>Ease of use and reuse</strong>: When data is properly organized and normalized it’s easier to search, use, and share with others.</p>
+</li>
+<li>
+<p><strong>Consistency</strong>: Data science often requires working with more than one dataset, where datasets from different sources need to be joined together. Making sure that each individual data set has common standardization will ensure that the data is still useful when they are all merged into one dataset.</p>
+</li>
+<li>
+<p><strong>Model accuracy</strong>: Data that has been cleaned improves the accuracy of models that rely on it.</p>
+</li>
+</ul>
+<h2 id="common-cleaning-goals-and-strategies">Common cleaning goals and strategies</h2>
+<ul>
+<li>
+<p><strong>Exploring a dataset</strong>: Data exploration, which is covered in a <a href="https://github.com/microsoft/Data-Science-For-Beginners/tree/main/4-Data-Science-Lifecycle/15-analyzing" target="_blank" rel="noopener noreferrer">later lesson</a> can help you discover data that needs to be cleaned up. Visually observing values within a dataset can set expectations of what that rest of it will look like, or provide an idea of the problems that can be resolved. Exploration can involve basic querying, visualizations, and sampling.</p>
+</li>
+<li>
+<p><strong>Formatting</strong>: Depending on the source, data can have inconsistencies in how it’s presented. This can cause problems in searching for and representing the value, where it’s seen within the dataset but is not properly represented in visualizations or query results. Common formatting problems involve resolving whitespace, dates, and data types. Resolving formatting issues is typically up to the people who are using the data. For example, standards on how dates and numbers are presented can differ by country.</p>
+</li>
+<li>
+<p><strong>Duplications</strong>: Data that has more than one occurrence can produce inaccurate results and usually should be removed. This can be a common occurrence when joining two or more datasets together. However, there are instances where duplication in joined datasets contain pieces that can provide additional information and may need to be preserved.</p>
+</li>
+<li>
+<p><strong>Missing Data</strong>: Missing data can cause inaccuracies as well as weak or biased results. Sometimes these can be resolved by a "reload" of the data, filling in the missing values with computation and code like Python, or simply just removing the value and corresponding data. There are numerous reasons for why data may be missing and the actions that are taken to resolve these missing values can be dependent on how and why they went missing in the first place.</p>
+</li>
+</ul>
+<h2 id="exploring-dataframe-information">Exploring DataFrame information</h2>
+<blockquote>
+<p><strong>Learning goal:</strong> By the end of this subsection, you should be comfortable finding general information about the data stored in pandas DataFrames.</p>
+</blockquote>
+<p>Once you have loaded your data into pandas, it will more likely than not be in a DataFrame(refer to the previous <a href="https://github.com/microsoft/Data-Science-For-Beginners/tree/main/2-Working-With-Data/07-python#dataframe" target="_blank" rel="noopener noreferrer">lesson</a> for detailed overview). However, if the data set in your DataFrame has 60,000 rows and 400 columns, how do you even begin to get a sense of what you're working with? Fortunately, <a href="https://pandas.pydata.org/" target="_blank" rel="noopener noreferrer">pandas</a> provides some convenient tools to quickly look at overall information about a DataFrame in addition to the first few and last few rows.</p>
+<p>In order to explore this functionality, we will import the Python scikit-learn library and use an iconic dataset: the <strong>Iris data set</strong>.</p>
+<pre><code class="language-python">import pandas as pd
+from sklearn.datasets import load_iris
+
+iris = load_iris()
+iris_df = pd.DataFrame(data=iris['data'], columns=iris['feature_names'])
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>sepal length (cm)</th>
+<th>sepal width (cm)</th>
+<th>petal length (cm)</th>
+<th>petal width (cm)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>5.1</td>
+<td>3.5</td>
+<td>1.4</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>1</td>
+<td>4.9</td>
+<td>3.0</td>
+<td>1.4</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>4.7</td>
+<td>3.2</td>
+<td>1.3</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4.6</td>
+<td>3.1</td>
+<td>1.5</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>5.0</td>
+<td>3.6</td>
+<td>1.4</td>
+<td>0.2</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>DataFrame.info</strong>: To start off, the <code>info()</code> method is used to print a summary of the content present in a <code>DataFrame</code>. Let's take a look at this dataset to see what we have:</li>
+</ul>
+<pre><code class="language-python">iris_df.info()
+</code></pre>
+<pre><code>RangeIndex: 150 entries, 0 to 149
+Data columns (total 4 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   sepal length (cm)  150 non-null    float64
+ 1   sepal width (cm)   150 non-null    float64
+ 2   petal length (cm)  150 non-null    float64
+ 3   petal width (cm)   150 non-null    float64
+dtypes: float64(4)
+memory usage: 4.8 KB
+</code></pre>
+<p>From this, we know that the <em>Iris</em> dataset has 150 entries in four columns with no null entries. All of the data is stored as 64-bit floating-point numbers.</p>
+<ul>
+<li><strong>DataFrame.head()</strong>: Next, to check the actual content of the <code>DataFrame</code>, we use the <code>head()</code> method. Let's see what the first few rows of our <code>iris_df</code> look like:</li>
+</ul>
+<pre><code class="language-python">iris_df.head()
+</code></pre>
+<pre><code>   sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)
+0                5.1               3.5                1.4               0.2
+1                4.9               3.0                1.4               0.2
+2                4.7               3.2                1.3               0.2
+3                4.6               3.1                1.5               0.2
+4                5.0               3.6                1.4               0.2
+</code></pre>
+<ul>
+<li><strong>DataFrame.tail()</strong>: Conversely, to check the last few rows of the <code>DataFrame</code>, we use the <code>tail()</code> method:</li>
+</ul>
+<pre><code class="language-python">iris_df.tail()
+</code></pre>
+<pre><code>     sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)
+145                6.7               3.0                5.2               2.3
+146                6.3               2.5                5.0               1.9
+147                6.5               3.0                5.2               2.0
+148                6.2               3.4                5.4               2.3
+149                5.9               3.0                5.1               1.8
+</code></pre>
+<blockquote>
+<p><strong>Takeaway:</strong> Even just by looking at the metadata about the information in a DataFrame or the first and last few values in one, you can get an immediate idea about the size, shape, and content of the data you are dealing with.</p>
+</blockquote>
+<h2 id="dealing-with-missing-data">Dealing with Missing Data</h2>
+<blockquote>
+<p><strong>Learning goal:</strong> By the end of this subsection, you should know how to replace or remove null values from DataFrames.</p>
+</blockquote>
+<p>Most of the time the datasets you want to use (of have to use) have missing values in them. How missing data is handled carries with it subtle tradeoffs that can affect your final analysis and real-world outcomes.</p>
+<p>Pandas handles missing values in two ways. The first you've seen before in previous sections: <code>NaN</code>, or Not a Number. This is a actually a special value that is part of the IEEE floating-point specification and it is only used to indicate missing floating-point values.</p>
+<p>For missing values apart from floats, pandas uses the Python <code>None</code> object. While it might seem confusing that you will encounter two different kinds of values that say essentially the same thing, there are sound programmatic reasons for this design choice and, in practice, going this route enables pandas to deliver a good compromise for the vast majority of cases. Notwithstanding this, both <code>None</code> and <code>NaN</code> carry restrictions that you need to be mindful of with regards to how they can be used.</p>
+<p>Check out more about <code>NaN</code> and <code>None</code> from the <a href="https://github.com/microsoft/Data-Science-For-Beginners/blob/main/4-Data-Science-Lifecycle/15-analyzing/notebook.ipynb" target="_blank" rel="noopener noreferrer">notebook</a>!</p>
+<ul>
+<li><strong>Detecting null values</strong>: In <code>pandas</code>, the <code>isnull()</code> and <code>notnull()</code> methods are your primary methods for detecting null data. Both return Boolean masks over your data. We will be using <code>numpy</code> for <code>NaN</code> values:</li>
+</ul>
+<pre><code class="language-python">import numpy as np
+
+example1 = pd.Series([0, np.nan, '', None])
+example1.isnull()
+</code></pre>
+<pre><code>0    False
+1     True
+2    False
+3     True
+dtype: bool
+</code></pre>
+<p>Look closely at the output. Does any of it surprise you? While <code>0</code> is an arithmetic null, it's nevertheless a perfectly good integer and pandas treats it as such. <code>''</code> is a little more subtle. While we used it in Section 1 to represent an empty string value, it is nevertheless a string object and not a representation of null as far as pandas is concerned.</p>
+<p>Now, let's turn this around and use these methods in a manner more like you will use them in practice. You can use Boolean masks  directly as a <code>Series</code> or <code>DataFrame</code> index, which can be useful when trying to work with isolated missing (or present) values.</p>
+<blockquote>
+<p><strong>Takeaway</strong>: Both the <code>isnull()</code> and <code>notnull()</code> methods produce similar results when you use them in <code>DataFrame</code>s: they show the results and the index of those results, which will help you enormously as you wrestle with your data.</p>
+</blockquote>
+<ul>
+<li><strong>Dropping null values</strong>: Beyond identifying missing values, pandas provides a convenient means to remove null values from <code>Series</code> and <code>DataFrame</code>s. (Particularly on large data sets, it is often more advisable to simply remove missing [NA] values from your analysis than deal with them in other ways.) To see this in action, let's return to <code>example1</code>:</li>
+</ul>
+<pre><code class="language-python">example1 = example1.dropna()
+example1
+</code></pre>
+<pre><code>0    0
+2     
+dtype: object
+</code></pre>
+<p>Note that this should look like your output from <code>example3[example3.notnull()]</code>. The difference here is that, rather than just indexing on the masked values, <code>dropna</code> has removed those missing values from the <code>Series</code> <code>example1</code>.</p>
+<p>Because <code>DataFrame</code>s have two dimensions, they afford more options for dropping data.</p>
+<pre><code class="language-python">example2 = pd.DataFrame([[1,      np.nan, 7], 
+                         [2,      5,      8], 
+                         [np.nan, 6,      9]])
+example2
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1.0</td>
+<td>NaN</td>
+<td>7</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2.0</td>
+<td>5.0</td>
+<td>8</td>
+</tr>
+<tr>
+<td>2</td>
+<td>NaN</td>
+<td>6.0</td>
+<td>9</td>
+</tr>
+</tbody>
+</table></div>
+<p>(Did you notice that pandas upcast two of the columns to floats to accommodate the <code>NaN</code>s?)</p>
+<p>You cannot drop a single value from a <code>DataFrame</code>, so you have to drop full rows or columns. Depending on what you are doing, you might want to do one or the other, and so pandas gives you options for both. Because in data science, columns generally represent variables and rows represent observations, you are more likely to drop rows of data; the default setting for <code>dropna()</code> is to drop all rows that contain any null values:</p>
+<pre><code class="language-python">example2.dropna()
+</code></pre>
+<pre><code>	0	1	2
+1	2.0	5.0	8
+</code></pre>
+<p>If necessary, you can drop NA values from columns. Use <code>axis=1</code> to do so:</p>
+<pre><code class="language-python">example2.dropna(axis='columns')
+</code></pre>
+<pre><code>	2
+0	7
+1	8
+2	9
+</code></pre>
+<p>Notice that this can drop a lot of data that you might want to keep, particularly in smaller datasets. What if you just want to drop rows or columns that contain several or even just all null values? You specify those setting in <code>dropna</code> with the <code>how</code> and <code>thresh</code> parameters.</p>
+<p>By default, <code>how='any'</code> (if you would like to check for yourself or see what other parameters the method has, run <code>example4.dropna?</code> in a code cell). You could alternatively specify <code>how='all'</code> so as to drop only rows or columns that contain all null values. Let's expand our example <code>DataFrame</code> to see this in action.</p>
+<pre><code class="language-python">example2[3] = np.nan
+example2
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1.0</td>
+<td>NaN</td>
+<td>7</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2.0</td>
+<td>5.0</td>
+<td>8</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td>2</td>
+<td>NaN</td>
+<td>6.0</td>
+<td>9</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table></div>
+<p>The <code>thresh</code> parameter gives you finer-grained control: you set the number of <em>non-null</em> values that a row or column needs to have in order to be kept:</p>
+<pre><code class="language-python">example2.dropna(axis='rows', thresh=3)
+</code></pre>
+<pre><code>	0	1	2	3
+1	2.0	5.0	8	NaN
+</code></pre>
+<p>Here, the first and last row have been dropped, because they contain only two non-null values.</p>
+<ul>
+<li><strong>Filling null values</strong>: Depending on your dataset, it can sometimes make more sense to fill null values with valid ones rather than drop them. You could use <code>isnull</code> to do this in place, but that can be laborious, particularly if you have a lot of values to fill. Because this is such a common task in data science, pandas provides <code>fillna</code>, which returns a copy of the <code>Series</code> or <code>DataFrame</code> with the missing values replaced with one of your choosing. Let's create another example <code>Series</code> to see how this works in practice.</li>
+</ul>
+<pre><code class="language-python">example3 = pd.Series([1, np.nan, 2, None, 3], index=list('abcde'))
+example3
+</code></pre>
+<pre><code>a    1.0
+b    NaN
+c    2.0
+d    NaN
+e    3.0
+dtype: float64
+</code></pre>
+<p>You can fill all of the null entries with a single value, such as <code>0</code>:</p>
+<pre><code class="language-python">example3.fillna(0)
+</code></pre>
+<pre><code>a    1.0
+b    0.0
+c    2.0
+d    0.0
+e    3.0
+dtype: float64
+</code></pre>
+<p>You can <strong>forward-fill</strong> null values, which is to use the last valid value to fill a null:</p>
+<pre><code class="language-python">example3.fillna(method='ffill')
+</code></pre>
+<pre><code>a    1.0
+b    1.0
+c    2.0
+d    2.0
+e    3.0
+dtype: float64
+</code></pre>
+<p>You can also <strong>back-fill</strong> to propagate the next valid value backward to fill a null:</p>
+<pre><code class="language-python">example3.fillna(method='bfill')
+</code></pre>
+<pre><code>a    1.0
+b    2.0
+c    2.0
+d    3.0
+e    3.0
+dtype: float64
+</code></pre>
+<p>As you might guess, this works the same with <code>DataFrame</code>s, but you can also specify an <code>axis</code> along which to fill null values. taking the previously used <code>example2</code> again:</p>
+<pre><code class="language-python">example2.fillna(method='ffill', axis=1)
+</code></pre>
+<pre><code>	0	1	2	3
+0	1.0	1.0	7.0	7.0
+1	2.0	5.0	8.0	8.0
+2	NaN	6.0	9.0	9.0
+</code></pre>
+<p>Notice that when a previous value is not available for forward-filling, the null value remains.</p>
+<blockquote>
+<p><strong>Takeaway:</strong> There are multiple ways to deal with missing values in your datasets. The specific strategy you use (removing them, replacing them, or even how you replace them) should be dictated by the particulars of that data. You will develop a better sense of how to deal with missing values the more you handle and interact with datasets.</p>
+</blockquote>
+<h2 id="removing-duplicate-data">Removing duplicate data</h2>
+<blockquote>
+<p><strong>Learning goal:</strong> By the end of this subsection, you should be comfortable identifying and removing duplicate values from DataFrames.</p>
+</blockquote>
+<p>In addition to missing data, you will often encounter duplicated data in real-world datasets. Fortunately, <code>pandas</code> provides an easy means of detecting and removing duplicate entries.</p>
+<ul>
+<li><strong>Identifying duplicates: <code>duplicated</code></strong>: You can easily spot duplicate values using the <code>duplicated</code> method in pandas, which returns a Boolean mask indicating whether an entry in a <code>DataFrame</code> is a duplicate of an earlier one. Let's create another example <code>DataFrame</code> to see this in action.</li>
+</ul>
+<pre><code class="language-python">example4 = pd.DataFrame({'letters': ['A','B'] * 2 + ['B'],
+                         'numbers': [1, 2, 1, 3, 3]})
+example4
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>letters</th>
+<th>numbers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>A</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>B</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>A</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>B</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>B</td>
+<td>3</td>
+</tr>
+</tbody>
+</table></div>
+<pre><code class="language-python">example4.duplicated()
+</code></pre>
+<pre><code>0    False
+1    False
+2     True
+3    False
+4     True
+dtype: bool
+</code></pre>
+<ul>
+<li><strong>Dropping duplicates: <code>drop_duplicates</code>:</strong> simply returns a copy of the data for which all of the <code>duplicated</code> values are <code>False</code>:</li>
+</ul>
+<pre><code class="language-python">example4.drop_duplicates()
+</code></pre>
+<pre><code>	letters	numbers
+0	A	1
+1	B	2
+3	B	3
+</code></pre>
+<p>Both <code>duplicated</code> and <code>drop_duplicates</code> default to consider all columns but you can specify that they examine only a subset of columns in your <code>DataFrame</code>:</p>
+<pre><code class="language-python">example4.drop_duplicates(['letters'])
+</code></pre>
+<pre><code>letters	numbers
+0	A	1
+1	B	2
+</code></pre>
+<blockquote>
+<p><strong>Takeaway:</strong> Removing duplicate data is an essential part of almost every data-science project. Duplicate data can change the results of your analyses and give you inaccurate results!</p>
+</blockquote>
+<h2 id="challenge">🚀 Challenge</h2>
+<p>All of the discussed materials are provided as a <a href="https://github.com/microsoft/Data-Science-For-Beginners/blob/main/2-Working-With-Data/08-data-preparation/notebook.ipynb" target="_blank" rel="noopener noreferrer">Jupyter Notebook</a>. Additionally, there are exercises present after each section, give them a try!</p>
+
+<h2 id="review-self-study">Review &amp; Self Study</h2>
+<p>There are many ways to discover and approach preparing your data for analysis and modeling and cleaning the data is an important step that is a "hands on" experience. Try these challenges from Kaggle to explore techniques that this lesson didn't cover.</p>
+<ul>
+<li>
+<p><a href="https://www.kaggle.com/rtatman/data-cleaning-challenge-parsing-dates/" target="_blank" rel="noopener noreferrer">Data Cleaning Challenge: Parsing Dates</a></p>
+</li>
+<li>
+<p><a href="https://www.kaggle.com/rtatman/data-cleaning-challenge-scale-and-normalize-data" target="_blank" rel="noopener noreferrer">Data Cleaning Challenge: Scale and Normalize Data</a></p>
+</li>
+</ul>

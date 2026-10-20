@@ -1,0 +1,502 @@
+{
+ "title": "Process Automation & RPA",
+ "subtitle": "Plan, design, build and test business process automation — cloud flows, desktop RPA and process mining.",
+ "level": "Beginner",
+ "outcomes": [
+  "Decide which processes to automate and how",
+  "Design reliable automated processes",
+  "Choose between cloud flows, desktop RPA, attended and unattended bots",
+  "Test, deploy and improve automations"
+ ],
+ "skill": "process_automation",
+ "modules": [
+  {
+   "title": "Automation basics",
+   "lessons": [
+    "process_automation-01",
+    "process_automation-02",
+    "process_automation-03",
+    "process_automation-04"
+   ]
+  },
+  {
+   "title": "Planning an automation",
+   "lessons": [
+    "process_automation-05",
+    "process_automation-06",
+    "process_automation-07",
+    "process_automation-08",
+    "process_automation-09"
+   ]
+  },
+  {
+   "title": "Designing and delivering",
+   "lessons": [
+    "process_automation-10",
+    "process_automation-11",
+    "process_automation-12",
+    "process_automation-13",
+    "process_automation-14"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "process_automation-01",
+   "title": "Explore the Power Automate home page",
+   "words": 1405,
+   "minutes": 8,
+   "source": "ms-pa",
+   "url": "https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/getting-started.md",
+   "toc": [
+    {
+     "id": "1-left-navigation-pane",
+     "text": "1 – Left navigation pane",
+     "level": 2
+    },
+    {
+     "id": "pin-and-unpin",
+     "text": "Pin and unpin",
+     "level": 3
+    },
+    {
+     "id": "discover-all",
+     "text": "Discover all",
+     "level": 3
+    },
+    {
+     "id": "move-up-or-move-down",
+     "text": "Move up or move down",
+     "level": 3
+    },
+    {
+     "id": "power-platform",
+     "text": "Power Platform",
+     "level": 3
+    },
+    {
+     "id": "2-search",
+     "text": "2 – Search",
+     "level": 2
+    },
+    {
+     "id": "3-environment-information-and-settings",
+     "text": "3 – Environment information and settings",
+     "level": 2
+    },
+    {
+     "id": "choose-an-environment",
+     "text": "Choose an environment",
+     "level": 3
+    },
+    {
+     "id": "settings",
+     "text": "Settings",
+     "level": 3
+    },
+    {
+     "id": "help",
+     "text": "Help",
+     "level": 3
+    },
+    {
+     "id": "4-ai-copilot",
+     "text": "4 - AI Copilot",
+     "level": 2
+    },
+    {
+     "id": "5-learning-tools-and-more",
+     "text": "5 – Learning tools and more",
+     "level": 2
+    },
+    {
+     "id": "6-ask-a-chatbot",
+     "text": "6 - Ask a chatbot",
+     "level": 2
+    },
+    {
+     "id": "related-information",
+     "text": "Related information",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "process_automation-02",
+   "title": "What is Power Automate?",
+   "words": 366,
+   "minutes": 3,
+   "source": "ms-pa",
+   "url": "https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/flow-types.md",
+   "toc": [
+    {
+     "id": "types-of-flows",
+     "text": "Types of flows",
+     "level": 2
+    },
+    {
+     "id": "create-and-manage-flows-in-power-apps",
+     "text": "Create and manage flows in Power Apps",
+     "level": 2
+    },
+    {
+     "id": "next-step",
+     "text": "Next step",
+     "level": 2
+    },
+    {
+     "id": "related-information",
+     "text": "Related information",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "process_automation-03",
+   "title": "Introduction to desktop flows",
+   "words": 298,
+   "minutes": 3,
+   "source": "ms-pa",
+   "url": "https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/desktop-flows/introduction.md",
+   "toc": []
+  },
+  {
+   "id": "process_automation-04",
+   "title": "Overview of process mining in Power Automate",
+   "words": 524,
+   "minutes": 3,
+   "source": "ms-pa",
+   "url": "https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/process-mining-overview.md",
+   "toc": [
+    {
+     "id": "overview-of-process-mining",
+     "text": "Overview of process mining",
+     "level": 2
+    },
+    {
+     "id": "benefits-of-the-process-mining-capability",
+     "text": "Benefits of the process mining capability",
+     "level": 2
+    },
+    {
+     "id": "business-examples",
+     "text": "Business examples",
+     "level": 2
+    },
+    {
+     "id": "components",
+     "text": "Components",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "process_automation-05",
+   "title": "Planning a Power Automate project - Introduction | Microsoft Docs",
+   "words": 174,
+   "minutes": 3,
+   "source": "ms-pa",
+   "url": "https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/introduction.md",
+   "toc": [
+    {
+     "id": "introduction-planning-a-power-automate-project",
+     "text": "Introduction: Planning a Power Automate project",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "process_automation-06",
+   "title": "Planning phase for a Power Automate project| Microsoft Docs",
+   "words": 178,
+   "minutes": 3,
+   "source": "ms-pa",
+   "url": "https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/planning-phase.md",
+   "toc": [
+    {
+     "id": "planning-phase",
+     "text": "Planning phase",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "process_automation-07",
+   "title": "Types of process automation to consider for a Power Automate project | Microsoft Docs",
+   "words": 538,
+   "minutes": 3,
+   "source": "ms-pa",
+   "url": "https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/various-types-process-automation.md",
+   "toc": [
+    {
+     "id": "types-of-process-automation",
+     "text": "Types of process automation",
+     "level": 2
+    },
+    {
+     "id": "cloud-based-digital-process-automation-dpa",
+     "text": "Cloud-based digital process automation (DPA)",
+     "level": 2
+    },
+    {
+     "id": "desktop-based-rpa",
+     "text": "Desktop-based RPA",
+     "level": 2
+    },
+    {
+     "id": "dpa-or-rpa-or-both",
+     "text": "DPA or RPA? Or both?",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "process_automation-08",
+   "title": "Determining which automation method to use when planning a Power Automate project | Microsoft Docs",
+   "words": 706,
+   "minutes": 4,
+   "source": "ms-pa",
+   "url": "https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/determine-automation-methods.md",
+   "toc": [
+    {
+     "id": "determining-which-automation-method-to-use",
+     "text": "Determining which automation method to use",
+     "level": 2
+    },
+    {
+     "id": "choose-an-automation-method",
+     "text": "Choose an automation method",
+     "level": 2
+    },
+    {
+     "id": "choose-a-trigger-to-start-the-automation",
+     "text": "Choose a trigger to start the automation",
+     "level": 2
+    },
+    {
+     "id": "automated-triggers",
+     "text": "Automated triggers",
+     "level": 3
+    },
+    {
+     "id": "instant-or-manual-triggers",
+     "text": "Instant or manual triggers",
+     "level": 3
+    },
+    {
+     "id": "scheduled-triggers",
+     "text": "Scheduled triggers",
+     "level": 3
+    },
+    {
+     "id": "next-step",
+     "text": "Next step",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "process_automation-09",
+   "title": "Attended and unattended scenarios for process automation | Microsoft Docs",
+   "words": 375,
+   "minutes": 3,
+   "source": "ms-pa",
+   "url": "https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/attended-unattended.md",
+   "toc": [
+    {
+     "id": "attended-and-unattended-scenarios",
+     "text": "Attended and unattended scenarios",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "process_automation-10",
+   "title": "Design phase for planning a Power Automate project | Microsoft Docs",
+   "words": 955,
+   "minutes": 5,
+   "source": "ms-pa",
+   "url": "https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/process-design.md",
+   "toc": [
+    {
+     "id": "process-design",
+     "text": "Process design",
+     "level": 2
+    },
+    {
+     "id": "identifying-automation-areas",
+     "text": "Identifying automation areas",
+     "level": 2
+    },
+    {
+     "id": "apply-standardized-business-rules",
+     "text": "Apply standardized business rules",
+     "level": 2
+    },
+    {
+     "id": "automate-repetitive-processes",
+     "text": "Automate repetitive processes",
+     "level": 2
+    },
+    {
+     "id": "reduce-human-error",
+     "text": "Reduce human error",
+     "level": 2
+    },
+    {
+     "id": "streamline-approvals",
+     "text": "Streamline approvals",
+     "level": 2
+    },
+    {
+     "id": "gain-efficiency-in-high-volume-processes",
+     "text": "Gain efficiency in high-volume processes",
+     "level": 2
+    },
+    {
+     "id": "automate-data-entry",
+     "text": "Automate data entry",
+     "level": 2
+    },
+    {
+     "id": "maximize-the-use-of-available-resources",
+     "text": "Maximize the use of available resources",
+     "level": 2
+    },
+    {
+     "id": "increase-throughput",
+     "text": "Increase throughput",
+     "level": 2
+    },
+    {
+     "id": "example-scenario",
+     "text": "Example scenario",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "process_automation-11",
+   "title": "Flowchart to help you decide how to design your automation in Power Automate | Microsoft Docs",
+   "words": 159,
+   "minutes": 3,
+   "source": "ms-pa",
+   "url": "https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/decision-making-flow.md",
+   "toc": [
+    {
+     "id": "decision-making-flowchart-for-your-design",
+     "text": "Decision-making flowchart for your design",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "process_automation-12",
+   "title": "Making phase for Power Automate projects | Microsoft Docs",
+   "words": 143,
+   "minutes": 3,
+   "source": "ms-pa",
+   "url": "https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/making-phase.md",
+   "toc": [
+    {
+     "id": "making-phase",
+     "text": "Making phase",
+     "level": 2
+    },
+    {
+     "id": "basic-steps-for-cloud-flows",
+     "text": "Basic steps for cloud flows",
+     "level": 2
+    },
+    {
+     "id": "basic-steps-for-desktop-flows",
+     "text": "Basic steps for desktop flows",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "process_automation-13",
+   "title": "Testing strategy for a Power Automate project | Microsoft Docs",
+   "words": 441,
+   "minutes": 3,
+   "source": "ms-pa",
+   "url": "https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/testing-strategy.md",
+   "toc": [
+    {
+     "id": "testing-strategy",
+     "text": "Testing strategy",
+     "level": 2
+    },
+    {
+     "id": "testing-in-live-only-environments",
+     "text": "Testing in \"live only\" environments",
+     "level": 2
+    },
+    {
+     "id": "testing-with-users",
+     "text": "Testing with users",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "process_automation-14",
+   "title": "Deploying and refining phase for a Power Automate project | Microsoft Docs",
+   "words": 485,
+   "minutes": 3,
+   "source": "ms-pa",
+   "url": "https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/deploy-to-production.md",
+   "toc": [
+    {
+     "id": "deploying-and-refining-phase",
+     "text": "Deploying and refining phase",
+     "level": 2
+    },
+    {
+     "id": "deploying-your-automation-to-production",
+     "text": "Deploying your automation to production",
+     "level": 2
+    },
+    {
+     "id": "add-redundant-owners",
+     "text": "Add redundant owners",
+     "level": 3
+    },
+    {
+     "id": "use-solutions",
+     "text": "Use solutions",
+     "level": 3
+    },
+    {
+     "id": "mark-it-as-production",
+     "text": "Mark it as production",
+     "level": 3
+    },
+    {
+     "id": "deploy-the-automation-in-stages",
+     "text": "Deploy the automation in stages",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "kind": "authored",
+  "questions": [],
+  "pass_mark": 0,
+  "missing": true
+ },
+ "sources": [
+  {
+   "id": "ms-pa",
+   "name": "Microsoft Learn · Power Automate documentation",
+   "url": "https://github.com/MicrosoftDocs/power-automate-docs",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "© Microsoft, CC BY 4.0",
+   "noncommercial": false
+  }
+ ],
+ "minutes": 50
+}

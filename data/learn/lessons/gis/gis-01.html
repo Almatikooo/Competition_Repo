@@ -1,0 +1,256 @@
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>What format should I use to represent my data?</li>
+<li>What are the main data types used for representing geospatial data?</li>
+<li>What are the main attributes of raster data?</li>
+</ul>
+</div>
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Describe the difference between raster and vector data.</li>
+<li>Describe the strengths and weaknesses of storing data in raster format.</li>
+<li>Distinguish between continuous and categorical raster data and identify types of datasets that would be stored in each format.</li>
+</ul>
+</div>
+<pre><code class="language-r">source("files/setup.R")
+</code></pre>
+<pre><code class="language-r"># library(raster)
+# library(rgdal)
+library(terra)
+library(ggplot2)
+</code></pre>
+<pre><code class="language-r"># load data needed to generate figures
+# for demonstration only - learners do not need this data for this lesson
+DSM_HARV &lt;- rast("data/NEON-DS-Airborne-Remote-Sensing/HARV/DSM/HARV_dsmCrop.tif")
+
+# convert to a df for plotting
+DSM_HARV_df &lt;- as.data.frame(DSM_HARV, xy = TRUE)
+</code></pre>
+<p>This episode introduces the two primary types of geospatial
+data: rasters and vectors. After briefly introducing these
+data types, this episode focuses on raster data, describing
+some major features and types of raster data.</p>
+<h2 id="data-structures-raster-and-vector">Data Structures: Raster and Vector</h2>
+<p>The two primary types of geospatial data are raster
+and vector data. Raster data is stored as a grid of values which are rendered on a
+map as pixels. Each pixel value represents an area on the Earth's surface. Vector data structures represent specific features on the
+Earth's surface, and
+assign attributes to those features. Vector data structures
+will be discussed in more detail in [the next episode]({{ base.url }}/02-intro-vector-data).</p>
+<p>The <a href="https://datacarpentry.org/r-raster-vector-geospatial/" target="_blank" rel="noopener noreferrer">R for Raster and Vector Data</a>
+lesson will focus on how to work with both raster and vector
+data sets, therefore it is essential that we understand the
+basic structures of these types of data, and the types of data
+that they can be used to represent.</p>
+<h2 id="about-raster-data">About Raster Data</h2>
+<p>Raster data is any pixelated (or gridded) data where each pixel is associated
+with a specific geographical location. The value of a pixel can be
+continuous (e.g. elevation) or categorical (e.g. land use). If this sounds
+familiar, it is because this data structure is very common: it's how
+we represent any digital image. A geospatial raster is only different
+from a digital photo in that it is accompanied by spatial information
+that connects the data to a particular location. This includes the
+raster's extent and cell size, the number of rows and columns, and
+its coordinate reference system (or CRS).</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/organization-geospatial/5d96b1cd0bfd358c9a4e044dbfe9f73075656083/episodes/fig/dc-spatial-raster/raster_concept.png">{alt='Raster Concept'}</p>
+<p>Source: National Ecological Observatory Network (NEON)
+Some examples of continuous rasters include:</p>
+<ol>
+<li>Precipitation maps.</li>
+<li>Maps of tree height derived from LiDAR data.</li>
+<li>Elevation values for a region.</li>
+</ol>
+<p>A map of elevation for Harvard Forest derived from the <a href="https://www.neonscience.org/data-collection/airborne-remote-sensing" target="_blank" rel="noopener noreferrer">NEON AOP LiDAR sensor</a>
+is below. Elevation is represented as continuous numeric variable in this map. The legend
+shows the continuous range of values in the data from around 300 to 420 meters.</p>
+<pre><code class="language-r"># render DSM for tutorial content background
+# for demonstration only, code not shown
+ggplot() +
+  geom_raster(data = DSM_HARV_df , aes(x = x, y = y, fill = HARV_dsmCrop)) +
+  ggtitle("Continuous Elevation Map - NEON Harvard Forest Field Site") +
+  coord_quickmap()
+</code></pre>
+<p>Some rasters contain categorical data where each pixel represents a discrete
+class such as a landcover type (e.g., "forest" or "grassland") rather than a
+continuous value such as elevation or temperature. Some examples of classified
+maps include:</p>
+<ol>
+<li>Landcover / land-use maps.</li>
+<li>Tree height maps classified as short, medium, and tall trees.</li>
+<li>Elevation maps classified as low, medium, and high elevation.</li>
+</ol>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/organization-geospatial/5d96b1cd0bfd358c9a4e044dbfe9f73075656083/episodes/fig/USA_landcover_classification.png">{alt='USA landcover classification'}</p>
+<p>The map above shows the contiguous United States with landcover as categorical
+data. Each color is a different landcover category. (Source: Homer, C.G., et
+al., 2015, Completion of the 2011 National Land Cover Database for the
+conterminous United States-Representing a decade of land cover change
+information. Photogrammetric Engineering and Remote Sensing, v. 81, no. 5, p.
+345-354)</p>
+<pre><code class="language-r"># Load raster into R
+DSM_HARV &lt;- rast("data/NEON-DS-Airborne-Remote-Sensing/HARV/DSM/HARV_dsmCrop.tif")
+
+# convert to a df for plotting in two steps,
+# First, to a SpatVector of points
+DSM_HARV_pts &lt;- as.points(DSM_HARV)
+# Then to a 'conventional' dataframe
+DSM_HARV_df  &lt;- as.data.frame(DSM_HARV_pts, geom="XY", xy=TRUE)
+
+library(ggplot2)
+library(dplyr)
+
+DSM_HARV_df &lt;- DSM_HARV_df %&gt;%
+  mutate(fct_elevation = cut(HARV_dsmCrop, 3,
+                             labels = c("Low Elevation", "Middle Elevation",
+                                        "High Elevation")
+                             )
+         )
+
+ggplot() +
+  geom_raster(data = DSM_HARV_df , aes(x = x, y = y, fill = fct_elevation)) +
+  ggtitle("Classified Elevation Map - NEON Harvard Forest Field Site") +
+  coord_equal()
+</code></pre>
+<p>The map above shows elevation data for the NEON Harvard Forest field
+site. We will be working with data from this site later in the workshop.
+In this map, the elevation data (a continuous variable) has been divided
+up into categories to yield a categorical raster.</p>
+<div class="box box-challenge">
+<p class="box-title">Advantages and Disadvantages</p>
+
+<p>With your neighbor, brainstorm potential advantages and
+disadvantages of storing data in raster format. Add your
+ideas to the Etherpad. The Instructor will discuss and
+add any points that weren't brought up in the small group
+discussions.</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<p>Raster data has some important advantages:</p>
+<ul>
+<li>representation of continuous surfaces</li>
+<li>potentially very high levels of detail</li>
+<li>data is 'unweighted' across its extent - the geometry doesn't
+implicitly highlight features</li>
+<li>cell-by-cell calculations can be very fast and efficient</li>
+</ul>
+<p>The downsides of raster data are:</p>
+<ul>
+<li>very large file sizes as cell size gets smaller</li>
+<li>currently popular formats don't embed metadata well (more on this later!)</li>
+<li>can be difficult to represent complex information</li>
+</ul>
+</details>
+</div>
+<h2 id="important-attributes-of-raster-data">Important Attributes of Raster Data</h2>
+<h3 id="extent">Extent</h3>
+<p>The spatial extent is the geographic area that the raster data covers.
+The spatial extent of an R spatial object represents the geographic edge or
+location that is the furthest north, south, east and west. In other words, extent
+represents the overall geographic coverage of the spatial object.</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/organization-geospatial/5d96b1cd0bfd358c9a4e044dbfe9f73075656083/episodes/fig/dc-spatial-raster/spatial_extent.png">{alt='Spatial extent image'}</p>
+<p>(Image Source: National Ecological Observatory Network (NEON))</p>
+<h3 id="resolution">Resolution</h3>
+<p>A resolution of a raster represents the area on the ground that each
+pixel of the raster covers. The image below illustrates the effect
+of changes in resolution.</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/organization-geospatial/5d96b1cd0bfd358c9a4e044dbfe9f73075656083/episodes/fig/dc-spatial-raster/raster_resolution.png">{alt='Resolution image'}</p>
+<p>(Source: National Ecological Observatory Network (NEON))</p>
+<h2 id="raster-data-format-for-this-workshop">Raster Data Format for this Workshop</h2>
+<p>Raster data can come in many different formats. For this workshop, we will use
+the GeoTIFF format which has the extension <code>.tif</code>. A <code>.tif</code> file stores metadata
+or attributes about the file as embedded <code>tif tags</code>. For instance, your camera
+might store a tag that describes the make and model of the camera or the date
+the photo was taken when it saves a <code>.tif</code>. A GeoTIFF is a standard <code>.tif</code> image
+format with additional spatial (georeferencing) information embedded in the file
+as tags. These tags should include the following raster metadata:</p>
+<ol>
+<li>Extent</li>
+<li>Resolution</li>
+<li>Coordinate Reference System (CRS) - we will introduce this concept in [a
+later episode]({{ base.url }}/03-crs)</li>
+<li>Values that represent missing data (<code>NoDataValue</code>) - we will introduce this
+concept in <a href="https://datacarpentry.org/r-raster-vector-geospatial/01-raster-structure/index.html" target="_blank" rel="noopener noreferrer">a later lesson</a>.</li>
+</ol>
+<p>We will discuss these attributes in more detail in <a href="https://datacarpentry.org/r-raster-vector-geospatial/01-raster-structure/index.html" target="_blank" rel="noopener noreferrer">a later
+lesson</a>.
+In that lesson, we will also learn how to use R to extract raster attributes
+from a GeoTIFF file.</p>
+<div class="box box-callout">
+<p class="box-title">More Resources on the .tif format</p>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/GeoTIFF" target="_blank" rel="noopener noreferrer">GeoTIFF on Wikipedia</a></li>
+<li><a href="https://trac.osgeo.org/geotiff/" target="_blank" rel="noopener noreferrer">OSGEO TIFF documentation</a></li>
+</ul>
+</div>
+<h2 id="multi-band-raster-data">Multi-band Raster Data</h2>
+<p>A raster can contain one or more bands. One type of multi-band raster
+dataset that is familiar to many of us is a color
+image. A basic color image consists of three bands: red, green, and blue.
+Each
+band represents light reflected from the red, green or blue portions of
+the
+electromagnetic spectrum. The pixel brightness for each band, when
+composited
+creates the colors that we see in an image.</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/organization-geospatial/5d96b1cd0bfd358c9a4e044dbfe9f73075656083/episodes/fig/dc-spatial-raster/RGBSTack_1.jpg">{alt='RGB multi-band raster image'}</p>
+<p>(Source: National Ecological Observatory Network (NEON).)
+We can plot each band of a multi-band image individually.</p>
+<pre><code class="language-r">library(terra)
+# Use stack function to read in all bands
+RGB_stack_HARV &lt;- rast("data/NEON-DS-Airborne-Remote-Sensing/HARV/RGB_Imagery/HARV_RGB_Ortho.tif")
+
+names(RGB_stack_HARV) &lt;- c("Red Band", "Green Band", "Blue Band")
+
+grayscale_colors &lt;- gray.colors(100,
+start = 0.0,
+end = 1.0,
+gamma = 2.2,
+alpha = NULL)
+
+# Create an RGB image from the raster stack
+plot(RGB_stack_HARV,
+col = grayscale_colors,
+axes = FALSE)
+
+</code></pre>
+<p>Or we can composite all three bands together to make a color image.</p>
+<pre><code class="language-r"># Create an RGB image from the raster stack
+
+original_par &lt;- par() # create original par for easy reversal at end
+par(col.axis = "white", col.lab = "white", tck = 0)
+plotRGB(RGB_stack_HARV, r = 1, g = 2, b = 3,
+axes = TRUE,
+main = "3 Band Color Composite Image\n NEON Harvard Forest Field Site")
+box(col = "white")
+
+</code></pre>
+<p>In a multi-band dataset, the rasters will always have the same extent,
+resolution, and CRS.</p>
+<pre><code class="language-r">par(original_par) # go back to original par
+</code></pre>
+<div class="box box-callout">
+<p class="box-title">Other Types of Multi-band Raster Data</p>
+
+<p>Multi-band raster data might also contain:</p>
+<ol>
+<li><strong>Time series:</strong> the same variable, over the same area, over time.
+We will be working with time series data in the <a href="https://datacarpentry.org/r-raster-vector-geospatial/12-time-series-raster/index.html" target="_blank" rel="noopener noreferrer">Raster Time Series Data in R</a> episode.</li>
+<li><strong>Multi or hyperspectral imagery:</strong> image rasters that have 4 or
+more (multi-spectral) or more than 10-15 (hyperspectral) bands. We
+won't be working with this type of data in this workshop, but you can
+check out the NEON Data Skills
+<a href="https://www.neonscience.org/hsi-hdf5-r" target="_blank" rel="noopener noreferrer">Imaging Spectroscopy HDF5 in R</a>
+tutorial if you're interested in working with hyperspectral data cubes.</li>
+</ol>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>Raster data is pixelated data where each pixel is associated with a specific location.</li>
+<li>Raster data always has an extent and a resolution.</li>
+<li>The extent is the geographical area covered by a raster.</li>
+<li>The resolution is the area covered by each pixel of a raster.</li>
+</ul>
+</div>

@@ -1,0 +1,190 @@
+<div>
+<h2 id="in-depth-guide-to-how-google-search-works">In-depth guide to how Google Search works</h2>
+<div>
+
+
+</div>
+<p>
+  Google Search is a fully-automated search engine that uses software known as web crawlers that
+  explore the web regularly to find pages to add to our index. In fact, the vast majority of
+  pages listed in our results aren't manually submitted for inclusion, but are found and added
+  automatically when our web crawlers explore the web. This document explains the stages of how
+  Search works in the context of your website. Having this base knowledge can help you fix
+  crawling issues, get your pages indexed, and learn how to optimize how your site appears in
+  Google Search.
+</p>
+
+<h2 id="a-few-notes-before-we-get-started">A few notes before we get started</h2>
+<p>
+  Before we get into the details of how Search works, it's important to note that Google doesn't
+  accept payment to crawl a site more frequently, or rank it higher. If anyone tells you
+  otherwise, they're wrong.
+</p>
+<p>
+  Google doesn't guarantee that it will crawl, index, or serve your page, even if your page
+  follows the <a href="https://developers.google.com/search/docs/essentials" target="_blank" rel="noopener noreferrer">Google Search Essentials</a>.
+</p>
+<h2 id="introducing-the-three-stages-of-google-search">Introducing the three stages of Google Search</h2>
+<p>Google Search works in three stages, and not all pages make it through each stage:</p>
+<ol>
+<li>
+<a href="#crawling" rel="noopener noreferrer"><strong>Crawling:</strong></a> Google downloads text, images, and videos
+    from pages it found on the internet with automated programs called crawlers.
+  </li>
+<li>
+<a href="#indexing" rel="noopener noreferrer"><strong>Indexing:</strong></a> Google analyzes the text, images, and
+    video files on the page, and stores the information in the Google index, which is a large
+    database.
+  </li>
+<li>
+<a href="#serving" rel="noopener noreferrer"><strong>Serving search results:</strong></a> When a user searches on
+    Google, Google returns information that's relevant to the user's query.
+  </li>
+</ol>
+<h2 id="crawling">Crawling</h2>
+<p>
+  The first stage is finding out what pages exist on the web. There isn't a central registry of
+  all web pages, so Google must constantly look for new and updated pages and add them to its
+  list of known pages. This process is called "URL discovery". Some pages are known because
+  Google has already visited them. Other pages are discovered when Google extracts a link from a
+  known page to a new page: for example, a hub page, such as a category page, links to a new
+  blog post. Still other pages are discovered when you submit a list of pages (a
+  <a href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview" target="_blank" rel="noopener noreferrer">sitemap</a>) for Google to crawl.
+</p>
+<div>
+
+
+</div>
+<p>
+  Once Google discovers a page's URL, it may visit (or "crawl") the page to find out what's on
+  it. We use a huge set of computers to crawl billions of pages on the web. The program that
+  does the fetching is called <a href="https://developers.google.com/search/docs/crawling-indexing/googlebot" target="_blank" rel="noopener noreferrer">Googlebot</a>
+  (also known as a crawler, robot, bot, or spider). Googlebot uses an algorithmic process to
+  determine which sites to crawl, how often, and how many pages to fetch from each site.
+  <a href="https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers" target="_blank" rel="noopener noreferrer">Google's crawlers</a>
+  are also programmed such that they try not to crawl the site too fast to avoid overloading it.
+  This mechanism is based on the responses of the site (for example,
+  <a href="https://developers.google.com/search/docs/crawling-indexing/http-network-errors#http-status-codes" target="_blank" rel="noopener noreferrer">HTTP 500 errors mean "slow down"</a>).
+</p>
+<p>
+  However, Googlebot doesn't crawl all the pages it discovered. Some pages may be
+  <a href="https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt#disallow" target="_blank" rel="noopener noreferrer">disallowed for crawling</a> by the
+  site owner, other pages may not be accessible without logging in to the site.
+</p>
+<p>
+  During the crawl, Google renders the page and
+  <a href="https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics#how-googlebot-processes-javascript" target="_blank" rel="noopener noreferrer">runs any JavaScript it finds</a>
+  using a recent version of
+  <a href="https://www.google.com/chrome/" target="_blank" rel="noopener noreferrer">Chrome</a>, similar to how your
+  browser renders pages you visit. Rendering is important because websites often rely on
+  JavaScript to bring content to the page, and without rendering Google might not see that
+  content.
+</p>
+<p>
+  Crawling depends on whether Google's crawlers can access the site. Some common issues with
+  Googlebot accessing sites include:
+</p>
+<ul>
+<li>
+<a href="https://developers.google.com/search/docs/crawling-indexing/http-network-errors#http-status-codes" target="_blank" rel="noopener noreferrer">Problems with the server handling the site</a>
+</li>
+<li>
+<a href="https://developers.google.com/crawling/docs/troubleshooting/dns-network-errors" target="_blank" rel="noopener noreferrer">Network issues</a>
+</li>
+<li>
+<a href="https://developers.google.com/search/docs/crawling-indexing/robots/intro" target="_blank" rel="noopener noreferrer">robots.txt rules preventing Googlebot's access to the page</a>
+</li>
+</ul>
+<h2 id="indexing">Indexing</h2>
+<p>
+  After a page is crawled, Google tries to understand what the page is about. This stage is
+  called indexing and it includes processing and analyzing the textual content and key content
+  tags and attributes, such as
+  <a href="https://developers.google.com/search/docs/appearance/title-link" target="_blank" rel="noopener noreferrer"><code>&lt;title&gt;</code> elements</a>
+  and alt attributes,
+  <a href="https://developers.google.com/search/docs/appearance/google-images" target="_blank" rel="noopener noreferrer">images</a>,
+  <a href="https://developers.google.com/search/docs/appearance/video" target="_blank" rel="noopener noreferrer">videos</a>, and
+  more.
+</p>
+<div>
+
+
+</div>
+<p>
+  During the indexing process, Google determines if a page is a
+  <a href="https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls" target="_blank" rel="noopener noreferrer">duplicate of another page on the internet or canonical</a>.
+  The canonical is the page that may be shown in search results. To select the canonical, we
+  first group together (also known as clustering) the pages that we found on the internet that
+  have similar content, and then we select the one that's most representative of the group. The
+  other pages in the group are alternate versions that may be served in different contexts, like
+  if the user is searching from a mobile device or they're looking for a very specific page from
+  that cluster.
+</p>
+<p>
+  Google also collects signals about the canonical page and its contents, which may be used in
+  the next stage, where we serve the page in search results. Some signals include the language
+  of the page, the country the content is local to, and the usability of the page.
+</p>
+<p>
+  The collected information about the canonical page and its cluster may be stored in the Google
+  index, a large database hosted on thousands of computers. Indexing isn't guaranteed; not every
+  page that Google processes will be indexed.
+</p>
+<p>
+  Indexing also depends on the content of the page and its metadata. Some common indexing issues
+  can include:
+</p>
+<ul>
+<li>
+<a href="https://developers.google.com/search/docs/essentials" target="_blank" rel="noopener noreferrer">The quality of the content on page is low</a>
+</li>
+<li>
+<a href="https://developers.google.com/search/docs/crawling-indexing/block-indexing" target="_blank" rel="noopener noreferrer">Robots <code>meta</code> rules disallow indexing</a>
+</li>
+<li>
+<a href="https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics" target="_blank" rel="noopener noreferrer">The design of the website might make indexing difficult</a>
+</li>
+</ul>
+<h2 id="serving-search-results">Serving search results</h2>
+
+<p>
+  When a user enters a query, our machines search the index for matching pages and return the
+  results we believe are the highest quality and most relevant to the user's query. Relevancy is
+  determined by hundreds of factors, which could include information such as the user's
+  location, language, and device (desktop or phone). For example, searching for "bicycle repair
+  shops" would show different results to a user in Paris than it would to a user in Hong Kong.
+</p>
+<div>
+
+
+</div>
+<p>
+  Based on the user's query the search features that appear on the search results page also
+  change. For example, searching for "bicycle repair shops" will likely show local results and
+  no <a href="https://developers.google.com/search/docs/appearance/visual-elements-gallery#image-result" target="_blank" rel="noopener noreferrer">image results</a>,
+  however searching for "modern bicycle" is more likely to show image results, but not local
+  results. You can explore the most common UI elements of Google web search in our
+  <a href="https://developers.google.com/search/docs/appearance/visual-elements-gallery" target="_blank" rel="noopener noreferrer">Visual Element gallery</a>.
+</p>
+<p>
+  Search Console might tell you that a page is indexed, but you don't see it in search results.
+  This might be because:
+</p>
+<ul>
+<li>
+<a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide#expect-search-terms" target="_blank" rel="noopener noreferrer">The content on the page is irrelevant to users' queries</a>
+</li>
+<li>
+<a href="https://developers.google.com/search/docs/essentials" target="_blank" rel="noopener noreferrer">The quality of the content is low</a>
+</li>
+<li>
+<a href="https://developers.google.com/search/docs/crawling-indexing/block-indexing" target="_blank" rel="noopener noreferrer">Robots <code>meta</code> rules prevent serving</a>
+</li>
+</ul>
+<p>
+  While this guide explains how Search works, we are always working on improving our algorithms.
+  You can keep track of these changes by following the
+  <a href="https://developers.google.com/search/blog" target="_blank" rel="noopener noreferrer">Google Search Central blog</a>.
+</p>
+
+</div>

@@ -1,0 +1,231 @@
+<p>In these four lessons, you will explore a fundamental focus of classic machine learning - <em>classification</em>. We will walk through using various classification algorithms with a dataset about all the brilliant cuisines of Asia and India. Hope you're hungry!</p>
+<p><img alt="just a pinch!" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/1-Introduction/images/pinch.png"></p>
+<blockquote>
+<p>Celebrate pan-Asian cuisines in these lessons! Image by <a href="https://twitter.com/jenlooper" target="_blank" rel="noopener noreferrer">Jen Looper</a></p>
+</blockquote>
+<p>Classification is a form of <a href="https://wikipedia.org/wiki/Supervised_learning" target="_blank" rel="noopener noreferrer">supervised learning</a> that bears a lot in common with regression techniques. If machine learning is all about predicting values or names to things by using datasets, then classification generally falls into two groups: <em>binary classification</em> and <em>multiclass classification</em>.</p>
+<p><a href="https://youtu.be/eg8DJYwdMyg" target="_blank" rel="noopener noreferrer"><img alt="Introduction to classification" loading="lazy" src="https://img.youtube.com/vi/eg8DJYwdMyg/0.jpg"></a></p>
+<blockquote>
+
+</blockquote>
+<p>Remember:</p>
+<ul>
+<li><strong>Linear regression</strong> helped you predict relationships between variables and make accurate predictions on where a new datapoint would fall in relationship to that line. So, you could predict <em>what price a pumpkin would be in September vs. December</em>, for example.</li>
+<li><strong>Logistic regression</strong> helped you discover "binary categories": at this price point, <em>is this pumpkin orange or not-orange</em>?</li>
+</ul>
+<p>Classification uses various algorithms to determine other ways of determining a data point's label or class. Let's work with this cuisine data to see whether, by observing a group of ingredients, we can determine its cuisine of origin.</p>
+
+<blockquote>
+<h3 id="this-lesson-is-available-in-r"><a href="https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/1-Introduction/solution/R/lesson_10.html" target="_blank" rel="noopener noreferrer">This lesson is available in R!</a></h3>
+</blockquote>
+<h3 id="introduction">Introduction</h3>
+<p>Classification is one of the fundamental activities of the machine learning researcher and data scientist. From basic classification of a binary value ("is this email spam or not?"), to complex image classification and segmentation using computer vision, it's always useful to be able to sort data into classes and ask questions of it.</p>
+<p>To state the process in a more scientific way, your classification method creates a predictive model that enables you to map the relationship between input variables to output variables.</p>
+<p><img alt="binary vs. multiclass classification" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/1-Introduction/images/binary-multiclass.png"></p>
+<blockquote>
+<p>Binary vs. multiclass problems for classification algorithms to handle. Infographic by <a href="https://twitter.com/jenlooper" target="_blank" rel="noopener noreferrer">Jen Looper</a></p>
+</blockquote>
+<p>Before starting the process of cleaning our data, visualizing it, and prepping it for our ML tasks, let's learn a bit about the various ways machine learning can be leveraged to classify data.</p>
+<p>Derived from <a href="https://wikipedia.org/wiki/Statistical_classification" target="_blank" rel="noopener noreferrer">statistics</a>, classification using classic machine learning uses features, such as <code>smoker</code>, <code>weight</code>, and <code>age</code> to determine <em>likelihood of developing X disease</em>. As a supervised learning technique similar to the regression exercises you performed earlier, your data is labeled and the ML algorithms use those labels to classify and predict classes (or 'features') of a dataset and assign them to a group or outcome.</p>
+<p>✅ Take a moment to imagine a dataset about cuisines. What would a multiclass model be able to answer? What would a binary model be able to answer? What if you wanted to determine whether a given cuisine was likely to use fenugreek? What if you wanted to see if, given a present of a grocery bag full of star anise, artichokes, cauliflower, and horseradish, you could create a typical Indian dish?</p>
+<p><a href="https://youtu.be/GuTeDbaNoEU" target="_blank" rel="noopener noreferrer"><img alt="Crazy mystery baskets" loading="lazy" src="https://img.youtube.com/vi/GuTeDbaNoEU/0.jpg"></a></p>
+<blockquote>
+
+</blockquote>
+<h2 id="hello-classifier">Hello 'classifier'</h2>
+<p>The question we want to ask of this cuisine dataset is actually a <strong>multiclass question</strong>, as we have several potential national cuisines to work with. Given a batch of ingredients, which of these many classes will the data fit?</p>
+<p>Scikit-learn offers several different algorithms to use to classify data, depending on the kind of problem you want to solve. In the next two lessons, you'll learn about several of these algorithms.</p>
+<h2 id="exercise-clean-and-balance-your-data">Exercise - clean and balance your data</h2>
+<p>The first task at hand, before starting this project, is to clean and <strong>balance</strong> your data to get better results. Start with the blank <em>notebook.ipynb</em> file in the root of this folder.</p>
+<p>The first thing to install is <a href="https://imbalanced-learn.org/stable/" target="_blank" rel="noopener noreferrer">imblearn</a>. This is a Scikit-learn package that will allow you to better balance the data (you will learn more about this task in a minute).</p>
+<ol>
+<li>
+<p>To install <code>imblearn</code>, run <code>pip install</code>, like so:</p>
+<pre><code class="language-python">pip install imblearn
+</code></pre>
+</li>
+<li>
+<p>Import the packages you need to import your data and visualize it, also import <code>SMOTE</code> from <code>imblearn</code>.</p>
+<pre><code class="language-python">import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+import numpy as np
+from imblearn.over_sampling import SMOTE
+</code></pre>
+<p>Now you are set up to read import the data next.</p>
+</li>
+<li>
+<p>The next task will be to import the data:</p>
+<pre><code class="language-python">df  = pd.read_csv('../data/cuisines.csv')
+</code></pre>
+<p>Using <code>read_csv()</code> will read the content of the csv file <em>cusines.csv</em> and place it in the variable <code>df</code>.</p>
+</li>
+<li>
+<p>Check the data's shape:</p>
+<pre><code class="language-python">df.head()
+</code></pre>
+<p>The first five rows look like this:</p>
+<pre><code class="language-output">|     | Unnamed: 0 | cuisine | almond | angelica | anise | anise_seed | apple | apple_brandy | apricot | armagnac | ... | whiskey | white_bread | white_wine | whole_grain_wheat_flour | wine | wood | yam | yeast | yogurt | zucchini |
+| --- | ---------- | ------- | ------ | -------- | ----- | ---------- | ----- | ------------ | ------- | -------- | --- | ------- | ----------- | ---------- | ----------------------- | ---- | ---- | --- | ----- | ------ | -------- |
+| 0   | 65         | indian  | 0      | 0        | 0     | 0          | 0     | 0            | 0       | 0        | ... | 0       | 0           | 0          | 0                       | 0    | 0    | 0   | 0     | 0      | 0        |
+| 1   | 66         | indian  | 1      | 0        | 0     | 0          | 0     | 0            | 0       | 0        | ... | 0       | 0           | 0          | 0                       | 0    | 0    | 0   | 0     | 0      | 0        |
+| 2   | 67         | indian  | 0      | 0        | 0     | 0          | 0     | 0            | 0       | 0        | ... | 0       | 0           | 0          | 0                       | 0    | 0    | 0   | 0     | 0      | 0        |
+| 3   | 68         | indian  | 0      | 0        | 0     | 0          | 0     | 0            | 0       | 0        | ... | 0       | 0           | 0          | 0                       | 0    | 0    | 0   | 0     | 0      | 0        |
+| 4   | 69         | indian  | 0      | 0        | 0     | 0          | 0     | 0            | 0       | 0        | ... | 0       | 0           | 0          | 0                       | 0    | 0    | 0   | 0     | 1      | 0        |
+</code></pre>
+</li>
+<li>
+<p>Get info about this data by calling <code>info()</code>:</p>
+<pre><code class="language-python">df.info()
+</code></pre>
+<p>Your out resembles:</p>
+<pre><code class="language-output">&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 2448 entries, 0 to 2447
+Columns: 385 entries, Unnamed: 0 to zucchini
+dtypes: int64(384), object(1)
+memory usage: 7.2+ MB
+</code></pre>
+</li>
+</ol>
+<h2 id="exercise-learning-about-cuisines">Exercise - learning about cuisines</h2>
+<p>Now the work starts to become more interesting. Let's discover the distribution of data, per cuisine</p>
+<ol>
+<li>
+<p>Plot the data as bars by calling <code>barh()</code>:</p>
+<pre><code class="language-python">df.cuisine.value_counts().plot.barh()
+</code></pre>
+<p><img alt="cuisine data distribution" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/1-Introduction/images/cuisine-dist.png"></p>
+<p>There are a finite number of cuisines, but the distribution of data is uneven. You can fix that! Before doing so, explore a little more.</p>
+</li>
+<li>
+<p>Find out how much data is available per cuisine and print it out:</p>
+<pre><code class="language-python">thai_df = df[(df.cuisine == "thai")]
+japanese_df = df[(df.cuisine == "japanese")]
+chinese_df = df[(df.cuisine == "chinese")]
+indian_df = df[(df.cuisine == "indian")]
+korean_df = df[(df.cuisine == "korean")]
+
+print(f'thai df: {thai_df.shape}')
+print(f'japanese df: {japanese_df.shape}')
+print(f'chinese df: {chinese_df.shape}')
+print(f'indian df: {indian_df.shape}')
+print(f'korean df: {korean_df.shape}')
+</code></pre>
+<p>the output looks like so:</p>
+<pre><code class="language-output">thai df: (289, 385)
+japanese df: (320, 385)
+chinese df: (442, 385)
+indian df: (598, 385)
+korean df: (799, 385)
+</code></pre>
+</li>
+</ol>
+<h2 id="discovering-ingredients">Discovering ingredients</h2>
+<p>Now you can dig deeper into the data and learn what are the typical ingredients per cuisine. You should clean out recurrent data that creates confusion between cuisines, so let's learn about this problem.</p>
+<ol>
+<li>
+<p>Create a function <code>create_ingredient()</code> in Python to create an ingredient dataframe. This function will start by dropping an unhelpful column and sort through ingredients by their count:</p>
+<pre><code class="language-python">def create_ingredient_df(df):
+    ingredient_df = df.T.drop(['cuisine','Unnamed: 0']).sum(axis=1).to_frame('value')
+    ingredient_df = ingredient_df[(ingredient_df.T != 0).any()]
+    ingredient_df = ingredient_df.sort_values(by='value', ascending=False,
+    inplace=False)
+    return ingredient_df
+</code></pre>
+<p>Now you can use that function to get an idea of top ten most popular ingredients by cuisine.</p>
+</li>
+<li>
+<p>Call <code>create_ingredient()</code> and plot it calling <code>barh()</code>:</p>
+<pre><code class="language-python">thai_ingredient_df = create_ingredient_df(thai_df)
+thai_ingredient_df.head(10).plot.barh()
+</code></pre>
+<p><img alt="thai" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/1-Introduction/images/thai.png"></p>
+</li>
+<li>
+<p>Do the same for the japanese data:</p>
+<pre><code class="language-python">japanese_ingredient_df = create_ingredient_df(japanese_df)
+japanese_ingredient_df.head(10).plot.barh()
+</code></pre>
+<p><img alt="japanese" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/1-Introduction/images/japanese.png"></p>
+</li>
+<li>
+<p>Now for the chinese ingredients:</p>
+<pre><code class="language-python">chinese_ingredient_df = create_ingredient_df(chinese_df)
+chinese_ingredient_df.head(10).plot.barh()
+</code></pre>
+<p><img alt="chinese" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/1-Introduction/images/chinese.png"></p>
+</li>
+<li>
+<p>Plot the indian ingredients:</p>
+<pre><code class="language-python">indian_ingredient_df = create_ingredient_df(indian_df)
+indian_ingredient_df.head(10).plot.barh()
+</code></pre>
+<p><img alt="indian" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/1-Introduction/images/indian.png"></p>
+</li>
+<li>
+<p>Finally, plot the korean ingredients:</p>
+<pre><code class="language-python">korean_ingredient_df = create_ingredient_df(korean_df)
+korean_ingredient_df.head(10).plot.barh()
+</code></pre>
+<p><img alt="korean" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/1-Introduction/images/korean.png"></p>
+</li>
+<li>
+<p>Now, drop the most common ingredients that create confusion between distinct cuisines, by calling <code>drop()</code>:</p>
+<p>Everyone loves rice, garlic and ginger!</p>
+<pre><code class="language-python">feature_df= df.drop(['cuisine','Unnamed: 0','rice','garlic','ginger'], axis=1)
+labels_df = df.cuisine #.unique()
+feature_df.head()
+</code></pre>
+</li>
+</ol>
+<h2 id="balance-the-dataset">Balance the dataset</h2>
+<p>Now that you have cleaned the data, use <a href="https://imbalanced-learn.org/dev/references/generated/imblearn.over_sampling.SMOTE.html" target="_blank" rel="noopener noreferrer">SMOTE</a> - "Synthetic Minority Over-sampling Technique" - to balance it.</p>
+<ol>
+<li>
+<p>Call <code>fit_resample()</code>, this strategy generates new samples by interpolation.</p>
+<pre><code class="language-python">oversample = SMOTE()
+transformed_feature_df, transformed_label_df = oversample.fit_resample(feature_df, labels_df)
+</code></pre>
+<p>By balancing your data, you'll have better results when classifying it. Think about a binary classification. If most of your data is one class, a ML model is going to predict that class more frequently, just because there is more data for it. Balancing the data takes any skewed data and helps remove this imbalance.</p>
+</li>
+<li>
+<p>Now you can check the numbers of labels per ingredient:</p>
+<pre><code class="language-python">print(f'new label count: {transformed_label_df.value_counts()}')
+print(f'old label count: {df.cuisine.value_counts()}')
+</code></pre>
+<p>Your output looks like so:</p>
+<pre><code class="language-output">new label count: korean      799
+chinese     799
+indian      799
+japanese    799
+thai        799
+Name: cuisine, dtype: int64
+old label count: korean      799
+indian      598
+chinese     442
+japanese    320
+thai        289
+Name: cuisine, dtype: int64
+</code></pre>
+<p>The data is nice and clean, balanced, and very delicious!</p>
+</li>
+<li>
+<p>The last step is to save your balanced data, including labels and features, into a new dataframe that can be exported into a file:</p>
+<pre><code class="language-python">transformed_df = pd.concat([transformed_label_df,transformed_feature_df],axis=1, join='outer')
+</code></pre>
+</li>
+<li>
+<p>You can take one more look at the data using <code>transformed_df.head()</code> and <code>transformed_df.info()</code>. Save a copy of this data for use in future lessons:</p>
+<pre><code class="language-python">transformed_df.head()
+transformed_df.info()
+transformed_df.to_csv("../data/cleaned_cuisines.csv")
+</code></pre>
+<p>This fresh CSV can now be found in the root data folder.</p>
+</li>
+</ol>
+<hr>
+<h2 id="challenge">🚀Challenge</h2>
+<p>This curriculum contains several interesting datasets. Dig through the <code>data</code> folders and see if any contain datasets that would be appropriate for binary or multi-class classification? What questions would you ask of this dataset?</p>
+
+<h2 id="review-self-study">Review &amp; Self Study</h2>
+<p>Explore SMOTE's API. What use cases is it best used for? What problems does it solve?</p>

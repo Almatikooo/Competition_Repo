@@ -1,0 +1,126 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Create a local Git repository.</li>
+<li>Describe the purpose of the <code>.git</code> directory.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>Where does Git store information?</li>
+</ul>
+</div>
+<p>Once Git is configured,
+we can start using it.</p>
+<p>We will help Alfredo with his new project, create a repository with all his recipes.</p>
+<p>First, let's create a new directory in the <code>Desktop</code> folder for our work and then change the current working directory to the newly created one:</p>
+<pre><code class="language-bash">$ cd ~/Desktop
+$ mkdir recipes
+$ cd recipes
+</code></pre>
+<p>Then we tell Git to make <code>recipes</code> a <a href="https://github.com/swcarpentry/git-novice/blob/78b9c02a074e6712b9b013ef6e8a568a56d8cf37/learners/reference.md#repository" target="_blank" rel="noopener noreferrer">repository</a>
+-- a place where Git can store versions of our files:</p>
+<pre><code class="language-bash">$ git init
+</code></pre>
+<p>It is important to note that <code>git init</code> will create a repository that
+can include subdirectories and their files---there is no need to create
+separate repositories nested within the <code>recipes</code> repository, whether
+subdirectories are present from the beginning or added later. Also, note
+that the creation of the <code>recipes</code> directory and its initialization as a
+repository are completely separate processes.</p>
+<p>If we use <code>ls</code> to show the directory's contents,
+it appears that nothing has changed:</p>
+<pre><code class="language-bash">$ ls
+</code></pre>
+<p>But if we add the <code>-a</code> flag to show everything,
+we can see that Git has created a hidden directory within <code>recipes</code> called <code>.git</code>:</p>
+<pre><code class="language-bash">$ ls -a
+</code></pre>
+<pre><code class="language-output">.	..	.git
+</code></pre>
+<p>Git uses this special subdirectory to store all the information about the project,
+including the tracked files and sub-directories located within the project's directory.
+If we ever delete the <code>.git</code> subdirectory,
+we will lose the project's history.</p>
+<p>We can now start using one of the most important git commands, which is particularly helpful to beginners. <code>git status</code> tells us the status of our project, and better, a list of changes in the project and options on what to do with those changes. We can use it as often as we want, whenever we want to understand what is going on.</p>
+<pre><code class="language-bash">$ git status
+</code></pre>
+<pre><code class="language-output">On branch main
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+</code></pre>
+<p>If you are using a different version of <code>git</code>, the exact
+wording of the output might be slightly different.</p>
+<div class="box box-challenge">
+<p class="box-title">Places to Create Git Repositories</p>
+
+<p>Along with tracking information about recipes (the project we have already created),
+Alfredo would also like to track information about desserts specifically.
+Alfredo creates a <code>desserts</code> project inside his <code>recipes</code>
+project with the following sequence of commands:</p>
+<pre><code class="language-bash">$ cd ~/Desktop    # return to Desktop directory
+$ cd recipes      # go into recipes directory, which is already a Git repository
+$ ls -a           # ensure the .git subdirectory is still present in the recipes directory
+$ mkdir desserts # make a sub-directory recipes/desserts
+$ cd desserts    # go into desserts subdirectory
+$ git init        # make the desserts subdirectory a Git repository
+$ ls -a           # ensure the .git subdirectory is present indicating we have created a new Git repository
+</code></pre>
+<p>Is the <code>git init</code> command, run inside the <code>desserts</code> subdirectory, required for
+tracking files stored in the <code>desserts</code> subdirectory?</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<p>No. Alfredo does not need to make the <code>desserts</code> subdirectory a Git repository
+because the <code>recipes</code> repository will track all files, sub-directories, and
+subdirectory files under the <code>recipes</code> directory.  Thus, in order to track
+all information about desserts, Alfredo only needed to add the <code>desserts</code> subdirectory
+to the <code>recipes</code> directory.</p>
+<p>Additionally, Git repositories can interfere with each other if they are "nested":
+the outer repository will try to version-control
+the inner repository. Therefore, it's best to create each new Git
+repository in a separate directory. To be sure that there is no conflicting
+repository in the directory, check the output of <code>git status</code>. If it looks
+like the following, you are good to go to create a new repository as shown
+above:</p>
+<pre><code class="language-bash">$ git status
+</code></pre>
+<pre><code class="language-output">fatal: Not a git repository (or any of the parent directories): .git
+</code></pre>
+</details>
+<h2 id="correcting-git-init-mistakes">Correcting <code>git init</code> Mistakes</h2>
+<p>Jimmy explains to Alfredo how a nested repository is redundant and may cause confusion
+down the road. Alfredo would like to go back to a single git repository. How can Alfredo undo
+his last <code>git init</code> in the <code>desserts</code> subdirectory?</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-use-with-caution">Solution -- USE WITH CAUTION!</h2>
+<h3 id="background">Background</h3>
+<p>Removing files from a Git repository needs to be done with caution. But we have not learned
+yet how to tell Git to track a particular file; we will learn this in the next episode. Files
+that are not tracked by Git can easily be removed like any other "ordinary" files with</p>
+<pre><code class="language-bash">$ rm filename
+</code></pre>
+<p>Similarly a directory can be removed using <code>rm -r dirname</code>.
+If the files or folder being removed in this fashion are tracked by Git, then their removal
+becomes another change that we will need to track, as we will see in the next episode.</p>
+<h3 id="solution-x">Solution</h3>
+<p>Git keeps all of its files in the <code>.git</code> directory.
+To recover from this little mistake, Alfredo can remove the <code>.git</code>
+folder in the desserts subdirectory by running the following command from inside the <code>recipes</code> directory:</p>
+<pre><code class="language-bash">$ rm -rf desserts/.git
+</code></pre>
+<p>But be careful! Running this command in the wrong directory will remove
+the entire Git history of a project you might want to keep.
+In general, deleting files and directories using <code>rm</code> from the command line cannot be reversed.
+Therefore, always check your current directory using the command <code>pwd</code>.</p>
+</details>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li><code>git init</code> initializes a repository.</li>
+<li>Git stores all of its repository data in the <code>.git</code> directory.</li>
+</ul>
+</div>

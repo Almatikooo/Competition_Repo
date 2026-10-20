@@ -1,0 +1,654 @@
+{
+ "title": "Teaching & Training Design",
+ "subtitle": "Evidence-based teaching: how people learn, building skill with practice and feedback, and running inclusive sessions.",
+ "level": "Beginner",
+ "outcomes": [
+  "Explain how learners move from novice to expert",
+  "Design lessons that respect memory and cognitive load",
+  "Use formative assessment and feedback",
+  "Create motivating, inclusive and well-managed learning environments"
+ ],
+ "skill": "teaching_training",
+ "modules": [
+  {
+   "title": "How learning works",
+   "lessons": [
+    "teaching_training-01",
+    "teaching_training-02",
+    "teaching_training-03"
+   ]
+  },
+  {
+   "title": "Practice and feedback",
+   "lessons": [
+    "teaching_training-04",
+    "teaching_training-05",
+    "teaching_training-06"
+   ]
+  },
+  {
+   "title": "Motivation and inclusion",
+   "lessons": [
+    "teaching_training-07",
+    "teaching_training-08",
+    "teaching_training-09"
+   ]
+  },
+  {
+   "title": "Preparing to teach",
+   "lessons": [
+    "teaching_training-10",
+    "teaching_training-11",
+    "teaching_training-12"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "teaching_training-01",
+   "title": "Building Skill With Practice",
+   "words": 4160,
+   "minutes": 21,
+   "source": "ci-instructor",
+   "url": "https://github.com/carpentries/instructor-training/blob/2c5559f28c613a317843175c9c285028fa2169ac/episodes/02-practice-learning.md",
+   "toc": [
+    {
+     "id": "the-carpentries-pedagogical-model",
+     "text": "The Carpentries Pedagogical Model",
+     "level": 2
+    },
+    {
+     "id": "the-acquisition-of-skill",
+     "text": "The Acquisition of Skill",
+     "level": 2
+    },
+    {
+     "id": "building-a-mental-model",
+     "text": "Building a Mental Model",
+     "level": 2
+    },
+    {
+     "id": "the-power-and-limitations-of-analogies",
+     "text": "The power (and limitations) of analogies",
+     "level": 3
+    },
+    {
+     "id": "mapping-a-mental-model",
+     "text": "Mapping a Mental Model",
+     "level": 3
+    },
+    {
+     "id": "misconceptions",
+     "text": "Misconceptions",
+     "level": 2
+    },
+    {
+     "id": "types-of-misconceptions",
+     "text": "Types of Misconceptions",
+     "level": 3
+    },
+    {
+     "id": "using-formative-assessment-to-identify-misconceptions",
+     "text": "Using Formative Assessment to Identify Misconceptions",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "the-importance-of-going-slowly",
+     "text": "The Importance of Going Slowly",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "teaching_training-02",
+   "title": "Expertise and Instruction",
+   "words": 2349,
+   "minutes": 12,
+   "source": "ci-instructor",
+   "url": "https://github.com/carpentries/instructor-training/blob/2c5559f28c613a317843175c9c285028fa2169ac/episodes/04-expertise.md",
+   "toc": [
+    {
+     "id": "examining-your-expertise",
+     "text": "Examining Your Expertise",
+     "level": 2
+    },
+    {
+     "id": "what-makes-an-expert",
+     "text": "What Makes an Expert?",
+     "level": 2
+    },
+    {
+     "id": "expertise-and-teaching",
+     "text": "Expertise and Teaching",
+     "level": 2
+    },
+    {
+     "id": "mind-the-gap",
+     "text": "Mind The Gap",
+     "level": 3
+    },
+    {
+     "id": "switching-language",
+     "text": "Switching Language",
+     "level": 3
+    },
+    {
+     "id": "what-problem",
+     "text": "What Problem?",
+     "level": 3
+    },
+    {
+     "id": "just-and-other-dismissive-language",
+     "text": "\"Just\" and Other Dismissive Language",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "any-questions",
+     "text": "\"Any Questions?\"",
+     "level": 3
+    },
+    {
+     "id": "you-are-not-your-learners",
+     "text": "You Are Not Your Learners",
+     "level": 2
+    },
+    {
+     "id": "expert-advantages",
+     "text": "Expert Advantages",
+     "level": 2
+    },
+    {
+     "id": "the-importance-of-practice-again",
+     "text": "The Importance of Practice (Again)",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "teaching_training-03",
+   "title": "Memory and Cognitive Load",
+   "words": 2618,
+   "minutes": 14,
+   "source": "ci-instructor",
+   "url": "https://github.com/carpentries/instructor-training/blob/2c5559f28c613a317843175c9c285028fa2169ac/episodes/05-memory.md",
+   "toc": [
+    {
+     "id": "types-of-memory",
+     "text": "Types of Memory",
+     "level": 2
+    },
+    {
+     "id": "accessibility-adaptation",
+     "text": "Accessibility Adaptation",
+     "level": 2
+    },
+    {
+     "id": "strategies-for-memory-management",
+     "text": "Strategies For Memory Management",
+     "level": 2
+    },
+    {
+     "id": "chunking",
+     "text": "Chunking",
+     "level": 3
+    },
+    {
+     "id": "using-formative-assessment-to-support-memory-consolidation",
+     "text": "Using Formative Assessment to Support Memory Consolidation",
+     "level": 3
+    },
+    {
+     "id": "group-work",
+     "text": "Group Work",
+     "level": 3
+    },
+    {
+     "id": "opportunities-for-reflection",
+     "text": "Opportunities for Reflection",
+     "level": 3
+    },
+    {
+     "id": "limit-concepts",
+     "text": "Limit concepts",
+     "level": 3
+    },
+    {
+     "id": "attention-is-a-limited-resource-cognitive-load",
+     "text": "Attention is a Limited Resource: Cognitive Load",
+     "level": 2
+    },
+    {
+     "id": "the-theory-of-cognitive-load",
+     "text": "The Theory of Cognitive Load",
+     "level": 3
+    },
+    {
+     "id": "attention-management-in-your-workshop",
+     "text": "Attention Management in Your Workshop",
+     "level": 2
+    },
+    {
+     "id": "using-formative-assessments-for-memory-management",
+     "text": "Using Formative Assessments for Memory Management",
+     "level": 3
+    },
+    {
+     "id": "what-to-display",
+     "text": "What to Display",
+     "level": 3
+    },
+    {
+     "id": "summary",
+     "text": "Summary",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "teaching_training-04",
+   "title": "Building Skill With Feedback",
+   "words": 991,
+   "minutes": 5,
+   "source": "ci-instructor",
+   "url": "https://github.com/carpentries/instructor-training/blob/2c5559f28c613a317843175c9c285028fa2169ac/episodes/06-feedback.md",
+   "toc": [
+    {
+     "id": "surveys",
+     "text": "Surveys",
+     "level": 2
+    },
+    {
+     "id": "timing-matters",
+     "text": "Timing Matters",
+     "level": 3
+    },
+    {
+     "id": "minute-cards",
+     "text": "Minute Cards",
+     "level": 2
+    },
+    {
+     "id": "one-up-one-down",
+     "text": "One-Up, One-Down",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "teaching_training-05",
+   "title": "Teaching is a Skill",
+   "words": 2074,
+   "minutes": 11,
+   "source": "ci-instructor",
+   "url": "https://github.com/carpentries/instructor-training/blob/2c5559f28c613a317843175c9c285028fa2169ac/episodes/11-practice-teaching.md",
+   "toc": [
+    {
+     "id": "lesson-study-applying-a-growth-mindset-to-teaching",
+     "text": "Lesson Study: Applying a Growth Mindset to Teaching",
+     "level": 2
+    },
+    {
+     "id": "feedback-is-hard",
+     "text": "Feedback Is Hard",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "teaching_training-06",
+   "title": "Live Coding is a Skill",
+   "words": 1585,
+   "minutes": 8,
+   "source": "ci-instructor",
+   "url": "https://github.com/carpentries/instructor-training/blob/2c5559f28c613a317843175c9c285028fa2169ac/episodes/17-live.md",
+   "toc": [
+    {
+     "id": "why-participatory-live-coding",
+     "text": "Why Participatory Live Coding?",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "top-ten-tips-for-participatory-live-coding-in-a-workshop",
+     "text": "Top Ten Tips for Participatory Live Coding in a Workshop",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "teaching_training-07",
+   "title": "Motivation and Demotivation",
+   "words": 2778,
+   "minutes": 14,
+   "source": "ci-instructor",
+   "url": "https://github.com/carpentries/instructor-training/blob/2c5559f28c613a317843175c9c285028fa2169ac/episodes/08-motivation.md",
+   "toc": [
+    {
+     "id": "motivation-matters",
+     "text": "Motivation Matters",
+     "level": 2
+    },
+    {
+     "id": "how-can-content-influence-motivation",
+     "text": "How Can Content Influence Motivation?",
+     "level": 2
+    },
+    {
+     "id": "how-can-you-affect-motivation",
+     "text": "How Can You Affect Motivation?",
+     "level": 2
+    },
+    {
+     "id": "invite-participation",
+     "text": "Invite Participation",
+     "level": 3
+    },
+    {
+     "id": "encourage-a-growth-mindset",
+     "text": "Encourage a Growth Mindset",
+     "level": 3
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "first-do-no-harm",
+     "text": "First, Do No Harm!",
+     "level": 3
+    },
+    {
+     "id": "not-just-learners",
+     "text": "Not Just Learners",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "teaching_training-08",
+   "title": "Equity, Inclusion, and Accessibility",
+   "words": 2610,
+   "minutes": 14,
+   "source": "ci-instructor",
+   "url": "https://github.com/carpentries/instructor-training/blob/2c5559f28c613a317843175c9c285028fa2169ac/episodes/09-eia.md",
+   "toc": [
+    {
+     "id": "a-positive-environment-for-all",
+     "text": "A Positive Environment for All",
+     "level": 2
+    },
+    {
+     "id": "definitions",
+     "text": "Definitions",
+     "level": 3
+    },
+    {
+     "id": "the-carpentries-core-values",
+     "text": "The Carpentries Core Values",
+     "level": 3
+    },
+    {
+     "id": "accessibility",
+     "text": "Accessibility",
+     "level": 2
+    },
+    {
+     "id": "from-accessibility-support-to-universal-design",
+     "text": "From Accessibility Support to Universal Design",
+     "level": 3
+    },
+    {
+     "id": "universal-design-in-learning-udl",
+     "text": "Universal Design in Learning (UDL)",
+     "level": 3
+    },
+    {
+     "id": "systemic-exclusion",
+     "text": "Systemic Exclusion",
+     "level": 2
+    },
+    {
+     "id": "stereotypes",
+     "text": "Stereotypes",
+     "level": 3
+    },
+    {
+     "id": "what-are-stereotypes",
+     "text": "What are stereotypes?",
+     "level": 3
+    },
+    {
+     "id": "what-can-we-do-about-our-own-stereotypes",
+     "text": "What can we do about our own stereotypes?",
+     "level": 2
+    },
+    {
+     "id": "equity-versus-equality",
+     "text": "Equity versus Equality",
+     "level": 2
+    },
+    {
+     "id": "inclusive-practices-in-a-carpentries-workshop",
+     "text": "Inclusive Practices in a Carpentries Workshop",
+     "level": 2
+    },
+    {
+     "id": "setting-expectations-with-the-code-of-conduct",
+     "text": "Setting Expectations with the Code of Conduct",
+     "level": 3
+    },
+    {
+     "id": "listening-with-assessment-and-feedback",
+     "text": "Listening with Assessment and Feedback",
+     "level": 3
+    },
+    {
+     "id": "examining-your-actions",
+     "text": "Examining your Actions",
+     "level": 3
+    },
+    {
+     "id": "looking-for-more-want-to-contribute",
+     "text": "Looking for More? Want to Contribute?",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "teaching_training-09",
+   "title": "Working With Your Team",
+   "words": 3452,
+   "minutes": 18,
+   "source": "ci-instructor",
+   "url": "https://github.com/carpentries/instructor-training/blob/2c5559f28c613a317843175c9c285028fa2169ac/episodes/21-management.md",
+   "toc": [
+    {
+     "id": "never-teach-alone",
+     "text": "Never Teach Alone",
+     "level": 2
+    },
+    {
+     "id": "the-instructional-team",
+     "text": "The Instructional Team",
+     "level": 2
+    },
+    {
+     "id": "hosting",
+     "text": "Hosting",
+     "level": 3
+    },
+    {
+     "id": "instructors-co-teaching-models",
+     "text": "Instructors: Co-teaching Models",
+     "level": 3
+    },
+    {
+     "id": "helpers",
+     "text": "Helpers",
+     "level": 3
+    },
+    {
+     "id": "carpentries-classroom-practices",
+     "text": "Carpentries Classroom Practices",
+     "level": 3
+    },
+    {
+     "id": "sticky-situations-1-learners-at-many-levels",
+     "text": "Sticky Situations 1: Learners at Many Levels",
+     "level": 2
+    },
+    {
+     "id": "sticky-situations-2-code-of-conduct-violations",
+     "text": "Sticky Situations 2: Code of Conduct Violations",
+     "level": 2
+    },
+    {
+     "id": "planning-together",
+     "text": "Planning Together",
+     "level": 2
+    },
+    {
+     "id": "co-instruction-suggestions",
+     "text": "Co-Instruction Suggestions",
+     "level": 2
+    },
+    {
+     "id": "setting-up-a-workshop-website",
+     "text": "Setting up a Workshop Website",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "teaching_training-10",
+   "title": "Preparing to Teach",
+   "words": 2395,
+   "minutes": 12,
+   "source": "ci-instructor",
+   "url": "https://github.com/carpentries/instructor-training/blob/2c5559f28c613a317843175c9c285028fa2169ac/episodes/18-preparation.md",
+   "toc": [
+    {
+     "id": "building-teaching-skill",
+     "text": "Building Teaching Skill",
+     "level": 2
+    },
+    {
+     "id": "anticipate-your-audience",
+     "text": "Anticipate Your Audience",
+     "level": 2
+    },
+    {
+     "id": "remember-your-pre-workshop-surveys",
+     "text": "Remember Your Pre-Workshop Surveys",
+     "level": 3
+    },
+    {
+     "id": "examine-learning-objectives",
+     "text": "Examine Learning Objectives",
+     "level": 2
+    },
+    {
+     "id": "beware-the-urge-to-complicate",
+     "text": "Beware the Urge to Complicate",
+     "level": 3
+    },
+    {
+     "id": "prepare-to-use-formative-assessments",
+     "text": "Prepare to Use Formative Assessments",
+     "level": 2
+    },
+    {
+     "id": "how-frequent",
+     "text": "How Frequent?",
+     "level": 3
+    },
+    {
+     "id": "prepare-to-cut",
+     "text": "Prepare to Cut",
+     "level": 2
+    },
+    {
+     "id": "review-the-instructor-notes",
+     "text": "Review the Instructor Notes",
+     "level": 2
+    },
+    {
+     "id": "review-prior-feedback",
+     "text": "Review Prior Feedback",
+     "level": 2
+    },
+    {
+     "id": "connect-with-your-team",
+     "text": "Connect With Your Team",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "teaching_training-11",
+   "title": "More Practice Live Coding",
+   "words": 219,
+   "minutes": 3,
+   "source": "ci-instructor",
+   "url": "https://github.com/carpentries/instructor-training/blob/2c5559f28c613a317843175c9c285028fa2169ac/episodes/20-performance.md",
+   "toc": []
+  },
+  {
+   "id": "teaching_training-12",
+   "title": "Putting It Together",
+   "words": 746,
+   "minutes": 4,
+   "source": "ci-instructor",
+   "url": "https://github.com/carpentries/instructor-training/blob/2c5559f28c613a317843175c9c285028fa2169ac/episodes/24-practices.md",
+   "toc": [
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [],
+  "pass_mark": 0,
+  "missing": true
+ },
+ "minutes": 136,
+ "sources": [
+  {
+   "id": "ci-instructor",
+   "name": "The Carpentries · Instructor Training",
+   "url": "https://carpentries.github.io/instructor-training/",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "© The Carpentries, CC BY 4.0",
+   "noncommercial": false
+  }
+ ]
+}

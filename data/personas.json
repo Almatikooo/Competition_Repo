@@ -1,0 +1,60 @@
+{
+  "_note": "All people below are SYNTHETIC demo personas. No real personal data or real CVs are used. Skill levels: 1 = basic, 2 = working, 3 = advanced.",
+  "personas": [
+    {
+      "id": "aisyah", "name": "Aisyah", "age": 34, "location": "Shah Alam, Selangor",
+      "headline": {"en": "Accounts clerk — her company is rolling out AI invoice processing", "ms": "Kerani akaun — syarikatnya sedang memperkenalkan pemprosesan invois AI", "zh": "会计文员 — 公司正在引入 AI 发票处理"},
+      "current_role": "accounting_clerk", "years_experience": 9, "hours_per_week": 6, "language": "ms",
+      "skills": {"bookkeeping": 3, "excel": 2, "data_entry": 3, "communication": 2, "digital_literacy": 2, "analytical_thinking": 2, "finance_domain": 1, "customer_service": 1},
+      "interests": ["finance", "data", "process improvement"], "sdg_priorities": [5, 8],
+      "cv_text": "Aisyah binti Rahman (synthetic profile)\nAccounts Executive, ABC Trading Sdn Bhd (fictional), 2017-present\n- Handle accounts payable and accounts receivable, monthly bank reconciliation and payroll for 120 staff using AutoCount and Excel (pivot table, VLOOKUP).\n- Key in supplier invoices and maintain the general ledger.\n- Prepare monthly reporting for the finance manager; answer supplier and customer enquiries.\nSkills: bookkeeping, Excel, data entry, communication in Bahasa Malaysia and English, problem solving.\nCourses: Microsoft Office; currently exploring ChatGPT for drafting emails."
+    },
+    {
+      "id": "weijie", "name": "Wei Jie", "age": 23, "location": "George Town, Penang",
+      "headline": {"en": "Fresh electrical-engineering graduate deciding where to start", "ms": "Graduan baharu kejuruteraan elektrik sedang memilih kerjaya", "zh": "电气工程应届毕业生，正在选择职业方向"},
+      "current_role": null, "years_experience": 0, "hours_per_week": 12, "language": "zh",
+      "skills": {"electrical": 2, "python": 1, "iot_embedded": 1, "analytical_thinking": 2, "excel": 1, "communication": 1, "statistics": 1},
+      "interests": ["renewable energy", "hardware", "climate"], "sdg_priorities": [7, 13],
+      "cv_text": "Tan Wei Jie (synthetic profile)\nBachelor of Electrical & Electronic Engineering, 2026\nFinal-year project: Arduino-based sensor that logs household energy use; analysed the data with Python.\nInternship: electrical maintenance assistant at a fictional factory (wiring checks, circuit testing).\nSkills: electrical circuits, electronics, basic Python, Excel, problem solving.\nLanguages: English, Mandarin, Bahasa Malaysia."
+    },
+    {
+      "id": "kavitha", "name": "Kavitha", "age": 41, "location": "Kuala Lumpur",
+      "headline": {"en": "Customer-service team lead — her contact centre is adding AI chatbots", "ms": "Ketua pasukan khidmat pelanggan — pusat panggilannya menambah chatbot AI", "zh": "客服团队主管 — 呼叫中心正在引入 AI 聊天机器人"},
+      "current_role": "customer_service_rep", "years_experience": 15, "hours_per_week": 5, "language": "en",
+      "skills": {"customer_service": 3, "communication": 3, "leadership": 2, "excel": 1, "digital_literacy": 2, "teaching_training": 1, "project_mgmt": 1, "analytical_thinking": 1},
+      "interests": ["people", "training", "technology"], "sdg_priorities": [4, 8, 10],
+      "cv_text": "Kavitha Subramaniam (synthetic profile)\nTeam Lead, Customer Service, fictional shared-services centre, 2015-present\n- Supervisor for a team of 12 agents in a call centre; complaint handling and escalations using Zendesk CRM.\n- Coaching and onboarding new agents; run weekly training sessions.\n- Track team KPIs in Excel and present results to management.\nSkills: customer service, communication, leadership, mentoring, Microsoft Office."
+    },
+    {
+      "id": "hafiz", "name": "Hafiz", "age": 29, "location": "Johor Bahru, Johor",
+      "headline": {"en": "Graphic designer watching generative AI take over routine design work", "ms": "Pereka grafik melihat AI generatif mengambil alih kerja reka bentuk rutin", "zh": "平面设计师，眼看生成式 AI 接手常规设计工作"},
+      "current_role": "graphic_designer", "years_experience": 6, "hours_per_week": 8, "language": "ms",
+      "skills": {"graphic_design": 3, "creative_thinking": 3, "communication": 2, "digital_marketing": 1, "prompt_eng": 1, "ux_design": 1, "digital_literacy": 2},
+      "interests": ["design", "technology", "business"], "sdg_priorities": [9, 11],
+      "cv_text": "Muhammad Hafiz (synthetic profile)\nGraphic Designer, fictional creative agency, 2020-present\n- Branding, social media visuals and print using Adobe Photoshop, Illustrator and Canva.\n- Recently used generative AI tools (Midjourney-style) for mood boards; built two Figma wireframes for a client app.\nSkills: graphic design, creativity, branding, social media marketing basics."
+    },
+    {
+      "id": "nurul", "name": "Nurul", "age": 27, "location": "Kuantan, Pahang",
+      "headline": {"en": "Agricultural extension officer curious about agritech", "ms": "Pegawai pengembangan pertanian berminat dengan agriteknologi", "zh": "农业推广员，对农业科技感兴趣"},
+      "current_role": null, "years_experience": 4, "hours_per_week": 7, "language": "ms",
+      "skills": {"precision_agri": 1, "gis": 1, "excel": 2, "data_analysis": 1, "communication": 2, "teaching_training": 2},
+      "interests": ["agriculture", "climate", "data"], "sdg_priorities": [2, 13, 15],
+      "cv_text": "Nurul Ain (synthetic profile)\nAgricultural Extension Officer, fictional state agency, 2022-present\n- Advise smallholder farmers on fertigation and crop planning; run field training sessions.\n- Record farm visit data in Excel; produced simple maps with QGIS.\nSkills: agriculture, training, Excel, communication."
+    }
+  ],
+  "team": {
+    "_note": "Synthetic team for the HR / L&D view.",
+    "name": "Finance & Customer Operations (synthetic company)",
+    "members": [
+      {"id": "e1", "alias": "Employee A", "current_role": "accounting_clerk", "skills": {"bookkeeping": 3, "excel": 2, "data_entry": 2, "finance_domain": 1}},
+      {"id": "e2", "alias": "Employee B", "current_role": "accounting_clerk", "skills": {"bookkeeping": 2, "excel": 3, "data_analysis": 1, "communication": 2}},
+      {"id": "e3", "alias": "Employee C", "current_role": "data_entry_clerk", "skills": {"data_entry": 3, "excel": 1, "digital_literacy": 2}},
+      {"id": "e4", "alias": "Employee D", "current_role": "customer_service_rep", "skills": {"customer_service": 3, "communication": 2, "digital_literacy": 1}},
+      {"id": "e5", "alias": "Employee E", "current_role": "customer_service_rep", "skills": {"customer_service": 2, "communication": 3, "teaching_training": 1, "leadership": 1}},
+      {"id": "e6", "alias": "Employee F", "current_role": "admin_assistant", "skills": {"digital_literacy": 3, "communication": 2, "excel": 2, "project_mgmt": 1}},
+      {"id": "e7", "alias": "Employee G", "current_role": "accounting_clerk", "skills": {"bookkeeping": 2, "excel": 2, "prompt_eng": 1, "process_automation": 1}},
+      {"id": "e8", "alias": "Employee H", "current_role": "data_entry_clerk", "skills": {"data_entry": 2, "excel": 2, "data_analysis": 1}}
+    ],
+    "target_roles": ["automation_specialist", "data_analyst", "financial_analyst", "customer_success_manager", "esg_analyst"]
+  }
+}

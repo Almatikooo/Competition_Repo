@@ -1,0 +1,290 @@
+<div class="box box-objectives"><p class="box-title">Learning Objectives</p>
+
+<ol>
+<li>Understand the fundamentals of loans.</li>
+<li>Use the PMT function to calculate monthly car loan payments.</li>
+<li>Use the PMT function to calculate monthly mortgage payments on a house using a down payment.</li>
+<li>Learn how to summarize data in a workbook by using worksheet links to create a summary worksheet.</li>
+</ol>
+</div>
+<p>In this section, we continue to develop the <strong>Personal Budget</strong> workbook. Notable items that are missing from the&nbsp;<strong>Budget Detail</strong> worksheet are the payments you might make for a car or a home. This section demonstrates Excel functions used to calculate loan payments for a car and to calculate mortgage payments for a house.</p>
+<h2 id="the-fundamentals-of-loans-and-leases">The Fundamentals of Loans and Leases</h2>
+<p>One of the functions we will add to the Personal Budget workbook is the PMT function. This function calculates the payments required for loan repayment. However, before demonstrating this function, it is important to cover a few fundamental concepts on loans.</p>
+<p>A&nbsp;loan&nbsp;is a contractual agreement in which money is borrowed from a lender and paid back over a specific period of time. The amount of money that is borrowed from the lender is called the&nbsp;<strong>principal&nbsp;</strong>of the loan. The borrower is usually required to pay the principal of the loan plus interest. When you borrow money to buy a house, the loan is referred to as a&nbsp;mortgage. This is because the house being purchased also serves as collateral to ensure payment. In other words, the bank can take possession of your house if you fail to make loan payments. As shown in <strong>Table 2.5</strong>, there are several key terms related to loans.</p>
+<p>Table 2.5 Key Terms for Loans</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">Term</th>
+<th scope="col">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Collateral</strong></td>
+<td>Any item of value that is used to secure a loan to ensure payments to the lender</td>
+</tr>
+<tr>
+<td><strong>Down Payment</strong></td>
+<td>The amount of cash paid toward the purchase of a house. If you are paying 20% down, you are paying 20% of the cost of the house in cash and are borrowing the rest from a lender.</td>
+</tr>
+<tr>
+<td><strong>Interest Rate</strong></td>
+<td>The interest that is charged to the borrower as a cost for borrowing money</td>
+</tr>
+<tr>
+<td><strong>Mortgage</strong></td>
+<td>A loan where property is put up for collateral</td>
+</tr>
+<tr>
+<td><strong>Principal</strong></td>
+<td>The amount of money that has been borrowed</td>
+</tr>
+<tr>
+<td><strong>Residual Value</strong></td>
+<td>The estimated selling price of a vehicle at a future point in time</td>
+</tr>
+<tr>
+<td><strong>Length</strong></td>
+<td>The amount of time you have to repay a loan</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Figure 2.31 </strong>shows an example of an amortization&nbsp;table&nbsp;for a loan. A lender is required by law to provide borrowers with an amortization table when a loan contract is offered. The table in the figure shows how the payments of a loan would work if you borrowed $100,000 from a lender and agreed to pay it back over 10 years at an interest rate of 5%. You will notice that each time you make a payment, you are paying the bank an interest fee plus some of the loan principal. Each year the amount of interest paid to the bank decreases and the amount of money used to pay off the principal increases. This is because the bank is charging you interest on the amount of principal that has not been paid. As you pay off the principal, the interest rate is applied to a lower number, which reduces your interest charges. Finally, the figure shows that the sum of the values in the Interest Payment column is $29,505. This is how much it costs you to borrow this money over 10 years. Indeed, borrowing money is not free. It is important to note that to simplify this example, the payments were calculated on an annual basis. However, most loan payments are made on a monthly basis.</p>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/09/image29-1.jpg" target="_blank" rel="noopener noreferrer"><img alt="Amortization table for a $100,000 loan. For each year, Interest Payment plus Principal Payment is $12,950. At end of year 10, loan is paid in full." height="625" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/image29-1.jpg" width="644"></a><figcaption>Figure 2.31 Example of an Amortization Table</figcaption></figure>
+
+<h2 id="the-pmt-payment-function-for-loans">The PMT (Payment) Function for Loans</h2>
+<p><em>Data file: Continue with CH2 Personal Budget.</em></p>
+<p>If you own a home, your mortgage payments are a major component of your household budget. If you are planning to buy a home, having a clear understanding of your monthly payments is critical for maintaining strong financial health. In Excel, mortgage payments are conveniently calculated through the PMT (payment) function. This function is more complex than the statistical functions covered in Section 2.2 “Statistical Functions”. With statistical functions, you are required to add only a range of cells or selected cells within the parentheses of the function, also known as the argument. With the PMT function, you must accurately define a series of arguments in order for the function to produce a reliable output. <strong>Table 2.6</strong> lists the arguments for the PMT function. It is helpful to review the key loan terms in <strong>Table 2.5</strong> before reviewing the PMT function arguments.</p>
+<p>Table 2.6 Arguments for the PMT Function</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">Argument</th>
+<th scope="col">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Rate</strong></td>
+<td>This is the interest rate the lender is charging the borrower. The interest rate is usually quoted in annual terms, so you have to divide this rate by 12 if you are calculating monthly payments.</td>
+</tr>
+<tr>
+<td><strong>Nper</strong></td>
+<td>The argument letters stand for&nbsp;number of periods. This is the term of the loan, which is the amount of time you have to repay the bank. This is usually quoted in years, so you have to multiply the years by 12 if you are calculating monthly payments.</td>
+</tr>
+<tr>
+<td><strong>Pv</strong></td>
+<td>The argument letters stand for present value. This is the principal of the loan or the amount of money that is borrowed.</td>
+</tr>
+<tr>
+<td><strong>[Fv]</strong></td>
+<td>The argument letters stand for&nbsp;future value. The brackets around the argument indicate that it is not always necessary to define it. It is used if there is a lump-sum payment that will be made at the end of the loan terms. This is also used for the residual value of a lease. If it is not defined, Excel will assume that it is zero.</td>
+</tr>
+<tr>
+<td><strong>[Type]</strong></td>
+<td>This argument can be defined with either a 1 or a 0. The number 1 is used if payments are made at the beginning of each period. A 0 is used if payments are made at the end of each period. The argument is in brackets because it does not have to be defined if payments are made at the end of each period. Excel assumes that this argument is 0 if it is not defined.</td>
+</tr>
+</tbody>
+</table></div>
+<p>By default, the result of the PMT function in Excel is shown as a negative number. This is because it represents an outgoing payment. When making a mortgage or car payment, you are paying money out of your pocket or bank account. Depending on the type of work that you do, your employer may want you to leave your payments negative or they may ask you to format them as positive numbers. In the following assignments, the payments calculated using the PMT function will be made positive to make them easier to work with. To do this, you will place a negative sign between the equal sign and the function name PMT.</p>
+<p>We will first use the PMT function in the Personal Budget workbook to calculate the monthly loan payments for a car. These calculations will be made in the <strong>Loan Payments </strong>worksheet and then displayed in the&nbsp;<strong>Budget Summary</strong> worksheet through a cell reference link. So far we have demonstrated several methods for adding functions to a worksheet. When working with more complex functions such as the PMT, it is easiest to use the Function Dialog box.</p>
+<p>Remember to use cell references for the arguments of the PMT function whenever possible.&nbsp; This will allow you the flexibility to change aspects of the loan, such as a lower interest rate or more expensive car, and have the payment automatically recalculate.</p>
+<p>Using cell references for the arguments provides greater flexibility in trying different scenarios.</p>
+<p>The following steps use the Insert Function command covered in Section 2.2 to add the PMT function:</p>
+<ol>
+<li>Switch to the <strong>Loan Payments</strong> worksheet.</li>
+<li>Click cell B5.</li>
+<li>Click the Formulas tab on the Ribbon.</li>
+<li>Click the Insert Function button to bring up the Insert Function dialog box.</li>
+<li>Type loan<strong> payment </strong>in the search box and click Go.<br>
+<img alt="Excel for Mac icon" height="19" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="17">&nbsp;the&nbsp;Excel for Mac search box does is not the same as the “Search for a function: input box”. Mac Users must type: <strong>PMT</strong> in the search box instead. Then press Enter.</li>
+<li>Double-click the PMT option in the “Select a function:” box. This will open the Function Arguments dialog box.</li>
+<li>Drag the Function Arguments dialog box out of the way so that you can see the worksheet cells you want to use in the function.&nbsp;Refer to&nbsp; <strong>Figure 2.31</strong> for the completed Function Arguments dialog box as you complete the next steps.</li>
+<li>Click in the Rate argument box in the dialog box, then click cell B3 in the worksheet.&nbsp; This will add B3 (the annual interest rate) to the Rate argument.</li>
+<li>Type a forward slash <strong>/</strong>&nbsp;for division.</li>
+<li>Type the number&nbsp;<strong>12</strong>. <em>Since our goal is to calculate the monthly payments for the loan, we need to divide the rate, which is stated in annual terms, by 12. This converts the annual rate to a monthly rate.</em></li>
+<li>Click the Nper argument box (or use the Tab key) and then click cell B4 in the worksheet. This will add B4 (the number of years to repay the loan) to the Nper argument.</li>
+<li>Type an <strong>asterisk</strong>&nbsp;* for multiplication.</li>
+<li>Type the number&nbsp;<strong>12</strong>. <em>Since our goal is to calculate the monthly payments for the loan, we need to multiply the terms of the loan by 12. This converts the terms of the loan from years to months.</em></li>
+<li>Click the Pv argument box (or use the Tab key) and then click cell B2 in the worksheet. This will add B2 (the amount of the loan) to the Pv argument.</li>
+<li>You will now see the Rate, Nper, and Pv arguments defined for the function. (<strong>see Figure 2.31</strong>)</li>
+<li>Click the OK button at the bottom of the Function Arguments dialog box. The function will now be placed into the worksheet. Since we are not paying any lump sums of money at the end of the loan, there is no need to define the Fv argument. Also, we will assume that the monthly payments will be made at the end of each month. Therefore, there is no need to define the Type argument.</li>
+<li>Notice that the result of the formula in cell B5 is showing as a negative number (see <strong>Figure 2.32). </strong>To fix this, double-click on cell B5 and type a negative sign between the equal sign and the letters PMT in the formula (see <strong>Figure 2.33</strong>).</li>
+<li>The finished formula in cell B5 should be<strong> =-PMT(B3/12,B4*12,B2)</strong></li>
+</ol>
+
+<p><strong>Figure 2.31</strong> shows the completed Function Arguments dialog box for the PMT function. Notice that the dialog box shows the values for the Rate and Nper arguments. The Rate is divided by 12 to convert the annual interest rate to a monthly interest rate. The Nper argument is multiplied by 12 to convert the terms of the loan from years to months. Finally, the dialog box provides you with a definition for each argument. The definition appears when you click in the input box for the argument.</p>
+<figure><img alt="Function Arguments" height="338" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.31.png" width="667"><figcaption>Figure 2.31 Function Arguments Dialog Box for the PMT function</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Note</p>
+<details>
+<summary>Figure 2.31 Image Description</summary>
+<p>Function Arguments dialog box for PMT function shows values for Rate, Nper, and Pv, function output, and definition of selected argument. Help on function link at bottom.</p>
+</details>
+</div>
+
+<figure><img alt="" height="227" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.32.png" width="391"><figcaption>Figure 2.32 Result of the PMT Function as a Negative Number</figcaption></figure>
+
+<figure><img alt="" height="247" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.33.png" width="499"><figcaption>Figure 2.33 The PMT Function Modified to Result in a Positive Number</figcaption></figure>
+<div class="box box-challenge"><p class="box-title">Keyboard Shortcuts</p>
+
+<p><strong>Insert Function</strong></p>
+<ul>
+<li>Hold the SHIFT key while pressing the F3 key.</li>
+</ul>
+<p><strong>Function Arguments Dialog Box</strong></p>
+<ul>
+<li>After the equal sign <strong>=</strong> and function name are typed into cell a location, hold down the CTRL key and press the letter&nbsp;A&nbsp;on your keyboard.</li>
+</ul>
+</div>
+<div></div>
+<div class="box box-callout"><p class="box-title">Integrity Check</p>
+
+<p><strong>Comparable Arguments for PMT Function</strong></p>
+<p>When using functions such as PMT, make sure the arguments are defined in comparable terms. For example, if you are calculating the monthly payments of a loan, make sure both the Rate and Nper argument are expressed in terms of months. The function will produce an erroneous result if one argument is expressed in years while the other is expressed in months.</p>
+</div>
+
+<h2 id="the-pmt-function-when-there-is-a-down-payment">The PMT Function when there is a down payment</h2>
+<p>In addition to calculating the loan payments for a car, the PMT function will be used in the Personal Budget workbook to calculate the mortgage payments for a home. The details for the mortgage payments are also found in the <strong>Loan Payments</strong> worksheet. Unlike the car loan, there is a down payment with the mortgage.&nbsp; A down payment on a mortgage is usually a percentage of the price of the home, which is paid up front and reduces the amount of the loan itself.&nbsp; The down payment amount and amount of the loan will both need to be calculated using formulas.&nbsp; While we did not use a down payment in the car loan example, it is fairly common to have a down payment when purchasing a car too.</p>
+<p>Write the formulas to calculate the Down Payment Amount and new Loan Amount by following these steps:</p>
+<ol>
+<li>Click cell B11.</li>
+<li>Write the formula <strong>=B9*B10</strong>.&nbsp; <em>This will calculate 20% of the price of the house.</em></li>
+<li>Click cell B12. Write the formula&nbsp;<strong>=B9-B11</strong>. <em>This will subtract the down payment amount from the price of the house&nbsp;</em>(see&nbsp;<strong>Figure 2.34</strong> for the Show Formulas View and&nbsp;<strong>Figure 2.35</strong> for the formula results).</li>
+</ol>
+<figure><img alt="Show Formulas View of cells A8:B15 with cells B11 and B12 containing the formulas to calculate the Down Payment Amount and revised Loan Amount" height="225" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.34.png" width="500"><figcaption>Figure 2.34 Show Formulas View</figcaption></figure>
+<figure><img alt="Cells B11 and B12 contain the results $33,000 and $132,000 respectively" height="293" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.35.png" width="500"><figcaption>Figure 2.35 Results of the Down Payment Amount and Revised Loan Amount Formulas</figcaption></figure>
+<p>Now that we have the revised Loan Amount in cell B12, we can write the PMT function following the same process we did for the car loan.</p>
+<ol>
+<li>Click cell B15.</li>
+<li>Click the Formulas tab on the Ribbon.</li>
+<li>Click the Insert Function button to bring up the Insert Function dialog box.</li>
+<li>Type <strong>PMT&nbsp;</strong>in the search box and click Go.</li>
+<li>Double-click the PMT option in the “Select a function:” box. This will open the Function Arguments dialog box.</li>
+<li>Enter the following arguments (see <strong>Figure 2.36</strong>)
+<ul>
+<li>Rate: <strong>B13/12</strong>&nbsp; –&gt; divide by 12 to convert the annual rate to a monthly one</li>
+<li>Nper: <strong>B14*12</strong>&nbsp; –&gt; multiply by 12 to convert the number of years into number of months</li>
+<li>Pv: <strong>B12</strong> –&gt; this is the cell with the actual loan amount, not the price of the house</li>
+</ul>
+</li>
+<li>Click OK in the Function Arguments dialog box.</li>
+<li>Modify the formula in cell B15 to display the result as a positive number.&nbsp;<em>Remember to type a negative sign between the equal sign and the letters PMT.</em></li>
+<li>Cell B15 should contain the function:&nbsp;<strong>=-PMT(B13/12,B14*12,B12)&nbsp;</strong>and the result should be $708.60 (see <strong>Figure 2.37</strong>).</li>
+</ol>
+<p><strong>Figure 2.36</strong> shows how the the completed Function Arguments dialog box for the PMT function for the mortgage should appear before pressing the OK button.</p>
+<figure><img alt="Function Arguments Dialog Box shows the Rate of B13/12, Nper of B14*12, and Pv of B12. Formula Result =-708.60" height="251" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.36.png" width="500"><figcaption>Figure 2.36 Function Arguments Dialog Box for the Mortgage Payment PMT Function</figcaption></figure>
+
+<p><strong>Figure 2.37</strong> shows the result of the PMT function for the mortgage. The monthly payments for this mortgage are $708.60. This monthly payment will be displayed in the <strong>Budget Summary</strong> worksheet.</p>
+<figure><img alt="Formula bar displays &quot;=-PMT(B13/12,B14*12,B12) for cell B15 and cell B15 displays the output of &quot;$708.60&quot;" height="360" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.37-1.png" width="500"><figcaption>Figure 2.37 Mortgage Monthly Payment Calculation</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Skill Refresher</p>
+
+<p><strong>PMT Function</strong></p>
+<ol>
+<li>Type an equal sign <strong>=</strong>.</li>
+<li>Type the letters&nbsp;<strong>PMT&nbsp;</strong>followed by an open parenthesis, or double click the function name from the function list.</li>
+<li>Define the Rate argument with a cell location that contains the rate being charged by the lender for the loan or lease. If the interest rate given is an annual rate, divide it by 12 to convert it to a monthly rate.</li>
+<li>Define the Nper argument with a cell location that contains the amount of time to repay the loan or lease. If the amount of time is in years, multiply it by 12 to convert it to number of months.</li>
+<li>Define the Pv argument with a cell location that contains the principal of the loan or the price of the item being leased.</li>
+<li>Type a closing parenthesis <strong>)</strong>.</li>
+<li>Press the ENTER key.</li>
+<li>If the result needs to be shown as a positive number, add a negative sign between the equal sign and the letters PMT.</li>
+</ol>
+</div>
+<h2 id="linking-worksheets-creating-a-summary-worksheet">Linking Worksheets (Creating a Summary Worksheet)</h2>
+<p>So far we have used cell references in formulas and functions, which allow Excel to produce new outputs when the values in the cell references are changed. Cell references can also be used to display values or the outputs of formulas and functions in cell locations on other worksheets. This is how we will complete the Budget Summary worksheet using values from both the Budget Detail and Loan Payments worksheets.</p>
+<p>Outputs from the formulas and functions that were entered into the&nbsp;<strong>Budget Detail </strong>will be displayed on the <strong>Budget Summary </strong>worksheet through the use of cell references.</p>
+<ol>
+<li>Switch to the Budget Summary worksheet and select cell B4.&nbsp;<em>This cell needs to reference the Total Annual Spend (D12) from the Budget Detail worksheet.</em></li>
+<li>Type an =</li>
+<li>Click the&nbsp;<strong>Budget Detail</strong> worksheet tab.</li>
+<li>Click cell D12.</li>
+<li>Press the ENTER key on your keyboard.</li>
+<li>The formula bar will display the formula <strong>=’Budget Detail’!D12&nbsp;</strong>and the cell will display $17,124. (<strong>see Figure 2.38)</strong></li>
+</ol>
+
+<p><strong>Figure 2.38 </strong>shows how the cell reference appears in the&nbsp;<strong>Budget Summary</strong> worksheet. Notice that the cell reference D12 is preceded by the&nbsp;<strong>Budget Detail</strong> worksheet name enclosed in apostrophes followed by an exclamation point (‘Budget Detail’!) This indicates that the value displayed in the cell is referencing a cell location in the&nbsp;<strong>Budget Detail</strong>&nbsp;worksheet.</p>
+<figure><img alt="image" height="464" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.38.png" width="585"><figcaption>Figure 2.38 Cell Reference Showing the Total Annual Spend from the Budget Detail Worksheet</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Note</p>
+<details>
+<summary>Figure 2.38 Image Description</summary>
+<p>Function =’BudgetDetail’!D12 in cell C3 indicates cell reference from Budget Detail worksheet. Value $17,950 displayed in C3 is Total Annual Spend from D12 in Budget Detail worksheet.</p>
+</details>
+</div>
+<p>We will use a similar process to enter in the annual car payments and mortgage payments from the Loan Payments worksheet.&nbsp; The payments on the Loan Payments worksheet are monthly payments though, so we will need to multiply each one by 12 to get the <strong>annual</strong> amount to display in the Budget Summary worksheet.</p>
+<ol>
+<li>Click on cell B5. <em>This cell needs to contain a formula that references the monthly car payment cell (B5) on the Loan Payments worksheet and multiplies by 12.</em></li>
+<li>Type an =</li>
+<li>Click the <strong>Loan Payments</strong>&nbsp;worksheet tab.</li>
+<li>Click cell B5 on the Loan Payments worksheet.</li>
+<li>The formula bar will display the formula <strong>=’Loan Payments’!B5&nbsp;</strong></li>
+<li>Type an asterisk <strong>*</strong>&nbsp;for multiplication.</li>
+<li>Type the number&nbsp;<strong>12</strong>. The formula in the formula bar should read: <strong>=’Loan Payments’!B5*12</strong></li>
+<li>Press the ENTER key on your keyboard.</li>
+<li>Click on cell B6. <em>This cell needs to contain a formula that references the monthly mortgage payment cell (B15) on the Loan Payments worksheet and multiplies by 12.</em></li>
+<li>Type an =</li>
+<li>Click the <strong>Loan Payments</strong>&nbsp;worksheet tab.</li>
+<li>Click cell B15 on the Loan Payments worksheet.</li>
+<li>The formula bar will display the formula <strong>=’Loan Payments’!B15&nbsp;</strong></li>
+<li>Type an asterisk <strong>*</strong>&nbsp;for multiplication.</li>
+<li>Type the number&nbsp;<strong>12</strong>. The formula in the formula bar should read: <strong>=’Loan Payments’!B15*12</strong></li>
+<li>Press the ENTER key on your keyboard.</li>
+</ol>
+<p><strong>Figure 2.39 </strong>shows the results of creating formulas that reference cell locations in the <strong>Loan Payments&nbsp;</strong>worksheet.</p>
+<figure><img alt="formulas that reference cell locations" height="379" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.39.png" width="500"><figcaption>Figure 2.39 Results of the Formulas for the Annual Loan Payments</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Note</p>
+<details>
+<summary>Figure 2.39 Image Description</summary>
+<p>Formula “=’Loan Payments’!B15*12” indicates that B15 reference is from Loan Payments worksheet. Outputs for formulas that reference cells in Loan Payments ($3,646 and $8,503) appear in cells B5 and B6 respectively.</p>
+</details>
+</div>
+
+<p>We can now add other formulas and functions to the&nbsp;<strong>Budget Summary</strong> worksheet that can calculate the difference between the total spend dollars vs. the total net income in cell B3. The following steps explain how this is accomplished:</p>
+<ol>
+<li>Click cell B7 in the <strong>Budget Summary</strong>&nbsp;worksheet.</li>
+<li>Type an equal sign <strong>=</strong>.</li>
+<li>Type the function name&nbsp;<strong>SUM&nbsp;</strong>followed by an open parenthesis <strong>(</strong>.</li>
+<li>Highlight the range B4:B6.</li>
+<li>Type a closing parenthesis <strong>)</strong>&nbsp;and press the ENTER key on your keyboard or simply press the ENTER key to close the function. <em>The total for all annual expenses now appears on the worksheet.</em></li>
+<li>Click cell B8 on the <strong>Budget Summary</strong> worksheet. You will enter a formula to calculate Remaining (Savings) amount in this cell.</li>
+<li>Type an equal sign <strong>=</strong>.</li>
+<li>Click cell B3.</li>
+<li>Type a minus sign <strong>−</strong> and then click cell B7.</li>
+<li>Press the ENTER key on your keyboard. This formula produces a positive number, indicating our income is greater than our total expenses.</li>
+</ol>
+<p><strong>Figure 2.40</strong> shows the results of the formulas that were added to the&nbsp;<strong>Budget Summary</strong> worksheet. Overall, having your income exceed your total expenses is a good thing because it allows you to save money for future spending needs or unexpected events.</p>
+<figure><img alt="Cells B7 and B7 show $29,274 and $3,726 respectively to show that the amount Remaining is a positive value" height="359" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.40.png" width="500"><figcaption>Figure 2.40 Formulas Added to Calculate Amount Remaining for Savings</figcaption></figure>
+<p>We can now add a few formulas that calculate both the spending rate and the savings rate as a percentage of net income. These formulas require the use of absolute references, which we covered earlier in this chapter. The following steps explain how to add these formulas:</p>
+<ol>
+<li>Click cell C7 in the <strong>Budget Summary</strong>&nbsp;worksheet.</li>
+<li>Type an equal sign <strong>=</strong>.</li>
+<li>Click cell B7.</li>
+<li>Type a forward slash <strong>/</strong> for division and then click B3.</li>
+<li>Press the F4 key on your keyboard. This adds an absolute reference to cell B3.</li>
+<li>Press the ENTER key. The result of the formula shows that total expenses consume&nbsp; 89% of our net income.</li>
+<li>Click cell C7.</li>
+<li>Place the mouse pointer over the Auto Fill Handle.</li>
+<li>When the mouse pointer turns to a black plus sign, left click and drag down to cell C8. This copies and pastes the formula into cell C8.</li>
+<li>Compare your worksheets with Figures 2.41a-c below.&nbsp; Make any necessary changes before moving on to the next section.</li>
+<li>Save the <strong>CH2 Personal Budget</strong> file.</li>
+</ol>
+
+<p><strong>Figure 2.41a</strong> shows the completed <strong>Budget Summary</strong> worksheet</p>
+<figure><img alt="" height="349" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.41.png" width="500"><figcaption>Figure 2.41a Completed Budget Summary worksheet</figcaption></figure>
+<div></div>
+<p><strong>Figure 2.41b</strong> shows the completed <strong>Budget Detail </strong>worksheet</p>
+<figure><img alt="" height="395" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-2.41b.png" width="500"><figcaption>Figure 2.41b Completed Budget Detail worksheet</figcaption></figure>
+<p><strong>Figure 2.41c</strong> shows the completed <strong>Loan Payments </strong>worksheet</p>
+<figure><img alt="" height="565" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-2.41c.png" width="500"><figcaption>Figure 2.41c Completed Loan Payments worksheet</figcaption></figure>
+<div class="box box-keypoints"><p class="box-title">Key Takeaways</p>
+
+<ul>
+<li>The PMT function can be used to calculate the monthly mortgage payments for a house or the monthly lease payments for a car.</li>
+<li>When using the PMT function, each argument must be separated by a comma.</li>
+<li>To calculate the monthly payment for a loan using the PMT function, the Rate and Nper arguments must be defined in terms of months. The Rate should be divided by 12 to convert it from an annual rate to a monthly rate. The Nper should be multiplied by 12 to convert the term of the loan from years to months.</li>
+<li>The PMT function produces a negative output if the Pv argument is not preceded by a minus sign. For the purposes of this textbook, a minus sign will be entered before the PV argument in the PMT dialog box.</li>
+</ul>
+</div>
+<details class="attrib"><summary>Attribution</summary>
+<p>Adapted by Mary Schatz from <a href="https://saylordotorg.github.io/text_how-to-use-microsoft-excel-v1.1/index.html" target="_blank" rel="noopener noreferrer">How to Use Microsoft Excel: The Careers in Practice Series</a>,&nbsp;adapted by <a href="https://www.saylor.org" target="_blank" rel="noopener noreferrer">The Saylor Foundation</a> without attribution as requested by the work’s original creator or licensee,&nbsp;and licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 3.0</a>.</p>
+</details>

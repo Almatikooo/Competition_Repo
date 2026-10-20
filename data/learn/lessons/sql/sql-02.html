@@ -1,0 +1,595 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Write queries that display results in a particular order.</li>
+<li>Write queries that eliminate duplicate values from data.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>How can I sort a query's results?</li>
+<li>How can I remove duplicate values from a query's results?</li>
+</ul>
+</div>
+<p>In beginning our examination of the Antarctic data, we want to know:</p>
+<ul>
+<li>what kind of quantity measurements were taken at each site;</li>
+<li>which scientists took measurements on the expedition;</li>
+</ul>
+<p>To determine which measurements were taken at each site,
+we can examine the <code>Survey</code> table.
+Data is often redundant,
+so queries often return redundant information.
+For example,
+if we select the quantities that have been measured
+from the <code>Survey</code> table,
+we get this:</p>
+<pre><code class="language-sql">SELECT quant FROM Survey;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>quant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rad</td>
+</tr>
+<tr>
+<td>sal</td>
+</tr>
+<tr>
+<td>rad</td>
+</tr>
+<tr>
+<td>sal</td>
+</tr>
+<tr>
+<td>rad</td>
+</tr>
+<tr>
+<td>sal</td>
+</tr>
+<tr>
+<td>temp</td>
+</tr>
+<tr>
+<td>rad</td>
+</tr>
+<tr>
+<td>sal</td>
+</tr>
+<tr>
+<td>temp</td>
+</tr>
+<tr>
+<td>rad</td>
+</tr>
+<tr>
+<td>temp</td>
+</tr>
+<tr>
+<td>sal</td>
+</tr>
+<tr>
+<td>rad</td>
+</tr>
+<tr>
+<td>sal</td>
+</tr>
+<tr>
+<td>temp</td>
+</tr>
+<tr>
+<td>sal</td>
+</tr>
+<tr>
+<td>rad</td>
+</tr>
+<tr>
+<td>sal</td>
+</tr>
+<tr>
+<td>sal</td>
+</tr>
+<tr>
+<td>rad</td>
+</tr>
+</tbody>
+</table></div>
+<p>This result makes it difficult to see all of the different types of
+<code>quant</code> in the Survey table.  We can eliminate the redundant output to
+make the result more readable by adding the <code>DISTINCT</code> keyword to our
+query:</p>
+<pre><code class="language-sql">SELECT DISTINCT quant FROM Survey;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>quant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rad</td>
+</tr>
+<tr>
+<td>sal</td>
+</tr>
+<tr>
+<td>temp</td>
+</tr>
+</tbody>
+</table></div>
+<p>If we want to determine which visit (stored in the <code>taken</code> column)
+have which <code>quant</code> measurement,
+we can use the <code>DISTINCT</code> keyword on multiple columns.
+If we select more than one column,
+distinct <em>sets</em> of values are returned
+(in this case <em>pairs</em>, because we are selecting two columns):</p>
+<pre><code class="language-sql">SELECT DISTINCT taken, quant FROM Survey;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>taken</th>
+<th>quant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>619</td>
+<td>rad</td>
+</tr>
+<tr>
+<td>619</td>
+<td>sal</td>
+</tr>
+<tr>
+<td>622</td>
+<td>rad</td>
+</tr>
+<tr>
+<td>622</td>
+<td>sal</td>
+</tr>
+<tr>
+<td>734</td>
+<td>rad</td>
+</tr>
+<tr>
+<td>734</td>
+<td>sal</td>
+</tr>
+<tr>
+<td>734</td>
+<td>temp</td>
+</tr>
+<tr>
+<td>735</td>
+<td>rad</td>
+</tr>
+<tr>
+<td>735</td>
+<td>sal</td>
+</tr>
+<tr>
+<td>735</td>
+<td>temp</td>
+</tr>
+<tr>
+<td>751</td>
+<td>rad</td>
+</tr>
+<tr>
+<td>751</td>
+<td>temp</td>
+</tr>
+<tr>
+<td>751</td>
+<td>sal</td>
+</tr>
+<tr>
+<td>752</td>
+<td>rad</td>
+</tr>
+<tr>
+<td>752</td>
+<td>sal</td>
+</tr>
+<tr>
+<td>752</td>
+<td>temp</td>
+</tr>
+<tr>
+<td>837</td>
+<td>rad</td>
+</tr>
+<tr>
+<td>837</td>
+<td>sal</td>
+</tr>
+<tr>
+<td>844</td>
+<td>rad</td>
+</tr>
+</tbody>
+</table></div>
+<p>Notice in both cases that duplicates are removed
+even if the rows they come from didn't appear to be adjacent in the database table.</p>
+<p>Our next task is to identify the scientists on the expedition by looking at the <code>Person</code> table.
+As we mentioned earlier,
+database records are not stored in any particular order.
+This means that query results aren't necessarily sorted,
+and even if they are,
+we often want to sort them in a different way,
+e.g., by their identifier instead of by their personal name.
+We can do this in SQL by adding an <code>ORDER BY</code> clause to our query:</p>
+<pre><code class="language-sql">SELECT * FROM Person ORDER BY id;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>id</th>
+<th>personal</th>
+<th>family</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>danfort</td>
+<td>Frank</td>
+<td>Danforth</td>
+</tr>
+<tr>
+<td>dyer</td>
+<td>William</td>
+<td>Dyer</td>
+</tr>
+<tr>
+<td>lake</td>
+<td>Anderson</td>
+<td>Lake</td>
+</tr>
+<tr>
+<td>pb</td>
+<td>Frank</td>
+<td>Pabodie</td>
+</tr>
+<tr>
+<td>roe</td>
+<td>Valentina</td>
+<td>Roerich</td>
+</tr>
+</tbody>
+</table></div>
+<p>By default, when we use <code>ORDER BY</code>,
+results are sorted in ascending order of the column we specify
+(i.e.,
+from least to greatest).</p>
+<p>We can sort in the opposite order using <code>DESC</code> (for "descending"):</p>
+<div class="box box-callout">
+<p class="box-title">A note on ordering</p>
+
+<p>While it may look that the records are consistent every time we ask for them in this lesson, that is because no one has changed or modified any of the data so far. Remember to use <code>ORDER BY</code> if you want the rows returned to have any sort of consistent or predictable order.</p>
+</div>
+<pre><code class="language-sql">SELECT * FROM person ORDER BY id DESC;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>id</th>
+<th>personal</th>
+<th>family</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>roe</td>
+<td>Valentina</td>
+<td>Roerich</td>
+</tr>
+<tr>
+<td>pb</td>
+<td>Frank</td>
+<td>Pabodie</td>
+</tr>
+<tr>
+<td>lake</td>
+<td>Anderson</td>
+<td>Lake</td>
+</tr>
+<tr>
+<td>dyer</td>
+<td>William</td>
+<td>Dyer</td>
+</tr>
+<tr>
+<td>danfort</td>
+<td>Frank</td>
+<td>Danforth</td>
+</tr>
+</tbody>
+</table></div>
+<p>(And if we want to make it clear that we're sorting in ascending order,
+we can use <code>ASC</code> instead of <code>DESC</code>.)</p>
+<p>In order to look at which scientist measured quantities during each visit,
+we can look again at the <code>Survey</code> table.
+We can also sort on several fields at once.
+For example,
+this query sorts results first in ascending order by <code>taken</code>,
+and then in descending order by <code>person</code>
+within each group of equal <code>taken</code> values:</p>
+<pre><code class="language-sql">SELECT taken, person, quant FROM Survey ORDER BY taken ASC, person DESC;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>taken</th>
+<th>person</th>
+<th>quant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>619</td>
+<td>dyer</td>
+<td>rad</td>
+</tr>
+<tr>
+<td>619</td>
+<td>dyer</td>
+<td>sal</td>
+</tr>
+<tr>
+<td>622</td>
+<td>dyer</td>
+<td>rad</td>
+</tr>
+<tr>
+<td>622</td>
+<td>dyer</td>
+<td>sal</td>
+</tr>
+<tr>
+<td>734</td>
+<td>pb</td>
+<td>rad</td>
+</tr>
+<tr>
+<td>734</td>
+<td>pb</td>
+<td>temp</td>
+</tr>
+<tr>
+<td>734</td>
+<td>lake</td>
+<td>sal</td>
+</tr>
+<tr>
+<td>735</td>
+<td>pb</td>
+<td>rad</td>
+</tr>
+<tr>
+<td>735</td>
+<td>-null-</td>
+<td>sal</td>
+</tr>
+<tr>
+<td>735</td>
+<td>-null-</td>
+<td>temp</td>
+</tr>
+<tr>
+<td>751</td>
+<td>pb</td>
+<td>rad</td>
+</tr>
+<tr>
+<td>751</td>
+<td>pb</td>
+<td>temp</td>
+</tr>
+<tr>
+<td>751</td>
+<td>lake</td>
+<td>sal</td>
+</tr>
+<tr>
+<td>752</td>
+<td>roe</td>
+<td>sal</td>
+</tr>
+<tr>
+<td>752</td>
+<td>lake</td>
+<td>rad</td>
+</tr>
+<tr>
+<td>752</td>
+<td>lake</td>
+<td>sal</td>
+</tr>
+<tr>
+<td>752</td>
+<td>lake</td>
+<td>temp</td>
+</tr>
+<tr>
+<td>837</td>
+<td>roe</td>
+<td>sal</td>
+</tr>
+<tr>
+<td>837</td>
+<td>lake</td>
+<td>rad</td>
+</tr>
+<tr>
+<td>837</td>
+<td>lake</td>
+<td>sal</td>
+</tr>
+<tr>
+<td>844</td>
+<td>roe</td>
+<td>rad</td>
+</tr>
+</tbody>
+</table></div>
+<p>This query gives us a good idea of which scientist was involved in which visit,
+and what measurements they performed during the visit.</p>
+<p>Looking at the table, it seems like some scientists specialized in
+certain kinds of measurements.  We can examine which scientists
+performed which measurements by selecting the appropriate columns and
+removing duplicates.</p>
+<pre><code class="language-sql">SELECT DISTINCT quant, person FROM Survey ORDER BY quant ASC;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>quant</th>
+<th>person</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rad</td>
+<td>dyer</td>
+</tr>
+<tr>
+<td>rad</td>
+<td>pb</td>
+</tr>
+<tr>
+<td>rad</td>
+<td>lake</td>
+</tr>
+<tr>
+<td>rad</td>
+<td>roe</td>
+</tr>
+<tr>
+<td>sal</td>
+<td>dyer</td>
+</tr>
+<tr>
+<td>sal</td>
+<td>lake</td>
+</tr>
+<tr>
+<td>sal</td>
+<td>-null-</td>
+</tr>
+<tr>
+<td>sal</td>
+<td>roe</td>
+</tr>
+<tr>
+<td>temp</td>
+<td>pb</td>
+</tr>
+<tr>
+<td>temp</td>
+<td>-null-</td>
+</tr>
+<tr>
+<td>temp</td>
+<td>lake</td>
+</tr>
+</tbody>
+</table></div>
+<div class="box box-challenge">
+<p class="box-title">Finding Distinct Dates</p>
+
+<p>Write a query that selects distinct dates from the <code>Visited</code> table.</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<pre><code class="language-sql">SELECT DISTINCT dated FROM Visited;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>dated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1927-02-08</td>
+</tr>
+<tr>
+<td>1927-02-10</td>
+</tr>
+<tr>
+<td>1930-01-07</td>
+</tr>
+<tr>
+<td>1930-01-12</td>
+</tr>
+<tr>
+<td>1930-02-26</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td>1932-01-14</td>
+</tr>
+<tr>
+<td>1932-03-22</td>
+</tr>
+</tbody>
+</table></div>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Displaying Full Names</p>
+
+<p>Write a query that displays the full names of the scientists in the <code>Person</code> table,
+ordered by family name.</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x">Solution</h2>
+<pre><code class="language-sql">SELECT personal, family FROM Person ORDER BY family ASC;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>personal</th>
+<th>family</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frank</td>
+<td>Danforth</td>
+</tr>
+<tr>
+<td>William</td>
+<td>Dyer</td>
+</tr>
+<tr>
+<td>Anderson</td>
+<td>Lake</td>
+</tr>
+<tr>
+<td>Frank</td>
+<td>Pabodie</td>
+</tr>
+<tr>
+<td>Valentina</td>
+<td>Roerich</td>
+</tr>
+</tbody>
+</table></div>
+</details>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>The records in a database table are not intrinsically ordered: if we want to display them in some order, we must specify that explicitly with ORDER BY.</li>
+<li>The values in a database are not guaranteed to be unique: if we want to eliminate duplicates, we must specify that explicitly as well using DISTINCT.</li>
+</ul>
+</div>

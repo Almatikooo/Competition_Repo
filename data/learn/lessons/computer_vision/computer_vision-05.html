@@ -1,0 +1,141 @@
+<p>The image classification models we have dealt with so far took an image and produced a categorical result, such as the class 'number' in a MNIST problem. However, in many cases we do not want just to know that a picture portrays objects - we want to be able to determine their precise location. This is exactly the point of <strong>object detection</strong>.</p>
+
+<p><img alt="Object Detection" loading="lazy" src="https://raw.githubusercontent.com/microsoft/AI-For-Beginners/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/11-ObjectDetection/images/Screen_Shot_2016-11-17_at_11.14.54_AM.png"></p>
+<blockquote>
+<p>Image from <a href="https://pjreddie.com/darknet/yolov2/" target="_blank" rel="noopener noreferrer">YOLO v2 web site</a></p>
+</blockquote>
+<h2 id="a-naive-approach-to-object-detection">A Naive Approach to Object Detection</h2>
+<p>Assuming we wanted to find a cat on a picture, a very naive approach to object detection would be the following:</p>
+<ol>
+<li>Break the picture down to a number of tiles</li>
+<li>Run image classification on each tile.</li>
+<li>Those tiles that result in sufficiently high activation can be considered to contain the object in question.</li>
+</ol>
+<p><img alt="Naive Object Detection" loading="lazy" src="https://raw.githubusercontent.com/microsoft/AI-For-Beginners/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/11-ObjectDetection/images/naive-detection.png"></p>
+<blockquote>
+<p><em>Image from <a href="https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/11-ObjectDetection/ObjectDetection-TF.ipynb" target="_blank" rel="noopener noreferrer">Exercise Notebook</a></em></p>
+</blockquote>
+<p>However, this approach is far from ideal, because it only allows the algorithm to locate the object's bounding box very imprecisely. For more precise location, we need to run some sort of <strong>regression</strong> to predict the coordinates of bounding boxes - and for that, we need specific datasets.</p>
+<h2 id="regression-for-object-detection">Regression for Object Detection</h2>
+<p><a href="https://towardsdatascience.com/object-detection-with-neural-networks-a4e2c46b4491" target="_blank" rel="noopener noreferrer">This blog post</a> has a great gentle introduction to detecting shapes.</p>
+<h2 id="datasets-for-object-detection">Datasets for Object Detection</h2>
+<p>You might run across the following datasets for this task:</p>
+<ul>
+<li><a href="http://host.robots.ox.ac.uk/pascal/VOC/" target="_blank" rel="noopener noreferrer">PASCAL VOC</a> - 20 classes</li>
+<li><a href="http://cocodataset.org/#home" target="_blank" rel="noopener noreferrer">COCO</a> - Common Objects in Context. 80 classes, bounding boxes and segmentation masks</li>
+</ul>
+<p><img alt="COCO" loading="lazy" src="https://raw.githubusercontent.com/microsoft/AI-For-Beginners/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/11-ObjectDetection/images/coco-examples.jpg"></p>
+<h2 id="object-detection-metrics">Object Detection Metrics</h2>
+<h3 id="intersection-over-union">Intersection over Union</h3>
+<p>While for image classification it is easy to measure how well the algorithm performs, for object detection we need to measure both the correctness of the class, as well as the precision of the inferred bounding box location. For the latter, we use the so-called <strong>Intersection over Union</strong> (IoU), which measures how well two boxes (or two arbitrary areas) overlap.</p>
+<p><img alt="IoU" loading="lazy" src="https://raw.githubusercontent.com/microsoft/AI-For-Beginners/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/11-ObjectDetection/images/iou_equation.png"></p>
+<blockquote>
+<p><em>Figure 2 from <a href="https://pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/" target="_blank" rel="noopener noreferrer">this excellent blog post on IoU</a></em></p>
+</blockquote>
+<p>The idea is simple - we divide the area of intersection between two figures by the area of their union. For two identical areas, IoU would be 1, while for completely disjointed areas it will be 0. Otherwise it will vary from 0 to 1. We typically only consider those bounding boxes for which IoU is over a certain value.</p>
+<h3 id="average-precision">Average Precision</h3>
+<p>Suppose we want to measure how well a given class of objects $C$ is recognized. To measure it, we use <strong>Average Precision</strong> metrics, which is calculated as follows:</p>
+<ol>
+<li>Consider Precision-Recall curve shows the accuracy depending on a detection threshold value (from 0 to 1).</li>
+<li>Depending on the threshold, we will get more or less objects detected in the image, and different values of precision and recall.</li>
+<li>The curve will look like this:</li>
+</ol>
+<img alt="" loading="lazy" src="https://github.com/shwars/NeuroWorkshop/raw/master/images/ObjDetectionPrecisionRecall.png">
+<blockquote>
+<p><em>Image from <a href="http://github.com/shwars/NeuroWorkshop" target="_blank" rel="noopener noreferrer">NeuroWorkshop</a></em></p>
+</blockquote>
+<p>The average Precision for a given class $C$ is the area under this curve. More precisely, Recall axis is typically divided into 10 parts, and Precision is averaged over all those points:</p>
+<p>$$
+AP = {1\over11}\sum_{i=0}^{10}\mbox{Precision}(\mbox{Recall}={i\over10})
+$$</p>
+<h3 id="ap-and-iou">AP and IoU</h3>
+<p>We shall consider only those detections, for which IoU is above a certain value. For example, in PASCAL VOC dataset typically $\mbox{IoU Threshold} = 0.5$ is assumed, while in COCO AP is measured for different values of $\mbox{IoU Threshold}$.</p>
+<img alt="" loading="lazy" src="https://github.com/shwars/NeuroWorkshop/raw/master/images/ObjDetectionPrecisionRecallIoU.png">
+<blockquote>
+<p><em>Image from <a href="http://github.com/shwars/NeuroWorkshop" target="_blank" rel="noopener noreferrer">NeuroWorkshop</a></em></p>
+</blockquote>
+<h3 id="mean-average-precision-map">Mean Average Precision - mAP</h3>
+<p>The main metric for Object Detection is called <strong>Mean Average Precision</strong>, or <strong>mAP</strong>. It is the value of Average Precision, average across all object classes, and sometimes also over $\mbox{IoU Threshold}$. In more detail, the process of calculating <strong>mAP</strong> is described
+<a href="https://medium.com/@timothycarlen/understanding-the-map-evaluation-metric-for-object-detection-a07fe6962cf3" target="_blank" rel="noopener noreferrer">in this blog post</a>), and also <a href="https://gist.github.com/tarlen5/008809c3decf19313de216b9208f3734" target="_blank" rel="noopener noreferrer">here with code samples</a>.</p>
+<h2 id="different-object-detection-approaches">Different Object Detection Approaches</h2>
+<p>There are two broad classes of object detection algorithms:</p>
+<ul>
+<li><strong>Region Proposal Networks</strong> (R-CNN, Fast R-CNN, Faster R-CNN). The main idea is to generate <strong>Regions of Interests</strong> (ROI) and run CNN over them, looking for maximum activation. It is a bit similar to the naive approach, with the exception that ROIs are generated in a more clever way. One of the majors drawbacks of such methods is that they are slow, because we need many passes of the CNN classifier over the image.</li>
+<li><strong>One-pass</strong> (YOLO, SSD, RetinaNet) methods. In those architectures we design the network to predict both classes and ROIs in one pass.</li>
+</ul>
+<h3 id="r-cnn-region-based-cnn">R-CNN: Region-Based CNN</h3>
+<p><a href="http://islab.ulsan.ac.kr/files/announcement/513/rcnn_pami.pdf" target="_blank" rel="noopener noreferrer">R-CNN</a> uses <a href="http://www.huppelen.nl/publications/selectiveSearchDraft.pdf" target="_blank" rel="noopener noreferrer">Selective Search</a> to generate hierarchical structure of ROI regions, which are then passed through CNN feature extractors and SVM-classifiers to determine the object class, and linear regression to determine <em>bounding box</em> coordinates. <a href="https://arxiv.org/pdf/1506.01497v1.pdf" target="_blank" rel="noopener noreferrer">Official Paper</a></p>
+<p><img alt="RCNN" loading="lazy" src="https://raw.githubusercontent.com/microsoft/AI-For-Beginners/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/11-ObjectDetection/images/rcnn1.png"></p>
+<blockquote>
+<p><em>Image from van de Sande et al. ICCV’11</em></p>
+</blockquote>
+<p><img alt="RCNN-1" loading="lazy" src="https://raw.githubusercontent.com/microsoft/AI-For-Beginners/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/11-ObjectDetection/images/rcnn2.png"></p>
+<blockquote>
+<p>*Images from <a href="https://towardsdatascience.com/r-cnn-fast-r-cnn-faster-r-cnn-yolo-object-detection-algorithms-36d53571365e" target="_blank" rel="noopener noreferrer">this blog</a></p>
+</blockquote>
+<h3 id="f-rcnn-fast-r-cnn">F-RCNN - Fast R-CNN</h3>
+<p>This approach is similar to R-CNN, but regions are defined after convolution layers have been applied.</p>
+<p><img alt="FRCNN" loading="lazy" src="https://raw.githubusercontent.com/microsoft/AI-For-Beginners/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/11-ObjectDetection/images/f-rcnn.png"></p>
+<blockquote>
+<p>Image from <a href="https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Girshick_Fast_R-CNN_ICCV_2015_paper.pdf" target="_blank" rel="noopener noreferrer">the Official Paper</a>, <a href="https://arxiv.org/pdf/1504.08083.pdf" target="_blank" rel="noopener noreferrer">arXiv</a>, 2015</p>
+</blockquote>
+<h3 id="faster-r-cnn">Faster R-CNN</h3>
+<p>The main idea of this approach is to use neural network to predict ROIs - so-called <em>Region Proposal Network</em>. <a href="https://arxiv.org/pdf/1506.01497.pdf" target="_blank" rel="noopener noreferrer">Paper</a>, 2016</p>
+<p><img alt="FasterRCNN" loading="lazy" src="https://raw.githubusercontent.com/microsoft/AI-For-Beginners/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/11-ObjectDetection/images/faster-rcnn.png"></p>
+<blockquote>
+<p>Image from <a href="https://arxiv.org/pdf/1506.01497.pdf" target="_blank" rel="noopener noreferrer">the official paper</a></p>
+</blockquote>
+<h3 id="r-fcn-region-based-fully-convolutional-network">R-FCN: Region-Based Fully Convolutional Network</h3>
+<p>This algorithm is even faster than Faster R-CNN. The main idea is the following:</p>
+<ol>
+<li>We extract features using ResNet-101</li>
+<li>Features are processed by <strong>Position-Sensitive Score Map</strong>. Each object from $C$ classes is divided by $k\times k$ regions, and we are training to predict parts of objects.</li>
+<li>For each part from $k\times k$ regions all networks vote for object classes, and the object class with maximum vote is selected.</li>
+</ol>
+<p><img alt="r-fcn image" loading="lazy" src="https://raw.githubusercontent.com/microsoft/AI-For-Beginners/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/11-ObjectDetection/images/r-fcn.png"></p>
+<blockquote>
+<p>Image from <a href="https://arxiv.org/abs/1605.06409" target="_blank" rel="noopener noreferrer">official paper</a></p>
+</blockquote>
+<h3 id="yolo-you-only-look-once">YOLO - You Only Look Once</h3>
+<p>YOLO is a realtime one-pass algorithm. The main idea is the following:</p>
+<ul>
+<li>Image is divided into $S\times S$ regions</li>
+<li>For each region, <strong>CNN</strong> predicts $n$ possible objects, <em>bounding box</em> coordinates and <em>confidence</em>=<em>probability</em> * IoU.</li>
+</ul>
+<p><img alt="YOLO" loading="lazy" src="https://raw.githubusercontent.com/microsoft/AI-For-Beginners/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/11-ObjectDetection/images/yolo.png"></p>
+<blockquote>
+<p>Image from <a href="https://arxiv.org/abs/1506.02640" target="_blank" rel="noopener noreferrer">official paper</a></p>
+</blockquote>
+<h3 id="other-algorithms">Other Algorithms</h3>
+<ul>
+<li>RetinaNet: <a href="https://arxiv.org/abs/1708.02002" target="_blank" rel="noopener noreferrer">official paper</a>
+<ul>
+<li><a href="https://pytorch.org/vision/stable/_modules/torchvision/models/detection/retinanet.html" target="_blank" rel="noopener noreferrer">PyTorch Implementation in Torchvision</a></li>
+<li><a href="https://github.com/fizyr/keras-retinanet" target="_blank" rel="noopener noreferrer">Keras Implementation</a></li>
+<li><a href="https://keras.io/examples/vision/retinanet/" target="_blank" rel="noopener noreferrer">Object Detection with RetinaNet</a> in Keras Samples</li>
+</ul>
+</li>
+<li>SSD (Single Shot Detector): <a href="https://arxiv.org/abs/1512.02325" target="_blank" rel="noopener noreferrer">official paper</a></li>
+</ul>
+<h2 id="exercises-object-detection">✍️ Exercises: Object Detection</h2>
+<p>Continue your learning in the following notebook:</p>
+<p><a href="https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/11-ObjectDetection/ObjectDetection.ipynb" target="_blank" rel="noopener noreferrer">ObjectDetection.ipynb</a></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In this lesson you took a whirlwind tour of all the various ways that object detection can be accomplished!</p>
+<h2 id="challenge">🚀 Challenge</h2>
+<p>Read through these articles and notebooks about YOLO and try them for yourself</p>
+<ul>
+<li><a href="https://www.analyticsvidhya.com/blog/2018/12/practical-guide-object-detection-yolo-framewor-python/" target="_blank" rel="noopener noreferrer">Good blog post</a> describing YOLO</li>
+<li><a href="https://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener noreferrer">Official site</a></li>
+<li>Yolo: <a href="https://github.com/experiencor/keras-yolo2" target="_blank" rel="noopener noreferrer">Keras implementation</a>, <a href="https://github.com/experiencor/basic-yolo-keras/blob/master/Yolo%20Step-by-Step.ipynb" target="_blank" rel="noopener noreferrer">step-by-step notebook</a></li>
+<li>Yolo v2: <a href="https://github.com/experiencor/keras-yolo2" target="_blank" rel="noopener noreferrer">Keras implementation</a>, <a href="https://github.com/experiencor/keras-yolo2/blob/master/Yolo%20Step-by-Step.ipynb" target="_blank" rel="noopener noreferrer">step-by-step notebook</a></li>
+</ul>
+
+<h2 id="review-self-study">Review &amp; Self Study</h2>
+<ul>
+<li><a href="https://tjmachinelearning.com/lectures/1718/obj/" target="_blank" rel="noopener noreferrer">Object Detection</a> by Nikhil Sardana</li>
+<li><a href="https://lilianweng.github.io/lil-log/2018/12/27/object-detection-part-4.html" target="_blank" rel="noopener noreferrer">A good comparison of object detection algorithms</a></li>
+<li><a href="https://medium.com/comet-app/review-of-deep-learning-algorithms-for-object-detection-c1f3d437b852" target="_blank" rel="noopener noreferrer">Review of Deep Learning Algorithms for Object Detection</a></li>
+<li><a href="https://www.analyticsvidhya.com/blog/2018/10/a-step-by-step-introduction-to-the-basic-object-detection-algorithms-part-1/" target="_blank" rel="noopener noreferrer">A Step-by-Step Introduction to the Basic Object Detection Algorithms</a></li>
+<li><a href="https://www.analyticsvidhya.com/blog/2018/11/implementation-faster-r-cnn-python-object-detection/" target="_blank" rel="noopener noreferrer">Implementation of Faster R-CNN in Python for Object Detection</a></li>
+</ul>

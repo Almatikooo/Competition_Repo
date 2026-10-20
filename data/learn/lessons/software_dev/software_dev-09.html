@@ -1,0 +1,665 @@
+<pre><code class="language-mermaid">journey
+    title Your CSS Styling Journey
+    section Foundation
+      Link CSS file: 3: Student
+      Understand cascade: 4: Student
+      Learn inheritance: 4: Student
+    section Selectors
+      Element targeting: 4: Student
+      Class patterns: 5: Student
+      ID specificity: 5: Student
+    section Layout
+      Position elements: 4: Student
+      Create containers: 5: Student
+      Build terrarium: 5: Student
+    section Polish
+      Add visual effects: 5: Student
+      Responsive design: 5: Student
+      Glass reflections: 5: Student
+</code></pre>
+<p><img alt="Introduction to CSS" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Web-Dev-For-Beginners/78085398be0dea7abaaf5eda914817f46f6ddbbc/sketchnotes/webdev101-css.png"></p>
+<blockquote>
+<p>Sketchnote by <a href="https://twitter.com/girlie_mac" target="_blank" rel="noopener noreferrer">Tomomi Imura</a></p>
+</blockquote>
+<p>Remember how your HTML terrarium looked quite basic? CSS is where we transform that plain structure into something visually appealing.</p>
+<p>If HTML is like building the frame of a house, then CSS is everything that makes it feel like home - the paint colors, the furniture arrangement, the lighting, and how the rooms flow together. Think of how the Palace of Versailles started as a simple hunting lodge, but careful attention to decoration and layout transformed it into one of the world's most magnificent buildings.</p>
+<p>Today, we'll transform your terrarium from functional to polished. You'll learn how to position elements precisely, make layouts respond to different screen sizes, and create the visual appeal that makes websites engaging.</p>
+<p>By the end of this lesson, you'll see how strategic CSS styling can dramatically improve your project. Let's add some style to your terrarium.</p>
+<pre><code class="language-mermaid">mindmap
+  root((CSS Fundamentals))
+    Cascade
+      Specificity Rules
+      Inheritance
+      Priority Order
+      Conflict Resolution
+    Selectors
+      Element Tags
+      Classes (.class)
+      IDs (#id)
+      Combinators
+    Box Model
+      Margin
+      Border
+      Padding
+      Content
+    Layout
+      Positioning
+      Display Types
+      Flexbox
+      Grid
+    Visual Effects
+      Colors
+      Shadows
+      Transitions
+      Animations
+    Responsive Design
+      Media Queries
+      Flexible Units
+      Viewport Meta
+      Mobile First
+</code></pre>
+
+
+<h2 id="getting-started-with-css">Getting Started with CSS</h2>
+<p>CSS is often thought of as just "making things pretty," but it serves a much broader purpose. CSS is like being the director of a movie - you control not just how everything looks, but how it moves, responds to interaction, and adapts to different situations.</p>
+<p>Modern CSS is remarkably capable. You can write code that automatically adjusts layouts for phones, tablets, and desktop computers. You can create smooth animations that guide users' attention where needed. The results can be quite impressive when everything works together.</p>
+<blockquote>
+<p>💡 <strong>Pro Tip</strong>: CSS is constantly evolving with new features and capabilities. Always check <a href="https://caniuse.com" target="_blank" rel="noopener noreferrer">CanIUse.com</a> to verify browser support for newer CSS features before using them in production projects.</p>
+</blockquote>
+<p><strong>Here's what we'll accomplish in this lesson:</strong></p>
+<ul>
+<li><strong>Creates</strong> a complete visual design for your terrarium using modern CSS techniques</li>
+<li><strong>Explores</strong> fundamental concepts like the cascade, inheritance, and CSS selectors</li>
+<li><strong>Implements</strong> responsive positioning and layout strategies</li>
+<li><strong>Builds</strong> the terrarium container using CSS shapes and styling</li>
+</ul>
+<h3 id="prerequisite">Prerequisite</h3>
+<p>You should have completed the HTML structure for your terrarium from the previous lesson and have it ready to be styled.</p>
+<blockquote>
+<p>📺 <strong>Video Resource</strong>: Check out this helpful video walkthrough</p>
+<p><a href="https://www.youtube.com/watch?v=6yIdOIV9p1I" target="_blank" rel="noopener noreferrer"><img alt="CSS Basics Tutorial" loading="lazy" src="https://img.youtube.com/vi/6yIdOIV9p1I/0.jpg"></a></p>
+</blockquote>
+<h3 id="setting-up-your-css-file">Setting Up Your CSS File</h3>
+<p>Before we can start styling, we need to connect CSS to our HTML. This connection tells the browser where to find the styling instructions for our terrarium.</p>
+<p>In your terrarium folder, create a new file called <code>style.css</code>, then link it in your HTML document's <code>&lt;head&gt;</code> section:</p>
+<pre><code class="language-html">&lt;link rel="stylesheet" href="./style.css" /&gt;
+</code></pre>
+<p><strong>Here's what this code does:</strong></p>
+<ul>
+<li><strong>Creates</strong> a connection between your HTML and CSS files</li>
+<li><strong>Tells</strong> the browser to load and apply the styles from <code>style.css</code></li>
+<li><strong>Uses</strong> the <code>rel="stylesheet"</code> attribute to specify this is a CSS file</li>
+<li><strong>References</strong> the file path with <code>href="./style.css"</code></li>
+</ul>
+<h2 id="understanding-the-css-cascade">Understanding the CSS Cascade</h2>
+<p>Ever wondered why CSS is called "Cascading" Style Sheets? Styles cascade down like a waterfall, and sometimes they conflict with each other.</p>
+<p>Consider how military command structures work - a general order might say "all troops wear green," but a specific order to your unit might say "wear dress blues for the ceremony." The more specific instruction takes precedence. CSS follows similar logic, and understanding this hierarchy makes debugging much more manageable.</p>
+<h3 id="experimenting-with-cascade-priority">Experimenting with Cascade Priority</h3>
+<p>Let's see the cascade in action by creating a style conflict. First, add an inline style to your <code>&lt;h1&gt;</code> tag:</p>
+<pre><code class="language-html">&lt;h1 style="color: red"&gt;My Terrarium&lt;/h1&gt;
+</code></pre>
+<p><strong>What this code does:</strong></p>
+<ul>
+<li><strong>Applies</strong> a red color directly to the <code>&lt;h1&gt;</code> element using inline styling</li>
+<li><strong>Uses</strong> the <code>style</code> attribute to embed CSS directly in the HTML</li>
+<li><strong>Creates</strong> the highest priority style rule for this specific element</li>
+</ul>
+<p>Next, add this rule to your <code>style.css</code> file:</p>
+<pre><code class="language-css">h1 {
+  color: blue;
+}
+</code></pre>
+<p><strong>In the above, we've:</strong></p>
+<ul>
+<li><strong>Defined</strong> a CSS rule that targets all <code>&lt;h1&gt;</code> elements</li>
+<li><strong>Set</strong> the text color to blue using an external stylesheet</li>
+<li><strong>Created</strong> a lower priority rule compared to inline styles</li>
+</ul>
+<p>✅ <strong>Knowledge Check</strong>: Which color displays in your web app? Why does that color win? Can you think of scenarios where you might want to override styles?</p>
+<pre><code class="language-mermaid">flowchart TD
+    A["Browser encounters h1 element"] --&gt; B{"Check for inline styles"}
+    B --&gt;|Found| C["style='color: red'"] 
+    B --&gt;|None| D{"Check for ID rules"}
+    C --&gt; E["Apply red color (1000 points)"]
+    D --&gt;|Found| F["#heading { color: green }"]
+    D --&gt;|None| G{"Check for class rules"}
+    F --&gt; H["Apply green color (100 points)"]
+    G --&gt;|Found| I[".title { color: blue }"]
+    G --&gt;|None| J{"Check element rules"}
+    I --&gt; K["Apply blue color (10 points)"]
+    J --&gt;|Found| L["h1 { color: purple }"]
+    J --&gt;|None| M["Use browser default"]
+    L --&gt; N["Apply purple color (1 point)"]
+    
+    style C fill:#ff6b6b
+    style F fill:#51cf66
+    style I fill:#339af0
+    style L fill:#9775fa
+</code></pre>
+<blockquote>
+<p>💡 <strong>CSS Priority Order (highest to lowest):</strong></p>
+<ol>
+<li><strong>Inline styles</strong> (style attribute)</li>
+<li><strong>IDs</strong> (#myId)</li>
+<li><strong>Classes</strong> (.myClass) and attributes</li>
+<li><strong>Element selectors</strong> (h1, div, p)</li>
+<li><strong>Browser defaults</strong></li>
+</ol>
+</blockquote>
+<h2 id="css-inheritance-in-action">CSS Inheritance in Action</h2>
+<p>CSS inheritance works like genetics - elements inherit certain properties from their parent elements. If you set the font family on the body element, all text inside automatically uses that same font. It's similar to how the Habsburg family's distinctive jawline appeared across generations without being specified for each individual.</p>
+<p>However, not everything gets inherited. Text styles like fonts and colors do inherit, but layout properties like margins and borders do not. Just as children might inherit physical traits but not their parents' fashion choices.</p>
+<h3 id="observing-font-inheritance">Observing Font Inheritance</h3>
+<p>Let's see inheritance in action by setting a font family on the <code>&lt;body&gt;</code> element:</p>
+<pre><code class="language-css">body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+</code></pre>
+<p><strong>Breaking down what happens here:</strong></p>
+<ul>
+<li><strong>Sets</strong> the font family for the entire page by targeting the <code>&lt;body&gt;</code> element</li>
+<li><strong>Uses</strong> a font stack with fallback options for better browser compatibility</li>
+<li><strong>Applies</strong> modern system fonts that look great across different operating systems</li>
+<li><strong>Ensures</strong> all child elements inherit this font unless specifically overridden</li>
+</ul>
+<p>Open your browser's developer tools (F12), navigate to the Elements tab, and inspect your <code>&lt;h1&gt;</code> element. You'll see that it inherits the font family from the body:</p>
+<p><img alt="inherited font" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Web-Dev-For-Beginners/78085398be0dea7abaaf5eda914817f46f6ddbbc/3-terrarium/2-intro-to-css/images/1.png"></p>
+<p>✅ <strong>Experiment Time</strong>: Try setting other inheritable properties on the <code>&lt;body&gt;</code> like <code>color</code>, <code>line-height</code>, or <code>text-align</code>. What happens to your heading and other elements?</p>
+<blockquote>
+<p>📝 <strong>Inheritable Properties Include</strong>: <code>color</code>, <code>font-family</code>, <code>font-size</code>, <code>line-height</code>, <code>text-align</code>, <code>visibility</code></p>
+<p><strong>Non-Inheritable Properties Include</strong>: <code>margin</code>, <code>padding</code>, <code>border</code>, <code>width</code>, <code>height</code>, <code>position</code></p>
+</blockquote>
+<h3 id="pedagogical-check-in">🔄 <strong>Pedagogical Check-in</strong></h3>
+<p><strong>CSS Foundation Understanding</strong>: Before moving to selectors, ensure you can:</p>
+<ul>
+<li>✅ Explain the difference between cascade and inheritance</li>
+<li>✅ Predict which style will win in a specificity conflict</li>
+<li>✅ Identify which properties inherit from parent elements</li>
+<li>✅ Connect CSS files to HTML properly</li>
+</ul>
+<p><strong>Quick Test</strong>: If you have these styles, what color will an <code>&lt;h1&gt;</code> inside a <code>&lt;div class="special"&gt;</code> be?</p>
+<pre><code class="language-css">div { color: blue; }
+.special { color: green; }
+h1 { color: red; }
+</code></pre>
+<p><em>Answer: Red (element selector directly targets h1)</em></p>
+<h2 id="mastering-css-selectors">Mastering CSS Selectors</h2>
+<p>CSS selectors are your way of targeting specific elements for styling. They work like giving precise directions - instead of saying "the house," you might say "the blue house with the red door on Maple Street."</p>
+<p>CSS provides different ways to be specific, and choosing the right selector is like choosing the appropriate tool for the task. Sometimes you need to style every door in the neighborhood, and sometimes just one specific door.</p>
+<h3 id="element-selectors-tags">Element Selectors (Tags)</h3>
+<p>Element selectors target HTML elements by their tag name. They're perfect for setting base styles that apply broadly across your page:</p>
+<pre><code class="language-css">body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #3a241d;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+</code></pre>
+<p><strong>Understanding these styles:</strong></p>
+<ul>
+<li><strong>Sets</strong> consistent typography across the entire page with the <code>body</code> selector</li>
+<li><strong>Removes</strong> default browser margins and padding for better control</li>
+<li><strong>Styles</strong> all heading elements with color, alignment, and spacing</li>
+<li><strong>Uses</strong> <code>rem</code> units for scalable, accessible font sizing</li>
+</ul>
+<p>While element selectors work well for general styling, you'll need more specific selectors to style individual components like the plants in your terrarium.</p>
+<h3 id="id-selectors-for-unique-elements">ID Selectors for Unique Elements</h3>
+<p>ID selectors use the <code>#</code> symbol and target elements with specific <code>id</code> attributes. Since IDs must be unique on a page, they're perfect for styling individual, special elements like our left and right plant containers.</p>
+<p>Let's create the styling for our terrarium's side containers where the plants will live:</p>
+<pre><code class="language-css">#left-container {
+  background-color: #f5f5f5;
+  width: 15%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+#right-container {
+  background-color: #f5f5f5;
+  width: 15%;
+  right: 0;
+  top: 0;
+  position: absolute;
+  height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+</code></pre>
+<p><strong>Here's what this code accomplishes:</strong></p>
+<ul>
+<li><strong>Positions</strong> containers at the far left and right edges using <code>absolute</code> positioning</li>
+<li><strong>Uses</strong> <code>vh</code> (viewport height) units for responsive height that adapts to screen size</li>
+<li><strong>Applies</strong> <code>box-sizing: border-box</code> so padding is included in the total width</li>
+<li><strong>Removes</strong> unnecessary <code>px</code> units from zero values for cleaner code</li>
+<li><strong>Sets</strong> a subtle background color that's easier on the eyes than stark gray</li>
+</ul>
+<p>✅ <strong>Code Quality Challenge</strong>: Notice how this CSS violates the DRY (Don't Repeat Yourself) principle. Can you refactor it using both an ID and a class?</p>
+<p><strong>Improved approach:</strong></p>
+<pre><code class="language-html">&lt;div id="left-container" class="container"&gt;&lt;/div&gt;
+&lt;div id="right-container" class="container"&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.container {
+  background-color: #f5f5f5;
+  width: 15%;
+  top: 0;
+  position: absolute;
+  height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+#left-container {
+  left: 0;
+}
+
+#right-container {
+  right: 0;
+}
+</code></pre>
+<h3 id="class-selectors-for-reusable-styles">Class Selectors for Reusable Styles</h3>
+<p>Class selectors use the <code>.</code> symbol and are perfect when you want to apply the same styles to multiple elements. Unlike IDs, classes can be reused throughout your HTML, making them ideal for consistent styling patterns.</p>
+<p>In our terrarium, each plant needs similar styling but also needs individual positioning. We'll use a combination of classes for shared styles and IDs for unique positioning.</p>
+<p><strong>Here's the HTML structure for each plant:</strong></p>
+<pre><code class="language-html">&lt;div class="plant-holder"&gt;
+  &lt;img class="plant" alt="Decorative plant for terrarium" id="plant1" src="./images/plant1.png" /&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>Key elements explained:</strong></p>
+<ul>
+<li><strong>Uses</strong> <code>class="plant-holder"</code> for consistent container styling across all plants</li>
+<li><strong>Applies</strong> <code>class="plant"</code> for shared image styling and behavior</li>
+<li><strong>Includes</strong> unique <code>id="plant1"</code> for individual positioning and JavaScript interaction</li>
+<li><strong>Provides</strong> descriptive alt text for screen reader accessibility</li>
+</ul>
+<p>Now add these styles to your <code>style.css</code> file:</p>
+<pre><code class="language-css">.plant-holder {
+  position: relative;
+  height: 13%;
+  left: -0.6rem;
+}
+
+.plant {
+  position: absolute;
+  max-width: 150%;
+  max-height: 150%;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.plant:hover {
+  transform: scale(1.05);
+}
+</code></pre>
+<p><strong>Breaking down these styles:</strong></p>
+<ul>
+<li><strong>Creates</strong> relative positioning for the plant holder to establish a positioning context</li>
+<li><strong>Sets</strong> each plant holder to 13% height, ensuring all plants fit vertically without scrolling</li>
+<li><strong>Shifts</strong> holders slightly left to better center plants within their containers</li>
+<li><strong>Allows</strong> plants to scale responsively with <code>max-width</code> and <code>max-height</code> properties</li>
+<li><strong>Uses</strong> <code>z-index</code> to layer plants above other elements in the terrarium</li>
+<li><strong>Adds</strong> a subtle hover effect with CSS transitions for better user interaction</li>
+</ul>
+<p>✅ <strong>Critical Thinking</strong>: Why do we need both <code>.plant-holder</code> and <code>.plant</code> selectors? What would happen if we tried to use just one?</p>
+<blockquote>
+<p>💡 <strong>Design Pattern</strong>: The container (<code>.plant-holder</code>) controls layout and positioning, while the content (<code>.plant</code>) controls appearance and scaling. This separation makes the code more maintainable and flexible.</p>
+</blockquote>
+<h2 id="understanding-css-positioning">Understanding CSS Positioning</h2>
+<p>CSS positioning is like being the stage director for a play - you direct where every actor stands and how they move around the stage. Some actors follow the standard formation, while others need specific positioning for dramatic effect.</p>
+<p>Once you understand positioning, many layout challenges become manageable. Need a navigation bar that stays at the top while users scroll? Positioning handles that. Want a tooltip that appears at a specific location? That's positioning too.</p>
+<h3 id="the-five-position-values">The Five Position Values</h3>
+<pre><code class="language-mermaid">quadrantChart
+    title CSS Positioning Strategy
+    x-axis Document Flow --&gt; Removed from Flow
+    y-axis Static Position --&gt; Precise Control
+    quadrant-1 Absolute
+    quadrant-2 Fixed
+    quadrant-3 Static
+    quadrant-4 Sticky
+    
+    Static: [0.2, 0.2]
+    Relative: [0.3, 0.6]
+    Absolute: [0.8, 0.8]
+    Fixed: [0.9, 0.7]
+    Sticky: [0.5, 0.9]
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Position Value</th>
+<th>Behavior</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>static</code></td>
+<td>Default flow, ignores top/left/right/bottom</td>
+<td>Normal document layout</td>
+</tr>
+<tr>
+<td><code>relative</code></td>
+<td>Positioned relative to its normal position</td>
+<td>Small adjustments, creating positioning context</td>
+</tr>
+<tr>
+<td><code>absolute</code></td>
+<td>Positioned relative to nearest positioned ancestor</td>
+<td>Precise placement, overlays</td>
+</tr>
+<tr>
+<td><code>fixed</code></td>
+<td>Positioned relative to viewport</td>
+<td>Navigation bars, floating elements</td>
+</tr>
+<tr>
+<td><code>sticky</code></td>
+<td>Switches between relative and fixed based on scroll</td>
+<td>Headers that stick when scrolling</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="positioning-in-our-terrarium">Positioning in Our Terrarium</h3>
+<p>Our terrarium uses a strategic combination of positioning types to create the desired layout:</p>
+<pre><code class="language-css">/* Container positioning */
+.container {
+  position: absolute; /* Removes from normal flow */
+  /* ... other styles ... */
+}
+
+/* Plant holder positioning */
+.plant-holder {
+  position: relative; /* Creates positioning context */
+  /* ... other styles ... */
+}
+
+/* Plant positioning */
+.plant {
+  position: absolute; /* Allows precise placement within holder */
+  /* ... other styles ... */
+}
+</code></pre>
+<p><strong>Understanding the positioning strategy:</strong></p>
+<ul>
+<li><strong>Absolute containers</strong> are removed from normal document flow and pinned to screen edges</li>
+<li><strong>Relative plant holders</strong> create a positioning context while staying in document flow</li>
+<li><strong>Absolute plants</strong> can be positioned precisely within their relative containers</li>
+<li><strong>This combination</strong> allows plants to stack vertically while being individually positionable</li>
+</ul>
+<blockquote>
+<p>🎯 <strong>Why This Matters</strong>: The <code>plant</code> elements need absolute positioning to become draggable in the next lesson. Absolute positioning removes them from the normal layout flow, making drag-and-drop interactions possible.</p>
+</blockquote>
+<p>✅ <strong>Experiment Time</strong>: Try changing the positioning values and observe the results:</p>
+<ul>
+<li>What happens if you change <code>.container</code> from <code>absolute</code> to <code>relative</code>?</li>
+<li>How does the layout change if <code>.plant-holder</code> uses <code>absolute</code> instead of <code>relative</code>?</li>
+<li>What occurs when you switch <code>.plant</code> to <code>relative</code> positioning?</li>
+</ul>
+<h3 id="pedagogical-check-in-x">🔄 <strong>Pedagogical Check-in</strong></h3>
+<p><strong>CSS Positioning Mastery</strong>: Pause to verify your understanding:</p>
+<ul>
+<li>✅ Can you explain why plants need absolute positioning for drag-and-drop?</li>
+<li>✅ Do you understand how relative containers create positioning context?</li>
+<li>✅ Why do the side containers use absolute positioning?</li>
+<li>✅ What would happen if you removed position declarations entirely?</li>
+</ul>
+<p><strong>Real-World Connection</strong>: Think about how CSS positioning mirrors real-world layout:</p>
+<ul>
+<li><strong>Static</strong>: Books on a shelf (natural order)</li>
+<li><strong>Relative</strong>: Moving a book slightly but keeping its spot</li>
+<li><strong>Absolute</strong>: Placing a bookmark at an exact page number</li>
+<li><strong>Fixed</strong>: A sticky note that stays visible as you flip pages</li>
+</ul>
+<h2 id="building-the-terrarium-with-css">Building the Terrarium with CSS</h2>
+<p>Now we'll build a glass jar using only CSS - no images or graphics software required.</p>
+<p>Creating realistic-looking glass, shadows, and depth effects using positioning and transparency demonstrates CSS's visual capabilities. This technique mirrors how architects in the Bauhaus movement used simple geometric forms to create complex, beautiful structures. Once you understand these principles, you'll recognize the CSS techniques behind many web designs.</p>
+<pre><code class="language-mermaid">flowchart LR
+    A[Jar Top] --&gt; E[Complete Terrarium]
+    B[Jar Walls] --&gt; E
+    C[Dirt Layer] --&gt; E
+    D[Jar Bottom] --&gt; E
+    F[Glass Effects] --&gt; E
+    
+    A1["50% width&lt;br/&gt;5% height&lt;br/&gt;Top position"] --&gt; A
+    B1["60% width&lt;br/&gt;80% height&lt;br/&gt;Rounded corners&lt;br/&gt;0.5 opacity"] --&gt; B
+    C1["60% width&lt;br/&gt;5% height&lt;br/&gt;Dark brown&lt;br/&gt;Bottom layer"] --&gt; C
+    D1["50% width&lt;br/&gt;1% height&lt;br/&gt;Bottom position"] --&gt; D
+    F1["Subtle shadows&lt;br/&gt;Transparency&lt;br/&gt;Z-index layering"] --&gt; F
+    
+    style E fill:#d1e1df,stroke:#3a241d
+    style A fill:#e8f5e8
+    style B fill:#e8f5e8
+    style C fill:#8B4513
+    style D fill:#e8f5e8
+</code></pre>
+<h3 id="creating-the-glass-jar-components">Creating the Glass Jar Components</h3>
+<p>Let's build the terrarium jar piece by piece. Each part uses absolute positioning and percentage-based sizing for responsive design:</p>
+<pre><code class="language-css">.jar-walls {
+  height: 80%;
+  width: 60%;
+  background: #d1e1df;
+  border-radius: 1rem;
+  position: absolute;
+  bottom: 0.5%;
+  left: 20%;
+  opacity: 0.5;
+  z-index: 1;
+  box-shadow: inset 0 0 2rem rgba(0, 0, 0, 0.1);
+}
+
+.jar-top {
+  width: 50%;
+  height: 5%;
+  background: #d1e1df;
+  position: absolute;
+  bottom: 80.5%;
+  left: 25%;
+  opacity: 0.7;
+  z-index: 1;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.jar-bottom {
+  width: 50%;
+  height: 1%;
+  background: #d1e1df;
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  opacity: 0.7;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.dirt {
+  width: 60%;
+  height: 5%;
+  background: #3a241d;
+  position: absolute;
+  border-radius: 0 0 1rem 1rem;
+  bottom: 1%;
+  left: 20%;
+  opacity: 0.7;
+  z-index: -1;
+}
+</code></pre>
+<p><strong>Understanding the terrarium construction:</strong></p>
+<ul>
+<li><strong>Uses</strong> percentage-based dimensions for responsive scaling across all screen sizes</li>
+<li><strong>Positions</strong> elements absolutely to stack and align them precisely</li>
+<li><strong>Applies</strong> different opacity values to create the glass transparency effect</li>
+<li><strong>Implements</strong> <code>z-index</code> layering so plants appear inside the jar</li>
+<li><strong>Adds</strong> subtle box-shadow and refined border-radius for more realistic appearance</li>
+</ul>
+<h3 id="responsive-design-with-percentages">Responsive Design with Percentages</h3>
+<p>Notice how all dimensions use percentages rather than fixed pixel values:</p>
+<p><strong>Why this matters:</strong></p>
+<ul>
+<li><strong>Ensures</strong> the terrarium scales proportionally on any screen size</li>
+<li><strong>Maintains</strong> the visual relationships between jar components</li>
+<li><strong>Provides</strong> a consistent experience from mobile phones to large desktop monitors</li>
+<li><strong>Allows</strong> the design to adapt without breaking the visual layout</li>
+</ul>
+<h3 id="css-units-in-action">CSS Units in Action</h3>
+<p>We're using <code>rem</code> units for border-radius, which scale relative to the root font size. This creates more accessible designs that respect user font preferences. Learn more about <a href="https://www.w3.org/TR/css-values-3/#font-relative-lengths" target="_blank" rel="noopener noreferrer">CSS relative units</a> in the official specification.</p>
+<p>✅ <strong>Visual Experimentation</strong>: Try modifying these values and observe the effects:</p>
+<ul>
+<li>Change the jar opacity from 0.5 to 0.8 – how does this affect the glass appearance?</li>
+<li>Adjust the dirt color from <code>#3a241d</code> to <code>#8B4513</code> – what visual impact does this have?</li>
+<li>Modify the <code>z-index</code> of the dirt to 2 – what happens to the layering?</li>
+</ul>
+<h3 id="pedagogical-check-in-x-x">🔄 <strong>Pedagogical Check-in</strong></h3>
+<p><strong>CSS Visual Design Understanding</strong>: Confirm your grasp of visual CSS:</p>
+<ul>
+<li>✅ How do percentage-based dimensions create responsive design?</li>
+<li>✅ Why does opacity create the glass transparency effect?</li>
+<li>✅ What role does z-index play in layering elements?</li>
+<li>✅ How do border-radius values create the jar shape?</li>
+</ul>
+<p><strong>Design Principle</strong>: Notice how we're building complex visuals from simple shapes:</p>
+<ol>
+<li><strong>Rectangles</strong> → <strong>Rounded rectangles</strong> → <strong>Jar components</strong></li>
+<li><strong>Flat colors</strong> → <strong>Opacity</strong> → <strong>Glass effect</strong></li>
+<li><strong>Individual elements</strong> → <strong>Layered composition</strong> → <strong>3D appearance</strong></li>
+</ol>
+<hr>
+<h2 id="github-copilot-agent-challenge">GitHub Copilot Agent Challenge 🚀</h2>
+<p>Use the Agent mode to complete the following challenge:</p>
+<p><strong>Description:</strong> Create a CSS animation that makes the terrarium plants gently sway back and forth, simulating a natural breeze effect. This will help you practice CSS animations, transforms, and keyframes while enhancing the visual appeal of your terrarium.</p>
+<p><strong>Prompt:</strong> Add CSS keyframe animations to make the plants in the terrarium sway gently from side to side. Create a swaying animation that rotates each plant slightly (2-3 degrees) left and right with a duration of 3-4 seconds, and apply it to the <code>.plant</code> class. Make sure the animation loops infinitely and has an easing function for natural movement.</p>
+<p>Learn more about <a href="https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode" target="_blank" rel="noopener noreferrer">agent mode</a> here.</p>
+<h2 id="challenge-adding-glass-reflections">🚀 Challenge: Adding Glass Reflections</h2>
+<p>Ready to enhance your terrarium with realistic glass reflections? This technique will add depth and realism to the design.</p>
+<p>You'll create subtle highlights that simulate how light reflects off glass surfaces. This approach is similar to how Renaissance painters like Jan van Eyck used light and reflection to make painted glass appear three-dimensional. Here's what you're aiming for:</p>
+<p><img alt="finished terrarium" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Web-Dev-For-Beginners/78085398be0dea7abaaf5eda914817f46f6ddbbc/3-terrarium/2-intro-to-css/images/terrarium-final.png"></p>
+<p><strong>Your challenge:</strong></p>
+<ul>
+<li><strong>Create</strong> subtle white or light-colored oval shapes for the glass reflections</li>
+<li><strong>Position</strong> them strategically on the left side of the jar</li>
+<li><strong>Apply</strong> appropriate opacity and blur effects for realistic light reflection</li>
+<li><strong>Use</strong> <code>border-radius</code> to create organic, bubble-like shapes</li>
+<li><strong>Experiment</strong> with gradients or box-shadows for enhanced realism</li>
+</ul>
+
+
+<h2 id="expand-your-css-knowledge">Expand Your CSS Knowledge</h2>
+<p>CSS can feel complex initially, but understanding these core concepts provides a solid foundation for more advanced techniques.</p>
+<p><strong>Your next CSS learning areas:</strong></p>
+<ul>
+<li><strong>Flexbox</strong> - simplifies alignment and distribution of elements</li>
+<li><strong>CSS Grid</strong> - provides powerful tools for creating complex layouts</li>
+<li><strong>CSS Variables</strong> - reduces repetition and improves maintainability</li>
+<li><strong>Responsive design</strong> - ensures sites work well across different screen sizes</li>
+</ul>
+<h3 id="interactive-learning-resources">Interactive Learning Resources</h3>
+<p>Practice these concepts with these engaging, hands-on games:</p>
+<ul>
+<li>🐸 <a href="https://flexboxfroggy.com/" target="_blank" rel="noopener noreferrer">Flexbox Froggy</a> - Master Flexbox through fun challenges</li>
+<li>🌱 <a href="https://codepip.com/games/grid-garden/" target="_blank" rel="noopener noreferrer">Grid Garden</a> - Learn CSS Grid by growing virtual carrots</li>
+<li>🎯 <a href="https://cssbattle.dev/" target="_blank" rel="noopener noreferrer">CSS Battle</a> - Test your CSS skills with coding challenges</li>
+</ul>
+<h3 id="additional-learning">Additional Learning</h3>
+<p>For comprehensive CSS fundamentals, complete this Microsoft Learn module: <a href="https://docs.microsoft.com/learn/modules/build-simple-website/4-css-basics/?WT.mc_id=academic-77807-sagibbon" target="_blank" rel="noopener noreferrer">Style your HTML app with CSS</a></p>
+<h3 id="what-you-can-do-in-the-next-5-minutes">⚡ <strong>What You Can Do in the Next 5 Minutes</strong></h3>
+<ul>
+<li>[ ] Open DevTools and inspect CSS styles on any website using the Elements panel</li>
+<li>[ ] Create a simple CSS file and link it to an HTML page</li>
+<li>[ ] Try changing colors using different methods: hex, RGB, and named colors</li>
+<li>[ ] Practice the box model by adding padding and margin to a div</li>
+</ul>
+<h3 id="what-you-can-accomplish-this-hour">🎯 <strong>What You Can Accomplish This Hour</strong></h3>
+<ul>
+<li>[ ] Complete the post-lesson quiz and review CSS fundamentals</li>
+<li>[ ] Style your HTML page with fonts, colors, and spacing</li>
+<li>[ ] Create a simple layout using flexbox or grid</li>
+<li>[ ] Experiment with CSS transitions for smooth effects</li>
+<li>[ ] Practice responsive design with media queries</li>
+</ul>
+<h3 id="your-week-long-css-adventure">📅 <strong>Your Week-Long CSS Adventure</strong></h3>
+<ul>
+<li>[ ] Complete the terrarium styling assignment with creative flair</li>
+<li>[ ] Master CSS Grid by building a photo gallery layout</li>
+<li>[ ] Learn CSS animations to bring your designs to life</li>
+<li>[ ] Explore CSS preprocessors like Sass or Less</li>
+<li>[ ] Study design principles and apply them to your CSS</li>
+<li>[ ] Analyze and recreate interesting designs you find online</li>
+</ul>
+<h3 id="your-month-long-design-mastery">🌟 <strong>Your Month-Long Design Mastery</strong></h3>
+<ul>
+<li>[ ] Build a complete responsive website design system</li>
+<li>[ ] Learn CSS-in-JS or utility-first frameworks like Tailwind</li>
+<li>[ ] Contribute to open source projects with CSS improvements</li>
+<li>[ ] Master advanced CSS concepts like CSS custom properties and containment</li>
+<li>[ ] Create reusable component libraries with modular CSS</li>
+<li>[ ] Mentor others learning CSS and share design knowledge</li>
+</ul>
+<h2 id="your-css-mastery-timeline">🎯 Your CSS Mastery Timeline</h2>
+<pre><code class="language-mermaid">timeline
+    title CSS Learning Progression
+    
+    section Foundation (10 minutes)
+        File Connection: Link CSS to HTML
+                       : Understand cascade rules
+                       : Learn inheritance basics
+        
+    section Selectors (15 minutes)
+        Targeting Elements: Element selectors
+                          : Class patterns
+                          : ID specificity
+                          : Combinators
+        
+    section Box Model (20 minutes)
+        Layout Fundamentals: Margin and padding
+                           : Border properties
+                           : Content sizing
+                           : Box-sizing behavior
+        
+    section Positioning (25 minutes)
+        Element Placement: Static vs relative
+                         : Absolute positioning
+                         : Z-index layering
+                         : Responsive units
+        
+    section Visual Design (30 minutes)
+        Styling Mastery: Colors and opacity
+                       : Shadows and effects
+                       : Transitions
+                       : Transform properties
+        
+    section Responsive Design (45 minutes)
+        Multi-Device Support: Media queries
+                            : Flexible layouts
+                            : Mobile-first approach
+                            : Viewport optimization
+        
+    section Advanced Techniques (1 week)
+        Modern CSS: Flexbox layouts
+                  : CSS Grid systems
+                  : Custom properties
+                  : Animation keyframes
+        
+    section Professional Skills (1 month)
+        CSS Architecture: Component patterns
+                        : Maintainable code
+                        : Performance optimization
+                        : Cross-browser compatibility
+</code></pre>
+<h3 id="your-css-toolkit-summary">🛠️ Your CSS Toolkit Summary</h3>
+<p>After completing this lesson, you now have:</p>
+<ul>
+<li><strong>Cascade Understanding</strong>: How styles inherit and override each other</li>
+<li><strong>Selector Mastery</strong>: Precise targeting with elements, classes, and IDs</li>
+<li><strong>Positioning Skills</strong>: Strategic element placement and layering</li>
+<li><strong>Visual Design</strong>: Creating glass effects, shadows, and transparency</li>
+<li><strong>Responsive Techniques</strong>: Percentage-based layouts that adapt to any screen</li>
+<li><strong>Code Organization</strong>: Clean, maintainable CSS structure</li>
+<li><strong>Modern Practices</strong>: Using relative units and accessible design patterns</li>
+</ul>
+<p><strong>Next Steps</strong>: Your terrarium now has both structure (HTML) and style (CSS). The final lesson will add interactivity with JavaScript!</p>

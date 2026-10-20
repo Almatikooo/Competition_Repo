@@ -1,0 +1,315 @@
+<p><a href="https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn" target="_blank" rel="noopener noreferrer"><img alt="How to Design Good AI Agents" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ai-agents-for-beginners/9923c54bcc2df67e7119945e12cd2d45944da2f6/04-tool-use/images/lesson-4-thumbnail.png"></a></p>
+<blockquote>
+
+</blockquote>
+
+<p>Tools are interesting because they allow AI agents to have a broader range of capabilities. Instead of the agent having a limited set of actions it can perform, by adding a tool, the agent can now perform a wide range of actions. In this chapter, we will look at the Tool Use Design Pattern, which describes how AI agents can use specific tools to achieve their goals.</p>
+<h2 id="introduction">Introduction</h2>
+<p>In this lesson, we're looking to answer the following questions:</p>
+<ul>
+<li>What is the tool use design pattern?</li>
+<li>What are the use cases it can be applied to?</li>
+<li>What are the elements/building blocks needed to implement the design pattern?</li>
+<li>What are the special considerations for using the Tool Use Design Pattern to build trustworthy AI agents?</li>
+</ul>
+<h2 id="learning-goals">Learning Goals</h2>
+<p>After completing this lesson, you will be able to:</p>
+<ul>
+<li>Define the Tool Use Design Pattern and its purpose.</li>
+<li>Identify use cases where the Tool Use Design Pattern is applicable.</li>
+<li>Understand the key elements needed to implement the design pattern.</li>
+<li>Recognize considerations for ensuring trustworthiness in AI agents using this design pattern.</li>
+</ul>
+<h2 id="what-is-the-tool-use-design-pattern">What is the Tool Use Design Pattern?</h2>
+<p>The <strong>Tool Use Design Pattern</strong> focuses on giving LLMs the ability to interact with external tools to achieve specific goals. Tools are code that can be executed by an agent to perform actions. A tool can be a simple function such as a calculator, or an API call to a third-party service such as stock price lookup or weather forecast. In the context of AI agents, tools are designed to be executed by agents in response to <strong>model-generated function calls</strong>.</p>
+<h2 id="what-are-the-use-cases-it-can-be-applied-to">What are the use cases it can be applied to?</h2>
+<p>AI Agents can leverage tools to complete complex tasks, retrieve information, or make decisions. The tool use design pattern is often used in scenarios requiring dynamic interaction with external systems, such as databases, web services, or code interpreters. This ability is useful for a number of different use cases including:</p>
+<ul>
+<li><strong>Dynamic Information Retrieval:</strong> Agents can query external APIs or databases to fetch up-to-date data (e.g., querying a SQLite database for data analysis, fetching stock prices or weather information).</li>
+<li><strong>Code Execution and Interpretation:</strong> Agents can execute code or scripts to solve mathematical problems, generate reports, or perform simulations.</li>
+<li><strong>Workflow Automation:</strong> Automating repetitive or multi-step workflows by integrating tools like task schedulers, email services, or data pipelines.</li>
+<li><strong>Customer Support:</strong> Agents can interact with CRM systems, ticketing platforms, or knowledge bases to resolve user queries.</li>
+<li><strong>Content Generation and Editing:</strong> Agents can leverage tools like grammar checkers, text summarizers, or content safety evaluators to assist with content creation tasks.</li>
+</ul>
+<h2 id="what-are-the-elements-building-blocks-needed-to-implement-th">What are the elements/building blocks needed to implement the tool use design pattern?</h2>
+<p>These building blocks allow the AI agent to perform a wide range of tasks. Let's look at the key elements needed to implement the Tool Use Design Pattern:</p>
+<ul>
+<li>
+<p><strong>Function/Tool Schemas</strong>: Detailed definitions of available tools, including function name, purpose, required parameters, and expected outputs. These schemas enable the LLM to understand what tools are available and how to construct valid requests.</p>
+</li>
+<li>
+<p><strong>Function Execution Logic</strong>: Governs how and when tools are invoked based on the user’s intent and conversation context. This may include planner modules, routing mechanisms, or conditional flows that determine tool usage dynamically.</p>
+</li>
+<li>
+<p><strong>Message Handling System</strong>: Components that manage the conversational flow between user inputs, LLM responses, tool calls, and tool outputs.</p>
+</li>
+<li>
+<p><strong>Tool Integration Framework</strong>: Infrastructure that connects the agent to various tools, whether they are simple functions or complex external services.</p>
+</li>
+<li>
+<p><strong>Error Handling &amp; Validation</strong>: Mechanisms to handle failures in tool execution, validate parameters, and manage unexpected responses.</p>
+</li>
+<li>
+<p><strong>State Management</strong>: Tracks conversation context, previous tool interactions, and persistent data to ensure consistency across multi-turn interactions.</p>
+</li>
+</ul>
+<p>Next, let's look at Function/Tool Calling in more detail.</p>
+<h3 id="function-tool-calling">Function/Tool Calling</h3>
+<p>Function calling is the primary way we enable Large Language Models (LLMs) to interact with tools. You will often see 'Function' and 'Tool' used interchangeably because 'functions' (blocks of reusable code) are the 'tools' agents use to carry out tasks. In order for a function's code to be invoked, an LLM must compare the users request against the functions description. To do this a schema containing the descriptions of all the available functions is sent to the LLM. The LLM then selects the most appropriate function for the task and returns its name and arguments. The selected function is invoked, it's response is sent back to the LLM, which uses the information to respond to the users request.</p>
+<p>For developers to implement function calling for agents, you will need:</p>
+<ol>
+<li>An LLM model that supports function calling</li>
+<li>A schema containing function descriptions</li>
+<li>The code for each function described</li>
+</ol>
+<p>Let's use the example of getting the current time in a city to illustrate:</p>
+<ol>
+<li>
+<p><strong>Initialize an LLM that supports function calling:</strong></p>
+<p>Not all models support function calling, so it's important to check that the LLM you are using does.     <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank" rel="noopener noreferrer">Azure OpenAI</a> supports function calling. We can start by initiating the OpenAI client against the Azure OpenAI <strong>Responses API</strong> (the stable <code>/openai/v1/</code> endpoint — no <code>api_version</code> needed).</p>
+<pre><code class="language-python"># Initialize the OpenAI client for Azure OpenAI (Responses API, v1 endpoint)
+client = OpenAI(
+    base_url=f"{os.environ['AZURE_OPENAI_ENDPOINT'].rstrip('/')}/openai/v1/",
+    api_key=os.environ["AZURE_OPENAI_API_KEY"],
+)
+deployment_name = os.environ["AZURE_OPENAI_DEPLOYMENT"]
+</code></pre>
+</li>
+<li>
+<p><strong>Create a Function Schema</strong>:</p>
+<p>Next we will define a JSON schema that contains the function name, description of what the function does, and the names and descriptions of the function parameters.
+We will then take this schema and pass it to the client created previously, along with the users request to find the time in San Francisco. What's important to note is that a <strong>tool call</strong> is what is returned, <strong>not</strong> the final answer to the question. As mentioned earlier, the LLM returns the name of the function it selected for the task, and the arguments that will be passed to it.</p>
+<pre><code class="language-python"># Function description for the model to read (Responses API flat tool format)
+tools = [
+    {
+        "type": "function",
+        "name": "get_current_time",
+        "description": "Get the current time in a given location",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "location": {
+                    "type": "string",
+                    "description": "The city name, e.g. San Francisco",
+                },
+            },
+            "required": ["location"],
+        },
+    }
+]
+</code></pre>
+<pre><code class="language-python">
+# Initial user message
+messages = [{"role": "user", "content": "What's the current time in San Francisco"}]
+
+# First API call: Ask the model to use the function
+response = client.responses.create(
+    model=deployment_name,
+    input=messages,
+    tools=tools,
+    tool_choice="auto",
+    store=False,
+)
+
+# The Responses API returns tool calls as function_call items in response.output.
+# Append them to the conversation so the model has full context on the next turn.
+messages += response.output
+
+print("Model's response:")
+print(response.output)
+
+</code></pre>
+<pre><code class="language-bash">Model's response:
+[ResponseFunctionToolCall(arguments='{"location":"San Francisco"}', call_id='call_pOsKdUlqvdyttYB67MOj434b', name='get_current_time', type='function_call')]
+</code></pre>
+</li>
+<li>
+<p><strong>The function code required to carry out the task:</strong></p>
+<p>Now that the LLM has chosen which function needs to be run the code that carries out the task needs to be implemented and executed.
+We can implement the code to get the current time in Python. We will also need to write the code to extract the name and arguments from the response_message to get the final result.</p>
+<pre><code class="language-python">  def get_current_time(location):
+    """Get the current time for a given location"""
+    print(f"get_current_time called with location: {location}")  
+    location_lower = location.lower()
+    
+    for key, timezone in TIMEZONE_DATA.items():
+        if key in location_lower:
+            print(f"Timezone found for {key}")  
+            current_time = datetime.now(ZoneInfo(timezone)).strftime("%I:%M %p")
+            return json.dumps({
+                "location": location,
+                "current_time": current_time
+            })
+  
+    print(f"No timezone data found for {location_lower}")  
+    return json.dumps({"location": location, "current_time": "unknown"})
+</code></pre>
+<pre><code class="language-python"># Handle function calls
+tool_calls = [item for item in response.output if item.type == "function_call"]
+if tool_calls:
+   for tool_call in tool_calls:
+       if tool_call.name == "get_current_time":
+
+           function_args = json.loads(tool_call.arguments)
+
+           time_response = get_current_time(
+               location=function_args.get("location")
+           )
+
+           # Return the tool result as a function_call_output item
+           messages.append({
+               "type": "function_call_output",
+               "call_id": tool_call.call_id,
+               "output": time_response,
+           })
+else:
+   print("No tool calls were made by the model.")
+
+# Second API call: Get the final response from the model
+final_response = client.responses.create(
+   model=deployment_name,
+   input=messages,
+   tools=tools,
+   store=False,
+)
+
+return final_response.output_text
+</code></pre>
+<pre><code class="language-bash"> get_current_time called with location: San Francisco
+ Timezone found for san francisco
+ The current time in San Francisco is 09:24 AM.
+</code></pre>
+</li>
+</ol>
+<p>Function Calling is at the heart of most, if not all agent tool use design, however implementing it from scratch can sometimes be challenging.
+As we learned in <a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/02-explore-agentic-frameworks/" target="_blank" rel="noopener noreferrer">Lesson 2</a> agentic frameworks provide us with pre-built building blocks to implement tool use.</p>
+<h2 id="tool-use-examples-with-agentic-frameworks">Tool Use Examples with Agentic Frameworks</h2>
+<p>Here are some examples of how you can implement the Tool Use Design Pattern using different agentic frameworks:</p>
+<h3 id="microsoft-agent-framework">Microsoft Agent Framework</h3>
+<p><a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank" rel="noopener noreferrer">Microsoft Agent Framework</a> is an open-source AI framework for building AI agents. It simplifies the process of using function calling by allowing you to define tools as Python functions with the <code>@tool</code> decorator. The framework handles the back-and-forth communication between the model and your code. It also provides access to pre-built tools like File Search and Code Interpreter through <code>FoundryChatClient</code>.</p>
+<p>The following diagram illustrates the process of function calling with the Microsoft Agent Framework:</p>
+<p><img alt="function calling" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ai-agents-for-beginners/9923c54bcc2df67e7119945e12cd2d45944da2f6/04-tool-use/images/functioncalling-diagram.png"></p>
+<p>In the Microsoft Agent Framework, tools are defined as decorated functions. We can convert the <code>get_current_time</code> function we saw earlier into a tool by using the <code>@tool</code> decorator. The framework will automatically serialize the function and its parameters, creating the schema to send to the LLM.</p>
+<pre><code class="language-python">import os
+from agent_framework import tool
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
+
+@tool(approval_mode="never_require")
+def get_current_time(location: str) -&gt; str:
+    """Get the current time for a given location"""
+    ...
+
+# Create the client
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
+
+# Create an agent and run with the tool
+agent = provider.as_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
+response = await agent.run("What time is it?")
+</code></pre>
+<h4>Tools from an MCP server</h4>
+<p>Tools do not have to be functions in your own code. A server that speaks the Model Context Protocol (MCP, covered in <a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/11-agentic-protocols/README.md" target="_blank" rel="noopener noreferrer">Lesson 11</a>) publishes its tools together with their schemas, and the framework can load them the same way it serializes a decorated function. <code>MCPStreamableHTTPTool</code> connects to such a server over HTTP, reads the tool schemas, and offers them to the model next to any local tools.</p>
+<p>The example below uses the web search server hosted by <a href="https://keenable.ai" target="_blank" rel="noopener noreferrer">Keenable</a>. It is free to use without an account or API key (requests are rate limited per IP), so the only credentials you need are the ones for your model. As with any remote tool, the queries the model writes are sent to that server.</p>
+<pre><code class="language-python">from agent_framework import MCPStreamableHTTPTool
+
+web_search = MCPStreamableHTTPTool(
+    name="Keenable web search",
+    url="https://api.keenable.ai/mcp",
+)
+
+# Connecting loads the server's tool schemas; the agent decides when to call them
+async with web_search:
+    agent = provider.as_agent(
+        name="ResearchAgent",
+        instructions="Use available tools to answer questions.",
+        tools=[web_search],
+    )
+    response = await agent.run("What is new in the latest Python release?")
+    print(response.text)
+</code></pre>
+<p>The server publishes two tools, <code>search_web_pages</code> and <code>fetch_page_content</code>. When a question needs current information, the model calls <code>search_web_pages</code>, gets back titles, URLs and text snippets, and writes its answer from them, the same loop as in the <code>get_current_time</code> example above.</p>
+<h3 id="microsoft-foundry-agent-service">Microsoft Foundry Agent Service</h3>
+<p><a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank" rel="noopener noreferrer">Microsoft Foundry Agent Service</a> is a newer agentic framework that is designed to empower developers to securely build, deploy, and scale high-quality, and extensible AI agents without needing to manage the underlying compute and storage resources. It is particularly useful for enterprise applications since it is a fully managed service with enterprise grade security.</p>
+<p>When compared to developing with the LLM API directly, Microsoft Foundry Agent Service provides some advantages, including:</p>
+<ul>
+<li>Automatic tool calling – no need to parse a tool call, invoke the tool, and handle the response; all of this is now done server-side</li>
+<li>Securely managed data – instead of managing your own conversation state, you can rely on threads to store all the information you need</li>
+<li>Out-of-the-box tools – Tools that you can use to interact with your data sources, such as Bing, Azure AI Search, and Azure Functions.</li>
+</ul>
+<p>The tools available in Microsoft Foundry Agent Service can be divided into two categories:</p>
+<ol>
+<li>
+<p>Knowledge Tools:</p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&amp;pivots=overview" target="_blank" rel="noopener noreferrer">Grounding with Bing Search</a></li>
+<li><a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&amp;pivots=overview" target="_blank" rel="noopener noreferrer">File Search</a></li>
+<li><a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&amp;pivots=overview-azure-ai-search" target="_blank" rel="noopener noreferrer">Azure AI Search</a></li>
+</ul>
+</li>
+<li>
+<p>Action Tools:</p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&amp;pivots=overview" target="_blank" rel="noopener noreferrer">Function Calling</a></li>
+<li><a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&amp;pivots=overview" target="_blank" rel="noopener noreferrer">Code Interpreter</a></li>
+<li><a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&amp;pivots=overview" target="_blank" rel="noopener noreferrer">OpenAPI defined tools</a></li>
+<li><a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank" rel="noopener noreferrer">Azure Functions</a></li>
+</ul>
+</li>
+</ol>
+<p>The Agent Service allows us to be able to use these tools together as a <code>toolset</code>. It also utilizes <code>threads</code> which keep track of the history of messages from a particular conversation.</p>
+<p>Imagine you are a sales agent at a company called Contoso. You want to develop a conversational agent that can answer questions about your sales data.</p>
+<p>The following image illustrates how you could use Microsoft Foundry Agent Service to analyze your sales data:</p>
+<p><img alt="Agentic Service In Action" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ai-agents-for-beginners/9923c54bcc2df67e7119945e12cd2d45944da2f6/04-tool-use/images/agent-service-in-action.jpg"></p>
+<p>To use any of these tools with the service we can create a client and define a tool or toolset. To implement this practically we can use the following Python code. The LLM will be able to look at the toolset and decide whether to use the user created function, <code>fetch_sales_data_using_sqlite_query</code>, or the pre-built Code Interpreter depending on the user request.</p>
+<pre><code class="language-python">import os
+from azure.ai.projects import AIProjectClient
+from azure.identity import DefaultAzureCredential
+from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query function which can be found in a fetch_sales_data_functions.py file.
+from azure.ai.projects.models import ToolSet, FunctionTool, CodeInterpreterTool
+
+project_client = AIProjectClient.from_connection_string(
+    credential=DefaultAzureCredential(),
+    conn_str=os.environ["PROJECT_CONNECTION_STRING"],
+)
+
+# Initialize toolset
+toolset = ToolSet()
+
+# Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and adding it to the toolset
+fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
+toolset.add(fetch_data_function)
+
+# Initialize Code Interpreter tool and adding it to the toolset. 
+code_interpreter = CodeInterpreterTool()toolset.add(code_interpreter)
+
+agent = project_client.agents.create_agent(
+    model="gpt-5-mini", name="my-agent", instructions="You are helpful agent", 
+    toolset=toolset
+)
+</code></pre>
+<h2 id="what-are-the-special-considerations-for-using-the-tool-use-d">What are the special considerations for using the Tool Use Design Pattern to build trustworthy AI agents?</h2>
+<p>A common concern with SQL dynamically generated by LLMs is security, particularly the risk of SQL injection or malicious actions, such as dropping or tampering with the database. While these concerns are valid, they can be effectively mitigated by properly configuring database access permissions. For most databases this involves configuring the database as read-only. For database services like PostgreSQL or Azure SQL, the app should be assigned a read-only (SELECT) role.</p>
+<p>Running the app in a secure environment further enhances protection. In enterprise scenarios, data is typically extracted and transformed from operational systems into a read-only database or data warehouse with a user-friendly schema. This approach ensures that the data is secure, optimized for performance and accessibility, and that the app has restricted, read-only access.</p>
+<h2 id="sample-codes">Sample Codes</h2>
+<ul>
+<li>Python: <a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/04-tool-use/code_samples/04-python-agent-framework.ipynb" target="_blank" rel="noopener noreferrer">Agent Framework</a></li>
+<li>.NET: <a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/04-tool-use/code_samples/04-dotnet-agent-framework.md" target="_blank" rel="noopener noreferrer">Agent Framework</a></li>
+</ul>
+<h2 id="got-more-questions-about-the-tool-use-design-patterns">Got More Questions about the Tool Use Design Patterns?</h2>
+<p>Join the <a href="https://discord.com/invite/ATgtXmAS5D" target="_blank" rel="noopener noreferrer">Microsoft Foundry Discord</a> to meet with other learners, attend office hours and get your AI Agents questions answered.</p>
+<h2 id="additional-resources">Additional Resources</h2>
+<ul>
+<li><a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank" rel="noopener noreferrer">Azure AI Agents Service Workshop</a></li>
+<li><a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank" rel="noopener noreferrer">Contoso Creative Writer Multi-Agent Workshop</a></li>
+<li><a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank" rel="noopener noreferrer">Microsoft Agent Framework Overview</a></li>
+</ul>
+<h2 id="smoke-testing-this-agent-optional">Smoke-Testing This Agent (Optional)</h2>
+<p>After you learn to deploy agents in <a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/16-deploying-scalable-agents/README.md" target="_blank" rel="noopener noreferrer">Lesson 16</a>, you can smoke-test this lesson's <code>TravelToolAgent</code> (does it still call its tools and answer?) with <a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/tests/lesson-04-smoke-tests.json" target="_blank" rel="noopener noreferrer"><code>tests/lesson-04-smoke-tests.json</code></a>. See <a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/tests/README.md" target="_blank" rel="noopener noreferrer"><code>tests/README.md</code></a> for how to run it.</p>
+<h2 id="previous-lesson">Previous Lesson</h2>
+<p><a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/03-agentic-design-patterns/README.md" target="_blank" rel="noopener noreferrer">Understanding Agentic Design Patterns</a></p>
+<h2 id="next-lesson">Next Lesson</h2>
+<p><a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/05-agentic-rag/README.md" target="_blank" rel="noopener noreferrer">Agentic RAG</a></p>

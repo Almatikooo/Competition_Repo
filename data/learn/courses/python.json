@@ -1,0 +1,1183 @@
+{
+ "title": "Python for Data",
+ "subtitle": "Program in Python, load tables of data and make your first charts.",
+ "level": "Beginner",
+ "outcomes": [
+  "Write and run Python programs in notebooks",
+  "Load and explore spreadsheets of data with pandas",
+  "Plot data with Matplotlib",
+  "Automate repetitive work with loops, conditionals and functions"
+ ],
+ "skill": "python",
+ "modules": [
+  {
+   "title": "Python basics",
+   "lessons": [
+    "python-01",
+    "python-02",
+    "python-03",
+    "python-04"
+   ]
+  },
+  {
+   "title": "Working with data",
+   "lessons": [
+    "python-05",
+    "python-06",
+    "python-07",
+    "python-08"
+   ]
+  },
+  {
+   "title": "Repeating and deciding",
+   "lessons": [
+    "python-09",
+    "python-10",
+    "python-11",
+    "python-12"
+   ]
+  },
+  {
+   "title": "Writing reusable code",
+   "lessons": [
+    "python-13",
+    "python-14",
+    "python-15"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "python-01",
+   "title": "Running and Quitting",
+   "words": 3136,
+   "minutes": 16,
+   "source": "swc-python",
+   "url": "https://github.com/swcarpentry/python-novice-gapminder/blob/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/01-run-quit.md",
+   "toc": [
+    {
+     "id": "getting-started-with-jupyterlab",
+     "text": "Getting Started with JupyterLab",
+     "level": 2
+    },
+    {
+     "id": "starting-jupyterlab",
+     "text": "Starting JupyterLab",
+     "level": 2
+    },
+    {
+     "id": "macos-command-line",
+     "text": "macOS - Command Line",
+     "level": 3
+    },
+    {
+     "id": "windows-users-command-line",
+     "text": "Windows Users - Command Line",
+     "level": 3
+    },
+    {
+     "id": "anaconda-navigator",
+     "text": "Anaconda Navigator",
+     "level": 3
+    },
+    {
+     "id": "the-jupyterlab-interface",
+     "text": "The JupyterLab Interface",
+     "level": 2
+    },
+    {
+     "id": "menu-bar",
+     "text": "Menu Bar",
+     "level": 3
+    },
+    {
+     "id": "left-sidebar",
+     "text": "Left Sidebar",
+     "level": 3
+    },
+    {
+     "id": "main-work-area",
+     "text": "Main Work Area",
+     "level": 3
+    },
+    {
+     "id": "creating-a-python-script",
+     "text": "Creating a Python script",
+     "level": 2
+    },
+    {
+     "id": "creating-a-jupyter-notebook",
+     "text": "Creating a Jupyter Notebook",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "the-notebook-has-command-and-edit-modes",
+     "text": "The Notebook has Command and Edit modes.",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "use-the-keyboard-and-mouse-to-select-and-edit-cells",
+     "text": "Use the keyboard and mouse to select and edit cells.",
+     "level": 3
+    },
+    {
+     "id": "the-notebook-will-turn-markdown-into-pretty-printed-document",
+     "text": "The Notebook will turn Markdown into pretty-printed documentation.",
+     "level": 3
+    },
+    {
+     "id": "markdown-does-most-of-what-html-does",
+     "text": "Markdown does most of what HTML does.",
+     "level": 3
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "closing-jupyterlab",
+     "text": "Closing JupyterLab",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "python-02",
+   "title": "Variables and Assignment",
+   "words": 1364,
+   "minutes": 7,
+   "source": "swc-python",
+   "url": "https://github.com/swcarpentry/python-novice-gapminder/blob/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/02-variables.md",
+   "toc": [
+    {
+     "id": "use-variables-to-store-values",
+     "text": "Use variables to store values.",
+     "level": 2
+    },
+    {
+     "id": "use-print-to-display-values",
+     "text": "Use print to display values.",
+     "level": 2
+    },
+    {
+     "id": "variables-must-be-created-before-they-are-used",
+     "text": "Variables must be created before they are used.",
+     "level": 2
+    },
+    {
+     "id": "variables-can-be-used-in-calculations",
+     "text": "Variables can be used in calculations.",
+     "level": 2
+    },
+    {
+     "id": "use-an-index-to-get-a-single-character-from-a-string",
+     "text": "Use an index to get a single character from a string.",
+     "level": 2
+    },
+    {
+     "id": "use-a-slice-to-get-a-substring",
+     "text": "Use a slice to get a substring.",
+     "level": 2
+    },
+    {
+     "id": "use-the-built-in-function-len-to-find-the-length-of-a-string",
+     "text": "Use the built-in function len to find the length of a string.",
+     "level": 2
+    },
+    {
+     "id": "python-is-case-sensitive",
+     "text": "Python is case-sensitive.",
+     "level": 2
+    },
+    {
+     "id": "use-meaningful-variable-names",
+     "text": "Use meaningful variable names.",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solutions",
+     "text": "Solutions",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "python-03",
+   "title": "Data Types and Type Conversion",
+   "words": 1226,
+   "minutes": 7,
+   "source": "swc-python",
+   "url": "https://github.com/swcarpentry/python-novice-gapminder/blob/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/03-types-conversion.md",
+   "toc": [
+    {
+     "id": "every-value-has-a-type",
+     "text": "Every value has a type.",
+     "level": 2
+    },
+    {
+     "id": "use-the-built-in-function-type-to-find-the-type-of-a-value",
+     "text": "Use the built-in function type to find the type of a value.",
+     "level": 2
+    },
+    {
+     "id": "types-control-what-operations-or-methods-can-be-performed-on",
+     "text": "Types control what operations (or methods) can be performed on a given value.",
+     "level": 2
+    },
+    {
+     "id": "you-can-use-the-and-operators-on-strings",
+     "text": "You can use the \"+\" and \"*\" operators on strings.",
+     "level": 2
+    },
+    {
+     "id": "strings-have-a-length-but-numbers-don-t",
+     "text": "Strings have a length (but numbers don't).",
+     "level": 2
+    },
+    {
+     "id": "must-convert-numbers-to-strings-or-vice-versa-when-operating",
+     "text": "Must convert numbers to strings or vice versa when operating on them. {#convert-numbers-and-strings}",
+     "level": 2
+    },
+    {
+     "id": "can-mix-integers-and-floats-freely-in-operations",
+     "text": "Can mix integers and floats freely in operations.",
+     "level": 2
+    },
+    {
+     "id": "variables-only-change-value-when-something-is-assigned-to-th",
+     "text": "Variables only change value when something is assigned to them.",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "python-04",
+   "title": "Built-in Functions and Help",
+   "words": 1786,
+   "minutes": 9,
+   "source": "swc-python",
+   "url": "https://github.com/swcarpentry/python-novice-gapminder/blob/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/04-built-in.md",
+   "toc": [
+    {
+     "id": "use-comments-to-add-documentation-to-programs",
+     "text": "Use comments to add documentation to programs.",
+     "level": 2
+    },
+    {
+     "id": "a-function-may-take-zero-or-more-arguments",
+     "text": "A function may take zero or more arguments.",
+     "level": 2
+    },
+    {
+     "id": "every-function-returns-something",
+     "text": "Every function returns something.",
+     "level": 2
+    },
+    {
+     "id": "commonly-used-built-in-functions-include-max-min-and-round",
+     "text": "Commonly-used built-in functions include max , min , and round .",
+     "level": 2
+    },
+    {
+     "id": "functions-may-only-work-for-certain-combinations-of-argument",
+     "text": "Functions may only work for certain (combinations of) arguments.",
+     "level": 2
+    },
+    {
+     "id": "functions-may-have-default-values-for-some-arguments",
+     "text": "Functions may have default values for some arguments.",
+     "level": 2
+    },
+    {
+     "id": "functions-attached-to-objects-are-called-methods",
+     "text": "Functions attached to objects are called methods",
+     "level": 2
+    },
+    {
+     "id": "use-the-built-in-function-help-to-get-help-for-a-function",
+     "text": "Use the built-in function help to get help for a function.",
+     "level": 2
+    },
+    {
+     "id": "the-jupyter-notebook-has-two-ways-to-get-help",
+     "text": "The Jupyter Notebook has two ways to get help.",
+     "level": 2
+    },
+    {
+     "id": "python-reports-a-syntax-error-when-it-can-t-understand-the-s",
+     "text": "Python reports a syntax error when it can't understand the source of a program.",
+     "level": 2
+    },
+    {
+     "id": "python-reports-a-runtime-error-when-something-goes-wrong-whi",
+     "text": "Python reports a runtime error when something goes wrong while a program is executing. {#runtime-error}",
+     "level": 2
+    },
+    {
+     "id": "other-ways-to-get-help",
+     "text": "Other ways to get help",
+     "level": 2
+    },
+    {
+     "id": "generative-ai",
+     "text": "Generative AI",
+     "level": 3
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "python-05",
+   "title": "Libraries",
+   "words": 1348,
+   "minutes": 7,
+   "source": "swc-python",
+   "url": "https://github.com/swcarpentry/python-novice-gapminder/blob/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/06-libraries.md",
+   "toc": [
+    {
+     "id": "most-of-the-power-of-a-programming-language-is-in-its-librar",
+     "text": "Most of the power of a programming language is in its libraries.",
+     "level": 2
+    },
+    {
+     "id": "a-program-must-import-a-library-module-before-using-it",
+     "text": "A program must import a library module before using it.",
+     "level": 2
+    },
+    {
+     "id": "use-help-to-learn-about-the-contents-of-a-library-module",
+     "text": "Use help to learn about the contents of a library module.",
+     "level": 2
+    },
+    {
+     "id": "import-specific-items-from-a-library-module-to-shorten-progr",
+     "text": "Import specific items from a library module to shorten programs.",
+     "level": 2
+    },
+    {
+     "id": "create-an-alias-for-a-library-module-when-importing-it-to-sh",
+     "text": "Create an alias for a library module when importing it to shorten programs.",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "python-06",
+   "title": "Reading Tabular Data into DataFrames",
+   "words": 1093,
+   "minutes": 6,
+   "source": "swc-python",
+   "url": "https://github.com/swcarpentry/python-novice-gapminder/blob/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/07-reading-tabular.md",
+   "toc": [
+    {
+     "id": "use-the-pandas-library-to-do-statistics-on-tabular-data",
+     "text": "Use the Pandas library to do statistics on tabular data.",
+     "level": 2
+    },
+    {
+     "id": "use-index-col-to-specify-that-a-column-s-values-should-be-us",
+     "text": "Use index_col to specify that a column's values should be used as row headings.",
+     "level": 2
+    },
+    {
+     "id": "use-the-dataframe-info-method-to-find-out-more-about-a-dataf",
+     "text": "Use the DataFrame.info() method to find out more about a dataframe.",
+     "level": 2
+    },
+    {
+     "id": "the-dataframe-columns-variable-stores-information-about-the-",
+     "text": "The DataFrame.columns variable stores information about the dataframe's columns.",
+     "level": 2
+    },
+    {
+     "id": "use-dataframe-t-to-transpose-a-dataframe",
+     "text": "Use DataFrame.T to transpose a dataframe.",
+     "level": 2
+    },
+    {
+     "id": "use-dataframe-describe-to-get-summary-statistics-about-data",
+     "text": "Use DataFrame.describe() to get summary statistics about data.",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "python-07",
+   "title": "Pandas DataFrames",
+   "words": 1568,
+   "minutes": 8,
+   "source": "swc-python",
+   "url": "https://github.com/swcarpentry/python-novice-gapminder/blob/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/08-data-frames.md",
+   "toc": [
+    {
+     "id": "note-about-pandas-dataframes-series",
+     "text": "Note about Pandas DataFrames/Series",
+     "level": 2
+    },
+    {
+     "id": "selecting-values",
+     "text": "Selecting values",
+     "level": 2
+    },
+    {
+     "id": "use-dataframe-iloc-to-select-values-by-their-entry-position",
+     "text": "Use DataFrame.iloc[..., ...] to select values by their (entry) position",
+     "level": 2
+    },
+    {
+     "id": "use-dataframe-loc-to-select-values-by-their-entry-label",
+     "text": "Use DataFrame.loc[..., ...] to select values by their (entry) label.",
+     "level": 2
+    },
+    {
+     "id": "use-on-its-own-to-mean-all-columns-or-all-rows",
+     "text": "Use : on its own to mean all columns or all rows.",
+     "level": 2
+    },
+    {
+     "id": "select-multiple-columns-or-rows-using-dataframe-loc-and-a-na",
+     "text": "Select multiple columns or rows using DataFrame.loc and a named slice.",
+     "level": 2
+    },
+    {
+     "id": "result-of-slicing-can-be-used-in-further-operations",
+     "text": "Result of slicing can be used in further operations.",
+     "level": 2
+    },
+    {
+     "id": "use-comparisons-to-select-data-based-on-value",
+     "text": "Use comparisons to select data based on value.",
+     "level": 2
+    },
+    {
+     "id": "select-values-or-nan-using-a-boolean-mask",
+     "text": "Select values or NaN using a Boolean mask.",
+     "level": 2
+    },
+    {
+     "id": "group-by-split-apply-combine",
+     "text": "Group By: split-apply-combine",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "python-08",
+   "title": "Plotting",
+   "words": 1267,
+   "minutes": 7,
+   "source": "swc-python",
+   "url": "https://github.com/swcarpentry/python-novice-gapminder/blob/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/09-plotting.md",
+   "toc": [
+    {
+     "id": "matplotlib-is-the-most-widely-used-scientific-plotting-libra",
+     "text": "matplotlib is the most widely used scientific plotting library in Python.",
+     "level": 2
+    },
+    {
+     "id": "plot-data-directly-from-a-pandas-dataframe",
+     "text": "Plot data directly from a Pandas dataframe .",
+     "level": 2
+    },
+    {
+     "id": "select-and-transform-data-then-plot-it",
+     "text": "Select and transform data, then plot it.",
+     "level": 2
+    },
+    {
+     "id": "many-styles-of-plot-are-available",
+     "text": "Many styles of plot are available.",
+     "level": 2
+    },
+    {
+     "id": "data-can-also-be-plotted-by-calling-the-matplotlib-plot-func",
+     "text": "Data can also be plotted by calling the matplotlib plot function directly.",
+     "level": 2
+    },
+    {
+     "id": "get-australia-data-from-dataframe",
+     "text": "Get Australia data from dataframe",
+     "level": 2
+    },
+    {
+     "id": "can-plot-many-sets-of-data-together",
+     "text": "Can plot many sets of data together.",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "python-09",
+   "title": "Lists",
+   "words": 1168,
+   "minutes": 6,
+   "source": "swc-python",
+   "url": "https://github.com/swcarpentry/python-novice-gapminder/blob/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/11-lists.md",
+   "toc": [
+    {
+     "id": "a-list-stores-many-values-in-a-single-structure",
+     "text": "A list stores many values in a single structure.",
+     "level": 2
+    },
+    {
+     "id": "use-an-item-s-index-to-fetch-it-from-a-list",
+     "text": "Use an item's index to fetch it from a list.",
+     "level": 2
+    },
+    {
+     "id": "lists-values-can-be-replaced-by-assigning-to-them",
+     "text": "Lists' values can be replaced by assigning to them.",
+     "level": 2
+    },
+    {
+     "id": "appending-items-to-a-list-lengthens-it",
+     "text": "Appending items to a list lengthens it.",
+     "level": 2
+    },
+    {
+     "id": "use-del-to-remove-items-from-a-list-entirely",
+     "text": "Use del to remove items from a list entirely.",
+     "level": 2
+    },
+    {
+     "id": "the-empty-list-contains-no-values",
+     "text": "The empty list contains no values.",
+     "level": 2
+    },
+    {
+     "id": "lists-may-contain-values-of-different-types",
+     "text": "Lists may contain values of different types.",
+     "level": 2
+    },
+    {
+     "id": "character-strings-can-be-indexed-like-lists",
+     "text": "Character strings can be indexed like lists.",
+     "level": 2
+    },
+    {
+     "id": "character-strings-are-immutable",
+     "text": "Character strings are immutable.",
+     "level": 2
+    },
+    {
+     "id": "indexing-beyond-the-end-of-the-collection-is-an-error",
+     "text": "Indexing beyond the end of the collection is an error.",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "python-10",
+   "title": "For Loops",
+   "words": 991,
+   "minutes": 5,
+   "source": "swc-python",
+   "url": "https://github.com/swcarpentry/python-novice-gapminder/blob/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/12-for-loops.md",
+   "toc": [
+    {
+     "id": "a-for-loop-executes-commands-once-for-each-value-in-a-collec",
+     "text": "A for loop executes commands once for each value in a collection.",
+     "level": 2
+    },
+    {
+     "id": "a-for-loop-is-made-up-of-a-collection-a-loop-variable-and-a-",
+     "text": "A for loop is made up of a collection, a loop variable, and a body.",
+     "level": 2
+    },
+    {
+     "id": "the-first-line-of-the-for-loop-must-end-with-a-colon-and-the",
+     "text": "The first line of the for loop must end with a colon, and the body must be indented.",
+     "level": 2
+    },
+    {
+     "id": "loop-variables-can-be-called-anything",
+     "text": "Loop variables can be called anything.",
+     "level": 2
+    },
+    {
+     "id": "the-body-of-a-loop-can-contain-many-statements",
+     "text": "The body of a loop can contain many statements.",
+     "level": 2
+    },
+    {
+     "id": "use-range-to-iterate-over-a-sequence-of-numbers",
+     "text": "Use range to iterate over a sequence of numbers.",
+     "level": 2
+    },
+    {
+     "id": "the-accumulator-pattern-turns-many-values-into-one",
+     "text": "The Accumulator pattern turns many values into one.",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "python-11",
+   "title": "Conditionals",
+   "words": 724,
+   "minutes": 4,
+   "source": "swc-python",
+   "url": "https://github.com/swcarpentry/python-novice-gapminder/blob/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/13-conditionals.md",
+   "toc": [
+    {
+     "id": "use-if-statements-to-control-whether-or-not-a-block-of-code-",
+     "text": "Use if statements to control whether or not a block of code is executed.",
+     "level": 2
+    },
+    {
+     "id": "conditionals-are-often-used-inside-loops",
+     "text": "Conditionals are often used inside loops.",
+     "level": 2
+    },
+    {
+     "id": "use-else-to-execute-a-block-of-code-when-an-if-condition-is-",
+     "text": "Use else to execute a block of code when an if condition is not true.",
+     "level": 2
+    },
+    {
+     "id": "use-elif-to-specify-additional-tests",
+     "text": "Use elif to specify additional tests.",
+     "level": 2
+    },
+    {
+     "id": "conditions-are-tested-once-in-order",
+     "text": "Conditions are tested once, in order.",
+     "level": 2
+    },
+    {
+     "id": "create-a-table-showing-variables-values-to-trace-a-program-s",
+     "text": "Create a table showing variables' values to trace a program's execution.",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "python-12",
+   "title": "Looping Over Data Sets",
+   "words": 556,
+   "minutes": 3,
+   "source": "swc-python",
+   "url": "https://github.com/swcarpentry/python-novice-gapminder/blob/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/14-looping-data-sets.md",
+   "toc": [
+    {
+     "id": "use-a-for-loop-to-process-files-given-a-list-of-their-names",
+     "text": "Use a for loop to process files given a list of their names.",
+     "level": 2
+    },
+    {
+     "id": "use-glob-glob-to-find-sets-of-files-whose-names-match-a-patt",
+     "text": "Use glob.glob to find sets of files whose names match a pattern.",
+     "level": 2
+    },
+    {
+     "id": "use-glob-and-for-to-process-batches-of-files",
+     "text": "Use glob and for to process batches of files.",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "python-13",
+   "title": "Writing Functions",
+   "words": 1735,
+   "minutes": 9,
+   "source": "swc-python",
+   "url": "https://github.com/swcarpentry/python-novice-gapminder/blob/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/16-writing-functions.md",
+   "toc": [
+    {
+     "id": "break-programs-down-into-functions-to-make-them-easier-to-un",
+     "text": "Break programs down into functions to make them easier to understand.",
+     "level": 2
+    },
+    {
+     "id": "define-a-function-using-def-with-a-name-parameters-and-a-blo",
+     "text": "Define a function using def with a name, parameters, and a block of code.",
+     "level": 2
+    },
+    {
+     "id": "defining-a-function-does-not-run-it",
+     "text": "Defining a function does not run it.",
+     "level": 2
+    },
+    {
+     "id": "arguments-in-a-function-call-are-matched-to-its-defined-para",
+     "text": "Arguments in a function call are matched to its defined parameters.",
+     "level": 2
+    },
+    {
+     "id": "functions-may-return-a-result-to-their-caller-using-return",
+     "text": "Functions may return a result to their caller using return .",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x-x-x-x-x-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "python-14",
+   "title": "Variable Scope",
+   "words": 349,
+   "minutes": 3,
+   "source": "swc-python",
+   "url": "https://github.com/swcarpentry/python-novice-gapminder/blob/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/17-scope.md",
+   "toc": [
+    {
+     "id": "the-scope-of-a-variable-is-the-part-of-a-program-that-can-se",
+     "text": "The scope of a variable is the part of a program that can 'see' that variable.",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "python-15",
+   "title": "Programming Style",
+   "words": 758,
+   "minutes": 4,
+   "source": "swc-python",
+   "url": "https://github.com/swcarpentry/python-novice-gapminder/blob/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/18-style.md",
+   "toc": [
+    {
+     "id": "coding-style",
+     "text": "Coding style",
+     "level": 2
+    },
+    {
+     "id": "follow-standard-python-style-in-your-code",
+     "text": "Follow standard Python style in your code.",
+     "level": 2
+    },
+    {
+     "id": "use-assertions-to-check-for-internal-errors",
+     "text": "Use assertions to check for internal errors.",
+     "level": 2
+    },
+    {
+     "id": "use-docstrings-to-provide-builtin-help",
+     "text": "Use docstrings to provide builtin help.",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [],
+  "pass_mark": 0,
+  "missing": true
+ },
+ "minutes": 101,
+ "sources": [
+  {
+   "id": "swc-python",
+   "name": "Software Carpentry · Plotting and Programming in Python",
+   "url": "https://swcarpentry.github.io/python-novice-gapminder/",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "© The Carpentries, CC BY 4.0",
+   "noncommercial": false
+  }
+ ]
+}

@@ -1,0 +1,829 @@
+<div>
+<div>
+<div>
+<div>
+<div>
+<h2 id="descriptive-statistics-for-quantitative-data">Descriptive Statistics for Quantitative Data</h2>
+</div>
+<div>
+<p>Descriptive options for <a href="#term_79_2781" rel="noopener noreferrer">quantitative data</a> are much more robust than for categorical.&nbsp; Recall descriptive statistics consists of visual and numerical methods.&nbsp; We usually start with visual methods and then move into numerical.</p>
+<p>This section will expand on graphical methods while the next few sections will focus on numerical summaries of quantitative data.</p>
+<h2 id="graphical-methods-for-quantitative-data">Graphical Methods for Quantitative Data</h2>
+</div>
+<p>The first thing we may do, especially for quantitative data, is to examine it in a frequency table.&nbsp; We have many more graphical options beyond that for quantitative data.&nbsp; Some of them we will discuss here are:</p>
+<ul>
+<li>Stem-and-leaf plots</li>
+<li>Dot plots</li>
+<li>Line graphs</li>
+<li>Histograms</li>
+<li>Frequency polygons</li>
+<li>Time series plots</li>
+</ul>
+<p>Each of these methods comes with it’s own pros and cons.</p>
+<h2 id="stem-and-leaf-plots">Stem-And-Leaf Plots</h2>
+</div>
+</div>
+</div>
+<p>One simple graph, the stem-and-leaf graph or stemplot, comes from the field of exploratory data analysis. It is a good choice when the data sets are small. To create the plot, divide each observation of data into a “stem” and a “leaf”. The leaf consists of a final significant digit. For example you could divide the number 23 into a stem two and a leaf of three. The number 432 could have a stem of 43 and leaf of two. The decimal 9.3 could have a stem of nine and leaf of three. Write the stems in a vertical line from smallest to largest. Draw a vertical line to the right of the stems. Then write the leaves in increasing order next to their corresponding stem.</p>
+<div class="box box-keypoints"><p class="box-title">Example</p>
+
+<div>
+<p>For Susan Dean’s spring pre-calculus class, scores for the first exam were as follows (smallest to largest): <br>
+ 33, 42, 49, 49, 53, 55, 55, 61, 63, 67, 68, 68, 69, 69, 72, 73, 74, 78, 80, 83, 88, 88, 88, 90, 92, 94, 94, 94, 94, 96, 100</p>
+<div class="table-wrap"><table>
+<caption>Figure 2.23: Exam 1 Scores</caption>
+<thead>
+<tr>
+<th>Stem</th>
+<th>Leaf</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2 9 9</td>
+</tr>
+<tr>
+<td>5</td>
+<td>3 5 5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1 3 7 8 8 9 9</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2 3 4 8</td>
+</tr>
+<tr>
+<td>8</td>
+<td>0 3 8 8 8</td>
+</tr>
+<tr>
+<td>9</td>
+<td>0 2 4 4 4 4 6</td>
+</tr>
+<tr>
+<td>10</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+<p>The stemplot shows that most scores fell in the 60s, 70s, 80s, and 90s. Eight out of the 31 scores or approximately 26% <img alt="\left(\frac{8}{31}\right)" height="23" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-29941c26631eaa4354c3f8adc67193fd_l3.png" title="Rendered by QuickLaTeX.com" width="30"> were in the 90s or 100, a fairly high number of As.</p>
+</div>
+</div>
+<div>The stemplot is a quick way to organize things and gives a good picture of the data.&nbsp; You can quickly and easily find basic summary statistics such as the Maximum, Minimum, range, etc.&nbsp; Also some measures we will explore int he future such as the median and quartiles.&nbsp; They can be good for seeing individual data points and mainly handle discrete or rounded continuous data.</div>
+<div>
+<div>
+<h2 id="comparisons-with-stem-and-leaf-plots">Comparisons with Stem-and-Leaf Plots</h2>
+<p>Back-to-back or side-by-side stem-and-leaf plot allows a comparison of the two data sets in two columns. In a side-by-side stem-and-leaf plot, two sets of leaves share the same stem. The leaves are to the left and the right of the stems.</p>
+<div class="box box-callout"><p class="box-title">Your turn!</p>
+
+<div>
+<p>The following two tables show the ages of U.S. presidents at their inauguration and at their death. Construct a side-by-side stem-and-leaf plot using this data.</p>
+<div>
+<div>
+
+</div>
+</div>
+<div class="table-wrap"><table>
+<caption>Figure 2.24: Presidential Ages at Inauguration</caption>
+<thead>
+<tr>
+<th>President</th>
+<th>Age</th>
+<th>President</th>
+<th>Age</th>
+<th>President</th>
+<th>Age</th>
+<th>President</th>
+<th>Age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Washington</td>
+<td>57</td>
+<td>Fillmore</td>
+<td>50</td>
+<td>McKinley</td>
+<td>54</td>
+<td>Nixon</td>
+<td>56</td>
+</tr>
+<tr>
+<td>J. Adams</td>
+<td>61</td>
+<td>Pierce</td>
+<td>48</td>
+<td>T. Roosevelt</td>
+<td>42</td>
+<td>Ford</td>
+<td>61</td>
+</tr>
+<tr>
+<td>Jefferson</td>
+<td>57</td>
+<td>Buchanan</td>
+<td>65</td>
+<td>Taft</td>
+<td>51</td>
+<td>Carter</td>
+<td>52</td>
+</tr>
+<tr>
+<td>Madison</td>
+<td>57</td>
+<td>Lincoln</td>
+<td>52</td>
+<td>Wilson</td>
+<td>56</td>
+<td>Reagan</td>
+<td>69</td>
+</tr>
+<tr>
+<td>Monroe</td>
+<td>58</td>
+<td>A. Johnson</td>
+<td>56</td>
+<td>Harding</td>
+<td>55</td>
+<td>G.H.W. Bush</td>
+<td>64</td>
+</tr>
+<tr>
+<td>J. Q. Adams</td>
+<td>57</td>
+<td>Grant</td>
+<td>46</td>
+<td>Coolidge</td>
+<td>51</td>
+<td>Clinton</td>
+<td>47</td>
+</tr>
+<tr>
+<td>Jackson</td>
+<td>61</td>
+<td>Hayes</td>
+<td>54</td>
+<td>Hoover</td>
+<td>54</td>
+<td>G. W. Bush</td>
+<td>54</td>
+</tr>
+<tr>
+<td>Van Buren</td>
+<td>54</td>
+<td>Garfield</td>
+<td>49</td>
+<td>F. Roosevelt</td>
+<td>51</td>
+<td>Obama</td>
+<td>47</td>
+</tr>
+<tr>
+<td>W. H. Harrison</td>
+<td>68</td>
+<td>Arthur</td>
+<td>51</td>
+<td>Truman</td>
+<td>60</td>
+<td>Trump</td>
+<td>70</td>
+</tr>
+<tr>
+<td>Tyler</td>
+<td>51</td>
+<td>Cleveland</td>
+<td>47</td>
+<td>Eisenhower</td>
+<td>62</td>
+<td>Biden</td>
+<td>78</td>
+</tr>
+<tr>
+<td>Polk</td>
+<td>49</td>
+<td>B. Harrison</td>
+<td>55</td>
+<td>Kennedy</td>
+<td>43</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Taylor</td>
+<td>64</td>
+<td>Cleveland</td>
+<td>55</td>
+<td>L. Johnson</td>
+<td>55</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+
+<div class="table-wrap"><table>
+<caption>Figure 2.25: Presidential Ages at Death</caption>
+<thead>
+<tr>
+<th>President</th>
+<th>Age</th>
+<th>President</th>
+<th>Age</th>
+<th>President</th>
+<th>Age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Washington</td>
+<td>67</td>
+<td>Lincoln</td>
+<td>56</td>
+<td>Hoover</td>
+<td>90</td>
+</tr>
+<tr>
+<td>J. Adams</td>
+<td>90</td>
+<td>A. Johnson</td>
+<td>66</td>
+<td>F. Roosevelt</td>
+<td>63</td>
+</tr>
+<tr>
+<td>Jefferson</td>
+<td>83</td>
+<td>Grant</td>
+<td>63</td>
+<td>Truman</td>
+<td>88</td>
+</tr>
+<tr>
+<td>Madison</td>
+<td>85</td>
+<td>Hayes</td>
+<td>70</td>
+<td>Eisenhower</td>
+<td>78</td>
+</tr>
+<tr>
+<td>Monroe</td>
+<td>73</td>
+<td>Garfield</td>
+<td>49</td>
+<td>Kennedy</td>
+<td>46</td>
+</tr>
+<tr>
+<td>J. Q. Adams</td>
+<td>80</td>
+<td>Arthur</td>
+<td>56</td>
+<td>L. Johnson</td>
+<td>64</td>
+</tr>
+<tr>
+<td>Jackson</td>
+<td>78</td>
+<td>Cleveland</td>
+<td>71</td>
+<td>Nixon</td>
+<td>81</td>
+</tr>
+<tr>
+<td>Van Buren</td>
+<td>79</td>
+<td>B. Harrison</td>
+<td>67</td>
+<td>Ford</td>
+<td>93</td>
+</tr>
+<tr>
+<td>W. H. Harrison</td>
+<td>68</td>
+<td>Cleveland</td>
+<td>71</td>
+<td>Reagan</td>
+<td>93</td>
+</tr>
+<tr>
+<td>Tyler</td>
+<td>71</td>
+<td>McKinley</td>
+<td>58</td>
+<td>G.H.W. Bush</td>
+<td>94</td>
+</tr>
+<tr>
+<td>Polk</td>
+<td>53</td>
+<td>T. Roosevelt</td>
+<td>60</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Taylor</td>
+<td>65</td>
+<td>Taft</td>
+<td>72</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fillmore</td>
+<td>74</td>
+<td>Wilson</td>
+<td>67</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Pierce</td>
+<td>64</td>
+<td>Harding</td>
+<td>57</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Buchanan</td>
+<td>77</td>
+<td>Coolidge</td>
+<td>60</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+
+<div>
+<div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<h2 id="line-graphs">Line Graphs</h2>
+</div>
+</div>
+<p>Another type of graph that is useful for showing trends in specific data values (<a href="#term_79_3295" rel="noopener noreferrer">discrete</a> data) is a line graph. In the particular line graph shown below, the <em>x</em>-axis (horizontal axis) consists of data values and the <em>y</em>-axis (vertical axis) consists of frequency points. The frequency points are connected using line segments.</p>
+<p>Side Note: Line graphs could also be used with some <a href="#term_79_2789" rel="noopener noreferrer">ordinal categorical data</a>.</p>
+<div class="box box-keypoints"><p class="box-title">Example</p>
+
+<div>
+<p>In a survey, 40 mothers were asked how many times per week a teenager must be reminded to complete chores. The results are shown in the table and chart below.</p>
+<div class="table-wrap"><table>
+<caption>Figure 2.26: Chore Reminder Data</caption>
+<thead>
+<tr>
+<th>Number of times teenager is reminded</th>
+<th>Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>8</td>
+</tr>
+<tr>
+<td>3</td>
+<td>14</td>
+</tr>
+<tr>
+<td>4</td>
+<td>7</td>
+</tr>
+<tr>
+<td>5</td>
+<td>4</td>
+</tr>
+</tbody>
+</table></div>
+<div>
+<figure><img alt="Line graph showing the number of times a teenager needs to be reminded to do chores on the x-axis (range 1-6 by 1) and frequency on the y-axis (rangle 0-16 by 2)." height="255" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/2.27-1.png" width="423"><figcaption>Figure 2.27: Chore Reminder (Line Graph)</figcaption></figure>
+</div>
+<div></div>
+</div>
+</div>
+<div>
+<div>
+<h2 id="dot-plots">Dot Plots</h2>
+</div>
+</div>
+<p>&nbsp;A dot plot consists of a number line and dots (or points) positioned above the number line.&nbsp; &nbsp;</p>
+<p>Dot plots are very similar in functionality to stem-leaf-plots, but look a little bit cleaner.&nbsp; Look for an overall pattern and any outliers or extreme values. An outlier is an observation of data that does not fit the rest of the data.&nbsp;When graphed, an outlier will appear not to fit the pattern of the graph. Some outliers are due to mistakes (for example, writing down 50 instead of 500) while others may indicate that something unusual is happening. It takes some background information to fully explain outliers; we will cover them in more detail later.&nbsp;</p>
+<div class="box box-keypoints"><p class="box-title">Example</p>
+
+<div>
+<p>Consider the following data dealing with the hours of sleep students get per night:&nbsp; 5, 5.5, 6, 6, 6, 6.5, 6.5, 6.5, 6.5, 7, 7, 8, 8, 9</p>
+<p>The dot plot for this data would be as follows:</p>
+<figure><img alt="Dot plot showing 'frequency of average time (in hours) spent sleeping per night'. The number line is marked in intervals of 1 from 5 to 9. Dots above the line show 1 person reporting 5 hours, 1 with 5.5, 3 with 6, 4 with 6.5, 2 with 7, 2 with 8, and 1 with 9 hours." height="203" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/2.28-1.png" width="425"><figcaption>Figure 2.28: Student Sleep Hours</figcaption></figure>
+<div></div>
+</div>
+</div>
+</div>
+<h2 id="histograms">Histograms</h2>
+<p>For most of the work in this book, histograms will display the data. One advantage of a histogram is that it can readily display large continuous data sets. A rule of thumb is to use a histogram when the data set consists of 100 values or more.</p>
+<p>A histogram consists of contiguous (adjoining) boxes. It has both a horizontal axis and a vertical axis. The horizontal axis is labeled with what the data represents (for instance, distance from your home to school). The vertical axis is labeled either frequency or relative frequency (or percent frequency or probability). The graph will have the same shape with either label. The histogram can give you a really good look at the overall shape of the data, the center, and the spread.&nbsp; However, you do lose individual data points.</p>
+<p>A Histogram is essentially a 2-D Frequency table.&nbsp; To construct a histogram, you must first decide the size and number of bars,&nbsp;intervals, or classes, similarly to how you would with a frequency table.</p>
+<div class="box box-keypoints"><p class="box-title">Example</p>
+
+<div>
+<p>The following data are the heights (in inches to the nearest half inch) of 100 male semiprofessional soccer players. The heights are continuous data, since height is measured.</p>
+<p>60, 60.5, 61, 61, 61.5, 63.5, 63.5, 63.5, 64, 64, 64, 64, 64, 64, 64, 64.5, 64.5, 64.5, 64.5, 64.5, 64.5, 64.5, 64.5, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68, 68, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69.5, 69.5, 69.5, 69.5, 69.5, 70, 70, 70, 70, 70, 70, 70.5, 70.5, 70.5, 71, 71, 71, 72, 72, 72, 72.5, 72.5, 73, 73.5, 74</p>
+<p>The smallest data value is 60. Since the data with the most decimal places has one decimal (for instance, 61.5), we want our starting point to have two decimal places. Since the numbers 0.5, 0.05, 0.005, etc. are convenient numbers, use 0.05 and subtract it from 60, the smallest value, for the convenient starting point.</p>
+<p>60 – 0.05 = 59.95 which is more precise than, say, 61.5 by one decimal place. The starting point is, then, 59.95.</p>
+<p>The largest value is 74, so 74 + 0.05 = 74.05 is the ending value.</p>
+<p>Next, calculate the width of each bar or class interval. To calculate this width, subtract the starting point from the ending value and divide by the number of bars (you must choose the number of bars you desire). Suppose you choose eight bars.</p>
+<div><img alt="\frac{74.05-59.95}{8}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-fe776016aa4b8ace503938ec47c1c381_l3.png" title="Rendered by QuickLaTeX.com" width="74"> = 1.76.</div>
+<div>
+<div>
+<div class="box box-callout"><p class="box-title">Note</p>
+<div>NOTE</div>
+<p>We will round up to two and make each bar or class interval two units wide. Rounding up to two is one way to prevent a value from falling on a boundary. Rounding to the next number is often necessary even if it goes against the standard rules of rounding. For this example, using 1.76 as the width would also work. A guideline that is followed by some for the number of bars or class intervals is to take the square root of the number of data values and then round to the nearest whole number, if necessary. For example, if there are 150 values of data, take the square root of 150 and round to 12 bars or intervals.</p>
+<p>Some values in data sets might fall on boundaries for different intervals. Different researchers may set up histograms for the same data in different ways. There is more than one correct way to set up a histogram.</p>
+</div>
+
+</div>
+</div>
+<p>The boundaries are:</p>
+<ul>
+<li>59.95</li>
+<li>59.95 + 2 = 61.95</li>
+<li>61.95 + 2 = 63.95</li>
+<li>63.95 + 2 = 65.95</li>
+<li>65.95 + 2 = 67.95</li>
+<li>67.95 + 2 = 69.95</li>
+<li>69.95 + 2 = 71.95</li>
+<li>71.95 + 2 = 73.95</li>
+<li>73.95 + 2 = 75.95</li>
+</ul>
+<p>The heights 60 through 61.5 inches are in the interval 59.95–61.95. The heights that are 63.5 are in the interval 61.95–63.95. The heights that are 64 through 64.5 are in the interval 63.95–65.95. The heights 66 through 67.5 are in the interval 65.95–67.95. The heights 68 through 69.5 are in the interval 67.95–69.95. The heights 70 through 71 are in the interval 69.95–71.95. The heights 72 through 73.5 are in the interval 71.95–73.95. The height 74 is in the interval 73.95–75.95.</p>
+<p>The following histogram displays the heights on the <em>x</em>-axis and relative frequency on the <em>y</em>-axis.</p>
+<figure><img alt="Histogram consists of 8 bars with the y-axis in increments of 0.05 from 0-0.4 measuring relative frequency and the x-axis in intervals of 2 from 59.95-75.95 measuring heights. The highest is 25.95-67.95." height="283" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/2.29-1.png" width="455"><figcaption>Figure 2.29: Soccer Player Heights</figcaption></figure>
+<div></div>
+</div>
+</div>
+<div>
+<h2 id="frequency-polygons">Frequency Polygons</h2>
+<p>Frequency polygons are analogous to line graphs, but instead utilize binning techniques to make continuous data visually easy to interpret.&nbsp; It is essentially a combination of a histogram and line graph.</p>
+<p>To construct a frequency polygon, first examine the data and decide on the number of intervals, or class intervals, to use on the <em>x</em>-axis and <em>y</em>-axis. After choosing the appropriate ranges, begin plotting the data points. After all the points are plotted, draw line segments to connect them.</p>
+<p>Frequency polygons are sometimes more useful for comparing continuous distributions than histograms. This is achieved by overlaying the frequency polygons drawn for different data sets.</p>
+<div class="box box-keypoints"><p class="box-title">Example</p>
+
+<div>
+<p>A frequency polygon was constructed from the frequency table below.</p>
+<div class="table-wrap"><table>
+<caption>Figure 2.30: Frequency Distribution for Calculus Final Test Scores</caption>
+<thead>
+<tr>
+<th>Lower Bound</th>
+<th>Upper Bound</th>
+<th>Frequency</th>
+<th>Cumulative Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>49.5</td>
+<td>59.5</td>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>59.5</td>
+<td>69.5</td>
+<td>10</td>
+<td>15</td>
+</tr>
+<tr>
+<td>69.5</td>
+<td>79.5</td>
+<td>30</td>
+<td>45</td>
+</tr>
+<tr>
+<td>79.5</td>
+<td>89.5</td>
+<td>40</td>
+<td>85</td>
+</tr>
+<tr>
+<td>89.5</td>
+<td>99.5</td>
+<td>15</td>
+<td>100</td>
+</tr>
+</tbody>
+</table></div>
+<div>
+<figure><img alt="Frequency polygon was constructed from the frequency table above it. X axis measures scores and the y axis measures frequency." height="284" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/2.31-1.png" width="419"><figcaption>Figure 2.31: Calculus Final Test Scores (Frequency Polygon)</figcaption></figure>
+</div>
+<div></div>
+<div></div>
+<p>The first label on the <em>x</em>-axis is 44.5. This represents an interval extending from 39.5 to 49.5. Since the lowest test score is 54.5, this interval is used only to allow the graph to touch the <em>x</em>-axis. The point labeled 54.5 represents the next interval, or the first “real” interval from the table, and contains five scores. This reasoning is followed for each of the remaining intervals with the point 104.5 representing the interval from 99.5 to 109.5. Again, this interval contains no data and is only used so that the graph will touch the <em>x</em>-axis. Looking at the graph, we say that this distribution is skewed because one side of the graph does not mirror the other side.</p>
+</div>
+</div>
+<h2 id="time-series-plots">Time Series Plots</h2>
+<p>Suppose that we want to study the temperature range of a region for an entire month. Every day at noon we note the temperature and write this down in a log. A variety of statistical studies could be done with this data. We could find the mean or the median temperature for the month. We could construct a histogram displaying the number of days that temperatures reach a certain range of values. However, all of these methods ignore a portion of the data that we have collected.</p>
+<p>One feature of the data that we may want to consider is that of time. Since each date is paired with the temperature reading for the day, we don‘t have to think of the data as being random. We can instead use the times given to impose a chronological order on the data. A graph that recognizes this ordering and displays the changing temperature as the month progresses is called a time series graph.</p>
+<p>Time series graphs are important tools in various applications of statistics. When recording values of the same variable over an extended period of time, sometimes it is difficult to discern any trend or pattern. However, once the same data points are displayed graphically, some features jump out. Time series graphs make trends easy to spot.</p>
+</div>
+<div>
+<p>To construct a time series graph, we must look at both pieces of our paired data set. We start with a standard Cartesian coordinate system. The horizontal axis is used to plot the date or time increments, and the vertical axis is used to plot the values of the variable that we are measuring. By doing this, we make each point on the graph correspond to a date and a measured quantity. The points on the graph are typically connected by straight lines in the order in which they occur.</p>
+<div class="box box-keypoints"><p class="box-title">Example</p>
+
+<div>
+<div>
+<p>The following data shows the Annual Consumer Price Index, each month, for ten years. Construct a time series graph for the Annual Consumer Price Index data only.</p>
+<div class="table-wrap"><table>
+<caption>Figure 2.32: CPI Data</caption>
+
+
+
+
+
+
+
+
+
+<thead>
+<tr>
+<th>Year</th>
+<th>Jan</th>
+<th>Feb</th>
+<th>Mar</th>
+<th>Apr</th>
+<th>May</th>
+<th>Jun</th>
+<th>Jul</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2009</strong></td>
+<td>211.143</td>
+<td>212.193</td>
+<td>212.709</td>
+<td>213.240</td>
+<td>213.856</td>
+<td>215.693</td>
+<td>215.351</td>
+</tr>
+<tr>
+<td><strong>2010</strong></td>
+<td>216.687</td>
+<td>216.741</td>
+<td>217.631</td>
+<td>218.009</td>
+<td>218.178</td>
+<td>217.965</td>
+<td>218.011</td>
+</tr>
+<tr>
+<td><strong>2011</strong></td>
+<td>220.223</td>
+<td>221.309</td>
+<td>223.467</td>
+<td>224.906</td>
+<td>225.964</td>
+<td>225.722</td>
+<td>225.922</td>
+</tr>
+<tr>
+<td><strong>2012</strong></td>
+<td>226.655</td>
+<td>227.663</td>
+<td>229.392</td>
+<td>230.085</td>
+<td>229.815</td>
+<td>229.478</td>
+<td>229.104</td>
+</tr>
+<tr>
+<td><strong>2013</strong></td>
+<td>230.280</td>
+<td>232.166</td>
+<td>232.773</td>
+<td>232.531</td>
+<td>232.945</td>
+<td>233.504</td>
+<td>233.596</td>
+</tr>
+<tr>
+<td><strong>2014</strong></td>
+<td>233.916</td>
+<td>234.781</td>
+<td>236.293</td>
+<td>237.072</td>
+<td>237.900</td>
+<td>238.343</td>
+<td>238.250</td>
+</tr>
+<tr>
+<td><strong>2015</strong></td>
+<td>233.707</td>
+<td>234.722</td>
+<td>236.119</td>
+<td>236.599</td>
+<td>237.805</td>
+<td>238.638</td>
+<td>238.654</td>
+</tr>
+<tr>
+<td><strong>2016</strong></td>
+<td>236.916</td>
+<td>237.111</td>
+<td>238.132</td>
+<td>239.261</td>
+<td>240.236</td>
+<td>241.038</td>
+<td>240.647</td>
+</tr>
+<tr>
+<td><strong>2017</strong></td>
+<td>242.839</td>
+<td>243.603</td>
+<td>243.801</td>
+<td>244.524</td>
+<td>244.733</td>
+<td>244.955</td>
+<td>244.786</td>
+</tr>
+<tr>
+<td><strong>2018</strong></td>
+<td>247.867</td>
+<td>248.991</td>
+<td>249.554</td>
+<td>250.546</td>
+<td>251.588</td>
+<td>251.989</td>
+<td>252.006</td>
+</tr>
+<tr>
+<td><strong>2019</strong></td>
+<td>251.712</td>
+<td>252.776</td>
+<td>254.202</td>
+<td>255.548</td>
+<td>256.092</td>
+<td>256.143</td>
+<td>256.571</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table>
+<caption>&nbsp;</caption>
+
+
+
+
+
+
+
+
+
+<thead>
+<tr>
+<th>Year</th>
+<th>Aug</th>
+<th>Sep</th>
+<th>Oct</th>
+<th>Nov</th>
+<th>Dec</th>
+<th>Annual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2009</strong></td>
+<td>215.834</td>
+<td>215.969</td>
+<td>216.177</td>
+<td>216.330</td>
+<td>215.949</td>
+<td>214.537</td>
+</tr>
+<tr>
+<td><strong>2010</strong></td>
+<td>218.312</td>
+<td>218.439</td>
+<td>218.711</td>
+<td>218.803</td>
+<td>219.179</td>
+<td>218.056</td>
+</tr>
+<tr>
+<td><strong>2011</strong></td>
+<td>226.545</td>
+<td>226.889</td>
+<td>226.421</td>
+<td>226.230</td>
+<td>225.672</td>
+<td>224.939</td>
+</tr>
+<tr>
+<td><strong>2012</strong></td>
+<td>230.379</td>
+<td>231.407</td>
+<td>231.317</td>
+<td>230.221</td>
+<td>229.601</td>
+<td>229.594</td>
+</tr>
+<tr>
+<td><strong>2013</strong></td>
+<td>233.877</td>
+<td>234.149</td>
+<td>233.546</td>
+<td>233.069</td>
+<td>233.049</td>
+<td>232.957</td>
+</tr>
+<tr>
+<td><strong>2014</strong></td>
+<td>237.852</td>
+<td>238.031</td>
+<td>237.433</td>
+<td>236.151</td>
+<td>234.812</td>
+<td>236.736</td>
+</tr>
+<tr>
+<td><strong>2015</strong></td>
+<td>238.316</td>
+<td>237.945</td>
+<td>237.838</td>
+<td>237.336</td>
+<td>236.525</td>
+<td>237.017</td>
+</tr>
+<tr>
+<td><strong>2016</strong></td>
+<td>240.853</td>
+<td>241.428</td>
+<td>241.729</td>
+<td>241.353</td>
+<td>241.432</td>
+<td>240.007</td>
+</tr>
+<tr>
+<td><strong>2017</strong></td>
+<td>245.519</td>
+<td>246.819</td>
+<td>246.663</td>
+<td>246.669</td>
+<td>246.524</td>
+<td>245.120</td>
+</tr>
+<tr>
+<td><strong>2018</strong></td>
+<td>252.146</td>
+<td>252.439</td>
+<td>252.885</td>
+<td>252.038</td>
+<td>251.233</td>
+<td>251.107</td>
+</tr>
+<tr>
+<td><strong>2019</strong></td>
+<td>256.558</td>
+<td>256.759</td>
+<td>257.346</td>
+<td>257.208</td>
+<td>256.974</td>
+<td>255.657</td>
+</tr>
+</tbody>
+</table></div>
+<figure><img alt="Times series graph that matches the supplied data. The x-axis shows years from 2010 to 2019, and the y-axis shows the annual CPI. Constant positive trend." height="260" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/2.33-1.png" width="468"><figcaption>Figure 2.33: CPI Time Series Plot</figcaption></figure>
+</div>
+</div>
+</div>
+<div>Image References</div>
+<div>Figure 2.27: Kindred Grey (2020). “Figure 2.27.” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_2.27.png</div>
+<div>Figure 2.28: Kindred Grey (2020). “Figure 2.28.” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_2.28.png</div>
+<div>Figure 2.29: Kindred Grey (2020). “Figure 2.29.” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_2.29.png</div>
+<div>Figure 2.31: Kindred Grey (2020). “Figure 2.31.” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_2.31.png</div>
+<div>Figure 2.32: Data retrieved from &nbsp;<a href="https://www.usinflationcalculator.com/inflation/consumer-price-index-and-annual-percent-changes-from-1913-to-2008/" target="_blank" rel="noopener noreferrer">https://www.usinflationcalculator.com/inflation/consumer-price-index-and-annual-percent-changes-from-1913-to-2008/</a></div>
+<div>Figure 2.33: Kindred Grey (2020). “Figure 2.33.” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_2.33.png</div>
+</div>
+<div></div>

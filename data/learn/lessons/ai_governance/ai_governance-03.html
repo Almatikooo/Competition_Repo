@@ -1,0 +1,239 @@
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th><img alt=" Sketchnote by (@sketchthedocs) " loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/sketchnotes/02-Ethics.png"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Science Ethics - <em>Sketchnote by <a href="https://twitter.com/nitya" target="_blank" rel="noopener noreferrer">@nitya</a></em></td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<p>We are all data citizens living in a datafied world.</p>
+<p>Market trends tell us that by 2022, 1-in-3 large organizations will buy and sell their data through online <a href="https://www.gartner.com/smarterwithgartner/gartner-top-10-trends-in-data-and-analytics-for-2020/" target="_blank" rel="noopener noreferrer">Marketplaces and Exchanges</a>. As <strong>App Developers</strong>, we'll find it easier and cheaper to integrate data-driven insights and algorithm-driven automation into daily user experiences. But as AI becomes pervasive, we'll also need to understand the potential harms caused by the <a href="https://www.youtube.com/watch?v=TQHs8SA1qpk" target="_blank" rel="noopener noreferrer">weaponization</a> of such algorithms at scale.</p>
+<p>Trends suggest that by 2025, we will generate and consume over <a href="https://www.statista.com/statistics/871513/worldwide-data-created/" target="_blank" rel="noopener noreferrer">180 zettabytes</a> of data. For <strong>Data Scientists</strong>, this explosion of information provides unprecedented access to personal and behavioral data. With it comes the power to build detailed user profiles and subtly influence decision-making—often in ways that foster an <a href="https://www.datasciencecentral.com/the-pareto-set-and-the-paradox-of-choice/" target="_blank" rel="noopener noreferrer">illusion of free choice</a>. While this can be used to nudge users toward preferred outcomes, it also raises critical questions about data privacy, autonomy, and the ethical boundaries of algorithmic influence.</p>
+<p>Data ethics are now <em>necessary guardrails</em> for data science and engineering, helping us minimize potential harms and unintended consequences from our data-driven actions. The <a href="https://www.gartner.com/smarterwithgartner/2-megatrends-dominate-the-gartner-hype-cycle-for-artificial-intelligence-2020/" target="_blank" rel="noopener noreferrer">Gartner Hype Cycle for AI</a> identifies relevant trends in digital ethics, responsible AI, and AI governance as key drivers for larger megatrends around <em>democratization</em> and <em>industrialization</em> of AI.</p>
+<p><img alt="Gartner's Hype Cycle for AI - 2020" loading="lazy" src="https://images-cdn.newscred.com/Zz1mOWJhNzlkNDA2ZTMxMWViYjRiOGFiM2IyMjQ1YmMwZQ=="></p>
+<p>In this lesson, we'll explore the fascinating area of data ethics - from core concepts and challenges, to case studies and applied AI concepts like governance - that help establish an ethics culture in teams and organizations that work with data and AI.</p>
+
+<h2 id="basic-definitions">Basic Definitions</h2>
+<p>Let's start by understanding the basic terminology.</p>
+<p>The word "ethics" comes from the <a href="https://en.wikipedia.org/wiki/Ethics" target="_blank" rel="noopener noreferrer">Greek word "ethikos"</a> (and its root "ethos") meaning <em>character or moral nature</em>.</p>
+<p><strong>Ethics</strong> is about the shared values and moral principles that govern our behavior in society. Ethics is based not on laws but on
+widely accepted norms of what is "right vs. wrong". However, ethical considerations can influence corporate governance initiatives and government regulations that create more incentives for compliance.</p>
+<p><strong>Data Ethics</strong> is a <a href="https://royalsocietypublishing.org/doi/full/10.1098/rsta.2016.0360#sec-1" target="_blank" rel="noopener noreferrer">new branch of ethics</a> that "studies and evaluates moral problems related to <em>data, algorithms and corresponding practices</em>". Here, <strong>"data"</strong> focuses on actions related to generation, recording, curation, processing, dissemination, sharing, and usage, <strong>"algorithms"</strong> focuses on AI, agents, machine learning, and robots, and <strong>"practices"</strong> focuses on topics like responsible innovation, programming, hacking, and ethics codes.</p>
+<p><strong>Applied Ethics</strong> is the <a href="https://en.wikipedia.org/wiki/Applied_ethics" target="_blank" rel="noopener noreferrer">practical application of moral considerations</a>. It's the process of actively investigating ethical issues in the context of <em>real-world actions, products and processes</em>, and taking corrective measures to make that these remain aligned with our defined ethical values.</p>
+<p><strong>Ethics Culture</strong> is about <a href="https://hbr.org/2019/05/how-to-design-an-ethical-organization" target="_blank" rel="noopener noreferrer"><em>operationalizing</em> applied ethics</a> to make sure that our ethical principles and practices are adopted in a consistent and scalable manner across the entire organization. Successful ethics cultures define organization-wide ethical principles, provide meaningful incentives for compliance, and reinforce ethics norms by encouraging and amplifying desired behaviors at every level of the organization.</p>
+<h2 id="ethics-concepts">Ethics Concepts</h2>
+<p>In this section, we'll discuss concepts like <strong>shared values</strong> (principles) and <strong>ethical challenges</strong> (problems) for data ethics - and explore <strong>case studies</strong> that help you understand these concepts in real-world contexts.</p>
+<h3 id="1-ethics-principles">1. Ethics Principles</h3>
+<p>Every data ethics strategy begins by defining <em>ethical principles</em> - the "shared values" that describe acceptable behaviors, and guide compliant actions, in our data &amp; AI projects. You can define these at an individual or team level. However, most large organizations outline these in an <em>ethical AI</em> mission statement or framework that is defined at corporate levels and enforced consistently across all teams.</p>
+<p><strong>Example:</strong> Microsoft's <a href="https://www.microsoft.com/en-us/ai/responsible-ai" target="_blank" rel="noopener noreferrer">Responsible AI</a> mission statement reads: <em>"We are committed to the advancement of AI-driven by ethical principles that put people first"</em> - identifying 6 ethical principles in the framework below:</p>
+<p><img alt="Responsible AI at Microsoft" loading="lazy" src="https://docs.microsoft.com/en-gb/azure/cognitive-services/personalizer/media/ethics-and-responsible-use/ai-values-future-computed.png"></p>
+<p>Let's briefly explore these principles. <em>Transparency</em> and <em>accountability</em> are foundational values that other principles built upon - so let's begin there:</p>
+<ul>
+<li><a href="https://www.microsoft.com/en-us/ai/responsible-ai?activetab=pivot1:primaryr6" target="_blank" rel="noopener noreferrer"><strong>Accountability</strong></a> makes practitioners <em>responsible</em> for their data &amp; AI operations, and compliance with these ethical principles.</li>
+<li><a href="https://www.microsoft.com/en-us/ai/responsible-ai?activetab=pivot1:primaryr6" target="_blank" rel="noopener noreferrer"><strong>Transparency</strong></a> ensures that data and AI actions are <em>understandable</em> (interpretable) to users, explaining the what and why behind decisions.</li>
+<li><a href="https://www.microsoft.com/en-us/ai/responsible-ai?activetab=pivot1%3aprimaryr6" target="_blank" rel="noopener noreferrer"><strong>Fairness</strong></a> - focuses on ensuring AI treats <em>all people</em> fairly, addressing any systemic or implicit socio-technical biases in data and systems.</li>
+<li><a href="https://www.microsoft.com/en-us/ai/responsible-ai?activetab=pivot1:primaryr6" target="_blank" rel="noopener noreferrer"><strong>Reliability &amp; Safety</strong></a> - ensures that AI behaves <em>consistently</em> with defined values, minimizing potential harms or unintended consequences.</li>
+<li><a href="https://www.microsoft.com/en-us/ai/responsible-ai?activetab=pivot1:primaryr6" target="_blank" rel="noopener noreferrer"><strong>Privacy &amp; Security</strong></a> - is about understanding data lineage, and providing <em>data privacy and related protections</em> to users.</li>
+<li><a href="https://www.microsoft.com/en-us/ai/responsible-ai?activetab=pivot1:primaryr6" target="_blank" rel="noopener noreferrer"><strong>Inclusiveness</strong></a> - is about designing AI solutions with intention, adapting them to meet a <em>broad range of human needs</em> &amp; capabilities.</li>
+</ul>
+<blockquote>
+<p>🚨 Think about what your data ethics mission statement could be. Explore ethical AI frameworks from other organizations - here are examples from <a href="https://www.ibm.com/cloud/learn/ai-ethics" target="_blank" rel="noopener noreferrer">IBM</a>, <a href="https://ai.google/principles" target="_blank" rel="noopener noreferrer">Google</a>, and <a href="https://ai.facebook.com/blog/facebooks-five-pillars-of-responsible-ai/" target="_blank" rel="noopener noreferrer">Facebook</a>. What shared values do they have in common? How do these principles relate to the AI product or industry they operate in?</p>
+</blockquote>
+<h3 id="2-ethics-challenges">2. Ethics Challenges</h3>
+<p>Once we have ethical principles defined, the next step is to evaluate our data and AI actions to see if they align with those shared values. Think about your actions in two categories: <em>data collection</em> and <em>algorithm design</em>.</p>
+<p>With data collection, actions will likely involve <strong>personal data</strong> or personally identifiable information (PII) for identifiable living individuals. This includes <a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en" target="_blank" rel="noopener noreferrer">diverse items of non-personal data</a> that <em>collectively</em> identify an individual. Ethical challenges can relate to <em>data privacy</em>, <em>data ownership</em>, and related topics like <em>informed consent</em> and <em>intellectual property rights</em> for users.</p>
+<p>With algorithm design, actions will involve collecting &amp; curating <strong>datasets</strong>, then using them to train &amp; deploy <strong>data models</strong> that predict outcomes or automate decisions in real-world contexts. Ethical challenges can arise from <em>dataset bias</em>, <em>data quality</em> issues, <em>unfairness</em> ,and <em>misrepresentation</em> in algorithms - including some issues that are systemic in nature.</p>
+<p>In both cases, ethics challenges highlight areas where our actions may encounter conflict with our shared values. To detect, mitigate, minimize, or eliminate, these concerns - we need to ask moral "yes/no" questions related to our actions, then take corrective actions as needed. Let's take a look at some ethical challenges and the moral questions they raise:</p>
+<h4>2.1 Data Ownership</h4>
+<p>Data collection often involves personal data that can identify the data subjects. <a href="https://permission.io/blog/data-ownership" target="_blank" rel="noopener noreferrer">Data ownership</a> is about <em>control</em> and <a href="https://permission.io/blog/data-ownership" target="_blank" rel="noopener noreferrer"><em>user rights</em></a> related to the creation, processing ,and dissemination of data.</p>
+<p>The moral questions we need to ask are:</p>
+<ul>
+<li>Who owns the data? (user or organization)</li>
+<li>What rights do data subjects have? (ex: access, erasure, portability)</li>
+<li>What rights do organizations have? (ex: rectify malicious user reviews)</li>
+</ul>
+<h4>2.2 Informed Consent</h4>
+<p><a href="https://legaldictionary.net/informed-consent/" target="_blank" rel="noopener noreferrer">Informed consent</a> defines the act of users agreeing to an action (like data collection) with a <em>full understanding</em> of relevant facts including the purpose, potential risks, and alternatives.</p>
+<p>Questions to explore here are:</p>
+<ul>
+<li>Did the user (data subject) give permission for data capture and usage?</li>
+<li>Did the user understand the purpose for which that data was captured?</li>
+<li>Did the user understand the potential risks from  their participation?</li>
+</ul>
+<h4>2.3 Intellectual Property</h4>
+<p><a href="https://en.wikipedia.org/wiki/Intellectual_property" target="_blank" rel="noopener noreferrer">Intellectual property</a> refers to intangible creations resulting from the human initiative, that may <em>have economic value</em> to individuals or businesses.</p>
+<p>Questions to explore here are:</p>
+<ul>
+<li>Did the collected data have economic value to a user or business?</li>
+<li>Does the <strong>user</strong> have intellectual property here?</li>
+<li>Does the <strong>organization</strong> have intellectual property here?</li>
+<li>If these rights exist, how are we protecting them?</li>
+</ul>
+<h4>2.4 Data Privacy</h4>
+<p><a href="https://www.northeastern.edu/graduate/blog/what-is-data-privacy/" target="_blank" rel="noopener noreferrer">Data privacy</a> or information privacy refers to the preservation of user privacy and protection of user identity with respect to personally identifiable information.</p>
+<p>Questions to explore here are:</p>
+<ul>
+<li>Is users' (personal) data secured against hacks and leaks?</li>
+<li>Is users' data accessible only to authorized users and contexts?</li>
+<li>Is users' anonymity preserved when data is shared or disseminated?</li>
+<li>Can a user be de-identified from anonymized datasets?</li>
+</ul>
+<h4>2.5 Right To Be Forgotten</h4>
+<p>The <a href="https://en.wikipedia.org/wiki/Right_to_be_forgotten" target="_blank" rel="noopener noreferrer">Right To Be Forgotten</a> or <a href="https://www.gdpreu.org/right-to-be-forgotten/" target="_blank" rel="noopener noreferrer">Right to Erasure</a> provides additional personal data protection to users. Specifically, it gives users the right to request deletion or removal of personal data from Internet searches and other locations, <em>under specific circumstances</em> - allowing them a fresh start online without past actions being held against them.</p>
+<p>Questions to explore here are:</p>
+<ul>
+<li>Does the system allow data subjects to request erasure?</li>
+<li>Should the withdrawal of user consent trigger automated erasure?</li>
+<li>Was data collected without consent or by unlawful means?</li>
+<li>Are we compliant with government regulations for data privacy?</li>
+</ul>
+<h4>2.6 Dataset Bias</h4>
+<p>Dataset or <a href="http://researcharticles.com/index.php/bias-in-data-collection-in-research/" target="_blank" rel="noopener noreferrer">Collection Bias</a> is about selecting a <em>non-representative</em> subset of data for algorithm development, creating potential  unfairness in result outcomes for diverse groups. Types of bias include selection or sampling bias, volunteer bias, and instrument bias.</p>
+<p>Questions to explore here are:</p>
+<ul>
+<li>Did we recruit a representative set of data subjects?</li>
+<li>Did we test our collected or curated dataset for various biases?</li>
+<li>Can we mitigate or remove any discovered biases?</li>
+</ul>
+<h4>2.7 Data Quality</h4>
+<p><a href="https://lakefs.io/data-quality-testing/" target="_blank" rel="noopener noreferrer">Data Quality</a> looks at the validity of the curated dataset used to develop our algorithms, checking to see if features and records meet requirements for the level of accuracy and consistency needed for our AI purpose.</p>
+<p>Questions to explore here are:</p>
+<ul>
+<li>Did we capture valid <em>features</em> for our use case?</li>
+<li>Was data captured <em>consistently</em> across diverse data sources?</li>
+<li>Is the dataset <em>complete</em> for diverse conditions or scenarios?</li>
+<li>Is information captured <em>accurately</em> in reflecting reality?</li>
+</ul>
+<h4>2.8 Algorithm Fairness</h4>
+<p><a href="https://towardsdatascience.com/what-is-algorithm-fairness-3182e161cf9f" target="_blank" rel="noopener noreferrer">Algorithm Fairness</a> checks to see if the algorithm design systematically discriminates against specific subgroups of data subjects leading to <a href="https://docs.microsoft.com/en-us/azure/machine-learning/concept-fairness-ml" target="_blank" rel="noopener noreferrer">potential harms</a> in <em>allocation</em> (where resources are denied or withheld from that group) and <em>quality of service</em> (where AI is not as accurate for some subgroups as it is for others).</p>
+<p>Questions to explore here are:</p>
+<ul>
+<li>Did we evaluate model accuracy for diverse subgroups and conditions?</li>
+<li>Did we scrutinize the system for potential harms (e.g., stereotyping)?</li>
+<li>Can we revise data or retrain models to mitigate identified harms?</li>
+</ul>
+<p>Explore resources like <a href="https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4t6dA" target="_blank" rel="noopener noreferrer">AI Fairness checklists</a> to learn more.</p>
+<h4>2.9 Misrepresentation</h4>
+<p><a href="https://www.sciencedirect.com/topics/computer-science/misrepresentation" target="_blank" rel="noopener noreferrer">Data Misrepresentation</a> is about asking whether we are communicating insights from honestly reported data in a deceptive manner to support a desired narrative.</p>
+<p>Questions to explore here are:</p>
+<ul>
+<li>Are we reporting incomplete or inaccurate data?</li>
+<li>Are we visualizing data in a manner that drives misleading conclusions?</li>
+<li>Are we using selective statistical techniques to manipulate outcomes?</li>
+<li>Are there alternative explanations that may offer a different conclusion?</li>
+</ul>
+<h4>2.10 Free Choice</h4>
+<p>The <a href="https://www.datasciencecentral.com/profiles/blogs/the-illusion-of-choice" target="_blank" rel="noopener noreferrer">Illusion of Free Choice</a> occurs when system "choice architectures" use decision-making algorithms to nudge people towards taking a preferred outcome while seeming to give them options and control. These <a href="https://www.darkpatterns.org/" target="_blank" rel="noopener noreferrer">dark patterns</a> can cause social and economic harm to users. Because user decisions impact behavior profiles, these actions potentially drive future choices that can amplify or extend the impact of these harms.</p>
+<p>Questions to explore here are:</p>
+<ul>
+<li>Did the user understand the implications of making that choice?</li>
+<li>Was the user aware of (alternative) choices and the pros &amp; cons of each?</li>
+<li>Can the user reverse an automated or influenced choice later?</li>
+</ul>
+<h3 id="3-case-studies">3. Case Studies</h3>
+<p>To put these ethical challenges in real-world contexts, it helps to look at case studies that highlight the potential harms and consequences to individuals and society, when such ethics violations are overlooked.</p>
+<p>Here are a few examples:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ethics Challenge</th>
+<th>Case Study</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Informed Consent</strong></td>
+<td>1972 - <a href="https://en.wikipedia.org/wiki/Tuskegee_Syphilis_Study" target="_blank" rel="noopener noreferrer">Tuskegee Syphilis Study</a> - African American men who participated in the study were promised free medical care <em>but deceived</em> by researchers who failed to inform subjects of their diagnosis or about availability of treatment. Many subjects died &amp; partners or children were affected; the study lasted 40 years.</td>
+</tr>
+<tr>
+<td><strong>Data Privacy</strong></td>
+<td>2007 - The <a href="https://www.wired.com/2007/12/why-anonymous-data-sometimes-isnt/" target="_blank" rel="noopener noreferrer">Netflix data prize</a> provided researchers with <em>10M anonymized movie rankings from 50K customers</em> to help improve recommendation algorithms. However, researchers were able to correlate anonymized data with personally-identifiable data in <em>external datasets</em> (e.g., IMDb comments) - effectively "de-anonymizing" some Netflix subscribers.</td>
+</tr>
+<tr>
+<td><strong>Collection Bias</strong></td>
+<td>2013 - The City of Boston <a href="https://www.boston.gov/transportation/street-bump" target="_blank" rel="noopener noreferrer">developed Street Bump</a>, an app that let citizens report potholes, giving the city better roadway data to find and fix issues. However, <a href="https://hbr.org/2013/04/the-hidden-biases-in-big-data" target="_blank" rel="noopener noreferrer">people in lower income groups had less access to cars and phones</a>, making their roadway issues invisible in this app. Developers worked with academics to <em>equitable access and digital divides</em> issues for fairness.</td>
+</tr>
+<tr>
+<td><strong>Algorithmic Fairness</strong></td>
+<td>2018 - The MIT <a href="http://gendershades.org/overview.html" target="_blank" rel="noopener noreferrer">Gender Shades Study</a> evaluated the accuracy of gender classification AI products, exposing gaps in accuracy for women and persons of color. A <a href="https://www.wired.com/story/the-apple-card-didnt-see-genderand-thats-the-problem/" target="_blank" rel="noopener noreferrer">2019 Apple Card</a> seemed to offer less credit to women than men. Both illustrated issues in algorithmic bias leading to socio-economic harms.</td>
+</tr>
+<tr>
+<td><strong>Data Misrepresentation</strong></td>
+<td>2020 - The <a href="https://www.vox.com/covid-19-coronavirus-us-response-trump/2020/5/18/21262265/georgia-covid-19-cases-declining-reopening" target="_blank" rel="noopener noreferrer">Georgia Department of Public Health released COVID-19 charts</a> that appeared to mislead citizens about trends in confirmed cases with non-chronological ordering on the x-axis. This illustrates misrepresentation through visualization tricks.</td>
+</tr>
+<tr>
+<td><strong>Illusion of free choice</strong></td>
+<td>2020 - Learning app <a href="https://www.washingtonpost.com/business/2020/09/04/abcmouse-10-million-ftc-settlement/" target="_blank" rel="noopener noreferrer">ABCmouse paid $10M to settle an FTC complaint</a> where parents were trapped into paying for subscriptions they couldn't cancel. This illustrates dark patterns in choice architectures, where users were nudged towards potentially harmful choices.</td>
+</tr>
+<tr>
+<td><strong>Data Privacy &amp; User Rights</strong></td>
+<td>2021 - Facebook <a href="https://www.npr.org/2021/04/09/986005820/after-data-breach-exposes-530-million-facebook-says-it-will-not-notify-users" target="_blank" rel="noopener noreferrer">Data Breach</a> exposed data from 530M users, resulting in a $5B settlement to the FTC. It however refused to notify users of the breach violating user rights around data transparency and access.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Want to explore more case studies? Check out these resources:</p>
+<ul>
+<li><a href="https://ethicsunwrapped.utexas.edu/case-studies" target="_blank" rel="noopener noreferrer">Ethics Unwrapped</a> - ethics dilemmas across diverse industries.</li>
+<li><a href="https://www.coursera.org/learn/data-science-ethics#syllabus" target="_blank" rel="noopener noreferrer">Data Science Ethics course</a> - landmark case studies explored.</li>
+<li><a href="https://deon.drivendata.org/examples/" target="_blank" rel="noopener noreferrer">Where things have gone wrong</a> - deon checklist with examples</li>
+</ul>
+<blockquote>
+<p>🚨 Think about the case studies you've seen - have you experienced, or been affected by, a similar ethical challenge in your life? Can you think of at least one other case study that illustrates one of the ethical challenges we've discussed in this section?</p>
+</blockquote>
+<h2 id="applied-ethics">Applied Ethics</h2>
+<p>We've talked about ethics concepts, challenges ,and case studies in real-world contexts. But how do we get started <em>applying</em> ethical principles and practices in our projects? And how do we <em>operationalize</em> these practices for better governance? Let's explore some real-world solutions:</p>
+<h3 id="1-professional-codes">1. Professional Codes</h3>
+<p>Professional Codes offer one option for organizations to "incentivize" members to support their ethical principles and mission statement. Codes are <em>moral guidelines</em> for professional behavior, helping employees or members make decisions that align with their organization's principles. They are only as good as the voluntary compliance from members; however, many organizations offer additional rewards and penalties to motivate compliance from members.</p>
+<p>Examples include:</p>
+<ul>
+<li><a href="http://www.code-of-ethics.org/code-of-conduct/" target="_blank" rel="noopener noreferrer">Oxford Munich</a> Code of Ethics</li>
+<li><a href="http://datascienceassn.org/code-of-conduct.html" target="_blank" rel="noopener noreferrer">Data Science Association</a> Code of Conduct (created 2013)</li>
+<li><a href="https://www.acm.org/code-of-ethics" target="_blank" rel="noopener noreferrer">ACM Code of Ethics and Professional Conduct</a> (since 1993)</li>
+</ul>
+<blockquote>
+<p>🚨 Do you belong to a professional engineering or data science organization? Explore their site to see if they define a professional code of ethics. What does this say about their ethical principles? How are they "incentivizing" members to follow the code?</p>
+</blockquote>
+<h3 id="2-ethics-checklists">2. Ethics Checklists</h3>
+<p>While professional codes define required <em>ethical behavior</em> from practitioners, they <a href="https://resources.oreilly.com/examples/0636920203964/blob/master/of_oaths_and_checklists.md" target="_blank" rel="noopener noreferrer">have known limitations</a> in enforcement, particularly in large-scale projects. Instead, many data Science experts <a href="https://resources.oreilly.com/examples/0636920203964/blob/master/of_oaths_and_checklists.md" target="_blank" rel="noopener noreferrer">advocate for checklists</a>, that can <strong>connect principles to practices</strong> in more deterministic and actionable ways.</p>
+<p>Checklists convert questions into "yes/no" tasks that can be operationalized, allowing them to be tracked as part of standard product release workflows.</p>
+<p>Examples include:</p>
+<ul>
+<li><a href="https://deon.drivendata.org/" target="_blank" rel="noopener noreferrer">Deon</a> - a general-purpose data ethics checklist created from <a href="https://deon.drivendata.org/#checklist-citations" target="_blank" rel="noopener noreferrer">industry recommendations</a> with a command-line tool for easy integration.</li>
+<li><a href="https://cyber.harvard.edu/ecommerce/privacyaudit.html" target="_blank" rel="noopener noreferrer">Privacy Audit Checklist</a> - provides general guidance for information handling practices from legal and social exposure perspectives.</li>
+<li><a href="https://www.microsoft.com/en-us/research/project/ai-fairness-checklist/" target="_blank" rel="noopener noreferrer">AI Fairness Checklist</a> - created by AI practitioners to support the adoption and integration of fairness checks into AI development cycles.</li>
+<li><a href="https://medium.com/the-organization/22-questions-for-ethics-in-data-and-ai-efb68fd19429" target="_blank" rel="noopener noreferrer">22 questions for ethics in data and AI</a> - more open-ended framework, structured for initial exploration of ethical issues in design, implementation, and organizational, contexts.</li>
+</ul>
+<h3 id="3-ethics-regulations">3. Ethics Regulations</h3>
+<p>Ethics is about defining shared values and doing the right thing <em>voluntarily</em>. <strong>Compliance</strong> is about <em>following the law</em> if and where defined. <strong>Governance</strong> broadly covers all the ways in which organizations operate to enforce ethical principles and comply with established laws.</p>
+<p>Today, governance takes two forms within organizations. First, it's about defining <strong>ethical AI</strong> principles and establishing practices to operationalize adoption across all AI-related projects in the organization. Second, it's about complying with all government-mandated <strong>data protection regulations</strong> for regions it operates in.</p>
+<p>Examples of data protection and privacy regulations:</p>
+<ul>
+<li><code>1974</code>, <a href="https://www.justice.gov/opcl/privacy-act-1974" target="_blank" rel="noopener noreferrer">US Privacy Act</a> - regulates <em>federal govt.</em> collection, use ,and disclosure of personal information.</li>
+<li><code>1996</code>, <a href="https://www.cdc.gov/phlp/publications/topic/hipaa.html" target="_blank" rel="noopener noreferrer">US Health Insurance Portability &amp; Accountability Act (HIPAA)</a> - protects personal health data.</li>
+<li><code>1998</code>, <a href="https://www.ftc.gov/enforcement/rules/rulemaking-regulatory-reform-proceedings/childrens-online-privacy-protection-rule" target="_blank" rel="noopener noreferrer">US Children's Online Privacy Protection Act (COPPA)</a> - protects data privacy of children under 13.</li>
+<li><code>2018</code>, <a href="https://gdpr-info.eu/" target="_blank" rel="noopener noreferrer">General Data Protection Regulation (GDPR)</a> - provides user rights, data protection ,and privacy.</li>
+<li><code>2018</code>, <a href="https://www.oag.ca.gov/privacy/ccpa" target="_blank" rel="noopener noreferrer">California Consumer Privacy Act (CCPA)</a> gives consumers more <em>rights</em> over their (personal) data.</li>
+<li><code>2021</code>, China's <a href="https://www.reuters.com/world/china/china-passes-new-personal-data-privacy-law-take-effect-nov-1-2021-08-20/" target="_blank" rel="noopener noreferrer">Personal Information Protection Law</a> just passed, creating one of the strongest online data privacy regulations worldwide.</li>
+</ul>
+<blockquote>
+<p>🚨 The European Union defined GDPR (General Data Protection Regulation) remains one of the most influential data privacy regulations today. Did you know it also defines <a href="https://www.freeprivacypolicy.com/blog/8-user-rights-gdpr" target="_blank" rel="noopener noreferrer">8 user rights</a> to protect citizens' digital privacy and personal data? Learn about what these are, and why they matter.</p>
+</blockquote>
+<h3 id="4-ethics-culture">4. Ethics Culture</h3>
+<p>Note that there remains an intangible gap between <em>compliance</em> (doing enough to meet "the letter of the law") and addressing <a href="https://www.coursera.org/learn/data-science-ethics/home/week/4" target="_blank" rel="noopener noreferrer">systemic issues</a> (like ossification, information asymmetry, and distributional unfairness) that can speed up the weaponization of AI.</p>
+<p>The latter requires <a href="https://towardsdatascience.com/why-ai-ethics-requires-a-culture-driven-approach-26f451afa29f" target="_blank" rel="noopener noreferrer">collaborative approaches to defining ethics cultures</a> that build emotional connections and consistent shared values <em>across organizations</em> in the industry. This calls for more <a href="https://www.codeforamerica.org/news/formalizing-an-ethical-data-culture/" target="_blank" rel="noopener noreferrer">formalized data ethics cultures</a> in organizations - allowing <em>anyone</em> to <a href="https://en.wikipedia.org/wiki/Andon_(manufacturing)" target="_blank" rel="noopener noreferrer">pull the Andon cord</a> (to raise ethics concerns early in the process) and making <em>ethical assessments</em> (e.g., in hiring) a core criteria team formation in AI projects.</p>
+<hr>
+
+<h2 id="review-self-study">Review &amp; Self Study</h2>
+<p>Courses and books help with understanding core ethics concepts and challenges, while case studies and tools help with applied ethics practices in real-world contexts. Here are a few resources to start with.</p>
+<ul>
+<li><a href="https://github.com/microsoft/ML-For-Beginners/blob/main/1-Introduction/3-fairness/README.md" target="_blank" rel="noopener noreferrer">Machine Learning For Beginners</a> - lesson on Fairness, from Microsoft.</li>
+<li><a href="https://docs.microsoft.com/en-us/learn/modules/responsible-ai-principles/" target="_blank" rel="noopener noreferrer">Principles of Responsible AI</a> - free learning path from Microsoft Learn.</li>
+<li><a href="https://resources.oreilly.com/examples/0636920203964" target="_blank" rel="noopener noreferrer">Ethics and Data Science</a> - O'Reilly EBook (M. Loukides, H. Mason et. al)</li>
+<li><a href="https://www.coursera.org/learn/data-science-ethics#syllabus" target="_blank" rel="noopener noreferrer">Data Science Ethics</a> - online course from the University of Michigan.</li>
+<li><a href="https://ethicsunwrapped.utexas.edu/case-studies" target="_blank" rel="noopener noreferrer">Ethics Unwrapped</a> - case studies from the University of Texas.</li>
+</ul>

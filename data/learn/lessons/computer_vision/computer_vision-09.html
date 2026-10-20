@@ -1,0 +1,183 @@
+<p><img alt="A sketchnote overview of this lesson" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/sketchnotes/lesson-19.jpg"></p>
+<blockquote>
+<p>Sketchnote by <a href="https://github.com/nitya" target="_blank" rel="noopener noreferrer">Nitya Narasimhan</a>. Click the image for a larger version.</p>
+</blockquote>
+<p>This video gives an overview of Object Detection the Azure Custom Vision service, a service that will be covered in this lesson.</p>
+<p><a href="https://www.youtube.com/watch?v=wtTYSyBUpFc" target="_blank" rel="noopener noreferrer"><img alt="Custom Vision 2 - Object Detection Made Easy | The Xamarin Show" loading="lazy" src="https://img.youtube.com/vi/wtTYSyBUpFc/0.jpg"></a></p>
+<blockquote>
+
+</blockquote>
+
+
+<h2 id="introduction">Introduction</h2>
+<p>In the previous project, you used AI to train an image classifier - a model that can tell if an image contains something, such as ripe fruit or unripe fruit. Another type of AI model that can be used with images is object detection. These models don't classify an image by tags, instead they are trained to recognize objects, and can find them in images, not only detecting that the image is present, but detecting where in the image it is. This allows you to count objects in images.</p>
+<p>In this lesson you will learn about object detection, including how it can be used in retail. You will also learn how to train an object detector in the cloud.</p>
+<p>In this lesson we'll cover:</p>
+<ul>
+<li><a href="#object-detection" rel="noopener noreferrer">Object detection</a></li>
+<li><a href="#use-object-detection-in-retail" rel="noopener noreferrer">Use object detection in retail</a></li>
+<li><a href="#train-an-object-detector" rel="noopener noreferrer">Train an object detector</a></li>
+<li><a href="#test-your-object-detector" rel="noopener noreferrer">Test your object detector</a></li>
+<li><a href="#retrain-your-object-detector" rel="noopener noreferrer">Retrain your object detector</a></li>
+</ul>
+<h2 id="object-detection">Object detection</h2>
+<p>Object detection involves detecting objects in images using AI. Unlike the image classifier you trained in the last project, object detection is not about predicting the best tag for an image as a whole, but for finding one or more objects in an image.</p>
+<h3 id="object-detection-vs-image-classification">Object detection vs image classification</h3>
+<p>Image classification is about classifying an image as a whole - what are the probabilities that the whole image matches each tag. You get back probabilities for every tag used to train the model.</p>
+<p><img alt="Image classification of cashew nuts and tomato paste" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/image-classifier-cashews-tomato.png"></p>
+<p>In the example above, two images are classified using a model trained to classify tubs of cashew nuts or cans of tomato paste. The first image is a tub of cashew nuts, and has two results from the image classifier:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Tag</th>
+<th>Probability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cashew nuts</code></td>
+<td>98.4%</td>
+</tr>
+<tr>
+<td><code>tomato paste</code></td>
+<td>1.6%</td>
+</tr>
+</tbody>
+</table></div>
+<p>The second image is of a can of tomato paste, and the results are:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Tag</th>
+<th>Probability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cashew nuts</code></td>
+<td>0.7%</td>
+</tr>
+<tr>
+<td><code>tomato paste</code></td>
+<td>99.3%</td>
+</tr>
+</tbody>
+</table></div>
+<p>You could use these value with a threshold percentage to predict what was in the image. But what if an image contained multiple cans of tomato paste, or both cashew nuts and tomato paste? The results would probably not give you what you want. This is where object detection comes in.</p>
+<p>Object detection involves training a model to recognize objects. Instead of giving it images containing the object and telling it each image is one tag or another, you highlight the section of an image that contains the specific object, and tag that. You can tag a single object in an image or multiple. This way the model learns what the object itself looks like, not just what images that contain the object look like.</p>
+<p>When you then use it to predict images, instead of getting back a list of tags and percentages, you get back a list of detected objects, with their bounding box and the probability that the object matches the assigned tag.</p>
+<blockquote>
+<p>🎓 <em>Bounding boxes</em> are the boxes around an object.</p>
+</blockquote>
+<p><img alt="Object detection of cashew nuts and tomato paste" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/object-detector-cashews-tomato.png"></p>
+<p>The image above contains both a tub of cashew nuts and three cans of tomato paste. The object detector detected the cashew nuts, returning the bounding box that contains the cashew nuts with the percentage chance that the bounding box contains the object, in this case 97.6%. The object detector has also detected three cans of tomato paste, and provides three separate bounding boxes, one for each detected can, and each one has a percentage probability that the bounding box contains a can of tomato paste.</p>
+<p>✅ Think of some different scenarios you might want to use image-based AI models for. Which ones would need classification, and which would need object detection?</p>
+<h3 id="how-object-detection-works">How object detection works</h3>
+<p>Object detection uses complex ML models. These models work by diving the image up into multiple cells, then checks if the center of the bounding box is the center of an image that matches one of the images used to train the model. You can think of this as kind of like running an image classifier over different parts of the image to look for matches.</p>
+<blockquote>
+<p>💁 This is a drastic over-simplification. There are many techniques for object detection, and you can read more about them on the <a href="https://wikipedia.org/wiki/Object_detection" target="_blank" rel="noopener noreferrer">Object detection page on Wikipedia</a>.</p>
+</blockquote>
+<p>There are a number of different models that can do object detection. One particularly famous model is <a href="https://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener noreferrer">YOLO (You only look once)</a>, which is incredibly fast and can detect 20 different class of objects, such as people, dogs, bottles and cars.</p>
+<p>✅ Read up on the YOLO model at <a href="https://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener noreferrer">pjreddie.com/darknet/yolo/</a></p>
+<p>Object detection models can be re-trained using transfer learning to detect custom objects.</p>
+<h2 id="use-object-detection-in-retail">Use object detection in retail</h2>
+<p>Object detection has multiple uses in retail. Some include:</p>
+<ul>
+<li><strong>Stock checking and counting</strong> - recognizing when stock is low on shelves. If stock is too low, notifications can be sent to staff or robots to re-stock shelves.</li>
+<li><strong>mask detection</strong> - in stores with mask policies during public health events, object detection can recognize people with masks and those without.</li>
+<li><strong>Automated billing</strong> - detecting items picked off shelves in automated stores and billing customers appropriately.</li>
+<li><strong>Hazard detection</strong> - recognizing broken items on floors, or spilled liquids, alerting cleaning crews.</li>
+</ul>
+<p>✅ Do some research: What are some more use cases for object detection in retail?</p>
+<h2 id="train-an-object-detector">Train an object detector</h2>
+<p>You can train an object detector using Custom Vision, in a similar way to how you trained an image classifier.</p>
+<h3 id="task-create-an-object-detector">Task - create an object detector</h3>
+<ol>
+<li>
+<p>Create a Resource Group for this project called <code>stock-detector</code></p>
+</li>
+<li>
+<p>Create a free Custom Vision training resource, and a free Custom Vision prediction resource in the <code>stock-detector</code> resource group. Name them <code>stock-detector-training</code> and <code>stock-detector-prediction</code>.</p>
+<blockquote>
+<p>💁 You can only have one free training and prediction resource, so make sure you've cleaned up your project from the earlier lessons.</p>
+</blockquote>
+<blockquote>
+<p>⚠️ You can refer to <a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/4-manufacturing/lessons/1-train-fruit-detector/README.md#task---create-a-cognitive-services-resource" target="_blank" rel="noopener noreferrer">the instructions for creating training and prediction resources from project 4, lesson 1 if needed</a>.</p>
+</blockquote>
+</li>
+<li>
+<p>Launch the Custom Vision portal at <a href="https://customvision.ai" target="_blank" rel="noopener noreferrer">CustomVision.ai</a>, and sign in with the Microsoft account you used for your Azure account.</p>
+</li>
+<li>
+<p>Follow the <a href="https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector?WT.mc_id=academic-17441-jabenn#create-a-new-project" target="_blank" rel="noopener noreferrer">Create a new Project section of the Build an object detector quickstart on the Microsoft docs</a> to create a new Custom Vision project. The UI may change and these docs are always the most up to date reference.</p>
+<p>Call your project <code>stock-detector</code>.</p>
+<p>When you create your project, make sure to use the <code>stock-detector-training</code> resource you created earlier. Use the <em>Object Detection</em> project type, and the <em>Products on Shelves</em> domain.</p>
+<p><img alt="The settings for the custom vision project with the name set to fruit-quality-detector, no description, the resource set to fruit-quality-detector-training, the project type set to classification, the classification types set to multi class and the domains set to food" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/custom-vision-create-object-detector-project.png"></p>
+<p>✅ The products on shelves domain is specifically targeted for detecting stock on store shelves. Read more on the different domains in the <a href="https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/select-domain?WT.mc_id=academic-17441-jabenn#object-detection" target="_blank" rel="noopener noreferrer">Select a domain documentation on Microsoft Docs</a></p>
+</li>
+</ol>
+<p>✅ Take some time to explore the Custom Vision UI for your object detector.</p>
+<h3 id="task-train-your-object-detector">Task - train your object detector</h3>
+<p>To train your model you will need a set of images containing the objects you want to detect.</p>
+<ol>
+<li>
+<p>Gather images that contain the object to detect. You will need at least 15 images containing each object to detect from a variety of different angles and in different lighting conditions, but the more the better. This object detector uses the <em>Products on shelves</em> domain, so try to set up the objects as if they were on a store shelf. You will also need a few images to test the model. If you are detecting more than one object, you will want some testing images that contain all the objects.</p>
+<blockquote>
+<p>💁 Images with multiple different objects count towards the 15 image minimum for all the objects in the image.</p>
+</blockquote>
+<p>Your images should be png or jpegs, small than 6MB. If you create them with an iPhone for example they may be high-resolution HEIC images, so will need to be converted and possibly shrunk. The more images the better, and you should have a similar number of ripe and unripe.</p>
+<p>The model is designed for products on shelves, so try to take the photos of the objects on shelves.</p>
+<p>You can find some example images that you can use in the <a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/5-retail/lessons/1-train-stock-detector/images" target="_blank" rel="noopener noreferrer">images</a> folder of cashew nuts and tomato paste that you can use.</p>
+</li>
+<li>
+<p>Follow the <a href="https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector?WT.mc_id=academic-17441-jabenn#upload-and-tag-images" target="_blank" rel="noopener noreferrer">Upload and tag images section of the Build an object detector quickstart on the Microsoft docs</a> to upload your training images. Create relevant tags depending on the types of objects you want to detect.</p>
+<p><img alt="The upload dialogs showing the upload of ripe and unripe banana pictures" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/image-upload-object-detector.png"></p>
+<p>When you draw bounding boxes for objects, keep them nice and tight around the object. It can take a while to outline all the images, but the tool will detect what it thinks are the bounding boxes, making it faster.</p>
+<p><img alt="Tagging some tomato paste" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/object-detector-tag-tomato-paste.png"></p>
+<blockquote>
+<p>💁 If you have more than 15 images for each object, you can train after 15 then use the <strong>Suggested tags</strong> feature. This will use the trained model to detect the objects in the untagged image. You can then confirm the detected objects, or reject and re-draw the bounding boxes. This can save a <em>lot</em> of time.</p>
+</blockquote>
+</li>
+<li>
+<p>Follow the <a href="https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector?WT.mc_id=academic-17441-jabenn#train-the-detector" target="_blank" rel="noopener noreferrer">Train the detector section of the Build an object detector quickstart on the Microsoft docs</a> to train the object detector on your tagged images.</p>
+<p>You will be given a choice of training type. Select <strong>Quick Training</strong>.</p>
+</li>
+</ol>
+<p>The object detector will then train. It will take a few minutes for the training to complete.</p>
+<h2 id="test-your-object-detector">Test your object detector</h2>
+<p>Once your object detector is trained, you can test it by giving it new images to detect objects in.</p>
+<h3 id="task-test-your-object-detector">Task - test your object detector</h3>
+<ol>
+<li>
+<p>Use the <strong>Quick Test</strong> button to upload testing images and verify the objects are detected. Use the testing images you created earlier, not any of the images you used for training.</p>
+<p><img alt="3 cans of tomato paste detected with probabilities of 38%, 35.5% and 34.6%" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/object-detector-detected-tomato-paste.png"></p>
+</li>
+<li>
+<p>Try all the testing images you have access to and observe the probabilities.</p>
+</li>
+</ol>
+<h2 id="retrain-your-object-detector">Retrain your object detector</h2>
+<p>When you test your object detector, it may not give the results you expect, the same as with image classifiers in the previous project. You can improve your object detector by retraining it with images it gets wrong.</p>
+<p>Every time you make a prediction using the quick test option, the image and results are stored. You can use these images to retrain your model.</p>
+<ol>
+<li>
+<p>Use the <strong>Predictions</strong> tab to locate the images you used for testing</p>
+</li>
+<li>
+<p>Confirm any accurate detections, delete an incorrect ones and add any missing objects.</p>
+</li>
+<li>
+<p>Retrain and re-test the model.</p>
+</li>
+</ol>
+<hr>
+<h2 id="challenge">🚀 Challenge</h2>
+<p>What would happen if you used the object detector with similar looking items, such as same brand cans of tomato paste and chopped tomatoes?</p>
+<p>If you have any similar looking items, test it out by adding images of them to your object detector.</p>
+
+
+<h2 id="review-self-study">Review &amp; Self Study</h2>
+<ul>
+<li>When you trained your object detector, you would have seen values for <em>Precision</em>, <em>Recall</em>, and <em>mAP</em> that rate the model that was created. Read up on what these values are using <a href="https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector?WT.mc_id=academic-17441-jabenn#evaluate-the-detector" target="_blank" rel="noopener noreferrer">the Evaluate the detector section of the Build an object detector quickstart on the Microsoft docs</a></li>
+<li>Read more about object detection on the <a href="https://wikipedia.org/wiki/Object_detection" target="_blank" rel="noopener noreferrer">Object detection page on Wikipedia</a></li>
+</ul>

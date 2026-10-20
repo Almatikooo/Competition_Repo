@@ -1,0 +1,386 @@
+"""Path.AI API + static web app.   Run:  uvicorn app.main:app --reload"""
+import asyncio
+
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel, Field
+
+from .catalog import get_catalog
+from .config import STATIC_DIR
+from .engine.explain import build_facts, template_explanation
+from .engine.forecast import Signals, compute_outlook, hn_sparkline, month_add, pct
+from .engine.matching import Profile, Weights, current_role_outlook, match_role, rank_roles
+from .engine.pathway import build_pathway
+from .engine.profile import detect_skills, extract_text
+from .learn import PASS_RATIO, LearnError, get_learn, issue_certificate, verify_certificate
+from .llm import tasks
+from .llm.client import LLMUnavailable, llm
+from .signals.refresh import refresh as refresh_signals
+
+app = FastAPI(title="Path.AI — career paths for the AI era", version="0.3.0")
+
+
+@app.middleware("http")
+async def revalidate_assets(request, call_next):
+    """ES modules import each other, so a stale cached i18n.js next to a fresh app.js shows raw keys.
+    'no-cache' makes browsers revalidate every asset (cheap 304s via ETag) instead of guessing freshness."""
+    response = await call_next(request)
+    if request.url.path == "/" or request.url.path.startswith("/static/"):
+        response.headers["Cache-Control"] = "no-cache"
+    return response
+
+
+catalog = get_catalog()
+learn = get_learn()
+signals = Signals()
+_outlooks: dict[str, dict] = {}
+_refresh_state: dict = {"state": "idle", "log": []}
+LANGS = {"en", "ms", "zh"}
+EXPLAIN_TOP_N = 8
+
+
+def resolve_as_of(as_of: str | None) -> str:
+    options = signals.as_of_options()
+    if not options:
+        raise HTTPException(503, "No trend data yet. Run: python -m app.signals.refresh")
+    return as_of if as_of in options else options[-1]
+
+
+def outlook_for(as_of: str) -> dict:
+    if as_of not in _outlooks:
+        _outlooks[as_of] = compute_outlook(catalog, signals, as_of)
+    return _outlooks[as_of]
+
+
+def resolve_scenario(scenario: str) -> str:
+    return scenario if scenario in catalog.scenarios else "moderate"
+
+
+class Query(BaseModel):
+    as_of: str | None = None
+    scenario: str = "moderate"
+    lang: str = "en"
+
+
+class MatchQuery(Query):
+    profile: Profile
+    weights: Weights = Field(default_factory=Weights)
+
+
+class RoleQuery(MatchQuery):
+    role_id: str
+
+
+class QuizAnswers(BaseModel):
+    answers: list[int | None]
+
+
+class CertificateRequest(QuizAnswers):
+    name: str = Field(max_length=200)
+
+
+# ---------------------------------------------------------------- metadata
+
+@app.get("/api/meta")
+async def meta() -> dict:
+    hn_months = signals.months
+    latest_thread = signals.hn["months"].get(hn_months[-1], {}) if hn_months else {}
+    oa = signals.openalex.get("buckets", {})
+    return {
+        "as_of_options": signals.as_of_options(),
+        "as_of_default": signals.latest(),
+        "scenarios": list(catalog.scenarios.values()),
+        "categories": catalog.skill_categories,
+        "skills": [{"id": s["id"], "name": s["name"], "category": s["category"], "hours": s["hours"],
+                    "has_market_signal": bool(s.get("hn")), "short": s.get("short"),
+                    "related": catalog.related[s["id"]]} for s in catalog.skills.values()],
+        "roles": [{"id": r["id"], "kind": r["kind"], "family": r["family"], "title": r["title"], "summary": r["summary"],
+                   "tags": r["tags"], "taxonomy": r["taxonomy"], "skills": r["skills"],
+                   "wef": catalog.claims[r["wef"]]["text"] if r.get("wef") else None, "wef_dir": r.get("wef_dir"),
+                   "sdgs": [{"goal": catalog.goal_of(s["target"]), **s} for s in r["sdgs"]]}
+                  for r in catalog.roles.values()],
+        "sdg_goals": list(catalog.sdg_goals.values()),
+        "sdg_targets": catalog.sdg_targets,
+        "interest_tags": catalog.interest_tags,
+        "interest_tiles": catalog.interest_tiles,
+        "study_fields": catalog.study_fields,
+        "sources": catalog.sources,
+        "model": catalog.model,
+        "signals": {
+            "hn": {"first_month": hn_months[0] if hn_months else None, "last_month": hn_months[-1] if hn_months else None,
+                   "posts": sum(m["posts"] for m in signals.hn["months"].values()),
+                   "latest_thread_url": latest_thread.get("url"), "fetched_at": latest_thread.get("fetched_at"),
+                   "status": signals.meta.get("hn", {}).get("status")},
+            "openalex": {"buckets": sorted(oa), "fetched_at": signals.openalex.get("refreshed_at"),
+                         "status": signals.meta.get("openalex", {}).get("status")},
+        },
+        "resources": {"count": len(catalog.resources), "checked": catalog.resources_checked},
+        "llm": await llm.status(),
+    }
+
+
+@app.get("/api/personas")
+def personas() -> dict:
+    return {"personas": catalog.personas["personas"]}
+
+
+# ---------------------------------------------------------------- 1. intake
+
+@app.post("/api/profile/parse")
+async def parse_profile(file: UploadFile | None = File(None), text: str = Form("")) -> dict:
+    if file is not None and file.filename:
+        try:
+            text = extract_text(file.filename, await file.read())
+        except ValueError as exc:
+            raise HTTPException(400, str(exc))
+        except Exception:
+            raise HTTPException(400, "Could not read this file. Try a text-based PDF or paste the text.")
+    if not text.strip():
+        raise HTTPException(400, "Upload a CV or paste some text.")
+    found = {s["id"]: s for s in detect_skills(catalog, text)}
+    engine, rejected, note = "rules", [], None
+    if llm.configured:
+        try:
+            llm_skills, rejected = await tasks.extract_skills(catalog, text)
+            for s in llm_skills:
+                rule = found.get(s["id"])
+                found[s["id"]] = {**s, "matched": rule["matched"] if rule else [], "source": "llm+rules" if rule else "llm"}
+            engine = "llm"
+        except (LLMUnavailable, ValueError, KeyError) as exc:
+            note = f"Language model unavailable, used rule-based extraction ({exc})"[:200]
+    return {"engine": engine, "skills": sorted(found.values(), key=lambda s: (-s["level"], s["id"])),
+            "rejected_by_guardrail": len(rejected), "note": note, "chars": len(text)}
+
+
+# ---------------------------------------------------------------- 2. radar
+
+@app.post("/api/radar")
+def radar(q: Query) -> dict:
+    as_of, scenario = resolve_as_of(q.as_of), resolve_scenario(q.scenario)
+    out = outlook_for(as_of)
+    skills = []
+    for sid, s in out["skills"].items():
+        g, b = s["growth"][scenario], s["band"][scenario]
+        market = s["market"] or {}
+        skills.append({
+            "id": sid, "category": catalog.skills[sid]["category"], "ring": s["ring"][scenario],
+            "pct": pct(g), "low": pct(g - b), "high": pct(g + b), "confidence": s["confidence"],
+            "by_scenario": {k: pct(v) for k, v in s["growth"].items()},
+            "components": {"market": pct(s["components"]["market"]), "prior": pct(s["components"]["prior"]),
+                           "ai": pct(catalog.scenarios[scenario]["pace"] * s["components"]["ai_base"])},
+            "market": {k: market.get(k) for k in ("available", "mentions_recent", "mentions_base", "share_recent",
+                                                   "share_base", "window_recent", "window_base")} if market else None,
+            "drivers": s["drivers"][:3],
+            "wef": catalog.claims[s["wef"]]["text"] if s["wef"] else None,
+        })
+    caps = out["capabilities"]
+    return {"as_of": as_of, "scenario": scenario, "skills": skills,
+            "capabilities": [{**c, "momentum_pct": pct(c["momentum"]) if c["available"] else None}
+                             for c in caps["topics"].values()],
+            "field": caps["field"], "bucket_recent": caps["bucket_recent"], "bucket_base": caps["bucket_base"]}
+
+
+@app.get("/api/skill/{sid}")
+def skill_detail(sid: str, as_of: str | None = None) -> dict:
+    if sid not in catalog.skills:
+        raise HTTPException(404, "unknown skill")
+    as_of = resolve_as_of(as_of)
+    s = outlook_for(as_of)["skills"][sid]
+    return {"id": sid, "as_of": as_of,
+            "sparkline": hn_sparkline(signals, "skills", sid, as_of) if catalog.skills[sid].get("hn") else [],
+            "market": s["market"], "drivers": s["drivers"], "confidence": s["confidence"],
+            "by_scenario": {k: {"pct": pct(v), "low": pct(v - s["band"][k]), "high": pct(v + s["band"][k])}
+                            for k, v in s["growth"].items()},
+            "resources": catalog.resources_for(sid), "sdgs": catalog.skills[sid]["sdgs"]}
+
+
+# ---------------------------------------------------------------- 3. matching
+
+@app.post("/api/match")
+def match(q: MatchQuery) -> dict:
+    as_of, scenario = resolve_as_of(q.as_of), resolve_scenario(q.scenario)
+    lang = q.lang if q.lang in LANGS else "en"
+    out = outlook_for(as_of)
+    ranked = rank_roles(catalog, out, q.profile, q.weights, scenario)
+    for r in ranked[:EXPLAIN_TOP_N]:
+        facts = build_facts(catalog, signals, out, r, scenario, lang)
+        r["explanation"] = template_explanation(facts, lang)
+        r["sources"] = facts["sources"]
+        # same number the plan page shows (includes missing prerequisites)
+        r["plan_hours"] = build_pathway(catalog, out, q.profile, r["id"], scenario)["total_hours"]
+    changes = None
+    prev = month_add(as_of, -1)
+    if prev in signals.as_of_options():
+        prev_out = outlook_for(prev)
+        prev_rank = {r["id"]: r["rank"] for r in rank_roles(catalog, prev_out, q.profile, q.weights, scenario)}
+        relevant = set(q.profile.skills) | {i["id"] for r in ranked[:3] for i in r["items"] if i["status"] != "have"}
+        skill_moves = sorted(
+            ({"id": sid, "now": pct(out["skills"][sid]["growth"][scenario]),
+              "prev": pct(prev_out["skills"][sid]["growth"][scenario])} for sid in relevant),
+            key=lambda m: -abs(m["now"] - m["prev"]))
+        changes = {"prev_as_of": prev,
+                   "roles": [{"id": r["id"], "rank": r["rank"], "prev_rank": prev_rank[r["id"]]} for r in ranked[:EXPLAIN_TOP_N]],
+                   "skills": [m for m in skill_moves[:3] if abs(m["now"] - m["prev"]) >= 0.1]}
+    current = current_role_outlook(catalog, out, q.profile)
+    if current and current["wef"]:
+        current["wef"] = catalog.claims[current["wef"]]["text"]
+    return {"as_of": as_of, "scenario": scenario, "roles": ranked, "current": current, "changes": changes}
+
+
+@app.post("/api/explain")
+async def explain(q: RoleQuery) -> dict:
+    as_of, scenario = resolve_as_of(q.as_of), resolve_scenario(q.scenario)
+    lang = q.lang if q.lang in LANGS else "en"
+    if q.role_id not in catalog.roles:
+        raise HTTPException(404, "unknown role")
+    out = outlook_for(as_of)
+    ranked = next((r for r in rank_roles(catalog, out, q.profile, q.weights, scenario) if r["id"] == q.role_id), None)
+    if ranked is None:
+        raise HTTPException(404, "role is not among this profile's future roles")
+    facts = build_facts(catalog, signals, out, ranked, scenario, lang)
+    result = {"engine": "template", "text": template_explanation(facts, lang), "sources": facts["sources"],
+              "guardrail": None, "model": None}
+    if llm.configured:
+        try:
+            text, problems = await tasks.explain(facts, lang)
+            if problems:
+                result["guardrail"] = {"rejected": True, "problems": problems, "draft": text}
+            else:
+                result.update(engine="llm", text=text, model=llm.model, guardrail={"rejected": False})
+        except (LLMUnavailable, ValueError, KeyError) as exc:
+            result["guardrail"] = {"rejected": False, "error": str(exc)[:200]}
+    return result
+
+
+# ---------------------------------------------------------------- 4. pathway
+
+@app.post("/api/pathway")
+def pathway(q: RoleQuery) -> dict:
+    if q.role_id not in catalog.roles or catalog.roles[q.role_id]["kind"] != "target":
+        raise HTTPException(404, "unknown role")
+    as_of, scenario = resolve_as_of(q.as_of), resolve_scenario(q.scenario)
+    return {"as_of": as_of, "scenario": scenario,
+            **build_pathway(catalog, outlook_for(as_of), q.profile, q.role_id, scenario)}
+
+
+# ---------------------------------------------------------------- HR / L&D view
+
+@app.post("/api/team")
+def team(q: Query) -> dict:
+    as_of, scenario = resolve_as_of(q.as_of), resolve_scenario(q.scenario)
+    out = outlook_for(as_of)
+    data = catalog.personas["team"]
+    targets = data["target_roles"]
+    members, gap_count = [], {}
+    for m in data["members"]:
+        profile = Profile(skills=m["skills"], current_role=m["current_role"])
+        fits = {rid: match_role(catalog, profile, rid) for rid in targets}
+        best = max(targets, key=lambda rid: fits[rid]["fit"])
+        for item in fits[best]["items"]:
+            if item["status"] != "have":
+                gap_count[item["id"]] = gap_count.get(item["id"], 0) + 1
+        cur = out["roles"][m["current_role"]]["growth"][scenario]
+        members.append({"id": m["id"], "alias": m["alias"], "current_role": m["current_role"],
+                        "current_outlook_pct": pct(cur), "fits": {rid: round(f["fit"] * 100) for rid, f in fits.items()},
+                        "best": best, "best_gap_hours": fits[best]["gap_hours"]})
+    heat = sorted(({"skill": sid, "members": n, "outlook_pct": pct(out["skills"][sid]["growth"][scenario])}
+                   for sid, n in gap_count.items()), key=lambda x: -x["members"])
+    return {"as_of": as_of, "scenario": scenario, "name": data["name"], "targets": targets,
+            "target_outlook": {rid: pct(out["roles"][rid]["growth"][scenario]) for rid in targets},
+            "members": members, "skill_gaps": heat}
+
+
+# ---------------------------------------------------------------- Learn & certificates
+
+def course_or_404(sid: str) -> None:
+    if sid not in learn.courses:
+        raise HTTPException(404, "unknown course")
+
+
+@app.get("/api/learn/courses")
+def learn_courses() -> dict:
+    return {"courses": [learn.summary(sid) for sid in catalog.skills if sid in learn.courses], "pass_ratio": PASS_RATIO}
+
+
+@app.get("/api/learn/course/{sid}")
+def learn_course(sid: str) -> dict:
+    course_or_404(sid)
+    return learn.detail(sid)
+
+
+@app.get("/api/learn/course/{sid}/lesson/{lid}")
+def learn_lesson(sid: str, lid: str) -> dict:
+    course_or_404(sid)
+    try:
+        return learn.lesson(sid, lid)
+    except KeyError:
+        raise HTTPException(404, "unknown lesson")
+
+
+@app.get("/api/learn/course/{sid}/quiz")
+def learn_quiz(sid: str) -> dict:
+    course_or_404(sid)
+    return learn.quiz(sid)
+
+
+@app.post("/api/learn/course/{sid}/grade")
+def learn_grade(sid: str, body: QuizAnswers) -> dict:
+    course_or_404(sid)
+    try:
+        return learn.grade(sid, body.answers)
+    except LearnError as exc:
+        raise HTTPException(400, str(exc))
+
+
+@app.post("/api/learn/course/{sid}/certificate")
+def learn_certificate(sid: str, body: CertificateRequest) -> dict:
+    course_or_404(sid)
+    try:
+        result = learn.grade(sid, body.answers)
+        if not result["passed"]:
+            raise HTTPException(400, "Pass the quiz first.")
+        return {"certificate": issue_certificate(sid, body.name, result["score"], result["total"])}
+    except LearnError as exc:
+        raise HTTPException(400, str(exc))
+
+
+@app.get("/api/certificates/verify/{token}")
+def certificate_verify(token: str) -> dict:
+    return verify_certificate(token[:600])
+
+
+# ---------------------------------------------------------------- live signal refresh
+
+@app.post("/api/signals/refresh")
+async def start_refresh() -> dict:
+    if _refresh_state["state"] == "running":
+        return _refresh_state
+
+    async def job() -> None:
+        _refresh_state.update(state="running", log=[])
+        try:
+            meta_after = await refresh_signals(log=lambda line: _refresh_state["log"].append(line))
+            signals.reload()
+            _outlooks.clear()
+            _refresh_state.update(state="done", result={k: v.get("status") for k, v in meta_after.items()})
+        except Exception as exc:
+            _refresh_state.update(state="error", error=str(exc)[:300])
+
+    asyncio.create_task(job())
+    return {"state": "running", "log": []}
+
+
+@app.get("/api/signals/status")
+def refresh_status() -> dict:
+    return {**_refresh_state, "as_of_default": signals.latest()}
+
+
+# ---------------------------------------------------------------- web app
+
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+
+
+@app.get("/")
+def index() -> FileResponse:
+    return FileResponse(STATIC_DIR / "index.html")

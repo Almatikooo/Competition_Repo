@@ -1,0 +1,204 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Provide sound justifications for basic rules of coding style.</li>
+<li>Refactor one-page programs to make them more readable and justify the changes.</li>
+<li>Use Python community coding standards (PEP-8).</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>How can I make my programs more readable?</li>
+<li>How do most programmers format their code?</li>
+<li>How can programs check their own operation?</li>
+</ul>
+</div>
+<h2 id="coding-style">Coding style</h2>
+<p>A consistent coding style helps others (including our future selves) read and understand code more easily. Code is read much more often than it is written, and as the <a href="https://www.python.org/dev/peps/pep-0020" target="_blank" rel="noopener noreferrer">Zen of Python</a> states, "Readability counts".
+Python proposed a standard style through one of its first Python Enhancement Proposals (PEP), <a href="https://www.python.org/dev/peps/pep-0008" target="_blank" rel="noopener noreferrer">PEP8</a>.</p>
+<p>Some points worth highlighting:</p>
+<ul>
+<li>document your code and ensure that assumptions, internal algorithms, expected inputs, expected outputs, etc., are clear</li>
+<li>use clear, semantically meaningful variable names</li>
+<li>use white-space, <em>not</em> tabs, to indent lines (tabs can cause problems across different text editors, operating systems, and version control systems)</li>
+</ul>
+<h2 id="follow-standard-python-style-in-your-code">Follow standard Python style in your code.</h2>
+<ul>
+<li><a href="https://www.python.org/dev/peps/pep-0008" target="_blank" rel="noopener noreferrer">PEP8</a>:
+a style guide for Python that discusses topics such as how to name variables,
+how to indent your code,
+how to structure your <code>import</code> statements,
+etc.
+Adhering to PEP8 makes it easier for other Python developers to read and understand your code, and to understand what their contributions should look like.</li>
+<li>To check your code for compliance with PEP8, you can use the <a href="https://pypi.org/project/pycodestyle/" target="_blank" rel="noopener noreferrer">pycodestyle application</a> and tools like the <a href="https://github.com/psf/black" target="_blank" rel="noopener noreferrer">black code formatter</a> can automatically format your code to conform to PEP8 and pycodestyle (a Jupyter notebook formatter also exists <a href="https://github.com/dnanhkhoa/nb_black" target="_blank" rel="noopener noreferrer">nb_black</a>).</li>
+<li>Some groups and organizations follow different style guidelines besides PEP8. For example, the <a href="https://google.github.io/styleguide/pyguide.html" target="_blank" rel="noopener noreferrer">Google style guide on Python</a> makes slightly different recommendations. Google wrote an application that can help you format your code in either their style or PEP8 called <a href="https://github.com/google/yapf/" target="_blank" rel="noopener noreferrer">yapf</a>.</li>
+<li>With respect to coding style, the key is <em>consistency</em>. Choose a style for your project be it PEP8, the Google style, or something else and do your best to ensure that you and anyone else you are collaborating with sticks to it. Consistency within a project is often more impactful than the particular style used. A consistent style will make your software easier to read and understand for others and for your future self.</li>
+</ul>
+<h2 id="use-assertions-to-check-for-internal-errors">Use assertions to check for internal errors.</h2>
+<p>Assertions are a simple but powerful method for making sure that the context in which your code is executing is as you expect.</p>
+<pre><code class="language-python">def calc_bulk_density(mass, volume):
+    '''Return dry bulk density = powder mass / powder volume.'''
+    assert volume &gt; 0
+    return mass / volume
+</code></pre>
+<p>If the assertion is <code>False</code>, the Python interpreter raises an <code>AssertionError</code> runtime exception. The source code for the expression that failed will be displayed as part of the error message. To ignore assertions in your code run the interpreter with the '-O' (optimize) switch. Assertions should contain only simple checks and never change the state of the program. For example, an assertion should never contain an assignment.</p>
+<h2 id="use-docstrings-to-provide-builtin-help">Use docstrings to provide builtin help.</h2>
+<p>If the first thing in a function is a character string that is not assigned directly to a variable, Python attaches it to the function, accessible via the builtin help function. This string that provides documentation is also known as a <em>docstring</em>.</p>
+<pre><code class="language-python">def average(values):
+    "Return average of values, or None if no values are supplied."
+
+    if len(values) == 0:
+        return None
+    return sum(values) / len(values)
+
+help(average)
+</code></pre>
+<pre><code class="language-output">Help on function average in module __main__:
+
+average(values)
+    Return average of values, or None if no values are supplied.
+</code></pre>
+<div class="box box-callout">
+<p class="box-title">Multiline Strings</p>
+
+<p>Often use <em>multiline strings</em> for documentation.
+These start and end with three quote characters (either single or double)
+and end with three matching characters.</p>
+<pre><code class="language-python">"""This string spans
+multiple lines.
+
+Blank lines are allowed."""
+</code></pre>
+</div>
+<div class="box box-challenge">
+<p class="box-title">What Will Be Shown?</p>
+
+<p>Highlight the lines in the code below that will be available as online help.
+Are there lines that should be made available, but won't be?
+Will any lines produce a syntax error or a runtime error?</p>
+<pre><code class="language-python">"Find maximum edit distance between multiple sequences."
+# This finds the maximum distance between all sequences.
+
+def overall_max(sequences):
+    '''Determine overall maximum edit distance.'''
+
+    highest = 0
+    for left in sequences:
+        for right in sequences:
+            '''Avoid checking sequence against itself.'''
+            if left != right:
+                this = edit_distance(left, right)
+                highest = max(highest, this)
+
+    # Report.
+    return highest
+</code></pre>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Document This</p>
+
+<p>Use comments to describe and help others understand potentially unintuitive
+sections or individual lines of code. They are especially useful to whoever
+may need to understand and edit your code in the future, including yourself.</p>
+<p>Use docstrings to document the acceptable inputs and expected outputs of a method
+or class, its purpose, assumptions and intended behavior. Docstrings are displayed
+when a user invokes the builtin <code>help</code> method on your method or class.</p>
+<p>Turn the comment in the following function into a docstring
+and check that <code>help</code> displays it properly.</p>
+<pre><code class="language-python">def middle(a, b, c):
+    # Return the middle value of three.
+    # Assumes the values can actually be compared.
+    values = [a, b, c]
+    values.sort()
+    return values[1]
+</code></pre>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<pre><code class="language-python">def middle(a, b, c):
+    '''Return the middle value of three.
+    Assumes the values can actually be compared.'''
+    values = [a, b, c]
+    values.sort()
+    return values[1]
+</code></pre>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Clean Up This Code</p>
+
+<ol>
+<li>Read this short program and try to predict what it does.</li>
+<li>Run it: how accurate was your prediction?</li>
+<li>Refactor the program to make it more readable.
+Remember to run it after each change to ensure its behavior hasn't changed.</li>
+<li>Compare your rewrite with your neighbor's.
+What did you do the same?
+What did you do differently, and why?</li>
+</ol>
+<pre><code class="language-python">n = 10
+s = 'et cetera'
+print(s)
+i = 0
+while i &lt; n:
+    # print('at', j)
+    new = ''
+    for j in range(len(s)):
+        left = j-1
+        right = (j+1)%len(s)
+        if s[left]==s[right]: new = new + '-'
+        else: new = new + '*'
+    s=''.join(new)
+    print(s)
+    i += 1
+</code></pre>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x">Solution</h2>
+<p>Here's one solution.</p>
+<pre><code class="language-python">def string_machine(input_string, iterations):
+    """
+    Takes input_string and generates a new string with -'s and *'s
+    corresponding to characters that have identical adjacent characters
+    or not, respectively.  Iterates through this procedure with the resultant
+    strings for the supplied number of iterations.
+    """
+    print(input_string)
+    input_string_length = len(input_string)
+    old = input_string
+    for i in range(iterations):
+        new = ''
+        # iterate through characters in previous string
+        for j in range(input_string_length):
+            left = j-1
+            right = (j+1) % input_string_length  # ensure right index wraps around
+            if old[left] == old[right]:
+                new = new + '-'
+            else:
+                new = new + '*'
+        print(new)
+        # store new string as old
+        old = new     
+
+string_machine('et cetera', 10)
+</code></pre>
+<pre><code class="language-output">et cetera
+*****-***
+----*-*--
+---*---*-
+--*-*-*-*
+**-------
+***-----*
+--**---**
+*****-***
+----*-*--
+---*---*-
+</code></pre>
+</details>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>Follow standard Python style in your code.</li>
+<li>Use docstrings to provide builtin help.</li>
+</ul>
+</div>

@@ -1,0 +1,242 @@
+<p><a href="https://youtu.be/R9V0ZY1BEQo?si=IHuU-fS9YWT8s4sA" target="_blank" rel="noopener noreferrer"><img alt="Building Generative AI-Powered Chat Applications" loading="lazy" src="https://raw.githubusercontent.com/microsoft/generative-ai-for-beginners/c35bc1950f9dc56af773d2c362dafce6f76e9a56/07-building-chat-applications/images/07-lesson-banner.png?WT.mc_id=academic-105485-koreyst"></a></p>
+<blockquote>
+
+</blockquote>
+<p>Now that we've seen how we can build text-generation apps, let's look into chat applications.</p>
+<p>Chat applications have become integrated into our daily lives, offering more than just a means of casual conversation. They're integral parts of customer service, technical support, and even sophisticated advisory systems. It's likely that you've gotten some help from a chat application not too long ago. As we integrate more advanced technologies like generative AI into these platforms, the complexity increases and so do the challenges.</p>
+<p>Some questions we need to be answered are:</p>
+<ul>
+<li><strong>Building the app</strong>. How do we efficiently build and seamlessly integrate these AI-powered applications for specific use cases?</li>
+<li><strong>Monitoring</strong>. Once deployed, how can we monitor and ensure that the applications are operating at the highest level of quality, both in terms of functionality and adhering to the <a href="https://www.microsoft.com/ai/responsible-ai?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">six principles of responsible AI</a>?</li>
+</ul>
+<p>As we move further into an age defined by automation and seamless human-machine interactions, understanding how generative AI transforms the scope, depth, and adaptability of chat applications becomes essential. This lesson will investigate the aspects of architecture that support these intricate systems, delve into the methodologies for fine-tuning them for domain-specific tasks, and evaluate the metrics and considerations pertinent to ensuring responsible AI deployment.</p>
+<h2 id="introduction">Introduction</h2>
+<p>This lesson covers:</p>
+<ul>
+<li>Techniques for efficiently building and integrating chat applications.</li>
+<li>How to apply customization and fine-tuning to applications.</li>
+<li>Strategies and considerations to effectively monitor chat applications.</li>
+</ul>
+<h2 id="learning-goals">Learning Goals</h2>
+<p>By the end of this lesson, you'll be able to:</p>
+<ul>
+<li>Describe considerations for building and integrating chat applications into existing systems.</li>
+<li>Customize chat applications for specific use-cases.</li>
+<li>Identify key metrics and considerations to effectively monitor and maintain the quality of AI-powered chat applications.</li>
+<li>Ensure chat applications leverage AI responsibly.</li>
+</ul>
+<h2 id="integrating-generative-ai-into-chat-applications">Integrating Generative AI into Chat Applications</h2>
+<p>Elevating chat applications through generative AI isn't only centered around making them smarter; it's about optimizing their architecture, performance, and user interface to deliver a quality user experience. This involves investigating the architectural foundations, API integrations, and user interface considerations. This section aims to offer you a comprehensive roadmap for navigating these complex landscapes, whether you're plugging them into existing systems or building them as stand-alone platforms.</p>
+<p>By the end of this section, you'll be equipped with the expertise needed to efficiently construct and incorporate chat applications.</p>
+<h3 id="chatbot-or-chat-application">Chatbot or Chat application?</h3>
+<p>Before we dive into building chat applications, let's compare 'chatbots' against 'AI-powered chat applications,' which serve distinct roles and functionalities. A chatbot's main purpose is to automate specific conversational tasks, such as answering frequently asked questions or tracking a package. It's typically governed by rule-based logic or complex AI algorithms. In contrast, an AI-powered chat application is a far more expansive environment designed to facilitate various forms of digital communication, such as text, voice, and video chats among human users. Its defining feature is the integration of a generative AI model that simulates nuanced, human-like conversations, generating responses based on a wide variety of input and contextual cues. A generative AI powered chat application can engage in open-domain discussions, adapt to evolving conversational contexts, and even produce creative or complex dialogue.</p>
+<p>The table below outlines the key differences and similarities to help us understand their unique roles in digital communication.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Chatbot</th>
+<th>Generative AI-Powered Chat Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Task-Focused and rule based</td>
+<td>Context-aware</td>
+</tr>
+<tr>
+<td>Often integrated into larger systems</td>
+<td>May host one or multiple chatbots</td>
+</tr>
+<tr>
+<td>Limited to programmed functions</td>
+<td>Incorporates generative AI models</td>
+</tr>
+<tr>
+<td>Specialized &amp; structured interactions</td>
+<td>Capable of open-domain discussions</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="leveraging-pre-built-functionalities-with-sdks-and-apis">Leveraging pre-built functionalities with SDKs and APIs</h3>
+<p>When building a chat application, a great first step is to assess what is already out there. Using SDKs and APIs to build chat applications is an advantageous strategy for a variety of reasons. By integrating well-documented SDKs and APIs, you're strategically positioning your application for long-term success, addressing scalability and maintenance concerns.</p>
+<ul>
+<li><strong>Expedites the development process and reduces overhead</strong>: Relying on pre-built functionalities instead of the expensive process of building them yourself allows you to focus on other aspects of your application that you may find more important, such as business logic.</li>
+<li><strong>Better performance</strong>: When building functionality from scratch, you'll eventually ask yourself "How does it scale? Is this application capable of handling a sudden influx of users?" Well maintained SDK and APIs often have built in solutions for these concerns.</li>
+<li><strong>Easier maintenance</strong>: Updates and improvements are easier to manage as most APIs and SDKs simply require an update to a library when a newer version is released.</li>
+<li><strong>Access to cutting edge technology</strong>: Leveraging models that have been fined tuned and trained on extensive datasets provides your application with natural language capabilities.</li>
+</ul>
+<p>Accessing functionality of an SDK or API typically involves obtaining permission to use the provided services, which is often through the use of a unique key or authentication token. We'll use the OpenAI Python Library to explore what this looks like. You can also try it out on your own in the following <a href="https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/07-building-chat-applications/python/oai-assignment.ipynb?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">notebook for OpenAI</a> or <a href="https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/07-building-chat-applications/python/aoai-assignment.ipynb?WT.mc_id=academic-105485-koreys" target="_blank" rel="noopener noreferrer">notebook for Azure OpenAI Services</a> for this lesson.</p>
+<pre><code class="language-python">import os
+from openai import OpenAI
+
+API_KEY = os.getenv("OPENAI_API_KEY","")
+
+client = OpenAI(
+    api_key=API_KEY
+    )
+
+response = client.responses.create(model="gpt-5-mini", input="Suggest two titles for an instructional lesson on chat applications for generative AI.", store=False)
+print(response.output_text)
+</code></pre>
+<p>The above example uses the GPT-5 mini model with the Responses API to complete the prompt, but notice that the API key is set prior to doing so. You'd receive an error if you didn't set the key.</p>
+<h2 id="user-experience-ux">User Experience (UX)</h2>
+<p>General UX principles apply to chat applications, but here are some additional considerations that become particularly important due to the machine learning components involved.</p>
+<ul>
+<li><strong>Mechanism for addressing ambiguity</strong>: Generative AI models occasionally generate ambiguous answers. A feature that allows users to ask for clarification can be helpful should they come across this problem.</li>
+<li><strong>Context retention</strong>: Advanced generative AI models have the ability to remember context within a conversation, which can be a necessary asset to the user experience. Giving users the ability to control and manage context improves the user experience, but introduces the risk of retaining sensitive user information. Considerations for how long this information is stored, such as introducing a retention policy, can balance the need for context against privacy.</li>
+<li><strong>Personalization</strong>: With the ability to learn and adapt, AI models offer an individualized experience for a user. Tailoring the user experience through features like user profiles not only makes the user feel understood, but it also helps their pursuit of finding specific answers, creating a more efficient and satisfying interaction.</li>
+</ul>
+<p>One such example of personalization is the "Custom instructions" settings in OpenAI's ChatGPT. It allows you to provide information about yourself that may be important context for your prompts. Here's an example of a custom instruction.</p>
+<p><img alt="Custom Instructions Settings in ChatGPT" loading="lazy" src="https://raw.githubusercontent.com/microsoft/generative-ai-for-beginners/c35bc1950f9dc56af773d2c362dafce6f76e9a56/07-building-chat-applications/images/custom-instructions.png?WT.mc_id=academic-105485-koreyst"></p>
+<p>This "profile" prompts ChatGPT to create a lesson plan on linked lists. Notice that ChatGPT takes into account that the user may want a more in depth lesson plan based on her experience.</p>
+<p><img alt="A prompt in ChatGPT for a lesson plan about linked lists" loading="lazy" src="https://raw.githubusercontent.com/microsoft/generative-ai-for-beginners/c35bc1950f9dc56af773d2c362dafce6f76e9a56/07-building-chat-applications/images/lesson-plan-prompt.png?WT.mc_id=academic-105485-koreyst"></p>
+<h3 id="microsoft-s-system-message-framework-for-large-language-mode">Microsoft's System Message Framework for Large Language Models</h3>
+<p><a href="https://learn.microsoft.com/azure/ai-foundry/openai/concepts/system-message#define-the-models-output-format?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">Microsoft has provided guidance</a> for writing effective system messages when generating responses from LLMs broken down into 4 areas:</p>
+<ol>
+<li>Defining who the model is for, as well as its capabilities and limitations.</li>
+<li>Defining the model's output format.</li>
+<li>Providing specific examples that demonstrate intended behavior of the model.</li>
+<li>Providing additional behavioral guardrails.</li>
+</ol>
+<h3 id="accessibility">Accessibility</h3>
+<p>Whether a user has visual, auditory, motor, or cognitive impairments, a well-designed chat application should be usable by all. The following list breaks down specific features aimed at enhancing accessibility for various user impairments.</p>
+<ul>
+<li><strong>Features for Visual Impairment</strong>: High contrast themes and resizable text, screen reader compatibility.</li>
+<li><strong>Features for Auditory Impairment</strong>: Text-to-speech and speech-to-text functions, visual cues for audio notifications.</li>
+<li><strong>Features for Motor Impairment</strong>: Keyboard navigation support, voice commands.</li>
+<li><strong>Features for Cognitive Impairment</strong>: Simplified language options.</li>
+</ul>
+<h2 id="customization-and-fine-tuning-for-domain-specific-language-m">Customization and Fine-tuning for Domain-Specific Language Models</h2>
+<p>Imagine a chat application that understands your company's jargon and anticipates the specific queries its user base commonly has. There are a couple of approaches worth mentioning:</p>
+<ul>
+<li><strong>Leveraging DSL models</strong>. DSL stands for domain specific language. You can leverage a so called DSL model trained on a specific domain to understand its concepts and scenarios.</li>
+<li><strong>Apply fine-tuning</strong>. Fine-tuning is the process of further training your model with specific data.</li>
+</ul>
+<h2 id="customization-using-a-dsl">Customization: Using a DSL</h2>
+<p>Leveraging a domain-specific language models (DSL Models) can enhance user engagement and by providing specialized, contextually relevant interactions. It's a model that is trained or fine-tuned to understand and generate text related to a specific field, industry, or subject. Options for using a DSL model can vary from training one from scratch, to using pre-existing ones through SDKs and APIs. Another option is fine-tuning, which involves taking an existing pre-trained model and adapting it for a specific domain.</p>
+<h2 id="customization-apply-fine-tuning">Customization: Apply fine-tuning</h2>
+<p>Fine-tuning is often considered when a pre-trained model falls short in a specialized domain or specific task.</p>
+<p>For instance, medical queries are complex and require a lot of context. When a medical professional diagnoses a patient it's based on a variety of factors such as lifestyle or pre-existing conditions, and may even rely on recent medical journals to validate their diagnosis. In such nuanced scenarios, a general-purpose AI chat application cannot be a reliable source.</p>
+<h3 id="scenario-a-medical-application">Scenario: a medical application</h3>
+<p>Consider a chat application designed to assist medical practitioners by providing quick references to treatment guidelines, drug interactions, or recent research findings.</p>
+<p>A general-purpose model might be adequate for answering basic medical questions or providing general advice, but it may struggle with the following:</p>
+<ul>
+<li><strong>Highly specific or complex cases</strong>. For example, a neurologist might ask the application, "What are the current best practices for managing drug-resistant epilepsy in pediatric patients?"</li>
+<li><strong>Lacking recent advancements</strong>. A general-purpose model could struggle to provide a current answer that incorporates the most recent advancements in neurology and pharmacology.</li>
+</ul>
+<p>In instances such as these, fine-tuning the model with a specialized medical dataset can significantly improve its ability to handle these intricate medical inquiries more accurately and reliably. This requires access to a large and relevant dataset that represents the domain-specific challenges and questions that need to be addressed.</p>
+<h2 id="considerations-for-a-high-quality-ai-driven-chat-experience">Considerations for a High Quality AI-Driven Chat Experience</h2>
+<p>This section outlines the criteria for "high-quality" chat applications, which include the capture of actionable metrics and adherence to a framework that responsibly leverages AI technology.</p>
+<h3 id="key-metrics">Key Metrics</h3>
+<p>To maintain the high-quality performance an application, it's essential to keep track of key metrics and considerations. These measurements not only ensure the functionality of the application but also assess the quality of the AI model and user experience. Below is a list that covers basic, AI, and user experience metrics to consider.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Definition</th>
+<th>Considerations for Chat Developer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Uptime</strong></td>
+<td>Measures the time the application is operational and accessible by users.</td>
+<td>How will you minimize downtime?</td>
+</tr>
+<tr>
+<td><strong>Response Time</strong></td>
+<td>The time taken by the application to reply to a user's query.</td>
+<td>How can you optimize query processing to improve response time?</td>
+</tr>
+<tr>
+<td><strong>Precision</strong></td>
+<td>The ratio of true positive predictions to the total number of positive predictions</td>
+<td>How will you validate the precision of your model?</td>
+</tr>
+<tr>
+<td><strong>Recall (Sensitivity)</strong></td>
+<td>The ratio of true positive predictions to the actual number of positives</td>
+<td>How will you measure and improve recall?</td>
+</tr>
+<tr>
+<td><strong>F1 Score</strong></td>
+<td>The harmonic mean of precision and recall, that balances the trade-off between both.</td>
+<td>What is your target F1 Score? How will you balance precision and recall?</td>
+</tr>
+<tr>
+<td><strong>Perplexity</strong></td>
+<td>Measures how well the probability distribution predicted by the model aligns with the actual distribution of the data.</td>
+<td>How will you minimize perplexity?</td>
+</tr>
+<tr>
+<td><strong>User Satisfaction Metrics</strong></td>
+<td>Measures the user's perception of the application. Often captured through surveys.</td>
+<td>How often will you collect user feedback? How will you adapt based on it?</td>
+</tr>
+<tr>
+<td><strong>Error Rate</strong></td>
+<td>The rate at which the model makes mistakes in understanding or output.</td>
+<td>What strategies do you have in place to reduce error rates?</td>
+</tr>
+<tr>
+<td><strong>Retraining Cycles</strong></td>
+<td>The frequency with which the model is updated to incorporate new data and insights.</td>
+<td>How often will you retrain the model? What triggers a retraining cycle?</td>
+</tr>
+<tr>
+<td><strong>Anomaly Detection</strong></td>
+<td>Tools and techniques for identifying unusual patterns that do not conform to expected behavior.</td>
+<td>How will you respond to anomalies?</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="implementing-responsible-ai-practices-in-chat-applications">Implementing Responsible AI Practices in Chat Applications</h3>
+<p>Microsoft's approach to Responsible AI has identified six principles that should guide AI development and use. Below are the principles, their definition, and things a chat developer should consider and why they should take them seriously.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Principles</th>
+<th>Microsoft's Definition</th>
+<th>Considerations for Chat Developer</th>
+<th>Why It's Important</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fairness</td>
+<td>AI systems should treat all people fairly.</td>
+<td>Ensure the chat application does not discriminate based on user data.</td>
+<td>To build trust and inclusivity among users; avoids legal ramifications.</td>
+</tr>
+<tr>
+<td>Reliability and Safety</td>
+<td>AI systems should perform reliably and safely.</td>
+<td>Implement testing and fail-safes to minimize errors and risks.</td>
+<td>Ensures user satisfaction and prevents potential harm.</td>
+</tr>
+<tr>
+<td>Privacy and Security</td>
+<td>AI systems should be secure and respect privacy.</td>
+<td>Implement strong encryption and data protection measures.</td>
+<td>To safeguard sensitive user data and comply with privacy laws.</td>
+</tr>
+<tr>
+<td>Inclusiveness</td>
+<td>AI systems should empower everyone and engage people.</td>
+<td>Design UI/UX that is accessible and easy-to-use for diverse audiences.</td>
+<td>Ensures a wider range of people can use the application effectively.</td>
+</tr>
+<tr>
+<td>Transparency</td>
+<td>AI systems should be understandable.</td>
+<td>Provide clear documentation and reasoning for AI responses.</td>
+<td>Users are more likely to trust a system if they can understand how decisions are made.</td>
+</tr>
+<tr>
+<td>Accountability</td>
+<td>People should be accountable for AI systems.</td>
+<td>Establish a clear process for auditing and improving AI decisions.</td>
+<td>Enables ongoing improvement and corrective measures in case of mistakes.</td>
+</tr>
+</tbody>
+</table></div>

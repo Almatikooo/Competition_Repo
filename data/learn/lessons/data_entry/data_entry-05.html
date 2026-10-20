@@ -1,0 +1,197 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Apply quality assurance techniques to limit incorrect data entry.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>How can we carry out basic quality assurance in spreadsheets?</li>
+</ul>
+</div>
+<p>When you have a well-structured data table, you can use several simple
+techniques within your spreadsheet to ensure the data you enter is
+free of errors.</p>
+<h2 id="validating-data-on-input">Validating data on input</h2>
+<p>When we input data into a cell of a spreadsheet we are typically not constrained in the type of data we enter.
+In any one column, the spreadsheets software will not warn us if we start to enter a mix of text, numbers or dates in different rows.
+Even if we are not facing constraints from the software, as a researcher we often anticipate that all data in one column will be of a certain type.
+It is also possible that the nature of the data contained in the table allows us to place additional restrictions on the acceptable values for cells in a column.
+For example a column recording age in years should be numeric, greater than 0 and is unlikely to be greater than 120.</p>
+<p>Excel allows us to specify a variety of data validations to be applied to cell contents.
+If the validation fails, an error is raised and the data we entered does not go into the particular cell.</p>
+<p>We will be working with a couple of examples of data validation
+rules but many others exist. For an overview of data validation rules
+available, check out the <a href="https://support.office.com/en-us/article/Apply-data-validation-to-cells-29FECBCC-D1B9-42C1-9D76-EFF3CE5F7249" target="_blank" rel="noopener noreferrer">Excel support page on data validation</a> or the <a href="https://books.libreoffice.org/en/CG24/CG2402-EnteringandEditingData.html#toc28" target="_blank" rel="noopener noreferrer">Validating cell contents section of the LibreOffice Calc Guide</a>.</p>
+<p>We will look at two examples:</p>
+<ol>
+<li>Restricting data to a numeric range</li>
+<li>Restricting data to entries from a list</li>
+</ol>
+<h3 id="restricting-data-to-a-numeric-range">Restricting data to a numeric range</h3>
+<p>First, we'll open the <a href="https://ndownloader.figshare.com/files/11492171" target="_blank" rel="noopener noreferrer">clean version of the SAFI dataset</a>,
+which is a CSV file. CSV files are plain text files where the columns are separated
+by commas, hence 'comma separated values' or CSV. CSV is a format commonly used for tabular data,
+which we will discuss further in the next episode.</p>
+<p>To open this CSV file, one option is to double-click the file once it's in your Downloads folder.
+However, doing this can lead to different results depending on your computer's configuration. To avoid this,
+the following box shows a more reliable method to load the data in Excel or Calc.</p>
+<div class="box box-group-tab"><p class="box-title">Excel</p>
+
+<p>1. Open Excel and start a blank workbook.</p>
+<p>2. Select the <code>Data</code> tab. In the <code>Get &amp; Transform Data</code> group, choose <code>Get Data</code> &gt; <code>From File</code> &gt; <code>From Text/CSV</code></p>
+<p>3. In the pop-up window, navigate to the folder that contains your file, select the file, and click <code>Open</code>.</p>
+<p>4. In the new window, make sure the Delimiter is set to <code>Comma</code> at the top. Review the data preview. If everything looks correct, click <code>Load</code>.</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/spreadsheets-socialsci/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/fig/load-csv-excel.png">{alt='Load CSV in Excel'}</p>
+<h3 id="calc">Calc</h3>
+<p>1. Open LibreOffice Calc.</p>
+<p>2. Click <code>File</code> &gt; <code>Open...</code></p>
+<p>3. In the pop-up window, navigate to the folder that contains your file, select the file, and click <code>Open</code>.</p>
+<p>4. In the new window, you'll see several options. For now, make sure that under <code>Separator Options</code>, only <code>Separated by</code> &gt; <code>Comma</code> is selected. Review the data preview. If everything looks correct, click <code>OK</code>.</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/spreadsheets-socialsci/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/fig/load-csv-calc.png">{alt='Load CSV in Calc'}</p>
+</div>
+<p>When we open the file, we see that there are
+several columns with numeric data. One example of this is the column <code>no_membrs</code>
+representing the number of people in the household. We would expect this always
+to be a positive integer, and so we should reject values like <code>1.5</code> and <code>-8</code> as
+entry errors. We would also reject values over a certain maximum - for example
+an entry like <code>90</code> is probably the result of the researcher inputting <code>9</code> and
+their finger slipping and also hitting the <code>0</code> key. It is up to you as the
+researcher to decide what a reasonable maximum value would be for your data,
+here we will assume that there are no families with greater than 30 members.</p>
+<p>Let's start by opening the data validation feature using the <code>no_membrs</code> column.</p>
+<div class="box box-group-tab"><p class="box-title">Excel</p>
+
+<p>1. Select the <code>no_membrs</code> column.</p>
+<p>2. Select the <code>Data</code> tab, and in the <code>Data Tools</code> group, select <code>Data Validation</code> or <code>Validation Tools</code> (depending on your version of Excel). The following pop-up will appear:</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/spreadsheets-socialsci/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/fig/data-validation-tab-new.png">{alt='Image of data validation tab in Excel'}</p>
+<p>3. Select 'Whole number' from the <code>Allow</code> drop down options.</p>
+<p>4. The window content will change.
+In the <code>Data</code> drop down box, check that 'between' is selected. <code>Minimum</code> and <code>Maximum</code> boxes will be provided for you to specify an allowed range. You will see this:</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/spreadsheets-socialsci/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/fig/data-validation-numbers-new.png">{alt='Image of data validation tab for number rules in Excel'}</p>
+<p>5. Fill in the minimum and maximum values that make sense for your data and click <code>OK</code>. Here we will choose a minimum of 1 and a maximum of 30.</p>
+<h3 id="calc-x">Calc</h3>
+<p>1. Select the <code>no_membrs</code> column.</p>
+<p>2. On the <code>Data</code> tab select <code>Validity...</code>. The following pop-up will appear:</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/spreadsheets-socialsci/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/fig/data-validation-tab-LibreOffice-new.png">{alt='Image of data validation tab in LibreOffice'}</p>
+<p>3. Select 'Whole Numbers' from the <code>Allow</code> drop down options.</p>
+<p>4. The window content will change.
+In the <code>Data</code> drop down box, check that 'valid range' is selected. <code>Minimum</code> and <code>Maximum</code> boxes will be provided for you to specify an allowed range. You will see this:</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/spreadsheets-socialsci/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/fig/data-validation-numbers-LibreOffice-new.png">{alt='Image of data validation tab in LibreOffice'}</p>
+<p>5. Fill in the minimum and maximum values that make sense for your data and click <code>OK</code>. Here we will choose a minimum of 1 and a maximum of 30.</p>
+</div>
+<p>Now your data table will not allow you to enter a value that violates
+the data validation rule you have created. To test this out, try
+to enter a new value into the <code>no_membrs</code> column that is not valid.
+The following error box will appear</p>
+<div class="box box-group-tab"><p class="box-title">Excel</p>
+
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/spreadsheets-socialsci/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/fig/error-invalid-data-new.png">{alt='Image of error message for inputing invalid data in Excel'}</p>
+<h3 id="calc-x-x">Calc</h3>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/spreadsheets-socialsci/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/fig/error-invalid-data-LibreOffice-new.png">{alt='Image of error message for inputing invalid data in LibreOffice'}</p>
+</div>
+<p>You can also customize the resulting message to be more informative by entering
+your own message in the <code>Error Alert</code> tab when creating a data validation rule.</p>
+<div class="box box-group-tab"><p class="box-title">Excel</p>
+
+<p>Check that the <code>Style</code> is 'Stop'. You can write 'Invalid number' as the <code>Title</code>
+and 'Number of households must be a whole number between 1 and 30' as the <code>Error Message</code>.</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/spreadsheets-socialsci/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/fig/error_alert-new.png">{alt='Image of Error Alert tab in Excel'}</p>
+<p>Now check what happens if you try to enter an invalid value.</p>
+<h3 id="calc-x-x-x">Calc</h3>
+<p>Check that the <code>Action</code> is 'Stop'. You can write 'Invalid number' as the <code>Title</code>
+and 'Number of households must be a whole number between 1 and 30' as the <code>Error Message</code>.</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/spreadsheets-socialsci/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/fig/error_alert_LibreOffice-new.png">{alt='Image of Error Alert tab in LibreOffice'}</p>
+<p>Now check what happens if you try to enter an invalid value.</p>
+</div>
+<p>You can also have an <code>Input message</code> that warns users of the spreadsheet what values
+are accepted in cell that has data validation.</p>
+<div class="box box-group-tab"><p class="box-title">Excel</p>
+
+<p>Select the <code>Input Message</code> tab. Add the title and input message that is convenient for
+your task. In this example, we will write 'Household members' and 'Please enter a whole number between 1 and 30'.</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/spreadsheets-socialsci/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/fig/input_message-new.png">{alt='Image of Input Message tab in Excel'}</p>
+<p>Now check what happens when you select a cell that has data validation.</p>
+<h3 id="calc-x-x-x-x">Calc</h3>
+<p>Select the <code>Input Help</code> tab. Add the title and input message that is convenient for
+your task. In this example, we will write 'Household members' and 'Please enter a whole number between 1 and 30'.</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/spreadsheets-socialsci/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/fig/input_message_LibreOffice-new.png">{alt='Image of Input Message tab in LibreOffice'}</p>
+<p>Now check what happens when you select a cell that has data validation.</p>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Exercise</p>
+
+<p>Apply a new data validation rule to one of the other numeric
+columns in this data table. Discuss with the person sitting next
+to you what a reasonable rule would be for the column you've selected. Be sure to create an informative error alert and input message.</p>
+</div>
+<h3 id="restricting-data-to-entries-from-a-list">Restricting data to entries from a list</h3>
+<p>Quality assurance can make data entry easier as well as more robust. For
+example, if you use a list of options to restrict data entry, the spreadsheet
+will provide you with a drop-downlist of the available items. So, instead of
+trying to remember how to spell "mabatisloping", or whether or not you capitalized "cement" you can select the
+right option from the list.</p>
+<div class="box box-group-tab"><p class="box-title">Excel</p>
+
+<p>1. Select the <code>respondent_wall_type</code> column.</p>
+<p>2. Select the <code>Data</code> tab, and in the <code>Data Tools</code> group, select <code>Data Validation</code> or <code>Validation Tools</code> (depending on your version of Excel).</p>
+<p>3. Select <code>List</code> from the <code>Allow</code> drop-down menu.</p>
+<p>4. The window will change to include a <code>Source</code> box, you will see:</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/spreadsheets-socialsci/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/fig/select-range-of-values-new.png">{alt='Image of selecting a range of values to allow in Excel'}</p>
+<p>5. Type a list of all the values that you want to be accepted in this column, separated by a comma (with no spaces). For us this will be "grass,muddaub,burntbricks,sunbricks,cement".</p>
+<p>6. Create a meaningful error alert and input message, then click 'OK'. In LibreOffice, there is no need to create an input message.</p>
+<h3 id="calc-x-x-x-x-x">Calc</h3>
+<p>1. Select the <code>respondent_wall_type</code> column.</p>
+<p>2. On the <code>Data</code> tab select <code>Validity...</code>.</p>
+<p>3. Select <code>List</code> from the <code>Allow</code> drop-down menu.</p>
+<p>4. The window will change to include an <code>Entries</code> box, you will see:</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/spreadsheets-socialsci/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/fig/select-range-of-values-LibreOffice-new.png">{alt='Image of selecting a range of values to allow in LibreOffice'}</p>
+<p>5. Type a list of all the values that you want to be accepted in this column, and insert a new line by clicking enter after each value. Make sure not to include spaces before or after the values. Your entries of grass, muddaub, burntbricks, sunbricks and cement should look like this:</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/spreadsheets-socialsci/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/fig/filled-range-of-values-LibreOffice-new.png">{alt='Image of filled in range of values to allow in LibreOffice'}</p>
+<p>6. Create a meaningful error alert and input message, then click 'OK'.</p>
+</div>
+<p>We have now provided a restriction that will be validated each time we try and
+enter data into the selected cells. When a cell in this column is selected, a drop-down arrow will appear.
+When you click the arrow, you will be able to select a value from your list.
+If you type a value which is not on the list, you will get an error message. This not only prevents data input errors, but also makes it easier and faster to enter data.</p>
+<div class="box box-challenge">
+<p class="box-title">Exercise</p>
+
+<p>Apply a new data validation rule to one of the other categorical
+columns in this data table. Discuss with the person sitting next
+to you what a reasonable rule would be for the column you've selected. Be sure to create an informative input message.</p>
+</div>
+<div class="box box-callout">
+<p class="box-title">Tip</p>
+
+<p>Typing a list of values where only a few possible values exist (like "grass, muddaub, burntbricks, sunbricks, cement") might be convenient, but if the list is longer it makes sense to create it as a small table (in a separate tab of the workbook).
+We can give the table a name and then reference the table name as the source of acceptable inputs when the source box appears in the Data Validation pop-out.</p>
+<p>Using a table in this way makes the data entry process more flexible.
+If you add or remove contents from the table, then these are immediately reflected in any new cell entries based on this source.
+You can also have different cells refer to the same table of acceptable inputs.</p>
+</div>
+<div class="box box-callout">
+<p class="box-title">Tip</p>
+
+<p>In the examples above we have applied data validation rules to
+an existing spreadsheet to demonstrate how they work, however,
+you may have noticed that data validation rules are not applied
+retroactively to data that is already present in the cell.
+This means, for example, that if we had already entered <code>150</code>
+in the <code>no_membrs</code> column before applying our data validation
+rule, that cell would not be flagged with a warning.</p>
+<p>In some versions of Excel, you can click in the <code>Data</code> tab, and in the <code>Data Tools</code> group,
+click in the little drop-down arrow next to <code>Data Validation</code>, and then <code>Circle invalid data</code>. This will put red circles around invalid data entries. Note that it can be a bit slow with large data files. You can do the same in LibreOffice Calc by going to <code>Tools</code> tab, then <code>Detective</code> and
+selecting <code>Mark invalid data</code>.</p>
+<p>When using spreadsheets for data entry, it is a good idea to set up
+data validation rules for each column when you set up your
+spreadsheet (i.e. before you enter any data).</p>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>Always copy your original spreadsheet file and work with a copy so you don't affect the raw data.</li>
+<li>Use data validation to prevent accidentally entering invalid data.</li>
+</ul>
+</div>

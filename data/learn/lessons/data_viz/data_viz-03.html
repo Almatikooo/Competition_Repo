@@ -1,0 +1,359 @@
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th><img alt=" Sketchnote by (@sketchthedocs) " loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/sketchnotes/11-Visualizing-Proportions.png"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Visualizing Proportions - <em>Sketchnote by <a href="https://twitter.com/nitya" target="_blank" rel="noopener noreferrer">@nitya</a></em></td>
+</tr>
+</tbody>
+</table></div>
+<p>In this lesson, you will use a different nature-focused dataset to visualize proportions, such as how many different types of fungi populate a given dataset about mushrooms. Let's explore these fascinating fungi using a dataset sourced from Audubon listing details about 23 species of gilled mushrooms in the Agaricus and Lepiota families. You will experiment with tasty visualizations such as:</p>
+<ul>
+<li>Pie charts 🥧</li>
+<li>Donut charts 🍩</li>
+<li>Waffle charts 🧇</li>
+</ul>
+<blockquote>
+<p>💡 A very interesting project called <a href="https://charticulator.com" target="_blank" rel="noopener noreferrer">Charticulator</a> by Microsoft Research offers a free drag and drop interface for data visualizations. In one of their tutorials they also use this mushroom dataset! So you can explore the data and learn the library at the same time: <a href="https://charticulator.com/tutorials/tutorial4.html" target="_blank" rel="noopener noreferrer">Charticulator tutorial</a>.</p>
+</blockquote>
+
+<h2 id="get-to-know-your-mushrooms">Get to know your mushrooms 🍄</h2>
+<p>Mushrooms are very interesting. Let's import a dataset to study them:</p>
+<pre><code class="language-python">import pandas as pd
+import matplotlib.pyplot as plt
+mushrooms = pd.read_csv('../../data/mushrooms.csv')
+mushrooms.head()
+</code></pre>
+<p>A table is printed out with some great data for analysis:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>class</th>
+<th>cap-shape</th>
+<th>cap-surface</th>
+<th>cap-color</th>
+<th>bruises</th>
+<th>odor</th>
+<th>gill-attachment</th>
+<th>gill-spacing</th>
+<th>gill-size</th>
+<th>gill-color</th>
+<th>stalk-shape</th>
+<th>stalk-root</th>
+<th>stalk-surface-above-ring</th>
+<th>stalk-surface-below-ring</th>
+<th>stalk-color-above-ring</th>
+<th>stalk-color-below-ring</th>
+<th>veil-type</th>
+<th>veil-color</th>
+<th>ring-number</th>
+<th>ring-type</th>
+<th>spore-print-color</th>
+<th>population</th>
+<th>habitat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Poisonous</td>
+<td>Convex</td>
+<td>Smooth</td>
+<td>Brown</td>
+<td>Bruises</td>
+<td>Pungent</td>
+<td>Free</td>
+<td>Close</td>
+<td>Narrow</td>
+<td>Black</td>
+<td>Enlarging</td>
+<td>Equal</td>
+<td>Smooth</td>
+<td>Smooth</td>
+<td>White</td>
+<td>White</td>
+<td>Partial</td>
+<td>White</td>
+<td>One</td>
+<td>Pendant</td>
+<td>Black</td>
+<td>Scattered</td>
+<td>Urban</td>
+</tr>
+<tr>
+<td>Edible</td>
+<td>Convex</td>
+<td>Smooth</td>
+<td>Yellow</td>
+<td>Bruises</td>
+<td>Almond</td>
+<td>Free</td>
+<td>Close</td>
+<td>Broad</td>
+<td>Black</td>
+<td>Enlarging</td>
+<td>Club</td>
+<td>Smooth</td>
+<td>Smooth</td>
+<td>White</td>
+<td>White</td>
+<td>Partial</td>
+<td>White</td>
+<td>One</td>
+<td>Pendant</td>
+<td>Brown</td>
+<td>Numerous</td>
+<td>Grasses</td>
+</tr>
+<tr>
+<td>Edible</td>
+<td>Bell</td>
+<td>Smooth</td>
+<td>White</td>
+<td>Bruises</td>
+<td>Anise</td>
+<td>Free</td>
+<td>Close</td>
+<td>Broad</td>
+<td>Brown</td>
+<td>Enlarging</td>
+<td>Club</td>
+<td>Smooth</td>
+<td>Smooth</td>
+<td>White</td>
+<td>White</td>
+<td>Partial</td>
+<td>White</td>
+<td>One</td>
+<td>Pendant</td>
+<td>Brown</td>
+<td>Numerous</td>
+<td>Meadows</td>
+</tr>
+<tr>
+<td>Poisonous</td>
+<td>Convex</td>
+<td>Scaly</td>
+<td>White</td>
+<td>Bruises</td>
+<td>Pungent</td>
+<td>Free</td>
+<td>Close</td>
+<td>Narrow</td>
+<td>Brown</td>
+<td>Enlarging</td>
+<td>Equal</td>
+<td>Smooth</td>
+<td>Smooth</td>
+<td>White</td>
+<td>White</td>
+<td>Partial</td>
+<td>White</td>
+<td>One</td>
+<td>Pendant</td>
+<td>Black</td>
+<td>Scattered</td>
+<td>Urban</td>
+</tr>
+</tbody>
+</table></div>
+<p>Right away, you notice that all the data is textual. You will have to convert this data to be able to use it in a chart. Most of the data, in fact, is represented as an object:</p>
+<pre><code class="language-python">print(mushrooms.select_dtypes(["object"]).columns)
+</code></pre>
+<p>The output is:</p>
+<pre><code class="language-output">Index(['class', 'cap-shape', 'cap-surface', 'cap-color', 'bruises', 'odor',
+       'gill-attachment', 'gill-spacing', 'gill-size', 'gill-color',
+       'stalk-shape', 'stalk-root', 'stalk-surface-above-ring',
+       'stalk-surface-below-ring', 'stalk-color-above-ring',
+       'stalk-color-below-ring', 'veil-type', 'veil-color', 'ring-number',
+       'ring-type', 'spore-print-color', 'population', 'habitat'],
+      dtype='object')
+</code></pre>
+<p>Take this data and convert the 'class' column to a category:</p>
+<pre><code class="language-python">cols = mushrooms.select_dtypes(["object"]).columns
+mushrooms[cols] = mushrooms[cols].astype('category')
+</code></pre>
+<pre><code class="language-python">edibleclass=mushrooms.groupby(['class']).count()
+edibleclass
+</code></pre>
+<p>Now, if you print out the mushrooms data, you can see that it has been grouped into categories according to the poisonous/edible class:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>cap-shape</th>
+<th>cap-surface</th>
+<th>cap-color</th>
+<th>bruises</th>
+<th>odor</th>
+<th>gill-attachment</th>
+<th>gill-spacing</th>
+<th>gill-size</th>
+<th>gill-color</th>
+<th>stalk-shape</th>
+<th>...</th>
+<th>stalk-surface-below-ring</th>
+<th>stalk-color-above-ring</th>
+<th>stalk-color-below-ring</th>
+<th>veil-type</th>
+<th>veil-color</th>
+<th>ring-number</th>
+<th>ring-type</th>
+<th>spore-print-color</th>
+<th>population</th>
+<th>habitat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>class</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Edible</td>
+<td>4208</td>
+<td>4208</td>
+<td>4208</td>
+<td>4208</td>
+<td>4208</td>
+<td>4208</td>
+<td>4208</td>
+<td>4208</td>
+<td>4208</td>
+<td>4208</td>
+<td>...</td>
+<td>4208</td>
+<td>4208</td>
+<td>4208</td>
+<td>4208</td>
+<td>4208</td>
+<td>4208</td>
+<td>4208</td>
+<td>4208</td>
+<td>4208</td>
+<td>4208</td>
+</tr>
+<tr>
+<td>Poisonous</td>
+<td>3916</td>
+<td>3916</td>
+<td>3916</td>
+<td>3916</td>
+<td>3916</td>
+<td>3916</td>
+<td>3916</td>
+<td>3916</td>
+<td>3916</td>
+<td>3916</td>
+<td>...</td>
+<td>3916</td>
+<td>3916</td>
+<td>3916</td>
+<td>3916</td>
+<td>3916</td>
+<td>3916</td>
+<td>3916</td>
+<td>3916</td>
+<td>3916</td>
+<td>3916</td>
+</tr>
+</tbody>
+</table></div>
+<p>If you follow the order presented in this table to create your class category labels, you can build a pie chart:</p>
+<h2 id="pie">Pie!</h2>
+<pre><code class="language-python">labels=['Edible','Poisonous']
+plt.pie(edibleclass['population'],labels=labels,autopct='%.1f %%')
+plt.title('Edible?')
+plt.show()
+</code></pre>
+<p>Voila, a pie chart showing the proportions of this data according to these two classes of mushrooms. It's quite important to get the order of the labels correct, especially here, so be sure to verify the order with which the label array is built!</p>
+<p><img alt="pie chart" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/11-visualization-proportions/images/pie1-wb.png"></p>
+<h2 id="donuts">Donuts!</h2>
+<p>A somewhat more visually interesting pie chart is a donut chart, which is a pie chart with a hole in the middle. Let's look at our data using this method.</p>
+<p>Take a look at the various habitats where mushrooms grow:</p>
+<pre><code class="language-python">habitat=mushrooms.groupby(['habitat']).count()
+habitat
+</code></pre>
+<p>Here, you are grouping your data by habitat. There are 7 listed, so use those as labels for your donut chart:</p>
+<pre><code class="language-python">labels=['Grasses','Leaves','Meadows','Paths','Urban','Waste','Wood']
+
+plt.pie(habitat['class'], labels=labels,
+        autopct='%1.1f%%', pctdistance=0.85)
+  
+center_circle = plt.Circle((0, 0), 0.40, fc='white')
+fig = plt.gcf()
+
+fig.gca().add_artist(center_circle)
+  
+plt.title('Mushroom Habitats')
+  
+plt.show()
+</code></pre>
+<p><img alt="donut chart" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/11-visualization-proportions/images/donut-wb.png"></p>
+<p>This code draws a chart and a center circle, then adds that center circle in the chart. Edit the width of the center circle by changing <code>0.40</code> to another value.</p>
+<p>Donut charts can be tweaked in several ways to change the labels. The labels in particular can be highlighted for readability. Learn more in the <a href="https://matplotlib.org/stable/gallery/pie_and_polar_charts/pie_and_donut_labels.html?highlight=donut" target="_blank" rel="noopener noreferrer">docs</a>.</p>
+<p>Now that you know how to group your data and then display it as a pie or donut, you can explore other types of charts. Try a waffle chart, which is just a different way of exploring quantity.</p>
+<h2 id="waffles">Waffles!</h2>
+<p>A 'waffle' type chart is a different way to visualize quantities as a 2D array of squares. Try visualizing the different quantities of mushroom cap colors in this dataset. To do this, you need to install a helper library called <a href="https://pypi.org/project/pywaffle/" target="_blank" rel="noopener noreferrer">PyWaffle</a> and use Matplotlib:</p>
+<pre><code class="language-python">pip install pywaffle
+</code></pre>
+<p>Select a segment of your data to group:</p>
+<pre><code class="language-python">capcolor=mushrooms.groupby(['cap-color']).count()
+capcolor
+</code></pre>
+<p>Create a waffle chart by creating labels and then grouping your data:</p>
+<pre><code class="language-python">import pandas as pd
+import matplotlib.pyplot as plt
+from pywaffle import Waffle
+  
+data ={'color': ['brown', 'buff', 'cinnamon', 'green', 'pink', 'purple', 'red', 'white', 'yellow'],
+    'amount': capcolor['class']
+     }
+  
+df = pd.DataFrame(data)
+  
+fig = plt.figure(
+    FigureClass = Waffle,
+    rows = 100,
+    values = df.amount,
+    labels = list(df.color),
+    figsize = (30,30),
+    colors=["brown", "tan", "maroon", "green", "pink", "purple", "red", "whitesmoke", "yellow"],
+)
+</code></pre>
+<p>Using a waffle chart, you can plainly see the proportions of cap colors of this mushrooms dataset. Interestingly, there are many green-capped mushrooms!</p>
+<p><img alt="waffle chart" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/11-visualization-proportions/images/waffle.png"></p>
+<p>✅ Pywaffle supports icons within the charts that use any icon available in <a href="https://fontawesome.com/" target="_blank" rel="noopener noreferrer">Font Awesome</a>. Do some experiments to create an even more interesting waffle chart using icons instead of squares.</p>
+<p>In this lesson, you learned three ways to visualize proportions. First, you need to group your data into categories and then decide which is the best way to display the data - pie, donut, or waffle. All are delicious and gratify the user with an instant snapshot of a dataset.</p>
+<h2 id="challenge">🚀 Challenge</h2>
+<p>Try recreating these tasty charts in <a href="https://charticulator.com" target="_blank" rel="noopener noreferrer">Charticulator</a>.</p>
+
+<h2 id="review-self-study">Review &amp; Self Study</h2>
+<p>Sometimes it's not obvious when to use a pie, donut, or waffle chart. Here are some articles to read on this topic:</p>
+<p>https://www.beautiful.ai/blog/battle-of-the-charts-pie-chart-vs-donut-chart</p>
+<p>https://medium.com/@hypsypops/pie-chart-vs-donut-chart-showdown-in-the-ring-5d24fd86a9ce</p>
+<p>https://www.mit.edu/~mbarker/formula1/f1help/11-ch-c6.htm</p>
+<p>https://medium.datadriveninvestor.com/data-visualization-done-the-right-way-with-tableau-waffle-chart-fdf2a19be402</p>
+<p>Do some research to find more information on this sticky decision.</p>

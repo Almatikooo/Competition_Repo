@@ -1,0 +1,115 @@
+<h2 id="determining-which-automation-method-to-use">Determining which automation method to use</h2>
+<p>After the process design is complete, the next step is architectural design, where
+you focus on how you'll automate that process.</p>
+<p>First you determine what kind of connector you can use (if any), and then choose a trigger to start the automation.</p>
+<h2 id="choose-an-automation-method">Choose an automation method</h2>
+<p>Ideally, all the systems you want to automate will have Power Automate connectors.
+Check the <a href="https://learn.microsoft.com/connectors/custom-connectors/" target="_blank" rel="noopener noreferrer">list of connectors</a> to see whether
+connectors are available for the system you plan to automate. After you
+find the connector, make sure that the actions you need are available for that
+connector. For example, a connector for an email system will need actions for
+"send," "reply," and "delete."</p>
+<p>If there are no connectors available, you have the following options to choose from:</p>
+<ul>
+<li>
+<p><strong>Create a custom connector</strong>: This is the preferred method of automation if you're a developer or your organization has a developer who can create
+custom connectors. A custom connector allows the automation to interact with the target system via a published API. This API should be resilient to system changes. More information: <a href="https://learn.microsoft.com/connectors/custom-connectors/define-blank" target="_blank" rel="noopener noreferrer">Create a custom connector from scratch</a></p>
+</li>
+<li>
+<p><strong>Use the HTTP connector</strong>: If you're a developer and have one-off scenarios where you need to connect to
+systems that have no connectors available—but you don't want to set up custom
+connectors—your next-best method is to use an HTTP connector. More information from Azure Logic Apps documentation: <a href="https://github.com/azure/connectors/connectors-native-http#add-an-http-trigger" target="_blank" rel="noopener noreferrer">Add an HTTP trigger</a></p>
+</li>
+<li>
+<p><strong>Create a web browser automation</strong>: If you can't find a connector, and if the system is a web browser–based
+application or a website, you should consider web browser automation.
+Web browser automation mimics keyboard inputs and mouse movements as if a human were using the browser. You can <a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/desktop-flows/actions-reference/webautomation.md" target="_blank" rel="noopener noreferrer">build a browser automation</a> process with Power Automate Desktop.</p>
+</li>
+<li>
+<p><strong>Create a desktop application automation</strong>: If you can't find a connector, and if the system is a desktop application on
+a PC, this is the automation method to use. Power Automate has capabilities that mimic human keyboard inputs and mouse movements. For desktop application automation, you <a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/desktop-flows/create-flow.md" target="_blank" rel="noopener noreferrer">create a new Power Automate Desktop process</a> with Power Automate Desktop.</p>
+</li>
+</ul>
+<p>The following table compares the different methods.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Ease of use</th>
+<th>Requires a development background?</th>
+<th>Easily affected by system changes?</th>
+<th>Requires setup or development time?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connector</td>
+<td>Easiest</td>
+<td>No</td>
+<td>No</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Custom connector</td>
+<td>Easy</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>HTTP connector</td>
+<td>Easy</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Web browser automation</td>
+<td>Easy</td>
+<td>No, but a basic knowledge of CSS and HTML is preferable</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Desktop application automation</td>
+<td>Easy</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table></div>
+<p>In complex automation scenarios, you can combine all these methods.</p>
+<h2 id="choose-a-trigger-to-start-the-automation">Choose a trigger to start the automation</h2>
+<p>With all the automation methods discussed earlier, you need to consider how to <em>trigger</em>
+(start) these automations. The ways you can trigger an automation include:</p>
+<ul>
+<li>Automated triggers</li>
+<li>Instant or manual triggers</li>
+<li>Scheduled triggers</li>
+</ul>
+<h3 id="automated-triggers">Automated triggers</h3>
+<p>With an <em>automated trigger</em>, the system automatically starts the automation when
+a condition is met. (Note that not all connectors include automated triggers.)</p>
+<p>Examples of automated triggers include:</p>
+<ul>
+<li>When an email is received in Outlook</li>
+<li>When a new file is moved to OneDrive</li>
+<li>When a new row is created in Microsoft Dataverse</li>
+<li>When an item is modified in a custom SharePoint list</li>
+</ul>
+<p><img alt="Automated triggers." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/automated-triggers.png" title="Automated triggers"></p>
+<p>An example use case for the expense report might be to set an automated trigger
+to start an approval flow when a new row is created in the Expense Approvals
+table in Dataverse. This ensures, for example, that when a form is created with Power Apps, which creates a new row in Dataverse, an approval flow is automatically triggered.</p>
+<h3 id="instant-or-manual-triggers">Instant or manual triggers</h3>
+<p>An <em>instant</em> or <em>manual</em> trigger is a type of trigger where a user needs to either manually start the automation, or the trigger is instantaneously started. This can be triggered directly from a <a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/mobile/mobile-create-flow.md" target="_blank" rel="noopener noreferrer">instant flow</a>, or a Microsoft service.</p>
+<p><img alt="Instant triggers." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/instant-triggers.png" title="Instant triggers"></p>
+<h3 id="scheduled-triggers">Scheduled triggers</h3>
+<p><em>Scheduled triggers</em> run at a specific date and time, and are
+repeated periodically. They're useful for situations where you need to
+automate a task that occurs daily, weekly, or monthly.</p>
+<p>In the expense report example, the accounting team might use a scheduled trigger to send an automated email every Friday when the weekly BI report is ready.</p>
+<p><img alt="Example of a scheduled trigger." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/scheduled-triggers.png" title="Example of a scheduled trigger"></p>
+<h2 id="next-step">Next step</h2>
+<p><a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/attended-unattended.md" target="_blank" rel="noopener noreferrer">Attended and unattended scenarios</a></p>

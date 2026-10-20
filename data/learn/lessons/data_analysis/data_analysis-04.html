@@ -1,0 +1,399 @@
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th><img alt=" Sketchnote by (@sketchthedocs) " loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/sketchnotes/07-WorkWithPython.png"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Working With Python - <em>Sketchnote by <a href="https://twitter.com/nitya" target="_blank" rel="noopener noreferrer">@nitya</a></em></td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="https://youtu.be/dZjWOGbsN4Y" target="_blank" rel="noopener noreferrer"><img alt="Intro Video" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/07-python/images/video-ds-python.png"></a></p>
+<p>While databases offer very efficient ways to store data and query them using query languages, the most flexible way of data processing is writing your own program to manipulate data. In many cases, doing a database query would be a more effective way. However in some cases when more complex data processing is needed, it cannot be done easily using SQL.
+Data processing can be programmed in any programming language, but there are certain languages that are higher level with respect to working with data. Data scientists typically prefer one of the following languages:</p>
+<ul>
+<li><strong><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python</a></strong>, a general-purpose programming language, which is often considered one of the best options for beginners due to its simplicity. Python has a lot of additional libraries that can help you solve many practical problems, such as extracting your data from ZIP archive, or converting picture to grayscale. In addition to data science, Python is also often used for web development.</li>
+<li><strong><a href="https://www.r-project.org/" target="_blank" rel="noopener noreferrer">R</a></strong> is a traditional toolbox developed with statistical data processing in mind. It also contains large repository of libraries (CRAN), making it a good choice for data processing. However, R is not a general-purpose programming language, and is rarely used outside of data science domain.</li>
+<li><strong><a href="https://julialang.org/" target="_blank" rel="noopener noreferrer">Julia</a></strong> is another language developed specifically for data science. It is intended to give better performance than Python, making it a great tool for scientific experimentation.</li>
+</ul>
+<p>In this lesson, we will focus on using Python for simple data processing. We will assume basic familiarity with the language. If you want a deeper tour of Python, you can refer to one of the following resources:</p>
+<ul>
+<li><a href="https://github.com/shwars/pycourse" target="_blank" rel="noopener noreferrer">Learn Python in a Fun Way with Turtle Graphics and Fractals</a> - GitHub-based quick intro course into Python Programming</li>
+<li><a href="https://docs.microsoft.com/en-us/learn/paths/python-first-steps/?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">Take your First Steps with Python</a> Learning Path on <a href="http://learn.microsoft.com/?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">Microsoft Learn</a></li>
+</ul>
+<p>Data can come in many forms. In this lesson, we will consider three forms of data - <strong>tabular data</strong>, <strong>text</strong> and <strong>images</strong>.</p>
+<p>We will focus on a few examples of data processing, instead of giving you full overview of all related libraries. This would allow you to get the main idea of what's possible, and leave you with understanding on where to find solutions to your problems when you need them.</p>
+<blockquote>
+<p><strong>Most useful advice</strong>. When you need to perform certain operation on data that you do not know how to do, try searching for it in the internet. <a href="https://stackoverflow.com/" target="_blank" rel="noopener noreferrer">Stackoverflow</a> usually contains a lot of useful code sample in Python for many typical tasks.</p>
+</blockquote>
+
+<h2 id="tabular-data-and-dataframes">Tabular Data and Dataframes</h2>
+<p>You have already met tabular data when we talked about relational databases. When you have a lot of data, and it is contained in many different linked tables, it definitely makes sense to use SQL for working with it. However, there are many cases when we have a table of data, and we need to gain some <strong>understanding</strong> or <strong>insights</strong> about this data, such as the distribution, correlation between values, etc. In data science, there are a lot of cases when we need to perform some transformations of the original data, followed by visualization. Both those steps can be easily done using Python.</p>
+<p>There are two most useful libraries in Python that can help you deal with tabular data:</p>
+<ul>
+<li><strong><a href="https://pandas.pydata.org/" target="_blank" rel="noopener noreferrer">Pandas</a></strong> allows you to manipulate so-called <strong>Dataframes</strong>, which are analogous to relational tables. You can have named columns, and perform different operations on row, columns and dataframes in general.</li>
+<li><strong><a href="https://numpy.org/" target="_blank" rel="noopener noreferrer">Numpy</a></strong> is a library for working with <strong>tensors</strong>, i.e. multi-dimensional <strong>arrays</strong>. Array has values of the same underlying type, and it is simpler than dataframe, but it offers more mathematical operations, and creates less overhead.</li>
+</ul>
+<p>There are also a couple of other libraries you should know about:</p>
+<ul>
+<li><strong><a href="https://matplotlib.org/" target="_blank" rel="noopener noreferrer">Matplotlib</a></strong> is a library used for data visualization and plotting graphs</li>
+<li><strong><a href="https://www.scipy.org/" target="_blank" rel="noopener noreferrer">SciPy</a></strong> is a library with some additional scientific functions. We have already come across this library when talking about probability and statistics</li>
+</ul>
+<p>Here is a piece of code that you would typically use to import those libraries in the beginning of your Python program:</p>
+<pre><code class="language-python">import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from scipy import ... # you need to specify exact sub-packages that you need
+</code></pre>
+<p>Pandas is centered around a few basic concepts.</p>
+<h3 id="series">Series</h3>
+<p><strong>Series</strong> is a sequence of values, similar to a list or numpy array. The main difference is that series also has an <strong>index</strong>, and when we operate on series (eg., add them), the index is taken into account. Index can be as simple as integer row number (it is the index used by default when creating a series from list or array), or it can have a complex structure, such as date interval.</p>
+<blockquote>
+<p><strong>Note</strong>: There is some introductory Pandas code in the accompanying notebook <a href="https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/07-python/notebook.ipynb" target="_blank" rel="noopener noreferrer"><code>notebook.ipynb</code></a>. We only outline some the examples here, and you are definitely welcome to check out the full notebook.</p>
+</blockquote>
+<p>Consider an example: we want to analyze sales of our ice-cream spot. Let's generate a series of sales numbers (number of items sold each day) for some time period:</p>
+<pre><code class="language-python">start_date = "Jan 1, 2020"
+end_date = "Mar 31, 2020"
+idx = pd.date_range(start_date,end_date)
+print(f"Length of index is {len(idx)}")
+items_sold = pd.Series(np.random.randint(25,50,size=len(idx)),index=idx)
+items_sold.plot()
+</code></pre>
+<p><img alt="Time Series Plot" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/07-python/images/timeseries-1.png"></p>
+<p>Now suppose that each week we are organizing a party for friends, and we take additional 10 packs of ice-cream for a party. We can create another series, indexed by week, to demonstrate that:</p>
+<pre><code class="language-python">additional_items = pd.Series(10,index=pd.date_range(start_date,end_date,freq="W"))
+</code></pre>
+<p>When we add two series together, we get total number:</p>
+<pre><code class="language-python">total_items = items_sold.add(additional_items,fill_value=0)
+total_items.plot()
+</code></pre>
+<p><img alt="Time Series Plot" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/07-python/images/timeseries-2.png"></p>
+<blockquote>
+<p><strong>Note</strong> that we are not using simple syntax <code>total_items+additional_items</code>. If we did, we would have received a lot of <code>NaN</code> (<em>Not a Number</em>) values in the resulting series. This is because there are missing values for some of the index point in the <code>additional_items</code> series, and adding <code>Nan</code> to anything results in <code>NaN</code>. Thus we need to specify <code>fill_value</code> parameter during addition.</p>
+</blockquote>
+<p>With time series, we can also <strong>resample</strong> the series with different time intervals. For example, suppose we want to compute mean sales volume monthly. We can use the following code:</p>
+<pre><code class="language-python">monthly = total_items.resample("1M").mean()
+ax = monthly.plot(kind='bar')
+</code></pre>
+<p><img alt="Monthly Time Series Averages" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/07-python/images/timeseries-3.png"></p>
+<h3 id="dataframe">DataFrame</h3>
+<p>A DataFrame is essentially a collection of series with the same index. We can combine several series together into a DataFrame:</p>
+<pre><code class="language-python">a = pd.Series(range(1,10))
+b = pd.Series(["I","like","to","play","games","and","will","not","change"],index=range(0,9))
+df = pd.DataFrame([a,b])
+</code></pre>
+<p>This will create a horizontal table like this:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1</td>
+<td>I</td>
+<td>like</td>
+<td>to</td>
+<td>use</td>
+<td>Python</td>
+<td>and</td>
+<td>Pandas</td>
+<td>very</td>
+<td>much</td>
+</tr>
+</tbody>
+</table></div>
+<p>We can also use Series as columns, and specify column names using dictionary:</p>
+<pre><code class="language-python">df = pd.DataFrame({ 'A' : a, 'B' : b })
+</code></pre>
+<p>This will give us a table like this:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>I</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>like</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+<td>to</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4</td>
+<td>use</td>
+</tr>
+<tr>
+<td>4</td>
+<td>5</td>
+<td>Python</td>
+</tr>
+<tr>
+<td>5</td>
+<td>6</td>
+<td>and</td>
+</tr>
+<tr>
+<td>6</td>
+<td>7</td>
+<td>Pandas</td>
+</tr>
+<tr>
+<td>7</td>
+<td>8</td>
+<td>very</td>
+</tr>
+<tr>
+<td>8</td>
+<td>9</td>
+<td>much</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Note</strong> that we can also get this table layout by transposing the previous table, eg. by writing</p>
+<pre><code class="language-python">df = pd.DataFrame([a,b]).T.rename(columns={ 0 : 'A', 1 : 'B' })
+</code></pre>
+<p>Here <code>.T</code> means the operation of transposing the DataFrame, i.e. changing rows and columns, and <code>rename</code> operation allows us to rename columns to match the previous example.</p>
+<p>Here are a few most important operations we can perform on DataFrames:</p>
+<p><strong>Column selection</strong>. We can select individual columns by writing <code>df['A']</code> - this operation returns a Series. We can also select a subset of columns into another DataFrame by writing <code>df[['B','A']]</code> - this return another DataFrame.</p>
+<p><strong>Filtering</strong> only certain rows by criteria. For example, to leave only rows with column <code>A</code> greater than 5, we can write <code>df[df['A']&gt;5]</code>.</p>
+<blockquote>
+<p><strong>Note</strong>: The way filtering works is the following. The expression <code>df['A']&lt;5</code> returns a boolean series, which indicates whether expression is <code>True</code> or <code>False</code> for each element of the original series <code>df['A']</code>. When boolean series is used as an index, it returns subset of rows in the DataFrame. Thus it is not possible to use arbitrary Python boolean expression, for example, writing <code>df[df['A']&gt;5 and df['A']&lt;7]</code> would be wrong. Instead, you should use special <code>&amp;</code> operation on boolean series, writing <code>df[(df['A']&gt;5) &amp; (df['A']&lt;7)]</code> (<em>brackets are important here</em>).</p>
+</blockquote>
+<p><strong>Creating new computable columns</strong>. We can easily create new computable columns for our DataFrame by using intuitive expression like this:</p>
+<pre><code class="language-python">df['DivA'] = df['A']-df['A'].mean() 
+</code></pre>
+<p>This example calculates divergence of A from its mean value. What actually happens here is we are computing a series, and then assigning this series to the left-hand-side, creating another column. Thus, we cannot use any operations that are not compatible with series, for example, the code below is wrong:</p>
+<pre><code class="language-python"># Wrong code -&gt; df['ADescr'] = "Low" if df['A'] &lt; 5 else "Hi"
+df['LenB'] = len(df['B']) # &lt;- Wrong result
+</code></pre>
+<p>The latter example, while being syntactically correct, gives us wrong result, because it assigns the length of series <code>B</code> to all values in the column, and not the length of individual elements as we intended.</p>
+<p>If we need to compute complex expressions like this, we can use <code>apply</code> function. The last example can be written as follows:</p>
+<pre><code class="language-python">df['LenB'] = df['B'].apply(lambda x : len(x))
+# or 
+df['LenB'] = df['B'].apply(len)
+</code></pre>
+<p>After operations above, we will end up with the following DataFrame:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>A</th>
+<th>B</th>
+<th>DivA</th>
+<th>LenB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>I</td>
+<td>-4.0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>like</td>
+<td>-3.0</td>
+<td>4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+<td>to</td>
+<td>-2.0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4</td>
+<td>use</td>
+<td>-1.0</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>5</td>
+<td>Python</td>
+<td>0.0</td>
+<td>6</td>
+</tr>
+<tr>
+<td>5</td>
+<td>6</td>
+<td>and</td>
+<td>1.0</td>
+<td>3</td>
+</tr>
+<tr>
+<td>6</td>
+<td>7</td>
+<td>Pandas</td>
+<td>2.0</td>
+<td>6</td>
+</tr>
+<tr>
+<td>7</td>
+<td>8</td>
+<td>very</td>
+<td>3.0</td>
+<td>4</td>
+</tr>
+<tr>
+<td>8</td>
+<td>9</td>
+<td>much</td>
+<td>4.0</td>
+<td>4</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Selecting rows based on numbers</strong> can be done using <code>iloc</code> construct. For example, to select first 5 rows from the DataFrame:</p>
+<pre><code class="language-python">df.iloc[:5]
+</code></pre>
+<p><strong>Grouping</strong> is often used to get a result similar to <em>pivot tables</em> in Excel. Suppose that we want to compute mean value of column <code>A</code> for each given number of <code>LenB</code>. Then we can group our DataFrame by <code>LenB</code>, and call <code>mean</code>:</p>
+<pre><code class="language-python">df.groupby(by='LenB')[['A','DivA']].mean()
+</code></pre>
+<p>If we need to compute mean and the number of elements in the group, then we can use more complex <code>aggregate</code> function:</p>
+<pre><code class="language-python">df.groupby(by='LenB') \
+ .aggregate({ 'DivA' : len, 'A' : lambda x: x.mean() }) \
+ .rename(columns={ 'DivA' : 'Count', 'A' : 'Mean'})
+</code></pre>
+<p>This gives us the following table:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>LenB</th>
+<th>Count</th>
+<th>Mean</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1.000000</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>3.000000</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>5.000000</td>
+</tr>
+<tr>
+<td>4</td>
+<td>3</td>
+<td>6.333333</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2</td>
+<td>6.000000</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="getting-data">Getting Data</h3>
+<p>We have seen how easy it is to construct Series and DataFrames from Python objects. However, data usually comes in the form of a text file, or an Excel table. Luckily, Pandas offers us a simple way to load data from disk. For example, reading CSV file is as simple as this:</p>
+<pre><code class="language-python">df = pd.read_csv('file.csv')
+</code></pre>
+<p>We will see more examples of loading data, including fetching it from external web sites, in the "Challenge" section</p>
+<h3 id="printing-and-plotting">Printing and Plotting</h3>
+<p>A Data Scientist often has to explore the data, thus it is important to be able to visualize it. When DataFrame is big, many times we want just to make sure we are doing everything correctly by printing out the first few rows. This can be done by calling <code>df.head()</code>. If you are running it from Jupyter Notebook, it will print out the DataFrame in a nice tabular form.</p>
+<p>We have also seen the usage of <code>plot</code> function to visualize some columns. While <code>plot</code> is very useful for many tasks, and supports many different graph types via <code>kind=</code> parameter, you can always use raw <code>matplotlib</code> library to plot something more complex. We will cover data visualization in detail in separate course lessons.</p>
+<p>This overview covers most important concepts of Pandas, however, the library is very rich, and there is no limit to what you can do with it! Let's now apply this knowledge for solving specific problem.</p>
+<h2 id="challenge-1-analyzing-covid-spread">🚀 Challenge 1: Analyzing COVID Spread</h2>
+<p>First problem we will focus on is modelling of epidemic spread of COVID-19. In order to do that, we will use the data on the number of infected individuals in different countries, provided by the <a href="https://systems.jhu.edu/" target="_blank" rel="noopener noreferrer">Center for Systems Science and Engineering</a> (CSSE) at <a href="https://jhu.edu/" target="_blank" rel="noopener noreferrer">Johns Hopkins University</a>. Dataset is available in <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank" rel="noopener noreferrer">this GitHub Repository</a>.</p>
+<p>Since we want to demonstrate how to deal with data, we invite you to open <a href="https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/07-python/notebook-covidspread.ipynb" target="_blank" rel="noopener noreferrer"><code>notebook-covidspread.ipynb</code></a> and read it from top to bottom. You can also execute cells, and do some challenges that we have left for you at the end.</p>
+<p><img alt="COVID Spread" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/07-python/images/covidspread.png"></p>
+<blockquote>
+<p>If you do not know how to run code in Jupyter Notebook, have a look at <a href="https://soshnikov.com/education/how-to-execute-notebooks-from-github/" target="_blank" rel="noopener noreferrer">this article</a>.</p>
+</blockquote>
+<h2 id="working-with-unstructured-data">Working with Unstructured Data</h2>
+<p>While data very often comes in tabular form, in some cases we need to deal with less structured data, for example, text or images. In this case, to apply data processing techniques we have seen above, we need to somehow <strong>extract</strong> structured data. Here are a few examples:</p>
+<ul>
+<li>Extracting keywords from text, and seeing how often those keywords appear</li>
+<li>Using neural networks to extract information about objects on the picture</li>
+<li>Getting information on emotions of people on video camera feed</li>
+</ul>
+<h2 id="challenge-2-analyzing-covid-papers">🚀 Challenge 2: Analyzing COVID Papers</h2>
+<p>In this challenge, we will continue with the topic of COVID pandemic, and focus on processing scientific papers on the subject. There is <a href="https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge" target="_blank" rel="noopener noreferrer">CORD-19 Dataset</a> with more than 7000 (at the time of writing) papers on COVID, available with metadata and abstracts (and for about half of them there is also full text provided).</p>
+<p>A full example of analyzing this dataset using <a href="https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health/?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">Text Analytics for Health</a> cognitive service is described <a href="https://soshnikov.com/science/analyzing-medical-papers-with-azure-and-text-analytics-for-health/" target="_blank" rel="noopener noreferrer">in this blog post</a>. We will discuss simplified version of this analysis.</p>
+<blockquote>
+<p><strong>NOTE</strong>: We do not provide a copy of the dataset as part of this repository. You may first need to download the <a href="https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge?select=metadata.csv" target="_blank" rel="noopener noreferrer"><code>metadata.csv</code></a> file from <a href="https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge" target="_blank" rel="noopener noreferrer">this dataset on Kaggle</a>. Registration with Kaggle may be required. You may also download the dataset without registration <a href="https://ai2-semanticscholar-cord-19.s3-us-west-2.amazonaws.com/historical_releases.html" target="_blank" rel="noopener noreferrer">from here</a>, but it will include all full texts in addition to metadata file.</p>
+</blockquote>
+<p>Open <a href="https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/07-python/notebook-papers.ipynb" target="_blank" rel="noopener noreferrer"><code>notebook-papers.ipynb</code></a> and read it from top to bottom. You can also execute cells, and do some challenges that we have left for you at the end.</p>
+<p><img alt="Covid Medical Treatment" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/07-python/images/covidtreat.png"></p>
+<h2 id="processing-image-data">Processing Image Data</h2>
+<p>Recently, very powerful AI models have been developed that allow us to understand images. There are many tasks that can be solved using pre-trained neural networks, or cloud services. Some examples include:</p>
+<ul>
+<li><strong>Image Classification</strong>, which can help you categorize the image into one of the pre-defined classes. You can easily train your own image classifiers using services such as <a href="https://azure.microsoft.com/services/cognitive-services/custom-vision-service/?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">Custom Vision</a></li>
+<li><strong>Object Detection</strong> to detect different objects in the image. Services such as <a href="https://azure.microsoft.com/services/cognitive-services/computer-vision/?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">computer vision</a> can detect a number of common objects, and you can train <a href="https://azure.microsoft.com/services/cognitive-services/custom-vision-service/?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">Custom Vision</a> model to detect some specific objects of interest.</li>
+<li><strong>Face Detection</strong>, including Age, Gender and Emotion detection. This can be done via <a href="https://azure.microsoft.com/services/cognitive-services/face/?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">Face API</a>.</li>
+</ul>
+<p>All those cloud services can be called using <a href="https://docs.microsoft.com/samples/azure-samples/cognitive-services-python-sdk-samples/cognitive-services-python-sdk-samples/?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">Python SDKs</a>, and thus can be easily incorporated into your data exploration workflow.</p>
+<p>Here are some examples of exploring data from Image data sources:</p>
+<ul>
+<li>In the blog post <a href="https://soshnikov.com/azure/how-to-learn-data-science-without-coding/" target="_blank" rel="noopener noreferrer">How to Learn Data Science without Coding</a> we explore Instagram photos, trying to understand what makes people give more likes to a photo. We first extract as much information from pictures as possible using <a href="https://azure.microsoft.com/services/cognitive-services/computer-vision/?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">computer vision</a>, and then use <a href="https://docs.microsoft.com/azure/machine-learning/concept-automated-ml/?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">Azure Machine Learning AutoML</a> to build interpretable model.</li>
+<li>In <a href="https://github.com/CloudAdvocacy/FaceStudies" target="_blank" rel="noopener noreferrer">Facial Studies Workshop</a> we use <a href="https://azure.microsoft.com/services/cognitive-services/face/?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">Face API</a> to extract emotions on people on photographs from events, in order to try to understand what makes people happy.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Whether you already have structured or unstructured data, using Python you can perform all steps related to data processing and understanding. It is probably the most flexible way of data processing, and that is the reason the majority of data scientists use Python as their primary tool. Learning Python in depth is probably a good idea if you are serious about your data science journey!</p>
+
+<h2 id="review-self-study">Review &amp; Self Study</h2>
+<p><strong>Books</strong></p>
+<ul>
+<li><a href="https://www.amazon.com/gp/product/1491957662" target="_blank" rel="noopener noreferrer">Wes McKinney. Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython</a></li>
+</ul>
+<p><strong>Online Resources</strong></p>
+<ul>
+<li>Official <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html" target="_blank" rel="noopener noreferrer">10 minutes to Pandas</a> tutorial</li>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html" target="_blank" rel="noopener noreferrer">Documentation on Pandas Visualization</a></li>
+</ul>
+<p><strong>Learning Python</strong></p>
+<ul>
+<li><a href="https://github.com/shwars/pycourse" target="_blank" rel="noopener noreferrer">Learn Python in a Fun Way with Turtle Graphics and Fractals</a></li>
+<li><a href="https://docs.microsoft.com/learn/paths/python-first-steps/?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">Take your First Steps with Python</a> Learning Path on <a href="http://learn.microsoft.com/?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">Microsoft Learn</a></li>
+</ul>

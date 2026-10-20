@@ -1,0 +1,75 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Transform a text column into a number column.</li>
+<li>Identify and modify non-numeric values in a numeric column using facets.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>How can we convert a column from one data type to another?</li>
+<li>How can we find non-numeric values in a column that should contain numbers?</li>
+</ul>
+</div>
+<h2 id="numbers">Numbers</h2>
+<p>When a table is imported into OpenRefine, all columns are treated as containing
+text values. We saw earlier how we can sort column values as numbers, but this
+does not change the cells in a column from text to numbers. Rather, this
+interprets the values as numbers for the purposes of sorting but keeps the
+underlying data type as is. We can, however, transform columns from text to
+other data types (e.g. number or date) using the <code>Edit cells</code> &gt; <code>Common transforms</code> feature. Here we will experiment changing columns to numbers and
+see what additional capabilities that grants us.</p>
+<p>Be sure to remove any <code>Text filter</code> facets you have enabled from the left panel
+so that we can examine our whole dataset. You can remove an existing facet by
+clicking the <code>x</code> in the upper left of that facet window.</p>
+<p>To transform cells in the <code>years_farm</code> column to numbers, click the down arrow
+for that column, then <code>Edit cells</code> &gt; <code>Common transforms…</code> &gt; <code>To number</code>. You
+will notice the <code>years_farm</code> values change from left-justified to
+right-justified, and black to green in color.</p>
+<div class="box box-challenge">
+<p class="box-title">Transforming column contents to numbers</p>
+
+<p>Transform three more columns, <code>no_membrs</code>, <code>years_liv</code>, and
+<code>buildings_in_compound</code>, from text to numbers. Can all columns be transformed
+to numbers? - Try it with <code>village</code> for example.</p>
+<details class="solution"><summary>Show solution</summary>
+<h3 id="solution">Solution</h3>
+<p>Only observations that include only numerals (0-9) can be transformed to
+numbers. If you apply a number transformation to a column that doesn't meet
+this criteria, and then click the <code>Undo / Redo</code> tab, you will see a step
+that starts with <code>Text transform on 0 cells</code>. This means that the data in
+that column was not transformed.</p>
+</details>
+</div>
+<h3 id="numeric-facet">Numeric facet</h3>
+<p>Sometimes non-numeric values or blanks occur in a column where numbers are
+expected. Such values may represent errors in data entry, and we want to find
+them. We can do that with a <code>Numeric facet</code>.</p>
+<div class="box box-challenge">
+<p class="box-title">Using a numeric facet</p>
+
+<ol>
+<li>For a column you transformed to numbers, edit one or two cells, replacing
+the numbers with text (such as <code>abc</code>) or blank (no number or text). You
+will need to change the <code>Data type</code> to <code>text</code> using the drop-down menu.</li>
+<li>Use the column pulldown menu to apply a numeric facet to the column you
+edited. The facet will appear in the left panel.</li>
+<li>Notice that there are several checkboxes in this facet: <code>Numeric</code>,
+<code>Non-numeric</code>, <code>Blank</code>, and <code>Error</code>. Below these checkboxes are counts of
+the number of cells in each category. You should see checks for
+<code>Non-numeric</code> and <code>Blank</code> if you changed some values.</li>
+<li>Experiment with checking or unchecking these boxes to select subsets of
+your data.</li>
+</ol>
+</div>
+<p>When done examining the numeric data, remove this facet by clicking the <code>x</code> in
+the upper left corner of its panel. Note that this does not undo the edits you
+made to the cells in this column. Use the <code>Undo / Redo</code> function to reverse
+these changes.</p>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>OpenRefine also provides ways to to examine and clean numerical data.</li>
+</ul>
+</div>

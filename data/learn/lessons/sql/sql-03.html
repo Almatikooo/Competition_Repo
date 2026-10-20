@@ -1,0 +1,589 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Write queries that select records that satisfy user-specified conditions.</li>
+<li>Explain the order in which the clauses in a query are executed.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>How can I select subsets of data?</li>
+</ul>
+</div>
+<p>One of the most powerful features of a database is
+the ability to <a href="https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/learners/reference.md#filter" target="_blank" rel="noopener noreferrer">filter</a> data,
+i.e.,
+to select only those records that match certain criteria.
+For example,
+suppose we want to see when a particular site was visited.
+We can select these records from the <code>Visited</code> table
+by using a <code>WHERE</code> clause in our query:</p>
+<pre><code class="language-sql">SELECT * FROM Visited WHERE site = 'DR-1';
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>id</th>
+<th>site</th>
+<th>dated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>619</td>
+<td>DR-1</td>
+<td>1927-02-08</td>
+</tr>
+<tr>
+<td>622</td>
+<td>DR-1</td>
+<td>1927-02-10</td>
+</tr>
+<tr>
+<td>844</td>
+<td>DR-1</td>
+<td>1932-03-22</td>
+</tr>
+</tbody>
+</table></div>
+<p>The database manager executes this query in two stages.
+First,
+it checks at each row in the <code>Visited</code> table
+to see which ones satisfy the <code>WHERE</code>.
+It then uses the column names following the <code>SELECT</code> keyword
+to determine which columns to display.</p>
+<p>This processing order means that
+we can filter records using <code>WHERE</code>
+based on values in columns that aren't then displayed:</p>
+<pre><code class="language-sql">SELECT id FROM Visited WHERE site = 'DR-1';
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>619</td>
+</tr>
+<tr>
+<td>622</td>
+</tr>
+<tr>
+<td>844</td>
+</tr>
+</tbody>
+</table></div>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/swcarpentry/sql-novice-survey/b55949e9edeecffa554cbc4a36b6dee92a2743f4/episodes/fig/sql-filter.svg">{alt='SQL Filtering in Action'}</p>
+<p>We can use many other Boolean operators to filter our data.
+For example,
+we can ask for all information from the DR-1 site collected before 1930:</p>
+<pre><code class="language-sql">SELECT * FROM Visited WHERE site = 'DR-1' AND dated &lt; '1930-01-01';
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>id</th>
+<th>site</th>
+<th>dated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>619</td>
+<td>DR-1</td>
+<td>1927-02-08</td>
+</tr>
+<tr>
+<td>622</td>
+<td>DR-1</td>
+<td>1927-02-10</td>
+</tr>
+</tbody>
+</table></div>
+<div class="box box-callout">
+<p class="box-title">Date Types</p>
+
+<p>Most database managers have a special data type for dates.
+In fact, many have two:
+one for dates,
+such as "May 31, 1971",
+and one for durations,
+such as "31 days".
+SQLite doesn't:
+instead,
+it stores dates as either text
+(in the ISO-8601 standard format "YYYY-MM-DD HH:MM:SS.SSSS"),
+real numbers
+(<a href="https://en.wikipedia.org/wiki/Julian_day" target="_blank" rel="noopener noreferrer">Julian days</a>, the number of days since November 24, 4714 BCE),
+or integers
+(<a href="https://en.wikipedia.org/wiki/Unix_time" target="_blank" rel="noopener noreferrer">Unix time</a>, the number of seconds since midnight, January 1, 1970).
+If this sounds complicated,
+it is,
+but not nearly as complicated as figuring out
+<a href="https://en.wikipedia.org/wiki/Swedish_calendar" target="_blank" rel="noopener noreferrer">historical dates in Sweden</a>.</p>
+</div>
+<p>If we want to find out what measurements were taken by either Lake or Roerich,
+we can combine the tests on their names using <code>OR</code>:</p>
+<pre><code class="language-sql">SELECT * FROM Survey WHERE person = 'lake' OR person = 'roe';
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>taken</th>
+<th>person</th>
+<th>quant</th>
+<th>reading</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>734</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>751</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>752</td>
+<td>lake</td>
+<td>rad</td>
+<td>2.19</td>
+</tr>
+<tr>
+<td>752</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.09</td>
+</tr>
+<tr>
+<td>752</td>
+<td>lake</td>
+<td>temp</td>
+<td>-16.0</td>
+</tr>
+<tr>
+<td>752</td>
+<td>roe</td>
+<td>sal</td>
+<td>41.6</td>
+</tr>
+<tr>
+<td>837</td>
+<td>lake</td>
+<td>rad</td>
+<td>1.46</td>
+</tr>
+<tr>
+<td>837</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.21</td>
+</tr>
+<tr>
+<td>837</td>
+<td>roe</td>
+<td>sal</td>
+<td>22.5</td>
+</tr>
+<tr>
+<td>844</td>
+<td>roe</td>
+<td>rad</td>
+<td>11.25</td>
+</tr>
+</tbody>
+</table></div>
+<p>Alternatively,
+we can use <code>IN</code> to see if a value is in a specific set:</p>
+<pre><code class="language-sql">SELECT * FROM Survey WHERE person IN ('lake', 'roe');
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>taken</th>
+<th>person</th>
+<th>quant</th>
+<th>reading</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>734</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>751</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>752</td>
+<td>lake</td>
+<td>rad</td>
+<td>2.19</td>
+</tr>
+<tr>
+<td>752</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.09</td>
+</tr>
+<tr>
+<td>752</td>
+<td>lake</td>
+<td>temp</td>
+<td>-16.0</td>
+</tr>
+<tr>
+<td>752</td>
+<td>roe</td>
+<td>sal</td>
+<td>41.6</td>
+</tr>
+<tr>
+<td>837</td>
+<td>lake</td>
+<td>rad</td>
+<td>1.46</td>
+</tr>
+<tr>
+<td>837</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.21</td>
+</tr>
+<tr>
+<td>837</td>
+<td>roe</td>
+<td>sal</td>
+<td>22.5</td>
+</tr>
+<tr>
+<td>844</td>
+<td>roe</td>
+<td>rad</td>
+<td>11.25</td>
+</tr>
+</tbody>
+</table></div>
+<p>We can combine <code>AND</code> with <code>OR</code>,
+but we need to be careful about which operator is executed first.
+If we <em>don't</em> use parentheses,
+we get this:</p>
+<pre><code class="language-sql">SELECT * FROM Survey WHERE quant = 'sal' AND person = 'lake' OR person = 'roe';
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>taken</th>
+<th>person</th>
+<th>quant</th>
+<th>reading</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>734</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>751</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>752</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.09</td>
+</tr>
+<tr>
+<td>752</td>
+<td>roe</td>
+<td>sal</td>
+<td>41.6</td>
+</tr>
+<tr>
+<td>837</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.21</td>
+</tr>
+<tr>
+<td>837</td>
+<td>roe</td>
+<td>sal</td>
+<td>22.5</td>
+</tr>
+<tr>
+<td>844</td>
+<td>roe</td>
+<td>rad</td>
+<td>11.25</td>
+</tr>
+</tbody>
+</table></div>
+<p>which is salinity measurements by Lake,
+and <em>any</em> measurement by Roerich.
+We probably want this instead:</p>
+<pre><code class="language-sql">SELECT * FROM Survey WHERE quant = 'sal' AND (person = 'lake' OR person = 'roe');
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>taken</th>
+<th>person</th>
+<th>quant</th>
+<th>reading</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>734</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>751</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>752</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.09</td>
+</tr>
+<tr>
+<td>752</td>
+<td>roe</td>
+<td>sal</td>
+<td>41.6</td>
+</tr>
+<tr>
+<td>837</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.21</td>
+</tr>
+<tr>
+<td>837</td>
+<td>roe</td>
+<td>sal</td>
+<td>22.5</td>
+</tr>
+</tbody>
+</table></div>
+<p>We can also filter by partial matches.  For example, if we want to
+know something just about the site names beginning with "DR" we can
+use the <code>LIKE</code> keyword.  The percent symbol acts as a
+<a href="https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/learners/reference.md#wildcard" target="_blank" rel="noopener noreferrer">wildcard</a>, matching any characters in that
+place.  It can be used at the beginning, middle, or end of the string:</p>
+<pre><code class="language-sql">SELECT * FROM Visited WHERE site LIKE 'DR%';
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>id</th>
+<th>site</th>
+<th>dated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>619</td>
+<td>DR-1</td>
+<td>1927-02-08</td>
+</tr>
+<tr>
+<td>622</td>
+<td>DR-1</td>
+<td>1927-02-10</td>
+</tr>
+<tr>
+<td>734</td>
+<td>DR-3</td>
+<td>1930-01-07</td>
+</tr>
+<tr>
+<td>735</td>
+<td>DR-3</td>
+<td>1930-01-12</td>
+</tr>
+<tr>
+<td>751</td>
+<td>DR-3</td>
+<td>1930-02-26</td>
+</tr>
+<tr>
+<td>752</td>
+<td>DR-3</td>
+<td></td>
+</tr>
+<tr>
+<td>844</td>
+<td>DR-1</td>
+<td>1932-03-22</td>
+</tr>
+</tbody>
+</table></div>
+<p>Finally,
+we can use <code>DISTINCT</code> with <code>WHERE</code>
+to give a second level of filtering:</p>
+<pre><code class="language-sql">SELECT DISTINCT person, quant FROM Survey WHERE person = 'lake' OR person = 'roe';
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>person</th>
+<th>quant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lake</td>
+<td>sal</td>
+</tr>
+<tr>
+<td>lake</td>
+<td>rad</td>
+</tr>
+<tr>
+<td>lake</td>
+<td>temp</td>
+</tr>
+<tr>
+<td>roe</td>
+<td>sal</td>
+</tr>
+<tr>
+<td>roe</td>
+<td>rad</td>
+</tr>
+</tbody>
+</table></div>
+<p>But remember:
+<code>DISTINCT</code> is applied to the values displayed in the chosen columns,
+not to the entire rows as they are being processed.</p>
+<div class="box box-callout">
+<p class="box-title">Growing Queries</p>
+
+<p>What we have just done is how most people "grow" their SQL queries.
+We started with something simple that did part of what we wanted,
+then added more clauses one by one,
+testing their effects as we went.
+This is a good strategy --- in fact,
+for complex queries it's often the <em>only</em> strategy --- but
+it depends on quick turnaround,
+and on us recognizing the right answer when we get it.</p>
+<p>The best way to achieve a quick turnaround is often
+to put a subset of data in a temporary database
+and run our queries against that,
+or to fill a small database with synthesized records.
+For example,
+instead of trying our queries against an actual database of 20 million Australians,
+we could run it against a sample of ten thousand,
+or write a small program to generate ten thousand random (but plausible) records
+and use that.</p>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Fix This Query</p>
+
+<p>Suppose we want to select all sites that lie within 48 degrees of the equator.
+Our first query is:</p>
+<pre><code class="language-sql">SELECT * FROM Site WHERE (lat &gt; -48) OR (lat &lt; 48);
+</code></pre>
+<p>Explain why this is wrong,
+and rewrite the query so that it is correct.</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<p>Because we used <code>OR</code>, a site on the South Pole for example will still meet
+the second criteria and thus be included. Instead, we want to restrict this
+to sites that meet <em>both</em> criteria:</p>
+<pre><code class="language-sql">SELECT * FROM Site WHERE (lat &gt; -48) AND (lat &lt; 48);
+</code></pre>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Finding Outliers</p>
+
+<p>Normalized salinity readings are supposed to be between 0.0 and 1.0.
+Write a query that selects all records from <code>Survey</code>
+with salinity values outside this range.</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x">Solution</h2>
+<pre><code class="language-sql">SELECT * FROM Survey WHERE quant = 'sal' AND ((reading &gt; 1.0) OR (reading &lt; 0.0));
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>taken</th>
+<th>person</th>
+<th>quant</th>
+<th>reading</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>752</td>
+<td>roe</td>
+<td>sal</td>
+<td>41.6</td>
+</tr>
+<tr>
+<td>837</td>
+<td>roe</td>
+<td>sal</td>
+<td>22.5</td>
+</tr>
+</tbody>
+</table></div>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Matching Patterns</p>
+
+<p>Which of these expressions are true?</p>
+<ol>
+<li><code>'a' LIKE 'a'</code></li>
+<li><code>'a' LIKE '%a'</code></li>
+<li><code>'beta' LIKE '%a'</code></li>
+<li><code>'alpha' LIKE 'a%%'</code></li>
+<li><code>'alpha' LIKE 'a%p%'</code></li>
+</ol>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x">Solution</h2>
+<ol>
+<li>True because these are the same character.</li>
+<li>True because the wildcard can match <em>zero</em> or more characters.</li>
+<li>True because the <code>%</code> matches <code>bet</code> and the <code>a</code> matches the <code>a</code>.</li>
+<li>True because the first wildcard matches <code>lpha</code> and the second wildcard matches zero characters (or vice versa).</li>
+<li>True because the first wildcard matches <code>l</code> and the second wildcard matches <code>ha</code>.</li>
+</ol>
+</details>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>Use WHERE to specify conditions that records must meet in order to be included in a query's results.</li>
+<li>Use AND, OR, and NOT to combine tests.</li>
+<li>Filtering is done on whole records, so conditions can use fields that are not actually displayed.</li>
+<li>Write queries incrementally.</li>
+</ul>
+</div>

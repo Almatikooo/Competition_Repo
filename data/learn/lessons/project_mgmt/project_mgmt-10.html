@@ -1,0 +1,116 @@
+<p>Many project managers use network diagrams when scheduling a&nbsp;project. The network diagram is a way to visualize the interrelationships of project activities. Network diagrams provide a graphical view of the tasks and how they relate to one another. The tasks in the network are the work packages of the WBS. All of the WBS tasks must be included in the network because they have to be accounted for in the schedule. Leaving even one task out of the network could change the overall schedule duration, estimated costs, and resource allocation commitments.</p>
+<p>The first step is to arrange the tasks from your WBS into a sequence. Some tasks can be accomplished at any time throughout the project where other tasks depend on input from another task or are constrained by time or resources.</p>
+<figure><a href="https://opentextbc.ca/projectmanagement/wp-content/uploads/sites/3/2019/08/wbs-and-network-diagram.jpg" target="_blank" rel="noopener noreferrer"><img alt="A flow chart of tasks in a project organized in relationship to each other from start to finish" height="313" loading="lazy" src="https://opentextbc.ca/projectmanagement/wp-content/uploads/sites/3/2019/08/wbs-and-network-diagram.jpg" width="799"></a><figcaption>Figure 10.9: The relationship between the work breakdown structure (WBS) and the network diagram.</figcaption></figure>
+<p>The WBS is <em>not</em> a schedule, but it is the basis for it. The network diagram <em>is</em> a schedule but is used primarily to identify key scheduling information that ultimately goes into user-friendly schedule formats, such as milestone and Gantt charts.</p>
+<p>The network diagram provides important information to the project team. It provides information about how the tasks are related (Figure 10.9), where the risk points are in the schedule, how long it will take as currently planned to finish the project, and when each task needs to begin and end.</p>
+<p>In our wedding planner example, Sally would look for relationships between tasks and determine what can be done in parallel and what activities need to wait for others to complete. As an example, Figure 10.10 shows how the activities involved in producing the invitations depend on one another. Showing the activities in rectangles and their relationships as arrows is called a precedence diagramming method (PDM). This kind of diagram is also called an activity-on-node (AON) diagram.</p>
+<p>Another way to show how tasks relate is with the activity-on-arrow (AOA) diagram. Although AON is more commonly used and is supported by all project management programs, PERT is the best-known AOA-type diagram and is the historical basis of all network diagramming. The main difference is the AOA diagram is traditionally drawn using circles as the nodes, with nodes representing the beginning and ending points of the arrows or tasks. In the AOA network, the arrows represent the activities or tasks (Figure 10.11).</p>
+<figure><a href="https://opentextbc.ca/projectmanagement/wp-content/uploads/sites/3/2019/08/activity-on-node-diagram.jpg" target="_blank" rel="noopener noreferrer"><img alt="&quot;&quot;" height="351" loading="lazy" src="https://opentextbc.ca/projectmanagement/wp-content/uploads/sites/3/2019/08/activity-on-node-diagram.jpg" width="500"></a><figcaption>Figure 10.10: An example of an activity on node (AON) diagram.</figcaption></figure>
+<p>All network diagrams have the advantages of&nbsp;showing task interdependencies, start and end times, and the critical path (the longest path through the network) but the AOA network diagram has some disadvantages that limit the use of the method.</p>
+<figure><a href="https://opentextbc.ca/projectmanagement/wp-content/uploads/sites/3/2019/08/activity-arrow-diagram.jpg" target="_blank" rel="noopener noreferrer"><img alt="Activity-On-Arrow Diagram" height="175" loading="lazy" src="https://opentextbc.ca/projectmanagement/wp-content/uploads/sites/3/2019/08/activity-arrow-diagram-300x175.jpg" width="300"></a><figcaption>Figure 10.11: An example of an activity arrow (AOA) network diagram.</figcaption></figure>
+<p>The three major disadvantages of the AOA method are:</p>
+<ul>
+<li>The AOA network can only show finish-to-start relationships. It is not possible to show lead and lag except by adding or subtracting time, which makes project tracking difficult.</li>
+<li>There are instances when dummy activities can occur in an AOA network. Dummy activities are activities that show the dependency of one task on other tasks but for other than technical reasons. For example, one&nbsp;task may depend&nbsp;on another because it would be more cost effective to use the same resources for the two; otherwise the two tasks could be accomplished in parallel. Dummy activities do not have durations associated with them. They simply show that a task has some kind of dependence on another task.</li>
+<li>AOA diagrams are not as widely used as AON diagrams simply because the latter are somewhat simpler to use, and all project management software programs can accommodate AON networks, whereas not all can accommodate AOA networks.</li>
+</ul>
+<h2 id="the-critical-path">The Critical Path</h2>
+<p>The critical path describes the sequence of tasks that would enable the project to be completed in the shortest possible time. It is based on the idea that some tasks must be completed before others can begin. A critical path diagram is a useful tool for scheduling dependencies and controlling a project. In order to identify the critical path, the length of time that each task will take must be calculated.</p>
+<p>Let’s take a look at an example. The length of time in weeks for each key stage is estimated:</p>
+<div class="table-wrap"><table>
+<caption>Table 10.1 Stages of the Critical Path</caption>
+<tbody>
+<tr>
+<th scope="col">Key stage</th>
+<th scope="col">Estimated time in weeks</th>
+</tr>
+<tr>
+<td>A. Secure funds</td>
+<td>0</td>
+</tr>
+<tr>
+<td>B. Negotiate with other agencies</td>
+<td>4</td>
+</tr>
+<tr>
+<td>C. Form advisory group</td>
+<td>4</td>
+</tr>
+<tr>
+<td>D. Establish data collection plan</td>
+<td>6</td>
+</tr>
+<tr>
+<td>E. Collect data</td>
+<td>4</td>
+</tr>
+<tr>
+<td>F. Write directory text</td>
+<td>4</td>
+</tr>
+<tr>
+<td>G. Identify printer</td>
+<td>2</td>
+</tr>
+<tr>
+<td>H. Agree print contract</td>
+<td>2</td>
+</tr>
+<tr>
+<td>I. Print directory</td>
+<td>4</td>
+</tr>
+<tr>
+<td>J. Agree distribution plan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>K. Organize distribution</td>
+<td>4</td>
+</tr>
+<tr>
+<td>L. Distribute directory</td>
+<td>2</td>
+</tr>
+</tbody>
+</table></div>
+<p>We have given the key stage “Secure funds” an estimated time of zero weeks because the project cannot start without the availability of some funding, although estimates would provide detail at a later stage. The stages can now be lined up to produce a network diagram that shows that there are three paths from start to finish and that the lines making up each path have a minimum duration&nbsp;(Figure 10.12).</p>
+<p>If we now trace each of the possible paths to “Distribute directory” (the finishing&nbsp;point), taking dependencies into account, the route that has the longest duration is known as the critical path. This is the minimum time in which it will&nbsp;be possible to complete the project.</p>
+<figure><a href="https://opentextbc.ca/projectmanagement/wp-content/uploads/sites/3/2019/08/critical-path-diagram.jpg" target="_blank" rel="noopener noreferrer"><img alt="Critical Path Diagram" height="219" loading="lazy" src="https://opentextbc.ca/projectmanagement/wp-content/uploads/sites/3/2019/08/critical-path-diagram.jpg" width="696"></a><figcaption>Figure 10.12: Critical Path Diagram</figcaption></figure>
+<p>In this example, the critical path is A–B–C–D–E–F–I–L, and the earliest completion date for the project is the sum of the estimated times for all the stages on the critical path – 28 weeks – from the point of securing the funding. All the key stages on the critical path must be completed on time if the project is to be finished on schedule.</p>
+<p>If the projected total time is much longer than&nbsp;the project sponsor’s expectations, you will need to renegotiate the time scale. Mapping the critical path helps to identify the activities that need to be monitored most closely.</p>
+<h3 id="image-descriptions">Image Descriptions</h3>
+<p><strong>Figure 10.2 image description:</strong></p>
+<p>0.0 Wedding</p>
+<ul>
+<li>1.0 Invitations
+<ul>
+<li>1.1 Create guest list</li>
+<li>1.2 Wait for RSVPs</li>
+<li>1.3 Mail the invitations</li>
+<li>1.4 Print the invitations</li>
+</ul>
+</li>
+<li>2.0 Food
+<ul>
+<li>2.1 Find caterer</li>
+<li>2.2 Cater the wedding</li>
+<li>2.3 Finalize the menu</li>
+</ul>
+</li>
+<li>3.0 Bridal
+<ul>
+<li>3.1 Shop for shoes</li>
+<li>3.2 Tailoring and fitting</li>
+<li>3.3 Shop for dress</li>
+<li>3.4 Choose the bouquet</li>
+</ul>
+</li>
+</ul>
+<p><a href="#figure10.2" rel="noopener noreferrer">[Return to Figure 10.2]</a></p>
+<h3 id="text-attributions">Text Attributions</h3>
+<p>This chapter adapted and remixed by Adrienne Watt from the following sources:</p>
+<ul>
+<li>Text under “Defining Activities”, ” A Case Study”, “Activities List”, “Milestones” and “Creating the Network Diagram” was adapted from “<a href="https://cnx.org/contents/XpF315mY@11.6:cDfUikBa@9/Project-Planning" target="_blank" rel="noopener noreferrer">Project Planning</a>” in <em>Project Management</em> by Merrie Barron and Andrew Barron. Licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0 licence</a>.</li>
+<li>Text under “Creating the Gantt Chart” was adapted from “<a href="https://en.wikipedia.org/wiki/Gantt_chart" target="_blank" rel="noopener noreferrer">Gantt Chart</a>” by Wikipedia. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA (Attribution-ShareAlike) licence</a> and <a href="https://www.open.edu/openlearn/money-business/business-strategy-studies/planning-project/content-section-0?active-tab=description-tab" target="_blank" rel="noopener noreferrer">Planning a Project&nbsp;</a> by OpenLearn Labspace. Licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA (Attribution-NonCommercial-ShareAlike) licence</a>.</li>
+</ul>

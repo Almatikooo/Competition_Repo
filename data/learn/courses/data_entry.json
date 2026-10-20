@@ -1,0 +1,515 @@
+{
+ "title": "Data Quality for Data Entry",
+ "subtitle": "Collect, enter and organise data so it is accurate, consistent and ready for analysis.",
+ "level": "Beginner",
+ "outcomes": [
+  "Structure data tables so computers can use them",
+  "Avoid the most common spreadsheet mistakes",
+  "Handle dates and validation safely",
+  "Design forms and questions that collect good data"
+ ],
+ "skill": "data_entry",
+ "modules": [
+  {
+   "title": "Good data from the start",
+   "lessons": [
+    "data_entry-01",
+    "data_entry-02",
+    "data_entry-03",
+    "data_entry-04",
+    "data_entry-05",
+    "data_entry-06"
+   ]
+  },
+  {
+   "title": "Collecting good data",
+   "lessons": [
+    "data_entry-07",
+    "data_entry-08",
+    "data_entry-09"
+   ]
+  },
+  {
+   "title": "Cleaning data",
+   "lessons": [
+    "data_entry-10"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "data_entry-01",
+   "title": "Introduction",
+   "words": 637,
+   "minutes": 4,
+   "source": "dc-sheets",
+   "url": "https://github.com/datacarpentry/spreadsheets-socialsci/blob/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/00-intro.md",
+   "toc": [
+    {
+     "id": "spreadsheet-outline",
+     "text": "Spreadsheet outline",
+     "level": 3
+    },
+    {
+     "id": "spreadsheet-programs",
+     "text": "Spreadsheet programs",
+     "level": 3
+    },
+    {
+     "id": "problems-with-spreadsheets",
+     "text": "Problems with Spreadsheets",
+     "level": 2
+    },
+    {
+     "id": "using-spreadsheets-for-data-entry-and-cleaning",
+     "text": "Using Spreadsheets for Data Entry and Cleaning",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "data_entry-02",
+   "title": "Formatting Data Tables in Spreadsheets",
+   "words": 2104,
+   "minutes": 11,
+   "source": "dc-sheets",
+   "url": "https://github.com/datacarpentry/spreadsheets-socialsci/blob/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/01-format-data.md",
+   "toc": [
+    {
+     "id": "data-formatting-problems",
+     "text": "Data formatting problems",
+     "level": 2
+    },
+    {
+     "id": "keeping-track-of-your-analyses",
+     "text": "Keeping track of your analyses",
+     "level": 3
+    },
+    {
+     "id": "tidy-data-in-spreadsheets",
+     "text": "Tidy data in spreadsheets",
+     "level": 3
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "metadata",
+     "text": "Metadata",
+     "level": 3
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "data_entry-03",
+   "title": "Formatting Problems",
+   "words": 1857,
+   "minutes": 10,
+   "source": "dc-sheets",
+   "url": "https://github.com/datacarpentry/spreadsheets-socialsci/blob/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/02-common-mistakes.md",
+   "toc": [
+    {
+     "id": "common-spreadsheet-errors",
+     "text": "Common Spreadsheet Errors",
+     "level": 2
+    },
+    {
+     "id": "using-multiple-tables-tables",
+     "text": "Using multiple tables {#tables}",
+     "level": 2
+    },
+    {
+     "id": "using-multiple-tabs-tabs",
+     "text": "Using multiple tabs {#tabs}",
+     "level": 2
+    },
+    {
+     "id": "not-filling-in-zeros-zeros",
+     "text": "Not filling in zeros {#zeros}",
+     "level": 2
+    },
+    {
+     "id": "using-problematic-null-values-null",
+     "text": "Using problematic null values {#null}",
+     "level": 2
+    },
+    {
+     "id": "using-formatting-to-convey-information-formatting",
+     "text": "Using formatting to convey information {#formatting}",
+     "level": 2
+    },
+    {
+     "id": "using-formatting-to-make-the-data-sheet-look-pretty-formatti",
+     "text": "Using formatting to make the data sheet look pretty {#formatting-pretty}",
+     "level": 2
+    },
+    {
+     "id": "placing-comments-or-units-in-cells-units",
+     "text": "Placing comments or units in cells {#units}",
+     "level": 2
+    },
+    {
+     "id": "entering-more-than-one-piece-of-information-in-a-cell-info",
+     "text": "Entering more than one piece of information in a cell {#info}",
+     "level": 2
+    },
+    {
+     "id": "using-problematic-field-names-field-name",
+     "text": "Using problematic field names {#field-name}",
+     "level": 2
+    },
+    {
+     "id": "using-special-characters-in-data-special",
+     "text": "Using special characters in data {#special}",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "data_entry-04",
+   "title": "Dates as Data",
+   "words": 1062,
+   "minutes": 6,
+   "source": "dc-sheets",
+   "url": "https://github.com/datacarpentry/spreadsheets-socialsci/blob/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/03-dates-as-data.md",
+   "toc": [
+    {
+     "id": "date-formats-in-spreadsheets",
+     "text": "Date formats in spreadsheets",
+     "level": 2
+    },
+    {
+     "id": "dates-stored-as-integers",
+     "text": "Dates stored as integers",
+     "level": 2
+    },
+    {
+     "id": "regional-date-formatting",
+     "text": "Regional date formatting",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "historical-data",
+     "text": "Historical data",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "data_entry-05",
+   "title": "Quality Assurance",
+   "words": 2060,
+   "minutes": 11,
+   "source": "dc-sheets",
+   "url": "https://github.com/datacarpentry/spreadsheets-socialsci/blob/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/04-quality-assurance.md",
+   "toc": [
+    {
+     "id": "validating-data-on-input",
+     "text": "Validating data on input",
+     "level": 2
+    },
+    {
+     "id": "restricting-data-to-a-numeric-range",
+     "text": "Restricting data to a numeric range",
+     "level": 3
+    },
+    {
+     "id": "calc",
+     "text": "Calc",
+     "level": 3
+    },
+    {
+     "id": "calc-x",
+     "text": "Calc",
+     "level": 3
+    },
+    {
+     "id": "calc-x-x",
+     "text": "Calc",
+     "level": 3
+    },
+    {
+     "id": "calc-x-x-x",
+     "text": "Calc",
+     "level": 3
+    },
+    {
+     "id": "calc-x-x-x-x",
+     "text": "Calc",
+     "level": 3
+    },
+    {
+     "id": "restricting-data-to-entries-from-a-list",
+     "text": "Restricting data to entries from a list",
+     "level": 3
+    },
+    {
+     "id": "calc-x-x-x-x-x",
+     "text": "Calc",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "data_entry-06",
+   "title": "Exporting Data",
+   "words": 793,
+   "minutes": 4,
+   "source": "dc-sheets",
+   "url": "https://github.com/datacarpentry/spreadsheets-socialsci/blob/da1eeb6b4b8fd3c2d2a7fca67a40d997a0f27b1c/episodes/05-exporting-data.md",
+   "toc": []
+  },
+  {
+   "id": "data_entry-07",
+   "title": "Designing good questions",
+   "words": 706,
+   "minutes": 4,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/design/designing-good-questions",
+   "toc": [
+    {
+     "id": "ask-questions-that-users-understand",
+     "text": "Ask questions that users understand",
+     "level": 2
+    },
+    {
+     "id": "change-the-questions-until-you-find-what-works",
+     "text": "Change the questions until you find what works",
+     "level": 2
+    },
+    {
+     "id": "add-help-text-where-necessary",
+     "text": "Add help text where necessary",
+     "level": 2
+    },
+    {
+     "id": "how-to-add-help-text",
+     "text": "How to add help text",
+     "level": 3
+    },
+    {
+     "id": "help-users-give-you-the-right-information",
+     "text": "Help users give you the right information",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "data_entry-08",
+   "title": "Structuring forms",
+   "words": 653,
+   "minutes": 4,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/design/form-structure",
+   "toc": [
+    {
+     "id": "design-your-forms-for-the-format-they-ll-appear-in",
+     "text": "Design your forms for the format they’ll appear in",
+     "level": 2
+    },
+    {
+     "id": "know-why-you-re-asking-every-question",
+     "text": "Know why you’re asking every question",
+     "level": 2
+    },
+    {
+     "id": "design-for-the-most-common-scenarios-first",
+     "text": "Design for the most common scenarios first",
+     "level": 2
+    },
+    {
+     "id": "start-with-one-thing-per-page",
+     "text": "Start with one thing per page",
+     "level": 2
+    },
+    {
+     "id": "structure-your-form-to-help-users",
+     "text": "Structure your form to help users",
+     "level": 2
+    },
+    {
+     "id": "further-reading",
+     "text": "Further reading",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "data_entry-09",
+   "title": "Collecting personal information from users",
+   "words": 1456,
+   "minutes": 8,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/design/collecting-personal-information-from-users",
+   "toc": [
+    {
+     "id": "do-not-collect-information-you-do-not-need",
+     "text": "Do not collect information you do not need",
+     "level": 2
+    },
+    {
+     "id": "do-not-store-information-any-longer-than-you-need-to",
+     "text": "Do not store information any longer than you need to",
+     "level": 2
+    },
+    {
+     "id": "be-clear-about-your-legal-basis-for-collecting-information",
+     "text": "Be clear about your legal basis for collecting information",
+     "level": 2
+    },
+    {
+     "id": "how-to-ask-for-consent",
+     "text": "How to ask for consent",
+     "level": 3
+    },
+    {
+     "id": "tell-users-what-information-you-re-collecting-and-what-you-l",
+     "text": "Tell users what information you’re collecting and what you’ll do with it",
+     "level": 2
+    },
+    {
+     "id": "privacy-notices",
+     "text": "Privacy notices",
+     "level": 3
+    },
+    {
+     "id": "personal-information-charters",
+     "text": "Personal information charters",
+     "level": 3
+    },
+    {
+     "id": "especially-sensitive-personal-information",
+     "text": "Especially sensitive personal information",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "data_entry-10",
+   "title": "Working with OpenRefine",
+   "words": 2578,
+   "minutes": 13,
+   "source": "dc-openrefine",
+   "url": "https://github.com/datacarpentry/openrefine-socialsci/blob/af4cafeaf16b19d58f9c61c28d187c212ebcaf79/episodes/02-working-with-openrefine.md",
+   "toc": [
+    {
+     "id": "creating-a-new-openrefine-project",
+     "text": "Creating a new OpenRefine project",
+     "level": 2
+    },
+    {
+     "id": "using-facets",
+     "text": "Using Facets",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 3
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 3
+    },
+    {
+     "id": "using-clustering-to-detect-possible-typing-errors",
+     "text": "Using clustering to detect possible typing errors",
+     "level": 2
+    },
+    {
+     "id": "transforming-data",
+     "text": "Transforming data",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 3
+    },
+    {
+     "id": "solution-x-x-x",
+     "text": "Solution",
+     "level": 3
+    },
+    {
+     "id": "solution-x-x-x-x",
+     "text": "Solution",
+     "level": 3
+    },
+    {
+     "id": "using-undo-and-redo",
+     "text": "Using undo and redo",
+     "level": 2
+    },
+    {
+     "id": "trim-leading-and-trailing-whitespace",
+     "text": "Trim Leading and Trailing Whitespace",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [],
+  "pass_mark": 0,
+  "missing": true
+ },
+ "minutes": 75,
+ "sources": [
+  {
+   "id": "dc-openrefine",
+   "name": "Data Carpentry · Data Cleaning with OpenRefine",
+   "url": "https://datacarpentry.github.io/openrefine-socialsci/",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "© The Carpentries, CC BY 4.0",
+   "noncommercial": false
+  },
+  {
+   "id": "dc-sheets",
+   "name": "Data Carpentry · Data Organization in Spreadsheets",
+   "url": "https://datacarpentry.github.io/spreadsheets-socialsci/",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "© The Carpentries, CC BY 4.0",
+   "noncommercial": false
+  },
+  {
+   "id": "govuk-sm",
+   "name": "GOV.UK Service Manual",
+   "url": "https://www.gov.uk/service-manual",
+   "license": "Open Government Licence v3.0",
+   "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+   "attribution": "Contains public sector information licensed under the Open Government Licence v3.0",
+   "noncommercial": false
+  }
+ ]
+}

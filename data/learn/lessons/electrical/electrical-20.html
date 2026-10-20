@@ -1,0 +1,187 @@
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_4.html" target="_blank" rel="noopener noreferrer"><img alt="Previous" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/previous.jpg"></a>
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/index.html" target="_blank" rel="noopener noreferrer"><img alt="Contents" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/contents.jpg"></a>
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_6.html" target="_blank" rel="noopener noreferrer"><img alt="Next" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/next.jpg"></a>
+<hr>
+<ul>
+<li><a href="#xtocid87430" rel="noopener noreferrer"><u>What are "series" and "parallel" circuits?</u></a></li>
+<li><a href="#xtocid87431" rel="noopener noreferrer"><u>Simple series circuits</u></a></li>
+<li><a href="#xtocid87432" rel="noopener noreferrer"><u>Simple parallel circuits</u></a></li>
+<li><a href="#xtocid87433" rel="noopener noreferrer"><u>Conductance</u></a></li>
+<li><a href="#xtocid87434" rel="noopener noreferrer"><u>Power calculations</u></a></li>
+<li><a href="#xtocid87435" rel="noopener noreferrer"><u>Correct use of Ohm's Law</u></a></li>
+<li><a href="#xtocid87436" rel="noopener noreferrer"><u>Component failure analysis</u></a></li>
+<li><a href="#xtocid87437" rel="noopener noreferrer"><u>Building simple resistor circuits</u></a></li>
+<li><a href="#xtocid87438" rel="noopener noreferrer"><u>Contributors</u></a></li></ul>
+<h2 id="what-are-series-and-parallel-circuits">What are "series" and "parallel" circuits?</h2>
+<p>
+Circuits consisting of just one battery and one load resistance are very simple to analyze, but they are not often found in practical applications.  Usually, we find circuits where more than two components are connected together.
+</p>
+<p>
+There are two basic ways in which to connect more than two circuit components: <i>series</i> and <i>parallel</i>.  First, an example of a series circuit:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00082.png"> </p>
+<p>
+Here, we have three resistors (labeled R<sub>1</sub>, R<sub>2</sub>, and R<sub>3</sub>), connected in a long chain from one terminal of the battery to the other.  (It should be noted that the subscript labeling -- those little numbers to the lower-right of the letter "R" -- are unrelated to the resistor values in ohms.  They serve only to identify one resistor from another.)  The defining characteristic of a series circuit is that there is only one path for electrons to flow.  In this circuit the electrons flow in a counter-clockwise direction, from point 4 to point 3 to point 2 to point 1 and back around to 4.
+</p>
+<p>
+Now, let's look at the other type of circuit, a parallel configuration:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00083.png"> </p>
+<p>
+Again, we have three resistors, but this time they form more than one continuous path for electrons to flow.  There's one path from 8 to 7 to 2 to 1 and back to 8 again.  There's another from 8 to 7 to 6 to 3 to 2 to 1 and back to 8 again.  And then there's a third path from 8 to 7 to 6 to 5 to 4 to 3 to 2 to 1 and back to 8 again.  Each individual path (through R<sub>1</sub>, R<sub>2</sub>, and R<sub>3</sub>) is called a <i>branch</i>.  
+</p>
+<p>
+The defining characteristic of a parallel circuit is that all components are connected between the same set of electrically common points.  Looking at the schematic diagram, we see that points 1, 2, 3, and 4 are all electrically common.  So are points 8, 7, 6, and 5.  Note that all resistors as well as the battery are connected between these two sets of points.
+</p>
+<p>
+And, of course, the complexity doesn't stop at simple series and parallel either!  We can have circuits that are a combination of series and parallel, too:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00084.png"> </p>
+<p>
+In this circuit, we have two loops for electrons to flow through: one from 6 to 5 to 2 to 1 and back to 6 again, and another from 6 to 5 to 4 to 3 to 2 to 1 and back to 6 again.  Notice how both current paths go through R<sub>1</sub> (from point 2 to point 1).  In this configuration, we'd say that R<sub>2</sub> and R<sub>3</sub> are in parallel with each other, while R<sub>1</sub> is in series with the parallel combination of R<sub>2</sub> and R<sub>3</sub>.
+</p>
+<p>
+This is just a preview of things to come.  Don't worry!  We'll explore all these circuit configurations in detail, one at a time!
+</p>
+<p>
+The basic idea of a "series" connection is that components are connected end-to-end in a line to form a single path for electrons to flow:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00085.png"> </p>
+<p>
+The basic idea of a "parallel" connection, on the other hand, is that all components are connected across each other's leads.  In a purely parallel circuit, there are never more than two sets of electrically common points, no matter how many components are connected.  There are many paths for electrons to flow, but only one voltage across all components:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00086.png"> </p>
+<p>
+Series and parallel resistor configurations have very different electrical properties.  We'll explore the properties of each configuration in the sections to come.
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>In a series circuit, all components are connected end-to-end, forming a single path for electrons to flow.</li>
+<li>In a parallel circuit, all components are connected across each other, forming exactly two sets of electrically common points.</li>
+<li>A "branch" in a parallel circuit is a path for electric current formed by one of the load components (such as a resistor).</li>
+</ul>
+<h2 id="simple-series-circuits">Simple series circuits</h2>
+<p>
+Let's start with a series circuit consisting of three resistors and a single battery:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00087.png"> </p>
+<p>
+The first principle to understand about series circuits is that the amount of current is the same through any component in the circuit.  This is because there is only one path for electrons to flow in a series circuit, and because free electrons flow through conductors like marbles in a tube, the rate of flow (marble speed) at any point in the circuit (tube) at any specific point in time must be equal.
+</p>
+<p>
+From the way that the 9 volt battery is arranged, we can tell that the electrons in this circuit will flow in a counter-clockwise direction, from point 4 to 3 to 2 to 1 and back to 4.  However, we have one source of voltage and three resistances.  How do we use Ohm's Law here?
+</p>
+<p>
+An important caveat to Ohm's Law is that all quantities (voltage, current, resistance, and power) must relate to each other in terms of the same two points in a circuit.  For instance, with a single-battery, single-resistor circuit, we could easily calculate any quantity because they all applied to the same two points in the circuit:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00088.png"> </p>
+<br>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10056.png"> </p>
+<p>
+Since points 1 and 2 are connected together with wire of negligible resistance, as are points 3 and 4, we can say that point 1 is electrically common to point 2, and that point 3 is electrically common to point 4.  Since we know we have 9 volts of electromotive force between points 1 and 4 (directly across the battery), and since point 2 is common to point 1 and point 3 common to point 4, we must also have 9 volts between points 2 and 3 (directly across the resistor).  Therefore, we can apply Ohm's Law (I = E/R) to the current through the resistor, because we know the voltage (E) across the resistor and the resistance (R) of that resistor.  All terms (E, I, R) apply to the same two points in the circuit, to that same resistor, so we can use the Ohm's Law formula with no reservation.
+</p>
+<p>
+However, in circuits containing more than one resistor, we must be careful in how we apply Ohm's Law.  In the three-resistor example circuit below, we know that we have 9 volts between points 1 and 4, which is the amount of electromotive force trying to push electrons through the series combination of R<sub>1</sub>, R<sub>2</sub>, and R<sub>3</sub>.  However, we cannot take the value of 9 volts and divide it by 3k, 10k or 5k Ω to try to find a current value, because we don't know how much voltage is across any one of those resistors, individually.
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00087.png"> </p>
+<p>
+The figure of 9 volts is a <i>total</i> quantity for the whole circuit, whereas the figures of 3k, 10k, and 5k Ω are <i>individual</i> quantities for individual resistors.  If we were to plug a figure for total voltage into an Ohm's Law equation with a figure for individual resistance, the result would not relate accurately to any quantity in the real circuit.
+</p>
+<p>
+For R<sub>1</sub>, Ohm's Law will relate the amount of voltage across R<sub>1</sub> with the current through R<sub>1</sub>, given R<sub>1</sub>'s resistance, 3kΩ:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10057.png"> </p>
+<p>
+But, since we don't know the voltage across R<sub>1</sub> (only the total voltage supplied by the battery across the three-resistor series combination) and we don't know the current through R<sub>1</sub>, we can't do any calculations with either formula.  The same goes for R<sub>2</sub> and R<sub>3</sub>: we can apply the Ohm's Law equations if and only if all terms are representative of their respective quantities between the same two points in the circuit.
+</p>
+<p>
+So what can we do?  We know the voltage of the source (9 volts) applied across the series combination of R<sub>1</sub>, R<sub>2</sub>, and R<sub>3</sub>, and we know the resistances of each resistor, but since those quantities aren't in the same context, we can't use Ohm's Law to determine the circuit current.  If only we knew what the <i>total</i> resistance was for the circuit: then we could calculate <i>total</i> current with our figure for <i>total</i> voltage (I=E/R).
+</p>
+<p>
+This brings us to the second principle of series circuits: the total resistance of any series circuit is equal to the sum of the individual resistances.  This should make intuitive sense: the more resistors in series that the electrons must flow through, the more difficult it will be for those electrons to flow.  In the example problem, we had a 3 kΩ, 10 kΩ, and 5 kΩ resistor in series, giving us a total resistance of 18 kΩ:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10058.png"> </p>
+<p>
+In essence, we've calculated the equivalent resistance of R<sub>1</sub>, R<sub>2</sub>, and R<sub>3</sub> combined.  Knowing this, we could re-draw the circuit with a single equivalent resistor representing the series combination of R<sub>1</sub>, R<sub>2</sub>, and R<sub>3</sub>:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00089.png"> </p>
+<p>
+Now we have all the necessary information to calculate circuit current, because we have the voltage between points 1 and 4 (9 volts) and the resistance between points 1 and 4 (18 kΩ):
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10059.png"> </p>
+<p>
+Knowing that current is equal through all components of a series circuit (and we just determined the current through the battery), we can go back to our original circuit schematic and note the current through each component:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00090.png"> </p>
+<p>
+Now that we know the amount of current through each resistor, we can use Ohm's Law to determine the voltage drop across each one (applying Ohm's Law in its proper context):
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10060.png"> </p>
+<p>
+Notice the voltage drops across each resistor, and how the sum of the voltage drops (1.5 + 5 + 2.5) is equal to the battery (supply) voltage: 9 volts.  This is the third principle of series circuits: that the supply voltage is equal to the sum of the individual voltage drops.
+</p>
+<p>
+However, the method we just used to analyze this simple series circuit can be streamlined for better understanding.  By using a table to list all voltages, currents, and resistances in the circuit, it becomes very easy to see which of those quantities can be properly related in any Ohm's Law equation:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10061.png"> </p>
+<p>
+The rule with such a table is to apply Ohm's Law only to the values within each vertical column.  For instance, E<sub>R1</sub> only with I<sub>R1</sub> and R<sub>1</sub>; E<sub>R2</sub> only with I<sub>R2</sub> and R<sub>2</sub>; etc.  You begin your analysis by filling in those elements of the table that are given to you from the beginning:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10062.png"> </p>
+<p>
+As you can see from the arrangement of the data, we can't apply the 9 volts of E<sub>T</sub> (total voltage) to any of the resistances (R<sub>1</sub>, R<sub>2</sub>, or R<sub>3</sub>) in any Ohm's Law formula because they're in different columns.  The 9 volts of battery voltage is <i>not</i> applied directly across R<sub>1</sub>, R<sub>2</sub>, or R<sub>3</sub>.  However, we can use our "rules" of series circuits to fill in blank spots on a horizontal row.  In this case, we can use the series rule of resistances to determine a total resistance from the <i>sum</i> of individual resistances:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10063.png"> </p>
+<p>
+Now, with a value for total resistance inserted into the rightmost ("Total") column, we can apply Ohm's Law of I=E/R to total voltage and total resistance to arrive at a total current of 500 µA:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10064.png"> </p>
+<p>
+Then, knowing that the current is shared equally by all components of a series circuit (another "rule" of series circuits), we can fill in the currents for each resistor from the current figure just calculated:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10065.png"> </p>
+<p>
+Finally, we can use Ohm's Law to determine the voltage drop across each resistor, one column at a time:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10066.png"> </p>
+<p>
+Just for fun, we can use a computer to analyze this very same circuit automatically.  It will be a good way to verify our calculations and also become more familiar with computer analysis.  First, we have to describe the circuit to the computer in a format recognizable by the software.  The SPICE program we'll be using requires that all electrically unique points in a circuit be numbered, and component placement is understood by which of those numbered points, or "nodes," they share.  For clarity, I numbered the four corners of our example circuit 1 through 4.  SPICE, however, demands that there be a node zero somewhere in the circuit, so I'll re-draw the circuit, changing the numbering scheme slightly:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00091.png"> </p>
+<p>
+All I've done here is re-numbered the lower-left corner of the circuit 0 instead of 4.  Now, I can enter several lines of text into a computer file describing the circuit in terms SPICE will understand, complete with a couple of extra lines of code directing the program to display voltage and current data for our viewing pleasure.  This computer file is known as the <i>netlist</i> in SPICE terminology:
+</p>
+<br>
+<pre>series circuit
+v1 1 0
+r1 1 2 3k
+r2 2 3 10k
+r3 3 0 5k
+.dc v1 9 9 1
+.print dc v(1,2) v(2,3) v(3,0)
+.end
+</pre>
+<br>
+<p>
+Now, all I have to do is run the SPICE program to process the netlist and output the results:
+</p>
+<br>
+<pre>v1            v(1,2)      v(2,3)      v(3)        i(v1)       
+9.000E+00     1.500E+00   5.000E+00   2.500E+00  -5.000E-04
+</pre>
+<br>
+<p>
+This printout is telling us the battery voltage is 9 volts, and the voltage drops across R<sub>1</sub>, R<sub>2</sub>, and R<sub>3</sub> are 1.5 volts, 5 volts, and 2.5 volts, respectively.  Voltage drops across any component in SPICE are referenced by the node numbers the component lies between, so v(1,2) is referencing the voltage between nodes 1 and 2 in the circuit, which are the points between which R<sub>1</sub> is located.  The order of node numbers is important: when SPICE outputs a figure for v(1,2), it regards the polarity the same way as if we were holding a voltmeter with the red test lead on node 1 and the black test lead on node 2.  
+</p>
+<p>
+We also have a display showing current (albeit with a negative value) at 0.5 milliamps, or 500 microamps.  So our mathematical analysis has been vindicated by the computer.  This figure appears as a negative number in the SPICE analysis, due to a quirk in the way SPICE handles current calculations.
+</p>
+<p>
+In summary, a series circuit is defined as having only one path for electrons to flow.  From this definition, three rules of series circuits follow: all components share the same current; resistances add to equal a larger, total resistance; and voltage drops add to equal a larger, total voltage.  All of these rules find root in the definition of a series circuit.  If you understand that definition fully, then the rules are nothing more than footnotes to the definition.
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Components in a series circuit share the same current: I<sub>Total</sub> = I<sub>1</sub> = I<sub>2</sub> = . . . I<sub>n</sub></li>
+<li>Total resistance in a series circuit is equal to the sum of the individual resistances: R<sub>Total</sub> = R<sub>1</sub> + R<sub>2</sub> + . . . R<sub>n</sub></li>
+<li>Total voltage in a series circuit is equal to the sum of the individual voltage drops: E<sub>Total</sub> = E<sub>1</sub> + E<sub>2</sub> + . . . E<sub>n</sub></li>
+</ul>

@@ -1,0 +1,2238 @@
+{
+ "_note": "Role catalog. Only roles that exist in public taxonomies or reports (O*NET codes, WEF Future of Jobs 2025 categories) or are common job-posting titles. kind='target' roles can be recommended; kind='current' roles are used to show the outlook of a user's present job. skills[].w: 1.0 = core, 0.5 = supporting, 0.25 = nice-to-have. SDG strength: 'direct' = the job's output delivers the target, 'enabling' = indirect contribution.",
+ "interest_tags": [
+  "data",
+  "technology",
+  "finance",
+  "design",
+  "people",
+  "training",
+  "renewable energy",
+  "climate",
+  "agriculture",
+  "health",
+  "security",
+  "hardware",
+  "business",
+  "process improvement"
+ ],
+ "roles": [
+  {
+   "id": "data_analyst",
+   "kind": "target",
+   "family": "ai_data",
+   "title": {
+    "en": "Data Analyst / BI Analyst",
+    "ms": "Penganalisis Data / BI",
+    "zh": "数据分析师 / BI 分析师"
+   },
+   "summary": "Turns business data into dashboards, reports and recommendations.",
+   "tags": [
+    "data",
+    "business",
+    "finance",
+    "process improvement"
+   ],
+   "taxonomy": {
+    "onet": "15-2051.01",
+    "onet_title": "Business Intelligence Analysts"
+   },
+   "wef": "wef_role_bigdata",
+   "wef_dir": "growing",
+   "hn": "data analyst|bi analyst|business intelligence analyst|analytics engineer",
+   "skills": [
+    {
+     "id": "data_analysis",
+     "w": 1.0
+    },
+    {
+     "id": "sql",
+     "w": 1.0
+    },
+    {
+     "id": "data_viz",
+     "w": 1.0
+    },
+    {
+     "id": "excel",
+     "w": 0.5
+    },
+    {
+     "id": "statistics",
+     "w": 0.5
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    },
+    {
+     "id": "prompt_eng",
+     "w": 0.5
+    },
+    {
+     "id": "python",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "17.18",
+     "why": "Produces timely, reliable data for decisions.",
+     "strength": "direct"
+    },
+    {
+     "target": "8.2",
+     "why": "Data-driven decisions raise productivity.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "data_scientist",
+   "kind": "target",
+   "family": "ai_data",
+   "title": {
+    "en": "Data Scientist",
+    "ms": "Saintis Data",
+    "zh": "数据科学家"
+   },
+   "summary": "Builds statistical and machine-learning models to predict and explain outcomes.",
+   "tags": [
+    "data",
+    "technology"
+   ],
+   "taxonomy": {
+    "onet": "15-2051.00",
+    "onet_title": "Data Scientists"
+   },
+   "wef": "wef_role_bigdata",
+   "wef_dir": "growing",
+   "hn": "data scientist",
+   "skills": [
+    {
+     "id": "machine_learning",
+     "w": 1.0
+    },
+    {
+     "id": "python",
+     "w": 1.0
+    },
+    {
+     "id": "statistics",
+     "w": 1.0
+    },
+    {
+     "id": "sql",
+     "w": 0.5
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.5
+    },
+    {
+     "id": "data_viz",
+     "w": 0.5
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "9.5",
+     "why": "Upgrades research and technological capability.",
+     "strength": "enabling"
+    },
+    {
+     "target": "17.18",
+     "why": "Improves the quality and use of data.",
+     "strength": "direct"
+    }
+   ]
+  },
+  {
+   "id": "ml_engineer",
+   "kind": "target",
+   "family": "ai_data",
+   "title": {
+    "en": "AI / Machine Learning Engineer",
+    "ms": "Jurutera AI / Pembelajaran Mesin",
+    "zh": "AI / 机器学习工程师"
+   },
+   "summary": "Designs, trains and deploys machine-learning systems in production.",
+   "tags": [
+    "technology",
+    "data"
+   ],
+   "taxonomy": {
+    "onet": null,
+    "onet_title": null
+   },
+   "wef": "wef_role_ai_ml",
+   "wef_dir": "growing",
+   "hn": "machine learning engineer|\\bml engineer|ai engineer|applied scientist",
+   "skills": [
+    {
+     "id": "machine_learning",
+     "w": 1.0
+    },
+    {
+     "id": "python",
+     "w": 1.0
+    },
+    {
+     "id": "mlops",
+     "w": 1.0
+    },
+    {
+     "id": "genai_apps",
+     "w": 0.5
+    },
+    {
+     "id": "cloud_devops",
+     "w": 0.5
+    },
+    {
+     "id": "software_dev",
+     "w": 0.5
+    },
+    {
+     "id": "statistics",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "9.5",
+     "why": "Builds frontier technological capability.",
+     "strength": "direct"
+    },
+    {
+     "target": "8.2",
+     "why": "AI systems raise productivity.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "genai_developer",
+   "kind": "target",
+   "family": "ai_data",
+   "title": {
+    "en": "Generative-AI Application Developer",
+    "ms": "Pembangun Aplikasi AI Generatif",
+    "zh": "生成式 AI 应用开发者"
+   },
+   "summary": "Builds LLM-powered assistants, retrieval systems and AI agents into products.",
+   "tags": [
+    "technology",
+    "data"
+   ],
+   "taxonomy": {
+    "onet": null,
+    "onet_title": null
+   },
+   "wef": "wef_role_ai_ml",
+   "wef_dir": "growing",
+   "hn": "ai engineer|llm engineer|gen ?ai engineer|applied ai",
+   "skills": [
+    {
+     "id": "genai_apps",
+     "w": 1.0
+    },
+    {
+     "id": "python",
+     "w": 1.0
+    },
+    {
+     "id": "software_dev",
+     "w": 1.0
+    },
+    {
+     "id": "prompt_eng",
+     "w": 0.5
+    },
+    {
+     "id": "cloud_devops",
+     "w": 0.5
+    },
+    {
+     "id": "ai_governance",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "9.5",
+     "why": "Builds national capability in a frontier technology.",
+     "strength": "direct"
+    },
+    {
+     "target": "8.2",
+     "why": "AI assistants raise productivity.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "automation_specialist",
+   "kind": "target",
+   "family": "digital",
+   "title": {
+    "en": "Process Automation (RPA) Specialist",
+    "ms": "Pakar Automasi Proses (RPA)",
+    "zh": "流程自动化 (RPA) 专员"
+   },
+   "summary": "Redesigns repetitive office workflows with RPA, low-code tools and AI assistants.",
+   "tags": [
+    "process improvement",
+    "technology",
+    "finance",
+    "business"
+   ],
+   "taxonomy": {
+    "onet": "15-1211.00",
+    "onet_title": "Computer Systems Analysts (closest)"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": "automation engineer|rpa developer|automation specialist",
+   "skills": [
+    {
+     "id": "process_automation",
+     "w": 1.0
+    },
+    {
+     "id": "prompt_eng",
+     "w": 1.0
+    },
+    {
+     "id": "excel",
+     "w": 0.5
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.5
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    },
+    {
+     "id": "python",
+     "w": 0.5
+    },
+    {
+     "id": "bookkeeping",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.2",
+     "why": "Raises productivity through technological upgrading.",
+     "strength": "direct"
+    },
+    {
+     "target": "8.5",
+     "why": "Shifts workers from repetitive tasks to higher-value work.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "ai_governance_specialist",
+   "kind": "target",
+   "family": "ai_data",
+   "title": {
+    "en": "Responsible-AI / AI Governance Specialist",
+    "ms": "Pakar Tadbir Urus AI",
+    "zh": "负责任 AI / AI 治理专员"
+   },
+   "summary": "Assesses AI systems for risk, fairness, privacy (PDPA) and compliance.",
+   "tags": [
+    "technology",
+    "people",
+    "business"
+   ],
+   "taxonomy": {
+    "onet": "13-1041.00",
+    "onet_title": "Compliance Officers (closest)"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": "ai governance|responsible ai|trust (and|&) safety|ai policy",
+   "skills": [
+    {
+     "id": "ai_governance",
+     "w": 1.0
+    },
+    {
+     "id": "communication",
+     "w": 1.0
+    },
+    {
+     "id": "analytical_thinking",
+     "w": 0.5
+    },
+    {
+     "id": "prompt_eng",
+     "w": 0.5
+    },
+    {
+     "id": "project_mgmt",
+     "w": 0.5
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "16.6",
+     "why": "Makes AI use in institutions accountable and transparent.",
+     "strength": "direct"
+    },
+    {
+     "target": "10.2",
+     "why": "Fairness checks protect inclusion.",
+     "strength": "direct"
+    }
+   ]
+  },
+  {
+   "id": "security_analyst",
+   "kind": "target",
+   "family": "digital",
+   "title": {
+    "en": "Information Security Analyst",
+    "ms": "Penganalisis Keselamatan Maklumat",
+    "zh": "信息安全分析师"
+   },
+   "summary": "Monitors, investigates and prevents cyber threats.",
+   "tags": [
+    "security",
+    "technology"
+   ],
+   "taxonomy": {
+    "onet": "15-1212.00",
+    "onet_title": "Information Security Analysts"
+   },
+   "wef": "wef_role_security",
+   "wef_dir": "growing",
+   "hn": "security engineer|security analyst|appsec|soc analyst",
+   "skills": [
+    {
+     "id": "cybersecurity",
+     "w": 1.0
+    },
+    {
+     "id": "linux_networking",
+     "w": 1.0
+    },
+    {
+     "id": "cloud_devops",
+     "w": 0.5
+    },
+    {
+     "id": "analytical_thinking",
+     "w": 0.5
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    },
+    {
+     "id": "python",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "9.1",
+     "why": "Protects resilient digital infrastructure.",
+     "strength": "direct"
+    },
+    {
+     "target": "16.6",
+     "why": "Keeps institutions' systems trustworthy.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "cloud_devops_engineer",
+   "kind": "target",
+   "family": "digital",
+   "title": {
+    "en": "Cloud / DevOps Engineer",
+    "ms": "Jurutera Awan / DevOps",
+    "zh": "云 / DevOps 工程师"
+   },
+   "summary": "Automates and runs reliable cloud infrastructure and delivery pipelines.",
+   "tags": [
+    "technology"
+   ],
+   "taxonomy": {
+    "onet": null,
+    "onet_title": null
+   },
+   "wef": "wef_role_devops",
+   "wef_dir": "growing",
+   "hn": "devops|site reliability|\\bsre\\b|platform engineer|cloud engineer|infrastructure engineer",
+   "skills": [
+    {
+     "id": "cloud_devops",
+     "w": 1.0
+    },
+    {
+     "id": "linux_networking",
+     "w": 1.0
+    },
+    {
+     "id": "software_dev",
+     "w": 0.5
+    },
+    {
+     "id": "python",
+     "w": 0.5
+    },
+    {
+     "id": "cybersecurity",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "9.1",
+     "why": "Keeps digital infrastructure reliable.",
+     "strength": "direct"
+    },
+    {
+     "target": "9.c",
+     "why": "Scales access to digital services.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "software_developer",
+   "kind": "target",
+   "family": "digital",
+   "title": {
+    "en": "Software Developer",
+    "ms": "Pembangun Perisian",
+    "zh": "软件开发者"
+   },
+   "summary": "Designs and builds web, mobile and back-end applications, increasingly with AI pair-programmers.",
+   "tags": [
+    "technology"
+   ],
+   "taxonomy": {
+    "onet": "15-1252.00",
+    "onet_title": "Software Developers"
+   },
+   "wef": "wef_role_software",
+   "wef_dir": "growing",
+   "hn": "software engineer|software developer|full.?stack|backend engineer|frontend engineer",
+   "skills": [
+    {
+     "id": "software_dev",
+     "w": 1.0
+    },
+    {
+     "id": "python",
+     "w": 0.5
+    },
+    {
+     "id": "cloud_devops",
+     "w": 0.5
+    },
+    {
+     "id": "genai_apps",
+     "w": 0.5
+    },
+    {
+     "id": "prompt_eng",
+     "w": 0.5
+    },
+    {
+     "id": "sql",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "9.c",
+     "why": "Expands access to digital services.",
+     "strength": "direct"
+    },
+    {
+     "target": "8.2",
+     "why": "Software raises productivity.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "ux_designer",
+   "kind": "target",
+   "family": "digital",
+   "title": {
+    "en": "UX/UI Designer",
+    "ms": "Pereka UX/UI",
+    "zh": "UX/UI 设计师"
+   },
+   "summary": "Researches users and designs usable, accessible digital products.",
+   "tags": [
+    "design",
+    "technology",
+    "people"
+   ],
+   "taxonomy": {
+    "onet": "15-1255.00",
+    "onet_title": "Web and Digital Interface Designers"
+   },
+   "wef": "wef_role_uiux",
+   "wef_dir": "growing",
+   "hn": "product designer|ux designer|ui designer|ux researcher",
+   "skills": [
+    {
+     "id": "ux_design",
+     "w": 1.0
+    },
+    {
+     "id": "creative_thinking",
+     "w": 1.0
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    },
+    {
+     "id": "graphic_design",
+     "w": 0.5
+    },
+    {
+     "id": "prompt_eng",
+     "w": 0.5
+    },
+    {
+     "id": "software_dev",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "10.2",
+     "why": "Accessible design includes people with disabilities and low digital skills.",
+     "strength": "direct"
+    },
+    {
+     "target": "9.c",
+     "why": "Usable products widen ICT access.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "digital_marketing_analyst",
+   "kind": "target",
+   "family": "digital",
+   "title": {
+    "en": "Digital Marketing & Growth Analyst",
+    "ms": "Penganalisis Pemasaran Digital",
+    "zh": "数字营销与增长分析师"
+   },
+   "summary": "Plans, measures and optimises online campaigns, often for SMEs.",
+   "tags": [
+    "business",
+    "design",
+    "data"
+   ],
+   "taxonomy": {
+    "onet": "13-1161.00",
+    "onet_title": "Market Research Analysts and Marketing Specialists"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": "growth marketer|marketing manager|digital marketing|performance marketing",
+   "skills": [
+    {
+     "id": "digital_marketing",
+     "w": 1.0
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.5
+    },
+    {
+     "id": "data_viz",
+     "w": 0.5
+    },
+    {
+     "id": "prompt_eng",
+     "w": 0.5
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    },
+    {
+     "id": "creative_thinking",
+     "w": 0.5
+    },
+    {
+     "id": "graphic_design",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.3",
+     "why": "Helps micro and small enterprises grow.",
+     "strength": "direct"
+    }
+   ]
+  },
+  {
+   "id": "iot_specialist",
+   "kind": "target",
+   "family": "digital",
+   "title": {
+    "en": "IoT Solutions Specialist",
+    "ms": "Pakar Penyelesaian IoT",
+    "zh": "物联网解决方案专员"
+   },
+   "summary": "Designs connected sensor systems for factories, buildings and farms.",
+   "tags": [
+    "hardware",
+    "technology",
+    "renewable energy",
+    "agriculture"
+   ],
+   "taxonomy": {
+    "onet": null,
+    "onet_title": null
+   },
+   "wef": "wef_role_iot",
+   "wef_dir": "growing",
+   "hn": "embedded engineer|firmware engineer|iot engineer|hardware engineer",
+   "skills": [
+    {
+     "id": "iot_embedded",
+     "w": 1.0
+    },
+    {
+     "id": "electrical",
+     "w": 0.5
+    },
+    {
+     "id": "python",
+     "w": 0.5
+    },
+    {
+     "id": "linux_networking",
+     "w": 0.5
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.25
+    },
+    {
+     "id": "cybersecurity",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "9.4",
+     "why": "Makes industry more resource-efficient.",
+     "strength": "direct"
+    },
+    {
+     "target": "11.6",
+     "why": "Smart-building sensors cut urban environmental impact.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "renewable_energy_engineer",
+   "kind": "target",
+   "family": "green",
+   "title": {
+    "en": "Renewable Energy Engineer",
+    "ms": "Jurutera Tenaga Boleh Baharu",
+    "zh": "可再生能源工程师"
+   },
+   "summary": "Designs and commissions solar and other renewable-energy systems.",
+   "tags": [
+    "renewable energy",
+    "climate",
+    "hardware"
+   ],
+   "taxonomy": {
+    "onet": "17-2199.11",
+    "onet_title": "Solar Energy Systems Engineers"
+   },
+   "wef": "wef_role_renewable",
+   "wef_dir": "growing",
+   "hn": null,
+   "skills": [
+    {
+     "id": "electrical",
+     "w": 1.0
+    },
+    {
+     "id": "solar_pv",
+     "w": 1.0
+    },
+    {
+     "id": "energy_efficiency",
+     "w": 0.5
+    },
+    {
+     "id": "project_mgmt",
+     "w": 0.5
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.25
+    },
+    {
+     "id": "gis",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "7.2",
+     "why": "Directly adds renewable capacity.",
+     "strength": "direct"
+    },
+    {
+     "target": "13.2",
+     "why": "Decarbonises power supply.",
+     "strength": "direct"
+    }
+   ]
+  },
+  {
+   "id": "solar_pv_technician",
+   "kind": "target",
+   "family": "green",
+   "title": {
+    "en": "Solar PV Installer / Technician",
+    "ms": "Juruteknik / Pemasang Solar PV",
+    "zh": "太阳能光伏安装技术员"
+   },
+   "summary": "Installs, inspects and maintains rooftop and utility solar systems.",
+   "tags": [
+    "renewable energy",
+    "climate",
+    "hardware"
+   ],
+   "taxonomy": {
+    "onet": "47-2231.00",
+    "onet_title": "Solar Photovoltaic Installers"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": null,
+   "skills": [
+    {
+     "id": "solar_pv",
+     "w": 1.0
+    },
+    {
+     "id": "electrical",
+     "w": 1.0
+    },
+    {
+     "id": "energy_efficiency",
+     "w": 0.25
+    },
+    {
+     "id": "customer_service",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "7.2",
+     "why": "Every installation raises the renewable share.",
+     "strength": "direct"
+    },
+    {
+     "target": "8.5",
+     "why": "Creates decent green jobs accessible via TVET.",
+     "strength": "direct"
+    }
+   ]
+  },
+  {
+   "id": "energy_manager",
+   "kind": "target",
+   "family": "green",
+   "title": {
+    "en": "Energy Auditor / Energy Manager",
+    "ms": "Juruaudit / Pengurus Tenaga",
+    "zh": "能源审计师 / 能源经理"
+   },
+   "summary": "Audits buildings and plants and runs energy-saving programmes.",
+   "tags": [
+    "renewable energy",
+    "climate",
+    "data",
+    "process improvement"
+   ],
+   "taxonomy": {
+    "onet": "13-1199.01",
+    "onet_title": "Energy Auditors"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": null,
+   "skills": [
+    {
+     "id": "energy_efficiency",
+     "w": 1.0
+    },
+    {
+     "id": "electrical",
+     "w": 0.5
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.5
+    },
+    {
+     "id": "excel",
+     "w": 0.5
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    },
+    {
+     "id": "iot_embedded",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "7.3",
+     "why": "Directly improves energy efficiency.",
+     "strength": "direct"
+    },
+    {
+     "target": "13.2",
+     "why": "Cuts emissions from buildings and industry.",
+     "strength": "direct"
+    }
+   ]
+  },
+  {
+   "id": "esg_analyst",
+   "kind": "target",
+   "family": "green",
+   "title": {
+    "en": "Sustainability / ESG Analyst",
+    "ms": "Penganalisis Kelestarian / ESG",
+    "zh": "可持续发展 / ESG 分析师"
+   },
+   "summary": "Measures emissions and prepares sustainability disclosures for companies.",
+   "tags": [
+    "climate",
+    "finance",
+    "data",
+    "business"
+   ],
+   "taxonomy": {
+    "onet": "13-1199.05",
+    "onet_title": "Sustainability Specialists"
+   },
+   "wef": "wef2023_role_sustainability",
+   "wef_dir": "growing",
+   "hn": null,
+   "skills": [
+    {
+     "id": "esg_reporting",
+     "w": 1.0
+    },
+    {
+     "id": "carbon_accounting",
+     "w": 1.0
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.5
+    },
+    {
+     "id": "excel",
+     "w": 0.5
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    },
+    {
+     "id": "bookkeeping",
+     "w": 0.25
+    },
+    {
+     "id": "finance_domain",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "12.6",
+     "why": "Integrates sustainability information into company reporting.",
+     "strength": "direct"
+    },
+    {
+     "target": "13.2",
+     "why": "Turns climate targets into measured action.",
+     "strength": "direct"
+    }
+   ]
+  },
+  {
+   "id": "ev_technician",
+   "kind": "target",
+   "family": "green",
+   "title": {
+    "en": "EV & Battery Systems Technician",
+    "ms": "Juruteknik Sistem EV & Bateri",
+    "zh": "电动汽车与电池系统技术员"
+   },
+   "summary": "Services electric vehicles, batteries and charging infrastructure.",
+   "tags": [
+    "hardware",
+    "renewable energy",
+    "climate"
+   ],
+   "taxonomy": {
+    "onet": null,
+    "onet_title": null
+   },
+   "wef": "wef_role_ev",
+   "wef_dir": "growing",
+   "hn": null,
+   "skills": [
+    {
+     "id": "ev_tech",
+     "w": 1.0
+    },
+    {
+     "id": "electrical",
+     "w": 1.0
+    },
+    {
+     "id": "iot_embedded",
+     "w": 0.25
+    },
+    {
+     "id": "energy_efficiency",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "11.6",
+     "why": "Cleaner urban air.",
+     "strength": "direct"
+    },
+    {
+     "target": "13.2",
+     "why": "Cuts transport emissions.",
+     "strength": "direct"
+    }
+   ]
+  },
+  {
+   "id": "precision_agri_technologist",
+   "kind": "target",
+   "family": "green",
+   "title": {
+    "en": "Precision Agriculture Technologist",
+    "ms": "Juruteknologi Pertanian Persis",
+    "zh": "精准农业技术员"
+   },
+   "summary": "Uses sensors, drones and geospatial data to raise yields with less water and fertiliser.",
+   "tags": [
+    "agriculture",
+    "climate",
+    "data",
+    "hardware"
+   ],
+   "taxonomy": {
+    "onet": "19-4012.01",
+    "onet_title": "Precision Agriculture Technicians"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": null,
+   "skills": [
+    {
+     "id": "precision_agri",
+     "w": 1.0
+    },
+    {
+     "id": "gis",
+     "w": 1.0
+    },
+    {
+     "id": "iot_embedded",
+     "w": 0.5
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.5
+    },
+    {
+     "id": "data_viz",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "2.4",
+     "why": "Sustainable, resilient food production.",
+     "strength": "direct"
+    },
+    {
+     "target": "6.4",
+     "why": "Precision irrigation saves water.",
+     "strength": "direct"
+    }
+   ]
+  },
+  {
+   "id": "health_informatics_analyst",
+   "kind": "target",
+   "family": "ai_data",
+   "title": {
+    "en": "Health Informatics Analyst",
+    "ms": "Penganalisis Informatik Kesihatan",
+    "zh": "健康信息分析师"
+   },
+   "summary": "Manages and analyses clinical data to improve care and health services.",
+   "tags": [
+    "health",
+    "data"
+   ],
+   "taxonomy": {
+    "onet": "29-9021.00",
+    "onet_title": "Health Information Technologists and Medical Registrars"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": "clinical data|health informatics|healthcare data|clinical informatics",
+   "skills": [
+    {
+     "id": "healthcare_basics",
+     "w": 1.0
+    },
+    {
+     "id": "data_analysis",
+     "w": 1.0
+    },
+    {
+     "id": "sql",
+     "w": 0.5
+    },
+    {
+     "id": "data_viz",
+     "w": 0.5
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    },
+    {
+     "id": "ai_governance",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "3.8",
+     "why": "Better data improves access to quality care.",
+     "strength": "direct"
+    },
+    {
+     "target": "3.d",
+     "why": "Supports early warning and health-risk management.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "ld_specialist",
+   "kind": "target",
+   "family": "human",
+   "title": {
+    "en": "Learning & Development Specialist (AI upskilling)",
+    "ms": "Pakar Pembelajaran & Pembangunan (peningkatan kemahiran AI)",
+    "zh": "学习与发展专员 (AI 技能提升)"
+   },
+   "summary": "Designs and runs training that helps colleagues adopt AI tools safely.",
+   "tags": [
+    "training",
+    "people"
+   ],
+   "taxonomy": {
+    "onet": "13-1151.00",
+    "onet_title": "Training and Development Specialists"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": null,
+   "skills": [
+    {
+     "id": "teaching_training",
+     "w": 1.0
+    },
+    {
+     "id": "communication",
+     "w": 1.0
+    },
+    {
+     "id": "prompt_eng",
+     "w": 0.5
+    },
+    {
+     "id": "digital_literacy",
+     "w": 0.5
+    },
+    {
+     "id": "project_mgmt",
+     "w": 0.5
+    },
+    {
+     "id": "ux_design",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "4.4",
+     "why": "Multiplies relevant skills for decent jobs.",
+     "strength": "direct"
+    },
+    {
+     "target": "4.3",
+     "why": "Widens access to vocational learning at work.",
+     "strength": "direct"
+    }
+   ]
+  },
+  {
+   "id": "customer_success_manager",
+   "kind": "target",
+   "family": "human",
+   "title": {
+    "en": "Customer Success Manager",
+    "ms": "Pengurus Kejayaan Pelanggan",
+    "zh": "客户成功经理"
+   },
+   "summary": "Owns customer outcomes and relationships, supported by AI service tools.",
+   "tags": [
+    "people",
+    "business",
+    "technology"
+   ],
+   "taxonomy": {
+    "onet": null,
+    "onet_title": null
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": "customer success",
+   "skills": [
+    {
+     "id": "customer_service",
+     "w": 1.0
+    },
+    {
+     "id": "communication",
+     "w": 1.0
+    },
+    {
+     "id": "project_mgmt",
+     "w": 0.5
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.5
+    },
+    {
+     "id": "prompt_eng",
+     "w": 0.5
+    },
+    {
+     "id": "leadership",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.5",
+     "why": "A redeployment path that keeps service workers in decent jobs.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "conversation_designer",
+   "kind": "target",
+   "family": "digital",
+   "title": {
+    "en": "Conversational AI Designer",
+    "ms": "Pereka AI Perbualan",
+    "zh": "对话式 AI 设计师"
+   },
+   "summary": "Designs chatbot and voice-assistant flows, including hand-offs to humans.",
+   "tags": [
+    "people",
+    "technology",
+    "design"
+   ],
+   "taxonomy": {
+    "onet": "15-1255.00",
+    "onet_title": "Web and Digital Interface Designers (closest)"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": "conversation(al)? designer|conversational ai",
+   "skills": [
+    {
+     "id": "communication",
+     "w": 1.0
+    },
+    {
+     "id": "prompt_eng",
+     "w": 1.0
+    },
+    {
+     "id": "customer_service",
+     "w": 0.5
+    },
+    {
+     "id": "genai_apps",
+     "w": 0.5
+    },
+    {
+     "id": "ux_design",
+     "w": 0.5
+    },
+    {
+     "id": "analytical_thinking",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "10.2",
+     "why": "Multilingual assistants include people who are poorly served today.",
+     "strength": "direct"
+    },
+    {
+     "target": "9.c",
+     "why": "Widens access to digital services.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "digital_pm",
+   "kind": "target",
+   "family": "human",
+   "title": {
+    "en": "Digital Transformation Project Manager",
+    "ms": "Pengurus Projek Transformasi Digital",
+    "zh": "数字化转型项目经理"
+   },
+   "summary": "Leads projects that introduce AI and automation into organisations.",
+   "tags": [
+    "business",
+    "people",
+    "process improvement",
+    "technology"
+   ],
+   "taxonomy": {
+    "onet": "15-1299.09",
+    "onet_title": "Information Technology Project Managers"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": "project manager|program manager|technical program manager",
+   "skills": [
+    {
+     "id": "project_mgmt",
+     "w": 1.0
+    },
+    {
+     "id": "leadership",
+     "w": 1.0
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    },
+    {
+     "id": "digital_literacy",
+     "w": 0.5
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.25
+    },
+    {
+     "id": "ai_governance",
+     "w": 0.25
+    },
+    {
+     "id": "process_automation",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.2",
+     "why": "Delivers productivity through technological upgrading.",
+     "strength": "direct"
+    },
+    {
+     "target": "9.4",
+     "why": "Modernises how organisations use resources.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "financial_analyst",
+   "kind": "target",
+   "family": "human",
+   "title": {
+    "en": "Financial Analyst (FP&A)",
+    "ms": "Penganalisis Kewangan (FP&A)",
+    "zh": "财务分析师 (FP&A)"
+   },
+   "summary": "Builds budgets, forecasts and financial models that guide business decisions.",
+   "tags": [
+    "finance",
+    "data",
+    "business"
+   ],
+   "taxonomy": {
+    "onet": "13-2051.00",
+    "onet_title": "Financial and Investment Analysts"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": null,
+   "skills": [
+    {
+     "id": "finance_domain",
+     "w": 1.0
+    },
+    {
+     "id": "excel",
+     "w": 1.0
+    },
+    {
+     "id": "data_analysis",
+     "w": 1.0
+    },
+    {
+     "id": "data_viz",
+     "w": 0.5
+    },
+    {
+     "id": "bookkeeping",
+     "w": 0.5
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    },
+    {
+     "id": "sql",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.10",
+     "why": "Strengthens financial institutions and access to finance.",
+     "strength": "enabling"
+    },
+    {
+     "target": "8.2",
+     "why": "Better planning raises productivity.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "data_entry_clerk",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "Data Entry Clerk",
+    "ms": "Kerani Kemasukan Data",
+    "zh": "数据录入员"
+   },
+   "summary": "Keys and checks records in business systems.",
+   "tags": [
+    "business"
+   ],
+   "taxonomy": {
+    "onet": "43-9021.00",
+    "onet_title": "Data Entry Keyers"
+   },
+   "wef": "wef_role_data_entry",
+   "wef_dir": "declining",
+   "hn": null,
+   "skills": [
+    {
+     "id": "data_entry",
+     "w": 1.0
+    },
+    {
+     "id": "excel",
+     "w": 0.5
+    },
+    {
+     "id": "digital_literacy",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.5",
+     "why": "Many entry-level jobs today.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "accounting_clerk",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "Accounting / Bookkeeping Clerk",
+    "ms": "Kerani Akaun / Simpan Kira",
+    "zh": "会计 / 簿记文员"
+   },
+   "summary": "Processes invoices, payments and reconciliations.",
+   "tags": [
+    "finance",
+    "business"
+   ],
+   "taxonomy": {
+    "onet": "43-3031.00",
+    "onet_title": "Bookkeeping, Accounting, and Auditing Clerks"
+   },
+   "wef": "wef_role_accounting_clerks",
+   "wef_dir": "declining",
+   "hn": null,
+   "skills": [
+    {
+     "id": "bookkeeping",
+     "w": 1.0
+    },
+    {
+     "id": "excel",
+     "w": 0.5
+    },
+    {
+     "id": "data_entry",
+     "w": 0.5
+    },
+    {
+     "id": "finance_domain",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.10",
+     "why": "Supports financial access for businesses.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "customer_service_rep",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "Customer Service Representative",
+    "ms": "Wakil Khidmat Pelanggan",
+    "zh": "客户服务代表"
+   },
+   "summary": "Answers customer enquiries by phone, chat and email.",
+   "tags": [
+    "people",
+    "business"
+   ],
+   "taxonomy": {
+    "onet": "43-4051.00",
+    "onet_title": "Customer Service Representatives"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": null,
+   "skills": [
+    {
+     "id": "customer_service",
+     "w": 1.0
+    },
+    {
+     "id": "communication",
+     "w": 1.0
+    },
+    {
+     "id": "digital_literacy",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.5",
+     "why": "A large source of employment.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "graphic_designer",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "Graphic Designer",
+    "ms": "Pereka Grafik",
+    "zh": "平面设计师"
+   },
+   "summary": "Produces visual assets for print and digital media.",
+   "tags": [
+    "design"
+   ],
+   "taxonomy": {
+    "onet": "27-1024.00",
+    "onet_title": "Graphic Designers"
+   },
+   "wef": "wef_role_graphic",
+   "wef_dir": "declining",
+   "hn": null,
+   "skills": [
+    {
+     "id": "graphic_design",
+     "w": 1.0
+    },
+    {
+     "id": "creative_thinking",
+     "w": 1.0
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.3",
+     "why": "Supports small-business growth.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "admin_assistant",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "Administrative Assistant",
+    "ms": "Pembantu Tadbir",
+    "zh": "行政助理"
+   },
+   "summary": "Manages schedules, documents and office coordination.",
+   "tags": [
+    "business",
+    "people"
+   ],
+   "taxonomy": {
+    "onet": "43-6014.00",
+    "onet_title": "Secretaries and Administrative Assistants"
+   },
+   "wef": "wef_role_admin",
+   "wef_dir": "declining",
+   "hn": null,
+   "skills": [
+    {
+     "id": "digital_literacy",
+     "w": 1.0
+    },
+    {
+     "id": "communication",
+     "w": 1.0
+    },
+    {
+     "id": "data_entry",
+     "w": 0.5
+    },
+    {
+     "id": "excel",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.5",
+     "why": "A large source of employment.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "cashier",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "Cashier",
+    "ms": "Juruwang",
+    "zh": "收银员"
+   },
+   "summary": "Handles payments and customer questions at the counter.",
+   "tags": [
+    "business",
+    "people"
+   ],
+   "taxonomy": {
+    "onet": "41-2011.00",
+    "onet_title": "Cashiers"
+   },
+   "wef": "wef_role_cashiers",
+   "wef_dir": "declining",
+   "hn": null,
+   "skills": [
+    {
+     "id": "customer_service",
+     "w": 1.0
+    },
+    {
+     "id": "digital_literacy",
+     "w": 0.5
+    },
+    {
+     "id": "data_entry",
+     "w": 0.5
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.5",
+     "why": "A large source of entry-level employment.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "bank_teller",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "Bank Teller",
+    "ms": "Juruwang Bank",
+    "zh": "银行柜员"
+   },
+   "summary": "Processes deposits, withdrawals and account requests for customers.",
+   "tags": [
+    "finance",
+    "people"
+   ],
+   "taxonomy": {
+    "onet": "43-3071.00",
+    "onet_title": "Tellers"
+   },
+   "wef": "wef_role_tellers",
+   "wef_dir": "declining",
+   "hn": null,
+   "skills": [
+    {
+     "id": "customer_service",
+     "w": 1.0
+    },
+    {
+     "id": "bookkeeping",
+     "w": 0.5
+    },
+    {
+     "id": "finance_domain",
+     "w": 0.5
+    },
+    {
+     "id": "data_entry",
+     "w": 0.5
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.10",
+     "why": "Gives people access to financial services.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "retail_sales",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "Retail Sales Assistant",
+    "ms": "Pembantu Jualan Runcit",
+    "zh": "零售销售助理"
+   },
+   "summary": "Helps shoppers, sells products and keeps the store running.",
+   "tags": [
+    "business",
+    "people"
+   ],
+   "taxonomy": {
+    "onet": "41-2031.00",
+    "onet_title": "Retail Salespersons"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": null,
+   "skills": [
+    {
+     "id": "customer_service",
+     "w": 1.0
+    },
+    {
+     "id": "communication",
+     "w": 1.0
+    },
+    {
+     "id": "digital_literacy",
+     "w": 0.5
+    },
+    {
+     "id": "digital_marketing",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.5",
+     "why": "A large source of employment.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "teacher",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "School Teacher",
+    "ms": "Guru Sekolah",
+    "zh": "中小学教师"
+   },
+   "summary": "Plans and teaches lessons and supports students' progress.",
+   "tags": [
+    "training",
+    "people"
+   ],
+   "taxonomy": {
+    "onet": "25-2031.00",
+    "onet_title": "Secondary School Teachers"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": null,
+   "skills": [
+    {
+     "id": "teaching_training",
+     "w": 1.0
+    },
+    {
+     "id": "communication",
+     "w": 1.0
+    },
+    {
+     "id": "leadership",
+     "w": 0.5
+    },
+    {
+     "id": "digital_literacy",
+     "w": 0.5
+    },
+    {
+     "id": "creative_thinking",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "4.1",
+     "why": "Directly delivers quality education.",
+     "strength": "direct"
+    }
+   ]
+  },
+  {
+   "id": "electrician",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "Electrician",
+    "ms": "Juruelektrik",
+    "zh": "电工"
+   },
+   "summary": "Installs, maintains and repairs electrical systems.",
+   "tags": [
+    "hardware",
+    "renewable energy"
+   ],
+   "taxonomy": {
+    "onet": "47-2111.00",
+    "onet_title": "Electricians"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": null,
+   "skills": [
+    {
+     "id": "electrical",
+     "w": 1.0
+    },
+    {
+     "id": "analytical_thinking",
+     "w": 0.5
+    },
+    {
+     "id": "customer_service",
+     "w": 0.25
+    },
+    {
+     "id": "project_mgmt",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "7.1",
+     "why": "Keeps reliable, modern energy services running.",
+     "strength": "direct"
+    }
+   ]
+  },
+  {
+   "id": "nurse",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "Nurse",
+    "ms": "Jururawat",
+    "zh": "护士"
+   },
+   "summary": "Cares for patients and coordinates their treatment.",
+   "tags": [
+    "health",
+    "people"
+   ],
+   "taxonomy": {
+    "onet": "29-1141.00",
+    "onet_title": "Registered Nurses"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": null,
+   "skills": [
+    {
+     "id": "healthcare_basics",
+     "w": 1.0
+    },
+    {
+     "id": "communication",
+     "w": 1.0
+    },
+    {
+     "id": "leadership",
+     "w": 0.5
+    },
+    {
+     "id": "digital_literacy",
+     "w": 0.5
+    },
+    {
+     "id": "analytical_thinking",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "3.8",
+     "why": "Directly delivers quality health care.",
+     "strength": "direct"
+    }
+   ]
+  }
+ ],
+ "interest_tiles": [
+  {
+   "id": "tech",
+   "icon": "cpu",
+   "label": {
+    "en": "Technology & AI",
+    "ms": "Teknologi & AI",
+    "zh": "科技与 AI"
+   },
+   "tags": [
+    "technology",
+    "security",
+    "hardware"
+   ],
+   "sdgs": [
+    9
+   ]
+  },
+  {
+   "id": "data",
+   "icon": "chart",
+   "label": {
+    "en": "Data & analysis",
+    "ms": "Data & analisis",
+    "zh": "数据与分析"
+   },
+   "tags": [
+    "data"
+   ],
+   "sdgs": [
+    17
+   ]
+  },
+  {
+   "id": "climate",
+   "icon": "leaf",
+   "label": {
+    "en": "Climate & clean energy",
+    "ms": "Iklim & tenaga bersih",
+    "zh": "气候与清洁能源"
+   },
+   "tags": [
+    "renewable energy",
+    "climate"
+   ],
+   "sdgs": [
+    7,
+    13
+   ]
+  },
+  {
+   "id": "food",
+   "icon": "sprout",
+   "label": {
+    "en": "Food & farming",
+    "ms": "Makanan & pertanian",
+    "zh": "食品与农业"
+   },
+   "tags": [
+    "agriculture"
+   ],
+   "sdgs": [
+    2
+   ]
+  },
+  {
+   "id": "health",
+   "icon": "heart",
+   "label": {
+    "en": "Health & care",
+    "ms": "Kesihatan & penjagaan",
+    "zh": "健康与护理"
+   },
+   "tags": [
+    "health"
+   ],
+   "sdgs": [
+    3
+   ]
+  },
+  {
+   "id": "business",
+   "icon": "briefcase",
+   "label": {
+    "en": "Money & business",
+    "ms": "Kewangan & perniagaan",
+    "zh": "金融与商业"
+   },
+   "tags": [
+    "finance",
+    "business",
+    "process improvement"
+   ],
+   "sdgs": [
+    8
+   ]
+  },
+  {
+   "id": "people",
+   "icon": "users",
+   "label": {
+    "en": "People & teaching",
+    "ms": "Insan & pengajaran",
+    "zh": "人与教学"
+   },
+   "tags": [
+    "people",
+    "training"
+   ],
+   "sdgs": [
+    4,
+    10
+   ]
+  },
+  {
+   "id": "design",
+   "icon": "pen",
+   "label": {
+    "en": "Design & creativity",
+    "ms": "Reka bentuk & kreativiti",
+    "zh": "设计与创意"
+   },
+   "tags": [
+    "design"
+   ],
+   "sdgs": [
+    9,
+    11
+   ]
+  }
+ ],
+ "study_fields": [
+  {
+   "id": "it",
+   "label": {
+    "en": "IT / Computer science",
+    "ms": "IT / Sains komputer",
+    "zh": "IT / 计算机科学"
+   },
+   "skills": {
+    "python": 2,
+    "software_dev": 2,
+    "sql": 1,
+    "linux_networking": 1,
+    "digital_literacy": 2,
+    "analytical_thinking": 2
+   }
+  },
+  {
+   "id": "engineering",
+   "label": {
+    "en": "Engineering",
+    "ms": "Kejuruteraan",
+    "zh": "工程"
+   },
+   "skills": {
+    "electrical": 2,
+    "python": 1,
+    "iot_embedded": 1,
+    "statistics": 1,
+    "project_mgmt": 1,
+    "analytical_thinking": 2
+   }
+  },
+  {
+   "id": "business",
+   "label": {
+    "en": "Business / Accounting",
+    "ms": "Perniagaan / Perakaunan",
+    "zh": "商科 / 会计"
+   },
+   "skills": {
+    "bookkeeping": 2,
+    "finance_domain": 2,
+    "excel": 2,
+    "communication": 2,
+    "data_analysis": 1
+   }
+  },
+  {
+   "id": "science",
+   "label": {
+    "en": "Science / Health",
+    "ms": "Sains / Kesihatan",
+    "zh": "理科 / 医疗"
+   },
+   "skills": {
+    "statistics": 2,
+    "healthcare_basics": 1,
+    "data_analysis": 1,
+    "analytical_thinking": 2,
+    "excel": 1
+   }
+  },
+  {
+   "id": "design",
+   "label": {
+    "en": "Design / Arts / Media",
+    "ms": "Reka bentuk / Seni / Media",
+    "zh": "设计 / 艺术 / 传媒"
+   },
+   "skills": {
+    "graphic_design": 2,
+    "creative_thinking": 2,
+    "ux_design": 1,
+    "digital_marketing": 1,
+    "communication": 1
+   }
+  },
+  {
+   "id": "education",
+   "label": {
+    "en": "Education / Social sciences",
+    "ms": "Pendidikan / Sains sosial",
+    "zh": "教育 / 社会科学"
+   },
+   "skills": {
+    "teaching_training": 2,
+    "communication": 2,
+    "analytical_thinking": 1,
+    "digital_literacy": 2
+   }
+  },
+  {
+   "id": "agriculture",
+   "label": {
+    "en": "Agriculture / Environment",
+    "ms": "Pertanian / Alam sekitar",
+    "zh": "农业 / 环境"
+   },
+   "skills": {
+    "precision_agri": 1,
+    "gis": 1,
+    "circular_economy": 1,
+    "data_analysis": 1,
+    "excel": 1
+   }
+  }
+ ]
+}

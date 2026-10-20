@@ -1,0 +1,83 @@
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th><img alt=" Sketchnote by (@sketchthedocs) " loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/sketchnotes/17-DataScience-Cloud.png"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Science In The Cloud: Introduction - <em>Sketchnote by <a href="https://twitter.com/nitya" target="_blank" rel="noopener noreferrer">@nitya</a></em></td>
+</tr>
+</tbody>
+</table></div>
+<p>In this lesson, you will learn the fundamental principles of the Cloud, then you will see why it can be interesting for you to use Cloud services to run your data science projects and we'll look at some examples of data science projects run in the Cloud.</p>
+
+<h2 id="what-is-the-cloud">What is the Cloud?</h2>
+<p>The Cloud, or Cloud Computing, is the delivery of a wide range of pay-as-you-go computing services hosted on an infrastructure over the internet. Services include solutions such as storage, databases, networking, software, analytics, and intelligent services.</p>
+<p>We usually differentiate the Public, Private and Hybrid clouds as follows:</p>
+<ul>
+<li>Public cloud: a public cloud is owned and operated by a third-party cloud service provider which delivers its computing resources over the Internet to the public.</li>
+<li>Private cloud: refers to cloud computing resources used exclusively by a single business or organization, with services and an infrastructure maintained on a private network.</li>
+<li>Hybrid cloud: the hybrid cloud is a system that combines public and private clouds. Users opt for an on-premises datacenter, while allowing data and applications to be run on one or more public clouds.</li>
+</ul>
+<p>Most cloud computing services fall into three categories: Infrastructure as a Service (IaaS), Platform as a Service (PaaS) and Software as a Service (SaaS).</p>
+<ul>
+<li>Infrastructure as a Service (IaaS): users rent an IT infrastructure such as servers and virtual machines (VMs), storage, networks, operating systems</li>
+<li>Platform as a Service (PaaS): users rent an environment for developing, testing, delivering, and managing software applications. Users don’t need to worry about setting up or managing the underlying infrastructure of servers, storage, network, and databases needed for development.</li>
+<li>Software as a Service (SaaS): users get access to software applications over the Internet, on demand and typically on a subscription basis. Users don’t need to worry about hosting and managing the software application, the underlying infrastructure or the maintenance, like software upgrades and security patching.</li>
+</ul>
+<p>Some of the largest Cloud providers are Amazon Web Services, Google Cloud Platform and Microsoft Azure.</p>
+<h2 id="why-choose-the-cloud-for-data-science">Why Choose the Cloud for Data Science?</h2>
+<p>Developers and IT professionals chose to work with the Cloud for many reasons, including the following:</p>
+<ul>
+<li>Innovation: you can power your applications by integrating innovative services created by Cloud providers directly into your apps.</li>
+<li>Flexibility: you only pay for the services that you need and can choose from a wide range of services. You typically pay as you go and adapt your services according to your evolving needs.</li>
+<li>Budget: you don’t need to make initial investments to purchase hardware and software, set up and run on-site datacenters and you can just pay for what you use.</li>
+<li>Scalability: your resources can scale according to the needs of your project, which means that your apps can use more or less computing power, storage and bandwidth, by adapting to external factors at any given time.</li>
+<li>Productivity: you can focus on your business rather than spending time on tasks that can be managed by someone else, such as managing datacenters.</li>
+<li>Reliability: Cloud Computing offers several ways to continuously back up your data and you can set up disaster recovery plans to keep your business and services going, even in times of crisis.</li>
+<li>Security: you can benefit from policies, technologies and controls that strengthen the security of your project.</li>
+</ul>
+<p>These are some of the most common reasons why people choose to use Cloud services. Now that we have a better understanding of what the Cloud is and what its main benefits are, let's look more specifically into the jobs of Data scientists and developers working with data, and how the Cloud can help them with several challenges they might face:</p>
+<ul>
+<li>Storing large amounts of data: instead of buying, managing and protecting big servers, you can store your data directly in the cloud, with solutions such as Azure Cosmos DB, Azure SQL Database and Azure Data Lake Storage.</li>
+<li>Performing Data Integration: data integration is an essential part of Data Science, that lets you make a transition from data collection to taking actions. With data integration services offered in the cloud, you can collect, transform and integrate data from various sources into a single data warehouse, with Data Factory.</li>
+<li>Processing data: processing vast amounts of data requires a lot of computing power, and not everyone has access to machines powerful enough for that, which is why many people choose to directly harness the cloud’s huge computing power to run and deploy their solutions.</li>
+<li>Using data analytics services: cloud services like Azure Synapse Analytics, Azure Stream Analytics and Azure Databricks to help you turn your data into actionable insights.</li>
+<li>Using Machine Learning and data intelligence services: Instead of starting from scratch, you can use machine learning algorithms offered by the cloud provider, with services such as AzureML. You can also use cognitive services such as speech-to-text, text to speech, computer vision and more.</li>
+</ul>
+<h2 id="examples-of-data-science-in-the-cloud">Examples of Data Science in the Cloud</h2>
+<p>Let’s make this more tangible by looking at a couple of scenarios.</p>
+<h3 id="real-time-social-media-sentiment-analysis">Real-time social media sentiment analysis</h3>
+<p>We’ll start with a scenario commonly studied by people who start with machine learning: social media sentiment analysis in real time.</p>
+<p>Let's say you run a news media website and you want to leverage live data to understand what content your readers could be interested in. To know more about that, you can build a program that performs real-time sentiment analysis of data from Twitter publications, on topics that are relevant to your readers.</p>
+<p>The key indicators you will look at is the volume of tweets on specific topics (hashtags) and sentiment, which is established using analytics tools that perform sentiment analysis around the specified topics.</p>
+<p>The steps necessary to create this project are as follows:</p>
+<ul>
+<li>Create an event hub for streaming input, which will collect data from Twitter</li>
+<li>Configure and start a Twitter client application, which will call the Twitter Streaming APIs</li>
+<li>Create a Stream Analytics job</li>
+<li>Specify the job input and query</li>
+<li>Create an output sink and specify the job output</li>
+<li>Start the job</li>
+</ul>
+<p>To view the full process, check out the <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-twitter-sentiment-analysis-trends?WT.mc_id=academic-77958-bethanycheum&amp;ocid=AID30411099" target="_blank" rel="noopener noreferrer">documentation</a>.</p>
+<h3 id="scientific-papers-analysis">Scientific papers analysis</h3>
+<p>Let’s take another example of a project created by <a href="http://soshnikov.com" target="_blank" rel="noopener noreferrer">Dmitry Soshnikov</a>, one of the authors of this curriculum.</p>
+<p>Dmitry created a tool that analyses COVID papers. By reviewing this project, you will see how you can create a tool that extracts knowledge from scientific papers, gains insights and helps researchers navigate through large collections of papers in an efficient way.</p>
+<p>Let's see the different steps used for this:</p>
+<ul>
+<li>Extracting and pre-processing information with <a href="https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health?WT.mc_id=academic-77958-bethanycheum&amp;ocid=AID3041109" target="_blank" rel="noopener noreferrer">Text Analytics for Health</a></li>
+<li>Using <a href="https://azure.microsoft.com/services/machine-learning?WT.mc_id=academic-77958-bethanycheum&amp;ocid=AID3041109" target="_blank" rel="noopener noreferrer">Azure ML</a> to parallelize the processing</li>
+<li>Storing and querying information with <a href="https://azure.microsoft.com/services/cosmos-db?WT.mc_id=academic-77958-bethanycheum&amp;ocid=AID3041109" target="_blank" rel="noopener noreferrer">Cosmos DB</a></li>
+<li>Create an interactive dashboard for data exploration and visualization using Power BI</li>
+</ul>
+<p>To see the full process, visit <a href="https://soshnikov.com/science/analyzing-medical-papers-with-azure-and-text-analytics-for-health/" target="_blank" rel="noopener noreferrer">Dmitry’s blog</a>.</p>
+<p>As you can see, we can leverage Cloud services in many ways to perform Data Science.</p>
+<h2 id="footnote">Footnote</h2>
+<p>Sources:</p>
+<ul>
+<li>https://azure.microsoft.com/overview/what-is-cloud-computing?ocid=AID3041109</li>
+<li>https://docs.microsoft.com/azure/stream-analytics/stream-analytics-twitter-sentiment-analysis-trends?ocid=AID3041109</li>
+<li>https://soshnikov.com/science/analyzing-medical-papers-with-azure-and-text-analytics-for-health/</li>
+</ul>

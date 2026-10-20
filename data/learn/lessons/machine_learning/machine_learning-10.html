@@ -1,0 +1,562 @@
+<p>In this lesson, you will use the dataset you saved from the last lesson full of balanced, clean data all about cuisines.</p>
+<p>You will use this dataset with a variety of classifiers to <em>predict a given national cuisine based on a group of ingredients</em>. While doing so, you'll learn more about some of the ways that algorithms can be leveraged for classification tasks.</p>
+
+<h2 id="preparation">Preparation</h2>
+<p>Assuming you completed <a href="https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/1-Introduction/README.md" target="_blank" rel="noopener noreferrer">Lesson 1</a>, make sure that a <em>cleaned_cuisines.csv</em> file exists in the root <code>/data</code> folder for these four lessons.</p>
+<h2 id="exercise-predict-a-national-cuisine">Exercise - predict a national cuisine</h2>
+<ol>
+<li>
+<p>Working in this lesson's <em>notebook.ipynb</em> folder, import that file along with the Pandas library:</p>
+<pre><code class="language-python">import pandas as pd
+cuisines_df = pd.read_csv("../data/cleaned_cuisines.csv")
+cuisines_df.head()
+</code></pre>
+<p>The data looks like this:</p>
+</li>
+</ol>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Unnamed: 0</th>
+<th>cuisine</th>
+<th>almond</th>
+<th>angelica</th>
+<th>anise</th>
+<th>anise_seed</th>
+<th>apple</th>
+<th>apple_brandy</th>
+<th>apricot</th>
+<th>armagnac</th>
+<th>...</th>
+<th>whiskey</th>
+<th>white_bread</th>
+<th>white_wine</th>
+<th>whole_grain_wheat_flour</th>
+<th>wine</th>
+<th>wood</th>
+<th>yam</th>
+<th>yeast</th>
+<th>yogurt</th>
+<th>zucchini</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>indian</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>indian</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>indian</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>indian</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>indian</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+<ol>
+<li>
+<p>Now, import several more libraries:</p>
+<pre><code class="language-python">from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.metrics import accuracy_score,precision_score,confusion_matrix,classification_report, precision_recall_curve
+from sklearn.svm import SVC
+import numpy as np
+</code></pre>
+</li>
+<li>
+<p>Divide the X and y coordinates into two dataframes for training. <code>cuisine</code> can be the labels dataframe:</p>
+<pre><code class="language-python">cuisines_label_df = cuisines_df['cuisine']
+cuisines_label_df.head()
+</code></pre>
+<p>It will look like this:</p>
+<pre><code class="language-output">0    indian
+1    indian
+2    indian
+3    indian
+4    indian
+Name: cuisine, dtype: object
+</code></pre>
+</li>
+<li>
+<p>Drop that <code>Unnamed: 0</code> column and the <code>cuisine</code> column, calling <code>drop()</code>. Save the rest of the data as trainable features:</p>
+<pre><code class="language-python">cuisines_feature_df = cuisines_df.drop(['Unnamed: 0', 'cuisine'], axis=1)
+cuisines_feature_df.head()
+</code></pre>
+<p>Your features look like this:</p>
+</li>
+</ol>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>almond</th>
+<th>angelica</th>
+<th>anise</th>
+<th>anise_seed</th>
+<th>apple</th>
+<th>apple_brandy</th>
+<th>apricot</th>
+<th>armagnac</th>
+<th>artemisia</th>
+<th>artichoke</th>
+<th>...</th>
+<th>whiskey</th>
+<th>white_bread</th>
+<th>white_wine</th>
+<th>whole_grain_wheat_flour</th>
+<th>wine</th>
+<th>wood</th>
+<th>yam</th>
+<th>yeast</th>
+<th>yogurt</th>
+<th>zucchini</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+<p>Now you are ready to train your model!</p>
+<h2 id="choosing-your-classifier">Choosing your classifier</h2>
+<p>Now that your data is clean and ready for training, you have to decide which algorithm to use for the job.</p>
+<p>Scikit-learn groups classification under Supervised Learning, and in that category you will find many ways to classify. <a href="https://scikit-learn.org/stable/supervised_learning.html" target="_blank" rel="noopener noreferrer">The variety</a> is quite bewildering at first sight. The following methods all include classification techniques:</p>
+<ul>
+<li>Linear Models</li>
+<li>Support Vector Machines</li>
+<li>Stochastic Gradient Descent</li>
+<li>Nearest Neighbors</li>
+<li>Gaussian Processes</li>
+<li>Decision Trees</li>
+<li>Ensemble methods (voting Classifier)</li>
+<li>Multiclass and multioutput algorithms (multiclass and multilabel classification, multiclass-multioutput classification)</li>
+</ul>
+<blockquote>
+<p>You can also use <a href="https://scikit-learn.org/stable/modules/neural_networks_supervised.html#classification" target="_blank" rel="noopener noreferrer">neural networks to classify data</a>, but that is outside the scope of this lesson.</p>
+</blockquote>
+<h3 id="what-classifier-to-go-with">What classifier to go with?</h3>
+<p>So, which classifier should you choose? Often, running through several and looking for a good result is a way to test. Scikit-learn offers a <a href="https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html" target="_blank" rel="noopener noreferrer">side-by-side comparison</a> on a created dataset, comparing KNeighbors, SVC two ways, GaussianProcessClassifier, DecisionTreeClassifier, RandomForestClassifier, MLPClassifier, AdaBoostClassifier, GaussianNB and QuadraticDiscrinationAnalysis, showing the results visualized:</p>
+<p><img alt="comparison of classifiers" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/2-Classifiers-1/images/comparison.png"></p>
+<blockquote>
+<p>Plots generated on Scikit-learn's documentation</p>
+</blockquote>
+<blockquote>
+<p>AutoML solves this problem neatly by running these comparisons in the cloud, allowing you to choose the best algorithm for your data. Try it <a href="https://docs.microsoft.com/learn/modules/automate-model-selection-with-azure-automl/?WT.mc_id=academic-77952-leestott" target="_blank" rel="noopener noreferrer">here</a></p>
+</blockquote>
+<h3 id="a-better-approach">A better approach</h3>
+<p>A better way than wildly guessing, however, is to follow the ideas on this downloadable <a href="https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=academic-77952-leestott" target="_blank" rel="noopener noreferrer">ML Cheat sheet</a>. Here, we discover that, for our multiclass problem, we have some choices:</p>
+<p><img alt="cheatsheet for multiclass problems" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/2-Classifiers-1/images/cheatsheet.png"></p>
+<blockquote>
+<p>A section of Microsoft's Algorithm Cheat Sheet, detailing multiclass classification options</p>
+</blockquote>
+<p>✅ Download this cheat sheet, print it out, and hang it on your wall!</p>
+<h3 id="reasoning">Reasoning</h3>
+<p>Let's see if we can reason our way through different approaches given the constraints we have:</p>
+<ul>
+<li><strong>Neural networks are too heavy</strong>. Given our clean, but minimal dataset, and the fact that we are running training locally via notebooks, neural networks are too heavyweight for this task.</li>
+<li><strong>No two-class classifier</strong>. We do not use a two-class classifier, so that rules out one-vs-all.</li>
+<li><strong>Decision tree or logistic regression could work</strong>. A decision tree might work, or logistic regression for multiclass data.</li>
+<li><strong>Multiclass Boosted Decision Trees solve a different problem</strong>. The multiclass boosted decision tree is most suitable for nonparametric tasks, e.g. tasks designed to build rankings, so it is not useful for us.</li>
+</ul>
+<h3 id="using-scikit-learn">Using Scikit-learn</h3>
+<p>We will be using Scikit-learn to analyze our data. However, there are many ways to use logistic regression in Scikit-learn. Take a look at the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html?highlight=logistic%20regressio#sklearn.linear_model.LogisticRegression" target="_blank" rel="noopener noreferrer">parameters to pass</a>.</p>
+<p>Essentially there are two important parameters - <code>multi_class</code> and <code>solver</code> - that we need to specify, when we ask Scikit-learn to perform a logistic regression. The <code>multi_class</code> value applies a certain behavior. The value of the solver is what algorithm to use. Not all solvers can be paired with all <code>multi_class</code> values.</p>
+<p>According to the docs, in the multiclass case, the training algorithm:</p>
+<ul>
+<li><strong>Uses the one-vs-rest (OvR) scheme</strong>, if the <code>multi_class</code> option is set to <code>ovr</code></li>
+<li><strong>Uses the cross-entropy loss</strong>, if the <code>multi_class</code> option is set to <code>multinomial</code>. (Currently the <code>multinomial</code> option is supported only by the ‘lbfgs’, ‘sag’, ‘saga’ and ‘newton-cg’ solvers.)"</li>
+</ul>
+<blockquote>
+<p>🎓 The 'scheme' here can either be 'ovr' (one-vs-rest) or 'multinomial'. Since logistic regression is really designed to support binary classification, these schemes allow it to better handle multiclass classification tasks. <a href="https://machinelearningmastery.com/one-vs-rest-and-one-vs-one-for-multi-class-classification/" target="_blank" rel="noopener noreferrer">source</a></p>
+</blockquote>
+<blockquote>
+<p>🎓 The 'solver' is defined as "the algorithm to use in the optimization problem". <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html?highlight=logistic%20regressio#sklearn.linear_model.LogisticRegression" target="_blank" rel="noopener noreferrer">source</a>.</p>
+</blockquote>
+<p>Scikit-learn offers this table to explain how solvers handle different challenges presented by different kinds of data structures:</p>
+<p><img alt="solvers" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/2-Classifiers-1/images/solvers.png"></p>
+<h2 id="exercise-split-the-data">Exercise - split the data</h2>
+<p>We can focus on logistic regression for our first training trial since you recently learned about the latter in a previous lesson.
+Split your data into training and testing groups by calling <code>train_test_split()</code>:</p>
+<pre><code class="language-python">X_train, X_test, y_train, y_test = train_test_split(cuisines_feature_df, cuisines_label_df, test_size=0.3)
+</code></pre>
+<h2 id="exercise-apply-logistic-regression">Exercise - apply logistic regression</h2>
+<p>Since you are using the multiclass case, you need to choose what <em>scheme</em> to use and what <em>solver</em> to set. Use LogisticRegression with a multiclass setting and the <strong>liblinear</strong> solver to train.</p>
+<ol>
+<li>
+<p>Create a logistic regression with multi_class set to <code>ovr</code> and the solver set to <code>liblinear</code>:</p>
+<pre><code class="language-python">lr = LogisticRegression(multi_class='ovr',solver='liblinear')
+model = lr.fit(X_train, np.ravel(y_train))
+
+accuracy = model.score(X_test, y_test)
+print ("Accuracy is {}".format(accuracy))
+</code></pre>
+<p>✅ Try a different solver like <code>lbfgs</code>, which is often set as default</p>
+<blockquote>
+<p>Note, use Pandas <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.ravel.html" target="_blank" rel="noopener noreferrer"><code>ravel</code></a> function to flatten your data when needed.</p>
+</blockquote>
+<p>The accuracy is good at over <strong>80%</strong>!</p>
+</li>
+<li>
+<p>You can see this model in action by testing one row of data (#50):</p>
+<pre><code class="language-python">print(f'ingredients: {X_test.iloc[50][X_test.iloc[50]!=0].keys()}')
+print(f'cuisine: {y_test.iloc[50]}')
+</code></pre>
+<p>The result is printed:</p>
+<pre><code class="language-output">ingredients: Index(['cilantro', 'onion', 'pea', 'potato', 'tomato', 'vegetable_oil'], dtype='object')
+cuisine: indian
+</code></pre>
+<p>✅ Try a different row number and check the results</p>
+</li>
+<li>
+<p>Digging deeper, you can check for the accuracy of this prediction:</p>
+<pre><code class="language-python">test= X_test.iloc[50].values.reshape(-1, 1).T
+proba = model.predict_proba(test)
+classes = model.classes_
+resultdf = pd.DataFrame(data=proba, columns=classes)
+
+topPrediction = resultdf.T.sort_values(by=[0], ascending = [False])
+topPrediction.head()
+</code></pre>
+<p>The result is printed - Indian cuisine is its best guess, with good probability:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>indian</td>
+<td>0.715851</td>
+</tr>
+<tr>
+<td>chinese</td>
+<td>0.229475</td>
+</tr>
+<tr>
+<td>japanese</td>
+<td>0.029763</td>
+</tr>
+<tr>
+<td>korean</td>
+<td>0.017277</td>
+</tr>
+<tr>
+<td>thai</td>
+<td>0.007634</td>
+</tr>
+</tbody>
+</table></div>
+<p>✅ Can you explain why the model is pretty sure this is an Indian cuisine?</p>
+</li>
+<li>
+<p>Get more detail by printing a classification report, as you did in the regression lessons:</p>
+<pre><code class="language-python">y_pred = model.predict(X_test)
+print(classification_report(y_test,y_pred))
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>precision</th>
+<th>recall</th>
+<th>f1-score</th>
+<th>support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>chinese</td>
+<td>0.73</td>
+<td>0.71</td>
+<td>0.72</td>
+<td>229</td>
+</tr>
+<tr>
+<td>indian</td>
+<td>0.91</td>
+<td>0.93</td>
+<td>0.92</td>
+<td>254</td>
+</tr>
+<tr>
+<td>japanese</td>
+<td>0.70</td>
+<td>0.75</td>
+<td>0.72</td>
+<td>220</td>
+</tr>
+<tr>
+<td>korean</td>
+<td>0.86</td>
+<td>0.76</td>
+<td>0.81</td>
+<td>242</td>
+</tr>
+<tr>
+<td>thai</td>
+<td>0.79</td>
+<td>0.85</td>
+<td>0.82</td>
+<td>254</td>
+</tr>
+<tr>
+<td>accuracy</td>
+<td></td>
+<td></td>
+<td>0.80</td>
+<td>1199</td>
+</tr>
+<tr>
+<td>macro avg</td>
+<td>0.80</td>
+<td>0.80</td>
+<td>0.80</td>
+<td>1199</td>
+</tr>
+<tr>
+<td>weighted avg</td>
+<td>0.80</td>
+<td>0.80</td>
+<td>0.80</td>
+<td>1199</td>
+</tr>
+</tbody>
+</table></div>
+</li>
+</ol>
+<h2 id="challenge">🚀Challenge</h2>
+<p>In this lesson, you used your cleaned data to build a machine learning model that can predict a national cuisine based on a series of ingredients. Take some time to read through the many options Scikit-learn provides to classify data. Dig deeper into the concept of 'solver' to understand what goes on behind the scenes.</p>
+
+<h2 id="review-self-study">Review &amp; Self Study</h2>
+<p>Dig a little more into the math behind logistic regression in <a href="https://people.eecs.berkeley.edu/~russell/classes/cs194/f11/lectures/CS194%20Fall%202011%20Lecture%2006.pdf" target="_blank" rel="noopener noreferrer">this lesson</a></p>

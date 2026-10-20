@@ -1,0 +1,172 @@
+<div>
+
+<div>
+<img alt="Spark icon" loading="lazy" src="https://developers.google.com/_static/images/icons/spark.svg">
+<div>
+<h2 id="page-summary">Page Summary</h2>
+</div>
+
+</div>
+<div>
+
+
+
+<ul>
+<li>
+<p>Inference involves using a trained model to make predictions on unlabeled examples, and it can be done statically or dynamically.</p>
+</li>
+<li>
+<p>Static inference generates predictions in advance and caches them, making it suitable for scenarios where prediction speed is critical but limiting its ability to handle uncommon inputs.</p>
+</li>
+<li>
+<p>Dynamic inference generates predictions on demand, offering flexibility for diverse inputs but potentially increasing latency and computational demands.</p>
+</li>
+<li>
+<p>Choosing between static and dynamic inference depends on factors like model complexity, desired prediction speed, and the nature of the input data.</p>
+</li>
+<li>
+<p>Static inference is advantageous when cost and prediction verification are prioritized, while dynamic inference excels in handling diverse, real-time predictions.</p>
+</li>
+</ul>
+</div>
+
+
+<p><a href="https://developers.google.com/machine-learning/glossary#inference" target="_blank" rel="noopener noreferrer"><strong>Inference</strong></a> is the process of
+making predictions by applying a trained model to
+<a href="https://developers.google.com/machine-learning/glossary#unlabeled_example" target="_blank" rel="noopener noreferrer"><strong>unlabeled examples</strong></a>.
+Broadly speaking, a model can infer predictions in one of two ways:</p>
+<ul>
+<li><strong>Static inference</strong> (also called <strong>offline inference</strong> or
+<strong>batch inference</strong>) means the model makes predictions on a bunch of
+common <a href="https://developers.google.com/machine-learning/glossary#unlabeled_example" target="_blank" rel="noopener noreferrer"><strong>unlabeled examples</strong></a>
+and then caches those predictions somewhere.</li>
+<li><strong>Dynamic inference</strong> (also called <strong>online inference</strong> or real-time
+inference) means that the model only makes predictions on demand,
+for example, when a client requests a prediction.</li>
+</ul>
+<p>To use an extreme example, imagine a very complex model that
+takes one hour to infer a prediction.
+This would probably be an excellent situation for static inference:</p>
+<figure>
+<img alt="Figure 4. In static inference, a model generates predictions,
+            which are then cached on a server." loading="lazy" src="https://developers.google.com/static/machine-learning/crash-course/images/StaticInference.png">
+<figcaption>
+<b>Figure 4.</b> In static inference, a model generates predictions,
+       which are then cached on a server.
+  </figcaption>
+</figure>
+
+<p>Suppose this same complex model mistakenly uses dynamic inference instead of
+static inference. If many clients request predictions around the same time,
+most of them won't receive that prediction for hours or days.</p>
+<p>Now consider a model that infers quickly, perhaps in 2 milliseconds using a
+relative minimum of computational resources. In this situation, clients can
+receive predictions quickly and efficiently through dynamic inference, as
+suggested in Figure 5.</p>
+<figure>
+<img alt="Figure 5. In dynamic inference, a model infers predictions on
+            demand." loading="lazy" src="https://developers.google.com/static/machine-learning/crash-course/images/DynamicInference.png">
+<figcaption>
+<b>Figure 5.</b> In dynamic inference, a model infers predictions on demand.
+  </figcaption>
+</figure>
+
+<h2 id="static-inference">Static inference</h2>
+<p>Static inference offers certain advantages and disadvantages.</p>
+<p>Advantages</p>
+<ul>
+<li>Don't need to worry much about cost of inference.</li>
+<li>Can do post-verification of predictions before pushing.</li>
+</ul>
+<p>Disadvantages</p>
+<ul>
+<li>Can only serve cached predictions, so the system might not be
+      able to serve predictions for uncommon input examples.</li>
+<li>Update latency is likely measured in hours or days.</li>
+</ul>
+<h2 id="dynamic-inference">Dynamic inference</h2>
+<p>Dynamic inference offers certain advantages and disadvantages.</p>
+<p>Advantages</p>
+<ul>
+<li>Can infer a prediction on <i>any</i> new item as it comes in, which
+      is great for long tail (less common) predictions.</li>
+</ul>
+<p>Disadvantages</p>
+<ul>
+<li>Compute intensive and latency sensitive. This combination may limit model
+      complexity; that is, you might have to build a simpler model that can
+      infer predictions more quickly than a complex model could.</li>
+<li>Monitoring needs are more intensive.</li>
+</ul>
+<h2 id="exercises-check-your-understanding">Exercises: Check your understanding</h2>
+<div>
+
+<div>
+      Which <strong>three</strong> of the following four statements are
+      true of static inference?
+    </div>
+<div>
+<div>The model must create predictions for all possible inputs.</div>
+<div>Yes, the model must make predictions for all possible inputs and
+            store them in a cache or lookup table.
+            If the set of things that the model is predicting is limited, then
+            static inference might be a good choice.
+            However, for free-form inputs like user queries that have a long
+            tail of unusual or rare items, static inference can't provide
+            full coverage.</div>
+</div>
+<div>
+<div> The system can verify inferred predictions before serving
+            them.</div>
+<div> Yes, this is a useful aspect of static inference.</div>
+</div>
+<div>
+<div> For a given input, the model can serve a prediction more quickly
+            than <i>dynamic</i> inference.</div>
+<div> Yes, static inference can almost always serve predictions faster
+            than dynamic inference. </div>
+</div>
+<div>
+<div> You can react quickly to changes in the world. </div>
+<div> No, this is a disadvantage of static inference. </div>
+</div>
+
+</div>
+<div>
+
+<div> 
+      Which <strong>one</strong> of the following statements is
+      true of dynamic inference?
+    </div>
+<div>
+<div> You can provide predictions for all possible items. </div>
+<div> Yes, this is a strength of dynamic inference. Any request that
+            comes in will be given a score. Dynamic inference handles long-tail
+            distributions (those with many rare items), like the space of all
+            possible sentences written in movie reviews. </div>
+</div>
+<div>
+<div> You can do post-verification of predictions before they
+            are used.  </div>
+<div> In general, it's not possible to do a post-verification of all
+            predictions before they get used because predictions are being
+            made on demand. You can, however, potentially monitor
+            <i>aggregate</i> prediction qualities to provide some level of
+            quality checking, but these will signal fire alarms only after
+            the fire has already spread.</div>
+</div>
+<div>
+<div> When performing dynamic inference, you don't need to worry
+            about prediction latency (the lag time for returning predictions)
+            as much as when performing static inference.</div>
+<div> Prediction latency is often a real concern in dynamic inference.
+            Unfortunately, you can't necessarily fix prediction latency issues
+            by adding more inference servers.</div>
+</div>
+
+</div>
+
+<div>
+<a href="https://support.google.com/machinelearningeducation" target="_blank" rel="noopener noreferrer">Help Center</a>
+</div>
+</div>

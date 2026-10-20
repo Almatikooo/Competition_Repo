@@ -1,0 +1,46 @@
+<p>Managing how the pieces of your software and service work together allows you to build a stable, scalable, secure and portable system.</p>
+<p>It’s important to do this because your system is likely to be much larger than a single application relying on other supporting infrastructure components.</p>
+<p>Even if your system is a simple application, it still probably requires configuration, for example providing database credentials or a web service endpoint.</p>
+<h2 id="using-configuration-management-tools">Using configuration management tools</h2>
+<p>Configuration management tools will help you to document and maintain the configuration and dependencies of your software system.</p>
+<p>You can do this using handmade software but it’s more common to use existing open source tools, for example:</p>
+<ul>
+<li><a href="https://www.ansible.com/" target="_blank" rel="noopener noreferrer">Ansible</a></li>
+<li><a href="http://cfengine.com/" target="_blank" rel="noopener noreferrer">CFEngine</a></li>
+<li><a href="https://www.chef.io/chef/" target="_blank" rel="noopener noreferrer">Chef</a></li>
+<li><a href="https://puppetlabs.com/" target="_blank" rel="noopener noreferrer">Puppet</a></li>
+</ul>
+<h2 id="use-infrastructure-as-code">Use infrastructure as code</h2>
+<p>One way you can manage configuration is by using code to describe the configuration and software dependencies. Dependencies are the things your software needs in order to work properly.</p>
+<p>This approach brings all the advantages of programming in general and allows you to:</p>
+<ul>
+<li>test your code ability</li>
+<li>reuse your code</li>
+<li>document your infrastructure</li>
+</ul>
+<p>Once written in code, the infrastructure configuration is then run against the servers, networks and software in question.</p>
+<p>When documenting technology components, you should include information on:</p>
+<ul>
+<li><a href="https://www.security.gov.uk/policy-and-guidance/secure-by-design/activities/discovering-vulnerabilities/" target="_blank" rel="noopener noreferrer">service vulnerabilities</a></li>
+<li><a href="https://www.security.gov.uk/policy-and-guidance/secure-by-design/activities/assessing-the-effectiveness-of-security-controls/" target="_blank" rel="noopener noreferrer">how you will assess the effectiveness of security controls</a></li>
+<li><a href="https://www.security.gov.uk/policy-and-guidance/secure-by-design/activities/agreeing-roles-and-responsibilities/" target="_blank" rel="noopener noreferrer">who is responsible for ensuring asset security</a></li>
+</ul>
+<h2 id="build-for-portability">Build for portability</h2>
+<p>Moving software systems between providers can be difficult and time-consuming. If you do not consider portability, it’s possible to lock yourself in with a provider.</p>
+<p>Configuration management gives you a deep understanding of the configuration of your system. You can use this knowledge to easily move software between providers.</p>
+<h2 id="use-the-same-development-and-production-tools">Use the same development and production tools</h2>
+<p>A common software systems problem is that code which was written by a development team works on their machine or test environment but not in the production environment.</p>
+<p>This is often caused by differences in:</p>
+<ul>
+<li>software</li>
+<li>databases</li>
+<li>application servers</li>
+</ul>
+<p>Avoid this problem by using the same tools for your development and production environments.</p>
+<h2 id="related-guides">Related guides</h2>
+<p>You may also find these guides useful:</p>
+<ul>
+<li><a href="https://www.gov.uk/service-manual/technology/managing-software-dependencies" target="_blank" rel="noopener noreferrer">Managing software dependencies</a></li>
+<li><a href="https://www.gov.uk/service-manual/making-software/deployment.html" target="_blank" rel="noopener noreferrer">Deploy software regularly</a></li>
+<li><a href="https://www.security.gov.uk/guidance/secure-by-design/activities/documenting-service-assets" target="_blank" rel="noopener noreferrer">Documenting service assets</a></li>
+</ul>

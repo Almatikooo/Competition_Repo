@@ -1,0 +1,74 @@
+<p>When training CNNs, one of the problems is that we need a lot of labeled data. In the case of image classification, we need to separate images into different classes, which is a manual effort.</p>
+
+<p>However, we might want to use raw (unlabeled) data for training CNN feature extractors, which is called <strong>self-supervised learning</strong>. Instead of labels, we will use training images as both network input and output. The main idea of <strong>autoencoder</strong> is that we will have an <strong>encoder network</strong> that converts input image into some <strong>latent space</strong> (normally it is just a vector of some smaller size), then the <strong>decoder network</strong>, whose goal would be to reconstruct the original image.</p>
+<blockquote>
+<p>✅ An <a href="https://wikipedia.org/wiki/Autoencoder" target="_blank" rel="noopener noreferrer">autoencoder</a> is "a type of artificial neural network used to learn efficient codings of unlabeled data."</p>
+</blockquote>
+<p>Since we are training an autoencoder to capture as much of the information from the original image as possible for accurate reconstruction, the network tries to find the best <strong>embedding</strong> of input images to capture the meaning.л.</p>
+<p><img alt="AutoEncoder Diagram" loading="lazy" src="https://raw.githubusercontent.com/microsoft/AI-For-Beginners/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/09-Autoencoders/images/autoencoder_schema.jpg"></p>
+<blockquote>
+<p>Image from <a href="https://blog.keras.io/building-autoencoders-in-keras.html" target="_blank" rel="noopener noreferrer">Keras blog</a></p>
+</blockquote>
+<h2 id="scenarios-for-using-autoencoders">Scenarios for using Autoencoders</h2>
+<p>While reconstructing original images does not seem useful in its own right, there are a few scenarios where autoencoders are especially useful:</p>
+<ul>
+<li><strong>Lowering the dimension of images for visualization</strong> or <strong>training image embeddings</strong>. Usually autoencoders give better results than PCA, because it takes into account spatial nature of images and hierarchical features.</li>
+<li><strong>Denoising</strong>, i.e. removing noise from the image. Because noise carries out a lot of useless information, autoencoder cannot fit it all into relatively small latent space, and thus it captures only important part of the image. When training denoisers, we start with original images, and use images with artificially added noise as input for autoencoder.</li>
+<li><strong>Super-resolution</strong>, increasing image resolution. We start with high-resolution images, and use the image with lower resolution as the autoencoder input.</li>
+<li><strong>Generative models</strong>. Once we train the autoencoder, the decoder part can be used to create new objects starting from random latent vectors.</li>
+</ul>
+<h2 id="variational-autoencoders-vae">Variational Autoencoders (VAE)</h2>
+<p>Traditional autoencoders reduce the dimension of the input data somehow, figuring out the important features of input images. However, latent vectors ofter do not make much sense. In other words, taking MNIST dataset as an example, figuring out which digits correspond to different latent vectors is not an easy task, because close latent vectors would not necessarily correspond to the same digits.</p>
+<p>On the other hand, to train <em>generative</em> models it is better to have some understanding of the latent space. This idea leads us to <strong>variational auto-encoder</strong> (VAE).</p>
+<p>VAE is the autoencoder that learns to predict <em>statistical distribution</em> of the latent parameters, so-called <strong>latent distribution</strong>. For example, we may want latent vectors to be distributed normally with some mean z<sub>mean</sub> and standard deviation z<sub>sigma</sub> (both mean and standard deviation are vectors of some dimensionality d). Encoder in VAE learns to predict those parameters, and then decoder takes a random vector from this distribution to reconstruct the object.</p>
+<p>To summarize:</p>
+<ul>
+<li>From input vector, we predict <code>z_mean</code> and <code>z_log_sigma</code> (instead of predicting the standard deviation itself, we predict its logarithm)</li>
+<li>We sample a vector <code>sample</code> from the distribution N(z<sub>mean</sub>,exp(z<sub>log_sigma</sub>))</li>
+<li>The decoder tries to decode the original image using <code>sample</code> as an input vector</li>
+</ul>
+<img alt="" loading="lazy" src="https://raw.githubusercontent.com/microsoft/AI-For-Beginners/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/09-Autoencoders/images/vae.png" width="50%">
+<blockquote>
+<p>Image from <a href="https://ijdykeman.github.io/ml/2016/12/21/cvae.html" target="_blank" rel="noopener noreferrer">this blog post</a> by Isaak Dykeman</p>
+</blockquote>
+<p>Variational auto-encoders use a complex loss function that consists of two parts:</p>
+<ul>
+<li><strong>Reconstruction loss</strong> is the loss function that shows how close a reconstructed image is to the target (it can be Mean Squared Error, or MSE). It is the same loss function as in normal autoencoders.</li>
+<li><strong>KL loss</strong>, which ensures that latent variable distributions stays close to normal distribution. It is based on the notion of <a href="https://www.countbayesie.com/blog/2017/5/9/kullback-leibler-divergence-explained" target="_blank" rel="noopener noreferrer">Kullback-Leibler divergence</a> - a metric to estimate how similar two statistical distributions are.</li>
+</ul>
+<p>One important advantage of VAEs is that they allow us to generate new images relatively easily, because we know which distribution from which to sample latent vectors. For example, if we train VAE with 2D latent vector on MNIST, we can then vary components of the latent vector to get different digits:</p>
+<img alt="vaemnist" loading="lazy" src="https://raw.githubusercontent.com/microsoft/AI-For-Beginners/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/09-Autoencoders/images/vaemnist.png" width="50%">
+<blockquote>
+<p>Image by <a href="http://soshnikov.com" target="_blank" rel="noopener noreferrer">Dmitry Soshnikov</a></p>
+</blockquote>
+<p>Observe how images blend into each other, as we start getting latent vectors from the different portions of the latent parameter space. We can also visualize this space in 2D:</p>
+<img alt="vaemnist cluster" loading="lazy" src="https://raw.githubusercontent.com/microsoft/AI-For-Beginners/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/09-Autoencoders/images/vaemnist-diag.png" width="50%">
+<blockquote>
+<p>Image by <a href="http://soshnikov.com" target="_blank" rel="noopener noreferrer">Dmitry Soshnikov</a></p>
+</blockquote>
+<h2 id="exercises-autoencoders">✍️ Exercises: Autoencoders</h2>
+<p>Learn more about autoencoders in these corresponding notebooks:</p>
+<ul>
+<li><a href="https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/09-Autoencoders/AutoencodersTF.ipynb" target="_blank" rel="noopener noreferrer">Autoencoders in TensorFlow</a></li>
+<li><a href="https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/09-Autoencoders/AutoEncodersPyTorch.ipynb" target="_blank" rel="noopener noreferrer">Autoencoders in PyTorch</a></li>
+</ul>
+<h2 id="properties-of-autoencoders">Properties of Autoencoders</h2>
+<ul>
+<li><strong>Data Specific</strong> - they only work well with the type of images they have been trained on. For example, if we train a super-resolution network on flowers, it will not work well on portraits. This is because the network can produce higher resolution image by taking fine details from features learned from the training dataset.</li>
+<li><strong>Lossy</strong> - the reconstructed image is not the same as the original image. The nature of loss is defined by the <em>loss function</em> used during training</li>
+<li>Works on <strong>unlabeled data</strong></li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>In this lesson, you learned about the various types of autoencoders available to the AI scientist. You learned how to build them, and how to use them to reconstruct images. You also learned about the VAE and how to use it to generate new images.</p>
+<h2 id="challenge">🚀 Challenge</h2>
+<p>In this lesson, you learned about using autoencoders for images. But they can also be used for music! Check out the Magenta project's <a href="https://magenta.tensorflow.org/music-vae" target="_blank" rel="noopener noreferrer">MusicVAE</a> project, which uses autoencoders to learn to reconstruct music. Do some <a href="https://colab.research.google.com/github/magenta/magenta-demos/blob/master/colab-notebooks/Multitrack_MusicVAE.ipynb" target="_blank" rel="noopener noreferrer">experiments</a> with this library to see what you can create.</p>
+
+<h2 id="review-self-study">Review &amp; Self Study</h2>
+<p>For reference, read more about autoencoders in these resources:</p>
+<ul>
+<li><a href="https://blog.keras.io/building-autoencoders-in-keras.html" target="_blank" rel="noopener noreferrer">Building Autoencoders in Keras</a></li>
+<li><a href="https://neurohive.io/ru/osnovy-data-science/variacionnyj-avtojenkoder-vae/" target="_blank" rel="noopener noreferrer">Blog post on NeuroHive</a></li>
+<li><a href="https://kvfrans.com/variational-autoencoders-explained/" target="_blank" rel="noopener noreferrer">Variational Autoencoders Explained</a></li>
+<li><a href="https://ijdykeman.github.io/ml/2016/12/21/cvae.html" target="_blank" rel="noopener noreferrer">Conditional Variational Autoencoders</a></li>
+</ul>

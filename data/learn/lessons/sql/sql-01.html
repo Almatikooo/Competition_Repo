@@ -1,0 +1,670 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Explain the difference between a table, a record, and a field.</li>
+<li>Explain the difference between a database and a database manager.</li>
+<li>Write a query to select all values for specific fields from a single table.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>How can I get data from a database?</li>
+</ul>
+</div>
+<p>A <a href="https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/learners/reference.md#relational-database" target="_blank" rel="noopener noreferrer">relational database</a>
+is a way to store and manipulate information.
+Databases are arranged as <a href="https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/learners/reference.md#table" target="_blank" rel="noopener noreferrer">tables</a>.
+Each table has columns (also known as <a href="https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/learners/reference.md#fields" target="_blank" rel="noopener noreferrer">fields</a>) that describe the data,
+and rows (also known as <a href="https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/learners/reference.md#record" target="_blank" rel="noopener noreferrer">records</a>) which contain the data.</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/swcarpentry/sql-novice-survey/b55949e9edeecffa554cbc4a36b6dee92a2743f4/episodes/fig/database-diagram.svg">{alt="Database diagram."}</p>
+<p>When we are using a spreadsheet,
+we put formulas into cells to calculate new values based on old ones.
+When we are using a database,
+we send commands
+(usually called <a href="https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/learners/reference.md#query)" target="_blank" rel="noopener noreferrer">queries</a>
+to a <a href="https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/learners/reference.md#database-manager" target="_blank" rel="noopener noreferrer">database manager</a>:
+a program that manipulates the database for us.
+The database manager does whatever lookups and calculations the query specifies,
+returning the results in a tabular form
+that we can then use as a starting point for further queries.</p>
+<p>Queries are written in a language called <a href="https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/learners/reference.md#sql" target="_blank" rel="noopener noreferrer">SQL</a>,
+which stands for "Structured Query Language".
+SQL provides hundreds of different ways to analyze and recombine data.
+We will only look at a handful of queries,
+but that handful accounts for most of what scientists do.</p>
+<div class="box box-callout">
+<p class="box-title">Changing Database Managers</p>
+
+<p>Many database managers --- Oracle,
+IBM DB2, PostgreSQL, MySQL, Microsoft Access, and SQLite ---  understand
+SQL but each stores data in a different way,
+so a database created with one cannot be used directly by another.
+However, every database manager
+can import and export data in a variety of formats like .csv, SQL,
+so it <em>is</em> possible to move information from one to another.</p>
+</div>
+<div class="box box-callout">
+<p class="box-title">Getting Into and Out Of SQLite</p>
+
+<p>In order to use the SQLite commands <em>interactively</em>, we need to
+enter into the SQLite console.  So, open up a terminal, and run</p>
+<pre><code class="language-bash">$ cd /path/to/survey/data/
+$ sqlite3 survey.db
+</code></pre>
+<p>The SQLite command is <code>sqlite3</code> and you are telling SQLite to open up
+the <code>survey.db</code>.  You need to specify the <code>.db</code> file, otherwise SQLite
+will open up a temporary, empty database.</p>
+<p>To get out of SQLite, type out <code>.exit</code> or <code>.quit</code>.  For some
+terminals, <code>Ctrl-D</code> can also work.  If you forget any SQLite <code>.</code> (dot)
+command, type <code>.help</code>.</p>
+</div>
+<p>Before we get into using SQLite to select the data, let's take a look at the tables of the database we will use in our examples:</p>
+<div>
+<div>
+<p><strong>Person</strong>: People who took readings, <code>id</code> being the unique identifier for that person.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>id</th>
+<th>personal</th>
+<th>family</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dyer</td>
+<td>William</td>
+<td>Dyer</td>
+</tr>
+<tr>
+<td>pb</td>
+<td>Frank</td>
+<td>Pabodie</td>
+</tr>
+<tr>
+<td>lake</td>
+<td>Anderson</td>
+<td>Lake</td>
+</tr>
+<tr>
+<td>roe</td>
+<td>Valentina</td>
+<td>Roerich</td>
+</tr>
+<tr>
+<td>danforth</td>
+<td>Frank</td>
+<td>Danforth</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Site</strong>: Locations of the <code>sites</code> where readings were taken.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>name</th>
+<th>lat</th>
+<th>long</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DR-1</td>
+<td>-49.85</td>
+<td>-128.57</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+</tr>
+<tr>
+<td>MSK-4</td>
+<td>-48.87</td>
+<td>-123.4</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Visited</strong>: Specific identification <code>id</code> of the precise locations where readings were taken at the&nbsp;sites and dates.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>id</th>
+<th>site</th>
+<th>dated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>619</td>
+<td>DR-1</td>
+<td>1927-02-08</td>
+</tr>
+<tr>
+<td>622</td>
+<td>DR-1</td>
+<td>1927-02-10</td>
+</tr>
+<tr>
+<td>734</td>
+<td>DR-3</td>
+<td>1930-01-07</td>
+</tr>
+<tr>
+<td>735</td>
+<td>DR-3</td>
+<td>1930-01-12</td>
+</tr>
+<tr>
+<td>751</td>
+<td>DR-3</td>
+<td>1930-02-26</td>
+</tr>
+<tr>
+<td>752</td>
+<td>DR-3</td>
+<td>-null-</td>
+</tr>
+<tr>
+<td>837</td>
+<td>MSK-4</td>
+<td>1932-01-14</td>
+</tr>
+<tr>
+<td>844</td>
+<td>DR-1</td>
+<td>1932-03-22</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div>
+<p><strong>Survey</strong>: The measurements taken at each precise location on these sites. They are&nbsp;identified as <code>taken</code>. The field <code>quant</code> is short for quantity and indicates what is being measured. &nbsp;The values are <code>rad</code>, <code>sal</code>, and <code>temp</code> referring to 'radiation', 'salinity' and 'temperature', respectively.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>taken</th>
+<th>person</th>
+<th>quant</th>
+<th>reading</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>619</td>
+<td>dyer</td>
+<td>rad</td>
+<td>9.82</td>
+</tr>
+<tr>
+<td>619</td>
+<td>dyer</td>
+<td>sal</td>
+<td>0.13</td>
+</tr>
+<tr>
+<td>622</td>
+<td>dyer</td>
+<td>rad</td>
+<td>7.8</td>
+</tr>
+<tr>
+<td>622</td>
+<td>dyer</td>
+<td>sal</td>
+<td>0.09</td>
+</tr>
+<tr>
+<td>734</td>
+<td>pb</td>
+<td>rad</td>
+<td>8.41</td>
+</tr>
+<tr>
+<td>734</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>734</td>
+<td>pb</td>
+<td>temp</td>
+<td>-21.5</td>
+</tr>
+<tr>
+<td>735</td>
+<td>pb</td>
+<td>rad</td>
+<td>7.22</td>
+</tr>
+<tr>
+<td>735</td>
+<td>-null-</td>
+<td>sal</td>
+<td>0.06</td>
+</tr>
+<tr>
+<td>735</td>
+<td>-null-</td>
+<td>temp</td>
+<td>-26.0</td>
+</tr>
+<tr>
+<td>751</td>
+<td>pb</td>
+<td>rad</td>
+<td>4.35</td>
+</tr>
+<tr>
+<td>751</td>
+<td>pb</td>
+<td>temp</td>
+<td>-18.5</td>
+</tr>
+<tr>
+<td>751</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>752</td>
+<td>lake</td>
+<td>rad</td>
+<td>2.19</td>
+</tr>
+<tr>
+<td>752</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.09</td>
+</tr>
+<tr>
+<td>752</td>
+<td>lake</td>
+<td>temp</td>
+<td>-16.0</td>
+</tr>
+<tr>
+<td>752</td>
+<td>roe</td>
+<td>sal</td>
+<td>41.6</td>
+</tr>
+<tr>
+<td>837</td>
+<td>lake</td>
+<td>rad</td>
+<td>1.46</td>
+</tr>
+<tr>
+<td>837</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.21</td>
+</tr>
+<tr>
+<td>837</td>
+<td>roe</td>
+<td>sal</td>
+<td>22.5</td>
+</tr>
+<tr>
+<td>844</td>
+<td>roe</td>
+<td>rad</td>
+<td>11.25</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<p>Notice that three entries --- one in the <code>Visited</code> table,
+and two in the <code>Survey</code> table --- don't contain any actual
+data, but instead have a special <code>-null-</code> entry:
+we'll return to these missing values
+<a href="https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/episodes/05-null.md" target="_blank" rel="noopener noreferrer">later</a>.</p>
+<div class="box box-callout">
+<p class="box-title">Checking If Data is Available</p>
+
+<p>On the shell command line,
+change the working directory to the one where you saved <code>survey.db</code>.
+If you saved it at your Desktop you should use</p>
+<pre><code class="language-bash">$ cd Desktop
+$ ls | grep survey.db
+</code></pre>
+<pre><code class="language-output">survey.db
+</code></pre>
+<p>If you get the same output, you can run</p>
+<pre><code class="language-bash">$ sqlite3 survey.db
+</code></pre>
+<pre><code class="language-output">SQLite version 3.8.8 2015-01-16 12:08:06
+Enter ".help" for usage hints.
+sqlite&gt;
+</code></pre>
+<p>that instructs SQLite to load the database in the <code>survey.db</code> file.</p>
+<p>For a list of useful system commands, enter <code>.help</code>.</p>
+<p>All SQLite-specific commands are prefixed with a <code>.</code> to distinguish them from SQL commands.</p>
+<p>Type <code>.tables</code> to list the tables in the database.</p>
+<pre><code class="language-sql">.tables
+</code></pre>
+<pre><code class="language-output">Person   Site     Survey   Visited
+</code></pre>
+<p>If you had the above tables, you might be curious what information was stored in each table.
+To get more information on the tables, type <code>.schema</code> to see the SQL statements used to create the tables in the database.  The statements will have a list of the columns and the data types each column stores.</p>
+<pre><code class="language-sql">.schema
+</code></pre>
+<pre><code class="language-output">CREATE TABLE Person (id text, personal text, family text);
+CREATE TABLE Site (name text, lat real, long real);
+CREATE TABLE Survey (taken integer, person text, quant text, reading real);
+CREATE TABLE Visited (id integer, site text, dated text);
+</code></pre>
+<p>The output is formatted as &lt;<strong>columnName</strong> <em>dataType</em>&gt;.  Thus we can see from the first line that the table <strong>Person</strong> has three columns:</p>
+<ul>
+<li><strong>id</strong> with type <em>text</em></li>
+<li><strong>personal</strong> with type <em>text</em></li>
+<li><strong>family</strong> with type <em>text</em></li>
+</ul>
+<p>Note: The available data types vary based on the database manager - you can search online for what data types are supported.</p>
+<p>You can change some SQLite settings to make the output easier to read.
+First,
+set the output mode to display left-aligned columns.
+Then turn on the display of column headers.</p>
+<pre><code class="language-sql">.mode column
+.header on
+</code></pre>
+<p>Alternatively, you can get the settings automatically by creating a <code>.sqliterc</code>&nbsp;file.
+Add the commands above and reopen SQLite.
+For Windows, use <code>C:\Users\&lt;yourusername&gt;.sqliterc</code>.
+For Linux/MacOS, use <code>/Users/&lt;yourusername&gt;/.sqliterc</code>.</p>
+<p>To exit SQLite and return to the shell command line,
+you can use either <code>.quit</code> or <code>.exit</code>.</p>
+</div>
+<p>For now,
+let's write an SQL query that displays scientists' names.
+We do this using the SQL command <code>SELECT</code>,
+giving it the names of the columns we want and the table we want them from.
+Our query and its output, with the above settings applied, look like this:</p>
+<pre><code class="language-sql">SELECT family, personal FROM Person;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>family</th>
+<th>personal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dyer</td>
+<td>William</td>
+</tr>
+<tr>
+<td>Pabodie</td>
+<td>Frank</td>
+</tr>
+<tr>
+<td>Lake</td>
+<td>Anderson</td>
+</tr>
+<tr>
+<td>Roerich</td>
+<td>Valentina</td>
+</tr>
+<tr>
+<td>Danforth</td>
+<td>Frank</td>
+</tr>
+</tbody>
+</table></div>
+<p>The semicolon at the end of the query
+tells the database manager that the query is complete and ready to run.</p>
+<p>For comparison, without the above settings, the output of the same query will look like this:</p>
+<pre><code>William|Dyer
+Frank|Pabodie
+Anderson|Lake
+Valentina|Roerich
+Frank|Danforth
+</code></pre>
+<p>We have written our commands in upper case and the names for the table and columns
+in lower case,
+but we don't have to:
+as the example below shows,
+SQL is <a href="https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/learners/reference.md#case-insensitive" target="_blank" rel="noopener noreferrer">case insensitive</a>.</p>
+<pre><code class="language-sql">SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>family</th>
+<th>personal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dyer</td>
+<td>William</td>
+</tr>
+<tr>
+<td>Pabodie</td>
+<td>Frank</td>
+</tr>
+<tr>
+<td>Lake</td>
+<td>Anderson</td>
+</tr>
+<tr>
+<td>Roerich</td>
+<td>Valentina</td>
+</tr>
+<tr>
+<td>Danforth</td>
+<td>Frank</td>
+</tr>
+</tbody>
+</table></div>
+<p>You can use SQL's case insensitivity
+to distinguish between different parts of an SQL statement.
+In this lesson, we use the convention of using UPPER CASE for SQL keywords
+(such as <code>SELECT</code> and <code>FROM</code>),
+Title Case for table names, and lower case for field names.
+Whatever casing
+convention you choose, please be consistent: complex queries are hard
+enough to read without the extra cognitive load of random
+capitalization.</p>
+<p>While we are on the topic of SQL's syntax, one aspect of SQL's syntax
+that can frustrate novices and experts alike is forgetting to finish a
+command with <code>;</code> (semicolon).  When you press enter for a command
+without adding the <code>;</code> to the end, it can look something like this:</p>
+<pre><code class="language-sql">SELECT id FROM Person
+...&gt;
+...&gt;
+</code></pre>
+<p>This is SQL's prompt, where it is waiting for additional commands or
+for a <code>;</code> to let SQL know to finish.  This is easy to fix!  Just type
+<code>;</code> and press enter!</p>
+<p>Now, going back to our query,
+it's important to understand that
+the rows and columns in a database table aren't actually stored in any particular order.
+They will always be <em>displayed</em> in some order,
+but we can control that in various ways.
+For example,
+we could swap the columns in the output by writing our query as:</p>
+<pre><code class="language-sql">SELECT personal, family FROM Person;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>personal</th>
+<th>family</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>William</td>
+<td>Dyer</td>
+</tr>
+<tr>
+<td>Frank</td>
+<td>Pabodie</td>
+</tr>
+<tr>
+<td>Anderson</td>
+<td>Lake</td>
+</tr>
+<tr>
+<td>Valentina</td>
+<td>Roerich</td>
+</tr>
+<tr>
+<td>Frank</td>
+<td>Danforth</td>
+</tr>
+</tbody>
+</table></div>
+<p>or even repeat columns:</p>
+<pre><code class="language-sql">SELECT id, id, id FROM Person;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>id</th>
+<th>id</th>
+<th>id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dyer</td>
+<td>dyer</td>
+<td>dyer</td>
+</tr>
+<tr>
+<td>pb</td>
+<td>pb</td>
+<td>pb</td>
+</tr>
+<tr>
+<td>lake</td>
+<td>lake</td>
+<td>lake</td>
+</tr>
+<tr>
+<td>roe</td>
+<td>roe</td>
+<td>roe</td>
+</tr>
+<tr>
+<td>danforth</td>
+<td>danforth</td>
+<td>danforth</td>
+</tr>
+</tbody>
+</table></div>
+<p>As a shortcut,
+we can select all of the columns in a table using <code>*</code>:</p>
+<pre><code class="language-sql">SELECT * FROM Person;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>id</th>
+<th>personal</th>
+<th>family</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dyer</td>
+<td>William</td>
+<td>Dyer</td>
+</tr>
+<tr>
+<td>pb</td>
+<td>Frank</td>
+<td>Pabodie</td>
+</tr>
+<tr>
+<td>lake</td>
+<td>Anderson</td>
+<td>Lake</td>
+</tr>
+<tr>
+<td>roe</td>
+<td>Valentina</td>
+<td>Roerich</td>
+</tr>
+<tr>
+<td>danforth</td>
+<td>Frank</td>
+<td>Danforth</td>
+</tr>
+</tbody>
+</table></div>
+<div class="box box-challenge">
+<p class="box-title">Understanding CREATE statements</p>
+
+<p>Use the <code>.schema</code> to identify column that contains integers.</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<pre><code class="language-sql">.schema
+</code></pre>
+<pre><code class="language-output">CREATE TABLE Person (id text, personal text, family text);
+CREATE TABLE Site (name text, lat real, long real);
+CREATE TABLE Survey (taken integer, person text, quant text, reading real);
+CREATE TABLE Visited (id integer, site text, dated text);
+</code></pre>
+<p>From the output, we see that the <strong>taken</strong> column in the <strong>Survey</strong> table (3rd line) is composed of integers.</p>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Selecting Site Names</p>
+
+<p>Write a query that selects only the <code>name</code> column from the <code>Site</code> table.</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x">Solution</h2>
+<pre><code class="language-sql">SELECT name FROM Site;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DR-1</td>
+</tr>
+<tr>
+<td>DR-3</td>
+</tr>
+<tr>
+<td>MSK-4</td>
+</tr>
+</tbody>
+</table></div>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Query Style</p>
+
+<p>Many people format queries as:</p>
+<pre><code class="language-sql">SELECT personal, family FROM person;
+</code></pre>
+<p>or as:</p>
+<pre><code class="language-sql">select Personal, Family from PERSON;
+</code></pre>
+<p>What style do you find easiest to read, and why?</p>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>A relational database stores information in tables, each of which has a fixed set of columns and a variable number of records.</li>
+<li>A database manager is a program that manipulates information stored in a database.</li>
+<li>We write queries in a specialized language called SQL to extract information from databases.</li>
+<li>Use SELECT... FROM... to get values from a database table.</li>
+<li>SQL is case-insensitive (but data is case-sensitive).</li>
+</ul>
+</div>

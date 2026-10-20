@@ -1,0 +1,696 @@
+{
+ "title": "MLOps & Model Deployment",
+ "subtitle": "Take models from a notebook to a reliable production system — and keep them healthy.",
+ "level": "Intermediate",
+ "outcomes": [
+  "Serve a trained model from a web application",
+  "Choose static or dynamic training and inference",
+  "Test, deploy and monitor ML pipelines",
+  "Automate training and delivery with MLOps maturity levels"
+ ],
+ "skill": "mlops",
+ "modules": [
+  {
+   "title": "From notebook to product",
+   "lessons": [
+    "mlops-01",
+    "mlops-02"
+   ]
+  },
+  {
+   "title": "Production ML systems",
+   "lessons": [
+    "mlops-03",
+    "mlops-04",
+    "mlops-05",
+    "mlops-06"
+   ]
+  },
+  {
+   "title": "Automating ML delivery",
+   "lessons": [
+    "mlops-07"
+   ]
+  },
+  {
+   "title": "Rules of machine learning",
+   "lessons": [
+    "mlops-08"
+   ]
+  },
+  {
+   "title": "Shipping with containers",
+   "lessons": [
+    "mlops-09",
+    "mlops-10"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "mlops-01",
+   "title": "Build a Web App to use a ML Model",
+   "words": 1613,
+   "minutes": 9,
+   "source": "ms-ml",
+   "url": "https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/3-Web-App/1-Web-App/README.md",
+   "toc": [
+    {
+     "id": "building-an-app",
+     "text": "Building an app",
+     "level": 2
+    },
+    {
+     "id": "considerations",
+     "text": "Considerations",
+     "level": 3
+    },
+    {
+     "id": "tool",
+     "text": "Tool",
+     "level": 2
+    },
+    {
+     "id": "exercise-clean-your-data",
+     "text": "Exercise - clean your data",
+     "level": 2
+    },
+    {
+     "id": "exercise-build-your-model",
+     "text": "Exercise - build your model",
+     "level": 2
+    },
+    {
+     "id": "exercise-pickle-your-model",
+     "text": "Exercise - 'pickle' your model",
+     "level": 2
+    },
+    {
+     "id": "exercise-build-a-flask-app",
+     "text": "Exercise - build a Flask app",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "mlops-02",
+   "title": "The Generative AI Application Lifecycle",
+   "words": 789,
+   "minutes": 4,
+   "source": "ms-genai",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/14-the-generative-ai-application-lifecycle/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "understand-the-paradigm-shift-from-mlops-to-llmops",
+     "text": "Understand the Paradigm Shift from MLOps to LLMOps",
+     "level": 2
+    },
+    {
+     "id": "the-llm-lifecycle",
+     "text": "The LLM Lifecycle",
+     "level": 2
+    },
+    {
+     "id": "lifecycle-tooling",
+     "text": "Lifecycle Tooling",
+     "level": 2
+    },
+    {
+     "id": "great-continue-your-learning",
+     "text": "Great! Continue your Learning!",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "mlops-03",
+   "title": "Static versus dynamic training",
+   "words": 769,
+   "minutes": 4,
+   "source": "google-ml",
+   "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/static-vs-dynamic-training",
+   "toc": [
+    {
+     "id": "page-summary",
+     "text": "Page Summary",
+     "level": 2
+    },
+    {
+     "id": "exercises-check-your-understanding",
+     "text": "Exercises: Check your understanding",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "mlops-04",
+   "title": "Static versus dynamic inference",
+   "words": 757,
+   "minutes": 4,
+   "source": "google-ml",
+   "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/static-vs-dynamic-inference",
+   "toc": [
+    {
+     "id": "page-summary",
+     "text": "Page Summary",
+     "level": 2
+    },
+    {
+     "id": "static-inference",
+     "text": "Static inference",
+     "level": 2
+    },
+    {
+     "id": "dynamic-inference",
+     "text": "Dynamic inference",
+     "level": 2
+    },
+    {
+     "id": "exercises-check-your-understanding",
+     "text": "Exercises: Check your understanding",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "mlops-05",
+   "title": "Deployment testing",
+   "words": 770,
+   "minutes": 4,
+   "source": "google-ml",
+   "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/deployment-testing",
+   "toc": [
+    {
+     "id": "page-summary",
+     "text": "Page Summary",
+     "level": 2
+    },
+    {
+     "id": "about-the-unicorn-model",
+     "text": "About the unicorn model",
+     "level": 2
+    },
+    {
+     "id": "test-model-updates-with-reproducible-training",
+     "text": "Test model updates with reproducible training",
+     "level": 2
+    },
+    {
+     "id": "test-calls-to-machine-learning-api",
+     "text": "Test calls to machine learning API",
+     "level": 2
+    },
+    {
+     "id": "write-integration-tests-for-pipeline-components",
+     "text": "Write integration tests for pipeline components",
+     "level": 2
+    },
+    {
+     "id": "validate-model-quality-before-serving",
+     "text": "Validate model quality before serving",
+     "level": 2
+    },
+    {
+     "id": "validate-model-infrastructure-compatibility-before-serving",
+     "text": "Validate model-infrastructure compatibility before serving",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "mlops-06",
+   "title": "Monitoring pipelines",
+   "words": 1877,
+   "minutes": 10,
+   "source": "google-ml",
+   "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+   "toc": [
+    {
+     "id": "page-summary",
+     "text": "Page Summary",
+     "level": 2
+    },
+    {
+     "id": "write-a-data-schema-to-validate-raw-data",
+     "text": "Write a data schema to validate raw data",
+     "level": 2
+    },
+    {
+     "id": "write-unit-tests-to-validate-feature-engineering",
+     "text": "Write unit tests to validate feature engineering",
+     "level": 2
+    },
+    {
+     "id": "check-metrics-for-important-data-slices",
+     "text": "Check metrics for important data slices",
+     "level": 2
+    },
+    {
+     "id": "use-real-world-metrics",
+     "text": "Use real-world metrics",
+     "level": 2
+    },
+    {
+     "id": "check-for-training-serving-skew",
+     "text": "Check for training-serving skew",
+     "level": 2
+    },
+    {
+     "id": "exercise-check-your-understanding",
+     "text": "Exercise: Check your understanding",
+     "level": 3
+    },
+    {
+     "id": "check-for-label-leakage",
+     "text": "Check for label leakage",
+     "level": 2
+    },
+    {
+     "id": "exercise-check-your-understanding-x",
+     "text": "Exercise: Check your understanding",
+     "level": 3
+    },
+    {
+     "id": "monitor-model-age-throughout-pipeline",
+     "text": "Monitor model age throughout pipeline",
+     "level": 2
+    },
+    {
+     "id": "test-that-model-weights-and-outputs-are-numerically-stable",
+     "text": "Test that model weights and outputs are numerically stable",
+     "level": 2
+    },
+    {
+     "id": "monitor-model-performance",
+     "text": "Monitor model performance",
+     "level": 2
+    },
+    {
+     "id": "test-the-quality-of-live-model-on-served-data",
+     "text": "Test the quality of live model on served data",
+     "level": 2
+    },
+    {
+     "id": "randomization",
+     "text": "Randomization",
+     "level": 2
+    },
+    {
+     "id": "considerations-for-hashing",
+     "text": "Considerations for hashing",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "mlops-07",
+   "title": "MLOps: continuous delivery and automation pipelines",
+   "words": 4627,
+   "minutes": 24,
+   "source": "google-cloud",
+   "url": "https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning",
+   "toc": [
+    {
+     "id": "devops-versus-mlops",
+     "text": "DevOps versus MLOps",
+     "level": 2
+    },
+    {
+     "id": "data-science-steps-for-ml",
+     "text": "Data science steps for ML",
+     "level": 2
+    },
+    {
+     "id": "mlops-level-0-manual-process",
+     "text": "MLOps level 0: Manual process",
+     "level": 2
+    },
+    {
+     "id": "characteristics",
+     "text": "Characteristics",
+     "level": 3
+    },
+    {
+     "id": "challenges",
+     "text": "Challenges",
+     "level": 3
+    },
+    {
+     "id": "mlops-level-1-ml-pipeline-automation",
+     "text": "MLOps level 1: ML pipeline automation",
+     "level": 2
+    },
+    {
+     "id": "characteristics-x",
+     "text": "Characteristics",
+     "level": 3
+    },
+    {
+     "id": "additional-components",
+     "text": "Additional components",
+     "level": 3
+    },
+    {
+     "id": "challenges-x",
+     "text": "Challenges",
+     "level": 3
+    },
+    {
+     "id": "mlops-level-2-ci-cd-pipeline-automation",
+     "text": "MLOps level 2: CI/CD pipeline automation",
+     "level": 2
+    },
+    {
+     "id": "characteristics-x-x",
+     "text": "Characteristics",
+     "level": 3
+    },
+    {
+     "id": "continuous-integration",
+     "text": "Continuous integration",
+     "level": 3
+    },
+    {
+     "id": "continuous-delivery",
+     "text": "Continuous delivery",
+     "level": 3
+    },
+    {
+     "id": "what-s-next",
+     "text": "What's next",
+     "level": 2
+    },
+    {
+     "id": "contributors",
+     "text": "Contributors",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "mlops-08",
+   "title": "Rules of Machine Learning",
+   "words": 9955,
+   "minutes": 50,
+   "source": "google-ml",
+   "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+   "toc": [
+    {
+     "id": "page-summary",
+     "text": "Page Summary",
+     "level": 2
+    },
+    {
+     "id": "best-practices-for-ml-engineering",
+     "text": "Best Practices for ML Engineering",
+     "level": 2
+    },
+    {
+     "id": "terminology",
+     "text": "Terminology",
+     "level": 2
+    },
+    {
+     "id": "overview",
+     "text": "Overview",
+     "level": 2
+    },
+    {
+     "id": "before-machine-learning",
+     "text": "Before Machine Learning",
+     "level": 2
+    },
+    {
+     "id": "ml-phase-i-your-first-pipeline",
+     "text": "ML Phase I: Your First Pipeline",
+     "level": 2
+    },
+    {
+     "id": "monitoring",
+     "text": "Monitoring",
+     "level": 3
+    },
+    {
+     "id": "your-first-objective",
+     "text": "Your First Objective",
+     "level": 3
+    },
+    {
+     "id": "ml-phase-ii-feature-engineering",
+     "text": "ML Phase II: Feature Engineering",
+     "level": 2
+    },
+    {
+     "id": "human-analysis-of-the-system",
+     "text": "Human Analysis of the System",
+     "level": 3
+    },
+    {
+     "id": "training-serving-skew",
+     "text": "Training-Serving Skew",
+     "level": 3
+    },
+    {
+     "id": "ml-phase-iii-slowed-growth-optimization-refinement-and-compl",
+     "text": "ML Phase III: Slowed Growth, Optimization Refinement, and Complex Models",
+     "level": 2
+    },
+    {
+     "id": "related-work",
+     "text": "Related Work",
+     "level": 2
+    },
+    {
+     "id": "acknowledgements",
+     "text": "Acknowledgements",
+     "level": 2
+    },
+    {
+     "id": "appendix",
+     "text": "Appendix",
+     "level": 2
+    },
+    {
+     "id": "youtube-overview",
+     "text": "YouTube Overview",
+     "level": 3
+    },
+    {
+     "id": "google-play-overview",
+     "text": "Google Play Overview",
+     "level": 3
+    },
+    {
+     "id": "google-plus-overview",
+     "text": "Google Plus Overview",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "mlops-09",
+   "title": "Exploring and Running Containers",
+   "words": 1509,
+   "minutes": 8,
+   "source": "ci-docker",
+   "url": "https://github.com/carpentries-incubator/docker-introduction/blob/1dd2b07a572ae7dc295d21bb3e92b20ef1367b11/episodes/running-containers.md",
+   "toc": [
+    {
+     "id": "downloading-podman-images",
+     "text": "Downloading Podman images",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "running-the-hello-container",
+     "text": "Running the hello container",
+     "level": 2
+    },
+    {
+     "id": "running-a-container-with-a-chosen-command",
+     "text": "Running a container with a chosen command",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "running-containers-interactively",
+     "text": "Running containers interactively",
+     "level": 2
+    },
+    {
+     "id": "solution-1-interactive",
+     "text": "Solution 1 -- Interactive",
+     "level": 2
+    },
+    {
+     "id": "solution-2-run-commands",
+     "text": "Solution 2 -- Run commands",
+     "level": 2
+    },
+    {
+     "id": "conclusion",
+     "text": "Conclusion",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "mlops-10",
+   "title": "Creating Your Own Container Images",
+   "words": 2247,
+   "minutes": 12,
+   "source": "ci-docker",
+   "url": "https://github.com/carpentries-incubator/docker-introduction/blob/1dd2b07a572ae7dc295d21bb3e92b20ef1367b11/episodes/creating-container-images.md",
+   "toc": [
+    {
+     "id": "interactive-installation",
+     "text": "Interactive installation",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "put-installation-instructions-in-a-dockerfile",
+     "text": "Put installation instructions in a Dockerfile",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution:",
+     "level": 2
+    },
+    {
+     "id": "create-a-new-container-image",
+     "text": "Create a new container image",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "boring-but-important-notes-about-installation",
+     "text": "Boring but important notes about installation",
+     "level": 2
+    },
+    {
+     "id": "share-your-new-container-image-on-docker-hub",
+     "text": "Share your new container image on Docker Hub",
+     "level": 2
+    },
+    {
+     "id": "what-s-in-a-name-again",
+     "text": "What's in a name? (again)",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [
+   {
+    "q": "What are the tools we can use to host a pre-trained model on the web using Python?",
+    "options": [
+     "Flask",
+     "TensorFlow.js",
+     "onnx.js"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "mlops-01",
+    "origin": "bank:ml:18",
+    "source": "ms-ml"
+   },
+   {
+    "q": "What does SaaS stand for?",
+    "options": [
+     "System as a Service",
+     "Software as a Service",
+     "Security as a Service"
+    ],
+    "answer": 1,
+    "explain": "",
+    "lesson": "mlops-01",
+    "origin": "bank:ml:18",
+    "source": "ms-ml"
+   }
+  ],
+  "pass_mark": 2,
+  "missing": false
+ },
+ "minutes": 129,
+ "sources": [
+  {
+   "id": "ci-docker",
+   "name": "Carpentries Incubator · Introduction to Docker",
+   "url": "https://carpentries-incubator.github.io/docker-introduction/",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "© The Carpentries, CC BY 4.0",
+   "noncommercial": false
+  },
+  {
+   "id": "google-cloud",
+   "name": "Google Cloud · Architecture Center",
+   "url": "https://cloud.google.com/architecture",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "© Google, CC BY 4.0",
+   "noncommercial": false
+  },
+  {
+   "id": "google-ml",
+   "name": "Google for Developers · Machine Learning",
+   "url": "https://developers.google.com/machine-learning",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "© Google, CC BY 4.0",
+   "noncommercial": false
+  },
+  {
+   "id": "ms-genai",
+   "name": "Microsoft · Generative AI for Beginners",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners",
+   "license": "MIT",
+   "license_url": "https://opensource.org/license/mit",
+   "attribution": "© Microsoft Corporation, MIT License",
+   "noncommercial": false
+  },
+  {
+   "id": "ms-ml",
+   "name": "Microsoft · ML for Beginners",
+   "url": "https://github.com/microsoft/ML-For-Beginners",
+   "license": "MIT",
+   "license_url": "https://opensource.org/license/mit",
+   "attribution": "© Microsoft Corporation, MIT License",
+   "noncommercial": false
+  }
+ ]
+}

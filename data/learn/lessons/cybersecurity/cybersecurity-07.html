@@ -1,0 +1,55 @@
+<p>Have you ever logged into a computer or a website? Of course you have! That means you’ve already used identity controls in your day-to-day life. Identity and access management (IAM) is a key pillar of security, we’ll learn more about it in the next few lessons.</p>
+<p><a href="https://learn-video.azurefd.net/vod/player?id=3d2a9cb5-e25a-4b25-9e5a-b3fee2360f24" target="_blank" rel="noopener noreferrer"><img alt="Watch the video" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Security-101/b0a31ff7ebb9983d24bcdc6a38a4d008e6e89d0c/images/2-1_placeholder.png"></a></p>
+<p><strong>Introduction</strong></p>
+<p>In this lesson, we’ll cover:</p>
+<ul>
+<li>
+<p>What do we mean by identity and access management (IAM) in the
+context of cybersecurity?</p>
+</li>
+<li>
+<p>What is the principle of least privilege?</p>
+</li>
+<li>
+<p>What is segregation of duties?</p>
+</li>
+<li>
+<p>What is authentication and authorization?</p>
+</li>
+</ul>
+<h2 id="what-do-we-mean-by-identity-and-access-management-iam-in-the">What do we mean by identity and access management (IAM) in the context of cybersecurity?</h2>
+<p>Identity and Access Management (IAM) refers to a set of processes, technologies, and policies that are implemented to ensure that the right individuals have the appropriate access to resources within an organization's digital environment. IAM involves managing digital identities (users, employees, partners) and their access to systems, applications, data, and networks. The primary goal of IAM is to enhance security, streamline user access, and ensure compliance with organizational policies and regulations. IAM solutions typically encompass user authentication, authorization, identity provisioning, access control, and user lifecycle management (making sure accounts get deleted when they are no longer being used).</p>
+<h2 id="what-is-the-principle-of-least-privilege">What is the principle of least privilege?</h2>
+<p>The principle of least privilege is a fundamental concept that advocates granting users and systems only the minimum privileges necessary to perform their intended tasks or roles. This principle helps to limit the potential damage that can occur in case of a security breach or insider threat. By adhering to the principle of least privilege, organizations reduce the attack surface and minimize the risk of unauthorized access, data breaches, and accidental misuse of privileges. In practice, this means that users are granted access only to the specific resources and functionalities required for their job roles, and no more. For example, if you just need to read a document, it would be excessive for you to be granted full admin privileges to said document.</p>
+<h2 id="what-is-segregation-of-duties">What is segregation of duties?</h2>
+<p>Segregation of duties is a principle aimed at preventing conflicts of interest and reducing the risk of fraud and errors by distributing critical tasks and responsibilities among different individuals within an organization. In the context of cybersecurity, segregation of duties involves ensuring that no single individual has control over all aspects of a critical process or system. The goal is to create a system of checks and balances that prevents any single person from having the capability to perform both the setup and approval stages of a process. For example, in financial systems, this might dictate that the person who enters transactions into the system should not be the same person who approves those transactions. This reduces the risk of unauthorized or fraudulent actions going undetected.</p>
+<h2 id="what-is-authentication-and-authorization">What is authentication and authorization?</h2>
+<p>Authentication and authorization are two fundamental concepts in cybersecurity that play a crucial role in ensuring the security and integrity of computer systems and data. They are often used in conjunction to control access to resources and protect sensitive information.</p>
+<p><strong>1.  Authentication</strong>: Authentication is the process of verifying the identity of a user, system, or entity attempting to access a computer system or specific resource. It ensures that the claimed identity is genuine and accurate. Authentication methods typically involve the use of one or more of the following factors:</p>
+<pre><code>a. Something you know: This includes passwords, PINs, or other secret knowledge that only the authorized user should possess.
+
+b. Something you have: This involves physical tokens or devices like smart cards, security tokens, or mobile phones used to confirm the user's identity.
+
+c. Something you are: This refers to biometric factors like fingerprints, facial recognition, or retinal scans that are unique to an individual.
+</code></pre>
+<p>Authentication mechanisms are used to confirm that a user is who they claim to be before allowing access to a system or resource. It helps prevent unauthorized access and ensures that only legitimate users can perform actions within a system.</p>
+<p><strong>2.  Authorization</strong>: Authorization is the process of granting or denying specific permissions and privileges to authenticated users or entities once their identity has been verified. It determines what actions or operations a user is allowed to perform within a system or on specific resources. Authorization is often based on predefined policies, access control rules, and roles assigned to users.</p>
+<p>Authorization can be thought of as answering the question, "What can an authenticated user do?" It involves defining and enforcing access control policies to protect sensitive data and resources from unauthorized access or modification.</p>
+<p><strong>In summary:</strong></p>
+<ul>
+<li>Authentication establishes the identity of users or entities.</li>
+<li>Authorization determines what actions and resources authenticated users are allowed to access or manipulate.</li>
+</ul>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/training/modules/describe-identity-principles-concepts/?WT.mc_id=academic-96948-sayoung" target="_blank" rel="noopener noreferrer">Describe identity concepts - Training | Microsoft Learn</a></li>
+<li><a href="https://learn.microsoft.com/azure/active-directory/fundamentals/identity-fundamental-concepts?WT.mc_id=academic-96948-sayoung" target="_blank" rel="noopener noreferrer">Introduction to identity - Microsoft Entra | Microsoft Learn</a></li>
+<li><a href="https://www.microsoft.com/security/business/security-101/what-is-identity-access-management-iam?WT.mc_id=academic-96948-sayoung" target="_blank" rel="noopener noreferrer">What is Identity Access Management (IAM)? | Microsoft Security</a></li>
+<li><a href="https://www.csoonline.com/article/518296/what-is-iam-identity-and-access-management-explained.html" target="_blank" rel="noopener noreferrer">What is IAM? Identity and access management explained | CSO Online</a></li>
+<li><a href="https://auth0.com/blog/what-is-iam/" target="_blank" rel="noopener noreferrer">What is IAM? (auth0.com)</a></li>
+<li><a href="https://resources.infosecinstitute.com/certifications/securityplus/security-implementing-identity-and-access-management-iam-controls/" target="_blank" rel="noopener noreferrer">Security+: implementing Identity and Access Management (IAM) controls [updated 2021] | Infosec (infosecinstitute.com)</a></li>
+<li><a href="https://csrc.nist.gov/glossary/term/least_privilege" target="_blank" rel="noopener noreferrer">least privilege - Glossary | CSRC (nist.gov)</a></li>
+<li><a href="https://techcommunity.microsoft.com/t5/azure-sql-blog/security-the-principle-of-least-privilege-polp/ba-p/2067390?WT.mc_id=academic-96948-sayoung" target="_blank" rel="noopener noreferrer">Security: The Principle of Least Privilege (POLP) - Microsoft Community Hub</a></li>
+<li><a href="https://www.cert.govt.nz/it-specialists/critical-controls/principle-of-least-privilege/" target="_blank" rel="noopener noreferrer">Principle of least privilege | CERT NZ</a></li>
+<li><a href="https://www.totem.tech/cmmc-separation-of-duties/" target="_blank" rel="noopener noreferrer">Why is separation of duties required by NIST 800-171 and CMMC? - (totem.tech)</a></li>
+</ul>

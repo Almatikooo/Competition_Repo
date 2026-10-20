@@ -1,0 +1,426 @@
+{
+ "title": "Databases and SQL",
+ "subtitle": "Ask questions of real data with SQL — selecting, filtering, aggregating and joining.",
+ "level": "Beginner",
+ "outcomes": [
+  "Explain how relational databases store data",
+  "Select, sort and filter records with SQL",
+  "Aggregate and combine tables with joins",
+  "Keep data clean and create your own tables"
+ ],
+ "skill": "sql",
+ "modules": [
+  {
+   "title": "Querying data",
+   "lessons": [
+    "sql-01",
+    "sql-02",
+    "sql-03",
+    "sql-04",
+    "sql-05"
+   ]
+  },
+  {
+   "title": "Summarising and combining",
+   "lessons": [
+    "sql-06",
+    "sql-07"
+   ]
+  },
+  {
+   "title": "Designing data",
+   "lessons": [
+    "sql-08",
+    "sql-09"
+   ]
+  },
+  {
+   "title": "Where databases fit",
+   "lessons": [
+    "sql-10",
+    "sql-11"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "sql-01",
+   "title": "Selecting Data",
+   "words": 1501,
+   "minutes": 8,
+   "source": "swc-sql",
+   "url": "https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/episodes/01-select.md",
+   "toc": [
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "sql-02",
+   "title": "Sorting and Removing Duplicates",
+   "words": 830,
+   "minutes": 5,
+   "source": "swc-sql",
+   "url": "https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/episodes/02-sort-dup.md",
+   "toc": [
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "sql-03",
+   "title": "Filtering",
+   "words": 1062,
+   "minutes": 6,
+   "source": "swc-sql",
+   "url": "https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/episodes/03-filter.md",
+   "toc": [
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "sql-04",
+   "title": "Calculating New Values",
+   "words": 724,
+   "minutes": 4,
+   "source": "swc-sql",
+   "url": "https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/episodes/04-calc.md",
+   "toc": [
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "sql-05",
+   "title": "Missing Data",
+   "words": 934,
+   "minutes": 5,
+   "source": "swc-sql",
+   "url": "https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/episodes/05-null.md",
+   "toc": [
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "sql-06",
+   "title": "Aggregation",
+   "words": 1330,
+   "minutes": 7,
+   "source": "swc-sql",
+   "url": "https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/episodes/06-agg.md",
+   "toc": [
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "sql-07",
+   "title": "Combining Data",
+   "words": 1429,
+   "minutes": 8,
+   "source": "swc-sql",
+   "url": "https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/episodes/07-join.md",
+   "toc": [
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "sql-08",
+   "title": "Data Hygiene",
+   "words": 712,
+   "minutes": 4,
+   "source": "swc-sql",
+   "url": "https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/episodes/08-hygiene.md",
+   "toc": [
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "sql-09",
+   "title": "Creating and Modifying Data",
+   "words": 1085,
+   "minutes": 6,
+   "source": "swc-sql",
+   "url": "https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/episodes/09-create.md",
+   "toc": [
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "sql-10",
+   "title": "Working with Data: Relational Databases",
+   "words": 1370,
+   "minutes": 7,
+   "source": "ms-ds",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/05-relational-databases/README.md",
+   "toc": [
+    {
+     "id": "it-all-starts-with-tables",
+     "text": "It all starts with tables",
+     "level": 2
+    },
+    {
+     "id": "the-shortcomings-of-a-single-table-approach",
+     "text": "The shortcomings of a single table approach",
+     "level": 2
+    },
+    {
+     "id": "the-concepts-of-relationships",
+     "text": "The concepts of relationships",
+     "level": 2
+    },
+    {
+     "id": "cities",
+     "text": "cities",
+     "level": 3
+    },
+    {
+     "id": "rainfall",
+     "text": "rainfall",
+     "level": 3
+    },
+    {
+     "id": "retrieving-the-data",
+     "text": "Retrieving the data",
+     "level": 2
+    },
+    {
+     "id": "joining-data",
+     "text": "Joining data",
+     "level": 2
+    },
+    {
+     "id": "summary",
+     "text": "Summary",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "sql-11",
+   "title": "Working with Data: Non-Relational Data",
+   "words": 1393,
+   "minutes": 7,
+   "source": "ms-ds",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/06-non-relational/README.md",
+   "toc": [
+    {
+     "id": "spreadsheets",
+     "text": "Spreadsheets",
+     "level": 2
+    },
+    {
+     "id": "managing-an-inventory",
+     "text": "Managing an Inventory",
+     "level": 3
+    },
+    {
+     "id": "nosql",
+     "text": "NoSQL",
+     "level": 2
+    },
+    {
+     "id": "document-data-stores-with-the-azure-cosmos-db",
+     "text": "Document Data Stores with the Azure Cosmos DB",
+     "level": 3
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [
+   {
+    "q": "A primary key is",
+    "options": [
+     "a value used to identify one specific row in a table",
+     "a value used to make values unique",
+     "a value used to force capitalization"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "sql-10",
+    "origin": "bank:ds:9",
+    "source": "ms-ds"
+   },
+   {
+    "q": "A foreign key is used to",
+    "options": [
+     "values that reference the ids in a separate table",
+     "values that reference the strings in a separate table",
+     "preserve values that change over time"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "sql-10",
+    "origin": "bank:ds:9",
+    "source": "ms-ds"
+   },
+   {
+    "q": "Which one of these is NOT a type of NoSQL?",
+    "options": [
+     "Object oriented",
+     "Key-value",
+     "Columnar"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "sql-11",
+    "origin": "bank:ds:11",
+    "source": "ms-ds"
+   },
+   {
+    "q": "What do you use to do calculations in spreadsheets?",
+    "options": [
+     "Python",
+     "Aliases",
+     "Formulas"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "sql-11",
+    "origin": "bank:ds:11",
+    "source": "ms-ds"
+   }
+  ],
+  "pass_mark": 3,
+  "missing": false
+ },
+ "minutes": 67,
+ "sources": [
+  {
+   "id": "ms-ds",
+   "name": "Microsoft · Data Science for Beginners",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners",
+   "license": "MIT",
+   "license_url": "https://opensource.org/license/mit",
+   "attribution": "© Microsoft Corporation, MIT License",
+   "noncommercial": false
+  },
+  {
+   "id": "swc-sql",
+   "name": "Software Carpentry · Databases and SQL",
+   "url": "https://swcarpentry.github.io/sql-novice-survey/",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "© The Carpentries, CC BY 4.0",
+   "noncommercial": false
+  }
+ ]
+}

@@ -1,0 +1,582 @@
+{
+ "title": "Electric Vehicles & Batteries",
+ "subtitle": "How electric vehicles, batteries and charging work — and how to maintain and deploy them safely.",
+ "level": "Beginner",
+ "outcomes": [
+  "Explain how all-electric and plug-in hybrid vehicles work",
+  "Describe battery types, chemistry and lifespan",
+  "Plan home, workplace and public charging",
+  "Maintain EVs safely and assess their benefits and emissions"
+ ],
+ "skill": "ev_tech",
+ "modules": [
+  {
+   "title": "How electric vehicles work",
+   "lessons": [
+    "ev_tech-01",
+    "ev_tech-02"
+   ]
+  },
+  {
+   "title": "Batteries",
+   "lessons": [
+    "ev_tech-03",
+    "ev_tech-04",
+    "ev_tech-05",
+    "ev_tech-06"
+   ]
+  },
+  {
+   "title": "Charging",
+   "lessons": [
+    "ev_tech-07",
+    "ev_tech-08",
+    "ev_tech-09"
+   ]
+  },
+  {
+   "title": "Maintenance and safety",
+   "lessons": [
+    "ev_tech-10",
+    "ev_tech-11"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "ev_tech-01",
+   "title": "All-electric and plug-in hybrid vehicles",
+   "words": 1077,
+   "minutes": 6,
+   "source": "afdc",
+   "url": "https://afdc.energy.gov/vehicles/how-do-all-electric-cars-work",
+   "toc": [
+    {
+     "id": "how-do-all-electric-cars-work",
+     "text": "How Do All-Electric Cars Work?",
+     "level": 2
+    },
+    {
+     "id": "key-components-of-an-all-electric-car",
+     "text": "Key Components of an All-Electric Car",
+     "level": 3
+    },
+    {
+     "id": "related-vehicles",
+     "text": "Related Vehicles",
+     "level": 3
+    },
+    {
+     "id": "all-electric-vehicles",
+     "text": "All-Electric Vehicles",
+     "level": 2
+    },
+    {
+     "id": "how-it-works",
+     "text": "How It Works",
+     "level": 3
+    },
+    {
+     "id": "driving-range",
+     "text": "Driving Range",
+     "level": 3
+    },
+    {
+     "id": "how-do-plug-in-hybrid-electric-cars-work",
+     "text": "How Do Plug-In Hybrid Electric Cars Work?",
+     "level": 2
+    },
+    {
+     "id": "key-components-of-a-plug-in-hybrid-electric-car",
+     "text": "Key Components of a Plug-In Hybrid Electric Car",
+     "level": 3
+    },
+    {
+     "id": "related-vehicles",
+     "text": "Related Vehicles",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "ev_tech-02",
+   "title": "Benefits, emissions and availability",
+   "words": 1618,
+   "minutes": 9,
+   "source": "afdc",
+   "url": "https://afdc.energy.gov/fuels/electricity-benefits",
+   "toc": [
+    {
+     "id": "electric-vehicle-benefits-and-considerations",
+     "text": "Electric Vehicle Benefits and Considerations",
+     "level": 2
+    },
+    {
+     "id": "batteries",
+     "text": "Batteries",
+     "level": 3
+    },
+    {
+     "id": "costs",
+     "text": "Costs",
+     "level": 3
+    },
+    {
+     "id": "fuel-economy",
+     "text": "Fuel Economy",
+     "level": 3
+    },
+    {
+     "id": "infrastructure-availability",
+     "text": "Infrastructure Availability",
+     "level": 3
+    },
+    {
+     "id": "energy-security",
+     "text": "Energy Security",
+     "level": 3
+    },
+    {
+     "id": "related-content",
+     "text": "Related Content",
+     "level": 3
+    },
+    {
+     "id": "emissions-from-electric-vehicles",
+     "text": "Emissions from Electric Vehicles",
+     "level": 2
+    },
+    {
+     "id": "electricity-sources-and-fuel-cycle-emissions",
+     "text": "Electricity Sources and Fuel-Cycle Emissions",
+     "level": 3
+    },
+    {
+     "id": "direct-well-to-wheel-and-cradle-to-grave-emissions",
+     "text": "Direct, Well-to-Wheel, and Cradle-to-Grave Emissions",
+     "level": 3
+    },
+    {
+     "id": "related-reports",
+     "text": "Related Reports",
+     "level": 3
+    },
+    {
+     "id": "availability-of-electric-vehicles",
+     "text": "Availability of Electric Vehicles",
+     "level": 2
+    },
+    {
+     "id": "light-duty-vehicles",
+     "text": "Light-Duty Vehicles",
+     "level": 3
+    },
+    {
+     "id": "medium-and-heavy-duty-vehicles",
+     "text": "Medium- and Heavy-Duty Vehicles",
+     "level": 3
+    },
+    {
+     "id": "electric-vehicle-conversions",
+     "text": "Electric Vehicle Conversions",
+     "level": 3
+    },
+    {
+     "id": "pre-owned-vehicles",
+     "text": "Pre-Owned Vehicles",
+     "level": 3
+    },
+    {
+     "id": "more-information",
+     "text": "More Information",
+     "level": 3
+    },
+    {
+     "id": "related-content",
+     "text": "Related Content",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "ev_tech-03",
+   "title": "Batteries for Electric Vehicles",
+   "words": 1223,
+   "minutes": 7,
+   "source": "afdc",
+   "url": "https://afdc.energy.gov/vehicles/electric-batteries",
+   "toc": [
+    {
+     "id": "types-of-energy-storage-systems",
+     "text": "Types of Energy Storage Systems",
+     "level": 2
+    },
+    {
+     "id": "lithium-ion-batteries",
+     "text": "Lithium-Ion Batteries",
+     "level": 3
+    },
+    {
+     "id": "nickel-metal-hydride-batteries",
+     "text": "Nickel-Metal Hydride Batteries",
+     "level": 3
+    },
+    {
+     "id": "lead-acid-batteries",
+     "text": "Lead-Acid Batteries",
+     "level": 3
+    },
+    {
+     "id": "ultracapacitors",
+     "text": "Ultracapacitors",
+     "level": 3
+    },
+    {
+     "id": "recycling-batteries",
+     "text": "Recycling Batteries",
+     "level": 2
+    },
+    {
+     "id": "more-information",
+     "text": "More Information",
+     "level": 2
+    },
+    {
+     "id": "related-content",
+     "text": "Related Content",
+     "level": 2
+    },
+    {
+     "id": "case-studies",
+     "text": "Case Studies",
+     "level": 3
+    },
+    {
+     "id": "publications",
+     "text": "Publications",
+     "level": 3
+    },
+    {
+     "id": "tools",
+     "text": "Tools",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "ev_tech-04",
+   "title": "Batteries and power systems",
+   "words": 1886,
+   "minutes": 10,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_11.html",
+   "toc": [
+    {
+     "id": "electron-activity-in-chemical-reactions",
+     "text": "Electron activity in chemical reactions",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ev_tech-05",
+   "title": "Battery construction",
+   "words": 1978,
+   "minutes": 10,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_11.html",
+   "toc": [
+    {
+     "id": "battery-ratings",
+     "text": "Battery ratings",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ev_tech-06",
+   "title": "Special-purpose batteries",
+   "words": 1941,
+   "minutes": 10,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_11.html",
+   "toc": [
+    {
+     "id": "practical-considerations",
+     "text": "Practical considerations",
+     "level": 2
+    },
+    {
+     "id": "bibliography",
+     "text": "Bibliography",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ev_tech-07",
+   "title": "Charging at home and in public",
+   "words": 1443,
+   "minutes": 8,
+   "source": "afdc",
+   "url": "https://afdc.energy.gov/fuels/electricity-charging-home",
+   "toc": [
+    {
+     "id": "charging-electric-vehicles-at-home",
+     "text": "Charging Electric Vehicles at Home",
+     "level": 2
+    },
+    {
+     "id": "installing-charging-equipment-in-your-home",
+     "text": "Installing Charging Equipment in Your Home",
+     "level": 3
+    },
+    {
+     "id": "complying-with-regulations",
+     "text": "Complying with Regulations",
+     "level": 3
+    },
+    {
+     "id": "electricity-costs-for-charging",
+     "text": "Electricity Costs for Charging",
+     "level": 3
+    },
+    {
+     "id": "related-content",
+     "text": "Related Content",
+     "level": 3
+    },
+    {
+     "id": "charging-electric-vehicles-in-public",
+     "text": "Charging Electric Vehicles in Public",
+     "level": 2
+    },
+    {
+     "id": "charging-stations",
+     "text": "Charging Stations",
+     "level": 3
+    },
+    {
+     "id": "fleet-charging",
+     "text": "Fleet Charging",
+     "level": 3
+    },
+    {
+     "id": "building-codes-parking-ordinances-and-zoning-ordinances",
+     "text": "Building Codes, Parking Ordinances, and Zoning Ordinances",
+     "level": 3
+    },
+    {
+     "id": "related-content",
+     "text": "Related Content",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "ev_tech-08",
+   "title": "Procurement and Installation for Electric Vehicle Charging Infrastructure",
+   "words": 1503,
+   "minutes": 8,
+   "source": "afdc",
+   "url": "https://afdc.energy.gov/fuels/electricity-infrastructure-development",
+   "toc": [
+    {
+     "id": "infrastructure-tax-credit",
+     "text": "Infrastructure Tax Credit",
+     "level": 2
+    },
+    {
+     "id": "infrastructure-development-checklist",
+     "text": "Infrastructure Development Checklist",
+     "level": 2
+    },
+    {
+     "id": "planning",
+     "text": "Planning",
+     "level": 3
+    },
+    {
+     "id": "installation",
+     "text": "Installation",
+     "level": 3
+    },
+    {
+     "id": "operation",
+     "text": "Operation",
+     "level": 3
+    },
+    {
+     "id": "identify-the-need",
+     "text": "Identify the Need",
+     "level": 2
+    },
+    {
+     "id": "charging-access",
+     "text": "Charging Access",
+     "level": 3
+    },
+    {
+     "id": "cost-considerations",
+     "text": "Cost Considerations",
+     "level": 2
+    },
+    {
+     "id": "equipment",
+     "text": "Equipment",
+     "level": 3
+    },
+    {
+     "id": "installation-x",
+     "text": "Installation",
+     "level": 3
+    },
+    {
+     "id": "networking",
+     "text": "Networking",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "ev_tech-09",
+   "title": "Other Considerations",
+   "words": 1101,
+   "minutes": 6,
+   "source": "afdc",
+   "url": "https://afdc.energy.gov/fuels/electricity-infrastructure-development",
+   "toc": [
+    {
+     "id": "compliance-permitting-and-inspection",
+     "text": "Compliance, Permitting, and Inspection",
+     "level": 3
+    },
+    {
+     "id": "ownership",
+     "text": "Ownership",
+     "level": 3
+    },
+    {
+     "id": "signage-markings-and-accessibility-considerations",
+     "text": "Signage, Markings, and Accessibility Considerations",
+     "level": 3
+    },
+    {
+     "id": "utilities-and-other-partners",
+     "text": "Utilities and Other Partners",
+     "level": 3
+    },
+    {
+     "id": "formal-solicitations",
+     "text": "Formal Solicitations",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ev_tech-10",
+   "title": "Maintenance and Safety of Electric Vehicles",
+   "words": 767,
+   "minutes": 4,
+   "source": "afdc",
+   "url": "https://afdc.energy.gov/vehicles/electric-maintenance",
+   "toc": [
+    {
+     "id": "maintenance-comparison",
+     "text": "Maintenance Comparison",
+     "level": 2
+    },
+    {
+     "id": "battery-maintenance",
+     "text": "Battery Maintenance",
+     "level": 2
+    },
+    {
+     "id": "safety-requirements",
+     "text": "Safety Requirements",
+     "level": 2
+    },
+    {
+     "id": "emergency-response-and-training",
+     "text": "Emergency Response and Training",
+     "level": 2
+    },
+    {
+     "id": "related-content",
+     "text": "Related Content",
+     "level": 2
+    },
+    {
+     "id": "maps-data",
+     "text": "Maps & Data",
+     "level": 3
+    },
+    {
+     "id": "case-studies",
+     "text": "Case Studies",
+     "level": 3
+    },
+    {
+     "id": "publications",
+     "text": "Publications",
+     "level": 3
+    },
+    {
+     "id": "tools",
+     "text": "Tools",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "ev_tech-11",
+   "title": "Controlling hazardous energy (lockout/tagout)",
+   "words": 802,
+   "minutes": 5,
+   "source": "osha",
+   "url": "https://www.osha.gov/control-hazardous-energy",
+   "toc": [
+    {
+     "id": "control-of-hazardous-energy-lockout-tagout",
+     "text": "Control of Hazardous Energy (Lockout/Tagout)",
+     "level": 3
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [],
+  "pass_mark": 0,
+  "missing": true
+ },
+ "minutes": 83,
+ "sources": [
+  {
+   "id": "afdc",
+   "name": "Alternative Fuels Data Center (U.S. DOE)",
+   "url": "https://afdc.energy.gov/",
+   "license": "Public domain (U.S. Government work)",
+   "license_url": "https://www.usa.gov/government-copyright",
+   "attribution": "U.S. Department of Energy, Alternative Fuels Data Center — a U.S. Government work, not subject to copyright",
+   "noncommercial": false
+  },
+  {
+   "id": "lec",
+   "name": "Lessons In Electric Circuits, Vol. I (DC)",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/",
+   "license": "Design Science License",
+   "license_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_A3.html",
+   "attribution": "© Tony R. Kuphaldt, Design Science License",
+   "noncommercial": false
+  },
+  {
+   "id": "osha",
+   "name": "OSHA (U.S. Department of Labor)",
+   "url": "https://www.osha.gov/",
+   "license": "Public domain (U.S. Government work)",
+   "license_url": "https://www.usa.gov/government-copyright",
+   "attribution": "Occupational Safety and Health Administration — a U.S. Government work, not subject to copyright",
+   "noncommercial": false
+  }
+ ]
+}

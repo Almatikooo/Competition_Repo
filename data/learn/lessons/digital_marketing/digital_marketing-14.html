@@ -1,0 +1,103 @@
+<p>Your service’s completion rate is the number of digital transactions that your users complete as a percentage of all digital transactions that your users start.</p>
+<p>This includes transactions where the user receives support from someone to use the digital service (called <a href="https://www.gov.uk/service-manual/helping-people-to-use-your-service/assisted-digital-support-introduction" target="_blank" rel="noopener noreferrer">‘assisted digital support’</a>).</p>
+<h2 id="calculate-completion-rate">Calculate completion rate</h2>
+<p>To calculate your service’s completion rate:</p>
+<ol>
+<li>
+<p>Count the number of completed transactions - the numerator.</p>
+</li>
+<li>
+<p>Divide it by the total number of transactions (including partially completed or failed ones) - the denominator.</p>
+</li>
+<li>
+<p>Show the result as a percentage.</p>
+</li>
+</ol>
+<p>Make sure you count only genuine users. Set up your analytics tools to exclude internal users, test users and web robots from your data.</p>
+<h3 id="what-to-include-as-a-transaction">What to include as a transaction</h3>
+<p>A transaction is an exchange of:</p>
+<ul>
+<li>money</li>
+<li>information</li>
+<li>permission</li>
+<li>goods or services</li>
+</ul>
+<p>Transactions on your service will have clearly defined start and end points. They will also result in a change to a government system - for example, someone’s personal information or the details of an interaction are stored in a register or database.</p>
+<p>The following activities do not have clearly defined start and end points and are not recorded in a government system, so they are not transactions:</p>
+<ul>
+<li>general advice or enquiries</li>
+<li>informal complaints</li>
+<li>visits to websites</li>
+</ul>
+<h3 id="when-a-transaction-is-completed">When a transaction is completed</h3>
+<p>A transaction is completed when someone finishes the task that your digital service provides. For example, when a user:</p>
+<ul>
+<li>submits an application</li>
+<li>makes a payment</li>
+<li>makes a booking</li>
+</ul>
+<p>The service should tell the user that the transaction is complete with a confirmation or ‘thank you’ message.</p>
+<p>A user’s application does not have to be successful for you to consider the transaction complete.</p>
+<p>For example, the Apply for a patent transaction is considered complete when the user has submitted an application, regardless of whether the application is successful.</p>
+<h3 id="when-a-transaction-has-failed">When a transaction has failed</h3>
+<p>A failed transaction is when a user gives up before reaching a defined end page (often called a <a href="https://www.gov.uk/service-manual/design/confirmation-pages" target="_blank" rel="noopener noreferrer">‘confirmation page’</a>). This includes when a user abandons the service from an error page.</p>
+<h2 id="configure-your-service-to-measure-completion-rate">Configure your service to measure completion rate</h2>
+<p>To make it easier to analyse user behaviour, give each step in your service a unique URL. This means you can identify them in your analytics tool.</p>
+<h3 id="measure-from-the-start-of-a-transaction">Measure from the start of a transaction</h3>
+<p>Most services will have a <a href="https://design-system.service.gov.uk/patterns/start-using-a-service/" target="_blank" rel="noopener noreferrer">start page</a> on GOV.UK, which should be the only way to access the service.</p>
+<p>You should usually only consider a transaction to have started when the user continues from your service’s start page.</p>
+<p>Make sure users cannot bypass the start page via links or search engine results.</p>
+<p>Some services do not have a start page. In these cases it helps to understand the whole user journey so that you can identify the exact points at which the user starts the service. This is usually another page on GOV.UK.</p>
+<p>For example, there is no start page if someone wants to book an appointment at a UK consular office. There are links to this service from other pages on GOV.UK, such as the information page on getting married in France. In this case, the page on getting married in France is effectively the start page for booking an appointment at a UK consular office.</p>
+<h3 id="know-when-a-service-ends">Know when a service ends</h3>
+<p>Services often have multiple end points. You must have appropriate end pages at each of them.</p>
+<p>For example, the ‘Check if you can get legal aid’ service has two main end points:</p>
+<ul>
+<li>one for those who are eligible (that tells them what to do next)</li>
+<li>one for those who are not eligible (that suggests other forms of support)</li>
+</ul>
+<p>When a user reaches one of these end pages, you must consider the transaction to have finished.</p>
+<p>You’ll have to list all of your end pages in your <a href="https://www.gov.uk/service-manual/service-assessments/how-service-assessments-work" target="_blank" rel="noopener noreferrer">service assessments</a>.</p>
+<h3 id="count-users-who-save-and-return">Count users who ‘save and return’</h3>
+<p>If your service allows users to save a transaction and finish it later, make sure you can match transaction starts to their subsequent completions.</p>
+<p>For example, in Google Analytics you can use cohort analysis and custom dimensions to track the number of times a user returns to complete a transaction on your service.</p>
+<h3 id="services-with-both-digital-and-non-digital-steps">Services with both digital and non-digital steps</h3>
+<p>For legal reasons, some services require users to carry out steps digitally and non-digitally, for example starting and finishing a transaction online, but sending a paper copy of a form in the middle.</p>
+<p>To measure the 2 parts of the service as a whole is complicated. Users complete the second part of the service much later, which can lead to misleading completion rates. You can resolve this by using cohort analysis and custom dimensions.</p>
+<p>However, if your service does not need to match the 2 digital parts of the user journey, you can treat them as separate transactions and measure completion rates for each.</p>
+<h2 id="count-users-who-are-ineligible-for-a-service">Count users who are ineligible for a service</h2>
+<p>Some services have complex eligibility criteria. It can be helpful to include a series of questions - <a href="https://gds.blog.gov.uk/2012/02/16/smart-answers-are-smart/" target="_blank" rel="noopener noreferrer">a smart answer</a> - to test eligibility.</p>
+<p>If a user continues to use a service after failing an eligibility test, count them as having started the transaction. For example, people can still apply for Carer’s Allowance even if the eligibility test tells them they’re not entitled to it.</p>
+<p>You should not consider users who abandon a service after failing an eligibility test as users who have started a transaction.</p>
+<h2 id="measure-completion-rates-for-assisted-digital-support">Measure completion rates for assisted digital support</h2>
+<p>Some users will need help to use the digital part of a service, and it’s useful to keep a separate measure of how your <a href="https://www.gov.uk/service-manual/helping-people-to-use-your-service/designing-assisted-digital" target="_blank" rel="noopener noreferrer">assisted digital support</a> is performing.</p>
+<p>For completion rates:</p>
+<ul>
+<li>count the number of successful assisted digital transactions</li>
+<li>divide it by the total assisted digital transactions</li>
+<li>express the result as a percentage</li>
+</ul>
+<h2 id="check-completion-rate-through-each-service-phase">Check completion rate through each service phase</h2>
+<h3 id="discovery">Discovery</h3>
+<p>In discovery, explore any data from legacy and offline systems.</p>
+<p>You should consider:</p>
+<ul>
+<li>the data that’s available</li>
+<li>where you can get the data - for example, an existing online service, a digital database that supports an existing offline service, contact centre data, search terms in web analytics</li>
+<li>whether you can calculate completion rates from these to use as a baseline</li>
+</ul>
+<h3 id="alpha">Alpha</h3>
+<p>In alpha, start work on defining <a href="https://www.gov.uk/service-manual/measuring-success/how-to-set-performance-metrics-for-your-service" target="_blank" rel="noopener noreferrer">performance metrics for your service</a>. Specify the user journeys you’ll measure, including start and end points for them.</p>
+<h3 id="beta">Beta</h3>
+<p>In beta, map all possible user journeys through your service. You will not be able to measure completion rates until your service goes into public beta.</p>
+<h2 id="publish-the-data">Publish the data</h2>
+<p>You must measure your completion rate data every month and <a href="https://www.gov.uk/service-manual/measuring-success/data-you-must-publish" target="_blank" rel="noopener noreferrer">publish the data</a>.</p>
+<h2 id="related-guides">Related guides</h2>
+<p>You may also find these guides useful:</p>
+<ul>
+<li><a href="https://www.gov.uk/service-manual/measuring-success/measuring-cost-per-transaction" target="_blank" rel="noopener noreferrer">Measuring cost per transaction</a></li>
+<li><a href="https://www.gov.uk/service-manual/measuring-success/measuring-digital-take-up" target="_blank" rel="noopener noreferrer">Measuring digital take-up</a></li>
+<li><a href="https://www.gov.uk/service-manual/measuring-success/measuring-user-satisfaction" target="_blank" rel="noopener noreferrer">Measuring user satisfaction</a></li>
+<li><a href="https://www.gov.uk/service-manual/measuring-success/data-you-must-publish" target="_blank" rel="noopener noreferrer">Data you must publish</a></li>
+<li><a href="https://www.gov.uk/service-manual/measuring-success/choosing-digital-analytics-tools" target="_blank" rel="noopener noreferrer">Choosing digital analytics tools</a></li>
+</ul>

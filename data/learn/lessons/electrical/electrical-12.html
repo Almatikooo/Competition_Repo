@@ -1,0 +1,71 @@
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_2.html" target="_blank" rel="noopener noreferrer"><img alt="Previous" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/previous.jpg"></a>
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/index.html" target="_blank" rel="noopener noreferrer"><img alt="Contents" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/contents.jpg"></a>
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_4.html" target="_blank" rel="noopener noreferrer"><img alt="Next" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/next.jpg"></a>
+<hr>
+<ul>
+<li><a href="#xtocid87250" rel="noopener noreferrer"><u>The importance of electrical safety</u></a></li>
+<li><a href="#xtocid87251" rel="noopener noreferrer"><u>Physiological effects of electricity</u></a></li>
+<li><a href="#xtocid87252" rel="noopener noreferrer"><u>Shock current path</u></a></li>
+<li><a href="#xtocid87253" rel="noopener noreferrer"><u>Ohm's Law (again!)</u></a></li>
+<li><a href="#xtocid87254" rel="noopener noreferrer"><u>Safe practices</u></a></li>
+<li><a href="#xtocid87255" rel="noopener noreferrer"><u>Emergency response</u></a></li>
+<li><a href="#xtocid87256" rel="noopener noreferrer"><u>Common sources of hazard</u></a></li>
+<li><a href="#xtocid87257" rel="noopener noreferrer"><u>Safe circuit design</u></a></li>
+<li><a href="#xtocid87258" rel="noopener noreferrer"><u>Safe meter usage</u></a></li>
+<li><a href="#xtocid87259" rel="noopener noreferrer"><u>Electric shock data</u></a></li>
+<li><a href="#xtocid872510" rel="noopener noreferrer"><u>Contributors</u></a></li>
+<li><a href="#xtocid872511" rel="noopener noreferrer">Bibliography</a></li></ul>
+<h2 id="the-importance-of-electrical-safety">The importance of electrical safety</h2>
+<p>
+With this lesson, I hope to avoid a common mistake found in electronics textbooks of either ignoring or not covering with sufficient detail the subject of electrical safety.  I assume that whoever reads this book has at least a passing interest in actually working with electricity, and as such the topic of safety is of paramount importance.  Those authors, editors, and publishers who fail to incorporate this subject into their introductory texts are depriving the reader of life-saving information.
+</p>
+<p>
+As an instructor of industrial electronics, I spend a full week with my students reviewing the theoretical and practical aspects of electrical safety.  The same textbooks I found lacking in technical clarity I also found lacking in coverage of electrical safety, hence the creation of this chapter.  Its placement after the first two chapters is intentional: in order for the concepts of electrical safety to make the most sense, some foundational knowledge of electricity is necessary.
+</p>
+<p>
+Another benefit of including a detailed lesson on electrical safety is the practical context it sets for basic concepts of voltage, current, resistance, and circuit design.  The more relevant a technical topic can be made, the more likely a student will be to pay attention and comprehend.  And what could be more relevant than application to your own personal safety?  Also, with electrical power being such an everyday presence in modern life, almost anyone can relate to the illustrations given in such a lesson.  Have you ever wondered why birds don't get shocked while resting on power lines?  Read on and find out! 
+</p>
+<h2 id="physiological-effects-of-electricity">Physiological effects of electricity</h2>
+<p>
+Most of us have experienced some form of electric "shock," where electricity causes our body to experience pain or trauma.  If we are fortunate, the extent of that experience is limited to tingles or jolts of pain from static electricity buildup discharging through our bodies.  When we are working around electric circuits capable of delivering high power to loads, electric shock becomes a much more serious issue, and pain is the least significant result of shock.
+</p>
+<p>
+As electric current is conducted through a material, any opposition to that flow of electrons (resistance) results in a dissipation of energy, usually in the form of heat.  This is the most basic and easy-to-understand effect of electricity on living tissue: current makes it heat up.  If the amount of heat generated is sufficient, the tissue may be burnt.  The effect is physiologically the same as damage caused by an open flame or other high-temperature source of heat, except that electricity has the ability to burn tissue well beneath the skin of a victim, even burning internal organs.
+</p>
+<p>
+Another effect of electric current on the body, perhaps the most significant in terms of hazard, regards the nervous system.  By "nervous system" I mean the network of special cells in the body called "nerve cells" or "neurons" which process and conduct the multitude of signals responsible for regulation of many body functions.  The brain, spinal cord, and sensory/motor organs in the body function together to allow it to sense, move, respond, think, and remember.
+</p>
+<p>
+Nerve cells communicate to each other by acting as "transducers:" creating electrical signals (very small voltages and currents) in response to the input of certain chemical compounds called <i>neurotransmitters</i>, and releasing neurotransmitters when stimulated by electrical signals.  If electric current of sufficient magnitude is conducted through a living creature (human or otherwise), its effect will be to override the tiny electrical impulses normally generated by the neurons, overloading the nervous system and preventing both reflex and volitional signals from being able to actuate muscles.  Muscles triggered by an external (shock) current will involuntarily contract, and there's nothing the victim can do about it.
+</p>
+<p>
+This problem is especially dangerous if the victim contacts an energized conductor with his or her hands.  The forearm muscles responsible for bending fingers tend to be better developed than those muscles responsible for extending fingers, and so if both sets of muscles try to contract because of an electric current conducted through the person's arm, the "bending" muscles will win, clenching the fingers into a fist.  If the conductor delivering current to the victim faces the palm of his or her hand, this clenching action will force the hand to grasp the wire firmly, thus worsening the situation by securing excellent contact with the wire.  The victim will be completely unable to let go of the wire.
+</p>
+<p>
+Medically, this condition of involuntary muscle contraction is called <i>tetanus</i>.  Electricians familiar with this effect of electric shock often refer to an immobilized victim of electric shock as being "froze on the circuit."  Shock-induced tetanus can only be interrupted by stopping the current through the victim.
+</p>
+<p>
+Even when the current is stopped, the victim may not regain voluntary control over their muscles for a while, as the neurotransmitter chemistry has been thrown into disarray.  This principle has been applied in "stun gun" devices such as Tasers, which on the principle of momentarily shocking a victim with a high-voltage pulse delivered between two electrodes.  A well-placed shock has the effect of temporarily (a few minutes) immobilizing the victim.  
+</p>
+<p>
+Electric current is able to affect more than just skeletal muscles in a shock victim, however.  The diaphragm muscle controlling the lungs, and the heart -- which is a muscle in itself -- can also be "frozen" in a state of tetanus by electric current.  Even currents too low to induce tetanus are often able to scramble nerve cell signals enough that the heart cannot beat properly, sending the heart into a condition known as <i>fibrillation</i>.  A fibrillating heart flutters rather than beats, and is ineffective at pumping blood to vital organs in the body.  In any case, death from asphyxiation and/or cardiac arrest will surely result from a strong enough electric current through the body.  Ironically, medical personnel use a strong jolt of electric current applied across the chest of a victim to "jump start" a fibrillating heart into a normal beating pattern.
+</p>
+<p>
+That last detail leads us into another hazard of electric shock, this one peculiar to public power systems.  Though our initial study of electric circuits will focus almost exclusively on DC (Direct Current, or electricity that moves in a continuous direction in a circuit), modern power systems utilize alternating current, or AC.  The technical reasons for this preference of AC over DC in power systems are irrelevant to this discussion, but the special hazards of each kind of electrical power are very important to the topic of safety. 
+</p>
+<blockquote>
+How AC affects the body depends largely on frequency. Low-frequency (50- to 60-Hz) AC is used in US (60 Hz) and European (50 Hz) households; it can be more dangerous than high-frequency AC and is 3 to 5 times more dangerous than DC of the same voltage and amperage. Low-frequency AC produces extended muscle contraction (tetany), which may freeze the hand to the current's source, prolonging exposure. DC is most likely to cause a single convulsive contraction, which often forces the victim away from the current's source. <a href="#MMOM.bibitem" rel="noopener noreferrer">[MMOM]</a>
+</blockquote>
+<p>
+AC's alternating nature has a greater tendency to throw the heart's pacemaker neurons into a condition of fibrillation, whereas DC tends to just make the heart stand still.  Once the shock current is halted, a "frozen" heart has a better chance of regaining a normal beat pattern than a fibrillating heart.  This is why "defibrillating" equipment used by emergency medics works: the jolt of current supplied by the defibrillator unit is DC, which halts fibrillation and gives the heart a chance to recover.
+</p>
+<p>
+In either case, electric currents high enough to cause involuntary muscle action are dangerous and are to be avoided at all costs.  In the next section, we'll take a look at how such currents typically enter and exit the body, and examine precautions against such occurrences.
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Electric current is capable of producing deep and severe burns in the body due to power dissipation across the body's electrical resistance.</li>
+<li><i>Tetanus</i> is the condition where muscles involuntarily contract due to the passage of external electric current through the body.  When involuntary contraction of muscles controlling the fingers causes a victim to be unable to let go of an energized conductor, the victim is said to be "froze on the circuit."</li>
+<li>Diaphragm (lung) and heart muscles are similarly affected by electric current.  Even currents too small to induce tetanus can be strong enough to interfere with the heart's pacemaker neurons, causing the heart to flutter instead of strongly beat.</li>
+<li>Direct current (DC) is more likely to cause muscle tetanus than alternating current (AC), making DC more likely to "freeze" a victim in a shock scenario.  However, AC is more likely to cause a victim's heart to fibrillate, which is a more dangerous condition for the victim after the shocking current has been halted.</li>
+</ul>

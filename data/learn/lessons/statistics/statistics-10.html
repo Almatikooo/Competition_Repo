@@ -1,0 +1,389 @@
+<p>We’re now to the final key aspect of our acronym, <strong>SOCS</strong>:</p>
+<ul>
+<li>Shape</li>
+<li>Outliers</li>
+<li>Center</li>
+<li><strong>Spread</strong></li>
+</ul>
+<p>A complement to the center of a distribution is the <a href="#term_122_3215" rel="noopener noreferrer">variation, variability, or spread</a> of the data. In some data sets, the values are concentrated closely, while in others the are more spread out.&nbsp; Some rough measures of spread we have already seen are the range and IQR.&nbsp; The most common measure of spread is the standard deviation.</p>
+<p>Similar to measures of center, the shape of the distribution and presence of extreme values can dictate what the most appropriate measure of spread is to describe the distribution.</p>
+<div>
+<h2 id="the-interquartile-range">The Interquartile Range</h2>
+<p>Recall the Interquartile Range (<em>IQR):&nbsp;</em></p>
+<p>IQR = <em>Q</em><sub>3</sub> – <em>Q</em><sub>1</sub>.</p>
+<p>In addition to helping us establish our fences and identify outliers, the IQR &nbsp;indicates the spread of the middle half or the middle 50% of the data. The IQR can be used as a somewhat rough but very robust measure of spread when outliers may be present.&nbsp; It is often used alongside the median to describe the center and spread of skewed distributions.</p>
+<p>Simply showing the five number summary or a Box Plot can be a good way to get all of the information for a skewed dataset in one place</p>
+<h2 id="the-s-tandard-deviation">The Standard Deviation</h2>
+<p>The <a href="#term_122_3719" rel="noopener noreferrer">standard deviation</a> is a measure of spread that measures how spread out values are from their mean.&nbsp; It is essentially the “average” deviation, or distance of each observation from the mean.</p>
+<p>Not only does it provide a numerical measure of the overall amount of variation in a data set, it can also be used for other purposes</p>
+<p>The lower case letter <em>s</em> represents the <a href="#term_122_2771" rel="noopener noreferrer">sample</a> standard deviation and the lower case greek letter <em>σ</em> (sigma) represents the <a href="#term_122_2769" rel="noopener noreferrer">population</a> standard deviation.</p>
+<p>By extension, <em>s²</em> represents the sample <a href="#term_122_3721" rel="noopener noreferrer">variance</a> and the lower case greek letter <em>σ²</em> represents the population variance.&nbsp; The variance is useful</p>
+<div>
+<p>The standard deviation is small when the data are all concentrated close to the mean, exhibiting little variation or spread. The standard deviation is larger when the data values are more spread out from the mean, exhibiting more variation. It must always greater than or equal to zero.</p>
+<p>Suppose that we are studying the amount of time customers wait in line at the checkout at supermarket <em>A</em> and supermarket <em>B</em>. the average wait time at both supermarkets is five minutes. At supermarket <em>A</em>, the standard deviation for the wait time is two minutes; at supermarket <em>B</em> the standard deviation for the wait time is four minutes.</p>
+<p>Because supermarket <em>B</em> has a higher standard deviation, we know that there is more variation in the wait times at supermarket <em>B</em>. Overall, wait times at supermarket <em>B</em> are more spread out from the average; wait times at supermarket <em>A</em> are more concentrated near the average.</p>
+</div>
+<div>
+<ul></ul>
+<h2 id="calculating-the-standard-deviation">Calculating the Standard Deviation</h2>
+</div>
+<div>
+<p>The procedure to calculate the standard deviation can be tedious and depends on whether the data are from the entire population or a sample. The calculations are similar, but not identical.</p>
+<p>If <em>x</em> is a number, then the difference “<em>x</em> – mean” is called its deviation. In a data set, there are as many deviations as there are items in the data set. The deviations can show how spread out the data are about the mean.&nbsp; A positive deviation occurs when the data value is greater than the mean, whereas a negative deviation occurs when the data value is less than the mean.&nbsp; If the numbers belong to a population, in symbols a deviation is <em>x</em> – <em>μ</em>. For sample data, in symbols a deviation is <em>x</em> – <img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11">. If you add the deviations, the sum is always zero, so you cannot simply add the deviations to get the spread of the data. You can fix this by squaring the deviations, making them positive numbers, therefore sum will also be positive.</p>
+<p>The variance is the average of the squares of the deviations (the <em>x</em> – <img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11">&nbsp;values for a sample, or the <em>x</em> – <em>μ</em> values for a population). The variance, then, is the average squared deviation, which we the to get the standard deviation. The symbol <em>σ</em><sup>2</sup> represents the population variance; the population standard deviation <em>σ</em> is the square root of the population variance. The symbol <em>s</em><sup>2</sup> represents the sample variance; the sample standard deviation <em>s</em> is the square root of the sample variance. You can think of the standard deviation as a special average of the deviations.</p>
+<p>If the numbers come from a census of the entire <a href="#term_122_2769" rel="noopener noreferrer">population</a> and not a sample, when we calculate the average of the squared deviations to find the variance, we divide by <em>N</em>, the number of items in the population. If the data are from a <a href="#term_122_2771" rel="noopener noreferrer">sample</a> rather than a population, when we calculate the average of the squared deviations, we divide by <em>n</em> – 1, one less than the number of items in the sample. Why not divide by <em>n</em> for a sample? The answer has to do with the population variance. The sample variance is an estimate of the population variance. Based on the theoretical mathematics that lies behind these calculations, dividing by (<em>n</em> – 1) gives a better estimate of the population variance.</p>
+</div>
+<div>
+<h3 id="formulas">Formulas</h3>
+<h4>The sample standard deviation</h4>
+<p><img alt="\(s=\sqrt{\frac{\Sigma {\left(x-\overline{x}\right)}^{2}}{n-1}}\) " height="32" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-ddf9c14514f12b41ea14f1999a24eb6b_l3.png" title="Rendered by QuickLaTeX.com" width="108"></p>
+</div>
+<div>
+<h4>The population standard deviation</h4>
+<p><img alt="\(\sigma  = \sqrt{\frac{\Sigma {\left(x-\mu \right)}^{2}}{N}}\) " height="32" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-f33e606400366035c71366d24c7e1435_l3.png" title="Rendered by QuickLaTeX.com" width="111"></p>
+</div>
+</div>
+<div>
+<div>
+<div>
+<div class="box box-callout"><p class="box-title">Note</p>
+<div>NOTES:</div>
+<div>
+<ul>
+<li>The variance, population (<em>σ²) </em>or sample (<em>s²), </em>can be obtained if you do not apply the square root in their respective formulas</li>
+<li>In practice, we typically rely on technology to calculate the standard deviation.&nbsp; However please notice:
+<ul>
+<li>In the sample standard deviation formula, the denominator is <strong><em>n</em> – 1</strong></li>
+<li>In the population standard deviation formula, the denominator is <strong><em>N</em></strong></li>
+<li>You may need to indicate on your technology of choice which form of the formula you want to use.</li>
+</ul>
+</li>
+<li>We will often use the sample standard deviation or variance to estimate the population standard deviation or variance.</li>
+</ul>
+</div>
+</div>
+<div class="box box-keypoints"><p class="box-title">Example</p>
+
+<div>
+<p>In a fifth grade class, the teacher was interested in the average age and the sample standard deviation of the ages of her students. The following data are the ages for a SAMPLE of <em>n</em> = 20 fifth grade students. The ages are rounded to the nearest half year: 9, 9.5, 9.5, 10, 10, 10, 10, 10.5, 10.5, 10.5, 10.5, 11, 11, 11, 11, 11, 11, 11.5, 11.5, 11.5.</p>
+<p>First, try to find the mean and standard deviation by hand. Here is a table with the intermediate steps:</p>
+</div>
+<div>
+<div class="table-wrap"><table>
+<caption>Figure 2.51: Fifth Grade Ages</caption>
+<thead>
+<tr>
+<th>X</th>
+<th>Deviations</th>
+<th>Deviations<sup>2</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9</td>
+<td>9 – 10.525 = –1.525</td>
+<td>(–1.525)2 = 2.325625</td>
+</tr>
+<tr>
+<td>9.5</td>
+<td>9.5 – 10.525 = –1.025</td>
+<td>(–1.025)2 = 1.050625</td>
+</tr>
+<tr>
+<td>9.5</td>
+<td>9.5 – 10.525 = –1.025</td>
+<td>(–1.025)2 = 1.050625</td>
+</tr>
+<tr>
+<td>10</td>
+<td>10 – 10.525 = –0.525</td>
+<td>(–0.525)2 = 0.275625</td>
+</tr>
+<tr>
+<td>10</td>
+<td>10 – 10.525 = –0.525</td>
+<td>(–0.525)2 = 0.275625</td>
+</tr>
+<tr>
+<td>10</td>
+<td>10 – 10.525 = –0.525</td>
+<td>(–0.525)2 = 0.275625</td>
+</tr>
+<tr>
+<td>10</td>
+<td>10 – 10.525 = –0.525</td>
+<td>(–0.525)2 = 0.275625</td>
+</tr>
+<tr>
+<td>10.5</td>
+<td>10.5 – 10.525 = –0.025</td>
+<td>(–0.025)2 = 0.000625</td>
+</tr>
+<tr>
+<td>10.5</td>
+<td>10.5 – 10.525 = –0.025</td>
+<td>(–0.025)2 = 0.000625</td>
+</tr>
+<tr>
+<td>10.5</td>
+<td>10.5 – 10.525 = –0.025</td>
+<td>(–0.025)2 = 0.000625</td>
+</tr>
+<tr>
+<td>10.5</td>
+<td>10.5 – 10.525 = –0.025</td>
+<td>(–0.025)2 = 0.000625</td>
+</tr>
+<tr>
+<td>11</td>
+<td>11 – 10.525 = 0.475</td>
+<td>(0.475)2 = 0.225625</td>
+</tr>
+<tr>
+<td>11</td>
+<td>11 – 10.525 = 0.475</td>
+<td>(0.475)2 = 0.225625</td>
+</tr>
+<tr>
+<td>11</td>
+<td>11 – 10.525 = 0.475</td>
+<td>(0.475)2 = 0.225625</td>
+</tr>
+<tr>
+<td>11</td>
+<td>11 – 10.525 = 0.475</td>
+<td>(0.475)2 = 0.225625</td>
+</tr>
+<tr>
+<td>11</td>
+<td>11 – 10.525 = 0.475</td>
+<td>(0.475)2 = 0.225625</td>
+</tr>
+<tr>
+<td>11</td>
+<td>11 – 10.525 = 0.475</td>
+<td>(0.475)2 = 0.225625</td>
+</tr>
+<tr>
+<td>11.5</td>
+<td>11.5 – 10.525 = 0.975</td>
+<td>(0.975)2 = 0.950625</td>
+</tr>
+<tr>
+<td>11.5</td>
+<td>11.5 – 10.525 = 0.975</td>
+<td>(0.975)2 = 0.950625</td>
+</tr>
+<tr>
+<td>11.5</td>
+<td>11.5 – 10.525 = 0.975</td>
+<td>(0.975)2 = 0.950625</td>
+</tr>
+<tr>
+<td>–</td>
+<td>–</td>
+<td><strong>The total is 9.7375</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Verify your answers with your choice of technology.</p>
+<div>
+<div></div>
+</div>
+</div>
+</div>
+<div class="box box-callout"><p class="box-title">Your turn!</p>
+
+<div>
+<p>On a baseball team, the ages of each of the players are as follows:</p>
+<p>21, 21, 22, 23, 24, 24, 25, 25, 28, 29, 29, 31, 32, 33, 33, 34, 35, 36, 36, 36, 36, 38, 38, 38, 40</p>
+<p>First, try to find the mean and standard deviation by hand. If you get stuck or want to check your work, plug it into your calculator or use your computer software.</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div>
+<p>The standard deviation, <em>s</em> or <em>σ</em>, is either zero or larger than zero. Describing the data with reference to the spread is called “variability”. The variability in data depends upon the method by which the outcomes are obtained; for example, by measuring or by random sampling. When the standard deviation is zero, there is no spread; that is, the all the data values are equal to each other. The standard deviation is small when the data are all concentrated close to the mean, and is larger when the data values show more variation from the mean. When the standard deviation is a lot larger than zero, the data values are very spread out about the mean; outliers can make <em>s</em> or <em>σ</em> very large.</p>
+</div>
+</div>
+<div>
+<div>
+<h2 id="the-standard-deviation-in-context">The Standard Deviation in Context</h2>
+<p>The standard deviation, when first presented, can seem unclear. By graphing your data, you can get a better “feel” for the deviations and the standard deviation. You will find that in symmetrical distributions, the standard deviation can be very helpful but in skewed distributions, the standard deviation may not be much help. The reason is that the two sides of a skewed distribution have different spreads. In a skewed distribution, it is better to look at the first quartile, the median, the third quartile, the smallest value, and the largest value. Because numbers can be confusing, always graph your data. Display your data in a histogram or a box plot.</p>
+<p>A number line may also help you understand standard deviation. If we were to put five and seven on a number line, seven is to the right of five. We say, then, that seven is one standard deviation to the right of five because 5 + (1)(2) = 7.</p>
+<p>If one were also part of the data set, then one is two standard deviations to the left of five because 5 + (–2)(2) = 1.</p>
+<figure><img alt="Blank number line in intervals of 1 from 0 to 7." height="82" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/2.50.png" width="472"><figcaption>Figure 2.50: Number Line</figcaption></figure>
+<div></div>
+<ul>
+<li>In general, a value = mean + (#ofSTDEV)(standard deviation)</li>
+<li>where #ofSTDEVs = the number of standard deviations</li>
+<li>#ofSTDEV does not need to be an integer</li>
+<li>One is two standard deviations less than the mean of five because: 1 = 5 + (–2)(2).</li>
+</ul>
+<p>The equation value = mean + (#ofSTDEVs)(standard deviation) can be expressed for a sample and for a population.</p>
+<ul>
+<li>Sample: <em>x</em> = <img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11">&nbsp;+ (#ofSTDEVs)(<em>s</em>)</li>
+<li>Population: <em>x</em> = μ&nbsp;+ (#ofSTDEVs)(<em>σ</em>)</li>
+</ul>
+<div class="box box-keypoints"><p class="box-title">Example</p>
+
+<div>
+<p>Suppose that Rosa and Binh both shop at supermarket <em>A</em>. Rosa waits at the checkout counter for seven minutes and Binh waits for one minute. At supermarket <em>A</em>, the mean waiting time is five minutes and the standard deviation is two minutes. The standard deviation can be used to determine whether a data value is close to or far from the mean.</p>
+<p>Rosa waits for seven minutes:</p>
+<ul>
+<li>Seven is two minutes longer than the average of five; two minutes is equal to one standard deviation.</li>
+<li>Rosa’s wait time of seven minutes is two minutes longer than the average of five minutes.</li>
+<li>Rosa’s wait time of seven minutes is one standard deviation above the average of five minutes.</li>
+</ul>
+<p>Binh waits for one minute.</p>
+<ul>
+<li>One is four minutes less than the average of five; four minutes is equal to two standard deviations.</li>
+<li>Binh’s wait time of one minute is four minutes less than the average of five minutes.</li>
+<li>Binh’s wait time of one minute is two standard deviations below the average of five minutes.</li>
+</ul>
+</div>
+</div>
+
+
+<div>
+<p>Recall the previous example about the age of fifth grade students where <img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11"> = 10.525 and <em>s² = 0.7159</em></p>
+<p>b. Find the value that is one standard deviation above the mean. Find (<img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11"> + 1s).</p>
+<div>
+<div></div>
+</div>
+<p>c. Find the value that is two standard deviations below the mean. Find (<img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11"> – 2s).</p>
+<div>
+<div></div>
+</div>
+<p>d. Find the values that are 1.5 standard deviations from (below and above) the mean.</p>
+<div>
+<div></div>
+</div>
+</div>
+</div>
+<h2 id="z-scores">Z-scores</h2>
+</div>
+</div>
+</div>
+<div>
+<p>The standard deviation can also be used to calculate a measure of location called a <a href="#term_122_3312" rel="noopener noreferrer"><em>z</em>-score</a>.&nbsp; It represents the number of Standard deviations a given observation is away from it’s mean (#ofSTDEVs above) is often denoted with just the letter&nbsp;<em>z</em>. In symbols, the formulas become:</p>
+<div class="table-wrap"><table>
+<caption>Figure 2.52: Z-Score Formulas</caption>
+<tbody>
+<tr>
+<td>Sample</td>
+<td>x = <img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11"> + <em>zs</em></td>
+<td><img alt="z=\frac{x\text{ }-\text{ }\overline{x}}{s}" height="21" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-7dd14075d268e40286f1b08a265181c1_l3.png" title="Rendered by QuickLaTeX.com" width="71"></td>
+</tr>
+<tr>
+<td>Population</td>
+<td>x = <img alt="\(\mu \)" height="12" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-fde2aacb8a2ab7b093fb3239bc5cf305_l3.png" title="Rendered by QuickLaTeX.com" width="11"> + <em>zσ</em></td>
+<td><img alt="z=\frac{x\text{ }-\text{ }\mu }{\sigma }" height="20" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-1909de75fe8cf2880247c169aca24670_l3.png" title="Rendered by QuickLaTeX.com" width="71"></td>
+</tr>
+</tbody>
+</table></div>
+<div>
+<p>Not only are Z scores a useful measure of location for specific observations, they can also be used for other purposes.&nbsp; Suppose two data sets have different means and standard deviations, then comparing the data values directly can be misleading. However using Z scores, it is possible to put things on a level playing field to compare them.</p>
+<ul>
+<li>For each data value, calculate how many standard deviations away from its mean the value is.</li>
+<li>Use the formula: value = mean + (#ofSTDEVs)(standard deviation); solve for #ofSTDEVs.</li>
+<li>#ofSTDEVs = <img alt="\frac{value-mean}{standard deviation}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-83e1ef9d69c3da2991df7a6bb4a24b35_l3.png" title="Rendered by QuickLaTeX.com" width="113"></li>
+<li>Compare the results of this calculation.</li>
+</ul>
+</div>
+<div>To understand the concept, suppose <em>X</em> ~ <em>N</em>(5, 6) represents weight gains for one group of people who are trying to gain weight in a six week period and <em>Y</em> ~ <em>N</em>(2, 1) measures the same weight gain for a second group of people.&nbsp; A negative weight gain would be a weight loss. Since <em>x</em> = 17 and <em>y</em> = 4 are each two standard deviations to the right of their means, they represent the same, standardized weight gain relative to their means.</div>
+<div>
+<div class="box box-keypoints"><p class="box-title">Example</p>
+
+<div>
+<div>
+<p>Two students, John and Ali, from different high schools, wanted to find out who had the highest GPA when compared to his school. Which student had the highest GPA when compared to his school?</p>
+<div class="table-wrap"><table>
+<caption>Figure 2.53: GPA Comparisons</caption>
+<thead>
+<tr>
+<th>Student</th>
+<th>GPA</th>
+<th>School Mean GPA</th>
+<th>School Standard Deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>John</td>
+<td>2.85</td>
+<td>3.0</td>
+<td>0.7</td>
+</tr>
+<tr>
+<td>Ali</td>
+<td>77</td>
+<td>80</td>
+<td>10</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div>
+<p>For each student, determine how many standard deviations (#ofSTDEVs) his GPA is away from the average, for his school. Pay careful attention to signs when comparing and interpreting the answer.</p>
+<p><em>z</em> = #ofSTDEVs = <img alt="\frac{value-mean}{standard deviation}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-83e1ef9d69c3da2991df7a6bb4a24b35_l3.png" title="Rendered by QuickLaTeX.com" width="113"> = <img alt="\frac{x-\mu}{\sigma}" height="20" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-389adafe97ca6dd5034dfb971987038c_l3.png" title="Rendered by QuickLaTeX.com" width="27"></p>
+<div>
+<div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="box box-callout"><p class="box-title">Your turn!</p>
+
+<div>
+<p>Two swimmers, Angie and Beth, from different teams, wanted to find out who had the fastest time for the 50 meter freestyle when compared to her team. Which swimmer had the fastest time when compared to her team?</p>
+<div class="table-wrap"><table>
+<caption>Figure 2.54: Swim Time Comparisons</caption>
+<thead>
+<tr>
+<th>Swimmer</th>
+<th>Time (seconds)</th>
+<th>Team Mean Time</th>
+<th>Team Standard Deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Angie</td>
+<td>26.2</td>
+<td>27.2</td>
+<td>0.8</td>
+</tr>
+<tr>
+<td>Beth</td>
+<td>27.3</td>
+<td>30.1</td>
+<td>1.4</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<h2 id="identifying-unusual-values-with-the-standard-deviation">Identifying Unusual Values with the Standard Deviation</h2>
+</div>
+</div>
+<p>The following rules give more insight into how we can use the standard deviation to tell us about the distribution of the data.</p>
+</div>
+<h2 id="chebyshev-s-rule">&nbsp;Chebyshev’s Rule</h2>
+<div>
+<div>
+<div>For ANY data set, no matter what the distribution of the data is:</div>
+<ul>
+<li>At least 75% of the data is within two standard deviations of the mean.</li>
+<li>At least 89% of the data is within three standard deviations of the mean.</li>
+<li>At least 95% of the data is within 4.5 standard deviations of the mean.</li>
+</ul>
+</div>
+</div>
+
+<div></div>

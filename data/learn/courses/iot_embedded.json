@@ -1,0 +1,910 @@
+{
+ "title": "IoT for Beginners",
+ "subtitle": "Connect sensors and devices to the internet and turn physical signals into data.",
+ "level": "Beginner",
+ "outcomes": [
+  "Explain what the Internet of Things is and how devices work",
+  "Read sensors and control actuators",
+  "Connect devices to the internet and send telemetry",
+  "Track, store and visualise location data"
+ ],
+ "skill": "iot_embedded",
+ "modules": [
+  {
+   "title": "Getting started",
+   "lessons": [
+    "iot_embedded-01",
+    "iot_embedded-02",
+    "iot_embedded-03",
+    "iot_embedded-04"
+   ]
+  },
+  {
+   "title": "Location tracking",
+   "lessons": [
+    "iot_embedded-05",
+    "iot_embedded-06",
+    "iot_embedded-07",
+    "iot_embedded-08"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "iot_embedded-01",
+   "title": "Introduction to IoT",
+   "words": 3099,
+   "minutes": 16,
+   "source": "ms-iot",
+   "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/1-introduction-to-iot/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "what-is-the-internet-of-things",
+     "text": "What is the 'Internet of Things'?",
+     "level": 2
+    },
+    {
+     "id": "iot-devices",
+     "text": "IoT devices",
+     "level": 2
+    },
+    {
+     "id": "microcontrollers",
+     "text": "Microcontrollers",
+     "level": 3
+    },
+    {
+     "id": "single-board-computers",
+     "text": "Single-board computers",
+     "level": 3
+    },
+    {
+     "id": "hardware-choices-for-the-rest-of-the-lessons",
+     "text": "Hardware choices for the rest of the lessons",
+     "level": 3
+    },
+    {
+     "id": "arduino-developer-kit",
+     "text": "Arduino developer kit",
+     "level": 3
+    },
+    {
+     "id": "single-board-computer-developer-kit",
+     "text": "Single-board computer developer kit",
+     "level": 3
+    },
+    {
+     "id": "set-up-your-device",
+     "text": "Set up your device",
+     "level": 2
+    },
+    {
+     "id": "applications-of-iot",
+     "text": "Applications of IoT",
+     "level": 2
+    },
+    {
+     "id": "consumer-iot",
+     "text": "Consumer IoT",
+     "level": 3
+    },
+    {
+     "id": "commercial-iot",
+     "text": "Commercial IoT",
+     "level": 3
+    },
+    {
+     "id": "industrial-iot-iiot",
+     "text": "Industrial IoT (IIoT)",
+     "level": 3
+    },
+    {
+     "id": "infrastructure-iot",
+     "text": "Infrastructure IoT",
+     "level": 3
+    },
+    {
+     "id": "examples-of-iot-devices-you-may-have-around-you",
+     "text": "Examples of IoT devices you may have around you",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "iot_embedded-02",
+   "title": "A deeper dive into IoT",
+   "words": 4048,
+   "minutes": 21,
+   "source": "ms-iot",
+   "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/2-deeper-dive/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "components-of-an-iot-application",
+     "text": "Components of an IoT application",
+     "level": 2
+    },
+    {
+     "id": "the-thing",
+     "text": "The Thing",
+     "level": 3
+    },
+    {
+     "id": "the-internet",
+     "text": "The Internet",
+     "level": 3
+    },
+    {
+     "id": "iot-on-the-edge",
+     "text": "IoT on the Edge",
+     "level": 3
+    },
+    {
+     "id": "iot-security",
+     "text": "IoT Security",
+     "level": 3
+    },
+    {
+     "id": "deeper-dive-into-microcontrollers",
+     "text": "Deeper dive into microcontrollers",
+     "level": 2
+    },
+    {
+     "id": "cpu",
+     "text": "CPU",
+     "level": 3
+    },
+    {
+     "id": "memory",
+     "text": "Memory",
+     "level": 3
+    },
+    {
+     "id": "input-output",
+     "text": "Input/Output",
+     "level": 3
+    },
+    {
+     "id": "physical-size",
+     "text": "Physical size",
+     "level": 3
+    },
+    {
+     "id": "frameworks-and-operating-systems",
+     "text": "Frameworks and operating systems",
+     "level": 3
+    },
+    {
+     "id": "deeper-dive-into-single-board-computers",
+     "text": "Deeper dive into single-board computers",
+     "level": 2
+    },
+    {
+     "id": "raspberry-pi",
+     "text": "Raspberry Pi",
+     "level": 3
+    },
+    {
+     "id": "programming-single-board-computers",
+     "text": "Programming single-board computers",
+     "level": 3
+    },
+    {
+     "id": "use-of-single-board-computers-in-professional-iot-deployment",
+     "text": "Use of single-board computers in professional IoT deployments",
+     "level": 3
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "iot_embedded-03",
+   "title": "Interact with the physical world with sensors and actuators",
+   "words": 2572,
+   "minutes": 13,
+   "source": "ms-iot",
+   "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/3-sensors-and-actuators/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "what-are-sensors",
+     "text": "What are sensors?",
+     "level": 2
+    },
+    {
+     "id": "use-a-sensor",
+     "text": "Use a sensor",
+     "level": 2
+    },
+    {
+     "id": "sensor-types",
+     "text": "Sensor types",
+     "level": 2
+    },
+    {
+     "id": "analog-sensors",
+     "text": "Analog sensors",
+     "level": 3
+    },
+    {
+     "id": "digital-sensors",
+     "text": "Digital sensors",
+     "level": 3
+    },
+    {
+     "id": "what-are-actuators",
+     "text": "What are actuators?",
+     "level": 2
+    },
+    {
+     "id": "use-an-actuator",
+     "text": "Use an actuator",
+     "level": 2
+    },
+    {
+     "id": "actuator-types",
+     "text": "Actuator types",
+     "level": 2
+    },
+    {
+     "id": "analog-actuators",
+     "text": "Analog actuators",
+     "level": 3
+    },
+    {
+     "id": "digital-actuators",
+     "text": "Digital actuators",
+     "level": 3
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "iot_embedded-04",
+   "title": "Connect your device to the Internet",
+   "words": 3942,
+   "minutes": 20,
+   "source": "ms-iot",
+   "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/4-connect-internet/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "communication-protocols",
+     "text": "Communication protocols",
+     "level": 2
+    },
+    {
+     "id": "message-queueing-telemetry-transport-mqtt",
+     "text": "Message Queueing Telemetry Transport (MQTT)",
+     "level": 2
+    },
+    {
+     "id": "connect-your-iot-device-to-mqtt",
+     "text": "Connect your IoT device to MQTT",
+     "level": 3
+    },
+    {
+     "id": "a-deeper-dive-into-mqtt",
+     "text": "A deeper dive into MQTT",
+     "level": 3
+    },
+    {
+     "id": "telemetry",
+     "text": "Telemetry",
+     "level": 2
+    },
+    {
+     "id": "send-telemetry-from-your-iot-device",
+     "text": "Send telemetry from your IoT device",
+     "level": 3
+    },
+    {
+     "id": "receive-telemetry-from-the-mqtt-broker",
+     "text": "Receive telemetry from the MQTT broker",
+     "level": 3
+    },
+    {
+     "id": "how-often-should-telemetry-be-sent",
+     "text": "How often should telemetry be sent?",
+     "level": 3
+    },
+    {
+     "id": "loss-of-connectivity",
+     "text": "Loss of connectivity",
+     "level": 3
+    },
+    {
+     "id": "commands",
+     "text": "Commands",
+     "level": 2
+    },
+    {
+     "id": "send-commands-to-the-mqtt-broker",
+     "text": "Send commands to the MQTT broker",
+     "level": 3
+    },
+    {
+     "id": "handle-commands-on-the-iot-device",
+     "text": "Handle commands on the IoT device",
+     "level": 3
+    },
+    {
+     "id": "loss-of-connectivity-x",
+     "text": "Loss of connectivity",
+     "level": 3
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "iot_embedded-05",
+   "title": "Location tracking",
+   "words": 2499,
+   "minutes": 13,
+   "source": "ms-iot",
+   "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/3-transport/lessons/1-location-tracking/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "connected-vehicles",
+     "text": "Connected vehicles",
+     "level": 2
+    },
+    {
+     "id": "geospatial-coordinates",
+     "text": "Geospatial coordinates",
+     "level": 2
+    },
+    {
+     "id": "latitude-and-longitude",
+     "text": "Latitude and longitude",
+     "level": 3
+    },
+    {
+     "id": "degrees-minutes-and-seconds-vs-decimal-degrees",
+     "text": "Degrees, minutes and seconds vs decimal degrees",
+     "level": 3
+    },
+    {
+     "id": "global-positioning-systems-gps",
+     "text": "Global Positioning Systems (GPS)",
+     "level": 2
+    },
+    {
+     "id": "read-gps-sensor-data",
+     "text": "Read GPS sensor data",
+     "level": 2
+    },
+    {
+     "id": "task-connect-a-gps-sensor-and-read-gps-data",
+     "text": "Task - connect a GPS sensor and read GPS data",
+     "level": 3
+    },
+    {
+     "id": "nmea-gps-data",
+     "text": "NMEA GPS data",
+     "level": 2
+    },
+    {
+     "id": "decode-gps-sensor-data",
+     "text": "Decode GPS sensor data",
+     "level": 2
+    },
+    {
+     "id": "task-decode-gps-sensor-data",
+     "text": "Task - decode GPS sensor data",
+     "level": 3
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "iot_embedded-06",
+   "title": "Store location data",
+   "words": 3664,
+   "minutes": 19,
+   "source": "ms-iot",
+   "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/3-transport/lessons/2-store-location-data/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "structured-and-unstructured-data",
+     "text": "Structured and unstructured data",
+     "level": 2
+    },
+    {
+     "id": "sql-vs-nosql-storage",
+     "text": "SQL vs NoSQL storage",
+     "level": 3
+    },
+    {
+     "id": "send-gps-data-to-an-iot-hub",
+     "text": "Send GPS data to an IoT Hub",
+     "level": 2
+    },
+    {
+     "id": "task-send-gps-data-to-an-iot-hub",
+     "text": "Task - send GPS data to an IoT Hub",
+     "level": 3
+    },
+    {
+     "id": "hot-warm-and-cold-paths",
+     "text": "Hot, warm, and cold paths",
+     "level": 2
+    },
+    {
+     "id": "hot-path",
+     "text": "Hot path",
+     "level": 3
+    },
+    {
+     "id": "warm-path",
+     "text": "Warm path",
+     "level": 3
+    },
+    {
+     "id": "cold-path",
+     "text": "Cold path",
+     "level": 3
+    },
+    {
+     "id": "handle-gps-events-using-serverless-code",
+     "text": "Handle GPS events using serverless code",
+     "level": 2
+    },
+    {
+     "id": "task-handle-gps-events-using-serverless-code",
+     "text": "Task - handle GPS events using serverless code",
+     "level": 3
+    },
+    {
+     "id": "azure-storage-accounts",
+     "text": "Azure Storage Accounts",
+     "level": 2
+    },
+    {
+     "id": "blob-storage",
+     "text": "Blob storage",
+     "level": 3
+    },
+    {
+     "id": "table-storage",
+     "text": "Table storage",
+     "level": 3
+    },
+    {
+     "id": "queue-storage",
+     "text": "Queue storage",
+     "level": 3
+    },
+    {
+     "id": "file-storage",
+     "text": "File storage",
+     "level": 3
+    },
+    {
+     "id": "connect-your-serverless-code-to-storage",
+     "text": "Connect your serverless code to storage",
+     "level": 2
+    },
+    {
+     "id": "task-connect-your-serverless-code-to-storage",
+     "text": "Task - connect your serverless code to storage",
+     "level": 3
+    },
+    {
+     "id": "task-verify-the-uploaded-blobs",
+     "text": "Task - verify the uploaded blobs",
+     "level": 3
+    },
+    {
+     "id": "task-deploy-your-functions-app-to-the-cloud",
+     "text": "Task - deploy your Functions App to the cloud",
+     "level": 3
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "iot_embedded-07",
+   "title": "Visualize location data",
+   "words": 2215,
+   "minutes": 12,
+   "source": "ms-iot",
+   "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/3-transport/lessons/3-visualize-location-data/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "what-is-data-visualization",
+     "text": "What is data visualization",
+     "level": 2
+    },
+    {
+     "id": "map-services",
+     "text": "Map services",
+     "level": 2
+    },
+    {
+     "id": "create-an-azure-maps-resource",
+     "text": "Create an Azure Maps resource",
+     "level": 2
+    },
+    {
+     "id": "task-create-an-azure-maps-resource",
+     "text": "Task - create an Azure Maps resource",
+     "level": 3
+    },
+    {
+     "id": "show-a-map-on-a-web-page",
+     "text": "Show a map on a web page",
+     "level": 2
+    },
+    {
+     "id": "task-show-a-map-on-a-web-page",
+     "text": "Task - show a map on a web page",
+     "level": 3
+    },
+    {
+     "id": "the-geojson-format",
+     "text": "The GeoJSON format",
+     "level": 2
+    },
+    {
+     "id": "plot-gps-data-on-a-map-using-geojson",
+     "text": "Plot GPS data on a Map using GeoJSON",
+     "level": 2
+    },
+    {
+     "id": "task-configure-storage-to-be-accessed-from-a-web-page",
+     "text": "Task - configure storage to be accessed from a web page",
+     "level": 3
+    },
+    {
+     "id": "task-load-the-gps-data-from-storage",
+     "text": "Task - load the GPS data from storage",
+     "level": 3
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "iot_embedded-08",
+   "title": "Geofences",
+   "words": 3543,
+   "minutes": 18,
+   "source": "ms-iot",
+   "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/3-transport/lessons/4-geofences/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "what-are-geofences",
+     "text": "What are Geofences",
+     "level": 2
+    },
+    {
+     "id": "define-a-geofence",
+     "text": "Define a geofence",
+     "level": 2
+    },
+    {
+     "id": "task-define-a-geofence",
+     "text": "Task - define a geofence",
+     "level": 3
+    },
+    {
+     "id": "test-points-against-a-geofence",
+     "text": "Test points against a geofence",
+     "level": 2
+    },
+    {
+     "id": "task-test-points-against-a-geofence",
+     "text": "Task - test points against a geofence",
+     "level": 3
+    },
+    {
+     "id": "use-geofences-from-serverless-code",
+     "text": "Use geofences from serverless code",
+     "level": 2
+    },
+    {
+     "id": "consumer-groups",
+     "text": "Consumer groups",
+     "level": 3
+    },
+    {
+     "id": "task-create-a-new-consumer-group",
+     "text": "Task - create a new consumer group",
+     "level": 3
+    },
+    {
+     "id": "task-create-a-new-iot-hub-trigger",
+     "text": "Task - create a new IoT Hub trigger",
+     "level": 3
+    },
+    {
+     "id": "task-test-the-geofence-from-the-trigger",
+     "text": "Task - test the geofence from the trigger",
+     "level": 3
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [
+   {
+    "q": "IoT devices need to be connected to the Internet at all time",
+    "options": [
+     "True",
+     "False"
+    ],
+    "answer": 1,
+    "explain": "",
+    "lesson": "iot_embedded-01",
+    "origin": "bank:iot:2",
+    "source": "ms-iot"
+   },
+   {
+    "q": "IoT devices are always secure",
+    "options": [
+     "True",
+     "False"
+    ],
+    "answer": 1,
+    "explain": "",
+    "lesson": "iot_embedded-01",
+    "origin": "bank:iot:2",
+    "source": "ms-iot"
+   },
+   {
+    "q": "The three steps in a CPU instruction cycle are:",
+    "options": [
+     "Decode, Execute, Fetch",
+     "Fetch, Decode, Execute",
+     "Stop, Collaborate, Listen"
+    ],
+    "answer": 1,
+    "explain": "",
+    "lesson": "iot_embedded-02",
+    "origin": "bank:iot:4",
+    "source": "ms-iot"
+   },
+   {
+    "q": "Digital sensors send data as:",
+    "options": [
+     "Voltage ranges",
+     "High and low voltages only",
+     "Emails"
+    ],
+    "answer": 1,
+    "explain": "",
+    "lesson": "iot_embedded-03",
+    "origin": "bank:iot:6",
+    "source": "ms-iot"
+   },
+   {
+    "q": "What digital signal is sent when a button is pressed?",
+    "options": [
+     "0",
+     "1"
+    ],
+    "answer": 1,
+    "explain": "",
+    "lesson": "iot_embedded-03",
+    "origin": "bank:iot:6",
+    "source": "ms-iot"
+   },
+   {
+    "q": "Data gathered from sensors and sent to the cloud is called:",
+    "options": [
+     "Telemetry",
+     "Commands",
+     "Measurements"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "iot_embedded-04",
+    "origin": "bank:iot:8",
+    "source": "ms-iot"
+   },
+   {
+    "q": "GPS data is sent from sensors using:",
+    "options": [
+     "Latitude and Longitude coordinates",
+     "Addresses",
+     "NMEA sentences"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "iot_embedded-05",
+    "origin": "bank:iot:22",
+    "source": "ms-iot"
+   },
+   {
+    "q": "To get a good GPS fix you need to receive signals from at least how many satellites",
+    "options": [
+     "1",
+     "2",
+     "3"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "iot_embedded-05",
+    "origin": "bank:iot:22",
+    "source": "ms-iot"
+   },
+   {
+    "q": "IoT data that needs to be processed immediately is on which path:",
+    "options": [
+     "Hot",
+     "Warm",
+     "Cold"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "iot_embedded-06",
+    "origin": "bank:iot:24",
+    "source": "ms-iot"
+   },
+   {
+    "q": "The service to draw maps on a web page is called:",
+    "options": [
+     "Azure Maps",
+     "Azure Atlas",
+     "Azure World VIsualizer"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "iot_embedded-07",
+    "origin": "bank:iot:26",
+    "source": "ms-iot"
+   },
+   {
+    "q": "Azure maps plots data using:",
+    "options": [
+     "GeoJSON",
+     "Lists of latitude and longitude",
+     "Lists of addresses"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "iot_embedded-07",
+    "origin": "bank:iot:26",
+    "source": "ms-iot"
+   },
+   {
+    "q": "To have multiple services pull data from an IoT Hub, you need to create multiple:",
+    "options": [
+     "Consumer groups",
+     "Pipes",
+     "IoT Hubs"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "iot_embedded-08",
+    "origin": "bank:iot:28",
+    "source": "ms-iot"
+   }
+  ],
+  "pass_mark": 9,
+  "missing": false
+ },
+ "minutes": 132,
+ "sources": [
+  {
+   "id": "ms-iot",
+   "name": "Microsoft · IoT for Beginners",
+   "url": "https://github.com/microsoft/IoT-For-Beginners",
+   "license": "MIT",
+   "license_url": "https://opensource.org/license/mit",
+   "attribution": "© Microsoft Corporation, MIT License",
+   "noncommercial": false
+  }
+ ]
+}

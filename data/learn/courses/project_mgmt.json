@@ -1,0 +1,1293 @@
+{
+ "title": "Project & Agile Delivery Management",
+ "subtitle": "Initiate, plan, run and close projects — with classic project management and agile delivery.",
+ "level": "Beginner",
+ "outcomes": [
+  "Explain the project life cycle and the project manager's role",
+  "Plan scope, schedule, budget and risk",
+  "Run agile delivery with Scrum, user stories and roadmaps",
+  "Report progress and close a project well"
+ ],
+ "skill": "project_mgmt",
+ "modules": [
+  {
+   "title": "Projects and project managers",
+   "lessons": [
+    "project_mgmt-01",
+    "project_mgmt-02",
+    "project_mgmt-03",
+    "project_mgmt-04",
+    "project_mgmt-05",
+    "project_mgmt-06"
+   ]
+  },
+  {
+   "title": "Planning",
+   "lessons": [
+    "project_mgmt-07",
+    "project_mgmt-08",
+    "project_mgmt-09",
+    "project_mgmt-10",
+    "project_mgmt-11",
+    "project_mgmt-12",
+    "project_mgmt-13",
+    "project_mgmt-14"
+   ]
+  },
+  {
+   "title": "Agile delivery",
+   "lessons": [
+    "project_mgmt-15",
+    "project_mgmt-16",
+    "project_mgmt-17",
+    "project_mgmt-18",
+    "project_mgmt-19",
+    "project_mgmt-20"
+   ]
+  },
+  {
+   "title": "Running and closing",
+   "lessons": [
+    "project_mgmt-21",
+    "project_mgmt-22"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "project_mgmt-01",
+   "title": "Project Management Overview",
+   "words": 1095,
+   "minutes": 6,
+   "source": "bc-pm",
+   "url": "https://opentextbc.ca/projectmanagement/chapter/chapter-2-what-is-a-project-project-management/",
+   "toc": [
+    {
+     "id": "project-attributes",
+     "text": "Project Attributes",
+     "level": 2
+    },
+    {
+     "id": "definition-of-a-project",
+     "text": "Definition of a Project",
+     "level": 2
+    },
+    {
+     "id": "project-characteristics",
+     "text": "Project Characteristics",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-02",
+   "title": "The Process of Project Management",
+   "words": 2046,
+   "minutes": 11,
+   "source": "bc-pm",
+   "url": "https://opentextbc.ca/projectmanagement/chapter/chapter-2-what-is-a-project-project-management/",
+   "toc": [
+    {
+     "id": "project-management-expertise",
+     "text": "Project Management Expertise",
+     "level": 2
+    },
+    {
+     "id": "application-knowledge",
+     "text": "Application knowledge",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-03",
+   "title": "Understanding the Project Environment",
+   "words": 1997,
+   "minutes": 10,
+   "source": "bc-pm",
+   "url": "https://opentextbc.ca/projectmanagement/chapter/chapter-2-what-is-a-project-project-management/",
+   "toc": [
+    {
+     "id": "management-knowledge-and-skills",
+     "text": "Management Knowledge and Skills",
+     "level": 2
+    },
+    {
+     "id": "interpersonal-skills",
+     "text": "Interpersonal Skills",
+     "level": 2
+    },
+    {
+     "id": "communication",
+     "text": "Communication",
+     "level": 3
+    },
+    {
+     "id": "influence",
+     "text": "Influence",
+     "level": 3
+    },
+    {
+     "id": "leadership",
+     "text": "Leadership",
+     "level": 3
+    },
+    {
+     "id": "motivation",
+     "text": "Motivation",
+     "level": 3
+    },
+    {
+     "id": "negotiation",
+     "text": "Negotiation",
+     "level": 3
+    },
+    {
+     "id": "problem-solving",
+     "text": "Problem Solving",
+     "level": 3
+    },
+    {
+     "id": "image-descriptions",
+     "text": "Image Descriptions",
+     "level": 3
+    },
+    {
+     "id": "text-attributions",
+     "text": "Text Attributions",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-04",
+   "title": "The Project Life Cycle (Phases)",
+   "words": 1428,
+   "minutes": 8,
+   "source": "bc-pm",
+   "url": "https://opentextbc.ca/projectmanagement/chapter/chapter-3-the-project-life-cycle-phases-project-management/",
+   "toc": [
+    {
+     "id": "initiation-phase",
+     "text": "Initiation Phase",
+     "level": 2
+    },
+    {
+     "id": "planning-phase",
+     "text": "Planning Phase",
+     "level": 2
+    },
+    {
+     "id": "implementation-execution-phase",
+     "text": "Implementation (Execution) Phase",
+     "level": 2
+    },
+    {
+     "id": "closing-phase",
+     "text": "Closing Phase",
+     "level": 2
+    },
+    {
+     "id": "example-project-phases-on-a-large-multinational-project",
+     "text": "Example: Project Phases on a Large Multinational Project",
+     "level": 2
+    },
+    {
+     "id": "text-attributions",
+     "text": "Text Attributions",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-05",
+   "title": "Project Initiation",
+   "words": 2420,
+   "minutes": 13,
+   "source": "bc-pm",
+   "url": "https://opentextbc.ca/projectmanagement/chapter/chapter-7-project-initiation-project-management/",
+   "toc": [
+    {
+     "id": "comparing-options-using-a-weighted-decision-matrix",
+     "text": "Comparing Options Using a Weighted Decision Matrix",
+     "level": 2
+    },
+    {
+     "id": "weighted-decision-matrix-sample",
+     "text": "Weighted Decision Matrix Sample",
+     "level": 2
+    },
+    {
+     "id": "financial-considerations",
+     "text": "Financial Considerations",
+     "level": 2
+    },
+    {
+     "id": "npv",
+     "text": "NPV",
+     "level": 2
+    },
+    {
+     "id": "npv-example",
+     "text": "NPV Example",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-06",
+   "title": "ROI",
+   "words": 1456,
+   "minutes": 8,
+   "source": "bc-pm",
+   "url": "https://opentextbc.ca/projectmanagement/chapter/chapter-7-project-initiation-project-management/",
+   "toc": [
+    {
+     "id": "payback-analysis",
+     "text": "Payback Analysis",
+     "level": 2
+    },
+    {
+     "id": "project-charter",
+     "text": "Project Charter",
+     "level": 2
+    },
+    {
+     "id": "example-of-a-project-charter",
+     "text": "Example of a Project Charter",
+     "level": 2
+    },
+    {
+     "id": "identification-section",
+     "text": "Identification Section",
+     "level": 3
+    },
+    {
+     "id": "overview-of-the-project",
+     "text": "Overview of the Project",
+     "level": 3
+    },
+    {
+     "id": "objective",
+     "text": "Objective",
+     "level": 3
+    },
+    {
+     "id": "scope",
+     "text": "Scope",
+     "level": 3
+    },
+    {
+     "id": "major-milestones",
+     "text": "Major Milestones",
+     "level": 3
+    },
+    {
+     "id": "major-deliverables",
+     "text": "Major Deliverables",
+     "level": 3
+    },
+    {
+     "id": "assumptions",
+     "text": "Assumptions",
+     "level": 3
+    },
+    {
+     "id": "constraints",
+     "text": "Constraints",
+     "level": 3
+    },
+    {
+     "id": "business-need-or-opportunity-benefits",
+     "text": "Business Need or Opportunity (Benefits)",
+     "level": 3
+    },
+    {
+     "id": "preliminary-cost-for-the-project",
+     "text": "Preliminary Cost for the Project",
+     "level": 3
+    },
+    {
+     "id": "project-risks",
+     "text": "Project Risks",
+     "level": 3
+    },
+    {
+     "id": "project-charter-acceptance",
+     "text": "Project Charter Acceptance",
+     "level": 3
+    },
+    {
+     "id": "image-descriptions",
+     "text": "Image Descriptions",
+     "level": 3
+    },
+    {
+     "id": "text-attributions",
+     "text": "Text Attributions",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-07",
+   "title": "Scope Planning",
+   "words": 2448,
+   "minutes": 13,
+   "source": "bc-pm",
+   "url": "https://opentextbc.ca/projectmanagement/chapter/chapter-9-scope-planning-project-management/",
+   "toc": [
+    {
+     "id": "defining-the-scope",
+     "text": "Defining the Scope",
+     "level": 2
+    },
+    {
+     "id": "project-requirements",
+     "text": "Project Requirements",
+     "level": 2
+    },
+    {
+     "id": "functional-requirements",
+     "text": "Functional Requirements",
+     "level": 2
+    },
+    {
+     "id": "vehicle-example",
+     "text": "Vehicle Example",
+     "level": 3
+    },
+    {
+     "id": "computer-system-example",
+     "text": "Computer System Example",
+     "level": 3
+    },
+    {
+     "id": "non-functional-requirements",
+     "text": "Non-Functional Requirements",
+     "level": 2
+    },
+    {
+     "id": "technical-requirements",
+     "text": "Technical Requirements",
+     "level": 2
+    },
+    {
+     "id": "business-requirements",
+     "text": "Business Requirements",
+     "level": 2
+    },
+    {
+     "id": "user-requirements",
+     "text": "User Requirements",
+     "level": 2
+    },
+    {
+     "id": "regulatory-requirements",
+     "text": "Regulatory requirements",
+     "level": 2
+    },
+    {
+     "id": "an-example-of-requirements",
+     "text": "An Example of Requirements",
+     "level": 2
+    },
+    {
+     "id": "software-requirements-fundamentals",
+     "text": "Software Requirements Fundamentals",
+     "level": 2
+    },
+    {
+     "id": "measuring-requirements",
+     "text": "Measuring Requirements",
+     "level": 2
+    },
+    {
+     "id": "scope-inputs",
+     "text": "Scope Inputs",
+     "level": 2
+    },
+    {
+     "id": "techniques",
+     "text": "Techniques",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-08",
+   "title": "Requirements Traceability Matrix",
+   "words": 1903,
+   "minutes": 10,
+   "source": "bc-pm",
+   "url": "https://opentextbc.ca/projectmanagement/chapter/chapter-9-scope-planning-project-management/",
+   "toc": [
+    {
+     "id": "matrix-fields",
+     "text": "Matrix Fields",
+     "level": 2
+    },
+    {
+     "id": "work-breakdown-structure",
+     "text": "Work Breakdown Structure",
+     "level": 2
+    },
+    {
+     "id": "overview",
+     "text": "Overview",
+     "level": 2
+    },
+    {
+     "id": "example-of-a-wbs",
+     "text": "Example of a WBS",
+     "level": 2
+    },
+    {
+     "id": "100-percent-rule",
+     "text": "100 Percent Rule",
+     "level": 2
+    },
+    {
+     "id": "scope-statement",
+     "text": "Scope Statement",
+     "level": 2
+    },
+    {
+     "id": "image-descriptions",
+     "text": "Image Descriptions",
+     "level": 3
+    },
+    {
+     "id": "text-attributions",
+     "text": "Text Attributions",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-09",
+   "title": "Project Schedule Planning",
+   "words": 2422,
+   "minutes": 13,
+   "source": "bc-pm",
+   "url": "https://opentextbc.ca/projectmanagement/chapter/chapter-10-project-schedule-planning-project-management/",
+   "toc": [
+    {
+     "id": "defining-activities",
+     "text": "Defining Activities",
+     "level": 2
+    },
+    {
+     "id": "a-case-study",
+     "text": "A Case Study",
+     "level": 2
+    },
+    {
+     "id": "activity-list",
+     "text": "Activity List",
+     "level": 2
+    },
+    {
+     "id": "external-predecessors",
+     "text": "External Predecessors",
+     "level": 2
+    },
+    {
+     "id": "discretionary-predecessors",
+     "text": "Discretionary Predecessors",
+     "level": 2
+    },
+    {
+     "id": "mandatory-predecessors",
+     "text": "Mandatory Predecessors",
+     "level": 2
+    },
+    {
+     "id": "leads-and-lags",
+     "text": "Leads and Lags",
+     "level": 2
+    },
+    {
+     "id": "milestones",
+     "text": "Milestones",
+     "level": 2
+    },
+    {
+     "id": "the-activity-sequencing-process",
+     "text": "The Activity Sequencing Process",
+     "level": 2
+    },
+    {
+     "id": "creating-the-gantt-chart",
+     "text": "Creating the Gantt Chart",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-10",
+   "title": "Creating the Network Diagram",
+   "words": 1156,
+   "minutes": 6,
+   "source": "bc-pm",
+   "url": "https://opentextbc.ca/projectmanagement/chapter/chapter-10-project-schedule-planning-project-management/",
+   "toc": [
+    {
+     "id": "the-critical-path",
+     "text": "The Critical Path",
+     "level": 2
+    },
+    {
+     "id": "image-descriptions",
+     "text": "Image Descriptions",
+     "level": 3
+    },
+    {
+     "id": "text-attributions",
+     "text": "Text Attributions",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-11",
+   "title": "Budget Planning",
+   "words": 2448,
+   "minutes": 13,
+   "source": "bc-pm",
+   "url": "https://opentextbc.ca/projectmanagement/chapter/chapter-12-budget-planning-project-management/",
+   "toc": [
+    {
+     "id": "estimating-costs-to-compare-and-select-projects",
+     "text": "Estimating Costs to Compare and Select Projects",
+     "level": 2
+    },
+    {
+     "id": "analogous-estimate",
+     "text": "Analogous Estimate",
+     "level": 2
+    },
+    {
+     "id": "parametric-estimate",
+     "text": "Parametric Estimate",
+     "level": 2
+    },
+    {
+     "id": "bottom-up-estimating",
+     "text": "Bottom-Up Estimating",
+     "level": 2
+    },
+    {
+     "id": "activity-based-estimates",
+     "text": "Activity-Based Estimates",
+     "level": 2
+    },
+    {
+     "id": "managing-the-budget",
+     "text": "Managing the Budget",
+     "level": 2
+    },
+    {
+     "id": "managing-cash-flow",
+     "text": "Managing Cash Flow",
+     "level": 2
+    },
+    {
+     "id": "contingency-reserves",
+     "text": "Contingency Reserves",
+     "level": 2
+    },
+    {
+     "id": "management-reserves",
+     "text": "Management Reserves",
+     "level": 2
+    },
+    {
+     "id": "evaluating-the-budget-during-the-project",
+     "text": "Evaluating the Budget During the Project",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-12",
+   "title": "Earned Value Analysis",
+   "words": 2622,
+   "minutes": 14,
+   "source": "bc-pm",
+   "url": "https://opentextbc.ca/projectmanagement/chapter/chapter-12-budget-planning-project-management/",
+   "toc": [
+    {
+     "id": "schedule-variance",
+     "text": "Schedule Variance",
+     "level": 2
+    },
+    {
+     "id": "variance-indexes-for-schedule-and-cost",
+     "text": "Variance Indexes for Schedule and Cost",
+     "level": 2
+    },
+    {
+     "id": "estimated-cost-to-complete-the-project",
+     "text": "Estimated Cost to Complete the Project",
+     "level": 2
+    },
+    {
+     "id": "estimate-final-project-cost",
+     "text": "Estimate Final Project Cost",
+     "level": 2
+    },
+    {
+     "id": "establishing-a-budget",
+     "text": "Establishing a Budget",
+     "level": 2
+    },
+    {
+     "id": "budget-timeline",
+     "text": "Budget Timeline",
+     "level": 2
+    },
+    {
+     "id": "text-attributions",
+     "text": "Text Attributions",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-13",
+   "title": "Risk Management Planning",
+   "words": 2017,
+   "minutes": 11,
+   "source": "bc-pm",
+   "url": "https://opentextbc.ca/projectmanagement/chapter/chapter-16-risk-management-planning-project-management/",
+   "toc": [
+    {
+     "id": "risk-management-process",
+     "text": "Risk Management Process",
+     "level": 2
+    },
+    {
+     "id": "risk-identification",
+     "text": "Risk Identification",
+     "level": 2
+    },
+    {
+     "id": "risk-evaluation",
+     "text": "Risk Evaluation",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-14",
+   "title": "Risk Mitigation",
+   "words": 2362,
+   "minutes": 12,
+   "source": "bc-pm",
+   "url": "https://opentextbc.ca/projectmanagement/chapter/chapter-16-risk-management-planning-project-management/",
+   "toc": [
+    {
+     "id": "contingency-plan",
+     "text": "Contingency Plan",
+     "level": 2
+    },
+    {
+     "id": "project-risk-by-phases",
+     "text": "Project Risk by Phases",
+     "level": 2
+    },
+    {
+     "id": "initiation",
+     "text": "Initiation",
+     "level": 2
+    },
+    {
+     "id": "planning-phase",
+     "text": "Planning Phase",
+     "level": 2
+    },
+    {
+     "id": "implementation-phase",
+     "text": "Implementation Phase",
+     "level": 2
+    },
+    {
+     "id": "closeout-phase",
+     "text": "Closeout Phase",
+     "level": 2
+    },
+    {
+     "id": "references",
+     "text": "References",
+     "level": 3
+    },
+    {
+     "id": "text-attributions",
+     "text": "Text Attributions",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-15",
+   "title": "Agile methods: an introduction",
+   "words": 496,
+   "minutes": 3,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/agile-delivery/agile-methodologies",
+   "toc": [
+    {
+     "id": "popular-agile-methods-explained",
+     "text": "Popular agile methods explained",
+     "level": 2
+    },
+    {
+     "id": "scrum",
+     "text": "Scrum",
+     "level": 3
+    },
+    {
+     "id": "kanban",
+     "text": "Kanban",
+     "level": 3
+    },
+    {
+     "id": "lean",
+     "text": "Lean",
+     "level": 3
+    },
+    {
+     "id": "working-with-multiple-agile-methods",
+     "text": "Working with multiple agile methods",
+     "level": 2
+    },
+    {
+     "id": "deciding-which-methods-to-work-with",
+     "text": "Deciding which methods to work with",
+     "level": 2
+    },
+    {
+     "id": "scrum-x",
+     "text": "Scrum",
+     "level": 3
+    },
+    {
+     "id": "kanban-x",
+     "text": "Kanban",
+     "level": 3
+    },
+    {
+     "id": "lean-x",
+     "text": "Lean",
+     "level": 3
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-16",
+   "title": "Core principles of agile",
+   "words": 733,
+   "minutes": 4,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/agile-delivery/core-principles-agile",
+   "toc": [
+    {
+     "id": "focus-on-user-needs",
+     "text": "Focus on user needs",
+     "level": 2
+    },
+    {
+     "id": "why-user-needs-matter",
+     "text": "Why user needs matter",
+     "level": 3
+    },
+    {
+     "id": "keep-improving-your-service",
+     "text": "Keep improving your service",
+     "level": 2
+    },
+    {
+     "id": "why-you-need-to-keep-improving-your-service",
+     "text": "Why you need to keep improving your service",
+     "level": 3
+    },
+    {
+     "id": "keep-improving-how-your-team-works",
+     "text": "Keep improving how your team works",
+     "level": 2
+    },
+    {
+     "id": "find-out-what-s-not-working",
+     "text": "Find out what’s not working",
+     "level": 3
+    },
+    {
+     "id": "fix-the-problems",
+     "text": "Fix the problems",
+     "level": 3
+    },
+    {
+     "id": "fail-fast-learn-quickly",
+     "text": "Fail fast, learn quickly",
+     "level": 2
+    },
+    {
+     "id": "release-regularly",
+     "text": "Release regularly",
+     "level": 3
+    },
+    {
+     "id": "keep-planning",
+     "text": "Keep planning",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-17",
+   "title": "The Scrum Guide",
+   "words": 3943,
+   "minutes": 20,
+   "source": "scrum",
+   "url": "https://scrumguides.org/scrum-guide.html",
+   "toc": [
+    {
+     "id": "the-2020-scrum-guide-tm",
+     "text": "The 2020 Scrum Guide TM",
+     "level": 2
+    },
+    {
+     "id": "purpose-of-the-scrum-guide",
+     "text": "Purpose of the Scrum Guide",
+     "level": 2
+    },
+    {
+     "id": "scrum-definition",
+     "text": "Scrum Definition",
+     "level": 2
+    },
+    {
+     "id": "scrum-theory",
+     "text": "Scrum Theory",
+     "level": 2
+    },
+    {
+     "id": "transparency",
+     "text": "Transparency",
+     "level": 3
+    },
+    {
+     "id": "inspection",
+     "text": "Inspection",
+     "level": 3
+    },
+    {
+     "id": "adaptation",
+     "text": "Adaptation",
+     "level": 3
+    },
+    {
+     "id": "scrum-values",
+     "text": "Scrum Values",
+     "level": 2
+    },
+    {
+     "id": "scrum-team",
+     "text": "Scrum Team",
+     "level": 2
+    },
+    {
+     "id": "developers",
+     "text": "Developers",
+     "level": 3
+    },
+    {
+     "id": "product-owner",
+     "text": "Product Owner",
+     "level": 3
+    },
+    {
+     "id": "scrum-master",
+     "text": "Scrum Master",
+     "level": 3
+    },
+    {
+     "id": "scrum-events",
+     "text": "Scrum Events",
+     "level": 2
+    },
+    {
+     "id": "the-sprint",
+     "text": "The Sprint",
+     "level": 3
+    },
+    {
+     "id": "sprint-planning",
+     "text": "Sprint Planning",
+     "level": 3
+    },
+    {
+     "id": "daily-scrum",
+     "text": "Daily Scrum",
+     "level": 3
+    },
+    {
+     "id": "sprint-review",
+     "text": "Sprint Review",
+     "level": 3
+    },
+    {
+     "id": "sprint-retrospective",
+     "text": "Sprint Retrospective",
+     "level": 3
+    },
+    {
+     "id": "scrum-artifacts",
+     "text": "Scrum Artifacts",
+     "level": 2
+    },
+    {
+     "id": "product-backlog",
+     "text": "Product Backlog",
+     "level": 3
+    },
+    {
+     "id": "sprint-backlog",
+     "text": "Sprint Backlog",
+     "level": 3
+    },
+    {
+     "id": "increment",
+     "text": "Increment",
+     "level": 3
+    },
+    {
+     "id": "end-note",
+     "text": "End Note",
+     "level": 2
+    },
+    {
+     "id": "acknowledgements",
+     "text": "Acknowledgements",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-18",
+   "title": "Writing user stories",
+   "words": 626,
+   "minutes": 4,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/agile-delivery/writing-user-stories",
+   "toc": [
+    {
+     "id": "how-to-write-a-user-story",
+     "text": "How to write a user story",
+     "level": 2
+    },
+    {
+     "id": "what-to-include",
+     "text": "What to include",
+     "level": 3
+    },
+    {
+     "id": "the-right-format-for-user-stories",
+     "text": "The right format for user stories",
+     "level": 3
+    },
+    {
+     "id": "focus-on-the-goal",
+     "text": "Focus on the goal",
+     "level": 3
+    },
+    {
+     "id": "acceptance-criteria",
+     "text": "Acceptance criteria",
+     "level": 3
+    },
+    {
+     "id": "epics",
+     "text": "Epics",
+     "level": 2
+    },
+    {
+     "id": "how-to-record-user-stories",
+     "text": "How to record user stories",
+     "level": 2
+    },
+    {
+     "id": "planning-with-your-user-stories",
+     "text": "Planning with your user stories",
+     "level": 3
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-19",
+   "title": "Deciding on priorities",
+   "words": 437,
+   "minutes": 3,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/agile-delivery/deciding-on-priorities",
+   "toc": [
+    {
+     "id": "prioritisation-methods",
+     "text": "Prioritisation methods",
+     "level": 2
+    },
+    {
+     "id": "making-sure-you-focus-on-more-than-just-new-features",
+     "text": "Making sure you focus on more than just new features",
+     "level": 3
+    },
+    {
+     "id": "building-consensus-within-your-team",
+     "text": "Building consensus within your team",
+     "level": 3
+    },
+    {
+     "id": "prioritising-tasks-during-the-different-development-phases",
+     "text": "Prioritising tasks during the different development phases",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-20",
+   "title": "Developing a roadmap",
+   "words": 967,
+   "minutes": 5,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/agile-delivery/developing-a-roadmap",
+   "toc": [
+    {
+     "id": "why-roadmaps-are-important",
+     "text": "Why roadmaps are important",
+     "level": 2
+    },
+    {
+     "id": "roadmap-principles",
+     "text": "Roadmap principles",
+     "level": 2
+    },
+    {
+     "id": "1-your-roadmap-takes-you-towards-a-vision-in-iterations",
+     "text": "1. Your roadmap takes you towards a vision, in iterations",
+     "level": 3
+    },
+    {
+     "id": "2-a-roadmap-shows-what-you-re-trying-to-achieve",
+     "text": "2. A roadmap shows what you’re trying to achieve",
+     "level": 3
+    },
+    {
+     "id": "3-each-service-or-product-should-have-a-roadmap",
+     "text": "3. Each service or product should have a roadmap",
+     "level": 3
+    },
+    {
+     "id": "4-roadmaps-are-developed-iteratively-and-regularly",
+     "text": "4. Roadmaps are developed iteratively and regularly",
+     "level": 3
+    },
+    {
+     "id": "5-a-roadmap-should-be-open",
+     "text": "5. A roadmap should be open",
+     "level": 3
+    },
+    {
+     "id": "6-it-needs-to-be-easy-to-understand",
+     "text": "6. It needs to be easy to understand",
+     "level": 3
+    },
+    {
+     "id": "7-product-iterations-have-clear-objectives",
+     "text": "7. Product iterations have clear objectives",
+     "level": 3
+    },
+    {
+     "id": "8-missions-and-phases-have-fixed-time-periods",
+     "text": "8. Missions and phases have fixed time periods",
+     "level": 3
+    },
+    {
+     "id": "9-roadmaps-are-clear-about-priority",
+     "text": "9. Roadmaps are clear about priority",
+     "level": 3
+    },
+    {
+     "id": "10-roadmaps-capture-intent-and-allow-for-change",
+     "text": "10. Roadmaps capture intent and allow for change",
+     "level": 3
+    },
+    {
+     "id": "11-they-explain-the-who-and-the-how",
+     "text": "11. They explain the ‘who’ and the ‘how’",
+     "level": 3
+    },
+    {
+     "id": "12-they-re-reusable",
+     "text": "12. They’re reusable",
+     "level": 3
+    },
+    {
+     "id": "examples-and-case-studies",
+     "text": "Examples and case studies",
+     "level": 2
+    },
+    {
+     "id": "discuss-and-contribute",
+     "text": "Discuss and contribute",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-21",
+   "title": "Measuring and reporting progress",
+   "words": 252,
+   "minutes": 3,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/agile-delivery/measuring-reporting-progress",
+   "toc": [
+    {
+     "id": "measuring-and-reporting-progress-in-agile",
+     "text": "Measuring and reporting progress in agile",
+     "level": 2
+    },
+    {
+     "id": "reporting-when-you-have-more-than-one-team",
+     "text": "Reporting when you have more than one team",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "project_mgmt-22",
+   "title": "Project Completion",
+   "words": 2124,
+   "minutes": 11,
+   "source": "bc-pm",
+   "url": "https://opentextbc.ca/projectmanagement/chapter/chapter-18-project-completion-project-management/",
+   "toc": [
+    {
+     "id": "contract-closure",
+     "text": "Contract Closure",
+     "level": 2
+    },
+    {
+     "id": "releasing-the-project-team",
+     "text": "Releasing the Project Team",
+     "level": 2
+    },
+    {
+     "id": "final-payments",
+     "text": "Final Payments",
+     "level": 2
+    },
+    {
+     "id": "post-project-evaluations",
+     "text": "Post-Project Evaluations",
+     "level": 2
+    },
+    {
+     "id": "trust-and-alignment-effectiveness",
+     "text": "Trust and Alignment Effectiveness",
+     "level": 2
+    },
+    {
+     "id": "schedule-and-budget-management",
+     "text": "Schedule and Budget Management",
+     "level": 2
+    },
+    {
+     "id": "risk-mitigation",
+     "text": "Risk Mitigation",
+     "level": 2
+    },
+    {
+     "id": "procurement-contracts",
+     "text": "Procurement Contracts",
+     "level": 2
+    },
+    {
+     "id": "customer-satisfaction",
+     "text": "Customer Satisfaction",
+     "level": 2
+    },
+    {
+     "id": "senior-management",
+     "text": "Senior Management",
+     "level": 2
+    },
+    {
+     "id": "archiving-of-document",
+     "text": "Archiving of Document",
+     "level": 2
+    },
+    {
+     "id": "text-attributions",
+     "text": "Text Attributions",
+     "level": 3
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [],
+  "pass_mark": 0,
+  "missing": true
+ },
+ "minutes": 201,
+ "sources": [
+  {
+   "id": "bc-pm",
+   "name": "Project Management, 2nd ed. (BCcampus)",
+   "url": "https://opentextbc.ca/projectmanagement/",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "Adrienne Watt, BCcampus, CC BY 4.0",
+   "noncommercial": false
+  },
+  {
+   "id": "govuk-sm",
+   "name": "GOV.UK Service Manual",
+   "url": "https://www.gov.uk/service-manual",
+   "license": "Open Government Licence v3.0",
+   "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+   "attribution": "Contains public sector information licensed under the Open Government Licence v3.0",
+   "noncommercial": false
+  },
+  {
+   "id": "scrum",
+   "name": "The Scrum Guide (2020)",
+   "url": "https://scrumguides.org/scrum-guide.html",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "attribution": "© 2020 Ken Schwaber and Jeff Sutherland, CC BY-SA 4.0",
+   "noncommercial": false
+  }
+ ]
+}

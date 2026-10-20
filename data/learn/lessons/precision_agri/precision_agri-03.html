@@ -1,0 +1,250 @@
+<p><img alt="A sketchnote overview of this lesson" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/sketchnotes/lesson-7.jpg"></p>
+<blockquote>
+<p>Sketchnote by <a href="https://github.com/nitya" target="_blank" rel="noopener noreferrer">Nitya Narasimhan</a>. Click the image for a larger version.</p>
+</blockquote>
+<p>This lesson was taught as part of the <a href="https://youtube.com/playlist?list=PLmsFUfdnGr3yCutmcVg6eAUEfsGiFXgcx" target="_blank" rel="noopener noreferrer">IoT for Beginners Project 2 - Digital Agriculture series</a> from the <a href="https://developer.microsoft.com/reactor/?WT.mc_id=academic-17441-jabenn" target="_blank" rel="noopener noreferrer">Microsoft Reactor</a>.</p>
+<p><a href="https://youtu.be/g9FfZwv9R58" target="_blank" rel="noopener noreferrer"><img alt="IoT powered automated plant watering" loading="lazy" src="https://img.youtube.com/vi/g9FfZwv9R58/0.jpg"></a></p>
+
+
+<h2 id="introduction">Introduction</h2>
+<p>In the last lesson, you learned how to monitor soil moisture. In this lesson you will learn how to build the core components of an automated watering system that responds to soil moisture. You'll also learn about timing - how sensors can take a while to respond to changes, and how actuators can take time to change the properties being measured by sensors.</p>
+<p>In this lesson we'll cover:</p>
+<ul>
+<li><a href="#control-high-power-devices-from-a-low-power-iot-device" rel="noopener noreferrer">Control high power devices from a low power IoT device</a></li>
+<li><a href="#control-a-relay" rel="noopener noreferrer">Control a relay</a></li>
+<li><a href="#control-a-relay" rel="noopener noreferrer">Control your plant over MQTT</a></li>
+<li><a href="#sensor-and-actuator-timing" rel="noopener noreferrer">Sensor and actuator timing</a></li>
+<li><a href="#add-timing-to-your-plant-control-server" rel="noopener noreferrer">Add timing to your plant control server</a></li>
+</ul>
+<h2 id="control-high-power-devices-from-a-low-power-iot-device">Control high power devices from a low power IoT device</h2>
+<p>IoT devices use a low voltage. While this is enough for sensors and low-power actuators like LEDs, this is too low to control larger hardware, such as a water pump used for irrigation. Even small pumps you could use for houseplants draw too much current for an IoT dev kit and would burn out the board.</p>
+<blockquote>
+<p>🎓 Current, measured in Amps (A), is the amount of electricity moving through a circuit. Voltage provides the push, current is how much is pushed. You can read more about current on the <a href="https://wikipedia.org/wiki/Electric_current" target="_blank" rel="noopener noreferrer">electric current page on Wikipedia</a>.</p>
+</blockquote>
+<p>The solution to this is to have a pump connected to an external power supply, and use an actuator to switch on the pump, similar to how you would switch on a light. It takes a tiny amount of power (in the form of energy in your body) for your finger to flip a switch, and this connects the light to mains electricity running at 110v/240v.</p>
+<p><img alt="A light switch turns power on to a light" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/light-switch.png"></p>
+<blockquote>
+<p>🎓 <a href="https://wikipedia.org/wiki/Mains_electricity" target="_blank" rel="noopener noreferrer">Mains electricity</a> refers to the electricity delivered to homes and businesses through national infrastructure in many parts of the world.</p>
+</blockquote>
+<p>✅ IoT devices can usually provide 3.3V or 5V, at less than 1 amp (1A) of current. Compare this to mains electricity which is most often at 230V (120V in North America and 100V in Japan), and can provide power for devices that draw 30A.</p>
+<p>There are a number of actuators that can do this, including mechanical devices you can attach to existing switches that mimic a finger turning them on. The most popular is a relay.</p>
+<h3 id="relays">Relays</h3>
+<p>A relay is an electromechanical switch that converts an electrical signal into a mechanical movement that turns on a switch. The core of a relay is an electromagnet.</p>
+<blockquote>
+<p>🎓 <a href="https://wikipedia.org/wiki/Electromagnet" target="_blank" rel="noopener noreferrer">Electromagnets</a> are magnets that are created by passing electricity through a coil of wire. When the electricity is turned on, the coil becomes magnetized. When the electricity is turned off, the coil loses it magnetism.</p>
+</blockquote>
+<p><img alt="When on, the electromagnet creates a magnetic field, turning on the switch for the output circuit" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/relay-on.png"></p>
+<p>In a relay, a control circuit powers the electromagnet. When the electromagnet is on, it pulls a lever that moves a switch, closing a pair of contacts and completing an output circuit.</p>
+<p><img alt="When off, the electromagnet doesn't create a magnetic field, turning off the switch for the output circuit" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/relay-off.png"></p>
+<p>When the control circuit is off, the electromagnet turns off, releasing the lever and opening the contacts, turning off the output circuit. Relays are digital actuators - a high signal to the relay turns it on, a low signal turns it off.</p>
+<p>The output circuit can be used to power additional hardware, like an irrigation system. The IoT device can turn the relay on, completing the output circuit that powers the irrigation system, and plants get watered. The IoT device can then turn the relay off, cutting the power to the irrigation system, turning the water off.</p>
+<p><img alt="A relay turning on, turning on a pump sending water to a plant" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/strawberry-pump.gif"></p>
+<p>In the video above, a relay is turned on. An LED on the relay lights up to indicate it is on (some relay boards have LEDs to indicate if the relay is on or off), and power is sent to the pump, turning it on and pumping water into a plant.</p>
+<blockquote>
+<p>💁 Relays can also be used to switch between two output circuits instead of turning one on and off. As the lever moves, it moves a switch from completing one output circuit to completing a different output circuit, usually sharing a common power connection, or common ground connection.</p>
+</blockquote>
+<p>✅ Do some research: There are multiple types of relays, with differences such as if the control circuit turns the relay on or off when power is applied, or multiple output circuits. Find out about these different types.</p>
+<p>When the lever moves, you can usually hear it make contact with the electromagnet with a well defined click noise.</p>
+<blockquote>
+<p>💁 A relay can be wired so that making the connection actually breaks power to the relay, turning the relay off, which then sends power to the relay turning it back on again, and so on. This means the relay will click incredibly fast making a buzzing noise. This is how some of the first buzzers used in electric doorbells worked.</p>
+</blockquote>
+<h3 id="relay-power">Relay power</h3>
+<p>The electromagnet doesn't need a lot of power to activate and pull the lever, it can be controlled using the 3.3V or 5V output from an IoT dev kit. The output circuit can carry a lot more power, depending on the relay, including mains voltage or even higher power levels for industrial use. This way an IoT Dev kit can control an irrigation system, from a small pump for a single plant, up to a massive industrial system for an entire commercial farm.</p>
+<p><img alt="A grove relay with the control circuit, output circuit and relay labelled" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/grove-relay-labelled.png"></p>
+<p>The image above shows a Grove relay. The control circuit connects to an IoT device and turns the relay on or off using 3.3V or 5V. The output circuit has two terminals, either one can be power or ground. The output circuit can handle up to 250V at 10A, enough for a range of mains-powered devices. You can get relays that can handle even high power levels.</p>
+<p><img alt="A pump wired through a relay" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/pump-wired-to-relay.png"></p>
+<p>In the image above, power is supplied to a pump via a relay. There is a red wire connecting the +5V terminal of a USB power supply to one terminal of the output circuit of the relay, and another red wire connecting the other terminal of the output circuit to the pump. A black wire connects the pump to the ground on the USB power supply. When the relay turns on, it completes the circuit, sending 5V to the pump, turning the pump on.</p>
+<h2 id="control-a-relay">Control a relay</h2>
+<p>You can control a relay from your IoT Dev kit.</p>
+<h3 id="task-control-a-relay">Task - control a relay</h3>
+<p>Work through the relevant guide to control a relay using your IoT device:</p>
+<ul>
+<li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/2-farm/lessons/3-automated-plant-watering/wio-terminal-relay.md" target="_blank" rel="noopener noreferrer">Arduino - Wio Terminal</a></li>
+<li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/2-farm/lessons/3-automated-plant-watering/pi-relay.md" target="_blank" rel="noopener noreferrer">Single-board computer - Raspberry Pi</a></li>
+<li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/2-farm/lessons/3-automated-plant-watering/virtual-device-relay.md" target="_blank" rel="noopener noreferrer">Single-board computer - Virtual device</a></li>
+</ul>
+<h2 id="control-your-plant-over-mqtt">Control your plant over MQTT</h2>
+<p>So far your relay is controlled by the IoT device directly based off a single soil moisture reading. In a commercial irrigation system, the control logic will be centralized, allowing it to make decisions on watering using data from multiple sensors, and allowing any configuration to be changed in one single place. To simulate this, you can control the relay over MQTT.</p>
+<h3 id="task-control-the-relay-over-mqtt">Task - control the relay over MQTT</h3>
+<ol>
+<li>
+<p>Add the relevant MQTT libraries/pip packages and code to your <code>soil-moisture-sensor</code> project to connect to MQTT. Name the client ID as <code>soilmoisturesensor_client</code> prefixed by your ID.</p>
+<blockquote>
+<p>⚠️ You can refer to <a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/4-connect-internet/README.md#connect-your-iot-device-to-mqtt" target="_blank" rel="noopener noreferrer">the instructions for connecting to MQTT in project 1, lesson 4 if needed</a>.</p>
+</blockquote>
+</li>
+<li>
+<p>Add the relevant device code to send telemetry with the soil moisture settings. For the telemetry message, name the property <code>soil_moisture</code>.</p>
+<blockquote>
+<p>⚠️ You can refer to <a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/4-connect-internet/README.md#send-telemetry-from-your-iot-device" target="_blank" rel="noopener noreferrer">the instructions for sending telemetry to MQTT in project 1, lesson 4 if needed</a>.</p>
+</blockquote>
+</li>
+<li>
+<p>Create some local server code to subscribe to telemetry and send a command to control the relay in a folder called <code>soil-moisture-sensor-server</code>. Name the property in the command message <code>relay_on</code>, and set the client ID as <code>soilmoisturesensor_server</code> prefixed by your ID. Keep the same structure as the server code you wrote for project 1, lesson 4 as you will be adding to this code later in this lesson.</p>
+<blockquote>
+<p>⚠️ You can refer to <a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/4-connect-internet/README.md#write-the-server-code" target="_blank" rel="noopener noreferrer">the instructions for sending telemetry to MQTT</a> and <a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/4-connect-internet/README.md#send-commands-to-the-mqtt-broker" target="_blank" rel="noopener noreferrer">sending commands over MQTT</a> in project 1, lesson 4 if needed.</p>
+</blockquote>
+</li>
+<li>
+<p>Add the relevant device code to control the relay from received commands, using the <code>relay_on</code> property from the message. Send true for <code>relay_on</code> if the <code>soil_moisture</code> is greater than 450, otherwise send false, the same as the logic you added for the IoT device earlier.</p>
+<blockquote>
+<p>⚠️ You can refer to <a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/4-connect-internet/README.md#handle-commands-on-the-iot-device" target="_blank" rel="noopener noreferrer">the instructions for responding to commands from MQTT in project 1, lesson 4 if needed</a>.</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>💁 You can find this code in the <a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/2-farm/lessons/3-automated-plant-watering/code-mqtt" target="_blank" rel="noopener noreferrer">code-mqtt</a> folder.</p>
+</blockquote>
+<p>Make sure the code is running on your device and local server, and test it out by changing soil moisture levels, either by changing the values sent by the virtual sensor, or by changing the moisture levels of the soil by adding water or removing the sensor from the soil.</p>
+<h2 id="sensor-and-actuator-timing">Sensor and actuator timing</h2>
+<p>Back in lesson 3 you built a nightlight - an LED that turns on as soon as a low level of light was detected by a light sensor. The light sensor detected a change in light levels instantly, and the device was able to respond quickly, only limited by the length of the delay in the <code>loop</code> function or <code>while True:</code> loop. As an IoT developer, you can't always rely on such a fast feedback loop.</p>
+<h3 id="timing-for-soil-moisture">Timing for soil moisture</h3>
+<p>If you did the last lesson on soil moisture using a physical sensor, you would have noticed that it took a few seconds for the soil moisture reading to drop after you watered your plant. This is not because the sensor is slow, but because it takes time for water to soak through the soil.</p>
+<blockquote>
+<p>💁 If you watered too close to the sensor you may have seen the reading drop quickly, then come back up - this is caused by water near the sensor spreading throughout the rest of the soil, reducing the soil moisture by the sensor.</p>
+</blockquote>
+<p><img alt="A soil moisture measurement of 658 doesn't change during watering, it only drops to 320 after watering when water has soaked through the soil" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/soil-moisture-travel.png"></p>
+<p>In the diagram above, a soil moisture reading shows 658. The plant is watered, but this reading doesn't change immediately, as the water has yet to reach the sensor. Watering can even finish before the water reaches the sensor and the value drops to reflect the new moisture level.</p>
+<p>If you were writing code to control an irrigation system via a relay based off soil moisture levels, you would need to take this delay into consideration and build smarter timing into your IoT device.</p>
+<p>✅ Take a moment to think about how you might do this.</p>
+<h3 id="control-sensor-and-actuator-timing">Control sensor and actuator timing</h3>
+<p>Imagine you have been tasked with building an irrigation system for a farm. Based on the soil type, the ideal soil moisture level for the plants grown has been found to match an analog voltage reading of 400-450.</p>
+<p>You could program the device in the same way as the nightlight - all the time the sensor reads above 450, turn on a relay to turn on a pump. The problem is that water takes a while to get from the pump, through the soil to the sensor. The sensor will stop the water when it detects a level of 450, but the water level will continue dropping as the pumped water keeps soaking through the soil. The end result is wasted water, and the risk of root damage.</p>
+<p>✅ Remember - too much water can be as bad for plants as too little, and wastes a precious resource.</p>
+<p>The better solution is to understand that there is a delay between the actuator turning on and the property that the sensor reads changing. This means not only should the sensor wait for a while before measuring the value again, but the actuator needs to turn off for a while before the next sensor measurement is taken.</p>
+<p>How long should the relay be on each time? It's better to err on the side of caution and only turn the relay on for a short time, then wait for the water to soak through, then re-check the moisture levels. After all, you can always turn it on again to add more water, you can't remove water from the soil.</p>
+<blockquote>
+<p>💁 This kind of timing control is very specific to the IoT device you are building, the property you are measuring and the sensors and actuators used.</p>
+</blockquote>
+<p><img alt="A strawberry plant connected to water via a pump, with the pump connected to a relay. The relay and a soil moisture sensor in the plant are both connected to a Raspberry Pi" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/strawberry-with-pump.png"></p>
+<p>For example, I have a strawberry plant with a soil moisture sensor and a pump controlled by a relay. I've observed that when I add water it takes about 20 seconds for the soil moisture reading to stabilize. This means I need to turn the relay off and wait 20 seconds before checking the moisture levels. I'd rather have too little water than too much - I can always turn the pump on again, but I can't take water out of the plant.</p>
+<p><img alt="Step 1, take measurement. Step 2, add water. Step 3, wait for water to soak through the soil. Step 4, retake measurement" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/soil-moisture-delay.png"></p>
+<p>This means the best process would be a watering cycle that is something like:</p>
+<ul>
+<li>Turn on the pump for 5 seconds</li>
+<li>Wait 20 seconds</li>
+<li>Check the soil moisture</li>
+<li>If the level is still above what I need, repeat the above steps</li>
+</ul>
+<p>5 seconds could be too long for the pump, especially if the moisture levels are only slightly above the required level. The best way to know what timing to use is to try it, then adjust when you have sensor data, with a constant feedback loop. This can even lead to more granular timing, such as turning the pump on for 1s for every 100 above the required soil moisture, instead of a fixed 5 seconds.</p>
+<p>✅ Do some research: Are there other timing considerations? Can the plant be watered any time that the soil moisture is too low, or are there specific times of day that are good and bad times to water plants?</p>
+<blockquote>
+<p>💁 Weather predictions can also be taken into consideration when controlling automated watering systems for outdoor growing. If rain is expected, then the watering can be put on hold till after the rain finishes. At that point the soil may be moist enough that it doesn't need watering, much more efficient that wasting water by watering just before rain.</p>
+</blockquote>
+<h2 id="add-timing-to-your-plant-control-server">Add timing to your plant control server</h2>
+<p>The server code can be modified to add control around the timing of the watering cycle, and waiting for the soil moisture levels to change. The server logic for controlling the relay timing is:</p>
+<ol>
+<li>Telemetry message received</li>
+<li>Check the soil moisture level</li>
+<li>If it's ok, do nothing. If the reading is too high (meaning the soil moisture is too low) then:
+<ol>
+<li>Send a command to turn the relay on</li>
+<li>Wait for 5 seconds</li>
+<li>Send a command to turn the relay off</li>
+<li>Wait for 20 seconds for the soil moisture levels to stabilize</li>
+</ol>
+</li>
+</ol>
+<p>The watering cycle, the process from receiving the telemetry message to being ready to process soil moisture levels again, takes about 25 seconds. We're sending soil moisture levels every 10 seconds, so there is an overlap where a message is received whilst the server is waiting for soil moisture levels to stabilize, which could start another watering cycle.</p>
+<p>There are two options to work around this:</p>
+<ul>
+<li>Change the IoT device code to only send telemetry every minute, this way the watering cycle will be completed before the next message is sent</li>
+<li>Unsubscribe from the telemetry during the watering cycle</li>
+</ul>
+<p>The first option is not always a good solution for large farms. The farmer might want to capture the soil moisture levels as the soil is being watered for later analysis, for example to be aware of water flow in different areas on the farm to guide more targeted watering. The second option is better - the code is just ignoring telemetry when it can't use it, but the telemetry is still there for other services that might subscribe to it.</p>
+<blockquote>
+<p>💁 IoT data is not sent from only one device to only one service, instead many devices can send data to a broker, and many services can listen to the data off the broker. For example, one service could listen to soil moisture data and store it in a database for analysis at a later date. Another service can also listen to the same telemetry to control an irrigation system.</p>
+</blockquote>
+<h3 id="task-add-timing-to-your-plant-control-server">Task - add timing to your plant control server</h3>
+<p>Update your server code to run the relay for 5 seconds, then wait 20 seconds.</p>
+<ol>
+<li>
+<p>Open the <code>soil-moisture-sensor-server</code> folder in VS Code if it isn't already open. Make sure the virtual environment is activated.</p>
+</li>
+<li>
+<p>Open the <code>app.py</code> file</p>
+</li>
+<li>
+<p>Add the following code to the <code>app.py</code> file below the existing imports:</p>
+<pre><code class="language-python">import threading
+</code></pre>
+<p>This statement imports <code>threading</code> from Python libraries, threading allows python to execute other code while waiting.</p>
+</li>
+<li>
+<p>Add the following code before the <code>handle_telemetry</code> function that handles telemetry messages received by the server code:</p>
+<pre><code class="language-python">water_time = 5
+wait_time = 20
+</code></pre>
+<p>This defines how long to run the relay for (<code>water_time</code>), and how long to wait afterwards to check the soil moisture (<code>wait_time</code>).</p>
+</li>
+<li>
+<p>Below this code, add the following:</p>
+<pre><code class="language-python">def send_relay_command(client, state):
+    command = { 'relay_on' : state }
+    print("Sending message:", command)
+    client.publish(server_command_topic, json.dumps(command))
+</code></pre>
+<p>This code defines a function called <code>send_relay_command</code> that sends a command over MQTT to control the relay. The telemetry is created as a dictionary, then converted to a JSON string. The value passed into <code>state</code> determines if the relay should be on or off.</p>
+</li>
+<li>
+<p>After the <code>send_relay_code</code> function, add the following code:</p>
+<pre><code class="language-python">def control_relay(client):
+    print("Unsubscribing from telemetry")
+    mqtt_client.unsubscribe(client_telemetry_topic)
+
+    send_relay_command(client, True)
+    time.sleep(water_time)
+    send_relay_command(client, False)
+
+    time.sleep(wait_time)
+
+    print("Subscribing to telemetry")
+    mqtt_client.subscribe(client_telemetry_topic)
+</code></pre>
+<p>This defines a function to control the relay based off the required timing. It starts by unsubscribing from telemetry so that soil moisture messages are not processed whilst the watering is happening. Next it sends a command to turn the relay on. It then waits for the <code>water_time</code> before sending a command to turn the relay off. Finally it waits for the soil moisture levels to stabilize for <code>wait_time</code> seconds. It then re-subscribes to telemetry.</p>
+</li>
+<li>
+<p>Change the <code>handle_telemetry</code> function to the following:</p>
+<pre><code class="language-python">def handle_telemetry(client, userdata, message):
+    payload = json.loads(message.payload.decode())
+    print("Message received:", payload)
+
+    if payload['soil_moisture'] &gt; 450:
+        threading.Thread(target=control_relay, args=(client,)).start()
+</code></pre>
+<p>This code checks the soil moisture level. If it is greater than 450, the soil needs watering, so it calls the <code>control_relay</code> function. This function is run on a separate thread, running in the background.</p>
+</li>
+<li>
+<p>Make sure your IoT device is running, then run this code. Change the soil moisture levels and observe what happens to the relay - it should turn on for 5 seconds then remain off for at least 20 seconds, only turning on if the soil moisture levels are not sufficient.</p>
+<pre><code class="language-output">(.venv) ➜  soil-moisture-sensor-server ✗ python app.py
+Message received: {'soil_moisture': 457}
+Unsubscribing from telemetry
+Sending message: {'relay_on': True}
+Sending message: {'relay_on': False}
+Subscribing to telemetry
+Message received: {'soil_moisture': 302}
+</code></pre>
+<p>A good way to test this in a simulated irrigation system is to use dry soil, then pour water in manually whilst the relay is on, stopping pouring when the relay turns off.</p>
+</li>
+</ol>
+<blockquote>
+<p>💁 You can find this code in the <a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/2-farm/lessons/3-automated-plant-watering/code-timing" target="_blank" rel="noopener noreferrer">code-timing</a> folder.</p>
+</blockquote>
+<blockquote>
+<p>💁 If you want to use a pump to build a real irrigation system, then you can use a <a href="https://www.seeedstudio.com/6V-Mini-Water-Pump-p-1945.html" target="_blank" rel="noopener noreferrer">6V water pump</a> with a <a href="https://www.adafruit.com/product/3628" target="_blank" rel="noopener noreferrer">USB terminal power supply</a>. Make sure the power to or from the pump is connected via the relay.</p>
+</blockquote>
+<hr>
+<h2 id="challenge">🚀 Challenge</h2>
+<p>Can you think of any other IoT or other electrical devices that have a similar problem where it takes a while for the results of the actuator to reach the sensor. You probably have a couple in your house or school.</p>
+<ul>
+<li>What properties do they measure?</li>
+<li>How long does it take for the property to change after an actuator is used?</li>
+<li>Is it ok for the property to change past the required value?</li>
+<li>How can it be returned back to the required value if needed?</li>
+</ul>
+
+
+<h2 id="review-self-study">Review &amp; Self Study</h2>
+<ul>
+<li>Read more on relays including their historical use in telephone exchanges on the <a href="https://wikipedia.org/wiki/Relay" target="_blank" rel="noopener noreferrer">relay Wikipedia page</a>.</li>
+</ul>

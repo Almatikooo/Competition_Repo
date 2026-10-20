@@ -1,0 +1,1369 @@
+{
+ "title": "Machine Learning for Beginners",
+ "subtitle": "Classic machine learning with Python and scikit-learn — regression, classification and clustering.",
+ "level": "Intermediate",
+ "outcomes": [
+  "Explain what machine learning is and where it is used",
+  "Build regression models and evaluate them",
+  "Train classifiers and compare them",
+  "Find groups in data with clustering, and apply ML responsibly"
+ ],
+ "skill": "machine_learning",
+ "modules": [
+  {
+   "title": "Introduction",
+   "lessons": [
+    "machine_learning-01",
+    "machine_learning-02",
+    "machine_learning-03",
+    "machine_learning-04"
+   ]
+  },
+  {
+   "title": "Regression",
+   "lessons": [
+    "machine_learning-05",
+    "machine_learning-06",
+    "machine_learning-07",
+    "machine_learning-08"
+   ]
+  },
+  {
+   "title": "Classification",
+   "lessons": [
+    "machine_learning-09",
+    "machine_learning-10",
+    "machine_learning-11"
+   ]
+  },
+  {
+   "title": "Clustering",
+   "lessons": [
+    "machine_learning-12",
+    "machine_learning-13"
+   ]
+  },
+  {
+   "title": "ML in the real world",
+   "lessons": [
+    "machine_learning-14"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "machine_learning-01",
+   "title": "Introduction to machine learning",
+   "words": 1204,
+   "minutes": 7,
+   "source": "ms-ml",
+   "url": "https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/1-Introduction/1-intro-to-ML/README.md",
+   "toc": [
+    {
+     "id": "getting-started-with-machine-learning",
+     "text": "Getting started with machine learning",
+     "level": 2
+    },
+    {
+     "id": "what-is-machine-learning",
+     "text": "What is machine learning?",
+     "level": 2
+    },
+    {
+     "id": "the-hype-curve",
+     "text": "The hype curve",
+     "level": 2
+    },
+    {
+     "id": "a-mysterious-universe",
+     "text": "A mysterious universe",
+     "level": 2
+    },
+    {
+     "id": "the-child-s-brain",
+     "text": "The child's brain",
+     "level": 2
+    },
+    {
+     "id": "the-human-brain",
+     "text": "The human brain",
+     "level": 2
+    },
+    {
+     "id": "some-terminology",
+     "text": "Some terminology",
+     "level": 2
+    },
+    {
+     "id": "ai-ml-deep-learning",
+     "text": "AI, ML, Deep Learning",
+     "level": 2
+    },
+    {
+     "id": "concepts-to-cover",
+     "text": "Concepts to cover",
+     "level": 2
+    },
+    {
+     "id": "in-this-course-you-will-learn",
+     "text": "In this course you will learn:",
+     "level": 2
+    },
+    {
+     "id": "what-we-will-not-cover",
+     "text": "What we will not cover",
+     "level": 2
+    },
+    {
+     "id": "why-study-machine-learning",
+     "text": "Why study machine learning?",
+     "level": 2
+    },
+    {
+     "id": "why-data-quality-matters",
+     "text": "Why data quality matters",
+     "level": 2
+    },
+    {
+     "id": "applications-of-machine-learning",
+     "text": "Applications of machine learning",
+     "level": 2
+    },
+    {
+     "id": "examples-of-applied-ml",
+     "text": "Examples of applied ML",
+     "level": 2
+    },
+    {
+     "id": "conclusion",
+     "text": "Conclusion",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "machine_learning-02",
+   "title": "History of machine learning",
+   "words": 1370,
+   "minutes": 7,
+   "source": "ms-ml",
+   "url": "https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/1-Introduction/2-history-of-ML/README.md",
+   "toc": [
+    {
+     "id": "notable-discoveries",
+     "text": "Notable discoveries",
+     "level": 2
+    },
+    {
+     "id": "1950-machines-that-think",
+     "text": "1950: Machines that think",
+     "level": 2
+    },
+    {
+     "id": "1956-dartmouth-summer-research-project",
+     "text": "1956: Dartmouth Summer Research Project",
+     "level": 2
+    },
+    {
+     "id": "1956-1974-the-golden-years",
+     "text": "1956 - 1974: \"The golden years\"",
+     "level": 2
+    },
+    {
+     "id": "1974-1980-ai-winter",
+     "text": "1974 - 1980: \"AI Winter\"",
+     "level": 2
+    },
+    {
+     "id": "by-the-mid-1970s-it-had-become-apparent-that-the-complexity-",
+     "text": "By the mid 1970s, it had become apparent that the complexity of making 'intelligent machines' had been understated and that its promise, given the available compute power, had been overblown. Funding dried up and confidence in the field slowed. Some issues that impacted confidence included:",
+     "level": 2
+    },
+    {
+     "id": "1980s-expert-systems",
+     "text": "1980s Expert systems",
+     "level": 2
+    },
+    {
+     "id": "1987-1993-ai-chill",
+     "text": "1987 - 1993: AI 'Chill'",
+     "level": 2
+    },
+    {
+     "id": "1993-2011",
+     "text": "1993 - 2011",
+     "level": 2
+    },
+    {
+     "id": "now",
+     "text": "Now",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "machine_learning-03",
+   "title": "Building Machine Learning solutions with responsible AI",
+   "words": 2103,
+   "minutes": 11,
+   "source": "ms-ml",
+   "url": "https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/1-Introduction/3-fairness/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "prerequisite",
+     "text": "Prerequisite",
+     "level": 2
+    },
+    {
+     "id": "fairness",
+     "text": "Fairness",
+     "level": 2
+    },
+    {
+     "id": "reliability-and-safety",
+     "text": "Reliability and safety",
+     "level": 3
+    },
+    {
+     "id": "inclusiveness",
+     "text": "Inclusiveness",
+     "level": 3
+    },
+    {
+     "id": "security-and-privacy",
+     "text": "Security and privacy",
+     "level": 3
+    },
+    {
+     "id": "transparency",
+     "text": "Transparency",
+     "level": 3
+    },
+    {
+     "id": "accountability",
+     "text": "Accountability",
+     "level": 3
+    },
+    {
+     "id": "impact-assessment",
+     "text": "Impact assessment",
+     "level": 2
+    },
+    {
+     "id": "debugging-with-responsible-ai",
+     "text": "Debugging with responsible AI",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "machine_learning-04",
+   "title": "Techniques of Machine Learning",
+   "words": 1704,
+   "minutes": 9,
+   "source": "ms-ml",
+   "url": "https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/1-Introduction/4-techniques-of-ML/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "what-question-to-ask",
+     "text": "What question to ask",
+     "level": 2
+    },
+    {
+     "id": "pre-building-tasks",
+     "text": "Pre-building tasks",
+     "level": 2
+    },
+    {
+     "id": "data",
+     "text": "Data",
+     "level": 3
+    },
+    {
+     "id": "features-and-target",
+     "text": "Features and Target",
+     "level": 3
+    },
+    {
+     "id": "selecting-your-feature-variable",
+     "text": "Selecting your feature variable",
+     "level": 3
+    },
+    {
+     "id": "visualize-your-data",
+     "text": "Visualize your data",
+     "level": 3
+    },
+    {
+     "id": "split-your-dataset",
+     "text": "Split your dataset",
+     "level": 3
+    },
+    {
+     "id": "building-a-model",
+     "text": "Building a model",
+     "level": 2
+    },
+    {
+     "id": "decide-on-a-training-method",
+     "text": "Decide on a training method",
+     "level": 3
+    },
+    {
+     "id": "train-a-model",
+     "text": "Train a model",
+     "level": 3
+    },
+    {
+     "id": "evaluate-the-model",
+     "text": "Evaluate the model",
+     "level": 3
+    },
+    {
+     "id": "parameter-tuning",
+     "text": "Parameter tuning",
+     "level": 2
+    },
+    {
+     "id": "prediction",
+     "text": "Prediction",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "machine_learning-05",
+   "title": "Get started with Python and Scikit-learn for regression models",
+   "words": 1696,
+   "minutes": 9,
+   "source": "ms-ml",
+   "url": "https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/1-Tools/README.md",
+   "toc": [
+    {
+     "id": "this-lesson-is-available-in-r",
+     "text": "This lesson is available in R!",
+     "level": 3
+    },
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "installations-and-configurations",
+     "text": "Installations and configurations",
+     "level": 2
+    },
+    {
+     "id": "your-ml-authoring-environment",
+     "text": "Your ML authoring environment",
+     "level": 2
+    },
+    {
+     "id": "exercise-work-with-a-notebook",
+     "text": "Exercise - work with a notebook",
+     "level": 3
+    },
+    {
+     "id": "up-and-running-with-scikit-learn",
+     "text": "Up and running with Scikit-learn",
+     "level": 2
+    },
+    {
+     "id": "exercise-your-first-scikit-learn-notebook",
+     "text": "Exercise - your first Scikit-learn notebook",
+     "level": 2
+    },
+    {
+     "id": "import-libraries",
+     "text": "Import libraries",
+     "level": 3
+    },
+    {
+     "id": "the-diabetes-dataset",
+     "text": "The diabetes dataset",
+     "level": 3
+    },
+    {
+     "id": "challenge",
+     "text": "🚀Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "machine_learning-06",
+   "title": "Build a regression model using Scikit-learn: prepare and visualize data",
+   "words": 2111,
+   "minutes": 11,
+   "source": "ms-ml",
+   "url": "https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/2-Data/README.md",
+   "toc": [
+    {
+     "id": "this-lesson-is-available-in-r",
+     "text": "This lesson is available in R!",
+     "level": 3
+    },
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "asking-the-right-question-of-your-data",
+     "text": "Asking the right question of your data",
+     "level": 2
+    },
+    {
+     "id": "case-study-the-pumpkin-market",
+     "text": "Case study: 'the pumpkin market'",
+     "level": 2
+    },
+    {
+     "id": "preparing-data",
+     "text": "Preparing data",
+     "level": 3
+    },
+    {
+     "id": "the-pumpkin-data-early-conclusions",
+     "text": "The pumpkin data - early conclusions",
+     "level": 3
+    },
+    {
+     "id": "exercise-analyze-the-pumpkin-data",
+     "text": "Exercise - analyze the pumpkin data",
+     "level": 2
+    },
+    {
+     "id": "first-check-for-missing-dates",
+     "text": "First, check for missing dates",
+     "level": 3
+    },
+    {
+     "id": "second-determine-average-price-of-pumpkin",
+     "text": "Second, determine average price of pumpkin",
+     "level": 3
+    },
+    {
+     "id": "but-wait-there-s-something-odd-here",
+     "text": "But wait! There's something odd here",
+     "level": 3
+    },
+    {
+     "id": "but-wait-there-s-one-more-thing-to-do",
+     "text": "But wait! There's one more thing to do",
+     "level": 3
+    },
+    {
+     "id": "visualization-strategies",
+     "text": "Visualization Strategies",
+     "level": 2
+    },
+    {
+     "id": "exercise-experiment-with-matplotlib",
+     "text": "Exercise - experiment with Matplotlib",
+     "level": 2
+    },
+    {
+     "id": "make-it-useful",
+     "text": "Make it useful",
+     "level": 3
+    },
+    {
+     "id": "exercise-experiment-with-seaborn",
+     "text": "Exercise - experiment with Seaborn",
+     "level": 2
+    },
+    {
+     "id": "scatter-plots-to-show-relationships",
+     "text": "Scatter plots to show relationships",
+     "level": 3
+    },
+    {
+     "id": "bar-charts-to-show-distributions",
+     "text": "Bar charts to show distributions",
+     "level": 3
+    },
+    {
+     "id": "heatmaps-to-show-correlations",
+     "text": "Heatmaps to show correlations",
+     "level": 3
+    },
+    {
+     "id": "matplotlib-or-seaborn",
+     "text": "Matplotlib or Seaborn?",
+     "level": 3
+    },
+    {
+     "id": "challenge",
+     "text": "🚀Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "machine_learning-07",
+   "title": "Build a regression model using Scikit-learn: regression four ways",
+   "words": 2784,
+   "minutes": 14,
+   "source": "ms-ml",
+   "url": "https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/3-Linear/README.md",
+   "toc": [
+    {
+     "id": "beginner-note",
+     "text": "Beginner Note",
+     "level": 2
+    },
+    {
+     "id": "this-lesson-is-available-in-r",
+     "text": "This lesson is available in R!",
+     "level": 3
+    },
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 3
+    },
+    {
+     "id": "prerequisite",
+     "text": "Prerequisite",
+     "level": 3
+    },
+    {
+     "id": "preparation",
+     "text": "Preparation",
+     "level": 3
+    },
+    {
+     "id": "a-linear-regression-line",
+     "text": "A linear regression line",
+     "level": 2
+    },
+    {
+     "id": "correlation",
+     "text": "Correlation",
+     "level": 2
+    },
+    {
+     "id": "looking-for-correlation",
+     "text": "Looking for Correlation",
+     "level": 2
+    },
+    {
+     "id": "simple-linear-regression",
+     "text": "Simple Linear Regression",
+     "level": 2
+    },
+    {
+     "id": "polynomial-regression",
+     "text": "Polynomial Regression",
+     "level": 2
+    },
+    {
+     "id": "categorical-features",
+     "text": "Categorical Features",
+     "level": 2
+    },
+    {
+     "id": "putting-it-all-together",
+     "text": "Putting it all together",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "machine_learning-08",
+   "title": "Logistic regression to predict categories",
+   "words": 2178,
+   "minutes": 11,
+   "source": "ms-ml",
+   "url": "https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/4-Logistic/README.md",
+   "toc": [
+    {
+     "id": "this-lesson-is-available-in-r",
+     "text": "This lesson is available in R!",
+     "level": 3
+    },
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "prerequisite",
+     "text": "Prerequisite",
+     "level": 2
+    },
+    {
+     "id": "define-the-question",
+     "text": "Define the question",
+     "level": 2
+    },
+    {
+     "id": "about-logistic-regression",
+     "text": "About logistic regression",
+     "level": 2
+    },
+    {
+     "id": "binary-classification",
+     "text": "Binary classification",
+     "level": 3
+    },
+    {
+     "id": "other-classifications",
+     "text": "Other classifications",
+     "level": 3
+    },
+    {
+     "id": "variables-do-not-have-to-correlate",
+     "text": "Variables DO NOT have to correlate",
+     "level": 3
+    },
+    {
+     "id": "you-need-a-lot-of-clean-data",
+     "text": "You need a lot of clean data",
+     "level": 3
+    },
+    {
+     "id": "exercise-tidy-the-data",
+     "text": "Exercise - tidy the data",
+     "level": 2
+    },
+    {
+     "id": "visualization-categorical-plot",
+     "text": "Visualization - categorical plot",
+     "level": 3
+    },
+    {
+     "id": "data-pre-processing-feature-and-label-encoding",
+     "text": "Data pre-processing: feature and label encoding",
+     "level": 3
+    },
+    {
+     "id": "analyse-relationships-between-variables",
+     "text": "Analyse relationships between variables",
+     "level": 3
+    },
+    {
+     "id": "use-a-swarm-plot",
+     "text": "Use a swarm plot",
+     "level": 3
+    },
+    {
+     "id": "build-your-model",
+     "text": "Build your model",
+     "level": 2
+    },
+    {
+     "id": "better-comprehension-via-a-confusion-matrix",
+     "text": "Better comprehension via a confusion matrix",
+     "level": 2
+    },
+    {
+     "id": "visualize-the-roc-curve-of-this-model",
+     "text": "Visualize the ROC curve of this model",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "machine_learning-09",
+   "title": "Introduction to classification",
+   "words": 1135,
+   "minutes": 6,
+   "source": "ms-ml",
+   "url": "https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/1-Introduction/README.md",
+   "toc": [
+    {
+     "id": "this-lesson-is-available-in-r",
+     "text": "This lesson is available in R!",
+     "level": 3
+    },
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 3
+    },
+    {
+     "id": "hello-classifier",
+     "text": "Hello 'classifier'",
+     "level": 2
+    },
+    {
+     "id": "exercise-clean-and-balance-your-data",
+     "text": "Exercise - clean and balance your data",
+     "level": 2
+    },
+    {
+     "id": "exercise-learning-about-cuisines",
+     "text": "Exercise - learning about cuisines",
+     "level": 2
+    },
+    {
+     "id": "discovering-ingredients",
+     "text": "Discovering ingredients",
+     "level": 2
+    },
+    {
+     "id": "balance-the-dataset",
+     "text": "Balance the dataset",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "machine_learning-10",
+   "title": "Cuisine classifiers 1",
+   "words": 1335,
+   "minutes": 7,
+   "source": "ms-ml",
+   "url": "https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/2-Classifiers-1/README.md",
+   "toc": [
+    {
+     "id": "preparation",
+     "text": "Preparation",
+     "level": 2
+    },
+    {
+     "id": "exercise-predict-a-national-cuisine",
+     "text": "Exercise - predict a national cuisine",
+     "level": 2
+    },
+    {
+     "id": "choosing-your-classifier",
+     "text": "Choosing your classifier",
+     "level": 2
+    },
+    {
+     "id": "what-classifier-to-go-with",
+     "text": "What classifier to go with?",
+     "level": 3
+    },
+    {
+     "id": "a-better-approach",
+     "text": "A better approach",
+     "level": 3
+    },
+    {
+     "id": "reasoning",
+     "text": "Reasoning",
+     "level": 3
+    },
+    {
+     "id": "using-scikit-learn",
+     "text": "Using Scikit-learn",
+     "level": 3
+    },
+    {
+     "id": "exercise-split-the-data",
+     "text": "Exercise - split the data",
+     "level": 2
+    },
+    {
+     "id": "exercise-apply-logistic-regression",
+     "text": "Exercise - apply logistic regression",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "machine_learning-11",
+   "title": "Cuisine classifiers 2",
+   "words": 775,
+   "minutes": 4,
+   "source": "ms-ml",
+   "url": "https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/3-Classifiers-2/README.md",
+   "toc": [
+    {
+     "id": "prerequisite",
+     "text": "Prerequisite",
+     "level": 3
+    },
+    {
+     "id": "preparation",
+     "text": "Preparation",
+     "level": 3
+    },
+    {
+     "id": "a-classification-map",
+     "text": "A classification map",
+     "level": 2
+    },
+    {
+     "id": "the-plan",
+     "text": "The plan",
+     "level": 3
+    },
+    {
+     "id": "exercise-split-the-data",
+     "text": "Exercise - split the data",
+     "level": 2
+    },
+    {
+     "id": "linear-svc-classifier",
+     "text": "Linear SVC classifier",
+     "level": 2
+    },
+    {
+     "id": "exercise-apply-a-linear-svc",
+     "text": "Exercise - apply a linear SVC",
+     "level": 3
+    },
+    {
+     "id": "k-neighbors-classifier",
+     "text": "K-Neighbors classifier",
+     "level": 2
+    },
+    {
+     "id": "exercise-apply-the-k-neighbors-classifier",
+     "text": "Exercise - apply the K-Neighbors classifier",
+     "level": 3
+    },
+    {
+     "id": "support-vector-classifier",
+     "text": "Support Vector Classifier",
+     "level": 2
+    },
+    {
+     "id": "exercise-apply-a-support-vector-classifier",
+     "text": "Exercise - apply a Support Vector Classifier",
+     "level": 3
+    },
+    {
+     "id": "ensemble-classifiers",
+     "text": "Ensemble Classifiers",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "machine_learning-12",
+   "title": "Introduction to clustering",
+   "words": 2283,
+   "minutes": 12,
+   "source": "ms-ml",
+   "url": "https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/5-Clustering/1-Visualize/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 3
+    },
+    {
+     "id": "getting-started-with-clustering",
+     "text": "Getting started with clustering",
+     "level": 2
+    },
+    {
+     "id": "clustering-algorithms",
+     "text": "Clustering algorithms",
+     "level": 2
+    },
+    {
+     "id": "exercise-cluster-your-data",
+     "text": "Exercise - cluster your data",
+     "level": 2
+    },
+    {
+     "id": "exercise-data-distribution",
+     "text": "Exercise - data distribution",
+     "level": 3
+    },
+    {
+     "id": "challenge",
+     "text": "🚀Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "machine_learning-13",
+   "title": "K-Means clustering",
+   "words": 1092,
+   "minutes": 6,
+   "source": "ms-ml",
+   "url": "https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/5-Clustering/2-K-Means/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "prerequisite",
+     "text": "Prerequisite",
+     "level": 2
+    },
+    {
+     "id": "exercise-preparation",
+     "text": "Exercise - preparation",
+     "level": 2
+    },
+    {
+     "id": "silhouette-score",
+     "text": "Silhouette score",
+     "level": 2
+    },
+    {
+     "id": "exercise-build-a-model",
+     "text": "Exercise - build a model",
+     "level": 3
+    },
+    {
+     "id": "elbow-method",
+     "text": "Elbow method",
+     "level": 3
+    },
+    {
+     "id": "exercise-display-the-clusters",
+     "text": "Exercise - display the clusters",
+     "level": 2
+    },
+    {
+     "id": "variance",
+     "text": "Variance",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "machine_learning-14",
+   "title": "Postscript: Machine learning in the real world",
+   "words": 1759,
+   "minutes": 9,
+   "source": "ms-ml",
+   "url": "https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/9-Real-World/1-Applications/README.md",
+   "toc": [
+    {
+     "id": "finance",
+     "text": "💰 Finance",
+     "level": 2
+    },
+    {
+     "id": "credit-card-fraud-detection",
+     "text": "Credit card fraud detection",
+     "level": 3
+    },
+    {
+     "id": "wealth-management",
+     "text": "Wealth management",
+     "level": 3
+    },
+    {
+     "id": "education",
+     "text": "🎓 Education",
+     "level": 2
+    },
+    {
+     "id": "predicting-student-behavior",
+     "text": "Predicting student behavior",
+     "level": 3
+    },
+    {
+     "id": "mitigating-bias",
+     "text": "Mitigating bias",
+     "level": 3
+    },
+    {
+     "id": "retail",
+     "text": "👜 Retail",
+     "level": 2
+    },
+    {
+     "id": "personalizing-the-customer-journey",
+     "text": "Personalizing the customer journey",
+     "level": 3
+    },
+    {
+     "id": "inventory-management",
+     "text": "Inventory management",
+     "level": 3
+    },
+    {
+     "id": "health-care",
+     "text": "🏥 Health Care",
+     "level": 2
+    },
+    {
+     "id": "managing-clinical-trials",
+     "text": "Managing clinical trials",
+     "level": 3
+    },
+    {
+     "id": "hospital-readmission-management",
+     "text": "Hospital readmission management",
+     "level": 3
+    },
+    {
+     "id": "disease-management",
+     "text": "Disease management",
+     "level": 3
+    },
+    {
+     "id": "ecology-and-green-tech",
+     "text": "🌲 Ecology and Green Tech",
+     "level": 2
+    },
+    {
+     "id": "forest-management",
+     "text": "Forest management",
+     "level": 3
+    },
+    {
+     "id": "motion-sensing-of-animals",
+     "text": "Motion sensing of animals",
+     "level": 3
+    },
+    {
+     "id": "energy-management",
+     "text": "⚡️ Energy Management",
+     "level": 3
+    },
+    {
+     "id": "insurance",
+     "text": "💼 Insurance",
+     "level": 2
+    },
+    {
+     "id": "volatility-management",
+     "text": "Volatility Management",
+     "level": 3
+    },
+    {
+     "id": "arts-culture-and-literature",
+     "text": "🎨 Arts, Culture, and Literature",
+     "level": 2
+    },
+    {
+     "id": "fake-news-detection",
+     "text": "Fake news detection",
+     "level": 3
+    },
+    {
+     "id": "museum-ml",
+     "text": "Museum ML",
+     "level": 3
+    },
+    {
+     "id": "marketing",
+     "text": "🏷 Marketing",
+     "level": 2
+    },
+    {
+     "id": "customer-segmentation",
+     "text": "Customer segmentation",
+     "level": 3
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [
+   {
+    "q": "Machine learning algorithms are meant to simulate",
+    "options": [
+     "intelligent machines",
+     "the human brain",
+     "orangutans"
+    ],
+    "answer": 1,
+    "explain": "",
+    "lesson": "machine_learning-01",
+    "origin": "bank:ml:2",
+    "source": "ms-ml"
+   },
+   {
+    "q": "What's an example of a 'scruffy' AI system?",
+    "options": [
+     "ELIZA",
+     "HACKML",
+     "SSYSTEM"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "machine_learning-02",
+    "origin": "bank:ml:4",
+    "source": "ms-ml"
+   },
+   {
+    "q": "Unfairness in a model can be caused by",
+    "options": [
+     "over reliance on historical data",
+     "under reliance on historical data",
+     "too closely aligning to historical data"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "machine_learning-03",
+    "origin": "bank:ml:6",
+    "source": "ms-ml"
+   },
+   {
+    "q": "You should visualize your data because",
+    "options": [
+     "you can discover outliers",
+     "you can discover potential cause for bias",
+     "both of these"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "machine_learning-04",
+    "origin": "bank:ml:8",
+    "source": "ms-ml"
+   },
+   {
+    "q": "If your Machine Learning model's training accuracy is 95 % and the testing accuracy is 30 %, then what type of condition it is called?",
+    "options": [
+     "Overfitting",
+     "Underfitting",
+     "Double Fitting"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "machine_learning-05",
+    "origin": "bank:ml:10",
+    "source": "ms-ml"
+   },
+   {
+    "q": "Which of these code snippets is correct based on this lesson, if you want to check for the presence of missing values in your dataset? Suppose the dataset is stored in a variable named 'dataset' which is a Pandas DataFrame object.",
+    "options": [
+     "dataset.isnull().sum()",
+     "findMissing(dataset)",
+     "sum(null(dataset))"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "machine_learning-06",
+    "origin": "bank:ml:12",
+    "source": "ms-ml"
+   },
+   {
+    "q": "Seaborn is a type of",
+    "options": [
+     "data visualization library",
+     "mapping library",
+     "mathematical library"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "machine_learning-08",
+    "origin": "bank:ml:16",
+    "source": "ms-ml"
+   },
+   {
+    "q": "What is a multiclass question?",
+    "options": [
+     "the task of classifying data points into multiple classes",
+     "the task of classifying data points into one of several classes",
+     "the task of cleaning data points in multiple ways"
+    ],
+    "answer": 1,
+    "explain": "",
+    "lesson": "machine_learning-09",
+    "origin": "bank:ml:20",
+    "source": "ms-ml"
+   },
+   {
+    "q": "What is a 'solver'?",
+    "options": [
+     "the person who double-checks your work",
+     "the algorithm to use in the optimization problem",
+     "a machine learning technique"
+    ],
+    "answer": 1,
+    "explain": "",
+    "lesson": "machine_learning-10",
+    "origin": "bank:ml:22",
+    "source": "ms-ml"
+   },
+   {
+    "q": "Support-Vector classifiers can be used for",
+    "options": [
+     "classification",
+     "regression",
+     "both of these"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "machine_learning-11",
+    "origin": "bank:ml:24",
+    "source": "ms-ml"
+   },
+   {
+    "q": "Euclidean geometry is arranged along",
+    "options": [
+     "planes",
+     "curves",
+     "spheres"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "machine_learning-12",
+    "origin": "bank:ml:28",
+    "source": "ms-ml"
+   },
+   {
+    "q": "A Voronoi diagram shows:",
+    "options": [
+     "a cluster's variance",
+     "a cluster's seed and its region",
+     "a cluster's inertia"
+    ],
+    "answer": 1,
+    "explain": "",
+    "lesson": "machine_learning-13",
+    "origin": "bank:ml:30",
+    "source": "ms-ml"
+   }
+  ],
+  "pass_mark": 9,
+  "missing": false
+ },
+ "minutes": 123,
+ "sources": [
+  {
+   "id": "ms-ml",
+   "name": "Microsoft · ML for Beginners",
+   "url": "https://github.com/microsoft/ML-For-Beginners",
+   "license": "MIT",
+   "license_url": "https://opensource.org/license/mit",
+   "attribution": "© Microsoft Corporation, MIT License",
+   "noncommercial": false
+  }
+ ]
+}

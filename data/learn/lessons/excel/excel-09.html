@@ -1,0 +1,98 @@
+<div>
+<div class="box box-objectives"><p class="box-title">Learning Objectives</p>
+
+<ul>
+<li>Use Conditional Formatting techniques to provide flexible highlighting, applying specified formatting only when certain conditions are met.&nbsp; Techniques include:
+<ul>
+<li>Data bars — to make it easy to visualize values in a range of cells.</li>
+<li>Cells Rules — to highlight values that match the requirements you specify.</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>You now have all the calculations you need in your CAS 170 Grades spreadsheet. There is a lot of data here. To make it easier to pick out the most important pieces of data, Excel provides <strong>Conditional Formatting</strong>. The best thing about Conditional Formatting is that it is flexible, applying specified formatting only when certain conditions are met.</p>
+<ol>
+<li>Select the values in the Total Points column (<strong>O5:O24</strong>).</li>
+<li>At the bottom of your selection, click on the&nbsp;Quick Analysis Tool. On the Formatting tab, select Data Bars (see<strong>&nbsp;Figure 3.18</strong>).<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users</strong>: as stated previously, there is no Quick Analysis Tool for Excel for Mac. Use the alternate steps as shown below.</li>
+</ol>
+<p>Excel places blue bars on top of your values; long blue bars for larger numbers, shorter ones for smaller numbers. This makes it easier to see how well each student did in the class – without having to look at the specific numbers.</p>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-18.jpg" target="_blank" rel="noopener noreferrer"><img alt="Data Bars selected on Quick Analysis Tool and data bars output values in Column O Total Points." height="255" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-3-18.jpg" width="437"></a><figcaption>Figure 3.18&nbsp;Data Bars on the Quick Analysis tool</figcaption></figure>
+<p>Another way to apply Data Bars is to:</p>
+<ul>
+<li>Select the range that needs data bars</li>
+<li>On the Home tab, in the Styles group, select Data Bars from the Conditional Formatting tool.</li>
+<li>From there you can select data bars of different colors and opacities (see&nbsp;<strong>Figure 3.19</strong>).</li>
+</ul>
+<p><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users</strong>: Alternate Steps:</p>
+<ul>
+<li>On the Home tab select Data Bars from the Conditional Formatting tool &nbsp;<img alt="" height="46" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/cond_format.png" width="47">.</li>
+<li>From there you can select data bars of different colors and opacities (see&nbsp;<strong>Figure 3.19</strong>).</li>
+</ul>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-19.jpg" target="_blank" rel="noopener noreferrer"><img alt="Conditional formatting drop-down menu with Data Bars selected and Gradient/Solid Fill options." height="355" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-19.jpg" width="296"></a><figcaption>Figure 3.19 Data Bars on the Conditional Formatting tool</figcaption></figure>
+<div>It is even more important to highlight the students who are failing in the class. To practice further with Conditional&nbsp;Formatting we will do that in two places, in the Percentages column and on the Letter Grade column. &nbsp;To start with, we want any&nbsp;<strong>F</strong> letter grades to be formatted with a light red fill color and dark red text.</div>
+<ol>
+<li>Select the Letter Grades&nbsp;(<strong>R5:R24</strong>).</li>
+<li>On the Home tab, in the Styles group, select <strong>Highlight Cell Rules</strong> from the Conditional Formatting tool&nbsp;(see <strong>Figure 3.20</strong>).</li>
+<li>Select <strong>Equal To</strong></li>
+<li>Fill out the Equal to dialog box so that cells that are equal to:<strong> F</strong> have <strong>Light Red Fill with Dark Red Text&nbsp;</strong>(see <strong>Figure 3.21</strong>).</li>
+</ol>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-20.jpg" target="_blank" rel="noopener noreferrer"><img alt="Conditional formatting tab showing Highlight Cells Rules selected for Equal to...." height="348" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-20.jpg" width="495"></a><figcaption>Figure 3.20 Conditional Formatting Equal To</figcaption></figure>
+<div>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-21.jpg" target="_blank" rel="noopener noreferrer"><img alt="Conditional formatting Equal to Dialog box shows &quot;Format cells that are EQUAL TO:&quot; and &quot;F&quot; entered, with &quot;Light Red Fill with Dark Red Text&quot; chosen." height="363" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-21.jpg" width="560"></a><figcaption>Figure 3.21 Conditional Formatting Equal To Dialog Box</figcaption></figure>
+</div>
+<p>Let’s try that one more time – to highlight those students who are passing the class. &nbsp;This time we will use the Pass/Fail text in the Pass/Fail column. &nbsp;If the text for a student is Pass we want the cell to be formatted with a yellow fill with dark yellow text.</p>
+<ol>
+<li>Select the Pass/Fail grades (<strong>Q5:Q24</strong>).</li>
+<li>On the Home tab, in the Styles group, select <strong>Highlight Cell Rules</strong> from the Conditional Formatting tool (see <strong>Figure 3.20</strong>).</li>
+<li>Select <strong>Equal To</strong></li>
+<li>Fill out the Equal to dialog box so that cells that are equal to: <strong>Pass</strong> have <strong>Yellow Fill with Dark Yellow Text</strong>. (To find the Yellow Fill with Dark Yellow text option, click the the down arrow at the end of the last (with) box).</li>
+</ol>
+<p>You do not have to use the default styles to make your data stand out. You can set any formatting you want. When you do, it is probably a good idea to include other styling in addition to color. Your spreadsheet might be printed in black and white. You would hate to lose your Conditional formatting. &nbsp;Now we are going to use conditional formatting to display any Percentages that are less than 60% with red text formatted in bold and italic.</p>
+<ol>
+<li>Select the Percentage grades&nbsp;(<strong>P5:P24</strong>).</li>
+<li>On the Home tab, in the Styles group, select Highlight Cell Rules from the Conditional Formatting tool&nbsp;(see <strong>Figure 3.20</strong>).</li>
+<li>Select <strong>Less Than</strong></li>
+<li>Fill out the Less Than dialog box so that cells that are less than<strong> .6</strong> will be have conditional formatting. But, instead of using the default red text on a light red fill, press the down arrow at the end of that box and select <strong>Custom Format</strong>.</li>
+<li>On the <strong>Font</strong> tab of the Format Cells dialog box, in the Font style box, select <strong>Bold Italic</strong>. In the Color box, select <strong>Red </strong>(see <strong>Figure 3.22</strong>).</li>
+<li>Press OK. &nbsp;Then press OK again.</li>
+</ol>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-22.jpg" target="_blank" rel="noopener noreferrer"><img alt="Format Cells dialog box with Bold Italic selected in Font style box and Red selected in Color box." height="444" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-22.jpg" width="465"></a><figcaption>Figure 3.22 Conditional Formatting Custom Format Cells Dialog box</figcaption></figure>
+<p>Conditional Formatting is valuable in that it reflects the current data. It changes to reflect changes in the data. To test this, delete DeShea’s final exam score. (Select N5. Press Delete on your keyboard.) Suddenly, DeShae is failing the course and the Conditional Formatting reflects that. This is a little unfair to DeShae – who has worked so hard this quarter. Let’s give him back his grade. Press CTRL Z (Undo). His test score reappears and the Conditional formatting reflects that as well.</p>
+<h2 id="making-changes">Making Changes</h2>
+<p>What if you have made a mistake with your Conditional Formatting? Or, you want to delete it altogether? You can use the <strong>Conditional Formatting Manage Rules</strong> tool. In our example, we want to remove the conditional formatting rule that formats the&nbsp;<strong>Pass</strong> text with yellow. &nbsp;We are also going to modify the minimum passing percentage for the conditional formatting rule that is applied to the percentages.</p>
+<ol>
+<li>On the Home Tab, in the Styles Group, select <strong>Manage Rules</strong> at the very bottom of the Conditional Formatting drop-down list.</li>
+<li>Show formatting rules for: <strong>This Worksheet&nbsp;</strong>(see <strong>Figure 3.23</strong>).</li>
+<li>We don’t really need to highlight the students who are passing the class, so select that rule&nbsp;in the Rules Manager and press the <strong>Delete Rule</strong> button.<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users should click the minus symbol – at bottom left corner to delete the rule.<br>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-23-1.jpg" target="_blank" rel="noopener noreferrer"><img alt="Conditional formatting manage rules dialog box. &quot;This Worksheet&quot; chosen and options for New Rule, Edit Rule, and Delete Rule." height="328" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-23-1.jpg" width="645"></a><figcaption>Figure 3.23 Conditional Formatting Manage Rules</figcaption></figure>
+<p>In a previous exercise (the IF function), we decided that students were failing if they got a percentage score of less than 70%, so the Conditional Formatting rule in the Percentage column needs repair.</p></li>
+<li>Select the rule that reads Cell Value &lt;0.6.</li>
+<li>Select the Edit Rule button, and change the .6 to .7 (see <strong>Figure 3.24</strong>).</li>
+<li>Click OK (or Apply) twice. Double check that your completed workbook matches <strong>Figure 3.25</strong>.</li>
+</ol>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-24-1.jpg" target="_blank" rel="noopener noreferrer"><img alt="Conditional formatting Edit Formatting Rule Dialog box: &quot;Format only cells that contain&quot; selected, and &quot;Cell Value&quot; &quot;less than&quot; &quot;.7&quot; for criteria change." height="309" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-24-1.jpg" width="598"></a><figcaption>Figure 3.24 Conditional Formatting Edit Formatting Rule Dialog box</figcaption></figure>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/09/image25-1.png" target="_blank" rel="noopener noreferrer"><img alt="completed Gradebook" height="797" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/image25-1.png" width="1095"></a><figcaption>Figure 3.25 Completed Ch3 Gradebook</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Note</p>
+<details>
+<summary>Figure 3.25 Image Description</summary>
+<p>The completed Ch3 Gradebook now includes Final Exam scores in Column N, Total Points in Column O (bold) with blue bar graphs, Column P Percentage outputs with failing percentages in bold red, Column Q Pass/Fail results, and Column R Letter Grade outputs with three red filled cells reflecting “F’s” in cell R7, R14, and R16. Row 25 “Points Possible” outputs in bold.</p>
+</details>
+</div>
+<h2 id="setting-the-print-area">Setting the Print Area</h2>
+<p>Before you consider this workbook finished, you need to prepare it for printing. &nbsp;The first thing you will do is set the Print Area so that the table of Letter Grades in A27:B32 does not print.</p>
+<ol>
+<li>Select A1:R25. This is the only part of the worksheet that you want to have print.</li>
+<li>On the&nbsp;<strong>Page Layout</strong> ribbon, click the&nbsp;<strong>Print Area&nbsp;</strong>button. &nbsp;Choose&nbsp;<strong>Set Print Area</strong> from the menu.</li>
+</ol>
+<p>Next you will preview the worksheet in Print Preview to check that the print area setting worked, as well as make sure it is printing on one page.</p>
+<ol>
+<li>View the workbook in Print Preview.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users</strong> should choose <strong>Print</strong> from the <strong>File</strong> menu to view Print Preview.</li>
+<li>Set the page orientation to&nbsp;<strong>Landscape</strong>.</li>
+<li>Change the page scaling if needed so that the entire worksheet prints on one page.</li>
+<li>Save the <strong>CH3 Gradebook and Parks </strong>workbook.</li>
+</ol>
+<details class="attrib"><summary>Attribution</summary>
+<p><a href="https://openoregon.pressbooks.pub/beginningexcel19/chapter/3-3-conditional-formatting/" target="_blank" rel="noopener noreferrer">3.3 Conditional Formatting</a> by Noreen Brown, Mary Schatz, and Art Schneider, &nbsp;<a href="https://www.pcc.edu/" target="_blank" rel="noopener noreferrer">Portland Community College</a>, is licensed under <a href="http://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></p>
+</details></div>

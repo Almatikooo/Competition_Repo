@@ -1,0 +1,564 @@
+<p><img alt="JavaScript Basics - Data types" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Web-Dev-For-Beginners/78085398be0dea7abaaf5eda914817f46f6ddbbc/sketchnotes/webdev101-js-datatypes.png"></p>
+<blockquote>
+<p>Sketchnote by <a href="https://twitter.com/girlie_mac" target="_blank" rel="noopener noreferrer">Tomomi Imura</a></p>
+</blockquote>
+<pre><code class="language-mermaid">journey
+    title Your JavaScript Data Types Adventure
+    section Foundation
+      Variables &amp; Constants: 5: You
+      Declaration Syntax: 4: You
+      Assignment Concepts: 5: You
+    section Core Types
+      Numbers &amp; Math: 4: You
+      Strings &amp; Text: 5: You
+      Booleans &amp; Logic: 4: You
+    section Apply Knowledge
+      Type Conversion: 4: You
+      Real-world Examples: 5: You
+      Best Practices: 5: You
+</code></pre>
+<p>Data types are one of the fundamental concepts in JavaScript that you'll encounter in every program you write. Think of data types like the filing system used by ancient librarians in Alexandria – they had specific places for scrolls containing poetry, mathematics, and historical records. JavaScript organizes information in a similar way with different categories for different kinds of data.</p>
+<p>In this lesson, we'll explore the core data types that make JavaScript work. You'll learn how to handle numbers, text, true/false values, and understand why choosing the correct type is essential for your programs. These concepts might seem abstract at first, but with practice, they'll become second nature.</p>
+<p>Understanding data types will make everything else in JavaScript much clearer. Just as architects need to understand different building materials before constructing a cathedral, these fundamentals will support everything you build going forward.</p>
+
+
+<p>This lesson covers the basics of JavaScript, the language that provides interactivity on the web.</p>
+<blockquote>
+<p>You can take this lesson on <a href="https://docs.microsoft.com/learn/modules/web-development-101-variables/?WT.mc_id=academic-77807-sagibbon" target="_blank" rel="noopener noreferrer">Microsoft Learn</a>!</p>
+</blockquote>
+<p><a href="https://youtube.com/watch?v=JNIXfGiDWM8" target="_blank" rel="noopener noreferrer"><img alt="Variables" loading="lazy" src="https://img.youtube.com/vi/JNIXfGiDWM8/0.jpg"></a></p>
+<p><a href="https://youtube.com/watch?v=AWfA95eLdq8" target="_blank" rel="noopener noreferrer"><img alt="Data Types in JavaScript" loading="lazy" src="https://img.youtube.com/vi/AWfA95eLdq8/0.jpg"></a></p>
+<blockquote>
+<p>🎥 Click the images above for videos about variables and data types</p>
+</blockquote>
+<p>Let's start with variables and the data types that populate them!</p>
+<pre><code class="language-mermaid">mindmap
+  root((JavaScript Data))
+    Variables
+      let myVar
+      const PI = 3.14
+      var oldStyle
+    Primitive Types
+      number
+        42
+        3.14
+        -5
+      string
+        "Hello"
+        'World'
+        `Template`
+      boolean
+        true
+        false
+      undefined
+      null
+    Operations
+      Arithmetic
+        + - * / %
+      String Methods
+        concatenation
+        template literals
+      Type Conversion
+        implicit
+        explicit
+</code></pre>
+<h2 id="variables">Variables</h2>
+<p>Variables are fundamental building blocks in programming. Like the labeled jars that medieval alchemists used to store different substances, variables let you store information and give it a descriptive name so you can reference it later. Need to remember someone's age? Store it in a variable called <code>age</code>. Want to track a user's name? Keep it in a variable called <code>userName</code>.</p>
+<p>We'll focus on the modern approach to creating variables in JavaScript. The techniques you'll learn here represent years of language evolution and best practices developed by the programming community.</p>
+<p>Creating and <strong>declaring</strong> a variable has the following syntax <strong>[keyword] [name]</strong>. It's made up of the two parts:</p>
+<ul>
+<li><strong>Keyword</strong>. Use <code>let</code> for variables that can change, or <code>const</code> for values that stay the same.</li>
+<li><strong>The variable name</strong>, this is a descriptive name you choose yourself.</li>
+</ul>
+<p>✅ The keyword <code>let</code> was introduced in ES6 and gives your variable a so called <em>block scope</em>. It's recommended that you use <code>let</code> or <code>const</code> instead of the older <code>var</code> keyword. We will cover block scopes more in depth in future parts.</p>
+<h3 id="task-working-with-variables">Task - working with variables</h3>
+<ol>
+<li>
+<p><strong>Declare a variable</strong>. Let's start by creating our first variable:</p>
+<pre><code class="language-javascript">let myVariable;
+</code></pre>
+<p><strong>What this accomplishes:</strong></p>
+<ul>
+<li>This tells JavaScript to create a storage location called <code>myVariable</code></li>
+<li>JavaScript allocates space in memory for this variable</li>
+<li>The variable currently has no value (undefined)</li>
+</ul>
+</li>
+<li>
+<p><strong>Give it a value</strong>. Now let's put something in our variable:</p>
+<pre><code class="language-javascript">myVariable = 123;
+</code></pre>
+<p><strong>How assignment works:</strong></p>
+<ul>
+<li>The <code>=</code> operator assigns the value 123 to our variable</li>
+<li>The variable now contains this value instead of being undefined</li>
+<li>You can reference this value throughout your code using <code>myVariable</code></li>
+</ul>
+<blockquote>
+<p>Note: the use of <code>=</code> in this lesson means we make use of an "assignment operator", used to set a value to a variable. It doesn't denote equality.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Do it the smart way</strong>. Actually, let's combine those two steps:</p>
+<pre><code class="language-javascript">let myVariable = 123;
+</code></pre>
+<p><strong>This approach is more efficient:</strong></p>
+<ul>
+<li>You're declaring the variable and assigning a value in one statement</li>
+<li>This is the standard practice among developers</li>
+<li>It reduces code length while maintaining clarity</li>
+</ul>
+</li>
+<li>
+<p><strong>Change your mind</strong>. What if we want to store a different number?</p>
+<pre><code class="language-javascript">myVariable = 321;
+</code></pre>
+<p><strong>Understanding reassignment:</strong></p>
+<ul>
+<li>The variable now contains 321 instead of 123</li>
+<li>The previous value is replaced – variables store only one value at a time</li>
+<li>This mutability is the key characteristic of variables declared with <code>let</code></li>
+</ul>
+<p>✅ Try it! You can write JavaScript right in your browser. Open a browser window and navigate to Developer Tools. In the console, you will find a prompt; type <code>let myVariable = 123</code>, press return, then type <code>myVariable</code>. What happens? Note, you'll learn more about these concepts in subsequent lessons.</p>
+</li>
+</ol>
+<h3 id="variables-mastery-check-getting-comfortable">🧠 <strong>Variables Mastery Check: Getting Comfortable</strong></h3>
+<p><strong>Let's see how you're feeling about variables:</strong></p>
+<ul>
+<li>Can you explain the difference between declaring and assigning a variable?</li>
+<li>What happens if you try to use a variable before you declare it?</li>
+<li>When would you choose <code>let</code> over <code>const</code> for a variable?</li>
+</ul>
+<pre><code class="language-mermaid">stateDiagram-v2
+    [*] --&gt; Declared: let myVar
+    Declared --&gt; Assigned: myVar = 123
+    Assigned --&gt; Reassigned: myVar = 456
+    Assigned --&gt; [*]: Variable ready!
+    Reassigned --&gt; [*]: Updated value
+    
+    note right of Declared
+        Variable exists but
+        has no value (undefined)
+    end note
+    
+    note right of Assigned
+        Variable contains
+        the value 123
+    end note
+</code></pre>
+<blockquote>
+<p><strong>Quick tip</strong>: Think of variables as labeled storage boxes. You create the box (<code>let</code>), put something in it (<code>=</code>), and can later replace the contents if needed!</p>
+</blockquote>
+<h2 id="constants">Constants</h2>
+<p>Sometimes you need to store information that should never change during program execution. Think of constants like the mathematical principles that Euclid established in ancient Greece – once proven and documented, they remained fixed for all future reference.</p>
+<p>Constants work similarly to variables, but with an important restriction: once you assign their value, it cannot be changed. This immutability helps prevent accidental modifications to critical values in your program.</p>
+<p>Declaration and initialization of a constant follows the same concepts as a variable, with the exception of the <code>const</code> keyword. Constants are typically declared with all uppercase letters.</p>
+<pre><code class="language-javascript">const MY_VARIABLE = 123;
+</code></pre>
+<p><strong>Here's what this code does:</strong></p>
+<ul>
+<li><strong>Creates</strong> a constant named <code>MY_VARIABLE</code> with the value 123</li>
+<li><strong>Uses</strong> uppercase naming convention for constants</li>
+<li><strong>Prevents</strong> any future changes to this value</li>
+</ul>
+<p>Constants have two main rules:</p>
+<ul>
+<li>
+<p><strong>You must give them a value right away</strong> – no empty constants allowed!</p>
+</li>
+<li>
+<p><strong>You can never change that value</strong> – JavaScript will throw an error if you try. Let's see what I mean:</p>
+<p><strong>Simple value</strong> - The following is NOT allowed:</p>
+<pre><code>```javascript
+const PI = 3;
+PI = 4; // not allowed
+```
+</code></pre>
+<p><strong>What you need to remember:</strong></p>
+<ul>
+<li><strong>Attempts</strong> to reassign a constant will cause an error</li>
+<li><strong>Protects</strong> important values from accidental changes</li>
+<li><strong>Ensures</strong> the value remains consistent throughout your program</li>
+</ul>
+<p><strong>Object reference is protected</strong> - The following is NOT allowed:</p>
+<pre><code>```javascript
+const obj = { a: 3 };
+obj = { b: 5 } // not allowed
+```
+</code></pre>
+<p><strong>Understanding these concepts:</strong></p>
+<ul>
+<li><strong>Prevents</strong> replacing the entire object with a new one</li>
+<li><strong>Protects</strong> the reference to the original object</li>
+<li><strong>Maintains</strong> the object's identity in memory</li>
+</ul>
+<p><strong>Object value is not protected</strong> - The following IS allowed:</p>
+<pre><code>```javascript
+const obj = { a: 3 };
+obj.a = 5;  // allowed
+```
+
+**Breaking down what happens here:**
+- **Modifies** the property value inside the object
+- **Keeps** the same object reference
+- **Demonstrates** that object contents can change while the reference stays constant
+</code></pre>
+<blockquote>
+<p>Note, a <code>const</code> means the reference is protected from reassignment. The value is not <em>immutable</em> though and can change, especially if it's a complex construct like an object.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="data-types">Data Types</h2>
+<p>JavaScript organizes information into different categories called data types. This concept mirrors how ancient scholars categorized knowledge – Aristotle distinguished between different types of reasoning, knowing that logical principles couldn't be applied uniformly to poetry, mathematics, and natural philosophy.</p>
+<p>Data types matter because different operations work with different kinds of information. Just as you can't perform arithmetic on a person's name or alphabetize a mathematical equation, JavaScript requires the appropriate data type for each operation. Understanding this prevents errors and makes your code more reliable.</p>
+<p>Variables can store many different types of values, like numbers and text. These various types of values are known as the <strong>data type</strong>. Data types are an important part of software development because it helps developers make decisions on how the code should be written and how the software should run. Furthermore, some data types have unique features that help transform or extract additional information in a value.</p>
+<p>✅ Data Types are also referred to as JavaScript data primitives, as they are the lowest-level data types that are provided by the language. There are 7 primitive data types: string, number, bigint, boolean, undefined, null and symbol. Take a minute to visualize what each of these primitives might represent. What is a <code>zebra</code>? How about <code>0</code>? <code>true</code>?</p>
+<h3 id="numbers">Numbers</h3>
+<p>Numbers are the most straightforward data type in JavaScript. Whether you're working with whole numbers like 42, decimals like 3.14, or negative numbers like -5, JavaScript handles them uniformly.</p>
+<p>Remember our variable from earlier? That 123 we stored was actually a number data type:</p>
+<pre><code class="language-javascript">let myVariable = 123;
+</code></pre>
+<p><strong>Key characteristics:</strong></p>
+<ul>
+<li>JavaScript automatically recognizes numeric values</li>
+<li>You can perform mathematical operations with these variables</li>
+<li>No explicit type declaration is required</li>
+</ul>
+<p>Variables can store all types of numbers, including decimals or negative numbers. Numbers also can be used with arithmetic operators, covered in the <a href="#arithmetic-operators" rel="noopener noreferrer">next section</a>.</p>
+<pre><code class="language-mermaid">flowchart LR
+    A["🔢 Numbers"] --&gt; B["➕ Addition"]
+    A --&gt; C["➖ Subtraction"]
+    A --&gt; D["✖️ Multiplication"]
+    A --&gt; E["➗ Division"]
+    A --&gt; F["📊 Remainder %"]
+    
+    B --&gt; B1["1 + 2 = 3"]
+    C --&gt; C1["5 - 3 = 2"]
+    D --&gt; D1["4 * 3 = 12"]
+    E --&gt; E1["10 / 2 = 5"]
+    F --&gt; F1["7 % 3 = 1"]
+    
+    style A fill:#e3f2fd
+    style B fill:#e8f5e8
+    style C fill:#fff3e0
+    style D fill:#f3e5f5
+    style E fill:#e0f2f1
+    style F fill:#fce4ec
+</code></pre>
+<h3 id="arithmetic-operators">Arithmetic Operators</h3>
+<p>Arithmetic operators allow you to perform mathematical calculations in JavaScript. These operators follow the same principles mathematicians have used for centuries – the same symbols that appeared in the works of scholars like Al-Khwarizmi, who developed algebraic notation.</p>
+<p>The operators work as you would expect from traditional mathematics: plus for addition, minus for subtraction, and so forth.</p>
+<p>There are several types of operators to use when performing arithmetic functions, and some are listed here:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code></td>
+<td><strong>Addition</strong>: Calculates the sum of two numbers</td>
+<td><code>1 + 2 //expected answer is 3</code></td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td><strong>Subtraction</strong>: Calculates the difference of two numbers</td>
+<td><code>1 - 2 //expected answer is -1</code></td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td><strong>Multiplication</strong>: Calculates the product of two numbers</td>
+<td><code>1 * 2 //expected answer is 2</code></td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td><strong>Division</strong>: Calculates the quotient of two numbers</td>
+<td><code>1 / 2 //expected answer is 0.5</code></td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td><strong>Remainder</strong>: Calculates the remainder from the division of two numbers</td>
+<td><code>1 % 2 //expected answer is 1</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>✅ Try it! Try an arithmetic operation in your browser's console. Do the results surprise you?</p>
+<h3 id="math-skills-check-calculating-with-confidence">🧮 <strong>Math Skills Check: Calculating with Confidence</strong></h3>
+<p><strong>Test your arithmetic understanding:</strong></p>
+<ul>
+<li>What's the difference between <code>/</code> (division) and <code>%</code> (remainder)?</li>
+<li>Can you predict what <code>10 % 3</code> equals? (Hint: it's not 3.33...)</li>
+<li>Why might the remainder operator be useful in programming?</li>
+</ul>
+<pre><code class="language-mermaid">pie title "JavaScript Number Operations Usage"
+    "Addition (+)" : 35
+    "Subtraction (-)" : 20
+    "Multiplication (*)" : 20
+    "Division (/)" : 15
+    "Remainder (%)" : 10
+</code></pre>
+<blockquote>
+<p><strong>Real-world insight</strong>: The remainder operator (%) is super useful for checking if numbers are even/odd, creating patterns, or cycling through arrays!</p>
+</blockquote>
+<h3 id="strings">Strings</h3>
+<p>In JavaScript, textual data is represented as strings. The term "string" comes from the concept of characters strung together in sequence, much like the way scribes in medieval monasteries would connect letters to form words and sentences in their manuscripts.</p>
+<p>Strings are fundamental to web development. Every piece of text displayed on a website – usernames, button labels, error messages, content – is handled as string data. Understanding strings is essential for creating functional user interfaces.</p>
+<p>Strings are sets of characters that reside between single or double quotes.</p>
+<pre><code class="language-javascript">'This is a string'
+"This is also a string"
+let myString = 'This is a string value stored in a variable';
+</code></pre>
+<p><strong>Understanding these concepts:</strong></p>
+<ul>
+<li><strong>Uses</strong> either single quotes <code>'</code> or double quotes <code>"</code> to define strings</li>
+<li><strong>Stores</strong> text data that can include letters, numbers, and symbols</li>
+<li><strong>Assigns</strong> string values to variables for later use</li>
+<li><strong>Requires</strong> quotes to distinguish text from variable names</li>
+</ul>
+<p>Remember to use quotes when writing a string, or else JavaScript will assume it's a variable name.</p>
+<pre><code class="language-mermaid">flowchart TD
+    A["📝 Strings"] --&gt; B["Single Quotes"]
+    A --&gt; C["Double Quotes"]
+    A --&gt; D["Template Literals"]
+    
+    B --&gt; B1["'Hello World'"]
+    C --&gt; C1["\"Hello World\""]
+    D --&gt; D1["`Hello \${name}`"]
+    
+    E["String Operations"] --&gt; F["Concatenation"]
+    E --&gt; G["Template Insertion"]
+    E --&gt; H["Length &amp; Methods"]
+    
+    F --&gt; F1["'Hello' + ' ' + 'World'"]
+    G --&gt; G1["`Hello \${firstName} \${lastName}`"]
+    H --&gt; H1["myString.length"]
+    
+    style A fill:#e3f2fd
+    style E fill:#fff3e0
+    style D fill:#e8f5e8
+    style G fill:#e8f5e8
+</code></pre>
+<h3 id="formatting-strings">Formatting Strings</h3>
+<p>String manipulation allows you to combine text elements, incorporate variables, and create dynamic content that responds to program state. This technique enables you to construct text programmatically.</p>
+<p>Often you need to join multiple strings together – this process is called concatenation.</p>
+<p>To <strong>concatenate</strong> two or more strings, or join them together, use the <code>+</code> operator.</p>
+<pre><code class="language-javascript">let myString1 = "Hello";
+let myString2 = "World";
+
+myString1 + myString2 + "!"; //HelloWorld!
+myString1 + " " + myString2 + "!"; //Hello World!
+myString1 + ", " + myString2 + "!"; //Hello, World!
+</code></pre>
+<p><strong>Step by step, here's what's happening:</strong></p>
+<ul>
+<li><strong>Combines</strong> multiple strings using the <code>+</code> operator</li>
+<li><strong>Joins</strong> strings directly together without spaces in the first example</li>
+<li><strong>Adds</strong> space characters <code>" "</code> between strings for readability</li>
+<li><strong>Inserts</strong> punctuation like commas to create proper formatting</li>
+</ul>
+<p>✅ Why does <code>1 + 1 = 2</code> in JavaScript, but <code>'1' + '1' = 11?</code> Think about it. What about <code>'1' + 1</code>?</p>
+<p><strong>Template literals</strong> are another way to format strings, except instead of quotes, the backtick  is used. Anything that is not plain text must be placed inside placeholders <code>${ }</code>. This includes any variables that may be strings.</p>
+<pre><code class="language-javascript">let myString1 = "Hello";
+let myString2 = "World";
+
+`${myString1} ${myString2}!` //Hello World!
+`${myString1}, ${myString2}!` //Hello, World!
+</code></pre>
+<p><strong>Let's understand each part:</strong></p>
+<ul>
+<li><strong>Uses</strong> backticks <code>`</code> instead of regular quotes to create template literals</li>
+<li><strong>Embeds</strong> variables directly using <code>${}</code> placeholder syntax</li>
+<li><strong>Preserves</strong> spaces and formatting exactly as written</li>
+<li><strong>Provides</strong> a cleaner way to create complex strings with variables</li>
+</ul>
+<p>You can achieve your formatting goals with either method, but template literals will respect any spaces and line breaks.</p>
+<p>✅ When would you use a template literal vs. a plain string?</p>
+<h3 id="string-mastery-check-text-manipulation-confidence">🔤 <strong>String Mastery Check: Text Manipulation Confidence</strong></h3>
+<p><strong>Evaluate your string skills:</strong></p>
+<ul>
+<li>Can you explain why <code>'1' + '1'</code> equals <code>'11'</code> instead of <code>2</code>?</li>
+<li>Which string method do you find more readable: concatenation or template literals?</li>
+<li>What happens if you forget the quotes around a string?</li>
+</ul>
+<pre><code class="language-mermaid">stateDiagram-v2
+    [*] --&gt; PlainText: "Hello"
+    [*] --&gt; Variable: name = "Alice"
+    PlainText --&gt; Concatenated: + " " + name
+    Variable --&gt; Concatenated
+    PlainText --&gt; Template: `Hello ${name}`
+    Variable --&gt; Template
+    Concatenated --&gt; Result: "Hello Alice"
+    Template --&gt; Result
+    
+    note right of Concatenated
+        Traditional method
+        More verbose
+    end note
+    
+    note right of Template
+        Modern ES6 syntax
+        Cleaner &amp; more readable
+    end note
+</code></pre>
+<blockquote>
+<p><strong>Pro tip</strong>: Template literals are generally preferred for complex string building because they're more readable and handle multi-line strings beautifully!</p>
+</blockquote>
+<h3 id="booleans">Booleans</h3>
+<p>Booleans represent the simplest form of data: they can only hold one of two values – <code>true</code> or <code>false</code>. This binary logic system traces back to the work of George Boole, a 19th-century mathematician who developed Boolean algebra.</p>
+<p>Despite their simplicity, booleans are essential for program logic. They enable your code to make decisions based on conditions – whether a user is logged in, if a button was clicked, or if certain criteria are met.</p>
+<p>Booleans can be only two values: <code>true</code> or <code>false</code>. Booleans can help make decisions on which lines of code should run when certain conditions are met. In many cases, <a href="#arithmetic-operators" rel="noopener noreferrer">operators</a> assist with setting the value of a Boolean and you will often notice and write variables being initialized or their values being updated with an operator.</p>
+<pre><code class="language-javascript">let myTrueBool = true;
+let myFalseBool = false;
+</code></pre>
+<p><strong>In the above, we've:</strong></p>
+<ul>
+<li><strong>Created</strong> a variable that stores the Boolean value <code>true</code></li>
+<li><strong>Demonstrated</strong> how to store the Boolean value <code>false</code></li>
+<li><strong>Used</strong> the exact keywords <code>true</code> and <code>false</code> (no quotes needed)</li>
+<li><strong>Prepared</strong> these variables for use in conditional statements</li>
+</ul>
+<p>✅ A variable can be considered 'truthy' if it evaluates to a boolean <code>true</code>. Interestingly, in JavaScript, <a href="https://developer.mozilla.org/docs/Glossary/Truthy" target="_blank" rel="noopener noreferrer">all values are truthy unless defined as falsy</a>.</p>
+<pre><code class="language-mermaid">flowchart LR
+    A["🔘 Boolean Values"] --&gt; B["true"]
+    A --&gt; C["false"]
+    
+    D["Truthy Values"] --&gt; D1["'hello'"]
+    D --&gt; D2["42"]
+    D --&gt; D3["[]"]
+    D --&gt; D4["{}"]
+    
+    E["Falsy Values"] --&gt; E1["false"]
+    E --&gt; E2["0"]
+    E --&gt; E3["''"]
+    E --&gt; E4["null"]
+    E --&gt; E5["undefined"]
+    E --&gt; E6["NaN"]
+    
+    style B fill:#e8f5e8
+    style C fill:#ffebee
+    style D fill:#e3f2fd
+    style E fill:#fff3e0
+</code></pre>
+<h3 id="boolean-logic-check-decision-making-skills">🎯 <strong>Boolean Logic Check: Decision Making Skills</strong></h3>
+<p><strong>Test your boolean understanding:</strong></p>
+<ul>
+<li>Why do you think JavaScript has "truthy" and "falsy" values beyond just <code>true</code> and <code>false</code>?</li>
+<li>Can you predict which of these is falsy: <code>0</code>, <code>"0"</code>, <code>[]</code>, <code>"false"</code>?</li>
+<li>How might booleans be useful in controlling program flow?</li>
+</ul>
+<pre><code class="language-mermaid">pie title "Common Boolean Use Cases"
+    "Conditional Logic" : 40
+    "User State" : 25
+    "Feature Toggles" : 20
+    "Validation" : 15
+</code></pre>
+<blockquote>
+<p><strong>Remember</strong>: In JavaScript, only 6 values are falsy: <code>false</code>, <code>0</code>, <code>""</code>, <code>null</code>, <code>undefined</code>, and <code>NaN</code>. Everything else is truthy!</p>
+</blockquote>
+<hr>
+<h2 id="your-data-types-toolkit-summary">📊 <strong>Your Data Types Toolkit Summary</strong></h2>
+<pre><code class="language-mermaid">graph TD
+    A["🎯 JavaScript Data Types"] --&gt; B["📦 Variables"]
+    A --&gt; C["🔢 Numbers"]
+    A --&gt; D["📝 Strings"]
+    A --&gt; E["🔘 Booleans"]
+    
+    B --&gt; B1["let mutable"]
+    B --&gt; B2["const immutable"]
+    
+    C --&gt; C1["42, 3.14, -5"]
+    C --&gt; C2["+ - * / %"]
+    
+    D --&gt; D1["'quotes' or \\\"quotes\\\""]
+    D --&gt; D2["`template literals`"]
+    
+    E --&gt; E1["true or false"]
+    E --&gt; E2["truthy vs falsy"]
+    
+    F["⚡ Key Concepts"] --&gt; F1["Type matters for operations"]
+    F --&gt; F2["JavaScript is dynamically typed"]
+    F --&gt; F3["Variables can change types"]
+    F --&gt; F4["Naming is case-sensitive"]
+    
+    style A fill:#e3f2fd
+    style B fill:#e8f5e8
+    style C fill:#fff3e0
+    style D fill:#f3e5f5
+    style E fill:#e0f2f1
+    style F fill:#fce4ec
+</code></pre>
+<h2 id="github-copilot-agent-challenge">GitHub Copilot Agent Challenge 🚀</h2>
+<p>Use the Agent mode to complete the following challenge:</p>
+<p><strong>Description:</strong> Create a personal information manager that demonstrates all the JavaScript data types you've learned in this lesson while handling real-world data scenarios.</p>
+<p><strong>Prompt:</strong> Build a JavaScript program that creates a user profile object containing: a person's name (string), age (number), is a student status (boolean), favorite colors as an array, and an address object with street, city, and zip code properties. Include functions to display the profile information and update individual fields. Make sure to demonstrate string concatenation, template literals, arithmetic operations with the age, and boolean logic for the student status.</p>
+<p>Learn more about <a href="https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode" target="_blank" rel="noopener noreferrer">agent mode</a> here.</p>
+<h2 id="challenge">🚀 Challenge</h2>
+<p>JavaScript has some behaviors that can catch developers off guard. Here's a classic example to explore: try typing this in your browser console: <code>let age = 1; let Age = 2; age == Age</code> and observe the result. It returns <code>false</code> – can you determine why?</p>
+<p>This represents one of many JavaScript behaviors worth understanding. Familiarity with these quirks will help you write more reliable code and debug issues more effectively.</p>
+
+
+<h2 id="review-self-study">Review &amp; Self Study</h2>
+<p>Take a look at <a href="https://css-tricks.com/snippets/javascript/" target="_blank" rel="noopener noreferrer">this list of JavaScript exercises</a> and try one. What did you learn?</p>
+<h2 id="your-javascript-data-types-mastery-timeline">🚀 Your JavaScript Data Types Mastery Timeline</h2>
+<h3 id="what-you-can-do-in-the-next-5-minutes">⚡ <strong>What You Can Do in the Next 5 Minutes</strong></h3>
+<ul>
+<li>[ ] Open your browser console and create 3 variables with different data types</li>
+<li>[ ] Try the challenge: <code>let age = 1; let Age = 2; age == Age</code> and figure out why it's false</li>
+<li>[ ] Practice string concatenation with your name and favorite number</li>
+<li>[ ] Test what happens when you add a number to a string</li>
+</ul>
+<h3 id="what-you-can-accomplish-this-hour">🎯 <strong>What You Can Accomplish This Hour</strong></h3>
+<ul>
+<li>[ ] Complete the post-lesson quiz and review any confusing concepts</li>
+<li>[ ] Create a mini calculator that adds, subtracts, multiplies, and divides two numbers</li>
+<li>[ ] Build a simple name formatter using template literals</li>
+<li>[ ] Explore the differences between <code>==</code> and <code>===</code> comparison operators</li>
+<li>[ ] Practice converting between different data types</li>
+</ul>
+<h3 id="your-week-long-javascript-foundation">📅 <strong>Your Week-Long JavaScript Foundation</strong></h3>
+<ul>
+<li>[ ] Complete the assignment with confidence and creativity</li>
+<li>[ ] Create a personal profile object using all data types learned</li>
+<li>[ ] Practice with <a href="https://css-tricks.com/snippets/javascript/" target="_blank" rel="noopener noreferrer">JavaScript exercises from CSS-Tricks</a></li>
+<li>[ ] Build a simple form validator using boolean logic</li>
+<li>[ ] Experiment with array and object data types (preview of coming lessons)</li>
+<li>[ ] Join a JavaScript community and ask questions about data types</li>
+</ul>
+<h3 id="your-month-long-transformation">🌟 <strong>Your Month-Long Transformation</strong></h3>
+<ul>
+<li>[ ] Integrate data type knowledge into larger programming projects</li>
+<li>[ ] Understand when and why to use each data type in real applications</li>
+<li>[ ] Help other beginners understand JavaScript fundamentals</li>
+<li>[ ] Build a small application that manages different types of user data</li>
+<li>[ ] Explore advanced data type concepts like type coercion and strict equality</li>
+<li>[ ] Contribute to open source JavaScript projects with documentation improvements</li>
+</ul>
+<h3 id="final-data-types-mastery-check-in">🧠 <strong>Final Data Types Mastery Check-in</strong></h3>
+<p><strong>Celebrate your JavaScript foundation:</strong></p>
+<ul>
+<li>Which data type surprised you the most in terms of its behavior?</li>
+<li>How comfortable do you feel explaining variables vs. constants to a friend?</li>
+<li>What's the most interesting thing you discovered about JavaScript's type system?</li>
+<li>Which real-world application can you imagine building with these fundamentals?</li>
+</ul>
+<pre><code class="language-mermaid">journey
+    title Your JavaScript Confidence Journey
+    section Today
+      Confused: 3: You
+      Curious: 4: You
+      Excited: 5: You
+    section This Week
+      Practicing: 4: You
+      Understanding: 5: You
+      Building: 5: You
+    section Next Month
+      Problem Solving: 5: You
+      Teaching Others: 5: You
+      Real Projects: 5: You
+</code></pre>
+<blockquote>
+<p>💡 <strong>You've built the foundation!</strong> Understanding data types is like learning the alphabet before writing stories. Every JavaScript program you'll ever write will use these fundamental concepts. You now have the building blocks to create interactive websites, dynamic applications, and solve real-world problems with code. Welcome to the wonderful world of JavaScript! 🎉</p>
+</blockquote>

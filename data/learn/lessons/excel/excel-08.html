@@ -1,0 +1,208 @@
+<div>
+<div class="box box-objectives"><p class="box-title">Learning Objectives</p>
+
+<ul>
+<li>Use an IF Function to make logical comparisons between a value and what you expect.</li>
+<li>Create a VLOOKUP calculation to look up information in a table.</li>
+<li>Understand error messages.</li>
+<li>Understand how to enter and format Date/Time Functions.</li>
+</ul>
+</div>
+<p>In addition to doing arithmetic, Excel can do other kinds of functions based on the data in your spreadsheet. In this section, we will use an <strong>=IF</strong> function to determine whether a student is passing or failing the class. Then, we will use a <strong>=VLOOKUP</strong> function to determine what grade each student has earned.</p>
+<h2 id="if-function">IF Function</h2>
+<p>The IF function is one of the most popular functions in Excel. It allows you to make logical comparisons between a value and what you expect. In its simplest form, the IF function says something like:<br>
+If the value in a cell is what you expect (true) – do this. If not – do that.</p>
+<p>The IF function has three arguments:</p>
+<ul>
+<li><strong>Logical test –</strong> Here, we can test to see if the value in a selected cell is what we expect. You could use something like “B7=14” or “B7&gt;12” or “B7&lt;6”</li>
+<li><strong>Value_if_true –</strong> If the requirements in the logical test are met – if B7 is equal to 14 – then it is said to be true. For this argument, you can type text – “True”, or “On budget!” Or you could insert a calculation, like B7*2 (If B7 does equal 14, multiply it by 2). Or, if you want Excel to put nothing at all in the cell, type “” (two quotes).</li>
+<li><strong>Value_if_false</strong> – If the requirements in the logical test are not met – if B7 does not equal 14 – then it is said to be false. You can enter the same instructions here as you did above. Let’s say that you type the double quotes here. Then, if B7 does not equal 14, nothing will be displayed in this cell.</li>
+</ul>
+<p>In column Q we would like Excel to tell us whether a student is passing – or failing the class. If the student scores<strong> 70%</strong> or better, he/she will pass the class. But, if he/she scores less than 70%, he/she is failing.</p>
+<ol>
+<li>
+<ol>
+<li>Make sure that Q5 is your active cell.</li>
+<li>On the Formulas tab, in the Function Library group, find the IF function on the Logical pulldown menu (see <strong>Figure 3.9</strong>).<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users</strong>:&nbsp;There is no “Function Library” group for Excel for Mac. Mac Users should click on the Formulas tab, then click the “Logical” tool &nbsp;<img alt="" height="52" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Logical_tool.png" width="46"><b>&nbsp;&nbsp;</b>list arrow, and choose IF (see&nbsp;<strong>Figure 3.9).</strong>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-9.jpg" target="_blank" rel="noopener noreferrer"><img alt="drop-down menu for IF" height="302" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-9.jpg" width="595"></a><figcaption>Figure 3.9 IF Function</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Note</p>
+<details>
+<summary>Figure 3.9 Image Description</summary>
+<p>Formulas tab to Logical drop-down menu with IF (logical_test_value_if_true_value_if_false) open. Checks if a condition is met returns one value if TRUE, and another value if FALSE. Q5 activated in Pass/Fail.</p>
+</details>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+<p>Now you will see the IF Function dialog box, with a place to enter each of the three arguments.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users</strong>: There is no “dialog box”. The “Formula Builder” pane will display at the right side of the Excel window. It has the same layout as Figure 3.10 below.</p>
+<ol>
+<li>Click in the box for <strong>Logical Test</strong>. We need to test whether a student’s score is less than <strong>.7</strong>. So, in this box, type <strong>P5&lt;.7</strong></li>
+<li>Click in the box for <strong>Value_if_true</strong>. If the student’s score is less than .7, then they are failing the class. In this box, type <strong>Fail</strong>.</li>
+<li>Click in the box for <strong>Value_if_false</strong>. If the student’s score is NOT less than .7, then they are passing the class. In this box, type <strong>Pass</strong>.</li>
+<li>Make sure that your dialog box matches <strong>Figure 3.10</strong>.<br>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-10.jpg" target="_blank" rel="noopener noreferrer"><img alt="IF Function Dialog Box with formula for Logical Test: = FALSE. &quot;Fail&quot; if value true, &quot;Pass&quot; if value false." height="251" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-10.jpg" width="570"></a><figcaption>Figure 3.10 IF Function Dialog Box</figcaption></figure>
+<p>While we are here, let’s take a look at the dialog box. Notice that as you click in each box, Excel gives you a brief explanation of the contents (in the middle below the boxes.) In the lower left-hand corner, you can see the results of the calculation. In this case, DeShae is passing the class. Below that is a link to <strong>Help on this function</strong>. Selecting this link will take you to the Excel help for this function – with detailed information on how it works.</p></li>
+<li>Once you have typed in the required arguments and reviewed to make sure they are correct, press OK.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users</strong> should click the “Done” button,&nbsp;then close the Formula Builder pane.<br>
+(The text Pass should be displayed in Q5 because DeShae is passing the class.)</li>
+<li>Use the Fill handle to copy the IF function down through row 24.</li>
+<li>Click on Q5. When you look in the formula bar, you will see the IF calculation: <strong>=IF(P5&lt;0.7,”Fail”,”Pass”)</strong> (see <strong>Figure 3.11</strong>).</li>
+</ol>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-11.jpg" target="_blank" rel="noopener noreferrer"><img alt="Formula bar shows IF function (=IF(PS&lt;0.7,&quot;fail&quot;,&quot;pass&quot;), P5:Q5 range selected, results of function with Pass or Fail for each student in column Q." height="350" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-11.jpg" width="387"></a><figcaption>Figure 3.11 IF Function Results</figcaption></figure>
+<h2 id="vlookup-function">VLOOKUP Function</h2>
+<p>You need to use a VLOOKUP function to look up information in a table. Sometimes that table is on a different sheet in your workbook.&nbsp; Sometimes it is in another file entirely.&nbsp; In this case, we need to know what grade each student is getting based on their percentage score. You will find the table that defines the scores and the grades in <strong>A28:B32</strong>.</p>
+<p>There are four pieces of information that you will need in order to build the VLOOKUP syntax. These are the four arguments of a VLOOKUP function:</p>
+<ul>
+<li>The value you want to lookup, also called the <strong>Lookup_value</strong>. In our example, the lookup value will be the student’s percentage score in column P.</li>
+<li>The <strong>Table_array</strong> is the range (table) where the lookup values and the values you want returned by the function are located. In our example, this is the table of percentages and corresponding letter grades in the range A28:B32. The lookup value should always be in the first column in the table array for VLOOKUP to work correctly. For example, in our table_array the lookup value is in cell A28, so the range should start with A.</li>
+<li>The <strong>Col_index_num</strong> is the column number in the range that contains the value to return. In our example, when you specify A28:B32 as the Table_array range, you should count A as the first column (1), B as the second column (2), and so on. You will enter the appropriate column number in this box as 1, 2, or 3 and so on.</li>
+<li>In the <strong>Range_lookup</strong>, you can optionally specify TRUE if you want an approximate match or FALSE if you want an exact match of the return value. If you leave this blank, the default value will always be TRUE, or approximate match.</li>
+</ul>
+<p>Let’s create the VLOOKUP to display the correct Letter Grade in column R.</p>
+<ol>
+<li>Make sure that R5 is your active cell.</li>
+<li>On the Formulas tab, in the Function Library, find the <strong>VLOOKUP</strong> function on the Lookup &amp; Reference pull-down menu (see <strong>Figure 3.12</strong>).<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users</strong> should click the Lookup and Reference tool list arrow <img alt="Lookup &amp; Reference tool" height="57" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/vlookup.png" width="50">&nbsp;to find the <strong>VLOOKUP&nbsp;</strong>function.
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-12.jpg" target="_blank" rel="noopener noreferrer"><img alt="drop-down menu for VLOOKUP" height="312" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-12.jpg" width="375"></a><figcaption>Figure 3.12 VLOOKUP Function</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Note</p>
+<details>
+<summary>Figure 3.12 Image Description</summary>
+<p>Formula tab in Function Library shows Lookup &amp; Reference drop-down menu open to VLOOKUP (lookup_value, table_arrray, col_index_number, range_lookup) Looks for value in leftmost column and returns value in same row from column you specify. By default table must be sorted in ascending order.</p>
+</details>
+</div>
+</li>
+<li>Fill in the dialog box so that it looks like the image in <strong>Figure 3.13</strong>.</li>
+</ol>
+<p><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users</strong> will use the “Formula Builder” pane at the right side of the Excel Window.</p>
+<ol>
+<li>
+<ul>
+<li><strong>Lookup_value –</strong> In this case, we will use the Percentage score. So, <strong>P5</strong> for the first lookup value.</li>
+<li><strong>Table_array</strong> – This is the range that contains the value you want returned by the function. In this case, that range is A28:B32. Note that this range does NOT include the label in row 27; just the actual data.&nbsp; The cell references for the Table_array need to be absolute – $A$28:$B$32. When we copy this function to the other cells, we do not want these cell references to change. It should always be $A$28:$B$32.&nbsp;<strong>This is very important! They must have the absolute reference symbols or the calculations will not work.</strong></li>
+<li><strong>Col_index_number</strong> – This is the column in the table array range that includes the information that we are looking up. In our case, the actual grades are in the 2nd column of the range. So, the column index will be 2.</li>
+<li><strong>Range_lookup</strong> – In some cases, you will need something in the Range_lookup box. Since we are looking for an approximate match for the percentages, we want the default value of TRUE, so we do not need to enter anything for this argument.</li>
+</ul>
+</li>
+<li>While you are in the dialog box, be sure to look at all the helpful definitions that Excel offers.</li>
+<li>When you have filled in the dialog box, press OK.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users</strong> should click the “Done” button, then close the Formula Builder pane.</li>
+<li>The calculation you will see in the formula bar is: =VLOOKUP(P5,$A$28:$B$32,2)</li>
+<li>Use the fill handle to copy the function down through row 24. The results displayed should match <strong>Figure 3.14</strong>.</li>
+</ol>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-13.jpg" target="_blank" rel="noopener noreferrer"><img alt="VLOOKUP completed dialog box with Function Arguments for Lookup_value, Table_array, Col_index_num, entered." height="300" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-13.jpg" width="591"></a><figcaption>Figure 3.13 VLOOKUP completed dialog box</figcaption></figure>
+<div>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-14.jpg" target="_blank" rel="noopener noreferrer"><img alt="VLOOKUP complete and worksheet with all values entered." height="417" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-14.jpg" width="414"></a><figcaption>Figure 3.14 VLOOKUP Complete</figcaption></figure>
+</div>
+<p><strong>Note:</strong> What if it didn’t work? What if you get a result different from the one predicted? In this case, either you have made a previous error, resulting in different % scores than this exercise anticipated, or you made a mistake entering your VLOOKUP function.</p>
+<p>To make repairs in the function, make sure that R5 is your active cell. On the Formula bar, press the Insert Function button (see <strong>Figure 3.15</strong>). That will reopen the dialog box so you can make your repairs. Did you forget to make the cell references for the Table_array absolute? Did you use the wrong cell for the Lookup_value? Press OK when you are done and recopy the corrected function.</p>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-15.jpg" target="_blank" rel="noopener noreferrer"><img alt="Insert Function button &quot;fx&quot; can be used to reopen VLOOKUP dialog box." height="268" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-15.jpg" width="644"></a><figcaption>Figure 3.15 Insert Function</figcaption></figure>
+<h2 id="error-messages">Error Messages</h2>
+<p>Sometimes Excel notices that you have made errors in your calculations before you do. In those cases Excel alerts you with some slightly mysterious error messages. A list of common error messages can be found in <strong>Table 3.1 </strong>below.</p>
+<p>Table 3.1 – Common Error Messages</p>
+<div class="table-wrap"><table>
+
+<tbody>
+<tr>
+<th scope="col">Message</th>
+<th scope="col">What Went Wrong</th>
+</tr>
+<tr>
+<td>#DIV/0!</td>
+<td>You tried to divide a number by a zero (0) or an empty<br>
+cell.</td>
+</tr>
+<tr>
+<td>#NAME</td>
+<td>You used a cell range name in the formula, but the name isn’t<br>
+defined. Sometimes this error occurs because you type the name<br>
+incorrectly.</td>
+</tr>
+<tr>
+<td>#N/A</td>
+<td>The formula refers to an empty cell, so no data is available<br>
+for computing the formula. Sometimes people enter N/A in a cell as<br>
+a placeholder to signal the fact that data isn’t entered yet.<br>
+Revise the formula or enter a number or formula in the empty<br>
+cells.</td>
+</tr>
+<tr>
+<td>#NULL</td>
+<td>The formula refers to a cell range that Excel can’t understand.<br>
+Make sure that the range is entered correctly.</td>
+</tr>
+<tr>
+<td>#NUM</td>
+<td>An argument you use in your formula is invalid.</td>
+</tr>
+<tr>
+<td>#REF</td>
+<td>The cell or range of cells that the formula refers to aren’t<br>
+there.</td>
+</tr>
+<tr>
+<td>#VALUE</td>
+<td>The formula includes a function that was used incorrectly,<br>
+takes an invalid argument, or is misspelled. Make sure that the<br>
+function uses the right argument and is spelled correctly.</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>This table was copied from the internet. Look here for additional information.</em><br>
+<em> <a href="http://www.dummies.com/software/microsoft-office/excel/how-to-detect-and-correct-formula-errors-in-excel-2016/" target="_blank" rel="noopener noreferrer">http://www.dummies.com/software/microsoft-office/excel/how-to-detect-and-correct-formula-errors-in-excel-2016/</a></em></p>
+<h2 id="date-functions">Date Functions</h2>
+<p>Very often dates and times are an important part of Excel data. Numbers that are correct today may not be accurate tomorrow. So, it is frequently useful to include dates and times on your spreadsheets.</p>
+<p>These dates and times fall into two categories – ones that:</p>
+<ul>
+<li><strong>Remain the same</strong>. For instance, if a spreadsheet includes data for May 15th, you don’t want the date to change each time you re-open the spreadsheet.</li>
+<li><strong>Change to reflect the current date/time</strong>. When it is important to have the current date or time on a spreadsheet, you want Excel to update the information regularly.</li>
+</ul>
+<p>Take a look at the list of Date and Time functions offered in the Function Library on the Formulas tab (see <strong>Figure 3.16</strong>).</p>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-16.jpg" target="_blank" rel="noopener noreferrer"><img alt="Formulas tab open to Date &amp; Time drop-down menu options: date, datevalue, day, days, minute, month, second, timevalue, and more." height="302" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-16.jpg" width="245"></a><figcaption>Figure 3.16 Date &amp; Time Functions</figcaption></figure>
+<p>For our gradebook, we want the date and time to be displayed in A2, and it needs to update whenever the workbook file is opened.</p>
+<ol>
+<li>Make A2 your active cell. Notice that A2 extends all the way from column A to Column R. Previously, someone has used the Merge &amp; Center tool on this cell to make it match the title above.</li>
+<li>On the Formulas tab, in the Function Library, select <strong>NOW</strong> from the Date &amp; Time drop-down list and then click OK.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users</strong> click the “Done” button in the “Formula Builder” pane at the right side of the Excel window; then close the pane.</li>
+<li>The result you will see in the formula bar is: =NOW(). The result you will see in A2 depends on the current date and time. The NOW function is a very handy function. It takes no arguments and is Volatile! That is not as alarming as it may seem. This just means that you don’t need to give it any more information to do its job and that your results will change frequently. You can update the date and time whenever you want – you don’t have to wait until you open the workbook again.</li>
+<li>Make sure that A1 is your active cell and press the <strong>F9</strong> function key (along the top of your keyboard.) The time will update.</li>
+</ol>
+<p>Excel will update this field independently whenever you save and re-open the file, or print it. It may happen more frequently than that – depending on how you have set this up in your installation of Excel.</p>
+<p>Another variation of the current date is the <strong>TODAY</strong> function. Let’s try that one next.</p>
+<ol>
+<li>Make sure A2 is your active cell. Press Delete to remove the NOW function.</li>
+<li>From the Date &amp; Time drop-down list in the Function Library on the Formulas tab (see <strong>Figure 3.16</strong>), select TODAY and then click OK.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users</strong> click the “Done” button in the “Formula Builder” pane; then close the pane.</li>
+<li>The result you will see in the formula bar is: =TODAY(). The result you will see in A2 depends on the current date. Since we haven’t asked for the time, the time you are seeing is likely 12:00. That is not very helpful so we need to change the format of the date.</li>
+<li>On the Home tab, in the Number group, press the Number Format Launcher button (see <strong>Figure</strong> <strong>3.17</strong>).</li>
+<li>In the <strong>Format Cells</strong> dialog box, click the Number tab. Choose the <strong>Date</strong> category and select <strong>Wednesday, March 14, 2012</strong> (this format is called&nbsp;<strong>Long Date</strong>).<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users</strong>: there is no Number Format Launcher button or “Format Cells” dialog box.<br>
+Click the list arrow next to “Date” and choose&nbsp;<strong>“Long Date” <img alt="format Date list arrow" height="65" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/date_format.png" width="145"> <img alt="long date format" height="38" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/longdate.png" width="172"></strong></li>
+<li>The current day and date will display in A2.</li>
+</ol>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-17.jpg" target="_blank" rel="noopener noreferrer"><img alt="Number Format Launcher button option open." height="271" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-17.jpg" width="521"></a><figcaption>Figure 3.17 Number Format Launcher</figcaption></figure>
+<div class="box box-challenge"><p class="box-title">Keyboard Shortcuts</p>
+
+<p>Sometimes you want the date or the time to show up in your spreadsheet, but you don’t want it to change. You can simply type in the date or time. Or, you can use shortcut keys.</p>
+<ul>
+<li>CTRL ; (semi colon) will bring you the current date<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users</strong>: same as above</li>
+</ul>
+<ul>
+<li>CTRL : (colon or CTRL SHIFT ; ) will bring you the current time.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users</strong>: SHIFT COMMAND :</li>
+</ul>
+</div>
+
+<div class="box box-keypoints"><p class="box-title">Key Takeaways</p>
+
+<ul>
+<li>Functions don’t always have to be about arithmetic. Excel provides functions that will help you perform logical evaluations, look things up, and work with dates and times.</li>
+<li>Excel displays error messages when your formulas and functions are not constructed properly.</li>
+</ul>
+</div>
+<details class="attrib"><summary>Attribution</summary>
+<p><a href="https://openoregon.pressbooks.pub/beginningexcel19/chapter/3-2-logical-and-lookup-functions/" target="_blank" rel="noopener noreferrer">3.2 Logical and Lookup Functions</a> by Noreen Brown and Mary Schatz, and Art Schneider, <a href="https://www.pcc.edu/" target="_blank" rel="noopener noreferrer">Portland Community College</a>, is licensed under <a href="http://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></p>
+</details></div>

@@ -1,0 +1,459 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Write a shell script that runs a command or series of commands for a fixed set of files.</li>
+<li>Run a shell script from the command line.</li>
+<li>Write a shell script that operates on a set of files defined by the user on the command line.</li>
+<li>Create pipelines that include shell scripts you, and others, have written.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>How can I save and re-use commands?</li>
+</ul>
+</div>
+<p>We are finally ready to see what makes the shell such a powerful programming environment.
+We are going to take the commands we repeat frequently and save them in files
+so that we can re-run all those operations again later by typing a single command.
+For historical reasons,
+a bunch of commands saved in a file is usually called a <strong>shell script</strong>,
+but make no mistake --- these are actually small programs.</p>
+<p>Not only will writing shell scripts make your work faster, but also you won't have to retype
+the same commands over and over again. It will also make it more accurate (fewer chances for
+typos) and more reproducible. If you come back to your work later (or if someone else finds
+your work and wants to build on it), you will be able to reproduce the same results simply
+by running your script, rather than having to remember or retype a long list of commands.</p>
+<p>Let's start by going back to <code>alkanes/</code> and creating a new file, <code>middle.sh</code> which will
+become our shell script:</p>
+<pre><code class="language-bash">$ cd alkanes
+$ nano middle.sh
+</code></pre>
+<p>The command <code>nano middle.sh</code> opens the file <code>middle.sh</code> within the text editor 'nano'
+(which runs within the shell).
+If the file does not exist, it will be created.
+We can use the text editor to directly edit the file by inserting the following line:</p>
+<pre><code class="language-source">head -n 15 octane.pdb | tail -n 5
+</code></pre>
+<p>This is a variation on the pipe we constructed earlier, which selects lines 11-15 of
+the file <code>octane.pdb</code>. Remember, we are <em>not</em> running it as a command just yet;
+we are only incorporating the commands in a file.</p>
+<p>Then we save the file (<code>Ctrl-O</code> in nano) and exit the text editor (<code>Ctrl-X</code> in nano).
+Check that the directory <code>alkanes</code> now contains a file called <code>middle.sh</code>.</p>
+<p>Once we have saved the file,
+we can ask the shell to execute the commands it contains.
+Our shell is called <code>bash</code>, so we run the following command:</p>
+<pre><code class="language-bash">$ bash middle.sh
+</code></pre>
+<pre><code class="language-output">ATOM      9  H           1      -4.502   0.681   0.785  1.00  0.00
+ATOM     10  H           1      -5.254  -0.243  -0.537  1.00  0.00
+ATOM     11  H           1      -4.357   1.252  -0.895  1.00  0.00
+ATOM     12  H           1      -3.009  -0.741  -1.467  1.00  0.00
+ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00
+</code></pre>
+<p>Sure enough,
+our script's output is exactly what we would get if we ran that pipeline directly.</p>
+<div class="box box-callout">
+<p class="box-title">Text vs. Whatever</p>
+
+<p>We usually call programs like Microsoft Word or LibreOffice Writer "text
+editors", but we need to be a bit more careful when it comes to
+programming. By default, Microsoft Word uses <code>.docx</code> files to store not
+only text, but also formatting information about fonts, headings, and so
+on. This extra information isn't stored as characters and doesn't mean
+anything to tools like <code>head</code>, which expects input files to contain
+nothing but the letters, digits, and punctuation on a standard computer
+keyboard. When editing programs, therefore, you must either use a plain
+text editor or be careful to save files as plain text.</p>
+</div>
+<p>What if we want to select lines from an arbitrary file?
+We could edit <code>middle.sh</code> each time to change the filename,
+but that would probably take longer than typing the command out again
+in the shell and executing it with a new file name.
+Instead, let's edit <code>middle.sh</code> and make it more versatile:</p>
+<pre><code class="language-bash">$ nano middle.sh
+</code></pre>
+<p>Now, within "nano", replace the text <code>octane.pdb</code> with the special variable called <code>$1</code>:</p>
+<pre><code class="language-source">head -n 15 "$1" | tail -n 5
+</code></pre>
+<p>Inside a shell script,
+<code>$1</code> means 'the first filename (or other argument) on the command line'.
+We can now run our script like this:</p>
+<pre><code class="language-bash">$ bash middle.sh octane.pdb
+</code></pre>
+<pre><code class="language-output">ATOM      9  H           1      -4.502   0.681   0.785  1.00  0.00
+ATOM     10  H           1      -5.254  -0.243  -0.537  1.00  0.00
+ATOM     11  H           1      -4.357   1.252  -0.895  1.00  0.00
+ATOM     12  H           1      -3.009  -0.741  -1.467  1.00  0.00
+ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00
+</code></pre>
+<p>or on a different file like this:</p>
+<pre><code class="language-bash">$ bash middle.sh pentane.pdb
+</code></pre>
+<pre><code class="language-output">ATOM      9  H           1       1.324   0.350  -1.332  1.00  0.00
+ATOM     10  H           1       1.271   1.378   0.122  1.00  0.00
+ATOM     11  H           1      -0.074  -0.384   1.288  1.00  0.00
+ATOM     12  H           1      -0.048  -1.362  -0.205  1.00  0.00
+ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
+</code></pre>
+<div class="box box-callout">
+<p class="box-title">Double-Quotes Around Arguments</p>
+
+<p>For the same reason that we put the loop variable inside double-quotes,
+in case the filename happens to contain any spaces,
+we surround <code>$1</code> with double-quotes.</p>
+</div>
+<p>Currently, we need to edit <code>middle.sh</code> each time we want to adjust the range of
+lines that is returned.
+Let's fix that by configuring our script to instead use three command-line arguments.
+After the first command-line argument (<code>$1</code>), each additional argument that we
+provide will be accessible via the special variables <code>$1</code>, <code>$2</code>, <code>$3</code>,
+which refer to the first, second, third command-line arguments, respectively.</p>
+<p>Knowing this, we can use additional arguments to define the range of lines to
+be passed to <code>head</code> and <code>tail</code> respectively:</p>
+<pre><code class="language-bash">$ nano middle.sh
+</code></pre>
+<pre><code class="language-source">head -n "$2" "$1" | tail -n "$3"
+</code></pre>
+<p>We can now run:</p>
+<pre><code class="language-bash">$ bash middle.sh pentane.pdb 15 5
+</code></pre>
+<pre><code class="language-output">ATOM      9  H           1       1.324   0.350  -1.332  1.00  0.00
+ATOM     10  H           1       1.271   1.378   0.122  1.00  0.00
+ATOM     11  H           1      -0.074  -0.384   1.288  1.00  0.00
+ATOM     12  H           1      -0.048  -1.362  -0.205  1.00  0.00
+ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
+</code></pre>
+<p>By changing the arguments to our command, we can change our script's
+behaviour:</p>
+<pre><code class="language-bash">$ bash middle.sh pentane.pdb 20 5
+</code></pre>
+<pre><code class="language-output">ATOM     14  H           1      -1.259   1.420   0.112  1.00  0.00
+ATOM     15  H           1      -2.608  -0.407   1.130  1.00  0.00
+ATOM     16  H           1      -2.540  -1.303  -0.404  1.00  0.00
+ATOM     17  H           1      -3.393   0.254  -0.321  1.00  0.00
+TER      18              1
+</code></pre>
+<p>This works,
+but it may take the next person who reads <code>middle.sh</code> a moment to figure out what it does.
+We can improve our script by adding some <strong>comments</strong> at the top:</p>
+<pre><code class="language-bash">$ nano middle.sh
+</code></pre>
+<pre><code class="language-source"># Select lines from the middle of a file.
+# Usage: bash middle.sh filename end_line num_lines
+head -n "$2" "$1" | tail -n "$3"
+</code></pre>
+<p>A comment starts with a <code>#</code> character and runs to the end of the line.
+The computer ignores comments,
+but they're invaluable for helping people (including your future self) understand and use scripts.
+The only caveat is that each time you modify the script,
+you should check that the comment is still accurate. An explanation that sends
+the reader in the wrong direction is worse than none at all.</p>
+<p>What if we want to process many files in a single pipeline?
+For example, if we want to sort our <code>.pdb</code> files by length, we would type:</p>
+<pre><code class="language-bash">$ wc -l *.pdb | sort -n
+</code></pre>
+<p>because <code>wc -l</code> lists the number of lines in the files
+(recall that <code>wc</code> stands for 'word count', adding the <code>-l</code> option means 'count lines' instead)
+and <code>sort -n</code> sorts things numerically.
+We could put this in a file,
+but then it would only ever sort a list of <code>.pdb</code> files in the current directory.
+If we want to be able to get a sorted list of other kinds of files,
+we need a way to get all those names into the script.
+We can't use <code>$1</code>, <code>$2</code>, and so on
+because we don't know how many files there are.
+Instead, we use the special variable <code>$@</code>,
+which means,
+'All of the command-line arguments to the shell script'.
+We also should put <code>$@</code> inside double-quotes
+to handle the case of arguments containing spaces
+(<code>"$@"</code> is special syntax and is equivalent to <code>"$1"</code> <code>"$2"</code> ...).</p>
+<p>Here's an example:</p>
+<pre><code class="language-bash">$ nano sorted.sh
+</code></pre>
+<pre><code class="language-source"># Sort files by their length.
+# Usage: bash sorted.sh one_or_more_filenames
+wc -l "$@" | sort -n
+</code></pre>
+<pre><code class="language-bash">$ bash sorted.sh *.pdb ../creatures/*.dat
+</code></pre>
+<pre><code class="language-output">9 methane.pdb
+12 ethane.pdb
+15 propane.pdb
+20 cubane.pdb
+21 pentane.pdb
+30 octane.pdb
+163 ../creatures/basilisk.dat
+163 ../creatures/minotaur.dat
+163 ../creatures/unicorn.dat
+596 total
+</code></pre>
+<div class="box box-challenge">
+<p class="box-title">List Unique Species</p>
+
+<p>Leah has several hundred data files, each of which is formatted like this:</p>
+<pre><code class="language-source">2013-11-05,deer,5
+2013-11-05,rabbit,22
+2013-11-05,raccoon,7
+2013-11-06,rabbit,19
+2013-11-06,deer,2
+2013-11-06,fox,1
+2013-11-07,rabbit,18
+2013-11-07,bear,1
+</code></pre>
+<p>An example of this type of file is given in
+<code>shell-lesson-data/exercise-data/animal-counts/animals.csv</code>.</p>
+<p>We can use the command <code>cut -d , -f 2 animals.csv | sort | uniq</code> to produce
+the unique species in <code>animals.csv</code>.
+In order to avoid having to type out this series of commands every time,
+a scientist may choose to write a shell script instead.</p>
+<p>Write a shell script called <code>species.sh</code> that takes any number of
+filenames as command-line arguments and uses a variation of the above command
+to print a list of the unique species appearing in each of those files separately.</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<pre><code class="language-bash"># Script to find unique species in csv files where species is the second data field
+# This script accepts any number of file names as command line arguments
+
+# Loop over all files
+for file in $@
+do
+    echo "Unique species in $file:"
+    # Extract species names
+    cut -d , -f 2 $file | sort | uniq
+done
+</code></pre>
+</details>
+</div>
+<p>Suppose we have just run a series of commands that did something useful --- for example,
+creating a graph we'd like to use in a paper.
+We'd like to be able to re-create the graph later if we need to,
+so we want to save the commands in a file.
+Instead of typing them in again
+(and potentially getting them wrong)
+we can do this:</p>
+<pre><code class="language-bash">$ history | tail -n 5 &gt; redo-figure-3.sh
+</code></pre>
+<p>The file <code>redo-figure-3.sh</code> now contains:</p>
+<pre><code class="language-source">297 bash goostats.sh NENE01729B.txt stats-NENE01729B.txt
+298 bash goodiff.sh stats-NENE01729B.txt /data/validated/01729.txt &gt; 01729-differences.txt
+299 cut -d ',' -f 2-3 01729-differences.txt &gt; 01729-time-series.txt
+300 ygraph --format scatter --color bw --borders none 01729-time-series.txt figure-3.png
+301 history | tail -n 5 &gt; redo-figure-3.sh
+</code></pre>
+<p>After a moment's work in an editor to remove the serial numbers on the commands,
+and to remove the final line where we called the <code>history</code> command,
+we have a completely accurate record of how we created that figure.</p>
+<div class="box box-challenge">
+<p class="box-title">Why Record Commands in the History Before Running Them?</p>
+
+<p>If you run the command:</p>
+<pre><code class="language-bash">$ history | tail -n 5 &gt; recent.sh
+</code></pre>
+<p>the last command in the file is the <code>history</code> command itself, i.e.,
+the shell has added <code>history</code> to the command log before actually
+running it. In fact, the shell <em>always</em> adds commands to the log
+before running them. Why do you think it does this?</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x">Solution</h2>
+<p>If a command causes something to crash or hang, it might be useful
+to know what that command was, in order to investigate the problem.
+Were the command only be recorded after running it, we would not
+have a record of the last command run in the event of a crash.</p>
+</details>
+</div>
+<p>In practice, most people develop shell scripts by running commands
+at the shell prompt a few times
+to make sure they're doing the right thing,
+then saving them in a file for re-use.
+This style of work allows people to recycle
+what they discover about their data and their workflow with one call to <code>history</code>
+and a bit of editing to clean up the output
+and save it as a shell script.</p>
+<h2 id="nelle-s-pipeline-creating-a-script">Nelle's Pipeline: Creating a Script</h2>
+<p>Nelle's supervisor insisted that all her analytics must be reproducible.
+The easiest way to capture all the steps is in a script.</p>
+<p>First we return to Nelle's project directory:</p>
+<pre><code class="language-bash">$ cd ../../north-pacific-gyre/
+</code></pre>
+<p>She creates a file using <code>nano</code> ...</p>
+<pre><code class="language-bash">$ nano do-stats.sh
+</code></pre>
+<p>...which contains the following:</p>
+<pre><code class="language-bash"># Calculate stats for data files.
+for datafile in "$@"
+do
+    echo $datafile
+    bash goostats.sh $datafile stats-$datafile
+done
+</code></pre>
+<p>She saves this in a file called <code>do-stats.sh</code>
+so that she can now re-do the first stage of her analysis by typing:</p>
+<pre><code class="language-bash">$ bash do-stats.sh NENE*A.txt NENE*B.txt
+</code></pre>
+<p>She can also do this:</p>
+<pre><code class="language-bash">$ bash do-stats.sh NENE*A.txt NENE*B.txt | wc -l
+</code></pre>
+<p>so that the output is just the number of files processed
+rather than the names of the files that were processed.</p>
+<p>One thing to note about Nelle's script is that
+it lets the person running it decide what files to process.
+She could have written it as:</p>
+<pre><code class="language-bash"># Calculate stats for Site A and Site B data files.
+for datafile in NENE*A.txt NENE*B.txt
+do
+    echo $datafile
+    bash goostats.sh $datafile stats-$datafile
+done
+</code></pre>
+<p>The advantage is that this always selects the right files:
+she doesn't have to remember to exclude the 'Z' files.
+The disadvantage is that it <em>always</em> selects just those files --- she can't run it on all files
+(including the 'Z' files),
+or on the 'G' or 'H' files her colleagues in Antarctica are producing,
+without editing the script.
+If she wanted to be more adventurous,
+she could modify her script to check for command-line arguments,
+and use <code>NENE*A.txt NENE*B.txt</code> if none were provided.
+Of course, this introduces another tradeoff between flexibility and complexity.</p>
+<div class="box box-challenge">
+<p class="box-title">Variables in Shell Scripts</p>
+
+<p>In the <code>alkanes</code> directory, imagine you have a shell script called <code>script.sh</code> containing the
+following commands:</p>
+<pre><code class="language-bash">head -n $2 $1
+tail -n $3 $1
+</code></pre>
+<p>While you are in the <code>alkanes</code> directory, you type the following command:</p>
+<pre><code class="language-bash">$ bash script.sh '*.pdb' 1 1
+</code></pre>
+<p>Which of the following outputs would you expect to see?</p>
+<ol>
+<li>All of the lines between the first and the last lines of each file ending in <code>.pdb</code>
+in the <code>alkanes</code> directory</li>
+<li>The first and the last line of each file ending in <code>.pdb</code> in the <code>alkanes</code> directory</li>
+<li>The first and the last line of each file in the <code>alkanes</code> directory</li>
+<li>An error because of the quotes around <code>*.pdb</code></li>
+</ol>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x">Solution</h2>
+<p>The correct answer is 2.</p>
+<p>The special variables <code>$1</code>, <code>$2</code> and <code>$3</code> represent the command line arguments given to the
+script, such that the commands run are:</p>
+<pre><code class="language-bash">$ head -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
+$ tail -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
+</code></pre>
+<p>The shell does not expand <code>'*.pdb'</code> because it is enclosed by quote marks.
+As such, the first argument to the script is <code>'*.pdb'</code> which gets expanded within the
+script by <code>head</code> and <code>tail</code>.</p>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Find the Longest File With a Given Extension</p>
+
+<p>Write a shell script called <code>longest.sh</code> that takes the name of a
+directory and a filename extension as its arguments, and prints
+out the name of the file with the most lines in that directory
+with that extension. For example:</p>
+<pre><code class="language-bash">$ bash longest.sh shell-lesson-data/exercise-data/alkanes pdb
+</code></pre>
+<p>would print the name of the <code>.pdb</code> file in <code>shell-lesson-data/exercise-data/alkanes</code> that has
+the most lines.</p>
+<p>Feel free to test your script on another directory e.g.</p>
+<pre><code class="language-bash">$ bash longest.sh shell-lesson-data/exercise-data/writing txt
+</code></pre>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x">Solution</h2>
+<pre><code class="language-bash"># Shell script which takes two arguments:
+#    1. a directory name
+#    2. a file extension
+# and prints the name of the file in that directory
+# with the most lines which matches the file extension.
+
+wc -l $1/*.$2 | sort -n | tail -n 2 | head -n 1
+</code></pre>
+<p>The first part of the pipeline, <code>wc -l $1/*.$2 | sort -n</code>, counts
+the lines in each file and sorts them numerically (largest last). When
+there's more than one file, <code>wc</code> also outputs a final summary line,
+giving the total number of lines across <em>all</em> files.  We use <code>tail -n 2 | head -n 1</code> to throw away this last line.</p>
+<p>With <code>wc -l $1/*.$2 | sort -n | tail -n 1</code> we'll see the final summary
+line: we can build our pipeline up in pieces to be sure we understand
+the output.</p>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Script Reading Comprehension</p>
+
+<p>For this question, consider the <code>shell-lesson-data/exercise-data/alkanes</code> directory once again.
+This contains a number of <code>.pdb</code> files in addition to any other files you
+may have created.
+Explain what each of the following three scripts would do when run as
+<code>bash script1.sh *.pdb</code>, <code>bash script2.sh *.pdb</code>, and <code>bash script3.sh *.pdb</code> respectively.</p>
+<pre><code class="language-bash"># Script 1
+echo *.*
+</code></pre>
+<pre><code class="language-bash"># Script 2
+for filename in $1 $2 $3
+do
+    cat $filename
+done
+</code></pre>
+<pre><code class="language-bash"># Script 3
+echo $@.pdb
+</code></pre>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solutions">Solutions</h2>
+<p>In each case, the shell expands the wildcard in <code>*.pdb</code> before passing the resulting
+list of file names as arguments to the script.</p>
+<p>Script 1 would print out a list of all files containing a dot in their name.
+The arguments passed to the script are not actually used anywhere in the script.</p>
+<p>Script 2 would print the contents of the first 3 files with a <code>.pdb</code> file extension.
+<code>$1</code>, <code>$2</code>, and <code>$3</code> refer to the first, second, and third argument respectively.</p>
+<p>Script 3 would print all the arguments to the script (i.e. all the <code>.pdb</code> files),
+followed by <code>.pdb</code>.
+<code>$@</code> refers to <em>all</em> the arguments given to a shell script.</p>
+<pre><code class="language-output">cubane.pdb ethane.pdb methane.pdb octane.pdb pentane.pdb propane.pdb.pdb
+</code></pre>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Debugging Scripts</p>
+
+<p>Suppose you have saved the following script in a file called <code>do-errors.sh</code>
+in Nelle's <code>north-pacific-gyre</code> directory:</p>
+<pre><code class="language-bash"># Calculate stats for data files.
+for datafile in "$@"
+do
+    echo $datfile
+    bash goostats.sh $datafile stats-$datafile
+done
+</code></pre>
+<p>When you run it from the <code>north-pacific-gyre</code> directory:</p>
+<pre><code class="language-bash">$ bash do-errors.sh NENE*A.txt NENE*B.txt
+</code></pre>
+<p>the output is blank.
+To figure out why, re-run the script using the <code>-x</code> option:</p>
+<pre><code class="language-bash">$ bash -x do-errors.sh NENE*A.txt NENE*B.txt
+</code></pre>
+<p>What is the output showing you?
+Which line is responsible for the error?</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x-x">Solution</h2>
+<p>The <code>-x</code> option causes <code>bash</code> to run in debug mode.
+This prints out each command as it is run, which will help you to locate errors.
+In this example, we can see that <code>echo</code> isn't printing anything. We have made a typo
+in the loop variable name, and the variable <code>datfile</code> doesn't exist, hence returning
+an empty string.</p>
+</details>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>Save commands in files (usually called shell scripts) for re-use.</li>
+<li><code>bash [filename]</code> runs the commands saved in a file.</li>
+<li><code>$@</code> refers to all of a shell script's command-line arguments.</li>
+<li><code>$1</code>, <code>$2</code>, etc., refer to the first command-line argument, the second command-line argument, etc.</li>
+<li>Place variables in quotes if the values might have spaces in them.</li>
+<li>Letting users decide what files to process is more flexible and more consistent with built-in Unix commands.</li>
+</ul>
+</div>

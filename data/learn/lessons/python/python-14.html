@@ -1,0 +1,123 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Identify local and global variables.</li>
+<li>Identify parameters as local variables.</li>
+<li>Read a traceback and determine the file, function, and line number on which the error occurred, the type of error, and the error message.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>How do function calls actually work?</li>
+<li>How can I determine where errors occurred?</li>
+</ul>
+</div>
+<h2 id="the-scope-of-a-variable-is-the-part-of-a-program-that-can-se">The scope of a variable is the part of a program that can 'see' that variable.</h2>
+<ul>
+<li>There are only so many sensible names for variables.</li>
+<li>People using functions shouldn't have to worry about
+what variable names the author of the function used.</li>
+<li>People writing functions shouldn't have to worry about
+what variable names the function's caller uses.</li>
+<li>The part of a program in which a variable is visible is called its <em>scope</em>.</li>
+</ul>
+<pre><code class="language-python">pressure = 103.9
+
+def adjust(t):
+    temperature = t * 1.43 / pressure
+    return temperature
+</code></pre>
+<ul>
+<li><code>pressure</code> is a <em>global variable</em>.
+<ul>
+<li>Defined outside any particular function.</li>
+<li>Visible everywhere.</li>
+</ul>
+</li>
+<li><code>t</code> and <code>temperature</code> are <em>local variables</em> in <code>adjust</code>.
+<ul>
+<li>Defined in the function.</li>
+<li>Not visible in the main program.</li>
+<li>Remember: a function parameter is a variable
+that is automatically assigned a value when the function is called.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">print('adjusted:', adjust(0.9))
+print('temperature after call:', temperature)
+</code></pre>
+<pre><code class="language-output">adjusted: 0.01238691049085659
+</code></pre>
+<pre><code class="language-error">Traceback (most recent call last):
+  File "/Users/swcarpentry/foo.py", line 8, in &lt;module&gt;
+    print('temperature after call:', temperature)
+NameError: name 'temperature' is not defined
+</code></pre>
+<div class="box box-challenge">
+<p class="box-title">Local and Global Variable Use</p>
+
+<p>Trace the values of all variables in this program as it is executed.
+(Use '---' as the value of variables before and after they exist.)</p>
+<pre><code class="language-python">limit = 100
+
+def clip(value):
+    return min(max(0.0, value), limit)
+
+value = -22.5
+print(clip(value))
+</code></pre>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Reading Error Messages</p>
+
+<p>Read the traceback below, and identify the following:</p>
+<ol>
+<li>How many levels does the traceback have?</li>
+<li>What is the file name where the error occurred?</li>
+<li>What is the function name where the error occurred?</li>
+<li>On which line number in this function did the error occur?</li>
+<li>What is the type of error?</li>
+<li>What is the error message?</li>
+</ol>
+<pre><code class="language-error">---------------------------------------------------------------------------
+KeyError                                  Traceback (most recent call last)
+&lt;ipython-input-2-e4c4cbafeeb5&gt; in &lt;module&gt;()
+      1 import errors_02
+----&gt; 2 errors_02.print_friday_message()
+
+/Users/ghopper/thesis/code/errors_02.py in print_friday_message()
+     13
+     14 def print_friday_message():
+---&gt; 15     print_message("Friday")
+
+/Users/ghopper/thesis/code/errors_02.py in print_message(day)
+      9         "sunday": "Aw, the weekend is almost over."
+     10     }
+---&gt; 11     print(messages[day])
+     12
+     13
+
+KeyError: 'Friday'
+</code></pre>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<ol>
+<li>Three levels.</li>
+<li><code>errors_02.py</code></li>
+<li><code>print_message</code></li>
+<li>Line 11</li>
+<li><code>KeyError</code>. These errors occur when we are trying to look up a key that does not exist (usually in a data
+structure such as a dictionary). We can find more information about the <code>KeyError</code> and other built-in exceptions
+in the <a href="https://docs.python.org/3/library/exceptions.html#KeyError" target="_blank" rel="noopener noreferrer">Python docs</a>.</li>
+<li><code>KeyError: 'Friday'</code></li>
+</ol>
+</details>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>The scope of a variable is the part of a program that can 'see' that variable.</li>
+<li>What are the pros / cons of making a variable global or local to a function?</li>
+</ul>
+</div>

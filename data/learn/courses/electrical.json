@@ -1,0 +1,437 @@
+{
+ "title": "Electrical & Electronics Fundamentals",
+ "subtitle": "Voltage, current, resistance and power; Ohm's and Kirchhoff's laws; and working safely with electricity.",
+ "level": "Beginner",
+ "outcomes": [
+  "Explain charge, voltage, current and resistance",
+  "Calculate circuits with Ohm's law and power formulas",
+  "Analyse series, parallel and divider circuits with Kirchhoff's laws",
+  "Work safely around electrical hazards"
+ ],
+ "skill": "electrical",
+ "modules": [
+  {
+   "title": "Basic concepts",
+   "lessons": [
+    "electrical-01",
+    "electrical-02",
+    "electrical-03",
+    "electrical-04",
+    "electrical-05"
+   ]
+  },
+  {
+   "title": "Ohm's law and power",
+   "lessons": [
+    "electrical-06",
+    "electrical-07",
+    "electrical-08",
+    "electrical-09",
+    "electrical-10",
+    "electrical-11"
+   ]
+  },
+  {
+   "title": "Electrical safety",
+   "lessons": [
+    "electrical-12",
+    "electrical-13",
+    "electrical-14",
+    "electrical-15",
+    "electrical-16",
+    "electrical-17",
+    "electrical-18",
+    "electrical-19"
+   ]
+  },
+  {
+   "title": "Circuits",
+   "lessons": [
+    "electrical-20",
+    "electrical-21",
+    "electrical-22",
+    "electrical-23",
+    "electrical-24",
+    "electrical-25",
+    "electrical-26"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "electrical-01",
+   "title": "Basic concepts of electricity",
+   "words": 2022,
+   "minutes": 11,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_1.html",
+   "toc": [
+    {
+     "id": "static-electricity",
+     "text": "Static electricity",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "electrical-02",
+   "title": "Conductors, insulators, and electron flow",
+   "words": 1943,
+   "minutes": 10,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_1.html",
+   "toc": [
+    {
+     "id": "electric-circuits",
+     "text": "Electric circuits",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "electrical-03",
+   "title": "Voltage and current",
+   "words": 2349,
+   "minutes": 12,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_1.html",
+   "toc": []
+  },
+  {
+   "id": "electrical-04",
+   "title": "Resistance",
+   "words": 1687,
+   "minutes": 9,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_1.html",
+   "toc": [
+    {
+     "id": "voltage-and-current-in-a-practical-circuit",
+     "text": "Voltage and current in a practical circuit",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "electrical-05",
+   "title": "Conventional versus electron flow",
+   "words": 1567,
+   "minutes": 8,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_1.html",
+   "toc": []
+  },
+  {
+   "id": "electrical-06",
+   "title": "Ohm's law",
+   "words": 1795,
+   "minutes": 9,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_2.html",
+   "toc": [
+    {
+     "id": "how-voltage-current-and-resistance-relate",
+     "text": "How voltage, current, and resistance relate",
+     "level": 2
+    },
+    {
+     "id": "an-analogy-for-ohm-s-law",
+     "text": "An analogy for Ohm's Law",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "electrical-07",
+   "title": "Power in electric circuits",
+   "words": 1442,
+   "minutes": 8,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_2.html",
+   "toc": [
+    {
+     "id": "calculating-electric-power",
+     "text": "Calculating electric power",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "electrical-08",
+   "title": "Resistors",
+   "words": 1165,
+   "minutes": 6,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_2.html",
+   "toc": []
+  },
+  {
+   "id": "electrical-09",
+   "title": "Nonlinear conduction",
+   "words": 1505,
+   "minutes": 8,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_2.html",
+   "toc": []
+  },
+  {
+   "id": "electrical-10",
+   "title": "Circuit wiring",
+   "words": 1465,
+   "minutes": 8,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_2.html",
+   "toc": [
+    {
+     "id": "polarity-of-voltage-drops",
+     "text": "Polarity of voltage drops",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "electrical-11",
+   "title": "Computer simulation of electric circuits",
+   "words": 2695,
+   "minutes": 14,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_2.html",
+   "toc": []
+  },
+  {
+   "id": "electrical-12",
+   "title": "Electrical safety",
+   "words": 1505,
+   "minutes": 8,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_3.html",
+   "toc": [
+    {
+     "id": "the-importance-of-electrical-safety",
+     "text": "The importance of electrical safety",
+     "level": 2
+    },
+    {
+     "id": "physiological-effects-of-electricity",
+     "text": "Physiological effects of electricity",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "electrical-13",
+   "title": "Shock current path",
+   "words": 1713,
+   "minutes": 9,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_3.html",
+   "toc": []
+  },
+  {
+   "id": "electrical-14",
+   "title": "Ohm's Law (again!)",
+   "words": 2628,
+   "minutes": 14,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_3.html",
+   "toc": []
+  },
+  {
+   "id": "electrical-15",
+   "title": "Safe practices",
+   "words": 2429,
+   "minutes": 13,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_3.html",
+   "toc": [
+    {
+     "id": "emergency-response",
+     "text": "Emergency response",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "electrical-16",
+   "title": "Common sources of hazard",
+   "words": 1040,
+   "minutes": 6,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_3.html",
+   "toc": []
+  },
+  {
+   "id": "electrical-17",
+   "title": "Safe circuit design",
+   "words": 1609,
+   "minutes": 9,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_3.html",
+   "toc": []
+  },
+  {
+   "id": "electrical-18",
+   "title": "Safe meter usage",
+   "words": 3427,
+   "minutes": 18,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_3.html",
+   "toc": [
+    {
+     "id": "electric-shock-data",
+     "text": "Electric shock data",
+     "level": 2
+    },
+    {
+     "id": "bibliography",
+     "text": "Bibliography",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "electrical-19",
+   "title": "Controlling hazardous energy (lockout/tagout)",
+   "words": 802,
+   "minutes": 5,
+   "source": "osha",
+   "url": "https://www.osha.gov/control-hazardous-energy",
+   "toc": [
+    {
+     "id": "control-of-hazardous-energy-lockout-tagout",
+     "text": "Control of Hazardous Energy (Lockout/Tagout)",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "electrical-20",
+   "title": "Series and parallel circuits",
+   "words": 2517,
+   "minutes": 13,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_5.html",
+   "toc": [
+    {
+     "id": "what-are-series-and-parallel-circuits",
+     "text": "What are \"series\" and \"parallel\" circuits?",
+     "level": 2
+    },
+    {
+     "id": "simple-series-circuits",
+     "text": "Simple series circuits",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "electrical-21",
+   "title": "Simple parallel circuits",
+   "words": 2107,
+   "minutes": 11,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_5.html",
+   "toc": [
+    {
+     "id": "conductance",
+     "text": "Conductance",
+     "level": 2
+    },
+    {
+     "id": "power-calculations",
+     "text": "Power calculations",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "electrical-22",
+   "title": "Correct use of Ohm's Law",
+   "words": 1915,
+   "minutes": 10,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_5.html",
+   "toc": [
+    {
+     "id": "component-failure-analysis",
+     "text": "Component failure analysis",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "electrical-23",
+   "title": "Building simple resistor circuits",
+   "words": 1730,
+   "minutes": 9,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_5.html",
+   "toc": []
+  },
+  {
+   "id": "electrical-24",
+   "title": "Divider circuits and Kirchhoff's laws",
+   "words": 1272,
+   "minutes": 7,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_6.html",
+   "toc": [
+    {
+     "id": "voltage-divider-circuits",
+     "text": "Voltage divider circuits",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "electrical-25",
+   "title": "Kirchhoff's Voltage Law (KVL)",
+   "words": 2213,
+   "minutes": 12,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_6.html",
+   "toc": [
+    {
+     "id": "current-divider-circuits",
+     "text": "Current divider circuits",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "electrical-26",
+   "title": "Kirchhoff's Current Law (KCL)",
+   "words": 570,
+   "minutes": 3,
+   "source": "lec",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_6.html",
+   "toc": []
+  }
+ ],
+ "quiz": {
+  "questions": [],
+  "pass_mark": 0,
+  "missing": true
+ },
+ "minutes": 250,
+ "sources": [
+  {
+   "id": "lec",
+   "name": "Lessons In Electric Circuits, Vol. I (DC)",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/",
+   "license": "Design Science License",
+   "license_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_A3.html",
+   "attribution": "© Tony R. Kuphaldt, Design Science License",
+   "noncommercial": false
+  },
+  {
+   "id": "osha",
+   "name": "OSHA (U.S. Department of Labor)",
+   "url": "https://www.osha.gov/",
+   "license": "Public domain (U.S. Government work)",
+   "license_url": "https://www.usa.gov/government-copyright",
+   "attribution": "Occupational Safety and Health Administration — a U.S. Government work, not subject to copyright",
+   "noncommercial": false
+  }
+ ]
+}

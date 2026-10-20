@@ -1,0 +1,165 @@
+<p>In the process of creating the map above (Figure 9), you gathered various useful pieces of information: the number of people killed in each county by police, the county population, the rate of people killed, etc. Folium allows you to display such information in a floating information box (using <code>folium.GeoJsonTooltip()</code>) that will show as the user hovers their cursor across the map. This is very helpful, especially when examining areas one may not be familiar with – but it is a little complicated to get set up correctly.</p>
+<p>When Folium creates a choropleth map, it generates underlying GeoJSON data about each geographic region. You can see this data by saving it to a temporary variable such as <code>cp</code>. This variable was used earlier to create the log scale; it can be used again to store data from the <code>folium.Choropleth()</code> method for other uses:</p>
+<pre><code class="language-python">baseMap = initMap()
+
+cp = folium.Choropleth( # &lt;- add the 'cp' variable
+        geo_data = counties,
+        data = map_df,
+        columns = ['FIPS','MapScale'],
+        key_on = 'feature.properties.FIPS',
+        bins = 9,
+        fill_color='OrRd',
+        fill_opacity=0.8,
+        line_opacity=0.2,
+        nan_fill_color = 'grey',
+        legend_name='Number of Fatal Police Shootings (2015-present)'
+        ).add_to(baseMap)
+
+</code></pre>
+<p>Here's what some of the GeoJson data looks like:</p>
+<pre><code class="language-python">[{'id': '0',
+  'type': 'Feature',
+  'properties': {'FIPS': '01059', 'NAME': 'Franklin'}, # &lt;= dictionary of K/V pairs
+  'geometry': {'type': 'Polygon',
+   'coordinates': [[[-88.16591, 34.380926],
+     [-88.165634, 34.383102],
+     [-88.156292, 34.463214],
+     [-88.139988, 34.581703],
+     [-88.16591, 34.380926]]]},
+  'bbox': [-88.173632, 34.304598, -87.529667, 34.581703]},
+ {'id': '1',
+  'type': 'Feature',
+  'properties': {'FIPS': '06057', 'NAME': 'Nevada'}, # &lt;= dictionary of K/V pairs
+  'geometry': {'type': 'Polygon',
+   'coordinates': [[[-121.27953, 39.230537],
+     [-121.259182, 39.256421],
+     [-121.266132, 39.272717],
+     ...
+</code></pre>
+<p>The <a href="https://perma.cc/64UU-R4D2" target="_blank" rel="noopener noreferrer">JSON</a> data format is a standard way of sending information around the internet. Users familiar with Python will notice that it resembles a list of nested dictionary values. The example above shows that county <code>properties</code> are <code>key</code>:<code>value</code> pairs. County 0's <code>FIPS</code> key has a value of 01059; its <code>NAME</code> key has the value 'Franklin'.</p>
+<h3 id="adding-data-to-the-geojson-property-dictionary">Adding Data to the GeoJSON Property Dictionary</h3>
+<p>Unfortunately, the GeoJSON data above doesn't currently hold all the information you've generated so far. You can supplement it by iteratively selecting the desired information from the <code>map_df</code> DataFrame and adding it to the GeoJSON property dictionary. Here's how to do this:</p>
+<ol>
+<li>Create a <code>map_data_lookup</code> DataFrame that copies the <code>map_df</code>, using <code>FIPS</code> as its index.</li>
+<li>Iterate over the GeoJSON data and add new property variables using data from <code>map_df</code>.</li>
+</ol>
+<p>In the code below, I've added line numbers to clarify the subsequent explanation:</p>
+<pre><code class="language-python">1. map_data_lookup = map_df.set_index('FIPS')
+
+2. for row in cp.geojson.data['features']:
+3.   try:
+4.       row['properties']['count'] = f"{(map_data_lookup.loc[row['properties']['FIPS'],'count']):.0f}"
+5.   except KeyError:
+6.      row['properties']['count'] = 'No police killings reported'
+</code></pre>
+<ul>
+<li>
+<p>Line 1 creates a new DataFrame from <code>map_df</code> and sets its index to the <code>FIPS</code> code. This is important because the GeoJSON data includes <code>FIPS</code> information. The code therefore uses it to find corresponding data in the <code>map_df</code> DataFrame.</p>
+</li>
+<li>
+<p>Line 2 iterates over the GeoJSON data, examining each county.</p>
+</li>
+<li>
+<p>Line 4 is where all the work happens, so let's look at it closely:</p>
+</li>
+</ul>
+<p><code>row['properties']['count']</code> adds the <code>count</code> key to the <code>properties</code> dictionary.</p>
+<p><code>f"{(map_data_lookup.loc[row['properties']['FIPS'],'count']):.0f}"</code> assigns a value to this key.</p>
+<p>To understand this last bit of code, let's read it from the inside out:</p>
+<ul>
+<li><a href="https://perma.cc/LFF7-72EY" target="_blank" rel="noopener noreferrer"><code>.loc</code></a> returns a value from a DataFrame based on its <code>index value</code> and <code>column name</code>. In its simplist form, it looks like <code>value = df.loc[index,col]</code>.</li>
+<li>Because <code>map_data_lookup</code>'s index is the <code>FIPS</code> code, if you supply a <code>FIPS</code> and a column name (<code>'count'</code>), Pandas will search the table for the corresponding FIPS number and return the number in the <code>count</code> column.</li>
+<li>As it iterates over the rows in the GeoJSON data, the <code>row['properties']['FIPS']</code> will supply the <code>FIPS</code> value for which to search.</li>
+</ul>
+<p>At this point, <code>map_data_lookup.loc[row['properties']['FIPS'],'count']</code> has tried to find the <code>count</code> value for every given <code>FIPS</code>. If found, it is returned as an integer. However, to display it properly, you need to convert it to a string, by wrapping the value in an f-string and specifying no decimals: (<code>f"{count:.0f}"</code>).</p>
+<ul>
+<li>
+<p>The <code>try:</code> and <code>except:</code> statements in lines 3 and 5 prevent the program from terminating if it encounters a <code>KeyError</code>, which happens when no data is found by <code>.loc[]</code>. Since the GeoJSON data includes values for all the counties in the US, but <code>map_data_lookup</code> only includes values for counties with 1 or more killings, about 50% of the <code>.loc[]</code> searches will return no data – causing a <code>KeyError</code>!</p>
+</li>
+<li>
+<p>Line 6 gives a default value ('No police killings reported') when a <code>KeyError</code> is encountered.</p>
+</li>
+</ul>
+<p>Now that you've updated Folium's GeoJSON data, you can call the <code>folium.GeoJsonTooltip()</code> method. This will allow you to display values from the property dictionary, and let you specify 'aliases': the text you want to display in your tooltip box.</p>
+<p>Finally, you update the <code>cp.geojson</code> variable, which Folium will use to create the new map.</p>
+<pre><code class="language-python">folium.GeoJsonTooltip(['NAME','count'],
+                      aliases=['County:','Num of Police Killings:']).add_to(cp.geojson)
+</code></pre>
+<h3 id="adding-multiple-data-elements-to-the-information-box">Adding Multiple Data Elements to the Information Box</h3>
+<p>In the example just above, you only reported the number of police killings (<code>count</code>) – but with this technique, you can display multiple variables at once. In the next example, you create an information box that displays:</p>
+<ul>
+<li>The county name (already in the <code>cp.GeoJson</code> property dictionary)</li>
+<li>The number of people killed by police</li>
+<li>The county's population</li>
+<li>The number of people killed per 100k</li>
+</ul>
+<p>The last two variables also need to be added to the <code>cp.GeoJson</code> property dictionary:</p>
+<pre><code class="language-python">baseMap = initMap()
+
+cp = folium.Choropleth(
+        geo_data = counties,
+        data = map_df,
+        columns = ['FIPS','MapScale'],
+        key_on = 'feature.properties.FIPS',
+        bins = 9,
+        fill_color='OrRd',
+        fill_opacity=0.8,
+        line_opacity=0.2,
+        nan_fill_color = 'grey',
+        legend_name='Number of Fatal Police Shootings per 100k (2015-present)'
+        ).add_to(baseMap)
+
+map_data_lookup = map_df.set_index('FIPS')
+
+for row in cp.geojson.data['features']:
+  try:
+      row['properties']['count'] = f"{(map_data_lookup.loc[row['properties']['FIPS'],'count']):.0f}"
+  except KeyError:
+      row['properties']['count'] = 'No police killings reported'
+  try:
+      row['properties']['count_per_100k'] = f"{map_data_lookup.loc[row['properties']['FIPS'],'count_per_100k']:.2f}" # present the data with 2 decimal places
+  except KeyError:
+      row['properties']['count_per_100k'] = 'No data'
+  try:
+      row['properties']['population'] = f"{map_data_lookup.loc[row['properties']['FIPS'],'POPESTIMATE2019']:,.0f}"
+  except KeyError:
+      row['properties']['population'] = 'No data'
+
+folium.GeoJsonTooltip(['NAME','population','count','count_per_100k'],
+                      aliases=['county:','population:','count:','per100k:']
+                      ).add_to(cp.geojson)
+
+baseMap
+</code></pre>
+<p><img alt="A second animated map showing a more complex set of data displayed with the Tooltip plugin" loading="lazy" src="https://programminghistorian.org/images/choropleth-maps-python-folium/en-or-choropleth-maps-python-folium-10.gif"></p>
+<p><em>Figure 10. The tooltip plugin displays multiple variables in a floating information box.</em></p>
+<p>Despite its complexity, adding the floating information box dramatically improves the user experience of exploring your map – so do give it a try.</p>
+<h2 id="saving-your-maps">Saving Your Maps</h2>
+<p>You can easily save your maps as HTML files with the <code>.save()</code> method, which saves the file to Colab's virtual drive:</p>
+<pre><code class="language-python">baseMap.save('PoliceKillingsOfCivilians.html')
+</code></pre>
+<p>The files you've saved to your virtual drive are under the file folder in the left margin of the browser window. Hover your cursor over the file and select <em>Download</em> to save the file to your local hard-drive's default download folder.</p>
+<div>
+Remember: everything on the virtual drive will disappear when you close your Colab session.
+</div>
+<p>These files can be shared with other people, who can open them in a browser and then zoom, pan, and examine individual county statistics by hovering their cursor over the map.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Choropleth maps are a powerful way to display data and inform readers by allowing them to discern patterns in data that are otherwise difficult to observe. This is especially true for areas with arbitrary boundaries: not knowing the edges of a police precinct, <a href="https://perma.cc/Q2V5-AQZY" target="_blank" rel="noopener noreferrer">alderperson</a>'s ward, or census tract makes it hard to interpret the meaning of all sorts of data (economic development, income, lead levels in the environment, life expectancy, etc.). But if that data is displayed in a choropleth map (or <a href="https://perma.cc/HME5-ZMDC" target="_blank" rel="noopener noreferrer">a series of maps</a>), you might notice correlations between variables that prompt additional investigation.</p>
+<h3 id="acknowledgments">Acknowledgments</h3>
+<p>Robert Nelson and Felipe Valdez provided very helpful feedback on drafts of this project. Alex Wermer-Colan helped guide me through the submission and review process. Nabeel Siddiqui's editorial assistance has been invaluable. Charlotte Chevrie and Anisa Hawes have been patient and helpful preparing this material for the <em>Programming Historian</em> website and shepherding me through the process. I appreciate everyone's assistance in improving this article; final responsibility, of course, remains mine.</p>
+<h2 id="footnotes">Footnotes</h2>
+<hr>
+<ol>
+<li><p>Albert Cairo, <em>How Charts Lie: Getting Smarter About Visual Information</em> (W.W. Norton &amp; Company, 2019). <a href="#fnref1" rel="noopener noreferrer">↩︎</a></p>
+</li>
+<li><p>Issie Lapowsky, “Is the US Leaning Red or Blue? It All Depends on Your Map,” <em>Wired</em>, July 26, 2018. <a href="https://perma.cc/6HSA-MKQV" target="_blank" rel="noopener noreferrer">https://www.wired.com/story/is-us-leaning-red-or-blue-election-maps/</a>. <a href="#fnref2" rel="noopener noreferrer">↩︎</a></p>
+</li>
+<li><p>Liuam Tung, "Programming languages: Python just took a big jump forward," <em>ZDNET</em>, October 06, 2021. <a href="https://www.zdnet.com/article/programming-languages-python-just-took-a-big-jump-forward/" target="_blank" rel="noopener noreferrer">https://www.zdnet.com/article/programming-languages-python-just-took-a-big-jump-forward/</a>. <a href="#fnref3" rel="noopener noreferrer">↩︎</a></p>
+</li>
+<li><p>Paul Krill, "Python popularity still soaring," <em>InfoWorld</em>, August 08, 2022. <a href="https://perma.cc/4L7W-RHF3" target="_blank" rel="noopener noreferrer">https://www.infoworld.com/article/3669232/python-popularity-still-soaring.html</a>. <a href="#fnref4" rel="noopener noreferrer">↩︎</a></p>
+</li>
+<li><p>Samuel Ogunleke, "Why Is Python Popular for Data Science?" <em>MakeUseOf</em>, 14 January, 2022. <a href="https://www.makeuseof.com/why-is-python-popular-for-data-science/" target="_blank" rel="noopener noreferrer">https://www.makeuseof.com/why-is-python-popular-for-data-science/</a>. <a href="#fnref5" rel="noopener noreferrer">↩︎</a></p>
+</li>
+<li><p>Quinn Dombrowski, Tassie Gniady, and David Kloster, "Introduction to Jupyter Notebooks," <em>Programming Historian</em>, no. 8 (2019), <a href="https://doi.org/10.46430/phen0087" target="_blank" rel="noopener noreferrer">https://doi.org/10.46430/phen0087</a>. <a href="#fnref6" rel="noopener noreferrer">↩︎</a></p>
+</li>
+</ol>

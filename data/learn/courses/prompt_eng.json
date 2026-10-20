@@ -1,0 +1,637 @@
+{
+ "title": "Prompt Engineering & AI Tools at Work",
+ "subtitle": "Write prompts that get reliable results — and know when not to trust the answer.",
+ "level": "Beginner",
+ "outcomes": [
+  "Structure prompts with instructions, context, input and output format",
+  "Use zero-shot, few-shot and chain-of-thought prompting",
+  "Chain prompts for multi-step work",
+  "Recognise hallucinations, bias and prompt injection"
+ ],
+ "skill": "prompt_eng",
+ "modules": [
+  {
+   "title": "Prompting fundamentals",
+   "lessons": [
+    "prompt_eng-01",
+    "prompt_eng-02",
+    "prompt_eng-03",
+    "prompt_eng-04",
+    "prompt_eng-05",
+    "prompt_eng-06"
+   ]
+  },
+  {
+   "title": "Prompting techniques",
+   "lessons": [
+    "prompt_eng-07",
+    "prompt_eng-08",
+    "prompt_eng-09",
+    "prompt_eng-10",
+    "prompt_eng-11"
+   ]
+  },
+  {
+   "title": "Risks and responsible use",
+   "lessons": [
+    "prompt_eng-12",
+    "prompt_eng-13",
+    "prompt_eng-14"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "prompt_eng-01",
+   "title": "Prompt Engineering Fundamentals",
+   "words": 4615,
+   "minutes": 24,
+   "source": "ms-genai",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/04-prompt-engineering-fundamentals/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "learning-goals",
+     "text": "Learning Goals",
+     "level": 2
+    },
+    {
+     "id": "key-terms",
+     "text": "Key Terms",
+     "level": 2
+    },
+    {
+     "id": "learning-sandbox",
+     "text": "Learning Sandbox",
+     "level": 2
+    },
+    {
+     "id": "illustrated-guide",
+     "text": "Illustrated Guide",
+     "level": 2
+    },
+    {
+     "id": "our-startup",
+     "text": "Our Startup",
+     "level": 2
+    },
+    {
+     "id": "what-is-prompt-engineering",
+     "text": "What is Prompt Engineering?",
+     "level": 2
+    },
+    {
+     "id": "tokenization",
+     "text": "Tokenization",
+     "level": 3
+    },
+    {
+     "id": "concept-foundation-models",
+     "text": "Concept: Foundation Models",
+     "level": 3
+    },
+    {
+     "id": "concept-instruction-tuned-llms",
+     "text": "Concept: Instruction Tuned LLMs",
+     "level": 3
+    },
+    {
+     "id": "why-do-we-need-prompt-engineering",
+     "text": "Why do we need Prompt Engineering?",
+     "level": 2
+    },
+    {
+     "id": "fabrications-example",
+     "text": "Fabrications Example",
+     "level": 3
+    },
+    {
+     "id": "case-study-github-copilot",
+     "text": "Case Study: GitHub Copilot",
+     "level": 2
+    },
+    {
+     "id": "prompt-construction",
+     "text": "Prompt Construction",
+     "level": 2
+    },
+    {
+     "id": "basic-prompt",
+     "text": "Basic Prompt",
+     "level": 3
+    },
+    {
+     "id": "complex-prompt",
+     "text": "Complex Prompt",
+     "level": 3
+    },
+    {
+     "id": "instruction-prompt",
+     "text": "Instruction Prompt",
+     "level": 3
+    },
+    {
+     "id": "primary-content",
+     "text": "Primary Content",
+     "level": 2
+    },
+    {
+     "id": "using-examples",
+     "text": "Using Examples",
+     "level": 3
+    },
+    {
+     "id": "prompt-cues",
+     "text": "Prompt Cues",
+     "level": 3
+    },
+    {
+     "id": "prompt-templates",
+     "text": "Prompt Templates",
+     "level": 3
+    },
+    {
+     "id": "supporting-content",
+     "text": "Supporting Content",
+     "level": 2
+    },
+    {
+     "id": "prompting-best-practices",
+     "text": "Prompting Best Practices",
+     "level": 2
+    },
+    {
+     "id": "prompt-engineering-mindset",
+     "text": "Prompt Engineering Mindset",
+     "level": 3
+    },
+    {
+     "id": "best-practices",
+     "text": "Best Practices",
+     "level": 2
+    },
+    {
+     "id": "knowledge-check",
+     "text": "Knowledge check",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "prompt_eng-02",
+   "title": "Basics of Prompting",
+   "words": 707,
+   "minutes": 4,
+   "source": "dair",
+   "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/introduction/basics.en.mdx",
+   "toc": [
+    {
+     "id": "prompting-an-llm",
+     "text": "Prompting an LLM",
+     "level": 2
+    },
+    {
+     "id": "prompt-formatting",
+     "text": "Prompt Formatting",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "prompt_eng-03",
+   "title": "LLM Settings",
+   "words": 558,
+   "minutes": 3,
+   "source": "dair",
+   "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/introduction/settings.en.mdx",
+   "toc": []
+  },
+  {
+   "id": "prompt_eng-04",
+   "title": "Elements of a Prompt",
+   "words": 229,
+   "minutes": 3,
+   "source": "dair",
+   "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/introduction/elements.en.mdx",
+   "toc": []
+  },
+  {
+   "id": "prompt_eng-05",
+   "title": "General Tips for Designing Prompts",
+   "words": 707,
+   "minutes": 4,
+   "source": "dair",
+   "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/introduction/tips.en.mdx",
+   "toc": [
+    {
+     "id": "start-simple",
+     "text": "Start Simple",
+     "level": 3
+    },
+    {
+     "id": "the-instruction",
+     "text": "The Instruction",
+     "level": 3
+    },
+    {
+     "id": "specificity",
+     "text": "Specificity",
+     "level": 3
+    },
+    {
+     "id": "avoid-impreciseness",
+     "text": "Avoid Impreciseness",
+     "level": 3
+    },
+    {
+     "id": "to-do-or-not-to-do",
+     "text": "To do or not to do?",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "prompt_eng-06",
+   "title": "Examples of Prompts",
+   "words": 1261,
+   "minutes": 7,
+   "source": "dair",
+   "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/introduction/examples.en.mdx",
+   "toc": [
+    {
+     "id": "text-summarization",
+     "text": "Text Summarization",
+     "level": 2
+    },
+    {
+     "id": "information-extraction",
+     "text": "Information Extraction",
+     "level": 2
+    },
+    {
+     "id": "question-answering",
+     "text": "Question Answering",
+     "level": 2
+    },
+    {
+     "id": "text-classification",
+     "text": "Text Classification",
+     "level": 2
+    },
+    {
+     "id": "conversation",
+     "text": "Conversation",
+     "level": 2
+    },
+    {
+     "id": "code-generation",
+     "text": "Code Generation",
+     "level": 2
+    },
+    {
+     "id": "reasoning",
+     "text": "Reasoning",
+     "level": 2
+    },
+    {
+     "id": "notebook",
+     "text": "Notebook",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "prompt_eng-07",
+   "title": "Creating Advanced prompts",
+   "words": 2336,
+   "minutes": 12,
+   "source": "ms-genai",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/05-advanced-prompts/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "learning-goals",
+     "text": "Learning goals",
+     "level": 2
+    },
+    {
+     "id": "prompt-engineering",
+     "text": "Prompt engineering",
+     "level": 2
+    },
+    {
+     "id": "an-example-of-a-prompt",
+     "text": "An example of a prompt",
+     "level": 3
+    },
+    {
+     "id": "limitations-of-simple-prompting",
+     "text": "Limitations of simple prompting",
+     "level": 3
+    },
+    {
+     "id": "techniques-for-prompting",
+     "text": "Techniques for prompting",
+     "level": 3
+    },
+    {
+     "id": "zero-shot-prompting",
+     "text": "Zero-shot prompting",
+     "level": 3
+    },
+    {
+     "id": "few-shot-prompting",
+     "text": "Few-shot prompting",
+     "level": 3
+    },
+    {
+     "id": "chain-of-thought",
+     "text": "Chain-of-thought",
+     "level": 3
+    },
+    {
+     "id": "generated-knowledge",
+     "text": "Generated knowledge",
+     "level": 3
+    },
+    {
+     "id": "least-to-most",
+     "text": "Least-to-most",
+     "level": 3
+    },
+    {
+     "id": "self-refine-critique-the-results",
+     "text": "Self-refine, critique the results",
+     "level": 3
+    },
+    {
+     "id": "maieutic-prompting",
+     "text": "Maieutic prompting",
+     "level": 3
+    },
+    {
+     "id": "vary-your-output",
+     "text": "Vary your output",
+     "level": 2
+    },
+    {
+     "id": "using-temperature-to-vary-your-output",
+     "text": "Using temperature to vary your output",
+     "level": 3
+    },
+    {
+     "id": "good-practices",
+     "text": "Good practices",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "knowledge-check",
+     "text": "Knowledge check",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "prompt_eng-08",
+   "title": "Zero-Shot Prompting",
+   "words": 226,
+   "minutes": 3,
+   "source": "dair",
+   "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/techniques/zeroshot.en.mdx",
+   "toc": []
+  },
+  {
+   "id": "prompt_eng-09",
+   "title": "Few-Shot Prompting",
+   "words": 635,
+   "minutes": 4,
+   "source": "dair",
+   "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/techniques/fewshot.en.mdx",
+   "toc": [
+    {
+     "id": "limitations-of-few-shot-prompting",
+     "text": "Limitations of Few-shot Prompting",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "prompt_eng-10",
+   "title": "Chain-of-Thought Prompting",
+   "words": 383,
+   "minutes": 3,
+   "source": "dair",
+   "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/techniques/cot.en.mdx",
+   "toc": [
+    {
+     "id": "chain-of-thought-cot-prompting",
+     "text": "Chain-of-Thought (CoT) Prompting",
+     "level": 2
+    },
+    {
+     "id": "zero-shot-cot-prompting",
+     "text": "Zero-shot COT Prompting",
+     "level": 2
+    },
+    {
+     "id": "automatic-chain-of-thought-auto-cot",
+     "text": "Automatic Chain-of-Thought (Auto-CoT)",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "prompt_eng-11",
+   "title": "Prompt Chaining",
+   "words": 562,
+   "minutes": 3,
+   "source": "dair",
+   "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/techniques/prompt_chaining.en.mdx",
+   "toc": [
+    {
+     "id": "introduction-to-prompt-chaining",
+     "text": "Introduction to Prompt Chaining",
+     "level": 2
+    },
+    {
+     "id": "use-cases-for-prompt-chaining",
+     "text": "Use Cases for Prompt Chaining",
+     "level": 2
+    },
+    {
+     "id": "prompt-chaining-for-document-qa",
+     "text": "Prompt Chaining for Document QA",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "prompt_eng-12",
+   "title": "Factuality",
+   "words": 177,
+   "minutes": 3,
+   "source": "dair",
+   "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/risks/factuality.en.mdx",
+   "toc": []
+  },
+  {
+   "id": "prompt_eng-13",
+   "title": "Biases",
+   "words": 309,
+   "minutes": 3,
+   "source": "dair",
+   "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/risks/biases.en.mdx",
+   "toc": [
+    {
+     "id": "distribution-of-exemplars",
+     "text": "Distribution of Exemplars",
+     "level": 3
+    },
+    {
+     "id": "order-of-exemplars",
+     "text": "Order of Exemplars",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "prompt_eng-14",
+   "title": "Adversarial Prompting and Prompt Injection",
+   "words": 2289,
+   "minutes": 12,
+   "source": "dair",
+   "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/risks/adversarial.en.mdx",
+   "toc": [
+    {
+     "id": "adversarial-prompting-in-llms",
+     "text": "Adversarial Prompting in LLMs",
+     "level": 2
+    },
+    {
+     "id": "prompt-injection",
+     "text": "Prompt Injection",
+     "level": 2
+    },
+    {
+     "id": "prompt-leaking",
+     "text": "Prompt Leaking",
+     "level": 2
+    },
+    {
+     "id": "jailbreaking",
+     "text": "Jailbreaking",
+     "level": 2
+    },
+    {
+     "id": "illegal-behavior",
+     "text": "Illegal Behavior",
+     "level": 3
+    },
+    {
+     "id": "dan",
+     "text": "DAN",
+     "level": 3
+    },
+    {
+     "id": "the-waluigi-effect",
+     "text": "The Waluigi Effect",
+     "level": 3
+    },
+    {
+     "id": "gpt-4-simulator",
+     "text": "GPT-4 Simulator",
+     "level": 3
+    },
+    {
+     "id": "game-simulator",
+     "text": "Game Simulator",
+     "level": 3
+    },
+    {
+     "id": "defense-tactics",
+     "text": "Defense Tactics",
+     "level": 2
+    },
+    {
+     "id": "add-defense-in-the-instruction",
+     "text": "Add Defense in the Instruction",
+     "level": 3
+    },
+    {
+     "id": "parameterizing-prompt-components",
+     "text": "Parameterizing Prompt Components",
+     "level": 3
+    },
+    {
+     "id": "quotes-and-additional-formatting",
+     "text": "Quotes and Additional Formatting",
+     "level": 3
+    },
+    {
+     "id": "adversarial-prompt-detector",
+     "text": "Adversarial Prompt Detector",
+     "level": 3
+    },
+    {
+     "id": "model-type",
+     "text": "Model Type",
+     "level": 3
+    },
+    {
+     "id": "references",
+     "text": "References",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [],
+  "pass_mark": 0,
+  "missing": true
+ },
+ "minutes": 88,
+ "sources": [
+  {
+   "id": "dair",
+   "name": "DAIR.AI · Prompt Engineering Guide",
+   "url": "https://www.promptingguide.ai/",
+   "license": "MIT",
+   "license_url": "https://opensource.org/license/mit",
+   "attribution": "© DAIR.AI, MIT License",
+   "noncommercial": false
+  },
+  {
+   "id": "ms-genai",
+   "name": "Microsoft · Generative AI for Beginners",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners",
+   "license": "MIT",
+   "license_url": "https://opensource.org/license/mit",
+   "attribution": "© Microsoft Corporation, MIT License",
+   "noncommercial": false
+  }
+ ]
+}

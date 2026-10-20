@@ -1,0 +1,72 @@
+<p>Establishing the parameter of interest, type of distribution to use, the test statistic and p-value can help you figure out how to go about a hypothesis test. However, there are several other factors you should consider when interpreting the results.</p>
+<div>
+<h2 id="rare-events">Rare Events</h2>
+</div>
+<div>
+<p>Suppose you make an assumption about a property of the population (this assumption is the null hypothesis). Then you gather sample data randomly. If the sample has properties that would be very unlikely to occur if the assumption is true, then you would conclude that your assumption about the population is probably incorrect. (Remember that your assumption is just an assumption—it is not a fact and it may or may not be true. But your sample data are real and the data are showing you a fact that seems to contradict your assumption.)</p>
+<p>For example, Didi and Ali are at a birthday party of a very wealthy friend. They hurry to be first in line to grab a prize from a tall basket that they cannot see inside because they will be blindfolded. There are 200 plastic bubbles in the basket and Didi and Ali have been told that there is only one with a $100 bill. Didi is the first person to reach into the basket and pull out a bubble. Her bubble contains a $100 bill. The probability of this happening is <img alt="\frac{1}{200}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-afa7371f4a6ecda0b4bdb2de0fffcc69_l3.png" title="Rendered by QuickLaTeX.com" width="21"> = 0.005. Because this is so unlikely, Ali is hoping that what the two of them were told is wrong and there are more $100 bills in the basket. A “rare event” has occurred (Didi getting the $100 bill) so Ali doubts the assumption about only one $100 bill being in the basket.</p>
+</div>
+<h2 id="errors-in-hypothesis-tests">Errors in Hypothesis Tests</h2>
+<p>When you perform a hypothesis test, there are four possible outcomes depending on the actual truth (or falseness) of the null hypothesis <em>H<sub>0</sub></em> and the decision to reject or not. The outcomes are summarized in the following table:</p>
+<div class="table-wrap"><table>
+<caption>Figure 6.14: Type 1 and Type 2 Errors</caption>
+<thead>
+<tr>
+<th></th>
+<th colspan="2"><em>H<sub>0</sub></em> IS ACTUALLY</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>ACTION</th>
+<td><strong>True</strong></td>
+<td><strong>False</strong></td>
+</tr>
+<tr>
+<th><strong>Do not reject <em>H<sub>0</sub></em></strong></th>
+<td>Correct Outcome</td>
+<td>Type II error</td>
+</tr>
+<tr>
+<th><strong>Reject <em>H<sub>0</sub></em></strong></th>
+<td>Type I Error</td>
+<td>Correct Outcome</td>
+</tr>
+</tbody>
+</table></div>
+<p>The four possible outcomes in the table are:</p>
+<ol>
+<li>The decision is not to reject <em>H<sub>0</sub></em> when <em>H<sub>0</sub></em> is true (correct decision).</li>
+<li>The decision is to reject <em>H<sub>0</sub></em> when <em>H<sub>0</sub></em> is true (incorrect decision known as a <a href="#term_351_3340" rel="noopener noreferrer">Type I error</a>).</li>
+<li>The decision is not to reject <em>H<sub>0</sub></em> when, in fact, <em>H<sub>0</sub></em> is false (incorrect decision known as a <a href="#term_351_3341" rel="noopener noreferrer">Type II error</a>).</li>
+<li>The decision is to reject <em>H<sub>0</sub></em> when <em>H<sub>0</sub></em> is false (correct decision whose probability is called the <a href="#term_351_3917" rel="noopener noreferrer">power</a> of the test).</li>
+</ol>
+<p>Each of the errors occurs with a particular probability. The Greek letters <em>α</em> and <em>β</em> represent the probabilities.</p>
+<p><em>α</em> = probability of a <a href="#term_351_3340" rel="noopener noreferrer">Type I error</a> = <em>P</em>(Type I error) = probability of rejecting the null hypothesis when the null hypothesis is true.</p>
+<p><em>β</em> = probability of a <a href="#term_351_3341" rel="noopener noreferrer">Type II error</a> = <em>P</em>(Type II error) = probability of not rejecting the null hypothesis when the null hypothesis is false.</p>
+<p>The <a href="#term_351_3917" rel="noopener noreferrer">power of a test</a> is 1 – <em>β</em>.</p>
+<p>Ideally,<em> α</em> and <em>β</em> should be as small as possible because they are probabilities of errors, but rarely are they zero. We want a high power that is as close to one as well.&nbsp; Increasing the sample size can help us achieve these by reducing both <em>α</em> and <em>β, </em>and therefore increasing the power of the test.</p>
+<div class="box box-keypoints"><p class="box-title">Example</p>
+
+<div>
+<p>Suppose the null hypothesis, <em>H<sub>0</sub></em>, is: Frank’s rock climbing equipment is safe.</p>
+<p><strong>Type I error</strong>: Frank thinks that his rock climbing equipment may not be safe when, in fact, it really is safe. Type II error: Frank thinks that his rock climbing equipment may be safe when, in fact, it is not safe.</p>
+<p><em>α</em> = probability that Frank thinks his rock climbing equipment may not be safe when, in fact, it really is safe. <em>β</em> = probability that Frank thinks his rock climbing equipment may be safe when, in fact, it is not safe.</p>
+<p>Notice that, in this case, the error with the greater consequence is the Type II error. (If Frank thinks his rock climbing equipment is safe, he will go ahead and use it.)</p>
+</div>
+</div>
+<div class="box box-callout"><p class="box-title">Your turn!</p>
+
+<div>
+<p>Suppose the null hypothesis, <em>H<sub>0</sub></em>, is: the blood cultures contain no traces of pathogen <em>X</em>. State the Type I and Type II errors.</p>
+</div>
+</div>
+<div>
+<div>
+<h2 id="statistical-significance-versus-practical-significance">Statistical Significance Versus Practical Significance</h2>
+<p>When the sample size becomes larger, point estimates become more precise and any real differences in the mean and null value become easier to detect and recognize. Even a very small difference would likely be detected if we took a large enough sample. Sometimes researchers will take such large samples that even the slightest difference is detected, even differences where there is no practical value. In such cases, we still say the difference is <a href="#term_351_3338" rel="noopener noreferrer">statistically significant</a>, but it is not practically significant.</p>
+<p>For example, an online experiment might identify that placing additional ads on a movie review website statistically significantly increases viewership of a TV show by 0.001%, but this increase might not have any practical value.</p>
+<p>One role of a data scientist in conducting a study often includes planning the size of the study. The data scientist might first consult experts or scientific literature to learn what would be the smallest meaningful difference from the null value. She also would obtain other information, such as a very rough estimate of the true proportion p, so that she could roughly estimate the standard error. From here, she can suggest a sample size that is sufficiently large that, if there is a real difference that is meaningful, we could detect it. While larger sample sizes may still be used, these calculations are especially helpful when considering costs or potential risks, such as possible health impacts to volunteers in a medical study.</p>
+</div>
+</div>
+<div></div>

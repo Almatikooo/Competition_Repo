@@ -1,0 +1,457 @@
+<div class="box box-objectives"><p class="box-title">LEARNING OBJECTIVES</p>
+
+<ol>
+<li>Construct a line chart to show timeline and comparison trends.</li>
+<li>Learn how to use a column chart to show one and two frequency distributions.</li>
+<li>Create and format a map chart.</li>
+<li>Insert a funnel chart.</li>
+<li>Learn how to use a pie chart to show the percent of the total for a data set.</li>
+<li>Compare the difference between a column chart and a bar chart.</li>
+<li>Construct column charts to show how a percent of total changes over time.</li>
+</ol>
+</div>
+<p>This section reviews the most commonly used Excel chart types. To demonstrate the variety of chart types available in Excel, it is necessary to use a variety of data sets. This is necessary not only to demonstrate the construction of charts but also to explain how to choose the right type of chart given your data and the idea you intend to communicate.</p>
+
+<p>Before we begin, let’s review a few key points you need to consider before creating any chart in Excel.</p>
+<ol>
+<li><strong>The first is identifying your idea or message</strong>. It is important to keep in mind that the primary purpose of a chart is to present quantitative information to an audience. Therefore, you must first decide what message or idea you wish to present. This is critical in helping you select specific data from a worksheet that will be used in a chart. Throughout this chapter, we will reinforce the intended message first before creating each chart.</li>
+<li><strong>The second key point is selecting the right chart type</strong>. The chart type you select will depend on the data you have and the message you intend to communicate.</li>
+<li><strong>The third key point is identifying the values that should appear on the X and Y axes</strong>. One of the ways to identify which values belong on the X and Y axes is to sketch the chart on paper first. If you can visualize what your chart is supposed to look like, you will have an easier time selecting information correctly and using Excel to construct an effective chart that accurately communicates your message. <strong>Table 4.1</strong> “Key Steps Before Constructing an Excel Chart” provides a brief summary of these points.</li>
+</ol>
+<div class="box box-callout"><p class="box-title">Integrity Check</p>
+
+<p><strong>Carefully Select Data When Creating a Chart</strong></p>
+<p>Just because you have data in a worksheet does not mean it must all be placed onto a chart. When creating a chart, it is common for only specific data points to be used. To determine what data should be used when creating a chart, you must first identify the message or idea that you want to communicate to an audience.</p>
+</div>
+
+<p>Table 4.1 Key Steps before Constructing an Excel Chart</p>
+<div class="table-wrap"><table>
+
+<tbody>
+<tr>
+<th scope="col"><strong>Step</strong></th>
+<th scope="col"><strong>Description</strong></th>
+</tr>
+<tr>
+<td><strong>Define your message.</strong></td>
+<td>Identify the main idea you are trying to communicate to an audience. If there is no main point or important message that can be revealed by a chart, you might want to question the necessity of creating a chart.</td>
+</tr>
+<tr>
+<td><strong>Identify the data you need.</strong></td>
+<td>Once you have a clear message, identify the data on a worksheet that you will need to construct a chart. In some cases, you may need to create formulas or consolidate items into broader categories.</td>
+</tr>
+<tr>
+<td><strong>Select a chart type.</strong></td>
+<td>The type of chart you select will depend on the message you are communicating and the data you are using.</td>
+</tr>
+<tr>
+<td><strong>Identify the values for the X and Y axes.</strong></td>
+<td>After you have selected a chart type, you may find that drawing a sketch is helpful in identifying which values should be on the X and Y axes. In Excel, the axes are:
+<p>The “category” axis. Usually the horizontal axis – where the labels are found.</p>
+<p>The “value” axis. Usually the vertical axis – where the numbers are found.</p></td>
+</tr>
+</tbody>
+</table></div>
+
+
+<h2 id="time-series-trend-line-chart-1">Time Series Trend: Line Chart 1</h2>
+<p>The first chart we will demonstrate is a line chart. Figure 4.1 shows part of the data that will be used to create two line charts. This chart will show the trend of the <a href="http://www.investopedia.com/terms/n/nasdaq.asp" target="_blank" rel="noopener noreferrer">NASDAQ </a> stock index.</p>
+<p>Read more: <a href="http://www.investopedia.com/terms/n/nasdaq.asp" target="_blank" rel="noopener noreferrer">Nasdaq Explained: History, Trading System, and Financial Insights</a>.</p>
+<p>This chart will be used to communicate a simple message: to show how the index has performed over a two-year period. We can use this chart in a presentation to show whether stock prices have been increasing, decreasing, or remaining constant over the designated period of time.</p>
+<p>Before we create the line chart, it is important to identify why it is an appropriate chart type given the message we wish to communicate and the data we have. When presenting the trend for any data over a designated period of time, the most commonly used chart types are the line chart and the column chart. With the column chart, you are limited to a certain number of bars or data points. As shown below in <strong>Figure 4.1</strong>,&nbsp; as the number of bars increases on a column chart, it becomes increasingly difficult to read.&nbsp; In our first example, there are 24 points of data used to construct the chart. This is generally too many data points to put on a column chart, which is why we are using a line chart.</p>
+
+<figure><img alt="Screenshot of a column chart and line chart" height="551" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/08/Figure_4.1_-_Chart_Types.png" width="453"><figcaption>Figure 4.1 Chart Types</figcaption></figure>
+
+<div></div>
+<div>Our line chart will show the <strong>Volume</strong> of sales for the NASDAQ on the Y-axis and the <strong>Month</strong> number on the X-axis. Notice when we select the information we are including the column headings/labels.&nbsp; Excel will use the column headings/labels to identify each axis.&nbsp; Excel named the horizontal axis labels Month and the Vertical&nbsp;axis series Volume.</div>
+<div></div>
+<p>The following steps explain how to construct this chart:</p>
+<p><em>Download Data file: <a href="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/CH4-Data.xlsx" target="_blank" rel="noopener noreferrer">CH4 Data</a></em></p>
+<ol>
+<li>Open data file <em>CH4 Data</em> and save a file to your computer as <strong>CH4 Charting</strong>.</li>
+<li>Navigate to the <strong>Stock Trend</strong>&nbsp;worksheet.</li>
+<li>Highlight the range <strong>B4:C28</strong> on the Stock Trend worksheet. (Note – you have selected a label in the first row and more labels in column B. Watch where they show up in your completed chart.)</li>
+<li>Click the Insert tab of the ribbon.</li>
+<li>Click the <strong>Line</strong> button in the <strong>Charts</strong> group of commands. Click the first option from the list, which is a basic 2D Line Chart&nbsp;(see <strong>Figure 4.2</strong>). Notice Excel adds, or embeds, the line chart into the worksheet.</li>
+</ol>
+
+<div>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/fig4.2.png" target="_blank" rel="noopener noreferrer"><img alt="Insert tab open to Charts group of commands. Line drop-down menu open. 2-D line selected." height="520" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/fig4.2.png" width="680"></a><figcaption>Figure 4.2 Selecting the Basic Line Chart</figcaption></figure>
+</div>
+
+<div class="box box-callout"><p class="box-title">Why?</p>
+
+<p><strong>Line Chart vs. Column Chart</strong></p>
+<p>We can use both a line chart and a column chart to illustrate a trend over time. However, a line chart is far more effective when there are many periods of time being measured. For example, if we are measuring fifty-two weeks, a column chart would require fifty-two bars. A general rule of thumb is to use a column chart when twenty bars or less are required. A column chart becomes difficult to read as the number of bars exceeds twenty.</p>
+</div>
+
+<p><strong>Figure 4.3</strong> shows the embedded line chart in the Stock Trend worksheet. Do you see where your labels showed up on the chart?</p>
+<p>Notice that additional tabs, or contextual tabs, are added to the ribbon. We will demonstrate the commands in these tabs throughout this chapter. These tabs appear only when the chart is activated.</p>
+<div class="box box-callout"><p class="box-title">Note</p>Note: Excel 2010 uses three contextual tabs for charts. Later versions use only two. Each has all the same tools. They are just organized a little differently.</div>
+
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/fig4.3.png" target="_blank" rel="noopener noreferrer"><img alt="Embedded 2D Line Chart with sizing handles. Vertical data on left side is Y or &quot;value&quot; axis. Horizontal data on bottom is X or &quot;category&quot; axis." height="356" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/fig4.3.png" width="560"></a><figcaption>Figure 4.3 Embedded Line Chart in the Stock Trend Worksheet</figcaption></figure>
+<p>As shown in <strong>Figure 4.3,</strong> the embedded chart is not placed in an ideal location on the worksheet since it is covering several cell locations that contain data. The following steps demonstrate common adjustments that are made when working with embedded charts:</p>
+
+<p><strong>&nbsp; 1. Moving a chart</strong>: Click and drag the upper left corner of the chart to the corner of cell B30.</p>
+<div class="box box-callout"><p class="box-title">Note</p>Note: Keep an eye on your pointer. It will change into <img alt="" height="43" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/image4.gif" width="30">when you are in the right place to move your chart.</div>
+
+<p><strong>&nbsp;2.&nbsp; Resizing a chart</strong>: Place the mouse pointer over the bottom lower corner sizing handle, drag and drop to approximately the end of Column I, and Row 45.</p>
+<div class="box box-callout"><p class="box-title">Note</p>Note: keep an eye on your pointer. It will change into <img alt="" height="31" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/image5.jpeg" width="31">when you are in the right place to resize your chart</div>
+
+<p><strong>&nbsp;3.&nbsp; Adjusting the chart title</strong>: Click the chart title once. Then click in front of the first letter. You should see a blinking cursor in front of the letter. This allows you to modify the title of the chart.</p>
+<p><strong>&nbsp;4.&nbsp;</strong> Type the following in front of the first letter in the chart title: <strong>May 2014-2016 Trend for NASDAQ Sales</strong>.</p>
+<p><strong>&nbsp;5.&nbsp; </strong>Click anywhere outside of the chart to deactivate it.</p>
+<p><strong>&nbsp;6.</strong>&nbsp; Save your work.</p>
+<p><strong>Figure 4.4</strong> shows the line chart after it is moved and resized.&nbsp;Notice that the sizing handles do not appear around the perimeter of the chart. This is because the chart has been deactivated. To activate the chart, click anywhere inside the chart perimeter.</p>
+
+<figure><img alt="Deactivated 2D Line chart no longer covers data on Stock Trend worksheet." height="410" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-4-4.jpg" width="582"><figcaption>Figure 4.4 Line Chart Moved and Resized</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Integrity Check</p>
+
+<p>When using line charts in Excel, keep in mind that anything placed on the X-axis is considered a descriptive label, not a numeric value. This is an example of a category axis. This is important because there will never be a change in the spacing of any items placed on the X-axis of a line chart. If you need to create a chart using numeric data on the category axis, you will have to modify the chart. We will do that later in the chapter.</p>
+</div>
+
+<div class="box box-callout"><p class="box-title">Skill Refresher</p>
+
+<p><strong>Inserting a Line Chart</strong></p>
+<ol>
+<li>Highlight a range of cells that contain data that will be used to create the chart. Be sure to include labels in your selection.</li>
+<li>Click the Insert tab of the ribbon.</li>
+<li>Click the Line button in the Charts group.</li>
+<li>Select a format option from the Line Chart drop-down menu.</li>
+</ol>
+</div>
+<h2 id="adjusting-the-y-axis-scale">Adjusting the Y-Axis Scale</h2>
+<p>After creating an Excel chart, you may find it necessary to adjust the scale of the Y-axis. Excel automatically sets the maximum value for the Y-axis based on the data used to create the chart. The minimum value is usually set to zero. That is usually a good thing. However, depending on the data you are using to create the chart, setting the minimum value to zero can substantially minimize the graphical presentation of a trend. For example, the trend shown in Figure 4.4 appears to be increasing slightly in recent months. The presentation of this trend can be improved if the minimum value started at 500,000. The following steps explain how to make this adjustment to the Y-axis:</p>
+<p>&nbsp;1.&nbsp; Click anywhere on the Y (value or vertical) axis on the <strong>May 2014-2016 Trend for NASDAQ Sales Volume</strong> line chart (Stock Trend worksheet).</p>
+<p>&nbsp;2.&nbsp; Right Click and select <strong>Format Axis.</strong> The Format Axis Pane should appear, as shown in&nbsp;<strong>Figure 4.5</strong>.</p>
+<p>&nbsp; <img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20"> Mac Users: Hold down the Control key and click the Y axis. Then choose <strong>Format Axis.</strong></p>
+
+<div class="box box-callout"><p class="box-title">Note</p>&nbsp;Note: If you do not see “Format Axis . . . on your menu, you have not right-clicked in the correct spot. Press “Escape” to turn the menu off and try again</div>
+
+<p>&nbsp;3.&nbsp; In the Format Axis Pane, click the input box for the “<strong>Minimum</strong>” axis option and <strong>delete</strong> the zero. Then type the number <strong>500000&nbsp;</strong>and hit Enter. As soon as you make this change, the Y axis on the chart adjusts.</p>
+
+<figure><img alt="Screenshot of the Format Axis Pane" height="260" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.5_-Format_Axis_Pane.png" width="637"><figcaption>Figure 4.5 Format Axis Pane</figcaption></figure>
+<p>&nbsp;4.&nbsp; Click the X in the upper right corner of the Format Axis pane to close it.</p>
+<p>&nbsp;5.&nbsp; Save your work.</p>
+<p><strong>Figure 4.6</strong> shows the change in the presentation of the trend line. Notice that with the Y axis starting at 500,000, the trend for the NASDAQ is more pronounced. This adjustment makes it easier for the audience to see the magnitude of the trend.</p>
+
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/image8-1.png" target="_blank" rel="noopener noreferrer"><img alt="2D Line chart shows Y axis adjusted to 500,000 as minimum value." height="342" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/image8-1-1.png" width="523"></a><figcaption>Figure 4.6 Adjusted Y-Axis for the S&amp;P 500 Chart</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Skill Refresher</p>
+
+<p><strong>Adjusting the Y-Axis Scale</strong></p>
+<ol>
+<li>Click anywhere along the<strong> Y-axis</strong>&nbsp;to activate it.</li>
+<li>Right Click.<br>
+(Note, you can also select the Format tab in the Chart Tools section of the ribbon.)</li>
+<li>Select <strong>Format Axis</strong> . . .</li>
+<li>In the <strong>Format Axis pane</strong>, make your changes to the <strong>Axis Options</strong>.</li>
+<li>Click in the input box next to the desired axis option and then type the new scale value.</li>
+<li>Click the <strong>Close</strong> button at the top right of the Format Axis pane to close it.</li>
+</ol>
+</div>
+<h2 id="trend-comparisons-line-chart-2">Trend Comparisons: Line Chart 2</h2>
+<p>We will now create a second line chart using the data in the Stock Trend worksheet. The purpose of this chart is to compare two trends: the change in volume for the NASDAQ and the change in the Closing price.</p>
+<p>Before creating the chart to compare the NASDAQ volume and sales price, it is important to review the data in the range B4:D28 on the Stock Trend worksheet. We cannot use the volume of sales and the closing price because the values are not comparable. That is, the closing price is in a range of $45.00 to $115.00, but the data for the volume of Sales is in a range of 684,000 to 3,711,000. If we used these values – without making changes to the chart — we would not be able to see the closing price at all.</p>
+<p>The construction of this second line chart will be similar to the first line chart. The X axis will be the months in the range B4:D28.</p>
+
+<ol>
+<li>Highlight the range <strong>B4:D28</strong> on the Stock Trend worksheet.</li>
+<li>Click the <strong>Insert</strong> tab of the ribbon.</li>
+<li>Click the <strong>Line</strong> button in the <strong>Charts</strong> group of commands.</li>
+<li>Click the first option from the list, which is a basic line chart.</li>
+</ol>
+
+<p><strong>Figure 4.6.5&nbsp;</strong>shows the appearance of the line chart comparing both the volume and the closing price before it is moved and resized. Notice that the line for the closing price (Close) appears as a straight line at the bottom of the chart.</p>
+
+<figure><img alt="Screenshot of the graph showing the closing line." height="362" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.6__Trend_Comparison_Line_Chart.png" width="659"><figcaption>Figure 4.6.5 Trend Comparison Line Chart</figcaption></figure>
+
+<div class="box box-callout"><p class="box-title">Note</p>The line representing the closing values is flat along the bottom of the chart. This is hard to see and not very useful as is. Fear not. We will fix that.</div>
+
+<ol>
+<li>Move the chart so the upper left corner is in the middle of cell M1.</li>
+<li>Resize the chart, using the resizing handle so the graph is approximately in the area of M1:U13.</li>
+<li>Click in the text box that says “<strong>Chart Title</strong>.” Delete the text and replace it with the following: <strong>24 Month Trend Comparison.</strong></li>
+<li>Adjust the Closing Price axis, by double-clicking the red line across the bottom of the chart that represents the Closing Price.</li>
+<li>The Format Data Series dialogue box opens. In the Series Options, select Secondary Axis.</li>
+</ol>
+
+<figure><img alt="Screenshot of the 24 Month Trend Comparison line graph" height="365" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.7_Adding_a_Secondary_Axis.png" width="989"><figcaption>Figure 4.7 Adding a Secondary Axis</figcaption></figure>
+
+<p>Excel adds the secondary axis.&nbsp; Format the values on the secondary axis to represent prices.</p>
+
+<ol>
+<li>Double click the Secondary Vertical Axis. (The vertical axis on the right that goes from 0 to 140.)</li>
+<li>In axis options, scroll down to the <strong>Number</strong> section.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20"> Mac Users: If needed, click the Number “expand arrow” <img alt="number expand arrow" height="25" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/chartnumberoption.png" width="78"></li>
+<li>Use the Symbol list box to add the $.</li>
+<li>Press the Close button to close the Format Axis pane.</li>
+<li>Save your work.</li>
+</ol>
+
+<figure><img alt="Screenshot of the format axis pane" height="261" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.8_Modifying_the_Secondary_Axis.png" width="578"><figcaption>Figure 4.8 Modifying the Secondary Axis</figcaption></figure>
+
+<div>
+<figure><img alt="24 Month Comparison Line Chart" height="333" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-4-9.jpg" width="577"><figcaption>Figure 4.9 Final Comparison Line Chart</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Note</p>
+<details>
+<summary>Figure 4.9 Image Description</summary>
+<p>Final 24 Month Comparison Line Chart shows Y axis value range 500,000 to 4,000,000, with secondary Y axis value range $20.00 – $140.00 and X axis value range 1-24 in months. Two lines on chart show values for Volume and Close.</p>
+</details>
+</div>
+</div>
+
+<div>
+<div class="box box-callout"><p class="box-title">Skill Refresher</p>
+
+<div>
+<p><strong> X and Y-Axis Number Formats</strong></p>
+<ol>
+<li>Double click anywhere along the X or Y axis to activate it.</li>
+<li>Click Number from the list of options on the left side of the Format Axis dialog box.</li>
+<li>Select a number format and set decimal places on the right side of the Format Axis dialog box.</li>
+<li>Click the Close button in the Format Axis pane.</li>
+</ol>
+</div>
+</div>
+</div>
+<h2 id="frequency-distribution-column-chart-1">Frequency Distribution: Column Chart 1</h2>
+<p>A column chart is commonly used to show trends over time, as long as the data are limited to approximately twenty points or less. A common use for column charts is frequency distributions. A frequency distribution shows the number of occurrences by established categories.</p>
+<p>For example, a common frequency distribution used in most academic institutions is a grade distribution. A grade distribution shows the number of students that achieve each level of a typical grading scale (A, A−, B+, B, etc.). The Grade Distribution worksheet contains final grades for some hypothetical Excel classes.</p>
+<p>To show the grade frequency distribution for all the Excel classes in that year, the <strong>Numbers of Students</strong> appear on the Y-axis and the <strong>Grade Categories</strong> appear on the X-axis. In this situation, notice we do not select the <strong>Total</strong> row.&nbsp; The totals are a representation of all data and would skew the graph. Essentially you would be graphing the information twice.&nbsp; If you want to display the totals in a chart, the best approach is to create a separate chart that only displays the total values.</p>
+<p>The following steps to create the column chart:</p>
+<ol>
+<li>Select the Grade Distribution worksheet.</li>
+<li>In Row3, replace the red text at states <strong>[Insert Current Year]</strong> and replace it with the actual current academic term and year.</li>
+<li>Select two non-adjacent columns by selecting <strong>A3:A8</strong>.</li>
+<li>Press, and hold down the <strong>Crtl key</strong>.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20"> Mac Users: Hold down the <strong>Command key </strong>instead.</li>
+<li>Without letting go of the <strong>Ctrl key</strong>, select<strong> C3:C8</strong></li>
+<li>From the ribbon click the <strong>Insert</strong> tab. Choose the <strong>Column</strong> button.</li>
+<li>Select the<strong> Clustered Column</strong> format. (First option listed.)</li>
+<li>Click and drag the chart so the upper left corner is in the middle of cell <strong>H2</strong>.&nbsp; Resize the graph to fit in the area of H2: O13.</li>
+<li>Click any cell location on the<strong> Grade Distribution</strong> worksheet to deactivate the chart.</li>
+<li>Save your work.</li>
+</ol>
+
+<p><strong>Figure 4.10</strong>&nbsp;shows the completed grade frequency distribution chart. By looking at the chart, you can immediately see that the greatest number of students earned a final grade in the B+ to B− range.</p>
+
+<figure><img alt="Screenshot of the Frequency Distribution Chart" height="192" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.10_Grade_Frequency_Distribution_Chart.png" width="598"><figcaption>Figure 4.10 Grade Frequency Distribution Chart</figcaption></figure>
+
+
+<div class="box box-callout"><p class="box-title">Why?</p>
+
+<h4>Column Chart vs. Bar Chart</h4>
+<p>When using charts to show frequency distributions, the difference between a column chart and a bar chart is really a matter of preference. Both are very effective in showing frequency distributions. However, if you are showing a trend over a period of time, a column chart is preferred over a bar chart. This is because a period of time is typically shown horizontally, with the oldest date on the far left and the newest date on the far right. Therefore, the descriptive categories for the chart would have to fall on the horizontal – or category axis, which is the configuration of a column chart. On a bar chart, the descriptive categories are displayed on the vertical axis.</p>
+</div>
+<h2 id="creating-a-chart-sheet">Creating a Chart Sheet</h2>
+<div>&nbsp;The charts we have created up to this point have been added, or embedded in, an existing worksheet. Charts can also be placed in a dedicated worksheet called a chart sheet. It is called a chart sheet because it can only contain an Excel chart. Chart sheets are useful if you need to create several charts using the data in a single worksheet. If you embed several charts in one worksheet, it can be cumbersome to navigate and browse through the charts. It is easier to browse through charts when they are moved to a chart sheet because a separate sheet tab is added to the workbook for each chart. The following steps explain how to move the grade frequency distribution chart to a dedicated chart sheet:</div>
+<div></div>
+<div>
+<ol>
+<li>Click anywhere on the <strong>Final Grades for All Excel Classes</strong> chart on the Grade Distribution worksheet.</li>
+<li>From the Chart Tools Design tab.&nbsp; Select <strong>Move Chart . </strong>This opens the Move Chart Dialog box.</li>
+<li>Click the<strong> New sheet</strong> option on the Move Chart dialog box.</li>
+<li>The entry in the input box for assigning a name to the chart sheet tab should automatically be highlighted once you click the New sheet option. Type <strong>All Excel Classes.</strong> This replaces the generic name in the input box (see <strong>Figure 4.11</strong>).</li>
+<li>Click the <strong>OK</strong> button at the bottom of the Move Chart dialog box. This adds a new chart sheet to the workbook with the name <strong>All Excel Classes</strong>.</li>
+<li>Save your work.</li>
+</ol>
+<figure><img alt="" height="341" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/image18-e1580604057458.png" width="494"><figcaption>Figure 4.11 Move Chart</figcaption></figure>
+<p><strong>Figure 4.12</strong> shows the Final Grades for all the Excel Classes column chart is in a separate chart sheet. Notice the new worksheet tab added to the workbook matches the New sheet&nbsp;name entered into the Move Chart dialog box. Since the chart is moved to a separate chart sheet, it no longer is displayed in the Grade Distribution worksheet.</p>
+</div>
+
+<figure><img alt="Screenshot of the All Excel Classes 2020 column chart" height="433" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.12_Chart_Sheet_Added_to_the_Workbook.png" width="727"><figcaption>Figure 4.12 Chart Sheet Added to the Workbook</figcaption></figure>
+<div>
+<h2 id="frequency-comparison-column-chart-2">Frequency Comparison: Column Chart 2</h2>
+<p>We will create a second column chart to show a comparison between two frequency distributions. Column B on the Grade Distribution worksheet contains data showing the number of students who received grades within each category for the&nbsp; Current Excel Class Class. We will use a column chart to compare the grade distribution for the current class (Column B) with the overall grade distribution for Excel courses for the whole year (Column C).</p>
+<p>However, since the number of students in the term is significantly different from the total number of students in the year, we must calculate percentages in order to make an effective comparison. The following steps explain how to calculate the percentages:</p>
+
+<ol>
+<li>Highlight the range <strong>B4:C9</strong> on the <strong>Grade Distribution</strong> worksheet.</li>
+<li>Click the <strong>AutoSum</strong> button in the Editing group of commands on the Home tab of the ribbon. This automatically sums the values in the selected range.</li>
+<li>Select cell <strong>E4</strong>. Enter a formula that divides the value in cell <strong>B4</strong> by the total in cell <strong>B9</strong>. Add an absolute reference to cell <strong>B9</strong> in the formula <strong>=B4/$B$9</strong>.&nbsp; Autofill the formula down to cell <strong>E8.</strong></li>
+<li>Select cell <strong>F4</strong> . Enter a formula that divides the value in cell <strong>C4</strong> by the total in cell <strong>C9</strong>. Add an absolute reference to cell <strong>C9</strong> in the formula <strong>=C4/$C$9</strong>.</li>
+<li>Autofill the down to <strong>F8</strong>.</li>
+<li>Select <strong>A3:A8, </strong>press and hold down the <strong>Ctrl</strong> key and&nbsp;select <strong>E3:F8.<br>
+</strong><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20"> Mac Users: Hold down the <strong>Command key</strong></li>
+<li>Click the <strong>Insert</strong> tab of the ribbon.</li>
+<li>Select the <strong>Column</strong> button. &nbsp;Select the first option from the drop-down list of chart formats, which is the <strong>Clustered Column</strong>.</li>
+<li>Click and drag the chart so the upper left corner is in the middle of cell <strong>H2</strong>.</li>
+<li>Resize the chart to the approximate area of H2:N12.</li>
+<li>Change the chart title to <strong>Grade Distribution Comparison</strong>. If you do not have a chart title, you can add one. On the <strong>Design</strong> tab, select <strong>Add Chart Element</strong>. Find the <strong>Chart Title</strong>. Select the<strong> Above Chart</strong> option from the drop-down list.</li>
+<li>Save your work.</li>
+</ol>
+</div>
+
+<figure><img alt="Screenshot of the Completed Data Series for the Class Grade Distribution" height="370" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.13_Completed_Data_Series_for_the_Class_Grade_Distribution.png" width="1160"><figcaption>Figure 4.13 Completed Data Series for the Class Grade Distribution</figcaption></figure>
+<div>
+
+<p><strong>Figure 4.13</strong> shows the final appearance of the column chart. The column chart is an appropriate type for this data as there are fewer than twenty data points and we can easily see the comparison for each category. An audience can quickly see that the class issued fewer As compared to the college. However, the class had more Bs and Cs compared with the college population.</p>
+<div class="box box-callout"><p class="box-title">Integrity Check</p>
+
+<p><strong>Too Many Bars on a Column Chart?</strong><br>
+Although there is no specific limit for the number of bars you should use on a column chart, a general rule of thumb is twenty bars or less.</p>
+</div>
+</div>
+
+<h2 id="map-charts"><strong>Map Charts</strong></h2>
+<p>Data visualization brings more depth in how information, in this case geographically, connects. You can use a map chart to compare values and show categories across geographical regions like countries/regions, states, counties or postal codes. Excel will automatically convert data to geographical locations and will display values on a map. As shown below, in <strong>Figure 4.14, </strong>in the next steps we will compare West Coast Community College enrollments for Fall of 2019 using a map chart.</p>
+
+<figure><img alt="Screenshot of the Map Chart" height="543" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-4.14-Map_Chart_Solution.png" width="748"><figcaption>Figure 4.14 Map Chart Solution</figcaption></figure>
+<div>
+
+
+<ol>
+<li>From the <strong>Enrollment Statistics </strong>worksheet, select <strong>A3:A13. </strong>Next, press and hold the <strong>CTRL</strong> key and select <strong>C3:C13</strong>.</li>
+<li>Click the Insert tab on the Ribbon.</li>
+<li>Click <strong>Maps</strong>, and choose the <strong>Filled Map</strong> option.</li>
+<li>From the Charts Design Tab, choose <strong>Move Chart</strong>, and select the <strong>New Sheet</strong> option. In the name box type <strong>Map</strong>. Click <strong>Ok</strong>.</li>
+<li>To make sure the map and data are vibrant and will stand out in a presentation make the following changes:</li>
+</ol>
+
+<p>a) Select the <strong>Title. </strong>Type <strong>Enrollment Totals.</strong> Change the font to <strong>bold</strong>, <strong>size 18</strong>.</p>
+<p>b) From the top right corner of the Chart area, choose the Charts Elements plus sign.</p>
+<p>c) Select the Data Labels checkbox. Notice the values appear on each State.</p>
+<p><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users: there is no “Charts Element plus sign”. &nbsp;Follow the alternate steps below.</p>
+<p>Click the <strong>“Chart Design”</strong> tab on the Ribbon<br>
+Click the&nbsp;<strong>“Add Chart Element”&nbsp;</strong>button on the Ribbon<br>
+Point to&nbsp;<strong>“Data Labels”&nbsp;</strong>option and click&nbsp;<strong>“Show”</strong></p>
+<p>d) Save your work.</p>
+<h2 id="funnel-charts">FUNNEL CHARTS</h2>
+<p>Another graph to visualize data is a Funnel chart.&nbsp; Funnel charts provide a visual snapshot of a process.&nbsp; From our data, we will create a Funnel Chart to show how many students we have in the admissions process.&nbsp; You can quickly review the funnel chart to see admissions predicts to have 932 new enrolled students for Winter Term 2020.</p>
+<p>Insert a Funnel chart by following the below steps.</p>
+
+<ol>
+<li>From the <strong>Admissions</strong> sheet, select <strong>A3:B7</strong>.</li>
+<li>From the Insert tab, choose <strong>Recommended Charts</strong>.</li>
+<li>Scroll down the list and select the <strong>Funnel Chart</strong>. Click <strong>OK</strong>.</li>
+<li>Move and resize the graph to approximately fit in the range of <strong>D1:K15.</strong></li>
+<li>From the Design Tab, click the <strong>6th style option</strong> provided in the styles gallery. (The background is black.) It is okay if your text color is different than the figure below.</li>
+<li>Change the Chart Title to&nbsp;<strong>Admissions Pipeline Winter 2020</strong><strong>.&nbsp;</strong></li>
+<li>From the Charts Elements, turn off the <strong>Legend</strong>.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users: Click the “<strong>Add Chart Element</strong>” button and change the “<strong>Legend</strong>” option to “<strong>None</strong>“</li>
+<li>Save your work.</li>
+</ol>
+
+<figure><img alt="Screenshot of the Funnel Chart" height="219" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.15_Funnel_Chart_001.png" width="586"><figcaption>Figure 4.15 Funnel Chart</figcaption></figure>
+
+<h2 id="percent-of-total-doughnut-pie-chart"><strong>PERCENT OF TOTAL: DOUGHNUT PIE CHART</strong></h2>
+<p>The next chart we will demonstrate is a pie chart. A pie chart is used to show a percent of the total for a data set at a specific point in time.&nbsp; Using the Doughnut Pie Chart, show the percentage of students enrolled at a full-time status. As in the last example, the data is located on the Enrollment Statistics sheet.</p>
+
+<ol>
+<li>From the <strong>Enrollment Statistics </strong>worksheet, select <strong>A3:A13. </strong>Next, press and hold the <strong>CTRL</strong> key and select <strong>D3:D13</strong>.</li>
+<li>Click the <strong>Insert </strong>tab on the ribbon.</li>
+<li>Click the <strong>Pie </strong>button in the <strong>Charts </strong>group of commands.</li>
+<li>Select the “<strong>Doughnut</strong>” option from the drop-down list of options.</li>
+<li>From the Charts Design Tab, choose Move Chart, and select the New Sheet option. In the name box type <strong>Full-Time Students</strong>. Click <strong>Ok</strong>.</li>
+<li>From the Chart Tools Design Tab, click the Chart Styles gallery and apply <strong>Style 7</strong>.</li>
+<li>On the Chart, expand the Charts Elements tools. Select the <strong>Legend </strong> Choose to display the legend on the <strong>Right</strong>.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users: Click “Add Chart Element” button, point to&nbsp;<strong>Legend</strong> and choose&nbsp;<strong>“Right”</strong><br>
+</li>
+<li>From the Charts Elements, select the Data Labels checkbox. Then, drop down the Data Labels menu. Choose, <strong>More Options</strong>.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users: Click “Add Chart Element” button, point to&nbsp;<strong>Data Labels</strong> and choose&nbsp;<strong>“More Data Label Options”</strong><br>
+</li>
+</ol>
+
+</div>
+<figure><img alt="Screenshot of the Doughnut Pie Chart Elements" height="398" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.15_Doughnut_Pie_Chart_Elements-e1581439238633.png" width="580"><figcaption>Figure 4.15 Doughnut Pie Chart Elements</figcaption></figure>
+
+<p>9.&nbsp; From the Format Data Label Options menu, select <strong>Percentages</strong>, and <strong>Deselect Values</strong> to show the percent of total students that are enrolled at a full-time status.</p>
+<p>10.&nbsp; Close the Format Data Labels menu.</p>
+
+<figure><img alt="Screenshot of the Doughnut Pie Format Data Labels" height="294" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.16_Doughnut_Pie_Format_Data_Labels-e1581439409507.png" width="196"><figcaption>Figure 4.16 Doughnut Pie Format Data Labels</figcaption></figure>
+<div>
+
+<p>Notice the font is small compared to the graph size. Adjust the font size of the Title, Legend, and Data Label by following the below steps:</p>
+
+<ol>
+<li>Select the Title. Change the font to <strong>bold</strong>, <strong>size 18</strong>.</li>
+<li>Select the Legend. Change the font to <strong>bold, size 14.</strong></li>
+<li>Select one of the data labels in a doughnut wedge. Notice now all labels are selected. Change the font<strong> bold, size 12.</strong></li>
+</ol>
+
+<figure><img alt="Screenshot of the Doughnut Pie graph" height="516" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.17_Doughnut_Pie_Solution.png" width="712"><figcaption>Figure 4.18 Doughnut Pie Solution</figcaption></figure>
+
+<div>
+<div class="box box-callout"><p class="box-title">Skill Refresher</p>
+
+<p><strong>Inserting a Pie Chart</strong></p>
+<ol>
+<li>Highlight a range of cells that contain the data you will use to create the chart.</li>
+<li>Click the Insert tab of the ribbon.</li>
+<li>Click the Pie button in the Charts group.</li>
+<li>Select a format option from the Pie Chart drop-down menu.</li>
+</ol>
+</div>
+</div>
+<div>
+<h2 id="bar-chart-vs-column-chart">Bar chart vs Column chart</h2>
+</div>
+<p>We will statistical data to compare a bar and column chart.&nbsp; Both the Bar and the Column chart display data using rectangular bars where the length of the bar is proportional to the data value. Both charts are used to compare two or more values. However, the difference lies in their orientation. A bar chart is oriented horizontally whereas the column chart is oriented vertically. Although alike, they cannot be always used interchangeably.&nbsp; The difference in their orientation, meaning typically the more data values the harder it is to read in a column format.&nbsp; This is where visually a bar chart would be a better choice.&nbsp; &nbsp;Complete the below steps to insert both a bar and column chart comparing not only the gender and age differences of enrolled students but the type of graphs you are viewing the data in.</p>
+<ol>
+<li>From the Enrollment Statistics sheet, select <strong>A3:A13</strong>.&nbsp;Press and hold the CTRL key and select <strong>G3:H13</strong>.</li>
+<li>From the Insert tab, choose <strong>Recommended Charts</strong>.&nbsp; Scroll down and select the <strong>Stacked Bar</strong> chart option. Click <strong>Ok</strong>.</li>
+<li>Move and resize the graph so it fits approximately in <strong>L1:U13</strong>.</li>
+<li>Add a chart title. Type <strong>Age Comparison</strong>.</li>
+<li>Notice the age difference.&nbsp; Currently, per State, the majority of students are under 20 years old. <strong>Save your work</strong>.</li>
+</ol>
+<figure><img alt="Chart Solution Screen Shot" height="326" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.19_Stacked_Bar_chart_solutions_.png" width="577"><figcaption>Figure 4.19 Stacked Bar chart solutions</figcaption></figure>
+
+<p>Next, insert a column chart comparing gender.</p>
+<ol>
+<li>From the Enrollment Statistics sheet, select <strong>A3:A13</strong>. Press and hold the CTRL key and select I<strong>3:J13</strong>.</li>
+<li>From the Insert tab, choose <strong>Recommended Charts</strong>. Choose the first option, Clustered Column chart.</li>
+<li>Move and resize the graph so it fits approximately in <strong>L15:U32</strong>.</li>
+<li>Add a chart title. Type <strong>Gender Comparison</strong>.</li>
+<li>Notice the ratio of women and men enrolled are pretty equal per State.&nbsp; <strong>Save your work</strong>.</li>
+</ol>
+
+<figure><img alt="Screenshot of the Graph" height="357" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/11/Figure-4.20-Column-Chart-Age-Comparison-Solution_.png" width="611"><figcaption>Figure 4.20 Column Chart Age Comparison</figcaption></figure>
+
+<h2 id="stacked-column-chart">Stacked Column Chart</h2>
+<p>The last chart types we will demonstrate is the stacked column chart and a bar chart. You will use a stacked column chart to show differences in budgeted expense accounts for the admissions department and a bar chart for age comparisons of enrolled students at the college.</p>
+<p>Follow the below steps to insert a stacked column chart.</p>
+<ol>
+<li>Click the Expenses sheet. Select the range <strong>A4:G9.</strong></li>
+<li>Click the <strong>Insert</strong> tab of the ribbon.</li>
+<li>Click the <strong>Column</strong> button in the <strong>Charts</strong> group of commands. Select the <strong>3D</strong>–<strong>&nbsp;Stacked Column</strong> format.</li>
+<li>Change the Chart Title to <strong>Expenses</strong>.</li>
+<li>Move the Chart to a New Sheet. In the name box type Budget.</li>
+<li>Save your work.</li>
+</ol>
+</div>
+<div>
+
+<p><strong>Figure 4.21</strong>&nbsp;shows the final stacked column chart.</p>
+
+<figure><img alt="Screenshot of the Stacked Column Chart solution" height="424" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.18_Stacked_Column_Chart.png" width="584"><figcaption>Figure 4.21 Stacked Column Chart</figcaption></figure>
+</div>
+
+<div>
+<div class="box box-callout"><p class="box-title">Skill Refresher:</p>
+
+<p><strong>&nbsp;Inserting a Stacked Column Chart</strong></p>
+<ol>
+<li>Highlight a range of cells that contain data that will be used to create the chart.</li>
+<li>Click the Insert tab of the ribbon.</li>
+<li>Click the Column button in the Charts group.</li>
+<li>Select the Stacked Column format option from the Column Chart drop-down menu to show the values of each category on the Y-axis. Select the Stacked Column option to show each category on the Y-axis.</li>
+</ol>
+</div>
+</div>
+
+<div>
+<div class="box box-keypoints"><p class="box-title">Key Takeaways</p>
+
+<ul>
+<li>Identifying the message you wish to convey to an audience is a critical first step in creating an Excel chart.</li>
+<li>Both a column chart and a line chart can be used to present a trend over a period of time. However, a line chart is preferred over a column chart when presenting data over long periods of time.</li>
+<li>The number of bars on a column chart should be limited to approximately twenty bars or less.</li>
+<li>When creating a chart to compare trends, the values for each data series must be within a reasonable range. If there is a wide variance between the values in the two data series (two times or more), the percent change should be calculated with respect to the first data point for each series.</li>
+<li>When working with frequency distributions, the use of a column chart or a bar chart is a matter of preference. However, a column chart is preferred when working with a trend over a period of time.</li>
+<li>A pie chart is used to present the percent of total for a data set.</li>
+<li>A stacked column chart is used to show how a percent total changes over time.</li>
+</ul>
+</div>
+<details class="attrib"><summary>Attribution</summary>
+<p>Adapted by Noreen Brown from <a href="https://saylordotorg.github.io/text_how-to-use-microsoft-excel-v1.1/index.html" target="_blank" rel="noopener noreferrer">How to Use Microsoft Excel: The Careers in Practice Series</a>,&nbsp;adapted by <a href="https://www.saylor.org" target="_blank" rel="noopener noreferrer">The Saylor Foundation</a> without attribution as requested by the work’s original creator or licensee,&nbsp;and licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 3.0</a>.</p>
+</details></div>

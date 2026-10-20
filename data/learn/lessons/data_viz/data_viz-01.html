@@ -1,0 +1,250 @@
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th><img alt=" Sketchnote by (@sketchthedocs) " loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/sketchnotes/09-Visualizing-Quantities.png"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Visualizing Quantities - <em>Sketchnote by <a href="https://twitter.com/nitya" target="_blank" rel="noopener noreferrer">@nitya</a></em></td>
+</tr>
+</tbody>
+</table></div>
+<p>In this lesson you will explore how to use one of the many available Python libraries to learn how to create interesting visualizations all around the concept of quantity. Using a cleaned dataset about the birds of Minnesota, you can learn many interesting facts about local wildlife.</p>
+
+<h2 id="observe-wingspan-with-matplotlib">Observe wingspan with Matplotlib</h2>
+<p>An excellent library to create both simple and sophisticated plots and charts of various kinds is <a href="https://matplotlib.org/stable/index.html" target="_blank" rel="noopener noreferrer">Matplotlib</a>. In general terms, the process of plotting data using these libraries includes identifying the parts of your dataframe that you want to target, performing any transforms on that data necessary, assigning its x and y axis values, deciding what kind of plot to show, and then showing the plot. Matplotlib offers a large variety of visualizations, but for this lesson, let's focus on the ones most appropriate for visualizing quantity: line charts, scatterplots, and bar plots.</p>
+<blockquote>
+<p>✅ Use the best chart to suit your data's structure and the story you want to tell.</p>
+<ul>
+<li>To analyze trends over time: line</li>
+<li>To compare values: bar, column, pie, scatterplot</li>
+<li>To show how parts relate to a whole: pie</li>
+<li>To show distribution of data: scatterplot, bar</li>
+<li>To show trends: line, column</li>
+<li>To show relationships between values: line, scatterplot, bubble</li>
+</ul>
+</blockquote>
+<p>If you have a dataset and need to discover how much of a given item is included, one of the first tasks you have at hand will be to inspect its values.</p>
+<p>✅ There are very good 'cheat sheets' available for Matplotlib <a href="https://matplotlib.org/cheatsheets/cheatsheets.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
+<h2 id="build-a-line-plot-about-bird-wingspan-values">Build a line plot about bird wingspan values</h2>
+<p>Open the <code>notebook.ipynb</code> file at the root of this lesson folder and add a cell.</p>
+<blockquote>
+<p>Note: the data is stored in the root of this repo in the <code>/data</code> folder.</p>
+</blockquote>
+<pre><code class="language-python">import pandas as pd
+import matplotlib.pyplot as plt
+birds = pd.read_csv('../../data/birds.csv')
+birds.head()
+</code></pre>
+<p>This data is a mix of text and numbers:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+<th>ScientificName</th>
+<th>Category</th>
+<th>Order</th>
+<th>Family</th>
+<th>Genus</th>
+<th>ConservationStatus</th>
+<th>MinLength</th>
+<th>MaxLength</th>
+<th>MinBodyMass</th>
+<th>MaxBodyMass</th>
+<th>MinWingspan</th>
+<th>MaxWingspan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Black-bellied whistling-duck</td>
+<td>Dendrocygna autumnalis</td>
+<td>Ducks/Geese/Waterfowl</td>
+<td>Anseriformes</td>
+<td>Anatidae</td>
+<td>Dendrocygna</td>
+<td>LC</td>
+<td>47</td>
+<td>56</td>
+<td>652</td>
+<td>1020</td>
+<td>76</td>
+<td>94</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Fulvous whistling-duck</td>
+<td>Dendrocygna bicolor</td>
+<td>Ducks/Geese/Waterfowl</td>
+<td>Anseriformes</td>
+<td>Anatidae</td>
+<td>Dendrocygna</td>
+<td>LC</td>
+<td>45</td>
+<td>53</td>
+<td>712</td>
+<td>1050</td>
+<td>85</td>
+<td>93</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Snow goose</td>
+<td>Anser caerulescens</td>
+<td>Ducks/Geese/Waterfowl</td>
+<td>Anseriformes</td>
+<td>Anatidae</td>
+<td>Anser</td>
+<td>LC</td>
+<td>64</td>
+<td>79</td>
+<td>2050</td>
+<td>4050</td>
+<td>135</td>
+<td>165</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Ross's goose</td>
+<td>Anser rossii</td>
+<td>Ducks/Geese/Waterfowl</td>
+<td>Anseriformes</td>
+<td>Anatidae</td>
+<td>Anser</td>
+<td>LC</td>
+<td>57.3</td>
+<td>64</td>
+<td>1066</td>
+<td>1567</td>
+<td>113</td>
+<td>116</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Greater white-fronted goose</td>
+<td>Anser albifrons</td>
+<td>Ducks/Geese/Waterfowl</td>
+<td>Anseriformes</td>
+<td>Anatidae</td>
+<td>Anser</td>
+<td>LC</td>
+<td>64</td>
+<td>81</td>
+<td>1930</td>
+<td>3310</td>
+<td>130</td>
+<td>165</td>
+</tr>
+</tbody>
+</table></div>
+<p>Let's start by plotting some of the numeric data using a basic line plot. Suppose you wanted a view of the maximum wingspan for these interesting birds.</p>
+<pre><code class="language-python">wingspan = birds['MaxWingspan'] 
+wingspan.plot()
+</code></pre>
+<p><img alt="Max Wingspan" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/09-visualization-quantities/images/max-wingspan-02.png"></p>
+<p>What do you notice immediately? There seems to be at least one outlier - that's quite a wingspan! A 2300 centimeter wingspan equals 23 meters - are there Pterodactyls roaming Minnesota? Let's investigate.</p>
+<p>While you could  do a quick sort in Excel to find those outliers, which are probably typos, continue the visualization process by working from within the plot.</p>
+<p>Add labels to the x-axis to show what kind of birds are in question:</p>
+<pre><code>plt.title('Max Wingspan in Centimeters')
+plt.ylabel('Wingspan (CM)')
+plt.xlabel('Birds')
+plt.xticks(rotation=45)
+x = birds['Name'] 
+y = birds['MaxWingspan']
+
+plt.plot(x, y)
+
+plt.show()
+</code></pre>
+<p><img alt="wingspan with labels" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/09-visualization-quantities/images/max-wingspan-labels-02.png"></p>
+<p>Even with the rotation of the labels set to 45 degrees, there are too many to read. Let's try a different strategy: label only those outliers and set the labels within the chart. You can use a scatter chart to make more room for the labeling:</p>
+<pre><code class="language-python">plt.title('Max Wingspan in Centimeters')
+plt.ylabel('Wingspan (CM)')
+plt.tick_params(axis='both',which='both',labelbottom=False,bottom=False)
+
+for i in range(len(birds)):
+    x = birds['Name'][i]
+    y = birds['MaxWingspan'][i]
+    plt.plot(x, y, 'bo')
+    if birds['MaxWingspan'][i] &gt; 500:
+        plt.text(x, y * (1 - 0.05), birds['Name'][i], fontsize=12)
+    
+plt.show()
+</code></pre>
+<p>What's going on here? You used <code>tick_params</code> to hide the bottom labels and then created a loop over your birds dataset. Plotting the chart with small round blue dots by using <code>bo</code>, you checked for any bird with a maximum wingspan over 500 and displayed their label next to the dot if so. You offset the labels a little on the y axis (<code>y * (1 - 0.05)</code>) and used the bird name as a label.</p>
+<p>What did you discover?</p>
+<p><img alt="outliers" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/09-visualization-quantities/images/labeled-wingspan-02.png"></p>
+<h2 id="filter-your-data">Filter your data</h2>
+<p>Both the Bald Eagle and the Prairie Falcon, while probably very large birds, appear to be mislabeled, with an extra <code>0</code> added to their maximum wingspan. It's unlikely that you'll meet a Bald Eagle with a 25 meter wingspan, but if so, please let us know! Let's create a new dataframe without those two outliers:</p>
+<pre><code class="language-python">plt.title('Max Wingspan in Centimeters')
+plt.ylabel('Wingspan (CM)')
+plt.xlabel('Birds')
+plt.tick_params(axis='both',which='both',labelbottom=False,bottom=False)
+for i in range(len(birds)):
+    x = birds['Name'][i]
+    y = birds['MaxWingspan'][i]
+    if birds['Name'][i] not in ['Bald eagle', 'Prairie falcon']:
+        plt.plot(x, y, 'bo')
+plt.show()
+</code></pre>
+<p>By filtering out outliers, your data is now more cohesive and understandable.</p>
+<p><img alt="scatterplot of wingspans" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/09-visualization-quantities/images/scatterplot-wingspan-02.png"></p>
+<p>Now that we have a cleaner dataset at least in terms of wingspan, let's discover more about these birds.</p>
+<p>While line and scatter plots can display information about data values and their distributions, we want to think about the values inherent in this dataset. You could create visualizations to answer the following questions about quantity:</p>
+<blockquote>
+<p>How many categories of birds are there, and what are their numbers?
+How many birds are extinct, endangered, rare, or common?
+How many are there of the various genus and orders in Linnaeus's terminology?</p>
+</blockquote>
+<h2 id="explore-bar-charts">Explore bar charts</h2>
+<p>Bar charts are practical when you need to show groupings of data. Let's explore the categories of birds that exist in this dataset to see which is the most common by number.</p>
+<p>In the notebook file, create a basic bar chart</p>
+<p>✅ Note, you can either filter out the two outlier birds we identified in the previous section, edit the typo in their wingspan, or leave them in for these exercises which do not depend on wingspan values.</p>
+<p>If you want to create a bar chart, you can select the data you want to focus on. Bar charts can be created from raw data:</p>
+<pre><code class="language-python">birds.plot(x='Category',
+        kind='bar',
+        stacked=True,
+        title='Birds of Minnesota')
+
+</code></pre>
+<p><img alt="full data as a bar chart" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/09-visualization-quantities/images/full-data-bar-02.png"></p>
+<p>This bar chart, however, is unreadable because there is too much non-grouped data. You need to select only the data that you want to plot, so let's look at the length of birds based on their category.</p>
+<p>Filter your data to include only the bird's category.</p>
+<p>✅ Notice that you use Pandas to manage the data, and then let Matplotlib do the charting.</p>
+<p>Since there are many categories, you can display this chart vertically and tweak its height to account for all the data:</p>
+<pre><code class="language-python">category_count = birds.value_counts(birds['Category'].values, sort=True)
+plt.rcParams['figure.figsize'] = [6, 12]
+category_count.plot.barh()
+</code></pre>
+<p><img alt="category and length" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/09-visualization-quantities/images/category-counts-02.png"></p>
+<p>This bar chart shows a good view of the number of birds in each category. In a blink of an eye, you see that the largest number of birds in this region are in the Ducks/Geese/Waterfowl category. Minnesota is the 'land of 10,000 lakes' so this isn't surprising!</p>
+<p>✅ Try some other counts on this dataset. Does anything surprise you?</p>
+<h2 id="comparing-data">Comparing data</h2>
+<p>You can try different comparisons of grouped data by creating new axes. Try a comparison of the MaxLength of a bird, based on its category:</p>
+<pre><code class="language-python">maxlength = birds['MaxLength']
+plt.barh(y=birds['Category'], width=maxlength)
+plt.rcParams['figure.figsize'] = [6, 12]
+plt.show()
+</code></pre>
+<p><img alt="comparing data" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/09-visualization-quantities/images/category-length-02.png"></p>
+<p>Nothing is surprising here: hummingbirds have the least MaxLength compared to Pelicans or Geese. It's good when data makes logical sense!</p>
+<p>You can create more interesting visualizations of bar charts by superimposing data. Let's superimpose Minimum and Maximum Length on a given bird category:</p>
+<pre><code class="language-python">minLength = birds['MinLength']
+maxLength = birds['MaxLength']
+category = birds['Category']
+
+plt.barh(category, maxLength)
+plt.barh(category, minLength)
+
+plt.show()
+</code></pre>
+<p>In this plot, you can see the range per bird category of the Minimum Length and Maximum length. You can safely say that, given this data, the bigger the bird, the larger its length range. Fascinating!</p>
+<p><img alt="superimposed values" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/09-visualization-quantities/images/superimposed-02.png"></p>
+<h2 id="challenge">🚀 Challenge</h2>
+<p>This bird dataset offers a wealth of information about different types of birds within a particular ecosystem. Search around the internet and see if you can find other bird-oriented datasets. Practice building charts and graphs around these birds to discover facts you didn't realize.</p>
+
+<h2 id="review-self-study">Review &amp; Self Study</h2>
+<p>This first lesson has given you some information about how to use Matplotlib to visualize quantities. Do some research around other ways to work with datasets for visualization. <a href="https://github.com/plotly/plotly.py" target="_blank" rel="noopener noreferrer">Plotly</a> is one that we won't cover in these lessons, so take a look at what it can offer.</p>

@@ -1,0 +1,160 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Understand the importance of container registries such as Docker Hub, quay.io, etc.</li>
+<li>Explore the Docker Hub webpage for a popular container image.</li>
+<li>Find the list of tags for a particular container image.</li>
+<li>Identify the three components of a container image's identifier.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>What is the Docker Hub, and why is it useful?</li>
+</ul>
+</div>
+<p>In the previous episode, we ran a few different containers derived from different
+container images: <code>hello-world</code>, <code>alpine</code>,
+and maybe <code>ubuntu</code>. Where did these container images come from?  The Docker Hub!</p>
+<h2 id="introducing-the-docker-hub">Introducing the Docker Hub</h2>
+<p>The Docker Hub is an online repository of container images, a vast number of which are publicly available. A large number of the container images are curated by the developers of the software that they package. Also, many commonly used pieces of software that have been containerized into images are officially endorsed, which means that you can trust the container images to have been checked for functionality, stability, and that they don't contain malware.</p>
+<p>Other registries do exist. If Podman is used to pull the <code>hello-world</code> image with no further information, as we did earlier, it will be retrieved from <a href="https://quay.io/" target="_blank" rel="noopener noreferrer">Quay</a>. Other popular registries are <a href="https://goharbor.io/" target="_blank" rel="noopener noreferrer">Harbor</a> and the GitHub Container Registry . It is also possible to set up a local registry using Podman itself or products like Harbor or Quay. These may be specialised for use by a particular organisation.</p>
+<div class="box box-callout">
+<p class="box-title">Podman can be used without connecting to the Docker Hub</p>
+
+<p>Note that while the Docker Hub is well integrated into Podman functionality, the Docker Hub is certainly not required for all types of use of containers. For example, some organizations may run container infrastructure that is entirely disconnected from the Internet.</p>
+</div>
+<h2 id="exploring-an-example-docker-hub-page">Exploring an Example Docker Hub Page</h2>
+<p>As an example of a Docker Hub page, let's explore the page for the official Python language container images. The most basic form of containerized Python is in the <code>python</code> container image (which is endorsed by the Docker team). Open your web browser to <a href="https://hub.docker.com/_/python" target="_blank" rel="noopener noreferrer">https://hub.docker.com/_/python</a> to see what is on a typical Docker Hub software page.</p>
+<p>The top-left provides information about the name, short description, popularity (i.e., more than a billion downloads in the case of this container image), and endorsements.</p>
+<p>The top-right provides the command to pull this container image to your computer.</p>
+<p>The main body of the page contains many used headings, such as:</p>
+<ul>
+<li>Which tags (i.e., container image versions) are supported;</li>
+<li>Summary information about where to get help, which computer architectures are supported, etc.;</li>
+<li>A longer description of the container image;</li>
+<li>Examples of how to use the container image; and</li>
+<li>The license that applies.</li>
+</ul>
+<p>The "How to use the image" section of most container images' pages will provide examples that are likely to cover your intended use of the container image.</p>
+<div class="box box-callout">
+<p class="box-title">Other container registries</p>
+
+<p>If you look at another registry, you will probably find that similar information
+is made available by the container's maintainer. They may even mirror what you
+see on other registries; for example, here is the <a href="https://quay.io/repository/lib/python" target="_blank" rel="noopener noreferrer">Python
+image's</a> page on Quay.</p>
+</div>
+<h2 id="exploring-container-image-versions">Exploring Container Image Versions</h2>
+<p>Registries will often provide many different versions of container images,
+based on the version of the software inside.  These
+versions are indicated by "tags". When referring to the specific version of a container image
+by its tag, you use a colon, <code>:</code>, like this:</p>
+<pre><code>CONTAINER_IMAGE_NAME:TAG
+</code></pre>
+<p>So if I wanted to download the <code>python</code> container image, with Python 3.8, I would use this name. To specifically
+pull the Python 3.8 image from Docker Hub, you would then use the following Podman command:</p>
+<pre><code class="language-bash">$ podman image pull python:3.8
+</code></pre>
+<p>But if I wanted to download a Python 3.6 container image, I would use this name:</p>
+<pre><code class="language-bash">$ podman image pull python:3.6
+</code></pre>
+<p>The default tag (which is used if you don't specify one) is called <code>latest</code>.</p>
+<p>So far, we've only seen container images that are maintained by the Docker team. However,
+it's equally common to use container images that have been produced by individual owners
+or organizations. Container images that you create and upload to Docker Hub would fall
+into this category, as would the container images maintained by organizations like
+<a href="https://hub.docker.com/u/continuumio" target="_blank" rel="noopener noreferrer">ContinuumIO</a> (the folks who develop the Anaconda Python environment) or community
+groups like <a href="https://hub.docker.com/u/rocker" target="_blank" rel="noopener noreferrer">rocker</a>, a group that builds community R container images.</p>
+<p>The name for these group- or individually-managed container images have this format:</p>
+<pre><code>OWNER/CONTAINER_IMAGE_NAME:TAG
+</code></pre>
+<div class="box box-callout">
+<p class="box-title">Repositories</p>
+
+<p>The technical name for the contents of a Docker Hub page is a "repository."
+The tag indicates the specific version of the container image that you'd like
+to use from a particular repository. So a slightly more accurate version of
+the above example is:</p>
+<pre><code>OWNER/REPOSITORY:TAG
+</code></pre>
+</div>
+<div class="box box-callout">
+<p class="box-title">Registry URLs</p>
+
+<p>For almost all repositories, Podman will by default look for them and download
+them from Docker Hub. This means that if you want a container from a different
+registry, you will need to tell it to do so by providing the registry's URL.
+This is prepended to the shorter names we've been using so far, to give a fully
+qualified name of the form</p>
+<pre><code>URL/OWNER/REPOSITORY:TAG
+</code></pre>
+<p>Public registries often have <code>.io</code> URLs, so we would use <code>docker.io</code> for Docker Hub,
+<code>ghcr.io</code> for the GitHub Container Registry, or <code>quay.io</code> for Quay. It is often
+preferable to provide to fully qualified name to prevent registry resolution
+errors, and to be sure that you're pulling the container you think you are.
+Ultimately, the fully qualified form of a Docker Hub-hosted image is:</p>
+<pre><code>docker.io/OWNER/REPOSITORY:TAG
+</code></pre>
+<p><em>While going into this in further detail is beyond the scope of this material, it's useful to note that Podman contains a registry configuration file that tells it which container registry/registries to search, and in what order, when an unqualified image name is provided. You should also be aware that using unqualified image names (i.e. providing an image name without providing the fully-qualified path to the image), can present security issues. We therefore strongly recommend always using the fully-qualified image name for any real-world work you are undertaking with containers.</em></p>
+</div>
+<div class="box box-challenge">
+<p class="box-title">What's in a name?</p>
+
+<p>How would I download the Docker Hub container image produced by the <code>rocker</code> group that
+has version 3.6.1 of R and the tidyverse installed?</p>
+<p>Note: the container image described in this exercise is large and won't be used
+later in this lesson, so you don't actually need to pull the container image --
+constructing the correct <code>podman pull</code> command is sufficient.</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<p>First, search for <code>rocker</code> in Docker Hub. Then look for their <code>tidyverse</code> container image.
+You can look at the list of tags, or just guess that the tag is <code>3.6.1</code>. Altogether,
+that means that the name of the container image we want to download is:</p>
+<pre><code class="language-bash">$ podman image pull docker.io/rocker/tidyverse:3.6.1
+</code></pre>
+</details>
+</div>
+<h2 id="finding-container-images-on-docker-hub">Finding Container Images on Docker Hub</h2>
+<p>There are many different container images on Docker Hub. This is where the real advantage
+of using containers shows up -- each container image represents a complete software
+installation that you can use and access without any extra work!</p>
+<p>The easiest way to find container images is to search on Docker Hub, but sometimes
+software pages have a link to their container images from their home page.</p>
+<p>Note that anyone can create an account on Docker Hub and share container images there,
+so it's important to exercise caution when choosing a container image on Docker Hub. These
+are some indicators that a container image on Docker Hub is consistently maintained,
+functional and secure:</p>
+<ul>
+<li>The container image is updated regularly.</li>
+<li>The container image associated with a well established company, community, or other group that is well-known.</li>
+<li>There is a Dockerfile or other listing of what has been installed to the container image.</li>
+<li>The container image page has documentation on how to use the container image.</li>
+</ul>
+<p>If a container image is never updated, created by a random person, and does not have a lot
+of metadata, it is probably worth skipping over. Even if such a container image is secure, it
+is not reproducible and not a dependable way to run research computations. You can apply
+these considerations to any open container registry you use.</p>
+<div class="box box-challenge">
+<p class="box-title">What container image is right for you?</p>
+
+<p>Find a container image that's relevant to you. Take into account the suggestions
+above of what to look for as you evaluate options. If you're unsuccessful in your search,
+or don't know what to look for, you can use the R or Python container image we've
+already seen.</p>
+<p>Once you find a container image, use the skills from the previous episode to download
+the container image and explore it.</p>
+</div>
+
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>An image registry is an online repository of container images.</li>
+<li>"Docker Hub is the most widely used image registry."</li>
+<li>Many Docker Hub container images are public, and may be officially endorsed.</li>
+<li>Each Docker Hub page about a container image provides structured information and subheadings</li>
+<li>Most Docker Hub pages about container images contain sections that provide examples of how to use those container images.</li>
+<li>Many Docker Hub container images have multiple versions, indicated by tags.</li>
+<li>The naming convention for referring to container images stored in Docker Hub, when using Podman, is: <code>docker.io/OWNER/CONTAINER_IMAGE_NAME:TAG</code></li>
+</ul>
+</div>

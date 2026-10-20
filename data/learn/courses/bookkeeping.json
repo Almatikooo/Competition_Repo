@@ -1,0 +1,626 @@
+{
+ "title": "Bookkeeping & Accounting Basics",
+ "subtitle": "Record transactions with double-entry bookkeeping, close the books and keep the records the tax office expects.",
+ "level": "Beginner",
+ "outcomes": [
+  "Use the accounting equation and accrual accounting",
+  "Record transactions with debits, credits, journals and ledgers",
+  "Prepare adjusting entries, trial balances and financial statements",
+  "Keep business records that meet tax requirements"
+ ],
+ "skill": "bookkeeping",
+ "modules": [
+  {
+   "title": "Accounting foundations",
+   "lessons": [
+    "bookkeeping-01",
+    "bookkeeping-02",
+    "bookkeeping-03"
+   ]
+  },
+  {
+   "title": "Recording transactions",
+   "lessons": [
+    "bookkeeping-04",
+    "bookkeeping-05",
+    "bookkeeping-06",
+    "bookkeeping-07"
+   ]
+  },
+  {
+   "title": "Completing the accounting cycle",
+   "lessons": [
+    "bookkeeping-08",
+    "bookkeeping-09",
+    "bookkeeping-10",
+    "bookkeeping-11",
+    "bookkeeping-12"
+   ]
+  },
+  {
+   "title": "Cash and payroll",
+   "lessons": [
+    "bookkeeping-13",
+    "bookkeeping-14"
+   ]
+  },
+  {
+   "title": "Records the tax office expects",
+   "lessons": [
+    "bookkeeping-15"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "bookkeeping-01",
+   "title": "The accounting equation",
+   "words": 1084,
+   "minutes": 6,
+   "source": "lumen-fa",
+   "url": "https://content.one.lumenlearning.com/financialaccounting/chapter/the-accounting-equation/",
+   "toc": [
+    {
+     "id": "the-accounting-equation",
+     "text": "The Accounting Equation",
+     "level": 2
+    },
+    {
+     "id": "transactions-and-the-accounting-equation",
+     "text": "Transactions and the Accounting Equation",
+     "level": 2
+    },
+    {
+     "id": "what-is-neatniks-s-status",
+     "text": "What is NeatNiks’s Status?",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "bookkeeping-02",
+   "title": "Financial statements",
+   "words": 1067,
+   "minutes": 6,
+   "source": "lumen-fa",
+   "url": "https://content.one.lumenlearning.com/financialaccounting/chapter/financial-statements-2/",
+   "toc": [
+    {
+     "id": "income-statement",
+     "text": "Income Statement",
+     "level": 2
+    },
+    {
+     "id": "neatniks",
+     "text": "NeatNiks",
+     "level": 3
+    },
+    {
+     "id": "statement-of-owner-s-equity",
+     "text": "Statement of Owner’s Equity",
+     "level": 2
+    },
+    {
+     "id": "balance-sheet",
+     "text": "Balance Sheet",
+     "level": 2
+    },
+    {
+     "id": "statement-of-cash-flows",
+     "text": "Statement of Cash Flows",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "bookkeeping-03",
+   "title": "Accrual and cash basis accounting",
+   "words": 2208,
+   "minutes": 12,
+   "source": "lumen-fa",
+   "url": "https://content.one.lumenlearning.com/financialaccounting/chapter/the-accrual-basis-and-cash-basis-of-accounting/",
+   "toc": [
+    {
+     "id": "the-accrual-basis-and-cash-basis-of-accounting",
+     "text": "The Accrual Basis and Cash Basis of Accounting",
+     "level": 2
+    },
+    {
+     "id": "time-period-constraints",
+     "text": "Time Period Constraints",
+     "level": 3
+    },
+    {
+     "id": "foundational-rules-of-accrual-basis-accounting",
+     "text": "Foundational Rules of Accrual Basis Accounting",
+     "level": 2
+    },
+    {
+     "id": "revenue-recognition",
+     "text": "Revenue Recognition",
+     "level": 3
+    },
+    {
+     "id": "the-matching-principle",
+     "text": "The Matching Principle",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "bookkeeping-04",
+   "title": "Double-entry bookkeeping, accounts, debits and credits",
+   "words": 2091,
+   "minutes": 11,
+   "source": "lumen-fa",
+   "url": "https://content.one.lumenlearning.com/financialaccounting/chapter/introduction-to-double-entry-bookkeeping/",
+   "toc": [
+    {
+     "id": "introduction-to-double-entry-bookkeeping",
+     "text": "Introduction to Double-Entry Bookkeeping",
+     "level": 2
+    },
+    {
+     "id": "what-you-ll-learn-to-do-identify-the-basic-reporting-structu",
+     "text": "What you’ll learn to do: Identify the basic reporting structure of accounting information",
+     "level": 3
+    },
+    {
+     "id": "accounts",
+     "text": "Accounts",
+     "level": 2
+    },
+    {
+     "id": "the-role-of-accounts",
+     "text": "The Role of Accounts",
+     "level": 3
+    },
+    {
+     "id": "rules-of-debits-and-credits",
+     "text": "Rules of Debits and Credits",
+     "level": 2
+    },
+    {
+     "id": "the-rules-of-debits-and-credits",
+     "text": "The Rules of Debits and Credits",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "bookkeeping-05",
+   "title": "Journals and ledgers",
+   "words": 1619,
+   "minutes": 9,
+   "source": "lumen-fa",
+   "url": "https://content.one.lumenlearning.com/financialaccounting/chapter/journals/",
+   "toc": [
+    {
+     "id": "journals",
+     "text": "Journals",
+     "level": 2
+    },
+    {
+     "id": "modern-journal-example",
+     "text": "Modern Journal Example",
+     "level": 3
+    },
+    {
+     "id": "ledgers",
+     "text": "Ledgers",
+     "level": 2
+    },
+    {
+     "id": "t-accounts",
+     "text": "T Accounts",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "bookkeeping-06",
+   "title": "Journalising and posting",
+   "words": 2846,
+   "minutes": 15,
+   "source": "lumen-fa",
+   "url": "https://content.one.lumenlearning.com/financialaccounting/chapter/create-journal-entries/",
+   "toc": [
+    {
+     "id": "create-journal-entries",
+     "text": "Create Journal Entries",
+     "level": 2
+    },
+    {
+     "id": "post-to-the-ledger",
+     "text": "Post to the Ledger",
+     "level": 2
+    },
+    {
+     "id": "calculate-account-balances",
+     "text": "Calculate Account Balances",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "bookkeeping-07",
+   "title": "Preparing a trial balance",
+   "words": 574,
+   "minutes": 3,
+   "source": "lumen-fa",
+   "url": "https://content.one.lumenlearning.com/financialaccounting/chapter/prepare-a-trial-balance/",
+   "toc": []
+  },
+  {
+   "id": "bookkeeping-08",
+   "title": "Adjusting entries",
+   "words": 1493,
+   "minutes": 8,
+   "source": "lumen-fa",
+   "url": "https://content.one.lumenlearning.com/financialaccounting/chapter/adjusting-journal-entries/",
+   "toc": [
+    {
+     "id": "adjusting-journal-entries",
+     "text": "Adjusting Journal Entries",
+     "level": 2
+    },
+    {
+     "id": "what-is-an-adjusting-entry",
+     "text": "What Is an Adjusting Entry?",
+     "level": 3
+    },
+    {
+     "id": "three-adjusting-entry-rules",
+     "text": "Three Adjusting Entry Rules",
+     "level": 3
+    },
+    {
+     "id": "types-of-adjusting-journal-entries",
+     "text": "Types of Adjusting Journal Entries",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "bookkeeping-09",
+   "title": "Deferrals and accruals",
+   "words": 1612,
+   "minutes": 9,
+   "source": "lumen-fa",
+   "url": "https://content.one.lumenlearning.com/financialaccounting/chapter/adjusting-deferred-and-accrued-revenue/",
+   "toc": [
+    {
+     "id": "adjusting-deferred-and-accrued-revenue",
+     "text": "Adjusting Deferred and Accrued Revenue",
+     "level": 2
+    },
+    {
+     "id": "accrued-revenue",
+     "text": "Accrued Revenue",
+     "level": 3
+    },
+    {
+     "id": "adjusting-deferred-and-accrued-expense-items",
+     "text": "Adjusting Deferred and Accrued Expense Items",
+     "level": 2
+    },
+    {
+     "id": "deferred-expenses",
+     "text": "Deferred Expenses",
+     "level": 3
+    },
+    {
+     "id": "accrued-expenses",
+     "text": "Accrued Expenses",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "bookkeeping-10",
+   "title": "Errors and the adjusted trial balance",
+   "words": 2144,
+   "minutes": 11,
+   "source": "lumen-fa",
+   "url": "https://content.one.lumenlearning.com/financialaccounting/chapter/adjusting-for-errors/",
+   "toc": [
+    {
+     "id": "adjusting-for-errors",
+     "text": "Adjusting for Errors",
+     "level": 2
+    },
+    {
+     "id": "what-type-of-error-is-it",
+     "text": "What type of error is it?",
+     "level": 3
+    },
+    {
+     "id": "how-should-this-error-be-fixed",
+     "text": "How should this error be fixed?",
+     "level": 3
+    },
+    {
+     "id": "how-did-this-error-affect-the-financial-statements",
+     "text": "How did this error affect the financial statements?",
+     "level": 3
+    },
+    {
+     "id": "posting-adjusted-journal-entries-to-the-ledger",
+     "text": "Posting Adjusted Journal Entries to the Ledger",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "bookkeeping-11",
+   "title": "Preparing the financial statements",
+   "words": 2045,
+   "minutes": 11,
+   "source": "lumen-fa",
+   "url": "https://content.one.lumenlearning.com/financialaccounting/chapter/income-statement/",
+   "toc": [
+    {
+     "id": "income-statement",
+     "text": "Income Statement",
+     "level": 2
+    },
+    {
+     "id": "balance-sheet",
+     "text": "Balance Sheet",
+     "level": 2
+    },
+    {
+     "id": "account-format-of-balance-sheets",
+     "text": "Account Format of Balance Sheets",
+     "level": 3
+    },
+    {
+     "id": "statement-of-cash-flows",
+     "text": "Statement of Cash Flows",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "bookkeeping-12",
+   "title": "Closing the books",
+   "words": 1749,
+   "minutes": 9,
+   "source": "lumen-fa",
+   "url": "https://content.one.lumenlearning.com/financialaccounting/chapter/introduction-to-closing-the-books/",
+   "toc": [
+    {
+     "id": "introduction-to-closing-the-books",
+     "text": "Introduction to Closing the Books",
+     "level": 2
+    },
+    {
+     "id": "what-you-ll-learn-to-do-prepare-and-post-closing-entries",
+     "text": "What you’ll learn to do: Prepare and post closing entries",
+     "level": 3
+    },
+    {
+     "id": "closing-entries",
+     "text": "Closing Entries",
+     "level": 2
+    },
+    {
+     "id": "types-of-accounts",
+     "text": "Types of Accounts",
+     "level": 3
+    },
+    {
+     "id": "preparing-a-closing-entry",
+     "text": "Preparing a Closing Entry",
+     "level": 3
+    },
+    {
+     "id": "post-closing-trial-balance",
+     "text": "Post-Closing Trial Balance",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "bookkeeping-13",
+   "title": "Petty cash and bank reconciliation",
+   "words": 2542,
+   "minutes": 13,
+   "source": "lumen-fa",
+   "url": "https://content.one.lumenlearning.com/financialaccounting/chapter/journalizing-petty-cash-transactions/",
+   "toc": [
+    {
+     "id": "journalizing-petty-cash-transactions",
+     "text": "Journalizing Petty Cash Transactions",
+     "level": 2
+    },
+    {
+     "id": "reconciling-journal-entries",
+     "text": "Reconciling Journal Entries",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "bookkeeping-14",
+   "title": "Payroll",
+   "words": 890,
+   "minutes": 5,
+   "source": "lumen-fa",
+   "url": "https://content.one.lumenlearning.com/financialaccounting/chapter/payroll-transactions/",
+   "toc": [
+    {
+     "id": "payroll-transactions",
+     "text": "Payroll Transactions",
+     "level": 2
+    },
+    {
+     "id": "what-you-will-learn-to-do-account-for-common-payroll-transac",
+     "text": "What you will learn to do: Account for common payroll transactions",
+     "level": 3
+    },
+    {
+     "id": "payroll-journal-entries",
+     "text": "Payroll Journal Entries",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "bookkeeping-15",
+   "title": "Starting a business and keeping records (IRS Publication 583)",
+   "words": 16875,
+   "minutes": 85,
+   "source": "irs",
+   "url": "https://www.irs.gov/publications/p583",
+   "toc": [
+    {
+     "id": "publication-583-12-2024-starting-a-business-and-keeping-reco",
+     "text": "Publication 583 (12/2024), Starting a Business and Keeping Records",
+     "level": 2
+    },
+    {
+     "id": "publication-583-introductory-material",
+     "text": "Publication 583 - Introductory Material",
+     "level": 2
+    },
+    {
+     "id": "future-developments",
+     "text": "Future Developments",
+     "level": 2
+    },
+    {
+     "id": "publication-583-main-contents",
+     "text": "Publication 583 - Main Contents",
+     "level": 2
+    },
+    {
+     "id": "table-1-what-new-business-owners-need-to-know-about-federal-",
+     "text": "Table 1. What New Business Owners Need To Know About Federal Taxes",
+     "level": 3
+    },
+    {
+     "id": "note",
+     "text": "Note.",
+     "level": 3
+    },
+    {
+     "id": "publication-583-additional-material",
+     "text": "Publication 583 - Additional Material",
+     "level": 2
+    },
+    {
+     "id": "index",
+     "text": "Index",
+     "level": 2
+    },
+    {
+     "id": "a",
+     "text": "A",
+     "level": 3
+    },
+    {
+     "id": "b",
+     "text": "B",
+     "level": 3
+    },
+    {
+     "id": "c",
+     "text": "C",
+     "level": 3
+    },
+    {
+     "id": "d",
+     "text": "D",
+     "level": 3
+    },
+    {
+     "id": "e",
+     "text": "E",
+     "level": 3
+    },
+    {
+     "id": "f",
+     "text": "F",
+     "level": 3
+    },
+    {
+     "id": "g",
+     "text": "G",
+     "level": 3
+    },
+    {
+     "id": "i",
+     "text": "I",
+     "level": 3
+    },
+    {
+     "id": "l",
+     "text": "L",
+     "level": 3
+    },
+    {
+     "id": "m",
+     "text": "M",
+     "level": 3
+    },
+    {
+     "id": "o",
+     "text": "O",
+     "level": 3
+    },
+    {
+     "id": "p",
+     "text": "P",
+     "level": 3
+    },
+    {
+     "id": "r",
+     "text": "R",
+     "level": 3
+    },
+    {
+     "id": "s",
+     "text": "S",
+     "level": 3
+    },
+    {
+     "id": "t",
+     "text": "T",
+     "level": 3
+    },
+    {
+     "id": "u",
+     "text": "U",
+     "level": 3
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [],
+  "pass_mark": 0,
+  "missing": true
+ },
+ "minutes": 213,
+ "sources": [
+  {
+   "id": "irs",
+   "name": "IRS Publication 583",
+   "url": "https://www.irs.gov/publications/p583",
+   "license": "Public domain (U.S. Government work)",
+   "license_url": "https://www.usa.gov/government-copyright",
+   "attribution": "Internal Revenue Service — a U.S. Government work, not subject to copyright",
+   "noncommercial": false
+  },
+  {
+   "id": "lumen-fa",
+   "name": "Financial Accounting (Lumen Learning)",
+   "url": "https://content.one.lumenlearning.com/financialaccounting/",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "Lumen Learning, CC BY 4.0",
+   "noncommercial": false
+  }
+ ]
+}

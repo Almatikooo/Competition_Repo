@@ -1,0 +1,175 @@
+{
+  "_note": "Static, citable sources used as baselines. Live, updatable sources (HN, OpenAlex) are recorded with fetch timestamps in data/signals/. Claims below are qualitative list memberships or findings; no numbers are invented. Verify wording against the published documents before final submission.",
+  "sources": {
+    "wef_foj_2025": {
+      "title": "World Economic Forum — The Future of Jobs Report 2025",
+      "publisher": "World Economic Forum",
+      "date": "2025-01",
+      "url": "https://www.weforum.org/publications/the-future-of-jobs-report-2025/",
+      "kind": "report"
+    },
+    "ilo_genai_2025": {
+      "title": "ILO — Generative AI and Jobs: A Refined Global Index of Occupational Exposure",
+      "publisher": "International Labour Organization",
+      "date": "2025-05",
+      "url": "https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure",
+      "kind": "report"
+    },
+    "hays_asia_2025": {
+      "title": "Hays Asia Salary Guide 2025 (as cited in the Aiversecity problem statement)",
+      "publisher": "Hays",
+      "date": "2025",
+      "url": "https://www.hays.com.my/salary-guide",
+      "kind": "report"
+    },
+    "onet": {
+      "title": "O*NET OnLine — occupational taxonomy (O*NET-SOC codes)",
+      "publisher": "U.S. Department of Labor / ETA",
+      "date": "continuously updated",
+      "url": "https://www.onetonline.org/",
+      "kind": "taxonomy"
+    },
+    "un_sdgs": {
+      "title": "United Nations — The 17 Sustainable Development Goals and targets",
+      "publisher": "UN DESA",
+      "date": "2015 (targets)",
+      "url": "https://sdgs.un.org/goals",
+      "kind": "framework"
+    },
+    "hn_whoishiring": {
+      "title": "Hacker News — monthly 'Ask HN: Who is hiring?' threads (via the HN Algolia API)",
+      "publisher": "Y Combinator / Algolia",
+      "date": "live",
+      "url": "https://hn.algolia.com/api",
+      "kind": "live-job-postings"
+    },
+    "openalex": {
+      "title": "OpenAlex — open index of scholarly works (includes arXiv preprints)",
+      "publisher": "OurResearch",
+      "date": "live",
+      "url": "https://openalex.org/",
+      "kind": "live-research-feed"
+    },
+    "wef_foj_2023": {
+      "title": "World Economic Forum — The Future of Jobs Report 2023",
+      "publisher": "World Economic Forum",
+      "date": "2023-05",
+      "url": "https://www.weforum.org/publications/the-future-of-jobs-report-2023/",
+      "kind": "report"
+    }
+  },
+  "claims": {
+    "wef_skill_ai_bigdata": {
+      "source": "wef_foj_2025",
+      "text": "'AI and big data' is the fastest-growing skill in employers' outlook to 2030."
+    },
+    "wef_skill_cyber": {
+      "source": "wef_foj_2025",
+      "text": "'Networks and cybersecurity' is the second fastest-growing skill."
+    },
+    "wef_skill_techlit": {
+      "source": "wef_foj_2025",
+      "text": "'Technological literacy' is the third fastest-growing skill."
+    },
+    "wef_skill_creative": {
+      "source": "wef_foj_2025",
+      "text": "'Creative thinking' is expected to keep rising in importance."
+    },
+    "wef_skill_curiosity": {
+      "source": "wef_foj_2025",
+      "text": "'Curiosity and lifelong learning' and 'Resilience, flexibility and agility' are expected to keep rising in importance."
+    },
+    "wef_skill_leadership": {
+      "source": "wef_foj_2025",
+      "text": "'Leadership and social influence' is among the skills growing in importance."
+    },
+    "wef_skill_analytical": {
+      "source": "wef_foj_2025",
+      "text": "'Analytical thinking' remains the most sought-after core skill among employers."
+    },
+    "wef_skill_env": {
+      "source": "wef_foj_2025",
+      "text": "'Environmental stewardship' is among the skills growing in importance."
+    },
+    "wef_role_ai_ml": {
+      "source": "wef_foj_2025",
+      "text": "'AI and Machine Learning Specialists' are among the fastest-growing jobs."
+    },
+    "wef_role_bigdata": {
+      "source": "wef_foj_2025",
+      "text": "'Big Data Specialists' and 'Data Analysts and Scientists' are among the fastest-growing jobs."
+    },
+    "wef_role_software": {
+      "source": "wef_foj_2025",
+      "text": "'Software and Applications Developers' are among the fastest-growing jobs."
+    },
+    "wef_role_security": {
+      "source": "wef_foj_2025",
+      "text": "'Information Security Analysts' and 'Security Management Specialists' are among the fastest-growing jobs."
+    },
+    "wef_role_devops": {
+      "source": "wef_foj_2025",
+      "text": "'DevOps Engineers' are among the fastest-growing jobs."
+    },
+    "wef_role_uiux": {
+      "source": "wef_foj_2025",
+      "text": "'UI and UX Designers' are among the fastest-growing jobs."
+    },
+    "wef_role_iot": {
+      "source": "wef_foj_2025",
+      "text": "'Internet of Things Specialists' are among the fastest-growing jobs."
+    },
+    "wef_role_renewable": {
+      "source": "wef_foj_2025",
+      "text": "'Renewable Energy Engineers' and 'Environmental Engineers' are among the fastest-growing jobs."
+    },
+    "wef_role_ev": {
+      "source": "wef_foj_2025",
+      "text": "'Autonomous and Electric Vehicle Specialists' are among the fastest-growing jobs."
+    },
+    "wef_role_fintech": {
+      "source": "wef_foj_2025",
+      "text": "'FinTech Engineers' are among the fastest-growing jobs."
+    },
+    "wef_role_data_entry": {
+      "source": "wef_foj_2025",
+      "text": "'Data Entry Clerks' are among the fastest-declining jobs."
+    },
+    "wef_role_accounting_clerks": {
+      "source": "wef_foj_2025",
+      "text": "'Accounting, Bookkeeping and Payroll Clerks' are among the fastest-declining jobs."
+    },
+    "wef_role_admin": {
+      "source": "wef_foj_2025",
+      "text": "'Administrative Assistants and Executive Secretaries' are among the fastest-declining jobs."
+    },
+    "wef_role_graphic": {
+      "source": "wef_foj_2025",
+      "text": "'Graphic Designers' are among the fastest-declining jobs."
+    },
+    "wef_role_telemarketers": {
+      "source": "wef_foj_2025",
+      "text": "'Telemarketers' are among the fastest-declining jobs."
+    },
+    "ilo_clerical": {
+      "source": "ilo_genai_2025",
+      "text": "Clerical support occupations show the highest exposure to generative AI."
+    },
+    "hays_ai_training_gap": {
+      "source": "hays_asia_2025",
+      "text": "In Malaysia, 56% of professionals use AI tools at work but only 26% have received formal training."
+    },
+    "wef2023_role_sustainability": {
+      "source": "wef_foj_2023",
+      "text": "'Sustainability Specialists' were among the fastest-growing jobs."
+    },
+    "wef_role_cashiers": {
+      "source": "wef_foj_2025",
+      "text": "'Cashiers and Ticket Clerks' are among the fastest-declining jobs."
+    },
+    "wef_role_tellers": {
+      "source": "wef_foj_2025",
+      "text": "'Bank Tellers and Related Clerks' are among the fastest-declining jobs."
+    }
+  }
+}

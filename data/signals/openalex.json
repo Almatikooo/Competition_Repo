@@ -1,0 +1,122 @@
+{
+ "buckets": {
+  "2024H1": {
+   "counts": {
+    "agents": 3695,
+    "agri": 9117,
+    "baseline": 470636,
+    "codegen": 5955,
+    "docai": 3265,
+    "energy": 23800,
+    "genmedia": 29239,
+    "health": 125636,
+    "llm": 43951,
+    "robotics": 5283,
+    "safety": 9912,
+    "speech": 18478,
+    "vision": 93129
+   },
+   "end": "2024-06-30",
+   "fetched_at": "2026-10-20T03:13:12+00:00",
+   "start": "2024-01-01"
+  },
+  "2024H2": {
+   "counts": {
+    "agents": 3875,
+    "agri": 8394,
+    "baseline": 413983,
+    "codegen": 4973,
+    "docai": 2616,
+    "energy": 21926,
+    "genmedia": 26888,
+    "health": 119090,
+    "llm": 42267,
+    "robotics": 4456,
+    "safety": 8762,
+    "speech": 15091,
+    "vision": 75081
+   },
+   "end": "2024-12-31",
+   "fetched_at": "2026-10-20T03:13:12+00:00",
+   "start": "2024-07-01"
+  },
+  "2025H1": {
+   "counts": {
+    "agents": 11098,
+    "agri": 12932,
+    "baseline": 615093,
+    "codegen": 8648,
+    "docai": 4322,
+    "energy": 32905,
+    "genmedia": 37564,
+    "health": 162272,
+    "llm": 82491,
+    "robotics": 5837,
+    "safety": 19931,
+    "speech": 20149,
+    "vision": 95844
+   },
+   "end": "2025-06-30",
+   "fetched_at": "2026-10-20T03:13:13+00:00",
+   "start": "2025-01-01"
+  },
+  "2025H2": {
+   "counts": {
+    "agents": 12985,
+    "agri": 13343,
+    "baseline": 599850,
+    "codegen": 7141,
+    "docai": 3788,
+    "energy": 31808,
+    "genmedia": 34353,
+    "health": 178655,
+    "llm": 80928,
+    "robotics": 5366,
+    "safety": 21481,
+    "speech": 17273,
+    "vision": 81939
+   },
+   "end": "2025-12-31",
+   "fetched_at": "2026-10-20T03:48:58+00:00",
+   "start": "2025-07-01"
+  },
+  "2026H1": {
+   "counts": {
+    "agents": 41628,
+    "agri": 16117,
+    "baseline": 861994,
+    "codegen": 17085,
+    "docai": 6335,
+    "energy": 37169,
+    "genmedia": 52118,
+    "health": 237075,
+    "llm": 168356,
+    "robotics": 11394,
+    "safety": 47447,
+    "speech": 22904,
+    "vision": 113749
+   },
+   "end": "2026-06-30",
+   "fetched_at": "2026-10-20T03:49:02+00:00",
+   "start": "2026-01-01"
+  }
+ },
+ "granularity": "half",
+ "queries": {
+  "agents": "\"AI agent\" OR \"agentic AI\" OR \"LLM agent\" OR \"LLM agents\" OR \"agentic workflow\"",
+  "agri": "(\"machine learning\" OR \"artificial intelligence\") AND (\"precision agriculture\" OR \"smart farming\" OR \"crop yield\")",
+  "baseline": "\"artificial intelligence\" OR \"machine learning\" OR \"deep learning\"",
+  "codegen": "\"code generation\" OR \"program synthesis\"",
+  "docai": "\"document understanding\" OR \"optical character recognition\" OR \"document information extraction\"",
+  "energy": "(\"machine learning\" OR \"artificial intelligence\") AND (\"renewable energy\" OR \"smart grid\" OR \"energy management\")",
+  "genmedia": "\"image generation\" OR \"diffusion model\" OR \"text-to-image\"",
+  "health": "(\"machine learning\" OR \"artificial intelligence\") AND (\"clinical\" OR \"medical imaging\" OR \"healthcare\")",
+  "llm": "\"large language model\" OR \"large language models\"",
+  "robotics": "\"robot learning\" OR \"embodied AI\" OR \"robotic manipulation\"",
+  "safety": "\"AI governance\" OR \"responsible AI\" OR \"AI safety\" OR \"algorithmic fairness\"",
+  "speech": "\"speech recognition\" OR \"speech synthesis\" OR \"text-to-speech\"",
+  "vision": "\"computer vision\" OR \"object detection\" OR \"image segmentation\""
+ },
+ "refreshed_at": "2026-10-20T03:49:02+00:00",
+ "source": "openalex"
+}

@@ -1,0 +1,105 @@
+<p>
+The word <i>battery</i> simply means a group of similar components.  In military vocabulary, a "battery" refers to a cluster of guns.  In electricity, a "battery" is a set of voltaic cells designed to provide greater voltage and/or current than is possible with one cell alone.
+</p>
+<p>
+The symbol for a cell is very simple, consisting of one long line and one short line, parallel to each other, with connecting wires:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00260.png"> </p>
+<p>
+The symbol for a battery is nothing more than a couple of cell symbols stacked in series:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00261.png"> </p>
+<p>
+As was stated before, the voltage produced by any particular kind of cell is determined strictly by the chemistry of that cell type.  The size of the cell is irrelevant to its voltage.  To obtain greater voltage than the output of a single cell, multiple cells must be connected in series.  The total voltage of a battery is the sum of all cell voltages.  A typical automotive lead-acid battery has six cells, for a nominal voltage output of 6 x 2.0 or 12.0 volts:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00262.png"> </p>
+<p>
+The cells in an automotive battery are contained within the same hard rubber housing, connected together with thick, lead bars instead of wires.  The electrodes and electrolyte solutions for each cell are contained in separate, partitioned sections of the battery case.  In large batteries, the electrodes commonly take the shape of thin metal grids or plates, and are often referred to as <i>plates</i> instead of electrodes.
+</p>
+<p>
+For the sake of convenience, battery symbols are usually limited to four lines, alternating long/short, although the real battery it represents may have many more cells than that.  On occasion, however, you might come across a symbol for a battery with unusually high voltage, intentionally drawn with extra lines.  The lines, of course, are representative of the individual cell plates:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00263.png"> </p>
+<p>
+If the physical size of a cell has no impact on its voltage, then what does it affect?  The answer is resistance, which in turn affects the maximum amount of current that a cell can provide.  Every voltaic cell contains some amount of internal resistance due to the electrodes and the electrolyte.  The larger a cell is constructed, the greater the electrode contact area with the electrolyte, and thus the less internal resistance it will have.
+</p>
+<p>
+Although we generally consider a cell or battery in a circuit to be a perfect source of voltage (absolutely constant), the current through it dictated solely by the <i>external</i> resistance of the circuit to which it is attached, this is not entirely true in real life.  Since every cell or battery contains some internal resistance, that resistance must affect the current in any given circuit:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00264.png"> </p>
+<p>
+The real battery shown above within the dotted lines has an internal resistance of 0.2 Ω, which affects its ability to supply current to the load resistance of 1 Ω.  The ideal battery on the left has no internal resistance, and so our Ohm's Law calculations for current (I=E/R) give us a perfect value of 10 amps for current with the 1 ohm load and 10 volt supply.  The real battery, with its built-in resistance further impeding the flow of electrons, can only supply 8.333 amps to the same resistance load.
+</p>
+<p>
+The ideal battery, in a short circuit with 0 Ω resistance, would be able to supply an infinite amount of current.  The real battery, on the other hand, can only supply 50 amps (10 volts / 0.2 Ω) to a short circuit of 0 Ω resistance, due to its internal resistance.  The chemical reaction inside the cell may still be providing exactly 10 volts, but voltage is dropped across that internal resistance as electrons flow through the battery, which reduces the amount of voltage available at the battery terminals to the load.
+</p>
+<p>
+Since we live in an imperfect world, with imperfect batteries, we need to understand the implications of factors such as internal resistance.  Typically, batteries are placed in applications where their internal resistance is negligible compared to that of the circuit load (where their short-circuit current far exceeds their usual load current), and so the performance is very close to that of an ideal voltage source.
+</p>
+<p>
+If we need to construct a battery with lower resistance than what one cell can provide (for greater current capacity), we will have to connect the cells together in parallel:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00265.png"> </p>
+<p>
+Essentially, what we have done here is determine the Thevenin equivalent of the five cells in parallel (an equivalent network of one voltage source and one series resistance).  The equivalent network has the same source voltage but a fraction of the resistance of any individual cell in the original network.  The overall effect of connecting cells in parallel is to decrease the equivalent internal resistance, just as resistors in parallel diminish in total resistance.  The equivalent internal resistance of this battery of 5 cells is 1/5 that of each individual cell.  The overall voltage stays the same: 2.0 volts.  If this battery of cells were powering a circuit, the current through each cell would be 1/5 of the total circuit current, due to the equal split of current through equal-resistance parallel branches.
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>A <i>battery</i> is a cluster of cells connected together for greater voltage and/or current capacity.</li>
+<li>Cells connected together in series (polarities aiding) results in greater total voltage.</li>
+<li>Physical cell size impacts cell resistance, which in turn impacts the ability for the cell to supply current to a circuit.  Generally, the larger the cell, the less its internal resistance.</li>
+<li>Cells connected together in parallel results in less total resistance, and potentially greater total current.</li>
+</ul>
+<h2 id="battery-ratings">Battery ratings</h2>
+<p>
+Because batteries create electron flow in a circuit by exchanging electrons in ionic chemical reactions, and there is a limited number of molecules in any charged battery available to react, there must be a limited amount of total electrons that any battery can motivate through a circuit before its energy reserves are exhausted.  Battery capacity could be measured in terms of total number of electrons, but this would be a huge number.  We could use the unit of the <i>coulomb</i> (equal to 6.25 x 10<sup>18</sup> electrons, or 6,250,000,000,000,000,000 electrons) to make the quantities more practical to work with, but instead a new unit, the <i>amp-hour</i>, was made for this purpose.  Since 1 amp is actually a flow rate of 1 coulomb of electrons per second, and there are 3600 seconds in an hour, we can state a direct proportion between coulombs and amp-hours: 1 amp-hour = 3600 coulombs.  Why make up a new unit when an old would have done just fine?  To make your lives as students and technicians more difficult, of course!
+</p>
+<p>
+A battery with a capacity of 1 amp-hour should be able to continuously supply a current of 1 amp to a load for exactly 1 hour, or 2 amps for 1/2 hour, or 1/3 amp for 3 hours, etc., before becoming completely discharged.  In an ideal battery, this relationship between continuous current and discharge time is stable and absolute, but real batteries don't behave exactly as this simple linear formula would indicate.  Therefore, when amp-hour capacity is given for a battery, it is specified at either a given current, given time, or assumed to be rated for a time period of 8 hours (if no limiting factor is given).
+</p>
+<p>
+For example, an average automotive battery might have a capacity of about 70 amp-hours, specified at a current of 3.5 amps.  This means that the amount of time this battery could continuously supply a current of 3.5 amps to a load would be 20 hours (70 amp-hours / 3.5 amps).  But let's suppose that a lower-resistance load were connected to that battery, drawing 70 amps continuously.  Our amp-hour equation tells us that the battery should hold out for exactly 1 hour (70 amp-hours / 70 amps), but this might not be true in real life.  With higher currents, the battery will dissipate more heat across its internal resistance, which has the effect of altering the chemical reactions taking place within.  Chances are, the battery would fully discharge some time <i>before</i> the calculated time of 1 hour under this greater load.  
+</p>
+<p>
+Conversely, if a very light load (1 mA) were to be connected to the battery, our equation would tell us that the battery should provide power for 70,000 hours, or just under 8 years (70 amp-hours / 1 milliamp), but the odds are that much of the chemical energy in a real battery would have been drained due to other factors (evaporation of electrolyte, deterioration of electrodes, leakage current within battery) long before 8 years had elapsed.  Therefore, we must take the amp-hour relationship as being an ideal approximation of battery life, the amp-hour rating trusted only near the specified current or timespan given by the manufacturer.  Some manufacturers will provide amp-hour derating factors specifying reductions in total capacity at different levels of current and/or temperature.
+</p>
+<p>
+For secondary cells, the amp-hour rating provides a rule for necessary charging time at any given level of charge current.  For example, the 70 amp-hour automotive battery in the previous example should take 10 hours to charge from a fully-discharged state at a constant charging current of 7 amps (70 amp-hours / 7 amps).
+</p>
+<p>
+Approximate amp-hour capacities of some common batteries are given here:
+</p>
+<ul>
+<li>Typical automotive battery: 70 amp-hours @ 3.5 A <i>(secondary cell)</i></li>
+<li>D-size carbon-zinc battery: 4.5 amp-hours @ 100 mA <i>(primary cell)</i></li>
+<li>9 volt carbon-zinc battery: 400 milliamp-hours @ 8 mA <i>(primary cell)</i></li>
+</ul>
+<p>
+As a battery discharges, not only does it diminish its internal store of energy, but its internal resistance also increases (as the electrolyte becomes less and less conductive), and its open-circuit cell voltage decreases (as the chemicals become more and more dilute).  The most deceptive change that a discharging battery exhibits is increased resistance.  The best check for a battery's condition is a voltage measurement <i>under load</i>, while the battery is supplying a substantial current through a circuit.  Otherwise, a simple voltmeter check across the terminals may falsely indicate a healthy battery (adequate voltage) even though the internal resistance has increased considerably.  What constitutes a "substantial current" is determined by the battery's design parameters.  A voltmeter check revealing too low of a voltage, of course, would positively indicate a discharged battery:
+</p>
+<p>
+Fully charged battery:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00266.png"> </p>
+<p>
+Now, if the battery discharges a bit . . .
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00267.png"> </p>
+<p>
+. . . and discharges a bit further . . .
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00268.png"> </p>
+<p>
+. . . and a bit further until its dead.
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/00269.png"> </p>
+<p>
+Notice how much better the battery's true condition is revealed when its voltage is checked under load as opposed to without a load.  Does this mean that its pointless to check a battery with just a voltmeter (no load)?  Well, no.  If a simple voltmeter check reveals only 7.5 volts for a 13.2 volt battery, then you know without a doubt that its dead.  However, if the voltmeter were to indicate 12.5 volts, it may be near full charge or somewhat depleted -- you couldn't tell without a load check.  Bear in mind also that the resistance used to place a battery under load must be rated for the amount of power expected to be dissipated.  For checking large batteries such as an automobile (12 volt nominal) lead-acid battery, this may mean a resistor with a power rating of several hundred watts.
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>The <i>amp-hour</i> is a unit of battery energy capacity, equal to the amount of continuous current multiplied by the discharge time, that a battery can supply before exhausting its internal store of chemical energy.</li>
+<li><p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/DC/10213.png"> </p></li>
+<li>An amp-hour battery rating is only an approximation of the battery's charge capacity, and should be trusted only at the current level or time specified by the manufacturer.  Such a rating cannot be extrapolated for very high currents or very long times with any accuracy.</li>
+<li>Discharged batteries lose voltage and increase in resistance.  The best check for a dead battery is a voltage test under load.</li>
+</ul>

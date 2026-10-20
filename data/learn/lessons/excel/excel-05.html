@@ -1,0 +1,332 @@
+<div>
+<div class="box box-objectives"><p class="box-title">Learning Objectives</p>
+
+<ol>
+<li>Use the&nbsp;SUM function&nbsp;to calculate totals.</li>
+<li>Use the&nbsp;COUNT function&nbsp;to count cell locations with numerical values.</li>
+<li>Use the&nbsp;AVERAGE function&nbsp;to calculate the arithmetic mean.</li>
+<li>Use the&nbsp;MAX and MIN functions&nbsp;to find the highest and lowest values in a range of cells.</li>
+<li>Learn how to copy and paste formulas without formats applied to a cell location.</li>
+<li>Use&nbsp;absolute references&nbsp;to calculate percent of totals.</li>
+<li>Learn how to set a&nbsp;multiple level sort&nbsp;sequence for data sets that have duplicate values or outputs.</li>
+</ol>
+</div>
+<p>In addition to formulas, another way to conduct mathematical computations in Excel is through functions. Excel functions apply a mathematical process to a group of cells in a worksheet. For example, the SUM function is used to add the values contained in a range of cells. Functions are more efficient than formulas when you are applying a mathematical process to a group of cells. If you use a formula to add the values in a range of cells, you would have to add each cell location to the formula one at a time. This can be very time-consuming if you have to add the values in a few hundred cell locations. However, when you use a function, you can highlight all the cells that contain values you wish to sum in just one step.</p>
+<p>The components of a function are as follows:</p>
+<p><strong>=FunctionName(Arguments)</strong></p>
+<p>Functions are a type of formula, therefore they start with an equal sign.&nbsp; The next component is the name of the function. A list of commonly used functions is shown in <strong>Table 2.4</strong>.&nbsp; After the function name comes the arguments for the function, which are always enclosed in parentheses.&nbsp; The arguments are the cell locations and/or values that will be used in the function.&nbsp; The number and type of arguments varies based on the the function being used, although in this section we will only work with a range of cells for the function arguments.&nbsp; &nbsp;Some examples of different functions with their arguments are:</p>
+<p>=SUM(B2:B15) – adds the values in B2 through B15<br>
+=SQRT(A5) – finds the square root of the value in A5<br>
+=COUNTA(A1:A20) – finds the number of cells from A1 through A20 that contain text or a number</p>
+<p>Throughout Section 2.2 we will add a variety of mathematical functions to the Personal Budget workbook. In addition to creating functions, this section also reviews percent of total calculations and the use of absolute references.</p>
+<p>Table 2.4 Commonly Used Functions</p>
+<div class="table-wrap"><table>
+
+<thead>
+<tr>
+<th scope="col">Function</th>
+<th scope="col">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ABS</strong></td>
+<td>The absolute value of a number</td>
+</tr>
+<tr>
+<td><strong>AVERAGE</strong></td>
+<td>The average or arithmetic mean for a group of numbers</td>
+</tr>
+<tr>
+<td><strong>COUNT</strong></td>
+<td>The number of cell locations in a range that contain a numeric value</td>
+</tr>
+<tr>
+<td><strong>COUNTA</strong></td>
+<td>The number of cell locations in a range that contain text or a numeric value</td>
+</tr>
+<tr>
+<td><strong>MAX</strong></td>
+<td>The highest numeric value in a group of numbers</td>
+</tr>
+<tr>
+<td><strong>MEDIAN</strong></td>
+<td>The middle number in a group of numbers (half the numbers in the group are higher than the median and half the numbers in the group are lower than the median)</td>
+</tr>
+<tr>
+<td><strong>MIN</strong></td>
+<td>The lowest numeric value in a group of numbers</td>
+</tr>
+<tr>
+<td><strong>MODE</strong></td>
+<td>The number that appears most frequently in a group of numbers</td>
+</tr>
+<tr>
+<td><strong>PRODUCT</strong></td>
+<td>The result of multiplying all the values in a range of cell locations</td>
+</tr>
+<tr>
+<td><strong>SQRT</strong></td>
+<td>The positive square root of a number</td>
+</tr>
+<tr>
+<td><strong>SUM</strong></td>
+<td>The total of all numeric values in a group</td>
+</tr>
+</tbody>
+</table></div>
+<p>It is important to note that there are several methods for adding a function to a worksheet, and we will explore each of them throughout this section.</p>
+<ul>
+<li>Typing the function directly into a cell</li>
+<li>Selecting from the function list</li>
+<li>Using the Function Library on the ribbon</li>
+<li>Using the Insert Function button</li>
+</ul>
+<h2 id="the-sum-function">The SUM Function</h2>
+<p>The SUM function is used when you need to calculate totals for a range of cells or a group of selected cells on a worksheet. With regard to the&nbsp;<strong>Budget Detail</strong> worksheet, we will use the SUM function to calculate the totals in row 12, starting with the Monthly Spend total in B12. The following illustrates how a function can be added to a worksheet by typing it into a cell location:</p>
+<ol>
+<li>Switch to the <strong>Budget Detail&nbsp;</strong>worksheet if needed.</li>
+<li>Click cell B12.</li>
+<li>Type an equal sign <strong>=</strong>.</li>
+<li>Type the function name&nbsp;<strong>SUM</strong>.</li>
+<li>Type an open parenthesis <strong>(</strong>.</li>
+<li>Click cell B3 and drag down to cell B11. This places the range B3:B11 into the function.</li>
+<li>Type a closing parenthesis <strong>)</strong>.</li>
+<li>Press the ENTER key. The function calculates the total for the Monthly Spend column, which is $1,427.</li>
+</ol>
+<p><strong>Figure 2.11</strong> shows the appearance of the SUM function added to the&nbsp;<strong>Budget Detail</strong>&nbsp;worksheet before pressing the ENTER key.</p>
+<figure><img alt="Budget Detail Worksheet showing range of cells included in function to calculate total of values before &quot;Enter&quot; is pressed." height="422" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/2.11.png" width="488"><figcaption>Figure 2.11 Adding the SUM Function to the Budget Detail Worksheet</figcaption></figure>
+<p>As shown in <strong>Figure 2.11</strong>, the SUM function was added to cell B12. However, this function is also needed to calculate the totals in the Annual Spend and Last Year Spend columns. The function can be copied and pasted into these cell locations because of relative referencing. Relative referencing serves the same purpose for functions as it does for formulas.&nbsp; To complete the Totals in row 12, we need to copy and paste the SUM function into D12 and E12.&nbsp; Since we will then have totals in D12 and E12, we can paste the percent change formula into F12.</p>
+<ol>
+<li>Click cell B12 in the <strong>Budget Detail</strong>&nbsp;worksheet.</li>
+<li>Click the Copy button in the Home tab of the Ribbon.</li>
+<li>Highlight cells D12 and E12.</li>
+<li>Click the Paste button in the Home tab of the Ribbon. This pastes the SUM function into cells D12 and E12 and calculates the totals for these columns.</li>
+<li>Click cell F11.</li>
+<li>Click the Copy button in the Home tab of the Ribbon.</li>
+<li>Click cell F12, then click the Paste button in the Home tab of the Ribbon.</li>
+</ol>
+<p><strong>Figure 2.12</strong> shows the output of the SUM function that was added to cells B12, D12, and E12. In addition, the percent change formula was copied and pasted into cell F12. Notice that this version of the budget is planning an increase in spending compared to last year.</p>
+<figure><img alt="Totals were added to cells B12, D12, and E12 and percent change formula was pasted in cell F12 indicating spending will increase by 7.3% compared to last year." height="365" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.12.png" width="577"><figcaption>Figure 2.12 Results of the SUM Function in the Budget Detail worksheet</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Integrity Check</p>
+
+<p><strong>Cell Ranges in Functions</strong></p>
+<p>When you intend to use a function on a range of cells in a worksheet, make sure there are two cell locations separated by a <strong>colon</strong> and not a comma. If you enter two cell locations separated by a comma, the function will calculate only the two cell locations listed instead of an entire range of cells. For example, the SUM function shown in <strong>Figure 2.13</strong> will add only the values in cells C3 and C11, not the range C3:C11.</p>
+</div>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/09/image13-1.jpg" target="_blank" rel="noopener noreferrer"><img alt="A comma indicates functions will only be applied to cells C3 and C11, and not the range." height="244" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/image13-1.jpg" width="386"></a><figcaption>Figure 2.13 SUM Function Adding Two Cell Locations</figcaption></figure>
+<h2 id="the-count-function">&nbsp;The COUNT Function</h2>
+<p><em>Data file: Continue with CH2 Personal Budget.</em></p>
+<p>The next function that we will add to the<strong>&nbsp;Budget Detail</strong> worksheet is the COUNT function. The COUNT function is used to determine how many cells in a range contain a numeric entry. The COUNT function will not work for counting text or other non-numeric entries. If you want to count text instead of, or in addition to, numeric entries you use the COUNTA function. For the <strong>Budget Detail</strong> worksheet, we will use the COUNT function to count the number of items that are planned in the Annual Spend column (Column D). The following explains how the COUNT function is added to the worksheet by selecting from the function list:</p>
+<ol>
+<li>Click cell D13.</li>
+<li>Type an equal sign <strong>=</strong>.</li>
+<li>Type the letter<strong> C&nbsp;</strong>(to start spelling the name of the function).</li>
+<li>Click the down arrow on the scroll bar of the function list (see <strong>Figure 2.14</strong>) and find the word COUNT.<br>
+<img alt="Excel for Mac icon" height="19" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="17">&nbsp;Mac Users can scroll down with touchpad or mouse to find COUNT</li>
+<li>Double click the word&nbsp;COUNT&nbsp;from the function list.<br>
+<img alt="Excel for Mac icon" height="19" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="17">&nbsp;Mac Users should&nbsp;single click the word “COUNT” do not double-click</li>
+<li>Highlight the range D3:D11.</li>
+<li>You can type a closing parenthesis <strong>)</strong> and then press the ENTER key, or simply press the ENTER key and Excel will close the function for you.&nbsp;The function produces an output of 9 since there are 9 items planned on the worksheet.</li>
+</ol>
+<p><strong>Figure 2.14 </strong>shows the function list box that appears after completing steps 2 and 3 for the COUNT function. The function list provides an alternative method for adding a function to a worksheet.</p>
+<figure><img alt="Press Shift + F3 to open the function search/picker. Search for a function, or use up/down arrows to scroll through function list." height="472" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.14-1024x645.png" width="749"><figcaption>Figure 2.14 Using the Function List to Add the COUNT Function</figcaption></figure>
+<p><strong>Figure 2.15</strong> shows the output of the COUNT function after pressing the ENTER key. The function counts the number of cells in the range D3:D11 that contain a numeric value. The result of 9 indicates that there are 9 categories planned for this budget.</p>
+<figure><img alt="&quot;=COUNT(D3:D11)&quot; appears in formula bar, and output &quot;9&quot; appears in cell D13." height="496" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.15-1024x706.png" width="719"><figcaption>Figure 2.15 Completed COUNT Function in the Budget Detail Worksheet</figcaption></figure>
+<h2 id="the-average-function">The AVERAGE Function</h2>
+<p>The next function we will add to the&nbsp;<strong>Budget Detail</strong>&nbsp;worksheet is the AVERAGE function. This function is used to calculate the arithmetic mean for a group of numbers. For the&nbsp;<strong>Budget Detail&nbsp;</strong>worksheet, we will use the function to calculate the average of the values in the Annual Spend column. We will add this to the worksheet by using the Function Library on the&nbsp; Formulas ribbon. The following steps explain how this is accomplished:</p>
+<ol>
+<li>Click cell D14 in the&nbsp;<strong>Budget Detail</strong>&nbsp;worksheet.</li>
+<li>Click the Formulas tab on the Ribbon.</li>
+<li>Click the More Functions button in the Function Library group of commands.</li>
+<li>Place the mouse pointer over the Statistical option from the drop-down list of options.</li>
+<li>Click the AVERAGE function name from the list of functions that appear in the menu (see <strong>Figure 2.16</strong>). This opens the Function Arguments dialog box.</li>
+<li>Click the Collapse Dialog button in the Function Arguments dialog box (see <strong>Figure 2.17</strong>).<br>
+<img alt="Excel for Mac icon" height="19" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="17">&nbsp;For Mac Users,&nbsp;the Collapse Dialog button may not collapse. Just continue with Step 7 and press Enter after selecting the range.</li>
+<li>Highlight the range D3:D11.</li>
+<li>Click the Expand Dialog button in the Function Arguments dialog box (see <strong>Figure 2.18</strong>). You can also press the ENTER key to get the same result.</li>
+<li>Click the OK button on the Function Arguments dialog box. This adds the AVERAGE function to the worksheet.<br>
+<img alt="Excel for Mac icon" height="19" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="17">&nbsp;Mac Users should click the&nbsp;<strong>DONE</strong> button</li>
+</ol>
+<p><strong>Figure 2.16</strong> illustrates how a function is selected from the Function Library in the Formulas tab of the Ribbon.</p>
+<figure><img alt="Function Library" height="641" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.16-1024x773.png" width="849"><figcaption>Figure 2.16 Selecting the AVERAGE function from the Function Library</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Note</p>
+<details>
+<summary>Figure 2.16 Image Description</summary>
+<p>Press F6 until ribbon pane is activated, then M to select Formulas, then Q to select More Functions. Press S to select Statistical menu item, then scroll down to select the Average function.</p>
+</details>
+</div>
+<p><strong>Figure 2.17</strong> shows the Function Arguments dialog box. This appears after a function is selected from the Function Library. The Collapse Dialog button is used to hide the dialog box so a range of cells can be highlighted on the worksheet and then added to the function.</p>
+<figure><img alt="Function Arguments dialog box open to Average function, with function definition, and Collapse Dialog button." height="283" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.17.png" width="526"><figcaption>Figure 2.17 Function Arguments Dialog Box</figcaption></figure>
+<p><strong>Figure 2.18</strong> shows how a range of cells can be selected from the Function Arguments dialog box once it has been collapsed.</p>
+<figure><img alt="When Function Arguments dialog box is collapsed, cell range can be highlighted with function appearing in cell as it is being built." height="468" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.18-1024x699.png" width="686"><figcaption>Figure 2.18 Selecting a range from the Function Arguments Dialog Box</figcaption></figure>
+<p><strong>Figure 2.19 </strong>shows the Function Arguments dialog box after the cell range is defined for the AVERAGE function. The dialog box shows the result of the function before it is added to the cell location. This allows you to assess the function output to determine whether it makes sense before adding it to the worksheet.</p>
+<figure><img alt="Function Arguments dialog box shows first few values next to cell range, and output of function appears both in center of box and at bottom as &quot;formula result&quot;." height="310" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.19.png" width="578"><figcaption>Figure 2.19 Function Arguments Dialog Box after a Cell Range Is Defined for a Function</figcaption></figure>
+<p><strong>Figure 2.20</strong> shows the completed AVERAGE function in the&nbsp;<strong>Budget Detail</strong> worksheet. The output of the function shows that on average we expect to spend $1,903 for each of the categories listed in Column A of the budget. This average spend calculation per category can be used as an indicator to determine which categories are costing more or less than the average budgeted spend dollars.</p>
+<figure><img alt="The AVERAGE function at top of worksheet as &quot;=AVERAGE(D:3D11)&quot; and output of &quot;$1,903&quot; in cell D14." height="464" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.20-1024x759.png" width="625"><figcaption>Figure 2.20 Completed AVERAGE function</figcaption></figure>
+<h2 id="the-max-and-min-functions">The MAX and MIN Functions</h2>
+<p><em>Data file: Continue with CH2 Personal Budget.</em></p>
+<p>The final two statistical functions that we will add to the&nbsp;<strong>Budget Detail</strong> worksheet are the MAX and MIN functions. These functions identify the highest and lowest values in a range of cells. The following steps explain how to add these functions to the&nbsp;<strong>Budget Detail</strong> worksheet using the Insert Function button:</p>
+<ol>
+<li>Click cell D15 in the&nbsp;<strong>Budget Det</strong>ail&nbsp;worksheet.</li>
+<li>Click the Insert Function button on the Formulas ribbon. (see <strong>Figure 2.21</strong>)</li>
+<li>This brings up the Insert Function dialog box.&nbsp; Type the word <strong>MIN&nbsp;</strong>in the search box and then click the Go button. (see <strong>Figure 2.22</strong>)</li>
+<li>Double-click MIN in the list. This opens the Function Arguments dialog box.</li>
+<li>Click the Collapse Dialog button in the Function Arguments dialog box.</li>
+<li>Highlight the range D3:D11.</li>
+<li>Click the Expand Dialog button in the Function Arguments dialog box.</li>
+<li>Click the OK button on the Function Arguments dialog box. This adds the MIN function to the worksheet. (see&nbsp;<strong>Figure 2.23)</strong></li>
+<li>Click cell D16.</li>
+<li>Repeat steps 2-8 (using MAX instead of MIN) to add the MAX function to the worksheet. (see&nbsp;<strong>Figure 2.24</strong>)</li>
+</ol>
+<figure><img alt="Formulas Ribbon with box around the Insert Function button" height="128" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.21.png" width="655"><figcaption>Figure 2.21 Insert Function button on the Formulas Ribbon</figcaption></figure>
+<figure><img alt="Insert Function dialog box with MIN typed in the Search box, Go button highlighted, and MIN selected in the function list" height="345" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.22.png" width="459"><figcaption>Figure 2.22 Insert Function Dialog Box</figcaption></figure>
+<figure><img alt="The MIN function in formula as &quot;=MIN(D3:D11)&quot; and output of &quot;$1,200&quot; in cell D15 for Minimum Spent" height="542" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.23.png" width="637"><figcaption>2.23 MIN function added to the Budget Detail worksheet</figcaption></figure>
+<figure><img alt="The MAX function in formula as &quot;=MAX(D3:D11)&quot; and output of &quot;$3,600&quot; in cell D16 for Maximum Spent" height="540" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.24.png" width="644"><figcaption>Figure 2.24 MAX function added to the Budget Detail worksheet</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Skill Refresher</p>
+
+<p><b>Typing a function or selecting from the function list</b></p>
+<ol>
+<li>Type an equal sign <strong>=</strong>.</li>
+<li>Type the function name followed by an open parenthesis <strong>(</strong>&nbsp;or double click the function name from the function list.</li>
+<li>Highlight the range of cells to use or click individual cell locations followed by commas.</li>
+<li>Type a closing parenthesis <strong>)</strong> and press the ENTER key or press the ENTER key to close the function.</li>
+</ol>
+<p><b>Inserting a function using the ribbon</b></p>
+<ol>
+<li>On the Formulas ribbon, select the correct category in the Function Library.&nbsp; &nbsp;Click the desired function in the list.</li>
+<li>In the Function Dialog box, click the Collapse Dialog button and highlight the range of cells to use.</li>
+<li>Click the Expand Dialog button and then click the OK button in the Function Arguments dialog box.</li>
+</ol>
+<p><strong>Inserting (and searching for) a function using the Insert Function button</strong></p>
+<ol>
+<li>On the Formulas ribbon, click the Insert Function button and search for the function to use.&nbsp; Double-click on the desired function in the list.</li>
+<li>In the Function Dialog box, click the Collapse Dialog button and highlight the range of cells to use.</li>
+<li>Click the Expand Dialog button and then click the OK button in the Function Arguments dialog box.</li>
+</ol>
+</div>
+<h2 id="copy-and-paste-formulas-pasting-without-formats">Copy and Paste Formulas (Pasting without Formats)</h2>
+<p><em>Data file: Continue with CH2 Personal Budget.</em></p>
+<p>As shown in <strong>Figure 2.24</strong>, the COUNT, AVERAGE, MIN, and MAX functions are summarizing the data in the Annual Spend column. You will also notice that there is space to copy and paste these functions under the Last Year Spend column. This allows us to compare what we spent last year and what we are planning to spend this year. Normally, we would simply copy and paste these functions into the range E14:E16. However, you may have noticed the thicker style border that was used around the perimeter of the range D13:E16. If we used the regular Paste command, the thick line on the right side of the range D13:E16 would be replaced with a single line. Therefore, we are going to use one of the Paste Special commands to paste only the functions without any of the formatting treatments. This is accomplished through the following steps:</p>
+<ol>
+<li>Highlight the range D14:D16 in the <strong>Budget Detail</strong>&nbsp;worksheet.</li>
+<li>Click the Copy button in the Home tab of the Ribbon.</li>
+<li>Click cell E14.</li>
+<li>Click the down arrow below the Paste button in the Home tab of the Ribbon.</li>
+<li>Click the Formulas option from the drop-down list of buttons (see <strong>Figure 2.25</strong>).</li>
+</ol>
+<p><strong>Figure 2.25</strong> shows the list of buttons that appear when you click the down arrow below the Paste button in the Home tab of the Ribbon. One thing to note about these options is that you can preview them before you make a selection by dragging the mouse pointer over the options. When the mouse pointer is placed over the Formulas button, you can see how the functions will appear before making a selection. Notice that the thick line border does not change when this option is previewed. That is why this selection is made instead of the regular Paste option.</p>
+<figure><img alt="Press Ctrl + Alt + V for Paste Special menu, then F to select Functions, or R to select formulas and number functions." height="311" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.25.png" width="400"><figcaption>Figure 2.25 Paste Formulas Option</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Skill Refresher</p>
+
+<p><strong>Paste Formulas without formatting</strong></p>
+<ol>
+<li>Click a cell location containing a formula or function.</li>
+<li>Click the Copy button in the Home tab of the Ribbon.</li>
+<li>Click the cell location or cell range where the formula or function will be pasted.</li>
+<li>Click the down arrow below the Paste button in the Home tab of the Ribbon.</li>
+<li>Click the Formulas button under the Paste group of buttons.</li>
+</ol>
+</div>
+<h2 id="absolute-references-calculating-percent-of-totals">Absolute References (Calculating Percent of Totals)</h2>
+<p><em>Data file: Continue with CH2 Personal Budget.</em></p>
+<p>To further analyze your budget, you want to see what percentage of your total monthly spending is spent in each category. Since totals were added to row 12 of the <strong>Budget Detail</strong> worksheet, a percent of total calculation can be added to Column C beginning in cell C3. The percent of total calculation shows the percentage for each value in the Monthly Spend column with respect to the total in cell B12. However, after the formula is created, it will be necessary to turn off Excel’s relative referencing feature before copying and pasting the formula to the rest of the cell locations in the column. Turning off Excel’s relative referencing feature is accomplished through an absolute reference.</p>
+<p>First we will create the formula, which needs needs to divide the amount in B3 by the total monthly spend in B12.</p>
+<ol>
+<li>Click cell C3 in the <strong>Budget Detail</strong>&nbsp;worksheet.</li>
+<li>Type an equal sign <strong>=</strong>.</li>
+<li>Click cell B3.</li>
+<li>Type a forward slash <strong>/</strong>.</li>
+<li>Click cell B12.</li>
+<li>Press the ENTER key. You will see that Utilities represent about 17.5% of the Monthly Spend budget (see <strong>Figure 2.26</strong>).</li>
+</ol>
+<figure><img alt="Utilities represents about 17.5% of total Monthly Spend from cell B12 when formula &quot;=B3/B12&quot; is entered in cell C3" height="326" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.26.png" width="405"><figcaption>Figure 2.26 Adding a Formula to Calculate the Percent of Total</figcaption></figure>
+<p><strong>Figure 2.26</strong> shows the completed formula that is calculating the percentage that Utilities represents to the total Monthly Spend for the budget (see cell C3). Normally, we would copy this formula and paste it into the range C4:C11. However, because of relative referencing, both cell references will increase by one row as the formula is pasted into the cells below C3. This is fine for the first cell reference in the formula (C3) but not for the second cell reference (C12).</p>
+<p><strong>Figure 2.27</strong> illustrates what happens if we paste the formula into the range C4:C12 in its current state. Notice that Excel produces the <strong>#DIV/0</strong> error code. This means that Excel is trying to divide a number by zero, which is impossible. Looking at the formula in cell C4, you see that the first cell reference was changed from B3 to B4. This is fine because we now want to divide the Monthly Spend for Cell Phone (cell B4) by the total Monthly Spend in cell B12. However, Excel has also changed the B12 cell reference to B13. Because cell location B13 does not contain a number, the formula produces the #DIV/0 error code.</p>
+<figure><img alt="Relative Referencing changed cell reference to B13 which contains text, causing divide by zero code &quot;#DIV/0!&quot; to appear repeatedly in Column C." height="515" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.27.png" width="532"><figcaption>Figure 2.27 #DIV/0 Error from Relative Referencing</figcaption></figure>
+<p>To eliminate the divide-by-zero error shown in <strong>Figure 2.27</strong> we must add an absolute reference to cell B12 in the formula. An absolute reference prevents relative referencing from changing a cell reference in a formula. This is also referred to as locking a cell. No matter where you copy a formula with an absolute reference, it will always refer back to the locked cell.&nbsp; An absolute reference is indicated by a $ sign in front of both the column letter and the row number.&nbsp; For example, <strong>$A$15</strong> is an absolute reference to cell A15.</p>
+<p>$A$15 is an example of<br>
+an absolute reference</p>
+<p>We are going to modify the existing formula in C3 to make the reference to cell B12 an absolute reference. The following explains how this is accomplished:</p>
+<ol>
+<li>Double click cell C3.</li>
+<li>Place the mouse pointer in front of B12 and click. The blinking cursor should be in front of the B in the cell reference B12.</li>
+<li>Press the F4 key. You will see a dollar sign ($) added in front of the column letter B and the row number 12. <em>You can also type the dollar signs in front of the column letter and row number if you prefer. The formula should appear as =B3/$B$12. The&nbsp;<strong>F4</strong> key is a cool shortcut for adding the dollar signs.<br>
+<img alt="Excel for Mac icon" height="19" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="17">&nbsp;</em>Mac Users: If the <strong>F4</strong>&nbsp;key does not insert the $ symbols, check the keyboard settings: click black Apple icon <img alt="black apple icon" height="25" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/blackappleicon.png" width="25">at top left of the screen, choose “<strong>System Preferences</strong>”, click the <strong>Keyboard icon</strong>, make sure the checkbox is checked for the item that says: “Use F1, F2, etc. as standard function keys”.</li>
+<li>Press the ENTER key.</li>
+<li>Click cell C3.</li>
+<li>Use the AutoFill Handle or Copy and Paste to copy the formula from C3 to the range C4:C11.</li>
+</ol>
+<p><strong>Figure 2.28</strong> shows the percent of total formula with an absolute reference added to B12. Notice that in cell C4, the cell reference remains B12 instead of changing to B13. Also, you will see that the percentages are being calculated in the rest of the cells in the column, and the divide-by-zero error is now eliminated.</p>
+<figure><img alt="Absolute Reference" height="542" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.28.png" width="554"><figcaption>Figure 2.28 Adding an Absolute Reference to a Cell Reference in a Formula</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Note</p>
+<details>
+<summary>Figure 2.28 Image Description</summary>
+<p>Dollar signs in formula indicate that Absolute Reference was added to the cell reference for B12, allowing calculations in remaining cells of column, eliminating the divide-by-zero error indicator.</p>
+</details>
+</div>
+<div class="box box-callout"><p class="box-title">Skill Refresher</p>
+
+<p><strong>Absolute References</strong></p>
+<ol>
+<li>Click in front of the column letter of a cell reference in a formula or function that you do not want altered when the formula or function is pasted into a new cell location.</li>
+<li>Press the F4 key or type a dollar sign $ in front of the column letter and row number of the cell reference.</li>
+</ol>
+</div>
+<h2 id="sorting-data-multiple-levels">Sorting Data (Multiple Levels)</h2>
+<p><em>Data file: Continue with CH2 Personal Budget.</em></p>
+<p>The&nbsp;<strong>Budget Detail</strong>&nbsp;worksheet shown in <strong>Figure 2.28</strong> is now producing several mathematical outputs through formulas and functions. The outputs allow you to analyze the details and identify trends as to how money is being budgeted and spent. Before we draw some conclusions from this worksheet, we will sort the data based on the Percent of Total column. Sorting is a powerful tool that enables you to analyze key trends in any data set. Sorting will be covered thoroughly in a later chapter, but will be briefly introduced here.</p>
+<p>For the purposes of the&nbsp;<strong>Budget Detail</strong> worksheet, we want to set multiple levels for the sort order.&nbsp; We are going to sort first by the Percent of Total, and then by the Last Year Spend amount.&nbsp; Excel will first sort the items by the Percent of Total, and any items with the same Percent of Total will then be sorted by Last Year Spend. This is accomplished through the following steps:</p>
+<ol>
+<li>Highlight the range A2:F11.</li>
+<li>Click the Data tab in the Ribbon.</li>
+<li>Click the Sort button in the Sort &amp; Filter group of commands. This opens the Sort dialog box, as shown in <strong>Figure 2.29</strong>.</li>
+<li>Click the down arrow next to the “Sort by” box.</li>
+<li>Click the Percent of Total option from the drop-down list.</li>
+<li>Click the down arrow next to the sort Order box.</li>
+<li>Click the Largest to Smallest option.</li>
+<li>Click the Add Level button. This allows you to set a second level for any duplicate values in the Percent of Total column.<br>
+<em><img alt="Excel for Mac icon" height="19" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="17">&nbsp;the&nbsp;<strong>+</strong> symbol at bottom left corner is the “Add Level” button for Excel for Mac</em></li>
+<li>Click the down arrow next to the “Then by” box.</li>
+<li>Select the Last Year Spend option. Leave the Sort Order as Smallest to Largest</li>
+<li>Click the OK button at the bottom of the Sort dialog box.</li>
+<li>Save the <strong>CH2 Personal Budget</strong> file.</li>
+</ol>
+<figure><img alt="Sort Dialog Box" height="585" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.29-1024x585.png" width="1024"><figcaption>2.29 Sort Dialog Box</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Note</p>
+<details>
+<summary>Figure 2.29 Image Description</summary>
+<p>Sort Dialog Box with Add Level Button, down arrow for Sort by, Sort On, and Sort Order Box. Percent of Total selected in Sort by box. Range A2:F11 is highlighted.</p>
+</details>
+</div>
+<p><strong>Figure 2.30</strong> shows the&nbsp;<strong>Budget Detail</strong> worksheet after it has been sorted. Notice that there are three identical values in the Percent of Total column. This is why a second sort level had to be created for this worksheet. The second sort level arranges the values of 7.01% based on the values in the Last Year Spend column in ascending order. Excel gives you the option to set as many sort levels as necessary for the data contained in a worksheet.</p>
+<figure><img alt="Budget Detail worksheet after Sorting showing duplicate values in Column C of &quot;7.01%&quot;. Primary sort level based on values in Column C &quot;Percent of Total.&quot;" height="529" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/2.30.png" width="675"><figcaption>Figure 2.30 Budget Detail Worksheet after Sorting</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Skill Refresher</p>
+
+<p><strong>Sorting Data (Multiple Levels)</strong></p>
+<ol>
+<li>Highlight a range of cells to be sorted.</li>
+<li>Click the Data tab of the Ribbon.</li>
+<li>Click the Sort button in the Sort &amp; Filter group.</li>
+<li>Select a column from the “Sort by” drop-down list in the Sort dialog box.</li>
+<li>Select a sort order from the Order drop-down list in the Sort dialog box.</li>
+<li>Click the Add Level button in the Sort dialog box.</li>
+<li>Repeat Steps 4 and 5.</li>
+<li>Click the OK button on the Sort dialog box.</li>
+</ol>
+</div>
+
+<div class="box box-keypoints"><p class="box-title">Key Takeaways</p>
+
+<ul>
+<li>Statistical functions are used when a mathematical process is required for a range of cells, such as summing the values in several cell locations. For these computations, functions are preferable to formulas because adding many cell locations one at a time to a formula can be very time-consuming.</li>
+<li>Statistical functions can be created using cell ranges or selected cell locations separated by commas. Make sure you use a cell range (two cell locations separated by a colon) when applying a statistical function to a contiguous range of cells.</li>
+<li>To prevent Excel from changing the cell references in a formula or function when they are pasted to a new cell location, you must use an absolute reference. You can do this by placing a dollar sign ($) in front of the column letter and row number of a cell reference.</li>
+<li>The #DIV/0 error appears if you create a formula that attempts to divide a constant or the value in a cell reference by zero.</li>
+<li>The Paste Formulas option is used when you need to paste formulas without any formatting treatments into cell locations that have already been formatted.</li>
+<li>You need to set multiple levels, or columns, in the Sort dialog box when sorting data that contains several duplicate values.</li>
+</ul>
+</div>
+</div>
+<details class="attrib"><summary>Attribution</summary>
+<p>Adapted by Mary Schatz from <a href="https://saylordotorg.github.io/text_how-to-use-microsoft-excel-v1.1/index.html" target="_blank" rel="noopener noreferrer">How to Use Microsoft Excel: The Careers in Practice Series</a>,&nbsp;adapted by <a href="https://www.saylor.org" target="_blank" rel="noopener noreferrer">The Saylor Foundation</a> without attribution as requested by the work’s original creator or licensee,&nbsp;and licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 3.0</a>.</p>
+</details>

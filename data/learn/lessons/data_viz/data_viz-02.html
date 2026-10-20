@@ -1,0 +1,240 @@
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th><img alt=" Sketchnote by (@sketchthedocs) " loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/sketchnotes/10-Visualizing-Distributions.png"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Visualizing Distributions - <em>Sketchnote by <a href="https://twitter.com/nitya" target="_blank" rel="noopener noreferrer">@nitya</a></em></td>
+</tr>
+</tbody>
+</table></div>
+<p>In the previous lesson, you learned some interesting facts about a dataset about the birds of Minnesota. You found some erroneous data by visualizing outliers and looked at the differences between bird categories by their maximum length.</p>
+
+<h2 id="explore-the-birds-dataset">Explore the birds dataset</h2>
+<p>Another way to dig into data is by looking at its distribution, or how the data is organized along an axis. Perhaps, for example, you'd like to learn about the general distribution, for this dataset, of the maximum wingspan or maximum body mass for the birds of Minnesota.</p>
+<p>Let's discover some facts about the distributions of data in this dataset. In the <em>notebook.ipynb</em> file at the root of this lesson folder, import Pandas, Matplotlib, and your data:</p>
+<pre><code class="language-python">import pandas as pd
+import matplotlib.pyplot as plt
+birds = pd.read_csv('../../data/birds.csv')
+birds.head()
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+<th>ScientificName</th>
+<th>Category</th>
+<th>Order</th>
+<th>Family</th>
+<th>Genus</th>
+<th>ConservationStatus</th>
+<th>MinLength</th>
+<th>MaxLength</th>
+<th>MinBodyMass</th>
+<th>MaxBodyMass</th>
+<th>MinWingspan</th>
+<th>MaxWingspan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Black-bellied whistling-duck</td>
+<td>Dendrocygna autumnalis</td>
+<td>Ducks/Geese/Waterfowl</td>
+<td>Anseriformes</td>
+<td>Anatidae</td>
+<td>Dendrocygna</td>
+<td>LC</td>
+<td>47</td>
+<td>56</td>
+<td>652</td>
+<td>1020</td>
+<td>76</td>
+<td>94</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Fulvous whistling-duck</td>
+<td>Dendrocygna bicolor</td>
+<td>Ducks/Geese/Waterfowl</td>
+<td>Anseriformes</td>
+<td>Anatidae</td>
+<td>Dendrocygna</td>
+<td>LC</td>
+<td>45</td>
+<td>53</td>
+<td>712</td>
+<td>1050</td>
+<td>85</td>
+<td>93</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Snow goose</td>
+<td>Anser caerulescens</td>
+<td>Ducks/Geese/Waterfowl</td>
+<td>Anseriformes</td>
+<td>Anatidae</td>
+<td>Anser</td>
+<td>LC</td>
+<td>64</td>
+<td>79</td>
+<td>2050</td>
+<td>4050</td>
+<td>135</td>
+<td>165</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Ross's goose</td>
+<td>Anser rossii</td>
+<td>Ducks/Geese/Waterfowl</td>
+<td>Anseriformes</td>
+<td>Anatidae</td>
+<td>Anser</td>
+<td>LC</td>
+<td>57.3</td>
+<td>64</td>
+<td>1066</td>
+<td>1567</td>
+<td>113</td>
+<td>116</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Greater white-fronted goose</td>
+<td>Anser albifrons</td>
+<td>Ducks/Geese/Waterfowl</td>
+<td>Anseriformes</td>
+<td>Anatidae</td>
+<td>Anser</td>
+<td>LC</td>
+<td>64</td>
+<td>81</td>
+<td>1930</td>
+<td>3310</td>
+<td>130</td>
+<td>165</td>
+</tr>
+</tbody>
+</table></div>
+<p>In general, you can quickly look at the way data is distributed by using a scatter plot as we did in the previous lesson:</p>
+<pre><code class="language-python">birds.plot(kind='scatter',x='MaxLength',y='Order',figsize=(12,8))
+
+plt.title('Max Length per Order')
+plt.ylabel('Order')
+plt.xlabel('Max Length')
+
+plt.show()
+</code></pre>
+<p><img alt="max length per order" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/10-visualization-distributions/images/scatter-wb.png"></p>
+<p>This gives an overview of the general distribution of body length per bird Order, but it is not the optimal way to display true distributions. That task is usually handled by creating a Histogram.</p>
+<h2 id="working-with-histograms">Working with histograms</h2>
+<p>Matplotlib offers very good ways to visualize data distribution using Histograms. This type of chart is like a bar chart where the distribution can be seen via a rise and fall of the bars. To build a histogram, you need numeric data. To build a Histogram, you can plot a chart defining the kind as 'hist' for Histogram. This chart shows the distribution of MaxBodyMass for the entire dataset's range of numeric data. By dividing the array of data it is given into smaller bins, it can display the distribution of the data's values:</p>
+<pre><code class="language-python">birds['MaxBodyMass'].plot(kind = 'hist', bins = 10, figsize = (12,12))
+plt.show()
+</code></pre>
+<p><img alt="distribution over the entire dataset" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/10-visualization-distributions/images/dist1-wb.png"></p>
+<p>As you can see, most of the 400+ birds in this dataset fall in the range of under 2000 for their Max Body Mass. Gain more insight into the data by changing  the <code>bins</code> parameter to a higher number, something like 30:</p>
+<pre><code class="language-python">birds['MaxBodyMass'].plot(kind = 'hist', bins = 30, figsize = (12,12))
+plt.show()
+</code></pre>
+<p><img alt="distribution over the entire dataset with larger bins param" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/10-visualization-distributions/images/dist2-wb.png"></p>
+<p>This chart shows the distribution in a bit more granular fashion. A chart less skewed to the left could be created by ensuring that you only select data within a given range:</p>
+<p>Filter your data to get only those birds whose body mass is under 60, and show 40 <code>bins</code>:</p>
+<pre><code class="language-python">filteredBirds = birds[(birds['MaxBodyMass'] &gt; 1) &amp; (birds['MaxBodyMass'] &lt; 60)]      
+filteredBirds['MaxBodyMass'].plot(kind = 'hist',bins = 40,figsize = (12,12))
+plt.show()     
+</code></pre>
+<p><img alt="filtered histogram" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/10-visualization-distributions/images/dist3-wb.png"></p>
+<p>✅ Try some other filters and data points. To see the full distribution of the data, remove the <code>['MaxBodyMass']</code> filter to show labeled distributions.</p>
+<p>The histogram offers some nice color and labeling enhancements to try as well:</p>
+<p>Create a 2D histogram to compare the relationship between two distributions. Let's compare <code>MaxBodyMass</code> vs. <code>MaxLength</code>. Matplotlib offers a built-in way to show convergence using brighter colors:</p>
+<pre><code class="language-python">x = filteredBirds['MaxBodyMass']
+y = filteredBirds['MaxLength']
+
+fig, ax = plt.subplots(tight_layout=True)
+hist = ax.hist2d(x, y)
+</code></pre>
+<p>There appears to be an expected correlation between these two elements along an expected axis, with one particularly strong point of convergence:</p>
+<p><img alt="2D plot" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/10-visualization-distributions/images/2D-wb.png"></p>
+<p>Histograms work well by default for numeric data. What if you need to see distributions according to text data?</p>
+<h2 id="explore-the-dataset-for-distributions-using-text-data">Explore the dataset for distributions using text data</h2>
+<p>This dataset also includes good information about the bird category and its genus, species, and family as well as its conservation status. Let's dig into this conservation information. What is the distribution of the birds according to their conservation status?</p>
+<blockquote>
+<p>✅ In the dataset, several acronyms are used to describe conservation status. These acronyms come from the <a href="https://www.iucnredlist.org/" target="_blank" rel="noopener noreferrer">IUCN Red List Categories</a>, an organization that catalogs species' status.</p>
+<ul>
+<li>CR: Critically Endangered</li>
+<li>EN: Endangered</li>
+<li>EX: Extinct</li>
+<li>LC: Least Concern</li>
+<li>NT: Near Threatened</li>
+<li>VU: Vulnerable</li>
+</ul>
+</blockquote>
+<p>These are text-based values so you will need to do a transform to create a histogram. Using the filteredBirds dataframe, display its conservation status alongside its Minimum Wingspan. What do you see?</p>
+<pre><code class="language-python">x1 = filteredBirds.loc[filteredBirds.ConservationStatus=='EX', 'MinWingspan']
+x2 = filteredBirds.loc[filteredBirds.ConservationStatus=='CR', 'MinWingspan']
+x3 = filteredBirds.loc[filteredBirds.ConservationStatus=='EN', 'MinWingspan']
+x4 = filteredBirds.loc[filteredBirds.ConservationStatus=='NT', 'MinWingspan']
+x5 = filteredBirds.loc[filteredBirds.ConservationStatus=='VU', 'MinWingspan']
+x6 = filteredBirds.loc[filteredBirds.ConservationStatus=='LC', 'MinWingspan']
+
+kwargs = dict(alpha=0.5, bins=20)
+
+plt.hist(x1, **kwargs, color='red', label='Extinct')
+plt.hist(x2, **kwargs, color='orange', label='Critically Endangered')
+plt.hist(x3, **kwargs, color='yellow', label='Endangered')
+plt.hist(x4, **kwargs, color='green', label='Near Threatened')
+plt.hist(x5, **kwargs, color='blue', label='Vulnerable')
+plt.hist(x6, **kwargs, color='gray', label='Least Concern')
+
+plt.gca().set(title='Conservation Status', ylabel='Min Wingspan')
+plt.legend();
+</code></pre>
+<p><img alt="wingspan and conservation collation" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/10-visualization-distributions/images/histogram-conservation-wb.png"></p>
+<p>There doesn't seem to be a good correlation between minimum wingspan and conservation status. Test other elements of the dataset using this method. You can try different filters as well. Do you find any correlation?</p>
+<h2 id="density-plots">Density plots</h2>
+<p>You may have noticed that the histograms we have looked at so far are 'stepped' and do not flow smoothly in an arc. To show a smoother density chart, you can try a density plot.</p>
+<p>To work with density plots, familiarize yourself with a new plotting library, <a href="https://seaborn.pydata.org/generated/seaborn.kdeplot.html" target="_blank" rel="noopener noreferrer">Seaborn</a>.</p>
+<p>Loading Seaborn, try a basic density plot:</p>
+<pre><code class="language-python">import seaborn as sns
+import matplotlib.pyplot as plt
+sns.kdeplot(filteredBirds['MinWingspan'])
+plt.show()
+</code></pre>
+<p><img alt="Density plot" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/10-visualization-distributions/images/density1.png"></p>
+<p>You can see how the plot echoes the previous one for Minimum Wingspan data; it's just a bit smoother. According to Seaborn's documentation, "Relative to a histogram, KDE can produce a plot that is less cluttered and more interpretable, especially when drawing multiple distributions. But it has the potential to introduce distortions if the underlying distribution is bounded or not smooth. Like a histogram, the quality of the representation also depends on the selection of good smoothing parameters." <a href="https://seaborn.pydata.org/generated/seaborn.kdeplot.html" target="_blank" rel="noopener noreferrer">source</a> In other words, outliers as always will make your charts behave badly.</p>
+<p>If you wanted to revisit that jagged MaxBodyMass line in the second chart you built, you could smooth it out very well by recreating it using this method:</p>
+<pre><code class="language-python">sns.kdeplot(filteredBirds['MaxBodyMass'])
+plt.show()
+</code></pre>
+<p><img alt="smooth bodymass line" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/10-visualization-distributions/images/density2.png"></p>
+<p>If you wanted a smooth, but not too smooth line, edit the <code>bw_adjust</code> parameter:</p>
+<pre><code class="language-python">sns.kdeplot(filteredBirds['MaxBodyMass'], bw_adjust=.2)
+plt.show()
+</code></pre>
+<p><img alt="less smooth bodymass line" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/10-visualization-distributions/images/density3.png"></p>
+<p>✅ Read about the parameters available for this type of plot and experiment!</p>
+<p>This type of chart offers beautifully explanatory visualizations. With a few lines of code, for example, you can show the max body mass density per bird Order:</p>
+<pre><code class="language-python">sns.kdeplot(
+   data=filteredBirds, x="MaxBodyMass", hue="Order",
+   fill=True, common_norm=False, palette="crest",
+   alpha=.5, linewidth=0,
+)
+</code></pre>
+<p><img alt="bodymass per order" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/10-visualization-distributions/images/density4.png"></p>
+<p>You can also map the density of several variables in one chart. Text the MaxLength and MinLength of a bird compared to their conservation status:</p>
+<pre><code class="language-python">sns.kdeplot(data=filteredBirds, x="MinLength", y="MaxLength", hue="ConservationStatus")
+</code></pre>
+<p><img alt="multiple densities, superimposed" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/10-visualization-distributions/images/multi.png"></p>
+<p>Perhaps it's worth researching whether the cluster of 'Vulnerable' birds according to their lengths is meaningful or not.</p>
+<h2 id="challenge">🚀 Challenge</h2>
+<p>Histograms are a more sophisticated type of chart than basic scatterplots, bar charts, or line charts. Go on a search on the internet to find good examples of the use of histograms. How are they used, what do they demonstrate, and in what fields or areas of inquiry do they tend to be used?</p>
+
+<h2 id="review-self-study">Review &amp; Self Study</h2>
+<p>In this lesson, you used Matplotlib and started working with Seaborn to show more sophisticated charts. Do some research on <code>kdeplot</code> in Seaborn, a "continuous probability density curve in one or more dimensions". Read through <a href="https://seaborn.pydata.org/generated/seaborn.kdeplot.html" target="_blank" rel="noopener noreferrer">the documentation</a> to understand how it works.</p>

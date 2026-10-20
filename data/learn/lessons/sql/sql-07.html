@@ -1,0 +1,935 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Explain the operation of a query that joins two tables.</li>
+<li>Explain how to restrict the output of a query containing a join to only include meaningful combinations of values.</li>
+<li>Write queries that join tables on equal keys.</li>
+<li>Explain what primary and foreign keys are, and why they are useful.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>How can I combine data from multiple tables?</li>
+</ul>
+</div>
+<p>In order to submit our data to a web site
+that aggregates historical meteorological data,
+we might need to format it as
+latitude, longitude, date, quantity, and reading.
+However,
+our latitudes and longitudes are in the <code>Site</code> table,
+while the dates of measurements are in the <code>Visited</code> table
+and the readings themselves are in the <code>Survey</code> table.
+We need to combine these tables somehow.</p>
+<p>This figure shows the relations between the tables:</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/swcarpentry/sql-novice-survey/b55949e9edeecffa554cbc4a36b6dee92a2743f4/episodes/fig/sql-join-structure.svg">{alt='Survey Database Structure'}</p>
+<p>The SQL command to do this is <code>JOIN</code>.
+To see how it works,
+let's start by joining the <code>Site</code> and <code>Visited</code> tables:</p>
+<pre><code class="language-sql">SELECT * FROM Site JOIN Visited;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>name</th>
+<th>lat</th>
+<th>long</th>
+<th>id</th>
+<th>site</th>
+<th>dated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DR-1</td>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>619</td>
+<td>DR-1</td>
+<td>1927-02-08</td>
+</tr>
+<tr>
+<td>DR-1</td>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>622</td>
+<td>DR-1</td>
+<td>1927-02-10</td>
+</tr>
+<tr>
+<td>DR-1</td>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>734</td>
+<td>DR-3</td>
+<td>1930-01-07</td>
+</tr>
+<tr>
+<td>DR-1</td>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>735</td>
+<td>DR-3</td>
+<td>1930-01-12</td>
+</tr>
+<tr>
+<td>DR-1</td>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>751</td>
+<td>DR-3</td>
+<td>1930-02-26</td>
+</tr>
+<tr>
+<td>DR-1</td>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>752</td>
+<td>DR-3</td>
+<td>-null-</td>
+</tr>
+<tr>
+<td>DR-1</td>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>837</td>
+<td>MSK-4</td>
+<td>1932-01-14</td>
+</tr>
+<tr>
+<td>DR-1</td>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>844</td>
+<td>DR-1</td>
+<td>1932-03-22</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>619</td>
+<td>DR-1</td>
+<td>1927-02-08</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>622</td>
+<td>DR-1</td>
+<td>1927-02-10</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>734</td>
+<td>DR-3</td>
+<td>1930-01-07</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>735</td>
+<td>DR-3</td>
+<td>1930-01-12</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>751</td>
+<td>DR-3</td>
+<td>1930-02-26</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>752</td>
+<td>DR-3</td>
+<td>-null-</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>837</td>
+<td>MSK-4</td>
+<td>1932-01-14</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>844</td>
+<td>DR-1</td>
+<td>1932-03-22</td>
+</tr>
+<tr>
+<td>MSK-4</td>
+<td>-48.87</td>
+<td>-123.4</td>
+<td>619</td>
+<td>DR-1</td>
+<td>1927-02-08</td>
+</tr>
+<tr>
+<td>MSK-4</td>
+<td>-48.87</td>
+<td>-123.4</td>
+<td>622</td>
+<td>DR-1</td>
+<td>1927-02-10</td>
+</tr>
+<tr>
+<td>MSK-4</td>
+<td>-48.87</td>
+<td>-123.4</td>
+<td>734</td>
+<td>DR-3</td>
+<td>1930-01-07</td>
+</tr>
+<tr>
+<td>MSK-4</td>
+<td>-48.87</td>
+<td>-123.4</td>
+<td>735</td>
+<td>DR-3</td>
+<td>1930-01-12</td>
+</tr>
+<tr>
+<td>MSK-4</td>
+<td>-48.87</td>
+<td>-123.4</td>
+<td>751</td>
+<td>DR-3</td>
+<td>1930-02-26</td>
+</tr>
+<tr>
+<td>MSK-4</td>
+<td>-48.87</td>
+<td>-123.4</td>
+<td>752</td>
+<td>DR-3</td>
+<td>-null-</td>
+</tr>
+<tr>
+<td>MSK-4</td>
+<td>-48.87</td>
+<td>-123.4</td>
+<td>837</td>
+<td>MSK-4</td>
+<td>1932-01-14</td>
+</tr>
+<tr>
+<td>MSK-4</td>
+<td>-48.87</td>
+<td>-123.4</td>
+<td>844</td>
+<td>DR-1</td>
+<td>1932-03-22</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>JOIN</code> creates
+the <a href="https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/learners/reference.md#cross-product" target="_blank" rel="noopener noreferrer">cross product</a>
+of two tables,
+i.e.,
+it joins each record of one table with each record of the other table
+to give all possible combinations.
+Since there are three records in <code>Site</code>
+and eight in <code>Visited</code>,
+the join's output has 24 records (3 * 8 = 24) .
+And since each table has three fields,
+the output has six fields (3 + 3 = 6).</p>
+<p>What the join <em>hasn't</em> done is
+figure out if the records being joined have anything to do with each other.
+It has no way of knowing whether they do or not until we tell it how.
+To do that,
+we add a clause specifying that
+we're only interested in combinations that have the same site name,
+thus we need to use a filter:</p>
+<pre><code class="language-sql">SELECT
+  *
+FROM
+  Site
+  JOIN Visited ON Site.name = Visited.site;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>name</th>
+<th>lat</th>
+<th>long</th>
+<th>id</th>
+<th>site</th>
+<th>dated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DR-1</td>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>619</td>
+<td>DR-1</td>
+<td>1927-02-08</td>
+</tr>
+<tr>
+<td>DR-1</td>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>622</td>
+<td>DR-1</td>
+<td>1927-02-10</td>
+</tr>
+<tr>
+<td>DR-1</td>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>844</td>
+<td>DR-1</td>
+<td>1932-03-22</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>734</td>
+<td>DR-3</td>
+<td>1930-01-07</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>735</td>
+<td>DR-3</td>
+<td>1930-01-12</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>751</td>
+<td>DR-3</td>
+<td>1930-02-26</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>752</td>
+<td>DR-3</td>
+<td>-null-</td>
+</tr>
+<tr>
+<td>MSK-4</td>
+<td>-48.87</td>
+<td>-123.4</td>
+<td>837</td>
+<td>MSK-4</td>
+<td>1932-01-14</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>ON</code> is very similar to <code>WHERE</code>,
+and for all the queries in this lesson you can use them interchangeably.
+There are differences in how they affect <a href="https://en.wikipedia.org/wiki/Join_%28SQL%29#Outer_join" target="_blank" rel="noopener noreferrer">outer joins</a>,
+but that's beyond the scope of this lesson.
+Once we add this to our query,
+the database manager throws away records
+that combined information about two different sites,
+leaving us with just the ones we want.</p>
+<p>Notice that we used <code>Table.field</code> to specify field names
+in the output of the join.
+We do this because tables can have fields with the same name,
+and we need to be specific which ones we're talking about.
+For example,
+if we joined the <code>Person</code> and <code>Visited</code> tables,
+the result would inherit a field called <code>id</code>
+from each of the original tables.</p>
+<p>We can now use the same dotted notation
+to select the three columns we actually want
+out of our join:</p>
+<pre><code class="language-sql">SELECT
+  Site.lat,
+  Site.long,
+  Visited.dated
+FROM
+  Site
+  JOIN Visited ON Site.name = Visited.site;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>lat</th>
+<th>long</th>
+<th>dated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>1927-02-08</td>
+</tr>
+<tr>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>1927-02-10</td>
+</tr>
+<tr>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>1932-03-22</td>
+</tr>
+<tr>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>-null-</td>
+</tr>
+<tr>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>1930-01-12</td>
+</tr>
+<tr>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>1930-02-26</td>
+</tr>
+<tr>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>1930-01-07</td>
+</tr>
+<tr>
+<td>-48.87</td>
+<td>-123.4</td>
+<td>1932-01-14</td>
+</tr>
+</tbody>
+</table></div>
+<p>If joining two tables is good,
+joining many tables must be better.
+In fact,
+we can join any number of tables
+simply by adding more <code>JOIN</code> clauses to our query,
+and more <code>ON</code> tests to filter out combinations of records
+that don't make sense:</p>
+<pre><code class="language-sql">SELECT
+  Site.lat,
+  Site.long,
+  Visited.dated,
+  Survey.quant,
+  Survey.reading
+FROM 
+  Site
+  JOIN Visited
+  JOIN Survey ON Site.name = Visited.site
+  AND Visited.id = Survey.taken
+  AND Visited.dated IS NOT NULL;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>lat</th>
+<th>long</th>
+<th>dated</th>
+<th>quant</th>
+<th>reading</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>1927-02-08</td>
+<td>rad</td>
+<td>9.82</td>
+</tr>
+<tr>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>1927-02-08</td>
+<td>sal</td>
+<td>0.13</td>
+</tr>
+<tr>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>1927-02-10</td>
+<td>rad</td>
+<td>7.8</td>
+</tr>
+<tr>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>1927-02-10</td>
+<td>sal</td>
+<td>0.09</td>
+</tr>
+<tr>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>1930-01-07</td>
+<td>rad</td>
+<td>8.41</td>
+</tr>
+<tr>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>1930-01-07</td>
+<td>sal</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>1930-01-07</td>
+<td>temp</td>
+<td>-21.5</td>
+</tr>
+<tr>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>1930-01-12</td>
+<td>rad</td>
+<td>7.22</td>
+</tr>
+<tr>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>1930-01-12</td>
+<td>sal</td>
+<td>0.06</td>
+</tr>
+<tr>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>1930-01-12</td>
+<td>temp</td>
+<td>-26.0</td>
+</tr>
+<tr>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>1930-02-26</td>
+<td>rad</td>
+<td>4.35</td>
+</tr>
+<tr>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>1930-02-26</td>
+<td>sal</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>1930-02-26</td>
+<td>temp</td>
+<td>-18.5</td>
+</tr>
+<tr>
+<td>-48.87</td>
+<td>-123.4</td>
+<td>1932-01-14</td>
+<td>rad</td>
+<td>1.46</td>
+</tr>
+<tr>
+<td>-48.87</td>
+<td>-123.4</td>
+<td>1932-01-14</td>
+<td>sal</td>
+<td>0.21</td>
+</tr>
+<tr>
+<td>-48.87</td>
+<td>-123.4</td>
+<td>1932-01-14</td>
+<td>sal</td>
+<td>22.5</td>
+</tr>
+<tr>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>1932-03-22</td>
+<td>rad</td>
+<td>11.25</td>
+</tr>
+</tbody>
+</table></div>
+<p>We can tell which records from <code>Site</code>, <code>Visited</code>, and <code>Survey</code>
+correspond with each other
+because those tables contain
+<a href="https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/learners/reference.md#primary-key" target="_blank" rel="noopener noreferrer">primary keys</a>
+and <a href="https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/learners/reference.md#foreign-key" target="_blank" rel="noopener noreferrer">foreign keys</a>.
+A primary key is a value,
+or combination of values,
+that uniquely identifies each record in a table.
+A foreign key is a value (or combination of values) from one table
+that identifies a unique record in another table.
+Another way of saying this is that
+a foreign key is the primary key of one table
+that appears in some other table.
+In our database,
+<code>Person.id</code> is the primary key in the <code>Person</code> table,
+while <code>Survey.person</code> is a foreign key
+relating the <code>Survey</code> table's entries
+to entries in <code>Person</code>.</p>
+<p>Most database designers believe that
+every table should have a well-defined primary key.
+They also believe that this key should be separate from the data itself,
+so that if we ever need to change the data,
+we only need to make one change in one place.
+One easy way to do this is
+to create an arbitrary, unique ID for each record
+as we add it to the database.
+This is actually very common:
+those IDs have names like "student numbers" and "patient numbers",
+and they almost always turn out to have originally been
+a unique record identifier in some database system or other.
+As the query below demonstrates,
+SQLite <a href="https://www.sqlite.org/lang_createtable.html#rowid" target="_blank" rel="noopener noreferrer">automatically numbers records</a> as they're added to tables,
+and we can use those record numbers in queries:</p>
+<pre><code class="language-sql">SELECT rowid, * FROM Person;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>rowid</th>
+<th>id</th>
+<th>personal</th>
+<th>family</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>dyer</td>
+<td>William</td>
+<td>Dyer</td>
+</tr>
+<tr>
+<td>2</td>
+<td>pb</td>
+<td>Frank</td>
+<td>Pabodie</td>
+</tr>
+<tr>
+<td>3</td>
+<td>lake</td>
+<td>Anderson</td>
+<td>Lake</td>
+</tr>
+<tr>
+<td>4</td>
+<td>roe</td>
+<td>Valentina</td>
+<td>Roerich</td>
+</tr>
+<tr>
+<td>5</td>
+<td>danforth</td>
+<td>Frank</td>
+<td>Danforth</td>
+</tr>
+</tbody>
+</table></div>
+<div class="box box-challenge">
+<p class="box-title">Listing Radiation Readings</p>
+
+<p>Write a query that lists all radiation readings from the DR-1 site.</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<pre><code class="language-sql">SELECT
+   Survey.reading
+FROM
+   Site
+   JOIN
+      Visited
+  JOIN
+      Survey
+      ON Site.name = Visited.site
+      AND Visited.id = Survey.taken
+WHERE
+   Site.name = 'DR-1'
+   AND Survey.quant = 'rad';
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>reading</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9.82</td>
+</tr>
+<tr>
+<td>7.8</td>
+</tr>
+<tr>
+<td>11.25</td>
+</tr>
+</tbody>
+</table></div>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Where's Frank?</p>
+
+<p>Write a query that lists all sites visited by people named "Frank".</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x">Solution</h2>
+<pre><code class="language-sql">SELECT
+  DISTINCT Site.name
+FROM
+  Site
+  JOIN Visited
+  JOIN Survey
+  JOIN Person ON Site.name = Visited.site
+  AND Visited.id = Survey.taken
+  AND Survey.person = Person.id
+WHERE
+  Person.personal = 'Frank';
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DR-3</td>
+</tr>
+</tbody>
+</table></div>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Reading Queries</p>
+
+<p>Describe in your own words what the following query produces:</p>
+<pre><code class="language-sql">SELECT Site.name FROM Site JOIN Visited
+ON Site.lat &lt; -49.0 AND Site.name = Visited.site AND Visited.dated &gt;= '1932-01-01';
+</code></pre>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Who Has Been Where?</p>
+
+<p>Write a query that shows each site with exact location (lat, long) ordered by visited date,
+followed by personal name and family name of the person who visited the site
+and the type of measurement taken and its reading. Please avoid all null values.
+Tip: you should get 15 records with 8 fields.</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x">Solution</h2>
+<pre><code class="language-sql">SELECT Site.name, Site.lat, Site.long, Person.personal, Person.family, Survey.quant, Survey.reading, Visited.dated
+FROM
+   Site
+   JOIN
+      Visited
+   JOIN
+      Survey
+   JOIN
+      Person
+      ON Site.name = Visited.site
+      AND Visited.id = Survey.taken
+      AND Survey.person = Person.id
+WHERE
+   Survey.person IS NOT NULL
+   AND Visited.dated IS NOT NULL
+ORDER BY
+   Visited.dated;
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>name</th>
+<th>lat</th>
+<th>long</th>
+<th>personal</th>
+<th>family</th>
+<th>quant</th>
+<th>reading</th>
+<th>dated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DR-1</td>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>William</td>
+<td>Dyer</td>
+<td>rad</td>
+<td>9.82</td>
+<td>1927-02-08</td>
+</tr>
+<tr>
+<td>DR-1</td>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>William</td>
+<td>Dyer</td>
+<td>sal</td>
+<td>0.13</td>
+<td>1927-02-08</td>
+</tr>
+<tr>
+<td>DR-1</td>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>William</td>
+<td>Dyer</td>
+<td>rad</td>
+<td>7.8</td>
+<td>1927-02-10</td>
+</tr>
+<tr>
+<td>DR-1</td>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>William</td>
+<td>Dyer</td>
+<td>sal</td>
+<td>0.09</td>
+<td>1927-02-10</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>Anderson</td>
+<td>Lake</td>
+<td>sal</td>
+<td>0.05</td>
+<td>1930-01-07</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>Frank</td>
+<td>Pabodie</td>
+<td>rad</td>
+<td>8.41</td>
+<td>1930-01-07</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>Frank</td>
+<td>Pabodie</td>
+<td>temp</td>
+<td>-21.5</td>
+<td>1930-01-07</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>Frank</td>
+<td>Pabodie</td>
+<td>rad</td>
+<td>7.22</td>
+<td>1930-01-12</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>Anderson</td>
+<td>Lake</td>
+<td>sal</td>
+<td>0.1</td>
+<td>1930-02-26</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>Frank</td>
+<td>Pabodie</td>
+<td>rad</td>
+<td>4.35</td>
+<td>1930-02-26</td>
+</tr>
+<tr>
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+<td>Frank</td>
+<td>Pabodie</td>
+<td>temp</td>
+<td>-18.5</td>
+<td>1930-02-26</td>
+</tr>
+<tr>
+<td>MSK-4</td>
+<td>-48.87</td>
+<td>-123.4</td>
+<td>Anderson</td>
+<td>Lake</td>
+<td>rad</td>
+<td>1.46</td>
+<td>1932-01-14</td>
+</tr>
+<tr>
+<td>MSK-4</td>
+<td>-48.87</td>
+<td>-123.4</td>
+<td>Anderson</td>
+<td>Lake</td>
+<td>sal</td>
+<td>0.21</td>
+<td>1932-01-14</td>
+</tr>
+<tr>
+<td>MSK-4</td>
+<td>-48.87</td>
+<td>-123.4</td>
+<td>Valentina</td>
+<td>Roerich</td>
+<td>sal</td>
+<td>22.5</td>
+<td>1932-01-14</td>
+</tr>
+<tr>
+<td>DR-1</td>
+<td>-49.85</td>
+<td>-128.57</td>
+<td>Valentina</td>
+<td>Roerich</td>
+<td>rad</td>
+<td>11.25</td>
+<td>1932-03-22</td>
+</tr>
+</tbody>
+</table></div>
+</details>
+</div>
+<p>A good visual explanation of joins can be <a href="https://sql-joins.leopard.in.ua/" target="_blank" rel="noopener noreferrer">found here</a></p>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>Use JOIN to combine data from two tables.</li>
+<li>Use table.field notation to refer to fields when doing joins.</li>
+<li>Every fact should be represented in a database exactly once.</li>
+<li>A join produces all combinations of records from one table with records from another.</li>
+<li>A primary key is a field (or set of fields) whose values uniquely identify the records in a table.</li>
+<li>A foreign key is a field (or set of fields) in one table whose values are a primary key in another table.</li>
+<li>We can eliminate meaningless combinations of records by matching primary keys and foreign keys between tables.</li>
+<li>The most common join condition is matching keys.</li>
+</ul>
+</div>

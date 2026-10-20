@@ -1,0 +1,203 @@
+<p>Recall the different combinations of relationships between two events:</p>
+<div class="table-wrap"><table>
+<caption>Figure 3.10: Relationships Between Events</caption>
+<tbody>
+<tr>
+<td colspan="2" rowspan="2"></td>
+<td colspan="2"><strong>Independent?&nbsp;</strong></td>
+</tr>
+<tr>
+<td><strong>Yes</strong></td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td rowspan="2"><strong>Disjoint</strong><strong>?&nbsp;</strong></td>
+<td><strong>Yes</strong></td>
+<td>1*</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>No</strong></td>
+<td>3</td>
+<td>4</td>
+</tr>
+</tbody>
+</table></div>
+<p>We must always go into a problem assuming two events are not <a href="#term_139_3265" rel="noopener noreferrer">mutually exclusive</a> or <a href="#term_139_3266" rel="noopener noreferrer">independent</a>. This “default” starting point is illustrated by the 4th position in the table above.&nbsp; Depending on the information your are given and assumptions you are able to make, you may move potions on this grid.&nbsp; Where you fall on the grid will dictate how we apply the rules we will discuss in this section to find probabilities of compound events.</p>
+<p>There are two types of compound events we may be interested in, Unions and Intersections, each with their own set of rules and assumptions.</p>
+<p>*<em><strong>Note:</strong></em> You will rarely, if ever, find yourself in this case</p>
+<div>
+<h2 id="finding-probabilities-of-unions">Finding Probabilities of Unions</h2>
+</div>
+<p>To find a <a href="#term_139_3273" rel="noopener noreferrer">union</a> we will typically use the <strong>addition rule.&nbsp;</strong> Intuitively the idea is that if we are looking for the outcomes in either event A or Event B, we should be able to simply add up the probabilities of each outcome.&nbsp; However, two events being mutually exclusive has big implications on how we apply the addition rule.</p>
+<h2 id="for-two-mutually-exclusive-events">For Two Mutually Exclusive Events</h2>
+<p>The idea is simple when events are <a href="#term_139_3265" rel="noopener noreferrer">mutually exclusive</a>.&nbsp; Picture a Venn diagram of two mutually exclusive events.</p>
+<figure><img alt="Two circles that do not overlap at all labeled P(A) and P(B) whose total area = 1." height="307" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/3.11.png" width="462"><figcaption>Figure 3.11: Two Mutually Exclusive Events</figcaption></figure>
+<p>Not very exciting, but we need to note here that if <em>A</em> and <em>B</em> are mutually exclusive, then they have no shared outcomes.&nbsp; In other words no <a href="#term_139_3274" rel="noopener noreferrer">intersection</a> exists between two disjoint events.&nbsp; In probability notation this means A ∩ B = Ø and <em>P</em>(<em>A</em> ∩ <em>B</em>) = 0.</p>
+<p>In this case, the Union of<em> A OR B&nbsp;</em> is simply:</p>
+<p><em>P</em>(<em>A</em> ∪&nbsp;<em>B</em>) = <em>P</em>(<em>A</em>) + <em>P</em>(<em>B</em>)</p>
+<p>This is reflected in the previously mentioned <em>Third Axiom of Probability</em> (also called the disjoint addition rule).</p>
+<p>Recall:</p>
+<p>3. For each two events E<sub>1</sub> and E<sub>2</sub> with E<sub>1</sub> ∩ E<sub>2</sub> = Ø then P(E<sub>1</sub> U E<sub>2</sub>) = P(E<sub>1</sub>) + P(E<sub>2</sub>)</p>
+<div class="box box-keypoints"><p class="box-title">Example</p>
+
+<div>
+<p>Klaus is trying to choose where to go on vacation. His two choices are: <em>A</em> = New Zealand and <em>B</em> = Alaska</p>
+<ul>
+<li>Klaus can only afford one vacation. The probability that he chooses <em>A</em> is <em>P</em>(<em>A</em>) = 0.6 and the probability that he chooses <em>B</em> is <em>P</em>(<em>B</em>) = 0.35.</li>
+<li><em>P</em>(<em>A</em> AND <em>B</em>) = 0 because Klaus can only afford to take one vacation</li>
+<li>Therefore, the probability that he chooses either New Zealand or Alaska is <em>P</em>(<em>A</em> OR <em>B</em>) = <em>P</em>(<em>A</em>) + <em>P</em>(<em>B</em>) = 0.6 + 0.35 = 0.95.</li>
+<li>Note that the probability that he does not choose to go anywhere on vacation (the compliment) must then be 0.05.</li>
+</ul>
+</div>
+</div>
+<div>
+<h2 id="for-two-non-mutually-exclusive-events">For Two Non-Mutually Exclusive Events</h2>
+<p>When two events are not mutually exclusive it gets a bit trickier.&nbsp; Consider a Venn diagram of two non-mutually exclusive events.</p>
+<figure><img alt="Two circles labaled P(A) and P(B) who do overlap in the middle [overlap labeled P(A and B)] whose total area = 1." height="352" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/3.12.png" width="368"><figcaption>Figure 3.12: Two Non-Mutually Exclusive Events</figcaption></figure>
+<p>Here we can see that when <em>A</em> and <em>B</em> are <em>not</em> mutually exclusive, then they <em>do</em> have shared outcomes, or an intersection.&nbsp; If we try to apply the addition rule, we need to be careful not to double count those shared outcomes</p>
+<p>If <em>A</em> and <em>B</em> are defined on a sample space, then: <em>P</em>(<em>A</em> ∪ <em>B</em>) = <em>P</em>(<em>A</em>) + <em>P</em>(<em>B</em>) – <em>P</em>(<em>A</em> ∩ <em>B</em>).</p>
+<div class="box box-keypoints"><p class="box-title">Example</p>
+
+<div>
+<p>Carlos plays college soccer. He makes a goal 65% of the time he shoots. Carlos is going to attempt two goals in a row in the next game. <em>A</em> = the event Carlos is successful on his first attempt. <em>P</em>(<em>A</em>) = 0.65. <em>B</em> = the event Carlos is successful on his second attempt. <em>P</em>(<em>B</em>) = 0.65. Carlos tends to shoot in streaks. The probability that he makes the second goal <strong>GIVEN</strong> that he made the first goal is 0.90.</p>
+<div>
+<div>
+<div>
+<div>
+<p>a. Are <em>A</em> and <em>B</em> independent?</p>
+</div>
+<div>
+<div>
+<div></div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<p>b. Are <em>A</em> and <em>B</em> mutually exclusive?</p>
+</div>
+<div>
+<div>
+<div></div>
+</div>
+</div>
+</div>
+<p>c. What is the probability that he makes both goals?</p>
+<div>
+<div></div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<p>d. What is the probability that Carlos makes either the first goal or the second goal?</p>
+</div>
+<div>
+<div>
+<div></div>
+</div>
+</div>
+</div>
+<div>
+<div></div>
+</div>
+</div>
+</div>
+<div class="box box-callout"><p class="box-title">Your turn!</p>
+
+<div>
+<p>Felicity attends Reynolds CC in Richmond, VA. The probability that Felicity enrolls in a math class is 0.2 and the probability that she enrolls in a speech class is 0.65. The probability that she enrolls in a math class GIVEN that she enrolls in speech class is 0.25.</p>
+<p>Let: <em>M</em> = math class, <em>S</em> = speech class, <em>M</em>|<em>S</em> = math given speech</p>
+<div>
+<div>
+<div>
+<p>a. Are <em>M</em> and <em>S</em> independent? Is <em>P</em>(<em>M</em>|<em>S</em>) = <em>P</em>(<em>M</em>)?</p>
+<div>
+<div></div>
+</div>
+<p>b. Are <em>M</em> and <em>S</em> mutually exclusive? Is <em>P</em>(<em>M</em> AND <em>S</em>) = 0?</p>
+</div>
+<div>
+<div>
+<div></div>
+</div>
+</div>
+<p>c. What is the probability that Felicity enrolls in math and speech? <br>
+Find <em>P</em>(<em>M</em> AND <em>S</em>) = <em>P</em>(<em>M</em>|<em>S</em>)<em>P</em>(<em>S</em>).</p>
+<div>
+<div></div>
+</div>
+<p>d. What is the probability that Felicity enrolls in math or speech classes? <br>
+Find <em>P</em>(<em>M</em> OR <em>S</em>) = <em>P</em>(<em>M</em>) + <em>P</em>(<em>S</em>) – <em>P</em>(<em>M</em> AND <em>S</em>).</p>
+<div>
+<div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="applying-the-addition-rule-to-multiple-events">Applying the Addition Rule to Multiple Events</h2>
+<p>Let’s try to extend the ideas of the addition rule to more than two events.&nbsp; Again it will depend on whether these events are mutually exclusive or not.</p>
+<h2 id="more-than-two-mutually-exclusive-events">More Than Two Mutually Exclusive Events</h2>
+<p>Let’s start by visualizing a Venn diagram of with 3 mutually exclusive events, A, B, and C. There would still be no intersections an we can simply apply the disjoint addition Rule resulting in:</p>
+<p><em>P</em>(<em>A</em> ∪&nbsp;<em>B </em>∪ C) = <em>P</em>(<em>A</em>) + <em>P</em>(<em>B</em>) + <em>P</em>(C)</p>
+<p>Extending this beyond just three events follows easily.&nbsp; If they are mutually exclusive none of them have intersections and we should be able to apply our disjoint addition rule infinitely.</p>
+<p><em>P</em>(<em>A</em> ∪&nbsp;<em>B </em>∪ … ∪ N) = <em>P</em>(<em>A</em>) + <em>P</em>(<em>B</em>) + … + <em>P</em>(N)</p>
+<p>As long as things are mutually exclusive we can just keep adding as many events we would&nbsp;like!</p>
+<h2 id="more-than-two-non-mutually-exclusive-events">More Than Two Non-Mutually Exclusive Events</h2>
+<p>As with only two events things get a little bit trickier when we do have shared outcomes.&nbsp; Consider the Venn diagram below of three non-mutually exclusive events.</p>
+<figure><img alt="Three circles A, B, and C that all overlap like a venn diagram. Outside of these circles is labaled A compliment and B compliment and C compliment. Just A: A and B compliment and C compliment. Just B: A comliment and B and C compliment. Just C: A compliment and B compliment and C. A and B: A and B and C compliment. A and C: A compliment and B compliment and C. A and C: A compliment and B and C. A and B and C: A and B and C." height="292" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/3.13.png" width="289"><figcaption>Figure 3.13: Three Non-Mutually Exclusive Events</figcaption></figure>
+<p>We have multiple double counting of intersections issues here.&nbsp; We could try subtracting the intersections as we did with two events, but that causes a new problem.&nbsp; If you subtract all three intersections once, you have now subtracted the triple intersection (A ∩ B ∩ C) three times thus not counting those outcomes at all!&nbsp; So after subtracting the three intersections to eliminate double counting we need to add back the triple intersection finally resulting in:</p>
+<p><em>P</em>(<em>A</em> ∪&nbsp;<em>B </em>∪ C) = <em>P</em>(<em>A</em>) + <em>P</em>(<em>B</em>) + <em>P</em>(C) – P(A ∩ B) – P(A ∩ C) – P(B ∩ C) + <em>P</em>(<em>A</em> ∩ <em>B ∩ </em>C)</p>
+<p>Imagine extending this beyond 3 events!&nbsp; &nbsp;It’s a bit messy and changes slightly based on whether we have an odd or even number of events but is certainly doable if we are meticulous.</p>
+<h2 id="finding-probabilities-of-intersections">Finding Probabilities of Intersections</h2>
+<p>Let’s review a couple methods we have already seen that will help us find the <a href="#term_139_3274" rel="noopener noreferrer">intersection</a> of two events:</p>
+<ol>
+<li>If two events are mutually exclusive we have already established they have no intersection i.e. <em>P</em>(<em>A</em> ∩ <em>B</em>) = 0.</li>
+<li>If we are given the right pieces we could even rearrange the addition rule as: P(A∩B)&nbsp; =&nbsp; P(B)+P(A) – P(A∪B)</li>
+</ol>
+<p>Beyond these to find the probability of an intersection we can use the <b>multiplication rule:</b>&nbsp;</p>
+<p><em>P</em>(<em>A</em> ∩ <em>B</em>) = <em>P</em>(A)<em>P</em>(B|A) = <em>P</em>(<em>B</em>)<em>P</em>(<em>A</em>|<em>B</em>)</p>
+<p>Notice we now have <a href="#term_139_3275" rel="noopener noreferrer">conditional probabilities</a> involved and two different forms of the rule.&nbsp;&nbsp;</p>
+</div>
+<h2 id="finding-a-conditional-probability">Finding a Conditional Probability</h2>
+<p>One way we can come up with conditional probabilities is to rewrite the multiplication rule as:</p>
+<p><em>P</em>(<em>A</em>|<em>B</em>) = <img alt="\frac{P\left(A   AND   B)}{P\left(B\right)}" height="29" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-5c9cf2353175c715f26fc1b901d7ee2a_l3.png" title="Rendered by QuickLaTeX.com" width="79"></p>
+<p>(Notice what you are given goes in the denominator)</p>
+<p>However, if we do not know the probability of the intersection this can leave us in a loop.&nbsp; In many cases we may just need to think carefully about a situation to come up with these conditional probabilities to apply our multiplication rule.</p>
+<h2 id="conditional-probabilities-for-two-independent-events">Conditional Probabilities for Two Independent Events</h2>
+<p>We now need to consider the implications of <a href="#term_139_3266" rel="noopener noreferrer">independence</a> on conditional probabilities.&nbsp; Recall two independent events are events that have no effect on each other.</p>
+<p>First, consider two dependent events: Let P(O) be the probability you oversleep and P(B) be the probability you eat breakfast.&nbsp; Oversleeping will likely have an effect on the probability you eat breakfast that morning so P(B|O) is of interest.</p>
+<p>Now consider two independent events: Let P(G) be the probability you have green eyes and P(B) the probability you eat breakfast.&nbsp; Your eye color has no effect on whether you will eat breakfast or not, therefore P(B|G) is simply the same as P(B).</p>
+<h2 id="the-multiplication-rule-for-two-independent-events">The Multiplication Rule for Two Independent Events</h2>
+<p>Now let’s think about the implications that independence then has on the multiplication rule.&nbsp;&nbsp;If <em>A</em> and <em>B</em> are independent then:</p>
+<p><em>P</em>(<em>A</em>|<em>B</em>) = <em>P</em>(<em>A</em>). So the multiplication rule, <em>P</em>(<em>A</em> ∩ <em>B</em>) = <em>P</em>(<em>A</em>|<em>B</em>)<em>P</em>(<em>B</em>) becomes <em>P</em>(<em>A</em> ∩ <em>B</em>) = <em>P</em>(<em>A</em>)<em>P</em>(<em>B</em>).</p>
+<p>If two events are independent conditional probabilities are eliminated from the multiplication rule and things become much simpler</p>
+<h2 id="showing-independence-of-two-events">Showing Independence of Two Events</h2>
+<dl>
+<dd>Knowing what we now know about the implications of Independence on conditional probabilities and the multiplication rule, we can establish the following conditions.&nbsp; Events <em>A</em> and <em>B</em> are independent if one of the following is true:
+<ol type="1">
+<li><em>P</em>(<em>A</em>|<em>B</em>) = <em>P</em>(<em>A</em>)</li>
+<li><em>P</em>(<em>B</em>|<em>A</em>) = <em>P</em>(<em>B</em>)</li>
+<li><em>P</em>(<em>A</em> AND <em>B</em>) = <em>P</em>(<em>A</em>)<em>P</em>(<em>B</em>)</li>
+</ol>
+<p>Note that we only have to show one, all of these conditions are equivalent and imply each other.</p></dd>
+</dl>
+<h2 id="applying-the-multiplication-rule-to-multiple-events">Applying the Multiplication Rule to Multiple Events</h2>
+<p>Now we’ll extend the ideas of the multiplication rule to more than two events.&nbsp; How we apply it will again depend on whether these events are independent.</p>
+<h3 id="more-than-two-independent-events">More than two independent events</h3>
+<p>We saw that if events were independent conditional probabilities were eliminated from the multiplication rule and things got pretty easy.&nbsp; Extending the independent multiplication rule to three events would look like:</p>
+<p><em>P</em>(<em>A</em> ∩ <em>B ∩ </em>C) = <em>P</em>(<em>A</em>)<em>P</em>(<em>B</em>)<em>P</em>(C)</p>
+<p>Extending this beyond three events:</p>
+<p><em>P</em>(<em>A</em> ∩ <em>B ∩</em> … ∩ N) = <em>P</em>(<em>A</em>)<em>P</em>(<em>B</em>) … * <em>P</em>(N)</p>
+<p>This makes it very easy to find the probability of a sequence of independent events.</p>
+<h3 id="more-than-two-dependent-events">More than two dependent events</h3>
+<p>If we have a sequence of three dependent events we will have to sequentially update conditional probabilities.&nbsp; For example:</p>
+<p><em>P</em>(<em>A</em> ∩ <em>B ∩ </em>C) = <em>P</em>(<em>A</em>)*<em>P</em>(<em>B|A</em>)*<em>P</em>(C|<em>A</em> ∩ <em>B</em>)</p>
+<p>This is doable for just a handful of events but could get quite messy for a lot of dependent events.</p>
+<h3 id="image-references">Image References</h3>
+<p>Figure 3.11: Kindred Grey (2020). “Figure 3.11.” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_3.11.png</p>
+<p>Figure 3.12: Kindred Grey (2020). “Figure 3.12.” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_3.12.png</p>
+<p>Figure 3.13: Kindred Grey (2020). “Figure 3.13.” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_3.13.png</p>
+<div></div>

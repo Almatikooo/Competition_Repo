@@ -1,0 +1,856 @@
+{
+ "title": "Responsible AI & AI Governance",
+ "subtitle": "Identify, measure and manage AI risks — fairness, transparency, accountability and safety.",
+ "level": "Intermediate",
+ "outcomes": [
+  "Explain the principles of responsible AI",
+  "Recognise and mitigate bias in data and models",
+  "Apply the NIST AI Risk Management Framework",
+  "Put data and AI ethics into practice in a project"
+ ],
+ "skill": "ai_governance",
+ "modules": [
+  {
+   "title": "Why responsible AI",
+   "lessons": [
+    "ai_governance-01",
+    "ai_governance-02",
+    "ai_governance-03"
+   ]
+  },
+  {
+   "title": "Bias and fairness",
+   "lessons": [
+    "ai_governance-04"
+   ]
+  },
+  {
+   "title": "The NIST AI Risk Management Framework",
+   "lessons": [
+    "ai_governance-05",
+    "ai_governance-06",
+    "ai_governance-07",
+    "ai_governance-08"
+   ]
+  },
+  {
+   "title": "Ethics in practice",
+   "lessons": [
+    "ai_governance-09"
+   ]
+  },
+  {
+   "title": "Securing AI",
+   "lessons": [
+    "ai_governance-10",
+    "ai_governance-11"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "ai_governance-01",
+   "title": "Using Generative AI Responsibly",
+   "words": 1444,
+   "minutes": 8,
+   "source": "ms-genai",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/03-using-generative-ai-responsibly/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "learning-goals",
+     "text": "Learning Goals",
+     "level": 2
+    },
+    {
+     "id": "responsible-ai-principles",
+     "text": "Responsible AI Principles",
+     "level": 2
+    },
+    {
+     "id": "why-should-you-prioritize-responsible-ai",
+     "text": "Why Should You Prioritize Responsible AI",
+     "level": 2
+    },
+    {
+     "id": "hallucinations",
+     "text": "Hallucinations",
+     "level": 3
+    },
+    {
+     "id": "harmful-content",
+     "text": "Harmful Content",
+     "level": 3
+    },
+    {
+     "id": "lack-of-fairness",
+     "text": "Lack of Fairness",
+     "level": 3
+    },
+    {
+     "id": "how-to-use-generative-ai-responsibly",
+     "text": "How to Use Generative AI Responsibly",
+     "level": 2
+    },
+    {
+     "id": "measure-potential-harms",
+     "text": "Measure Potential Harms",
+     "level": 3
+    },
+    {
+     "id": "mitigate-potential-harms",
+     "text": "Mitigate Potential Harms",
+     "level": 3
+    },
+    {
+     "id": "operate-a-responsible-generative-ai-solution",
+     "text": "Operate a Responsible Generative AI solution",
+     "level": 3
+    },
+    {
+     "id": "tools",
+     "text": "Tools",
+     "level": 2
+    },
+    {
+     "id": "knowledge-check",
+     "text": "Knowledge check",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "great-work-continue-your-learning",
+     "text": "Great Work, Continue Your Learning",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ai_governance-02",
+   "title": "Building Machine Learning solutions with responsible AI",
+   "words": 2103,
+   "minutes": 11,
+   "source": "ms-ml",
+   "url": "https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/1-Introduction/3-fairness/README.md",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "prerequisite",
+     "text": "Prerequisite",
+     "level": 2
+    },
+    {
+     "id": "fairness",
+     "text": "Fairness",
+     "level": 2
+    },
+    {
+     "id": "reliability-and-safety",
+     "text": "Reliability and safety",
+     "level": 3
+    },
+    {
+     "id": "inclusiveness",
+     "text": "Inclusiveness",
+     "level": 3
+    },
+    {
+     "id": "security-and-privacy",
+     "text": "Security and privacy",
+     "level": 3
+    },
+    {
+     "id": "transparency",
+     "text": "Transparency",
+     "level": 3
+    },
+    {
+     "id": "accountability",
+     "text": "Accountability",
+     "level": 3
+    },
+    {
+     "id": "impact-assessment",
+     "text": "Impact assessment",
+     "level": 2
+    },
+    {
+     "id": "debugging-with-responsible-ai",
+     "text": "Debugging with responsible AI",
+     "level": 2
+    },
+    {
+     "id": "challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ai_governance-03",
+   "title": "Introduction to Data Ethics",
+   "words": 3010,
+   "minutes": 16,
+   "source": "ms-ds",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/1-Introduction/02-ethics/README.md",
+   "toc": [
+    {
+     "id": "basic-definitions",
+     "text": "Basic Definitions",
+     "level": 2
+    },
+    {
+     "id": "ethics-concepts",
+     "text": "Ethics Concepts",
+     "level": 2
+    },
+    {
+     "id": "1-ethics-principles",
+     "text": "1. Ethics Principles",
+     "level": 3
+    },
+    {
+     "id": "2-ethics-challenges",
+     "text": "2. Ethics Challenges",
+     "level": 3
+    },
+    {
+     "id": "3-case-studies",
+     "text": "3. Case Studies",
+     "level": 3
+    },
+    {
+     "id": "applied-ethics",
+     "text": "Applied Ethics",
+     "level": 2
+    },
+    {
+     "id": "1-professional-codes",
+     "text": "1. Professional Codes",
+     "level": 3
+    },
+    {
+     "id": "2-ethics-checklists",
+     "text": "2. Ethics Checklists",
+     "level": 3
+    },
+    {
+     "id": "3-ethics-regulations",
+     "text": "3. Ethics Regulations",
+     "level": 3
+    },
+    {
+     "id": "4-ethics-culture",
+     "text": "4. Ethics Culture",
+     "level": 3
+    },
+    {
+     "id": "review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ai_governance-04",
+   "title": "Types of bias and how to mitigate them",
+   "words": 2493,
+   "minutes": 13,
+   "source": "google-ml",
+   "url": "https://developers.google.com/machine-learning/crash-course/fairness/types-of-bias",
+   "toc": [
+    {
+     "id": "types-of-bias",
+     "text": "Types of bias",
+     "level": 2
+    },
+    {
+     "id": "page-summary",
+     "text": "Page Summary",
+     "level": 3
+    },
+    {
+     "id": "reporting-bias",
+     "text": "Reporting bias",
+     "level": 3
+    },
+    {
+     "id": "historical-bias",
+     "text": "Historical bias",
+     "level": 3
+    },
+    {
+     "id": "automation-bias",
+     "text": "Automation bias",
+     "level": 3
+    },
+    {
+     "id": "selection-bias",
+     "text": "Selection bias",
+     "level": 3
+    },
+    {
+     "id": "group-attribution-bias",
+     "text": "Group attribution bias",
+     "level": 3
+    },
+    {
+     "id": "implicit-bias",
+     "text": "Implicit Bias",
+     "level": 3
+    },
+    {
+     "id": "confirmation-bias",
+     "text": "Confirmation bias",
+     "level": 3
+    },
+    {
+     "id": "experimenter-s-bias",
+     "text": "Experimenter's bias",
+     "level": 3
+    },
+    {
+     "id": "exercise-check-your-understanding",
+     "text": "Exercise: Check your understanding",
+     "level": 3
+    },
+    {
+     "id": "evaluating-for-bias",
+     "text": "Evaluating for bias",
+     "level": 2
+    },
+    {
+     "id": "page-summary",
+     "text": "Page Summary",
+     "level": 3
+    },
+    {
+     "id": "mitigating-bias",
+     "text": "Mitigating bias",
+     "level": 2
+    },
+    {
+     "id": "page-summary",
+     "text": "Page Summary",
+     "level": 3
+    },
+    {
+     "id": "augmenting-the-training-data",
+     "text": "Augmenting the training data",
+     "level": 3
+    },
+    {
+     "id": "adjusting-the-model-s-optimization-function",
+     "text": "Adjusting the model's optimization function",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "ai_governance-05",
+   "title": "Framing AI risk",
+   "words": 2076,
+   "minutes": 11,
+   "source": "nist",
+   "url": "https://airc.nist.gov/airmf-resources/airmf/1-sec-risk/",
+   "toc": [
+    {
+     "id": "1-framing-risk",
+     "text": "1 Framing Risk",
+     "level": 2
+    },
+    {
+     "id": "section",
+     "text": "",
+     "level": 2
+    },
+    {
+     "id": "section-x",
+     "text": "",
+     "level": 2
+    },
+    {
+     "id": "1-1-1-risk-measurement",
+     "text": "1.1.1 Risk Measurement",
+     "level": 3
+    },
+    {
+     "id": "1-1-2-risk-tolerance",
+     "text": "1.1.2 Risk Tolerance",
+     "level": 3
+    },
+    {
+     "id": "1-1-3-risk-prioritization",
+     "text": "1.1.3 Risk Prioritization",
+     "level": 3
+    },
+    {
+     "id": "1-1-4-organizational-integration-and-management-of-risk",
+     "text": "1.1.4 Organizational\n        Integration and Management of Risk",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "ai_governance-06",
+   "title": "AI risks and trustworthiness",
+   "words": 2735,
+   "minutes": 14,
+   "source": "nist",
+   "url": "https://airc.nist.gov/airmf-resources/airmf/3-sec-characteristics/",
+   "toc": [
+    {
+     "id": "3-ai-risks-and-trustworthiness",
+     "text": "3 AI Risks and Trustworthiness",
+     "level": 2
+    },
+    {
+     "id": "3-1-valid-and-reliable",
+     "text": "3.1 Valid and Reliable",
+     "level": 2
+    },
+    {
+     "id": "3-2-safe",
+     "text": "3.2 Safe",
+     "level": 2
+    },
+    {
+     "id": "3-3-secure-and-resilient",
+     "text": "3.3 Secure and Resilient",
+     "level": 2
+    },
+    {
+     "id": "3-4-accountable-and-transparent",
+     "text": "3.4 Accountable and Transparent",
+     "level": 2
+    },
+    {
+     "id": "3-5-explainable-and-interpretable",
+     "text": "3.5 Explainable and Interpretable",
+     "level": 2
+    },
+    {
+     "id": "3-6-privacy-enhanced",
+     "text": "3.6 Privacy-Enhanced",
+     "level": 2
+    },
+    {
+     "id": "3-7-fair-with-harmful-bias-managed",
+     "text": "3.7 Fair – with Harmful Bias\n    Managed",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ai_governance-07",
+   "title": "The AI RMF Core: govern, map, measure, manage",
+   "words": 4276,
+   "minutes": 22,
+   "source": "nist",
+   "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+   "toc": [
+    {
+     "id": "5-ai-rmf-core",
+     "text": "5 AI RMF Core",
+     "level": 2
+    },
+    {
+     "id": "5-1-govern",
+     "text": "5.1 Govern",
+     "level": 2
+    },
+    {
+     "id": "5-2-map",
+     "text": "5.2 Map",
+     "level": 2
+    },
+    {
+     "id": "section",
+     "text": "",
+     "level": 3
+    },
+    {
+     "id": "5-3-measure",
+     "text": "5.3 Measure",
+     "level": 2
+    },
+    {
+     "id": "5-4-manage",
+     "text": "5.4 Manage",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ai_governance-08",
+   "title": "How AI risks differ from traditional software risks",
+   "words": 782,
+   "minutes": 4,
+   "source": "nist",
+   "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-b-how-ai-risks-differ-from-traditional-software-risks/",
+   "toc": [
+    {
+     "id": "appendix-b-how-ai-risks-differ-from-traditional-software-ris",
+     "text": "Appendix B: How AI Risks Differ from Traditional Software Risks",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ai_governance-09",
+   "title": "Data and AI Ethics Framework",
+   "words": 17400,
+   "minutes": 87,
+   "source": "govuk",
+   "url": "https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework",
+   "toc": [
+    {
+     "id": "introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "who-this-guidance-is-for",
+     "text": "Who this guidance is for",
+     "level": 3
+    },
+    {
+     "id": "how-to-use-this-guidance",
+     "text": "How to use this guidance",
+     "level": 3
+    },
+    {
+     "id": "why-this-guidance-is-important",
+     "text": "Why this guidance is important",
+     "level": 3
+    },
+    {
+     "id": "principles",
+     "text": "Principles",
+     "level": 3
+    },
+    {
+     "id": "trade-offs",
+     "text": "Trade-offs",
+     "level": 3
+    },
+    {
+     "id": "transparency",
+     "text": "Transparency",
+     "level": 2
+    },
+    {
+     "id": "what-transparency-means-in-practice",
+     "text": "What transparency means in practice",
+     "level": 3
+    },
+    {
+     "id": "transparency-in-the-context-of-data",
+     "text": "Transparency in the context of data",
+     "level": 3
+    },
+    {
+     "id": "transparency-in-the-context-of-ai-and-algorithmic-tools",
+     "text": "Transparency in the context of AI and algorithmic tools",
+     "level": 3
+    },
+    {
+     "id": "recommended-actions",
+     "text": "Recommended actions",
+     "level": 3
+    },
+    {
+     "id": "accountability",
+     "text": "Accountability",
+     "level": 2
+    },
+    {
+     "id": "what-accountability-means-in-practice",
+     "text": "What accountability means in practice",
+     "level": 3
+    },
+    {
+     "id": "recommended-actions-x",
+     "text": "Recommended actions",
+     "level": 3
+    },
+    {
+     "id": "fairness",
+     "text": "Fairness",
+     "level": 2
+    },
+    {
+     "id": "equality-and-inclusion",
+     "text": "Equality and inclusion",
+     "level": 3
+    },
+    {
+     "id": "what-fairness-means-in-practice",
+     "text": "What fairness means in practice",
+     "level": 3
+    },
+    {
+     "id": "recommended-actions-x-x",
+     "text": "Recommended actions",
+     "level": 3
+    },
+    {
+     "id": "privacy",
+     "text": "Privacy",
+     "level": 2
+    },
+    {
+     "id": "what-privacy-means-in-practice",
+     "text": "What privacy means in practice",
+     "level": 3
+    },
+    {
+     "id": "scoping-and-data-acquisition",
+     "text": "Scoping and data acquisition",
+     "level": 3
+    },
+    {
+     "id": "privacy-by-design-and-default",
+     "text": "Privacy by design and default",
+     "level": 3
+    },
+    {
+     "id": "test-and-validate",
+     "text": "Test and validate",
+     "level": 3
+    },
+    {
+     "id": "be-transparent-and-give-users-control",
+     "text": "Be transparent and give users control",
+     "level": 3
+    },
+    {
+     "id": "plan-for-and-respond-to-data-breaches",
+     "text": "Plan for and respond to data breaches",
+     "level": 3
+    },
+    {
+     "id": "decommissioning",
+     "text": "Decommissioning",
+     "level": 3
+    },
+    {
+     "id": "recommended-actions-x-x-x",
+     "text": "Recommended actions",
+     "level": 3
+    },
+    {
+     "id": "environmental-sustainability",
+     "text": "Environmental sustainability",
+     "level": 2
+    },
+    {
+     "id": "what-environmental-sustainability-means-in-practice",
+     "text": "What environmental sustainability means in practice",
+     "level": 3
+    },
+    {
+     "id": "measuring-monitoring-and-evaluating-environmental-impact",
+     "text": "Measuring, monitoring and evaluating environmental impact",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "ai_governance-10",
+   "title": "AI security key concepts",
+   "words": 763,
+   "minutes": 4,
+   "source": "ms-sec",
+   "url": "https://github.com/microsoft/Security-101/blob/b0a31ff7ebb9983d24bcdc6a38a4d008e6e89d0c/8.1%20AI%20security%20key%20concepts.md",
+   "toc": [
+    {
+     "id": "how-does-ai-security-differ-from-traditional-cyber-security",
+     "text": "How does AI security differ from traditional cyber security?",
+     "level": 2
+    },
+    {
+     "id": "how-is-ai-the-same-as-securing-traditional-it-systems",
+     "text": "How is AI the same as securing traditional IT systems?",
+     "level": 2
+    },
+    {
+     "id": "further-reading",
+     "text": "Further reading",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "ai_governance-11",
+   "title": "Responsible AI",
+   "words": 763,
+   "minutes": 4,
+   "source": "ms-sec",
+   "url": "https://github.com/microsoft/Security-101/blob/b0a31ff7ebb9983d24bcdc6a38a4d008e6e89d0c/8.3%20Responsible%20AI.md",
+   "toc": [
+    {
+     "id": "what-is-responsible-ai-and-how-does-it-relate-to-ai-security",
+     "text": "What is responsible AI and how does it relate to AI security?",
+     "level": 2
+    },
+    {
+     "id": "how-can-i-ensure-my-ai-system-is-both-secure-and-ethical",
+     "text": "How can I ensure my AI system is both secure and ethical?",
+     "level": 2
+    },
+    {
+     "id": "can-you-give-me-some-examples-of-a-security-issue-caused-by-",
+     "text": "Can you give me some examples of a security issue caused by unethical use of AI?",
+     "level": 2
+    },
+    {
+     "id": "further-reading",
+     "text": "Further reading",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [
+   {
+    "q": "Unfairness in a model can be caused by",
+    "options": [
+     "over reliance on historical data",
+     "under reliance on historical data",
+     "too closely aligning to historical data"
+    ],
+    "answer": 0,
+    "explain": "",
+    "lesson": "ai_governance-02",
+    "origin": "bank:ml:6",
+    "source": "ms-ml"
+   },
+   {
+    "q": "To mitigate unfairness, you can",
+    "options": [
+     "identify harms and affected groups",
+     "define fairness metrics",
+     "both the above"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "ai_governance-02",
+    "origin": "bank:ml:6",
+    "source": "ms-ml"
+   },
+   {
+    "q": "What is the main difference between ethics and applied ethics?",
+    "options": [
+     "Applied ethics is a specific type of ethics",
+     "Applied ethics is not a real term",
+     "Applied ethics is the process of finding and correcting ethical issues"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "ai_governance-03",
+    "origin": "bank:ds:3",
+    "source": "ms-ds"
+   },
+   {
+    "q": "What is the difference between ethics regulation vs ethics principles",
+    "options": [
+     "Ethics regulation focuses on regular ethics",
+     "There is no difference",
+     "Ethics principles do not relate to a particular law, while regulations do"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "ai_governance-03",
+    "origin": "bank:ds:3",
+    "source": "ms-ds"
+   }
+  ],
+  "pass_mark": 3,
+  "missing": false
+ },
+ "minutes": 194,
+ "sources": [
+  {
+   "id": "google-ml",
+   "name": "Google for Developers · Machine Learning",
+   "url": "https://developers.google.com/machine-learning",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "© Google, CC BY 4.0",
+   "noncommercial": false
+  },
+  {
+   "id": "govuk",
+   "name": "GOV.UK guidance",
+   "url": "https://www.gov.uk/",
+   "license": "Open Government Licence v3.0",
+   "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+   "attribution": "Contains public sector information licensed under the Open Government Licence v3.0",
+   "noncommercial": false
+  },
+  {
+   "id": "ms-ds",
+   "name": "Microsoft · Data Science for Beginners",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners",
+   "license": "MIT",
+   "license_url": "https://opensource.org/license/mit",
+   "attribution": "© Microsoft Corporation, MIT License",
+   "noncommercial": false
+  },
+  {
+   "id": "ms-genai",
+   "name": "Microsoft · Generative AI for Beginners",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners",
+   "license": "MIT",
+   "license_url": "https://opensource.org/license/mit",
+   "attribution": "© Microsoft Corporation, MIT License",
+   "noncommercial": false
+  },
+  {
+   "id": "ms-ml",
+   "name": "Microsoft · ML for Beginners",
+   "url": "https://github.com/microsoft/ML-For-Beginners",
+   "license": "MIT",
+   "license_url": "https://opensource.org/license/mit",
+   "attribution": "© Microsoft Corporation, MIT License",
+   "noncommercial": false
+  },
+  {
+   "id": "ms-sec",
+   "name": "Microsoft · Security 101",
+   "url": "https://github.com/microsoft/Security-101",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attribution": "Microsoft Security-101, dedicated to the public domain (CC0)",
+   "noncommercial": false
+  },
+  {
+   "id": "nist",
+   "name": "NIST AI Risk Management Framework",
+   "url": "https://airc.nist.gov/airmf-resources/airmf/",
+   "license": "Public domain (U.S. Government work)",
+   "license_url": "https://www.usa.gov/government-copyright",
+   "attribution": "National Institute of Standards and Technology — a U.S. Government work, not subject to copyright",
+   "noncommercial": false
+  }
+ ]
+}

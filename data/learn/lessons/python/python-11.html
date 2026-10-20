@@ -1,0 +1,317 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Correctly write programs that use if and else statements and simple Boolean expressions (without logical operators).</li>
+<li>Trace the execution of unnested conditionals and conditionals inside loops.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>How can programs do different things for different data?</li>
+</ul>
+</div>
+<h2 id="use-if-statements-to-control-whether-or-not-a-block-of-code-">Use <code>if</code> statements to control whether or not a block of code is executed.</h2>
+<ul>
+<li>An <code>if</code> statement (more properly called a <em>conditional</em> statement)
+controls whether some block of code is executed or not.</li>
+<li>Structure is similar to a <code>for</code> statement:
+<ul>
+<li>First line opens with <code>if</code> and ends with a colon</li>
+<li>Body containing one or more statements is indented (usually by 4 spaces)</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">mass = 3.54
+if mass &gt; 3.0:
+    print(mass, 'is large')
+
+mass = 2.07
+if mass &gt; 3.0:
+    print (mass, 'is large')
+</code></pre>
+<pre><code class="language-output">3.54 is large
+</code></pre>
+<h2 id="conditionals-are-often-used-inside-loops">Conditionals are often used inside loops.</h2>
+<ul>
+<li>Not much point using a conditional when we know the value (as above).</li>
+<li>But useful when we have a collection to process.</li>
+</ul>
+<pre><code class="language-python">masses = [3.54, 2.07, 9.22, 1.86, 1.71]
+for m in masses:
+    if m &gt; 3.0:
+        print(m, 'is large')
+</code></pre>
+<pre><code class="language-output">3.54 is large
+9.22 is large
+</code></pre>
+<h2 id="use-else-to-execute-a-block-of-code-when-an-if-condition-is-">Use <code>else</code> to execute a block of code when an <code>if</code> condition is <em>not</em> true.</h2>
+<ul>
+<li><code>else</code> can be used following an <code>if</code>.</li>
+<li>Allows us to specify an alternative to execute when the <code>if</code> <em>branch</em> isn't taken.</li>
+</ul>
+<pre><code class="language-python">masses = [3.54, 2.07, 9.22, 1.86, 1.71]
+for m in masses:
+    if m &gt; 3.0:
+        print(m, 'is large')
+    else:
+        print(m, 'is small')
+</code></pre>
+<pre><code class="language-output">3.54 is large
+2.07 is small
+9.22 is large
+1.86 is small
+1.71 is small
+</code></pre>
+<h2 id="use-elif-to-specify-additional-tests">Use <code>elif</code> to specify additional tests.</h2>
+<ul>
+<li>May want to provide several alternative choices, each with its own test.</li>
+<li>Use <code>elif</code> (short for "else if") and a condition to specify these.</li>
+<li>Always associated with an <code>if</code>.</li>
+<li>Must come before the <code>else</code> (which is the "catch all").</li>
+</ul>
+<pre><code class="language-python">masses = [3.54, 2.07, 9.22, 1.86, 1.71]
+for m in masses:
+    if m &gt; 9.0:
+        print(m, 'is HUGE')
+    elif m &gt; 3.0:
+        print(m, 'is large')
+    else:
+        print(m, 'is small')
+</code></pre>
+<pre><code class="language-output">3.54 is large
+2.07 is small
+9.22 is HUGE
+1.86 is small
+1.71 is small
+</code></pre>
+<h2 id="conditions-are-tested-once-in-order">Conditions are tested once, in order.</h2>
+<ul>
+<li>Python steps through the branches of the conditional in order, testing each in turn.</li>
+<li>So ordering matters.</li>
+</ul>
+<pre><code class="language-python">grade = 85
+if grade &gt;= 90:
+    print('grade is A')
+elif grade &gt;= 80:
+    print('grade is B')
+elif grade &gt;= 70:
+    print('grade is C')
+</code></pre>
+<pre><code class="language-output">grade is B
+</code></pre>
+<ul>
+<li>Does <em>not</em> automatically go back and re-evaluate if values change.</li>
+</ul>
+<pre><code class="language-python">velocity = 10.0
+if velocity &gt; 20.0:
+    print('moving too fast')
+else:
+    print('adjusting velocity')
+    velocity = 50.0
+</code></pre>
+<pre><code class="language-output">adjusting velocity
+</code></pre>
+<ul>
+<li>Often use conditionals in a loop to "evolve" the values of variables.</li>
+</ul>
+<pre><code class="language-python">velocity = 10.0
+for i in range(5): # execute the loop 5 times
+    print(i, ':', velocity)
+    if velocity &gt; 20.0:
+        print('moving too fast')
+        velocity = velocity - 5.0
+    else:
+        print('moving too slow')
+        velocity = velocity + 10.0
+print('final velocity:', velocity)
+</code></pre>
+<pre><code class="language-output">0 : 10.0
+moving too slow
+1 : 20.0
+moving too slow
+2 : 30.0
+moving too fast
+3 : 25.0
+moving too fast
+4 : 20.0
+moving too slow
+final velocity: 30.0
+</code></pre>
+<h2 id="create-a-table-showing-variables-values-to-trace-a-program-s">Create a table showing variables' values to trace a program's execution.</h2>
+<div class="table-wrap"><table>
+<tbody><tr> <td><strong>i</strong></td> <td>0</td> <td>.</td> <td>1</td> <td>.</td> <td>2</td> <td>.</td> <td>3</td> <td>.</td> <td>4</td> <td>.</td>
+</tr>
+<tr> <td><strong>velocity</strong></td> <td>10.0</td> <td>20.0</td> <td>.</td> <td>30.0</td> <td>.</td> <td>25.0</td> <td>.</td> <td>20.0</td> <td>.</td> <td>30.0</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li>The program must have a <code>print</code> statement <em>outside</em> the body of the loop
+to show the final value of <code>velocity</code>,
+since its value is updated by the last iteration of the loop.</li>
+</ul>
+<div class="box box-callout">
+<p class="box-title">Compound Relations Using and , or , and Parentheses</p>
+
+<p>Often, you want some combination of things to be true.  You can combine
+relations within a conditional using <code>and</code> and <code>or</code>.  Continuing the example
+above, suppose you have</p>
+<pre><code class="language-python">mass     = [ 3.54,  2.07,  9.22,  1.86,  1.71]
+velocity = [10.00, 20.00, 30.00, 25.00, 20.00]
+
+i = 0
+for i in range(5):
+    if mass[i] &gt; 5 and velocity[i] &gt; 20:
+        print("Fast heavy object.  Duck!")
+    elif mass[i] &gt; 2 and mass[i] &lt;= 5 and velocity[i] &lt;= 20:
+        print("Normal traffic")
+    elif mass[i] &lt;= 2 and velocity[i] &lt;= 20:
+        print("Slow light object.  Ignore it")
+    else:
+        print("Whoa!  Something is up with the data.  Check it")
+</code></pre>
+<p>Just like with arithmetic, you can and should use parentheses whenever there
+is possible ambiguity.  A good general rule is to <em>always</em> use parentheses
+when mixing <code>and</code> and <code>or</code> in the same condition.  That is, instead of:</p>
+<pre><code class="language-python">if mass[i] &lt;= 2 or mass[i] &gt;= 5 and velocity[i] &gt; 20:
+</code></pre>
+<p>write one of these:</p>
+<pre><code class="language-python">if (mass[i] &lt;= 2 or mass[i] &gt;= 5) and velocity[i] &gt; 20:
+if mass[i] &lt;= 2 or (mass[i] &gt;= 5 and velocity[i] &gt; 20):
+</code></pre>
+<p>so it is perfectly clear to a reader (and to Python) what you really mean.</p>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Tracing Execution</p>
+
+<p>What does this program print?</p>
+<pre><code class="language-python">pressure = 71.9
+if pressure &gt; 50.0:
+    pressure = 25.0
+elif pressure &lt;= 50.0:
+    pressure = 0.0
+print(pressure)
+</code></pre>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution">Solution</h2>
+<pre><code class="language-output">25.0
+</code></pre>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Trimming Values</p>
+
+<p>Fill in the blanks so that this program creates a new list
+containing zeroes where the original list's values were negative
+and ones where the original list's values were positive.</p>
+<pre><code class="language-python">original = [-1.5, 0.2, 0.4, 0.0, -1.3, 0.4]
+result = ____
+for value in original:
+    if ____:
+        result.append(0)
+    else:
+        ____
+print(result)
+</code></pre>
+<pre><code class="language-output">[0, 1, 1, 1, 0, 1]
+</code></pre>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x">Solution</h2>
+<pre><code class="language-python">original = [-1.5, 0.2, 0.4, 0.0, -1.3, 0.4]
+result = []
+for value in original:
+    if value &lt; 0.0:
+        result.append(0)
+    else:
+        result.append(1)
+print(result)
+</code></pre>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Processing Small Files</p>
+
+<p>Modify this program so that it only processes files with fewer than 50 records.</p>
+<pre><code class="language-python">import glob
+import pandas as pd
+for filename in glob.glob('data/*.csv'):
+    contents = pd.read_csv(filename)
+    ____:
+        print(filename, len(contents))
+</code></pre>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x">Solution</h2>
+<pre><code class="language-python">import glob
+import pandas as pd
+for filename in glob.glob('data/*.csv'):
+    contents = pd.read_csv(filename)
+    if len(contents) &lt; 50:
+        print(filename, len(contents))
+</code></pre>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Initializing</p>
+
+<p>Modify this program so that it finds the largest and smallest values in the list
+no matter what the range of values originally is.</p>
+<pre><code class="language-python">values = [...some test data...]
+smallest, largest = None, None
+for v in values:
+    if ____:
+        smallest, largest = v, v
+    ____:
+        smallest = min(____, v)
+        largest = max(____, v)
+print(smallest, largest)
+</code></pre>
+<p>What are the advantages and disadvantages of using this method
+to find the range of the data?</p>
+<details class="solution"><summary>Show solution</summary>
+<h2 id="solution-x-x-x">Solution</h2>
+<pre><code class="language-python">values = [-2,1,65,78,-54,-24,100]
+smallest, largest = None, None
+for v in values:
+    if smallest is None and largest is None:
+        smallest, largest = v, v
+    else:
+        smallest = min(smallest, v)
+        largest = max(largest, v)
+print(smallest, largest)
+</code></pre>
+<p>If you wrote <code>== None</code> instead of <code>is None</code>, that works too, but Python programmers always
+write <code>is None</code> because of the special way <code>None</code> works in the language.</p>
+<p>It can be argued that an advantage of using this method would be to make the code more readable.
+However, a disadvantage is that this code is not efficient because within each iteration of the
+<code>for</code> loop statement, there are two more loops that run over two numbers each (the <code>min</code> and
+<code>max</code> functions). It would be more efficient to iterate over each number just once:</p>
+<pre><code class="language-python">values = [-2,1,65,78,-54,-24,100]
+smallest, largest = None, None
+for v in values:
+    if smallest is None or v &lt; smallest:
+        smallest = v
+    if largest is None or v &gt; largest:
+        largest = v
+print(smallest, largest)
+</code></pre>
+<p>Now we have one loop, but four comparison tests. There are two ways we could improve it further:
+either use fewer comparisons in each iteration, or use two loops that each contain only one
+comparison test. The simplest solution is often the best:</p>
+<pre><code class="language-python">values = [-2,1,65,78,-54,-24,100]
+smallest = min(values)
+largest = max(values)
+print(smallest, largest)
+</code></pre>
+</details>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li>Use <code>if</code> statements to control whether or not a block of code is executed.</li>
+<li>Conditionals are often used inside loops.</li>
+<li>Use <code>else</code> to execute a block of code when an <code>if</code> condition is <em>not</em> true.</li>
+<li>Use <code>elif</code> to specify additional tests.</li>
+<li>Conditions are tested once, in order.</li>
+<li>Create a table showing variables' values to trace a program's execution.</li>
+</ul>
+</div>

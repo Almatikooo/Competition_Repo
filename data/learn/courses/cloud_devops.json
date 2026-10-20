@@ -1,0 +1,842 @@
+{
+ "title": "Cloud & DevOps",
+ "subtitle": "Run software in the cloud: containers, hosting, continuous deployment and monitoring.",
+ "level": "Beginner",
+ "outcomes": [
+  "Explain cloud computing and its service models",
+  "Package and run software in containers",
+  "Deploy software regularly and safely",
+  "Keep services secure, monitored and available"
+ ],
+ "skill": "cloud_devops",
+ "modules": [
+  {
+   "title": "The cloud",
+   "lessons": [
+    "cloud_devops-01",
+    "cloud_devops-02"
+   ]
+  },
+  {
+   "title": "Containers",
+   "lessons": [
+    "cloud_devops-03",
+    "cloud_devops-04",
+    "cloud_devops-05",
+    "cloud_devops-06",
+    "cloud_devops-07"
+   ]
+  },
+  {
+   "title": "Delivering continuously",
+   "lessons": [
+    "cloud_devops-08",
+    "cloud_devops-09",
+    "cloud_devops-10",
+    "cloud_devops-11"
+   ]
+  },
+  {
+   "title": "Running services",
+   "lessons": [
+    "cloud_devops-12",
+    "cloud_devops-13",
+    "cloud_devops-14"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "cloud_devops-01",
+   "title": "Introduction to Data Science in the Cloud",
+   "words": 1148,
+   "minutes": 6,
+   "source": "ms-ds",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/5-Data-Science-In-Cloud/17-Introduction/README.md",
+   "toc": [
+    {
+     "id": "what-is-the-cloud",
+     "text": "What is the Cloud?",
+     "level": 2
+    },
+    {
+     "id": "why-choose-the-cloud-for-data-science",
+     "text": "Why Choose the Cloud for Data Science?",
+     "level": 2
+    },
+    {
+     "id": "examples-of-data-science-in-the-cloud",
+     "text": "Examples of Data Science in the Cloud",
+     "level": 2
+    },
+    {
+     "id": "real-time-social-media-sentiment-analysis",
+     "text": "Real-time social media sentiment analysis",
+     "level": 3
+    },
+    {
+     "id": "scientific-papers-analysis",
+     "text": "Scientific papers analysis",
+     "level": 3
+    },
+    {
+     "id": "footnote",
+     "text": "Footnote",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "cloud_devops-02",
+   "title": "Deciding how to host your service",
+   "words": 1007,
+   "minutes": 6,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/technology/deciding-how-to-host-your-service",
+   "toc": [
+    {
+     "id": "consider-public-cloud-hosting-first",
+     "text": "Consider public cloud hosting first",
+     "level": 2
+    },
+    {
+     "id": "if-you-believe-you-cannot-use-cloud-hosting",
+     "text": "If you believe you cannot use cloud hosting",
+     "level": 3
+    },
+    {
+     "id": "planning-your-hosting-strategy",
+     "text": "Planning your hosting strategy",
+     "level": 2
+    },
+    {
+     "id": "set-up-a-team",
+     "text": "Set up a team",
+     "level": 3
+    },
+    {
+     "id": "choosing-a-hosting-option",
+     "text": "Choosing a hosting option",
+     "level": 2
+    },
+    {
+     "id": "software-as-a-service",
+     "text": "Software as a Service",
+     "level": 3
+    },
+    {
+     "id": "platform-as-a-service",
+     "text": "Platform as a Service",
+     "level": 3
+    },
+    {
+     "id": "infrastructure-as-a-service",
+     "text": "Infrastructure as a Service",
+     "level": 3
+    },
+    {
+     "id": "crown-hosting",
+     "text": "Crown hosting",
+     "level": 2
+    },
+    {
+     "id": "choosing-a-supplier",
+     "text": "Choosing a supplier",
+     "level": 2
+    },
+    {
+     "id": "use-the-digital-marketplace",
+     "text": "Use the Digital Marketplace",
+     "level": 3
+    },
+    {
+     "id": "if-you-cannot-find-a-supplier-on-the-digital-marketplace",
+     "text": "If you cannot find a supplier on the Digital Marketplace",
+     "level": 3
+    },
+    {
+     "id": "evaluating-a-supplier",
+     "text": "Evaluating a supplier",
+     "level": 3
+    },
+    {
+     "id": "choosing-a-way-to-pay",
+     "text": "Choosing a way to pay",
+     "level": 3
+    },
+    {
+     "id": "moving-to-a-new-supplier",
+     "text": "Moving to a new supplier",
+     "level": 2
+    },
+    {
+     "id": "getting-advice",
+     "text": "Getting advice",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "cloud_devops-03",
+   "title": "Introducing Containers",
+   "words": 1598,
+   "minutes": 8,
+   "source": "ci-docker",
+   "url": "https://github.com/carpentries-incubator/docker-introduction/blob/1dd2b07a572ae7dc295d21bb3e92b20ef1367b11/episodes/introduction.md",
+   "toc": [
+    {
+     "id": "scientific-software-challenges",
+     "text": "Scientific Software Challenges",
+     "level": 2
+    },
+    {
+     "id": "what-is-a-container",
+     "text": "What is a Container?",
+     "level": 2
+    },
+    {
+     "id": "what-is-podman",
+     "text": "What is Podman?",
+     "level": 2
+    },
+    {
+     "id": "container-images",
+     "text": "Container Images",
+     "level": 2
+    },
+    {
+     "id": "putting-the-pieces-together",
+     "text": "Putting the Pieces Together",
+     "level": 2
+    },
+    {
+     "id": "use-cases-for-containers",
+     "text": "Use cases for containers",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "cloud_devops-04",
+   "title": "Exploring and Running Containers",
+   "words": 1509,
+   "minutes": 8,
+   "source": "ci-docker",
+   "url": "https://github.com/carpentries-incubator/docker-introduction/blob/1dd2b07a572ae7dc295d21bb3e92b20ef1367b11/episodes/running-containers.md",
+   "toc": [
+    {
+     "id": "downloading-podman-images",
+     "text": "Downloading Podman images",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "running-the-hello-container",
+     "text": "Running the hello container",
+     "level": 2
+    },
+    {
+     "id": "running-a-container-with-a-chosen-command",
+     "text": "Running a container with a chosen command",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "running-containers-interactively",
+     "text": "Running containers interactively",
+     "level": 2
+    },
+    {
+     "id": "solution-1-interactive",
+     "text": "Solution 1 -- Interactive",
+     "level": 2
+    },
+    {
+     "id": "solution-2-run-commands",
+     "text": "Solution 2 -- Run commands",
+     "level": 2
+    },
+    {
+     "id": "conclusion",
+     "text": "Conclusion",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "cloud_devops-05",
+   "title": "Cleaning Up Containers",
+   "words": 790,
+   "minutes": 4,
+   "source": "ci-docker",
+   "url": "https://github.com/carpentries-incubator/docker-introduction/blob/1dd2b07a572ae7dc295d21bb3e92b20ef1367b11/episodes/managing-containers.md",
+   "toc": [
+    {
+     "id": "removing-images",
+     "text": "Removing images",
+     "level": 2
+    },
+    {
+     "id": "what-containers-are-running",
+     "text": "What containers are running?",
+     "level": 2
+    },
+    {
+     "id": "what-containers-have-run-recently",
+     "text": "What containers have run recently?",
+     "level": 2
+    },
+    {
+     "id": "how-do-i-remove-an-exited-container",
+     "text": "How do I remove an exited container?",
+     "level": 2
+    },
+    {
+     "id": "removing-images-for-real-this-time",
+     "text": "Removing images, for real this time",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "cloud_devops-06",
+   "title": "Finding Containers on a Registry",
+   "words": 1488,
+   "minutes": 8,
+   "source": "ci-docker",
+   "url": "https://github.com/carpentries-incubator/docker-introduction/blob/1dd2b07a572ae7dc295d21bb3e92b20ef1367b11/episodes/docker-hub.md",
+   "toc": [
+    {
+     "id": "introducing-the-docker-hub",
+     "text": "Introducing the Docker Hub",
+     "level": 2
+    },
+    {
+     "id": "exploring-an-example-docker-hub-page",
+     "text": "Exploring an Example Docker Hub Page",
+     "level": 2
+    },
+    {
+     "id": "exploring-container-image-versions",
+     "text": "Exploring Container Image Versions",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "finding-container-images-on-docker-hub",
+     "text": "Finding Container Images on Docker Hub",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "cloud_devops-07",
+   "title": "Creating Your Own Container Images",
+   "words": 2247,
+   "minutes": 12,
+   "source": "ci-docker",
+   "url": "https://github.com/carpentries-incubator/docker-introduction/blob/1dd2b07a572ae7dc295d21bb3e92b20ef1367b11/episodes/creating-container-images.md",
+   "toc": [
+    {
+     "id": "interactive-installation",
+     "text": "Interactive installation",
+     "level": 2
+    },
+    {
+     "id": "solution",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "put-installation-instructions-in-a-dockerfile",
+     "text": "Put installation instructions in a Dockerfile",
+     "level": 2
+    },
+    {
+     "id": "solution-x",
+     "text": "Solution:",
+     "level": 2
+    },
+    {
+     "id": "create-a-new-container-image",
+     "text": "Create a new container image",
+     "level": 2
+    },
+    {
+     "id": "solution-x-x",
+     "text": "Solution",
+     "level": 2
+    },
+    {
+     "id": "boring-but-important-notes-about-installation",
+     "text": "Boring but important notes about installation",
+     "level": 2
+    },
+    {
+     "id": "share-your-new-container-image-on-docker-hub",
+     "text": "Share your new container image on Docker Hub",
+     "level": 2
+    },
+    {
+     "id": "what-s-in-a-name-again",
+     "text": "What's in a name? (again)",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "cloud_devops-08",
+   "title": "Maintaining version control in coding",
+   "words": 446,
+   "minutes": 3,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/technology/maintaining-version-control-in-coding",
+   "toc": [
+    {
+     "id": "making-commits",
+     "text": "Making commits",
+     "level": 2
+    },
+    {
+     "id": "writing-commit-messages",
+     "text": "Writing commit messages",
+     "level": 2
+    },
+    {
+     "id": "grouping-changes",
+     "text": "Grouping changes",
+     "level": 3
+    },
+    {
+     "id": "reviewing-changes",
+     "text": "Reviewing changes",
+     "level": 3
+    },
+    {
+     "id": "using-distributed-version-control-systems",
+     "text": "Using distributed version control systems",
+     "level": 2
+    },
+    {
+     "id": "other-uses-for-version-control",
+     "text": "Other uses for version control",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "cloud_devops-09",
+   "title": "Deploying software regularly",
+   "words": 1535,
+   "minutes": 8,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/technology/deploying-software-regularly",
+   "toc": [
+    {
+     "id": "principles-for-deploying-regularly",
+     "text": "Principles for deploying regularly",
+     "level": 2
+    },
+    {
+     "id": "deploy-little-and-often",
+     "text": "Deploy little and often",
+     "level": 3
+    },
+    {
+     "id": "deploy-quality-software",
+     "text": "Deploy quality software",
+     "level": 3
+    },
+    {
+     "id": "use-auditable-deployments",
+     "text": "Use auditable deployments",
+     "level": 3
+    },
+    {
+     "id": "aim-for-zero-downtime-deployment",
+     "text": "Aim for zero downtime deployment",
+     "level": 3
+    },
+    {
+     "id": "how-to-deploy-regularly",
+     "text": "How to deploy regularly",
+     "level": 2
+    },
+    {
+     "id": "building-a-single-artifact",
+     "text": "Building a single artifact",
+     "level": 2
+    },
+    {
+     "id": "managing-artifacts",
+     "text": "Managing artifacts",
+     "level": 3
+    },
+    {
+     "id": "multiple-deployment-environments",
+     "text": "Multiple deployment environments",
+     "level": 2
+    },
+    {
+     "id": "using-a-pipeline",
+     "text": "Using a pipeline",
+     "level": 3
+    },
+    {
+     "id": "deciding-which-environments-to-deploy",
+     "text": "Deciding which environments to deploy",
+     "level": 3
+    },
+    {
+     "id": "managing-variable-configuration",
+     "text": "Managing variable configuration",
+     "level": 2
+    },
+    {
+     "id": "securing-passwords-and-keys",
+     "text": "Securing passwords and keys",
+     "level": 2
+    },
+    {
+     "id": "using-smoke-tests-after-you-deploy",
+     "text": "Using smoke tests after you deploy",
+     "level": 2
+    },
+    {
+     "id": "if-a-smoke-test-fails",
+     "text": "If a smoke test fails",
+     "level": 3
+    },
+    {
+     "id": "get-help",
+     "text": "Get help",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "cloud_devops-10",
+   "title": "Manage your software configuration",
+   "words": 346,
+   "minutes": 3,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/technology/manage-your-software-configuration",
+   "toc": [
+    {
+     "id": "using-configuration-management-tools",
+     "text": "Using configuration management tools",
+     "level": 2
+    },
+    {
+     "id": "use-infrastructure-as-code",
+     "text": "Use infrastructure as code",
+     "level": 2
+    },
+    {
+     "id": "build-for-portability",
+     "text": "Build for portability",
+     "level": 2
+    },
+    {
+     "id": "use-the-same-development-and-production-tools",
+     "text": "Use the same development and production tools",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "cloud_devops-11",
+   "title": "Quality assurance: testing your service regularly",
+   "words": 562,
+   "minutes": 3,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/technology/quality-assurance-testing-your-service-regularly",
+   "toc": [
+    {
+     "id": "involving-the-whole-team",
+     "text": "Involving the whole team",
+     "level": 2
+    },
+    {
+     "id": "why-test-for-quality",
+     "text": "Why test for quality",
+     "level": 2
+    },
+    {
+     "id": "how-to-test",
+     "text": "How to test",
+     "level": 2
+    },
+    {
+     "id": "automated-testing",
+     "text": "Automated testing",
+     "level": 3
+    },
+    {
+     "id": "review-your-testing-process",
+     "text": "Review your testing process",
+     "level": 2
+    },
+    {
+     "id": "types-of-testing",
+     "text": "Types of testing",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "cloud_devops-12",
+   "title": "Monitoring the status of your service",
+   "words": 760,
+   "minutes": 4,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/technology/monitoring-the-status-of-your-service",
+   "toc": [
+    {
+     "id": "plan-your-monitoring",
+     "text": "Plan your monitoring",
+     "level": 2
+    },
+    {
+     "id": "metrics-to-monitor",
+     "text": "Metrics to monitor",
+     "level": 2
+    },
+    {
+     "id": "how-to-monitor",
+     "text": "How to monitor",
+     "level": 2
+    },
+    {
+     "id": "setting-up-internal-and-external-monitoring-checks",
+     "text": "Setting up internal and external monitoring checks",
+     "level": 3
+    },
+    {
+     "id": "writing-monitoring-checks",
+     "text": "Writing monitoring checks",
+     "level": 3
+    },
+    {
+     "id": "writing-alerts",
+     "text": "Writing alerts",
+     "level": 3
+    },
+    {
+     "id": "processing-and-recording-issues",
+     "text": "Processing and recording issues",
+     "level": 2
+    },
+    {
+     "id": "make-data-widely-available",
+     "text": "Make data widely available",
+     "level": 2
+    },
+    {
+     "id": "reviewing-your-monitoring-processes-regularly",
+     "text": "Reviewing your monitoring processes regularly",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "cloud_devops-13",
+   "title": "Uptime and availability: keeping your service online",
+   "words": 578,
+   "minutes": 3,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/technology/uptime-and-availability-keeping-your-service-online",
+   "toc": [
+    {
+     "id": "design-to-maximise-uptime",
+     "text": "Design to maximise uptime",
+     "level": 2
+    },
+    {
+     "id": "issues-that-can-affect-uptime",
+     "text": "Issues that can affect uptime",
+     "level": 2
+    },
+    {
+     "id": "underlying-infrastructure-availability",
+     "text": "Underlying infrastructure availability",
+     "level": 3
+    },
+    {
+     "id": "scheduled-maintenance",
+     "text": "Scheduled maintenance",
+     "level": 3
+    },
+    {
+     "id": "suppliers-and-contracts",
+     "text": "Suppliers and contracts",
+     "level": 3
+    },
+    {
+     "id": "decide-on-out-of-hours-support",
+     "text": "Decide on out-of-hours support",
+     "level": 2
+    },
+    {
+     "id": "tell-users-about-downtime",
+     "text": "Tell users about downtime",
+     "level": 2
+    },
+    {
+     "id": "deliberate-downtime",
+     "text": "Deliberate downtime",
+     "level": 3
+    },
+    {
+     "id": "unanticipated-downtime",
+     "text": "Unanticipated downtime",
+     "level": 3
+    },
+    {
+     "id": "case-studies-and-examples",
+     "text": "Case studies and examples",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "cloud_devops-14",
+   "title": "Securing your cloud environment for services",
+   "words": 548,
+   "minutes": 3,
+   "source": "govuk-sm",
+   "url": "https://www.gov.uk/service-manual/technology/securing-your-cloud-environment",
+   "toc": [
+    {
+     "id": "deciding-whether-to-use-the-cloud",
+     "text": "Deciding whether to use the cloud",
+     "level": 2
+    },
+    {
+     "id": "finding-a-secure-cloud-provider",
+     "text": "Finding a secure cloud provider",
+     "level": 2
+    },
+    {
+     "id": "configure-your-cloud-environment-for-security",
+     "text": "Configure your cloud environment for security",
+     "level": 2
+    },
+    {
+     "id": "auditing-the-cloud-environment",
+     "text": "Auditing the cloud environment",
+     "level": 2
+    },
+    {
+     "id": "related-guides",
+     "text": "Related guides",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [
+   {
+    "q": "Which one is NOT necessarily a good reason for choosing the cloud?",
+    "options": [
+     "Using Machine Learning and data intelligence services",
+     "Processing large amounts of data",
+     "Storing sensitive/confidential governmental data"
+    ],
+    "answer": 2,
+    "explain": "",
+    "lesson": "cloud_devops-01",
+    "origin": "bank:ds:33",
+    "source": "ms-ds"
+   },
+   {
+    "q": "In which way(s) do data scientists use the cloud?",
+    "options": [
+     "Infrastructure tasks",
+     "Storing large amounts of data",
+     "Configuring networking options"
+    ],
+    "answer": 1,
+    "explain": "",
+    "lesson": "cloud_devops-01",
+    "origin": "bank:ds:33",
+    "source": "ms-ds"
+   }
+  ],
+  "pass_mark": 2,
+  "missing": false
+ },
+ "minutes": 79,
+ "sources": [
+  {
+   "id": "ci-docker",
+   "name": "Carpentries Incubator · Introduction to Docker",
+   "url": "https://carpentries-incubator.github.io/docker-introduction/",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "© The Carpentries, CC BY 4.0",
+   "noncommercial": false
+  },
+  {
+   "id": "govuk-sm",
+   "name": "GOV.UK Service Manual",
+   "url": "https://www.gov.uk/service-manual",
+   "license": "Open Government Licence v3.0",
+   "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+   "attribution": "Contains public sector information licensed under the Open Government Licence v3.0",
+   "noncommercial": false
+  },
+  {
+   "id": "ms-ds",
+   "name": "Microsoft · Data Science for Beginners",
+   "url": "https://github.com/microsoft/Data-Science-For-Beginners",
+   "license": "MIT",
+   "license_url": "https://opensource.org/license/mit",
+   "attribution": "© Microsoft Corporation, MIT License",
+   "noncommercial": false
+  }
+ ]
+}
