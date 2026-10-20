@@ -11,8 +11,7 @@
 </tbody>
 </table></div>
 <p>In this lesson you will explore how to use one of the many available Python libraries to learn how to create interesting visualizations all around the concept of quantity. Using a cleaned dataset about the birds of Minnesota, you can learn many interesting facts about local wildlife.</p>
-
-<h2 id="observe-wingspan-with-matplotlib">Observe wingspan with Matplotlib</h2>
+<h2 id="h-observe-wingspan-with-matplotlib">Observe wingspan with Matplotlib</h2>
 <p>An excellent library to create both simple and sophisticated plots and charts of various kinds is <a href="https://matplotlib.org/stable/index.html" target="_blank" rel="noopener noreferrer">Matplotlib</a>. In general terms, the process of plotting data using these libraries includes identifying the parts of your dataframe that you want to target, performing any transforms on that data necessary, assigning its x and y axis values, deciding what kind of plot to show, and then showing the plot. Matplotlib offers a large variety of visualizations, but for this lesson, let's focus on the ones most appropriate for visualizing quantity: line charts, scatterplots, and bar plots.</p>
 <blockquote>
 <p>✅ Use the best chart to suit your data's structure and the story you want to tell.</p>
@@ -27,7 +26,7 @@
 </blockquote>
 <p>If you have a dataset and need to discover how much of a given item is included, one of the first tasks you have at hand will be to inspect its values.</p>
 <p>✅ There are very good 'cheat sheets' available for Matplotlib <a href="https://matplotlib.org/cheatsheets/cheatsheets.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
-<h2 id="build-a-line-plot-about-bird-wingspan-values">Build a line plot about bird wingspan values</h2>
+<h2 id="h-build-a-line-plot-about-bird-wingspan-values">Build a line plot about bird wingspan values</h2>
 <p>Open the <code>notebook.ipynb</code> file at the root of this lesson folder and add a cell.</p>
 <blockquote>
 <p>Note: the data is stored in the root of this repo in the <code>/data</code> folder.</p>
@@ -177,7 +176,7 @@ plt.show()
 <p>What's going on here? You used <code>tick_params</code> to hide the bottom labels and then created a loop over your birds dataset. Plotting the chart with small round blue dots by using <code>bo</code>, you checked for any bird with a maximum wingspan over 500 and displayed their label next to the dot if so. You offset the labels a little on the y axis (<code>y * (1 - 0.05)</code>) and used the bird name as a label.</p>
 <p>What did you discover?</p>
 <p><img alt="outliers" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/09-visualization-quantities/images/labeled-wingspan-02.png"></p>
-<h2 id="filter-your-data">Filter your data</h2>
+<h2 id="h-filter-your-data">Filter your data</h2>
 <p>Both the Bald Eagle and the Prairie Falcon, while probably very large birds, appear to be mislabeled, with an extra <code>0</code> added to their maximum wingspan. It's unlikely that you'll meet a Bald Eagle with a 25 meter wingspan, but if so, please let us know! Let's create a new dataframe without those two outliers:</p>
 <pre><code class="language-python">plt.title('Max Wingspan in Centimeters')
 plt.ylabel('Wingspan (CM)')
@@ -199,7 +198,7 @@ plt.show()
 How many birds are extinct, endangered, rare, or common?
 How many are there of the various genus and orders in Linnaeus's terminology?</p>
 </blockquote>
-<h2 id="explore-bar-charts">Explore bar charts</h2>
+<h2 id="h-explore-bar-charts">Explore bar charts</h2>
 <p>Bar charts are practical when you need to show groupings of data. Let's explore the categories of birds that exist in this dataset to see which is the most common by number.</p>
 <p>In the notebook file, create a basic bar chart</p>
 <p>✅ Note, you can either filter out the two outlier birds we identified in the previous section, edit the typo in their wingspan, or leave them in for these exercises which do not depend on wingspan values.</p>
@@ -222,7 +221,7 @@ category_count.plot.barh()
 <p><img alt="category and length" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/09-visualization-quantities/images/category-counts-02.png"></p>
 <p>This bar chart shows a good view of the number of birds in each category. In a blink of an eye, you see that the largest number of birds in this region are in the Ducks/Geese/Waterfowl category. Minnesota is the 'land of 10,000 lakes' so this isn't surprising!</p>
 <p>✅ Try some other counts on this dataset. Does anything surprise you?</p>
-<h2 id="comparing-data">Comparing data</h2>
+<h2 id="h-comparing-data">Comparing data</h2>
 <p>You can try different comparisons of grouped data by creating new axes. Try a comparison of the MaxLength of a bird, based on its category:</p>
 <pre><code class="language-python">maxlength = birds['MaxLength']
 plt.barh(y=birds['Category'], width=maxlength)
@@ -243,8 +242,7 @@ plt.show()
 </code></pre>
 <p>In this plot, you can see the range per bird category of the Minimum Length and Maximum length. You can safely say that, given this data, the bigger the bird, the larger its length range. Fascinating!</p>
 <p><img alt="superimposed values" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/09-visualization-quantities/images/superimposed-02.png"></p>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>This bird dataset offers a wealth of information about different types of birds within a particular ecosystem. Search around the internet and see if you can find other bird-oriented datasets. Practice building charts and graphs around these birds to discover facts you didn't realize.</p>
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>This first lesson has given you some information about how to use Matplotlib to visualize quantities. Do some research around other ways to work with datasets for visualization. <a href="https://github.com/plotly/plotly.py" target="_blank" rel="noopener noreferrer">Plotly</a> is one that we won't cover in these lessons, so take a look at what it can offer.</p>

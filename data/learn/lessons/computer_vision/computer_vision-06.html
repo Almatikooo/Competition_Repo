@@ -1,5 +1,4 @@
 <p>We have previously learned about Object Detection, which allows us to locate objects in the image by predicting their <em>bounding boxes</em>. However, for some tasks we do not only need bounding boxes, but also more precise object localization. This task is called  <strong>segmentation</strong>.</p>
-
 <p>Segmentation can be viewed as <strong>pixel classification</strong>, whereas for <strong>each</strong> pixel of image we must predict its class (<em>background</em> being one of the classes). There are two main segmentation algorithms:</p>
 <ul>
 <li><strong>Semantic segmentation</strong> only tells the pixel class, and does not make a distinction between different objects of the same class</li>
@@ -23,7 +22,7 @@
 <blockquote>
 <p>✅ One-hot encoding is a way to encode a class label into a vector of length equal to the number of classes. Take a look at <a href="https://datagy.io/sklearn-one-hot-encode/" target="_blank" rel="noopener noreferrer">this article</a> on this technique.</p>
 </blockquote>
-<h2 id="segmentation-for-medical-imaging">Segmentation for Medical Imaging</h2>
+<h2 id="h-segmentation-for-medical-imaging">Segmentation for Medical Imaging</h2>
 <p>In this lesson, we will see the segmentation in action by training the network to recognize human nevi (also known as moles) on medical images. We will be using <a href="https://www.fc.up.pt/addi/ph2%20database.html" target="_blank" rel="noopener noreferrer">PH<sup>2</sup> Database</a> of dermoscopy images as the image source. This dataset contains 200 images of three classes: typical nevus, atypical nevus, and melanoma. All images also contain a corresponding <strong>mask</strong> that outlines the nevus.</p>
 <blockquote>
 <p>✅ This technique is particularly appropriate for this type of medical imaging, but what other real-world applications could you envision?</p>
@@ -33,16 +32,15 @@
 <p>Image from the PH<sup>2</sup> Database</p>
 </blockquote>
 <p>We will train a model to segment any nevus from its background.</p>
-<h2 id="exercises-semantic-segmentation">✍️ Exercises: Semantic Segmentation</h2>
+<h2 id="h-exercises-semantic-segmentation">✍️ Exercises: Semantic Segmentation</h2>
 <p>Open the notebooks below to learn more about different semantic segmentation architectures, practice working with them, and see them in action.</p>
 <ul>
 <li><a href="https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/12-Segmentation/SemanticSegmentationPytorch.ipynb" target="_blank" rel="noopener noreferrer">Semantic Segmentation Pytorch</a></li>
 <li><a href="https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/12-Segmentation/SemanticSegmentationTF.ipynb" target="_blank" rel="noopener noreferrer">Semantic Segmentation TensorFlow</a></li>
 </ul>
-
-<h2 id="conclusion">Conclusion</h2>
+<h2 id="h-conclusion">Conclusion</h2>
 <p>Segmentation is a very powerful technique for image classification, moving beyond bounding boxes to pixel-level classification. It is a technique used in medical imaging, among other applications.</p>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>Body segmentation is just one of the common tasks that we can do with images of people. Another important tasks include <strong>skeleton detection</strong> and <strong>pose detection</strong>. Try out <a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose" target="_blank" rel="noopener noreferrer">OpenPose</a> library to see how pose detection can be used.</p>
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>This <a href="https://wikipedia.org/wiki/Image_segmentation" target="_blank" rel="noopener noreferrer">wikipedia article</a> offers a good overview of the various applications of this technique. Learn more on your own about the subdomains of Instance segmentation and Panoptic segmentation in this field of inquiry.</p>

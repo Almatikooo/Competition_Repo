@@ -27,16 +27,14 @@
     "prompt_eng-07",
     "prompt_eng-08",
     "prompt_eng-09",
-    "prompt_eng-10",
-    "prompt_eng-11"
+    "prompt_eng-10"
    ]
   },
   {
    "title": "Risks and responsible use",
    "lessons": [
-    "prompt_eng-12",
-    "prompt_eng-13",
-    "prompt_eng-14"
+    "prompt_eng-11",
+    "prompt_eng-12"
    ]
   }
  ],
@@ -44,150 +42,150 @@
   {
    "id": "prompt_eng-01",
    "title": "Prompt Engineering Fundamentals",
-   "words": 4615,
-   "minutes": 24,
+   "words": 2514,
+   "minutes": 13,
    "source": "ms-genai",
    "url": "https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/04-prompt-engineering-fundamentals/README.md",
    "toc": [
     {
-     "id": "introduction",
+     "id": "h-introduction",
      "text": "Introduction",
      "level": 2
     },
     {
-     "id": "learning-goals",
+     "id": "h-learning-goals",
      "text": "Learning Goals",
      "level": 2
     },
     {
-     "id": "key-terms",
+     "id": "h-key-terms",
      "text": "Key Terms",
      "level": 2
     },
     {
-     "id": "learning-sandbox",
+     "id": "h-learning-sandbox",
      "text": "Learning Sandbox",
      "level": 2
     },
     {
-     "id": "illustrated-guide",
+     "id": "h-illustrated-guide",
      "text": "Illustrated Guide",
      "level": 2
     },
     {
-     "id": "our-startup",
+     "id": "h-our-startup",
      "text": "Our Startup",
      "level": 2
     },
     {
-     "id": "what-is-prompt-engineering",
+     "id": "h-what-is-prompt-engineering",
      "text": "What is Prompt Engineering?",
      "level": 2
     },
     {
-     "id": "tokenization",
+     "id": "h-tokenization",
      "text": "Tokenization",
      "level": 3
     },
     {
-     "id": "concept-foundation-models",
+     "id": "h-concept-foundation-models",
      "text": "Concept: Foundation Models",
      "level": 3
     },
     {
-     "id": "concept-instruction-tuned-llms",
+     "id": "h-concept-instruction-tuned-llms",
      "text": "Concept: Instruction Tuned LLMs",
      "level": 3
     },
     {
-     "id": "why-do-we-need-prompt-engineering",
+     "id": "h-why-do-we-need-prompt-engineering",
      "text": "Why do we need Prompt Engineering?",
      "level": 2
     },
     {
-     "id": "fabrications-example",
+     "id": "h-fabrications-example",
      "text": "Fabrications Example",
      "level": 3
     },
     {
-     "id": "case-study-github-copilot",
+     "id": "h-case-study-github-copilot",
      "text": "Case Study: GitHub Copilot",
      "level": 2
     },
     {
-     "id": "prompt-construction",
+     "id": "h-prompt-construction",
      "text": "Prompt Construction",
      "level": 2
     },
     {
-     "id": "basic-prompt",
+     "id": "h-basic-prompt",
      "text": "Basic Prompt",
      "level": 3
     },
     {
-     "id": "complex-prompt",
+     "id": "h-complex-prompt",
      "text": "Complex Prompt",
      "level": 3
     },
     {
-     "id": "instruction-prompt",
+     "id": "h-instruction-prompt",
      "text": "Instruction Prompt",
      "level": 3
-    },
+    }
+   ]
+  },
+  {
+   "id": "prompt_eng-02",
+   "title": "Prompt Engineering Fundamentals · Primary Content",
+   "words": 1998,
+   "minutes": 10,
+   "source": "ms-genai",
+   "url": "https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/04-prompt-engineering-fundamentals/README.md",
+   "toc": [
     {
-     "id": "primary-content",
-     "text": "Primary Content",
-     "level": 2
-    },
-    {
-     "id": "using-examples",
+     "id": "h-using-examples",
      "text": "Using Examples",
      "level": 3
     },
     {
-     "id": "prompt-cues",
+     "id": "h-prompt-cues",
      "text": "Prompt Cues",
      "level": 3
     },
     {
-     "id": "prompt-templates",
+     "id": "h-prompt-templates",
      "text": "Prompt Templates",
      "level": 3
     },
     {
-     "id": "supporting-content",
+     "id": "h-supporting-content",
      "text": "Supporting Content",
      "level": 2
     },
     {
-     "id": "prompting-best-practices",
+     "id": "h-prompting-best-practices",
      "text": "Prompting Best Practices",
      "level": 2
     },
     {
-     "id": "prompt-engineering-mindset",
+     "id": "h-prompt-engineering-mindset",
      "text": "Prompt Engineering Mindset",
      "level": 3
     },
     {
-     "id": "best-practices",
+     "id": "h-best-practices",
      "text": "Best Practices",
      "level": 2
     },
     {
-     "id": "knowledge-check",
-     "text": "Knowledge check",
-     "level": 2
-    },
-    {
-     "id": "challenge",
+     "id": "h-challenge",
      "text": "🚀 Challenge",
      "level": 2
     }
    ]
   },
   {
-   "id": "prompt_eng-02",
+   "id": "prompt_eng-03",
    "title": "Basics of Prompting",
    "words": 707,
    "minutes": 4,
@@ -195,34 +193,36 @@
    "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/introduction/basics.en.mdx",
    "toc": [
     {
-     "id": "prompting-an-llm",
+     "id": "h-prompting-an-llm",
      "text": "Prompting an LLM",
      "level": 2
     },
     {
-     "id": "prompt-formatting",
+     "id": "h-prompt-formatting",
      "text": "Prompt Formatting",
      "level": 2
     }
    ]
   },
   {
-   "id": "prompt_eng-03",
-   "title": "LLM Settings",
-   "words": 558,
-   "minutes": 3,
-   "source": "dair",
-   "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/introduction/settings.en.mdx",
-   "toc": []
-  },
-  {
    "id": "prompt_eng-04",
-   "title": "Elements of a Prompt",
-   "words": 229,
-   "minutes": 3,
+   "title": "Elements of a prompt and LLM settings",
+   "words": 793,
+   "minutes": 4,
    "source": "dair",
    "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/introduction/elements.en.mdx",
-   "toc": []
+   "toc": [
+    {
+     "id": "h-elements-of-a-prompt",
+     "text": "Elements of a Prompt",
+     "level": 2
+    },
+    {
+     "id": "h-llm-settings",
+     "text": "LLM Settings",
+     "level": 2
+    }
+   ]
   },
   {
    "id": "prompt_eng-05",
@@ -233,27 +233,27 @@
    "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/introduction/tips.en.mdx",
    "toc": [
     {
-     "id": "start-simple",
+     "id": "h-start-simple",
      "text": "Start Simple",
      "level": 3
     },
     {
-     "id": "the-instruction",
+     "id": "h-the-instruction",
      "text": "The Instruction",
      "level": 3
     },
     {
-     "id": "specificity",
+     "id": "h-specificity",
      "text": "Specificity",
      "level": 3
     },
     {
-     "id": "avoid-impreciseness",
+     "id": "h-avoid-impreciseness",
      "text": "Avoid Impreciseness",
      "level": 3
     },
     {
-     "id": "to-do-or-not-to-do",
+     "id": "h-to-do-or-not-to-do",
      "text": "To do or not to do?",
      "level": 3
     }
@@ -268,42 +268,42 @@
    "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/introduction/examples.en.mdx",
    "toc": [
     {
-     "id": "text-summarization",
+     "id": "h-text-summarization",
      "text": "Text Summarization",
      "level": 2
     },
     {
-     "id": "information-extraction",
+     "id": "h-information-extraction",
      "text": "Information Extraction",
      "level": 2
     },
     {
-     "id": "question-answering",
+     "id": "h-question-answering",
      "text": "Question Answering",
      "level": 2
     },
     {
-     "id": "text-classification",
+     "id": "h-text-classification",
      "text": "Text Classification",
      "level": 2
     },
     {
-     "id": "conversation",
+     "id": "h-conversation",
      "text": "Conversation",
      "level": 2
     },
     {
-     "id": "code-generation",
+     "id": "h-code-generation",
      "text": "Code Generation",
      "level": 2
     },
     {
-     "id": "reasoning",
+     "id": "h-reasoning",
      "text": "Reasoning",
      "level": 2
     },
     {
-     "id": "notebook",
+     "id": "h-notebook",
      "text": "Notebook",
      "level": 2
     }
@@ -312,103 +312,98 @@
   {
    "id": "prompt_eng-07",
    "title": "Creating Advanced prompts",
-   "words": 2336,
+   "words": 2259,
    "minutes": 12,
    "source": "ms-genai",
    "url": "https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/05-advanced-prompts/README.md",
    "toc": [
     {
-     "id": "introduction",
+     "id": "h-introduction",
      "text": "Introduction",
      "level": 2
     },
     {
-     "id": "learning-goals",
+     "id": "h-learning-goals",
      "text": "Learning goals",
      "level": 2
     },
     {
-     "id": "prompt-engineering",
+     "id": "h-prompt-engineering",
      "text": "Prompt engineering",
      "level": 2
     },
     {
-     "id": "an-example-of-a-prompt",
+     "id": "h-an-example-of-a-prompt",
      "text": "An example of a prompt",
      "level": 3
     },
     {
-     "id": "limitations-of-simple-prompting",
+     "id": "h-limitations-of-simple-prompting",
      "text": "Limitations of simple prompting",
      "level": 3
     },
     {
-     "id": "techniques-for-prompting",
+     "id": "h-techniques-for-prompting",
      "text": "Techniques for prompting",
      "level": 3
     },
     {
-     "id": "zero-shot-prompting",
+     "id": "h-zero-shot-prompting",
      "text": "Zero-shot prompting",
      "level": 3
     },
     {
-     "id": "few-shot-prompting",
+     "id": "h-few-shot-prompting",
      "text": "Few-shot prompting",
      "level": 3
     },
     {
-     "id": "chain-of-thought",
+     "id": "h-chain-of-thought",
      "text": "Chain-of-thought",
      "level": 3
     },
     {
-     "id": "generated-knowledge",
+     "id": "h-generated-knowledge",
      "text": "Generated knowledge",
      "level": 3
     },
     {
-     "id": "least-to-most",
+     "id": "h-least-to-most",
      "text": "Least-to-most",
      "level": 3
     },
     {
-     "id": "self-refine-critique-the-results",
+     "id": "h-self-refine-critique-the-results",
      "text": "Self-refine, critique the results",
      "level": 3
     },
     {
-     "id": "maieutic-prompting",
+     "id": "h-maieutic-prompting",
      "text": "Maieutic prompting",
      "level": 3
     },
     {
-     "id": "vary-your-output",
+     "id": "h-vary-your-output",
      "text": "Vary your output",
      "level": 2
     },
     {
-     "id": "using-temperature-to-vary-your-output",
+     "id": "h-using-temperature-to-vary-your-output",
      "text": "Using temperature to vary your output",
      "level": 3
     },
     {
-     "id": "good-practices",
+     "id": "h-good-practices",
      "text": "Good practices",
      "level": 2
     },
     {
-     "id": "solution",
+     "id": "h-solution",
      "text": "Solution",
      "level": 2
     },
     {
-     "id": "knowledge-check",
-     "text": "Knowledge check",
-     "level": 2
-    },
-    {
-     "id": "challenge",
+     "id": "h-challenge",
      "text": "🚀 Challenge",
      "level": 2
     }
@@ -416,30 +411,26 @@
   },
   {
    "id": "prompt_eng-08",
-   "title": "Zero-Shot Prompting",
-   "words": 226,
-   "minutes": 3,
+   "title": "Zero-shot and few-shot prompting",
+   "words": 865,
+   "minutes": 5,
    "source": "dair",
    "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/techniques/zeroshot.en.mdx",
-   "toc": []
-  },
-  {
-   "id": "prompt_eng-09",
-   "title": "Few-Shot Prompting",
-   "words": 635,
-   "minutes": 4,
-   "source": "dair",
-   "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/techniques/fewshot.en.mdx",
    "toc": [
     {
-     "id": "limitations-of-few-shot-prompting",
-     "text": "Limitations of Few-shot Prompting",
-     "level": 3
+     "id": "h-zero-shot-prompting",
+     "text": "Zero-Shot Prompting",
+     "level": 2
+    },
+    {
+     "id": "h-few-shot-prompting",
+     "text": "Few-Shot Prompting",
+     "level": 2
     }
    ]
   },
   {
-   "id": "prompt_eng-10",
+   "id": "prompt_eng-09",
    "title": "Chain-of-Thought Prompting",
    "words": 383,
    "minutes": 3,
@@ -447,24 +438,24 @@
    "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/techniques/cot.en.mdx",
    "toc": [
     {
-     "id": "chain-of-thought-cot-prompting",
+     "id": "h-chain-of-thought-cot-prompting",
      "text": "Chain-of-Thought (CoT) Prompting",
      "level": 2
     },
     {
-     "id": "zero-shot-cot-prompting",
+     "id": "h-zero-shot-cot-prompting",
      "text": "Zero-shot COT Prompting",
      "level": 2
     },
     {
-     "id": "automatic-chain-of-thought-auto-cot",
+     "id": "h-automatic-chain-of-thought-auto-cot",
      "text": "Automatic Chain-of-Thought (Auto-CoT)",
      "level": 2
     }
    ]
   },
   {
-   "id": "prompt_eng-11",
+   "id": "prompt_eng-10",
    "title": "Prompt Chaining",
    "words": 562,
    "minutes": 3,
@@ -472,53 +463,44 @@
    "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/techniques/prompt_chaining.en.mdx",
    "toc": [
     {
-     "id": "introduction-to-prompt-chaining",
+     "id": "h-introduction-to-prompt-chaining",
      "text": "Introduction to Prompt Chaining",
      "level": 2
     },
     {
-     "id": "use-cases-for-prompt-chaining",
+     "id": "h-use-cases-for-prompt-chaining",
      "text": "Use Cases for Prompt Chaining",
      "level": 2
     },
     {
-     "id": "prompt-chaining-for-document-qa",
+     "id": "h-prompt-chaining-for-document-qa",
      "text": "Prompt Chaining for Document QA",
      "level": 3
     }
    ]
   },
   {
-   "id": "prompt_eng-12",
-   "title": "Factuality",
-   "words": 177,
+   "id": "prompt_eng-11",
+   "title": "Factuality and bias",
+   "words": 488,
    "minutes": 3,
    "source": "dair",
    "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/risks/factuality.en.mdx",
-   "toc": []
-  },
-  {
-   "id": "prompt_eng-13",
-   "title": "Biases",
-   "words": 309,
-   "minutes": 3,
-   "source": "dair",
-   "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/risks/biases.en.mdx",
    "toc": [
     {
-     "id": "distribution-of-exemplars",
-     "text": "Distribution of Exemplars",
-     "level": 3
+     "id": "h-factuality",
+     "text": "Factuality",
+     "level": 2
     },
     {
-     "id": "order-of-exemplars",
-     "text": "Order of Exemplars",
-     "level": 3
+     "id": "h-biases",
+     "text": "Biases",
+     "level": 2
     }
    ]
   },
   {
-   "id": "prompt_eng-14",
+   "id": "prompt_eng-12",
    "title": "Adversarial Prompting and Prompt Injection",
    "words": 2289,
    "minutes": 12,
@@ -526,94 +508,230 @@
    "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/pages/risks/adversarial.en.mdx",
    "toc": [
     {
-     "id": "adversarial-prompting-in-llms",
+     "id": "h-adversarial-prompting-in-llms",
      "text": "Adversarial Prompting in LLMs",
      "level": 2
     },
     {
-     "id": "prompt-injection",
+     "id": "h-prompt-injection",
      "text": "Prompt Injection",
      "level": 2
     },
     {
-     "id": "prompt-leaking",
+     "id": "h-prompt-leaking",
      "text": "Prompt Leaking",
      "level": 2
     },
     {
-     "id": "jailbreaking",
+     "id": "h-jailbreaking",
      "text": "Jailbreaking",
      "level": 2
     },
     {
-     "id": "illegal-behavior",
+     "id": "h-illegal-behavior",
      "text": "Illegal Behavior",
      "level": 3
     },
     {
-     "id": "dan",
+     "id": "h-dan",
      "text": "DAN",
      "level": 3
     },
     {
-     "id": "the-waluigi-effect",
+     "id": "h-the-waluigi-effect",
      "text": "The Waluigi Effect",
      "level": 3
     },
     {
-     "id": "gpt-4-simulator",
+     "id": "h-gpt-4-simulator",
      "text": "GPT-4 Simulator",
      "level": 3
     },
     {
-     "id": "game-simulator",
+     "id": "h-game-simulator",
      "text": "Game Simulator",
      "level": 3
     },
     {
-     "id": "defense-tactics",
+     "id": "h-defense-tactics",
      "text": "Defense Tactics",
      "level": 2
     },
     {
-     "id": "add-defense-in-the-instruction",
+     "id": "h-add-defense-in-the-instruction",
      "text": "Add Defense in the Instruction",
      "level": 3
     },
     {
-     "id": "parameterizing-prompt-components",
+     "id": "h-parameterizing-prompt-components",
      "text": "Parameterizing Prompt Components",
      "level": 3
     },
     {
-     "id": "quotes-and-additional-formatting",
+     "id": "h-quotes-and-additional-formatting",
      "text": "Quotes and Additional Formatting",
      "level": 3
     },
     {
-     "id": "adversarial-prompt-detector",
+     "id": "h-adversarial-prompt-detector",
      "text": "Adversarial Prompt Detector",
      "level": 3
     },
     {
-     "id": "model-type",
+     "id": "h-model-type",
      "text": "Model Type",
      "level": 3
-    },
-    {
-     "id": "references",
-     "text": "References",
-     "level": 2
     }
    ]
   }
  ],
  "quiz": {
-  "questions": [],
-  "pass_mark": 0,
-  "missing": true
+  "questions": [
+   {
+    "q": "Once a prompt is tokenized, what is the primary function of a base (foundation) LLM?",
+    "options": [
+     "To predict the next token in the sequence",
+     "To search the internet",
+     "To check facts against a database",
+     "To translate the prompt into code"
+    ],
+    "answer": 0,
+    "explain": "Base models complete text token by token; instruction tuning makes them follow requests.",
+    "lesson": "prompt_eng-01",
+    "evidence": "the primary function of the \"Base LLM\" (or Foundation model) is to predict the token in that sequence.",
+    "origin": "authored"
+   },
+   {
+    "q": "Besides giving examples, which technique uses primary content to steer the model?",
+    "options": [
+     "Raising the temperature",
+     "Asking the same question twice",
+     "Providing cues rather than examples",
+     "Writing the prompt in capital letters"
+    ],
+    "answer": 2,
+    "explain": "A cue (for example the start of the desired output) nudges the model toward the format you want.",
+    "lesson": "prompt_eng-02",
+    "evidence": "Another technique for using primary content is to provide cues rather than examples.",
+    "origin": "authored"
+   },
+   {
+    "q": "What does the quality of results from a prompt depend on?",
+    "options": [
+     "Only on which model you use",
+     "How much information you provide and how well-crafted the prompt is",
+     "The time of day",
+     "How long you wait before sending it"
+    ],
+    "answer": 1,
+    "explain": "Instructions, context, inputs and examples all improve results.",
+    "lesson": "prompt_eng-03",
+    "evidence": "the quality of results depends on how much information you provide it and how well-crafted the prompt is.",
+    "origin": "authored"
+   },
+   {
+    "q": "What is Top P?",
+    "options": [
+     "The most popular prompt template",
+     "The maximum number of tokens in a reply",
+     "A ranking of the best models",
+     "A sampling technique (nucleus sampling) that controls how deterministic the model is"
+    ],
+    "answer": 3,
+    "explain": "Lower Top P (or temperature) gives more deterministic, factual answers; higher gives more varied ones.",
+    "lesson": "prompt_eng-04",
+    "evidence": "Top P - A sampling technique with temperature, called nucleus sampling, where you can control how deterministic the model is.",
+    "origin": "authored"
+   },
+   {
+    "q": "What does the guide recommend about the context you give in a prompt?",
+    "options": [
+     "The more specific and relevant to the task, the better",
+     "Always keep it under ten words",
+     "Leave it out so the model can be creative",
+     "Use the same context for every task"
+    ],
+    "answer": 0,
+    "explain": "Specific, relevant detail matters most when you want a particular outcome or style.",
+    "lesson": "prompt_eng-05",
+    "evidence": "Usually, the more specific and relevant the context is to the task you are trying to perform, the better.",
+    "origin": "authored"
+   },
+   {
+    "q": "Why is prompting described as an 'emergent property' of an LLM?",
+    "options": [
+     "Because prompts only work in emergencies",
+     "Because the model was explicitly programmed to follow prompts",
+     "Because it is not a feature built into the model but something we discover as we use it",
+     "Because prompts are generated by the model itself"
+    ],
+    "answer": 2,
+    "explain": "That is why prompt techniques are found by experimentation.",
+    "lesson": "prompt_eng-07",
+    "evidence": "prompting is an emergent property of an LLM meaning that this is not a feature that is built into the model but rather something we discover as we use the model.",
+    "origin": "authored"
+   },
+   {
+    "q": "What is zero-shot prompting?",
+    "options": [
+     "A prompt that has zero words",
+     "A prompt with no examples or demonstrations",
+     "A prompt that is sent without an API key",
+     "A prompt that always gets a wrong answer"
+    ],
+    "answer": 1,
+    "explain": "Few-shot prompting adds a handful of examples; zero-shot relies on instructions alone.",
+    "lesson": "prompt_eng-08",
+    "evidence": "Zero-shot prompting means that the prompt used to interact with the model won't contain examples or demonstrations.",
+    "origin": "authored"
+   },
+   {
+    "q": "Chain-of-thought prompting can be combined with which technique to do better on complex reasoning tasks?",
+    "options": [
+     "Prompt injection",
+     "Lowering the token limit",
+     "Asking for one-word answers",
+     "Few-shot prompting"
+    ],
+    "answer": 3,
+    "explain": "Worked examples that show their reasoning help the model reason step by step.",
+    "lesson": "prompt_eng-09",
+    "evidence": "You can combine it with few-shot prompting to get better results on more complex tasks that require reasoning before responding.",
+    "origin": "authored"
+   },
+   {
+    "q": "How does prompt chaining work?",
+    "options": [
+     "A task is split into subtasks, and each response is used as input to the next prompt",
+     "The same prompt is sent many times and the answers are averaged",
+     "Several users write one prompt together",
+     "The model is asked to ignore its earlier answers"
+    ],
+    "answer": 0,
+    "explain": "Breaking work into steps makes LLM pipelines more reliable and easier to debug.",
+    "lesson": "prompt_eng-10",
+    "evidence": "Once those subtasks have been identified, the LLM is prompted with a subtask and then its response is used as input to another prompt.",
+    "origin": "authored"
+   },
+   {
+    "q": "Why is it important to protect against prompt attacks such as prompt injection?",
+    "options": [
+     "They make responses slower",
+     "They increase API costs",
+     "They could bypass safety guardrails and break the model's guiding principles",
+     "They change the model's language"
+    ],
+    "answer": 2,
+    "explain": "User input is mixed with your instructions, so untrusted text can try to override them.",
+    "lesson": "prompt_eng-12",
+    "evidence": "it's really important to protect against prompt attacks that could bypass safety guardrails and break the guiding principles of the model.",
+    "origin": "authored"
+   }
+  ],
+  "pass_mark": 7,
+  "missing": false
  },
- "minutes": 88,
+ "minutes": 80,
  "sources": [
   {
    "id": "dair",

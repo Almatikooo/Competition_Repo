@@ -272,7 +272,6 @@ from least to greatest).</p>
 <p>We can sort in the opposite order using <code>DESC</code> (for "descending"):</p>
 <div class="box box-callout">
 <p class="box-title">A note on ordering</p>
-
 <p>While it may look that the records are consistent every time we ask for them in this lesson, that is because no one has changed or modified any of the data so far. Remember to use <code>ORDER BY</code> if you want the rows returned to have any sort of consistent or predictable order.</p>
 </div>
 <pre><code class="language-sql">SELECT * FROM person ORDER BY id DESC;
@@ -504,10 +503,8 @@ removing duplicates.</p>
 </table></div>
 <div class="box box-challenge">
 <p class="box-title">Finding Distinct Dates</p>
-
 <p>Write a query that selects distinct dates from the <code>Visited</code> table.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <pre><code class="language-sql">SELECT DISTINCT dated FROM Visited;
 </code></pre>
 <div class="table-wrap"><table>
@@ -547,11 +544,9 @@ removing duplicates.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Displaying Full Names</p>
-
 <p>Write a query that displays the full names of the scientists in the <code>Person</code> table,
 ordered by family name.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <pre><code class="language-sql">SELECT personal, family FROM Person ORDER BY family ASC;
 </code></pre>
 <div class="table-wrap"><table>

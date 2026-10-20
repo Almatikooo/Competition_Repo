@@ -100,8 +100,12 @@ def ph(md: str, slug: str) -> str:
 def docfx(md: str) -> str:
     """Microsoft Docs flavour: includes, :::image::: blocks, zone pivots."""
     md = re.sub(r"^\s*\[!INCLUDE[^\]]*\]\([^)]*\)\]?\s*$", "", md, flags=re.M)
-    md = re.sub(r":::image\s+type=\"[^\"]*\"\s+source=\"([^\"]+)\"\s+alt-text=\"([^\"]*)\"[^:]*:::",
-                lambda m: f"![{m.group(2)}]({m.group(1)})", md)
+    def image(attrs: str) -> str:
+        a = dict(re.findall(r'([\w-]+)="([^"]*)"', attrs))
+        return f"![{a.get('alt-text', '')}]({a.get('source', '')})"
+    # complex images carry a long text description up to :::image-end:::; the alt text already summarises it
+    md = re.sub(r":::image\s+(.*?):::(.*?):::image-end:::", lambda m: image(m.group(1)), md, flags=re.S)
+    md = re.sub(r":::image\s+(.*?):::", lambda m: image(m.group(1)), md)
     md = re.sub(r"^\s*:::\s*(zone|moniker|row|column)[^\n]*$", "", md, flags=re.M)
     md = re.sub(r"^\s*>\s*\[!div[^\]]*\]\s*$", "", md, flags=re.M)
     md = re.sub(r"\(\s*/([a-z][\w./-]*)\s*\)", r"(https://learn.microsoft.com/\1)", md)
@@ -116,7 +120,8 @@ def markdown_to_html(md: str) -> str:
 
 NOISE_HEADING = re.compile(r"(pre[- ]?lecture quiz|post[- ]?lecture quiz|lecture quiz|^quiz$|knowledge check quiz|^assignment\b|translations|multi-language|"
                            r"^credits?$|^feedback$|table of contents|additional resources and learning|^contents$|^keep learning$|^great work!? continue)", re.I)
-DROP_SECTION = re.compile(r"(^assignment\b|translations|multi-language|^feedback$|great work!? continue|^keep learning$|^credits?$)", re.I)
+DROP_SECTION = re.compile(r"(^assignment\b|translations|multi-language|^feedback$|great work!? continue|^keep learning$|^credits?$|"
+                          r"^test yourself$|^knowledge check$|^check your understanding$)", re.I)  # H5P widgets that don't survive import
 NOISE_TEXT = re.compile(r"(pre[- ]?lecture quiz|post[- ]?lecture quiz|this lesson is available in|click the image above|"
                         r"open (the|this) (notebook|lesson) in|^\s*→\s*go to|share this page|was this page helpful|back to top)", re.I)
 REMOVE_TAGS = ["script", "style", "noscript", "iframe", "form", "button", "input", "select", "textarea", "svg", "canvas", "video", "audio",
@@ -126,6 +131,29 @@ BOX_ALERT = re.compile(r"^\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*", re.I
 
 def _slug(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:60] or "section"
+
+
+def heading_id(text: str) -> str:
+    """Lesson heading ids live in the app's document, so they get a prefix that can't collide with ids like 'main'."""
+    return "h-" + _slug(text)
+
+
+def finalize(html: str) -> str:
+    """Last pass over a finished lesson: unique, prefixed h2/h3 ids and in-page links that point at them."""
+    soup = BeautifulSoup(html, "lxml")
+    body = soup.body or soup
+    seen = set()
+    for head in body.find_all(["h2", "h3"]):
+        hid = heading_id(head.get_text(" ", strip=True))
+        while hid in seen:
+            hid += "-x"
+        seen.add(hid)
+        head.attrs = {"id": hid}
+    for a in body.find_all("a", href=True):
+        href = a["href"]
+        if href.startswith("#") and not href.startswith("#/") and href[1:] not in seen and f"h-{href[1:]}" in seen:
+            a["href"] = f"#h-{href[1:]}"
+    return sanitize(body.decode_contents() if body.name == "body" else str(body))
 
 
 def _level(tag) -> int:
@@ -151,7 +179,8 @@ TEXTBOX_KINDS = {"learning-objectives": ("objectives", "Learning objectives"), "
                  "key-takeaways": ("keypoints", "Key takeaways"), "exercises": ("challenge", "Exercises"), "examples": ("callout", "Example"),
                  "tryit": ("challenge", "Try it")}
 KEEP_CLASS = re.compile(r"^(box|box-[\w-]+|box-title|table-wrap|solution|attrib|language-[\w+#-]+)$")
-ATTRIB_HEADING = re.compile(r"^(media attributions?|licen[cs]es? and attributions?|attributions?|image (credits|attributions?)|references and attributions)$", re.I)
+ATTRIB_HEADING = re.compile(r"^(media attributions?|licen[cs]es? and attributions?|attributions?|image (credits|attributions?)|references and attributions|"
+                            r"references?|bibliography|works cited|reference list|sources|citations?|image descriptions?|long descriptions?)$", re.I)
 
 
 def _textboxes(soup, body) -> None:
@@ -201,8 +230,47 @@ def _attribution_sections(soup, body) -> None:
         head.replace_with(details)
 
 
+CHROME_HEADING = re.compile(r"^(related (links|content|pages|resources|topics|articles)|on this page|share this page|in this section)$", re.I)
+CHROME_BLOCK = re.compile(r"^(subscribe to|sign up to receive|sign up for|stay connected|follow us|request an accessible format|"
+                          r"if you use assistive technology|this file may not be suitable for users of assistive technology)", re.I)
+DATE = re.compile(r"\b(january|february|march|april|may|june|july|august|september|october|november|december)\s+\d{1,2},\s+\d{4}\b", re.I)
+MORE_LINK = re.compile(r"^(learn|read|see|find out) more$", re.I)
+TEASER = re.compile(r"^learn more\s+(january|february|march|april|may|june|july|august|september|october|november|december)\s+\d{1,2},\s+\d{4}\b", re.I)
+STAMP = re.compile(r"^\s*(this page was last updated on .{4,30}|last reviewed \d{4}-\d{2}-\d{2} utc)\s*$", re.I)
+
+
+def _site_chrome(body) -> None:
+    """Newsletter boxes, 'related links', breadcrumbs and page stamps that survive the main-content selector."""
+    drop_sections(body, CHROME_HEADING)
+    for el in list(body.find_all(["div", "section", "p", "ul", "li", "aside"])):
+        if el.parent is None:
+            continue
+        text = el.get_text(" ", strip=True)
+        words = len(text.split())
+        if words < 80 and CHROME_BLOCK.match(text):
+            el.decompose()
+        elif el.name == "p" and words < 30 and "»" in text and el.find("a"):
+            el.decompose()  # breadcrumb trail
+        elif words < 70 and re.search(r"what assistive technology you use|may not be suitable for users of assistive technology|request an accessible format", text, re.I):
+            el.decompose()  # GOV.UK attachment blocks and 'request an accessible format' boilerplate
+        elif el.name == "p" and STAMP.match(text):
+            el.decompose()
+        elif words < 90 and (TEASER.match(text) or (DATE.search(text) and any(MORE_LINK.match(a.get_text(" ", strip=True)) for a in el.find_all("a")))):
+            el.decompose()  # teaser cards for other pages: "<title> <blurb> Learn More  May 5, 2026"
+    for a in list(body.find_all("a")):
+        if re.fullmatch(r"\s*back to top( of\s+page)?\s*", a.get_text(" ", strip=True), re.I):
+            a.decompose()
+    for node in list(body.find_all(string=True)):
+        if node.parent is not None and node.parent.name in ("body", "div", "section", "article", "main") and STAMP.match(str(node)):
+            node.extract()
+
+
 def _box_titles(body) -> None:
     """A heading that opens a box becomes the box title (Carpentries callouts start with '## Title')."""
+    for det in body.select("details.solution"):
+        first = next((c for c in det.children if getattr(c, "name", None) and c.name != "summary"), None)
+        if first is not None and re.fullmatch(r"h[1-6]", first.name or "") and re.fullmatch(r"solutions?(\s*\d*)?", first.get_text(" ", strip=True), re.I):
+            first.decompose()  # the summary already says "Show solution"
     for box in body.select("div.box"):
         label = box.find("p", class_="box-title", recursive=False)
         first = next((c for c in box.children if getattr(c, "name", None) and c is not label), None)
@@ -241,11 +309,12 @@ def clean_html(html: str, *, page_url: str, asset_base: str | None = None, link_
         if NOISE_HEADING.search(head.get_text(" ", strip=True)):
             head.decompose()
     for el in list(body.find_all(["p", "li", "div"])):
-        if el.parent is None:
-            continue
+        if el.parent is None or (el.name == "div" and el.find(["p", "div", "ul", "ol", "table", "h2", "h3", "pre"])):
+            continue  # only leaf blocks: a short wrapper div must not take its content down with a noise phrase
         text = el.get_text(" ", strip=True)
         if text and len(text) < 220 and NOISE_TEXT.search(text):
             el.decompose()
+    _site_chrome(body)
     _attribution_sections(soup, body)
     # GitHub/Docs alerts:  > [!NOTE] ...
     for bq in body.find_all("blockquote"):
@@ -269,7 +338,7 @@ def clean_html(html: str, *, page_url: str, asset_base: str | None = None, link_
             img.decompose()
             continue
         img.attrs = {k: v for k, v in img.attrs.items() if k in ("alt", "title", "width", "height")}
-        img["src"] = absolute
+        img["src"] = re.sub(r"^http://", "https://", absolute)  # http images would be blocked as mixed content
         img["loading"] = "lazy"
         img["alt"] = img.get("alt", "")
     for a in body.find_all("a"):
@@ -310,6 +379,9 @@ def clean_html(html: str, *, page_url: str, asset_base: str | None = None, link_
             del el["class"]
     for el in body.find_all("span"):
         el.unwrap()
+    for el in body.find_all(["div", "section", "article", "main"]):
+        if not el.get("class"):  # layout wrappers only; boxes, tables and solutions keep their classes
+            el.unwrap()
     for p in body.find_all("p"):
         if not p.get_text(strip=True) and not p.find(["img", "math"]):
             p.decompose()
@@ -327,9 +399,36 @@ def demote_headings(html: str) -> str:
     return body.decode_contents() if body.name == "body" else str(body)
 
 
-def split_sections(html: str, target: int = 1600, drop: tuple = (), titles: list | None = None, intro_title: str = "Introduction") -> list[tuple[str, str]]:
-    """Split one long page into lesson-sized parts at h2 boundaries; consecutive short sections are grouped to ~target words."""
-    sections = [(t or intro_title, h) for t, h in split_by_heading(html, "h2")]
+def _sections(html: str, intro_title: str, target: int) -> list[tuple[str, str]]:
+    """Sections at the highest heading level that actually divides the page; oversized sections are divided again one level down."""
+    levels = ["h2", "h3", "h4"]
+
+    def deep(title, part, rest):
+        if word_count(part) <= target * 2.2 or not rest:
+            return [(title, part)]
+        subs = split_by_heading(part, rest[0])
+        if len(subs) <= 1:
+            return deep(title, part, rest[1:])
+        out = []
+        for t, sub in subs:
+            out += deep(t or title, sub, rest[1:])
+        return out
+
+    for i, level in enumerate(levels):
+        secs = split_by_heading(html, level)
+        if len(secs) > 1:
+            return [x for t, part in secs for x in deep(t or intro_title, part, levels[i + 1:])]
+    return [(intro_title, html)]
+
+
+def split_sections(html: str, target: int = 1600, drop: tuple = (), titles: list | None = None, intro_title: str = "Introduction",
+                   keep: tuple = ()) -> list[tuple[str, str]]:
+    """Split one long page into lesson-sized parts at its own section boundaries; short neighbours are grouped to ~target words.
+    `keep`/`drop` are title patterns that select sections before grouping."""
+    sections = [(t, h) for t, h in _sections(html, intro_title, target) if word_count(h) > 0 or t]
+    if keep:
+        rx = re.compile("|".join(keep), re.I)
+        sections = [(t, h) for t, h in sections if rx.search(t)]
     if drop:
         rx = re.compile("|".join(drop), re.I)
         sections = [(t, h) for t, h in sections if not rx.search(t)]
@@ -349,7 +448,7 @@ def split_sections(html: str, target: int = 1600, drop: tuple = (), titles: list
     out = []
     for i, group in enumerate(groups):
         name = titles[i] if titles and i < len(titles) else group[0][0]
-        body = "".join((f'<h2 id="{_slug(t)}">{t}</h2>' if j or t != name else "") + h for j, (t, h) in enumerate(group))
+        body = "".join((f'<h2 id="{heading_id(t)}">{t}</h2>' if j or t != name else "") + h for j, (t, h) in enumerate(group))
         out.append((name, body))
     return out
 
@@ -384,8 +483,10 @@ def word_count(html: str) -> int:
 
 
 def headings(html: str) -> list[dict]:
+    """The lesson's 'On this page' outline: section headings, not headings inside callout boxes or hidden solutions."""
     soup = BeautifulSoup(html, "lxml")
-    return [{"id": h.get("id"), "text": h.get_text(" ", strip=True), "level": int(h.name[1])} for h in soup.find_all(["h2", "h3"]) if h.get("id")]
+    return [{"id": h.get("id"), "text": h.get_text(" ", strip=True), "level": int(h.name[1])} for h in soup.find_all(["h2", "h3"])
+            if h.get("id") and not h.find_parent(["details"]) and not h.find_parent("div", class_="box")]
 
 
 def select_main(html: str, selectors: tuple) -> str:

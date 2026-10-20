@@ -28,8 +28,7 @@ Data processing can be programmed in any programming language, but there are cer
 <blockquote>
 <p><strong>Most useful advice</strong>. When you need to perform certain operation on data that you do not know how to do, try searching for it in the internet. <a href="https://stackoverflow.com/" target="_blank" rel="noopener noreferrer">Stackoverflow</a> usually contains a lot of useful code sample in Python for many typical tasks.</p>
 </blockquote>
-
-<h2 id="tabular-data-and-dataframes">Tabular Data and Dataframes</h2>
+<h2 id="h-tabular-data-and-dataframes">Tabular Data and Dataframes</h2>
 <p>You have already met tabular data when we talked about relational databases. When you have a lot of data, and it is contained in many different linked tables, it definitely makes sense to use SQL for working with it. However, there are many cases when we have a table of data, and we need to gain some <strong>understanding</strong> or <strong>insights</strong> about this data, such as the distribution, correlation between values, etc. In data science, there are a lot of cases when we need to perform some transformations of the original data, followed by visualization. Both those steps can be easily done using Python.</p>
 <p>There are two most useful libraries in Python that can help you deal with tabular data:</p>
 <ul>
@@ -48,7 +47,7 @@ import matplotlib.pyplot as plt
 from scipy import ... # you need to specify exact sub-packages that you need
 </code></pre>
 <p>Pandas is centered around a few basic concepts.</p>
-<h3 id="series">Series</h3>
+<h3 id="h-series">Series</h3>
 <p><strong>Series</strong> is a sequence of values, similar to a list or numpy array. The main difference is that series also has an <strong>index</strong>, and when we operate on series (eg., add them), the index is taken into account. Index can be as simple as integer row number (it is the index used by default when creating a series from list or array), or it can have a complex structure, such as date interval.</p>
 <blockquote>
 <p><strong>Note</strong>: There is some introductory Pandas code in the accompanying notebook <a href="https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/07-python/notebook.ipynb" target="_blank" rel="noopener noreferrer"><code>notebook.ipynb</code></a>. We only outline some the examples here, and you are definitely welcome to check out the full notebook.</p>
@@ -78,7 +77,7 @@ total_items.plot()
 ax = monthly.plot(kind='bar')
 </code></pre>
 <p><img alt="Monthly Time Series Averages" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/07-python/images/timeseries-3.png"></p>
-<h3 id="dataframe">DataFrame</h3>
+<h3 id="h-dataframe">DataFrame</h3>
 <p>A DataFrame is essentially a collection of series with the same index. We can combine several series together into a DataFrame:</p>
 <pre><code class="language-python">a = pd.Series(range(1,10))
 b = pd.Series(["I","like","to","play","games","and","will","not","change"],index=range(0,9))
@@ -335,30 +334,30 @@ df['LenB'] = df['B'].apply(len)
 </tr>
 </tbody>
 </table></div>
-<h3 id="getting-data">Getting Data</h3>
+<h3 id="h-getting-data">Getting Data</h3>
 <p>We have seen how easy it is to construct Series and DataFrames from Python objects. However, data usually comes in the form of a text file, or an Excel table. Luckily, Pandas offers us a simple way to load data from disk. For example, reading CSV file is as simple as this:</p>
 <pre><code class="language-python">df = pd.read_csv('file.csv')
 </code></pre>
 <p>We will see more examples of loading data, including fetching it from external web sites, in the "Challenge" section</p>
-<h3 id="printing-and-plotting">Printing and Plotting</h3>
+<h3 id="h-printing-and-plotting">Printing and Plotting</h3>
 <p>A Data Scientist often has to explore the data, thus it is important to be able to visualize it. When DataFrame is big, many times we want just to make sure we are doing everything correctly by printing out the first few rows. This can be done by calling <code>df.head()</code>. If you are running it from Jupyter Notebook, it will print out the DataFrame in a nice tabular form.</p>
 <p>We have also seen the usage of <code>plot</code> function to visualize some columns. While <code>plot</code> is very useful for many tasks, and supports many different graph types via <code>kind=</code> parameter, you can always use raw <code>matplotlib</code> library to plot something more complex. We will cover data visualization in detail in separate course lessons.</p>
 <p>This overview covers most important concepts of Pandas, however, the library is very rich, and there is no limit to what you can do with it! Let's now apply this knowledge for solving specific problem.</p>
-<h2 id="challenge-1-analyzing-covid-spread">🚀 Challenge 1: Analyzing COVID Spread</h2>
+<h2 id="h-challenge-1-analyzing-covid-spread">🚀 Challenge 1: Analyzing COVID Spread</h2>
 <p>First problem we will focus on is modelling of epidemic spread of COVID-19. In order to do that, we will use the data on the number of infected individuals in different countries, provided by the <a href="https://systems.jhu.edu/" target="_blank" rel="noopener noreferrer">Center for Systems Science and Engineering</a> (CSSE) at <a href="https://jhu.edu/" target="_blank" rel="noopener noreferrer">Johns Hopkins University</a>. Dataset is available in <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank" rel="noopener noreferrer">this GitHub Repository</a>.</p>
 <p>Since we want to demonstrate how to deal with data, we invite you to open <a href="https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/07-python/notebook-covidspread.ipynb" target="_blank" rel="noopener noreferrer"><code>notebook-covidspread.ipynb</code></a> and read it from top to bottom. You can also execute cells, and do some challenges that we have left for you at the end.</p>
 <p><img alt="COVID Spread" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/07-python/images/covidspread.png"></p>
 <blockquote>
 <p>If you do not know how to run code in Jupyter Notebook, have a look at <a href="https://soshnikov.com/education/how-to-execute-notebooks-from-github/" target="_blank" rel="noopener noreferrer">this article</a>.</p>
 </blockquote>
-<h2 id="working-with-unstructured-data">Working with Unstructured Data</h2>
+<h2 id="h-working-with-unstructured-data">Working with Unstructured Data</h2>
 <p>While data very often comes in tabular form, in some cases we need to deal with less structured data, for example, text or images. In this case, to apply data processing techniques we have seen above, we need to somehow <strong>extract</strong> structured data. Here are a few examples:</p>
 <ul>
 <li>Extracting keywords from text, and seeing how often those keywords appear</li>
 <li>Using neural networks to extract information about objects on the picture</li>
 <li>Getting information on emotions of people on video camera feed</li>
 </ul>
-<h2 id="challenge-2-analyzing-covid-papers">🚀 Challenge 2: Analyzing COVID Papers</h2>
+<h2 id="h-challenge-2-analyzing-covid-papers">🚀 Challenge 2: Analyzing COVID Papers</h2>
 <p>In this challenge, we will continue with the topic of COVID pandemic, and focus on processing scientific papers on the subject. There is <a href="https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge" target="_blank" rel="noopener noreferrer">CORD-19 Dataset</a> with more than 7000 (at the time of writing) papers on COVID, available with metadata and abstracts (and for about half of them there is also full text provided).</p>
 <p>A full example of analyzing this dataset using <a href="https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health/?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">Text Analytics for Health</a> cognitive service is described <a href="https://soshnikov.com/science/analyzing-medical-papers-with-azure-and-text-analytics-for-health/" target="_blank" rel="noopener noreferrer">in this blog post</a>. We will discuss simplified version of this analysis.</p>
 <blockquote>
@@ -366,7 +365,7 @@ df['LenB'] = df['B'].apply(len)
 </blockquote>
 <p>Open <a href="https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/07-python/notebook-papers.ipynb" target="_blank" rel="noopener noreferrer"><code>notebook-papers.ipynb</code></a> and read it from top to bottom. You can also execute cells, and do some challenges that we have left for you at the end.</p>
 <p><img alt="Covid Medical Treatment" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/07-python/images/covidtreat.png"></p>
-<h2 id="processing-image-data">Processing Image Data</h2>
+<h2 id="h-processing-image-data">Processing Image Data</h2>
 <p>Recently, very powerful AI models have been developed that allow us to understand images. There are many tasks that can be solved using pre-trained neural networks, or cloud services. Some examples include:</p>
 <ul>
 <li><strong>Image Classification</strong>, which can help you categorize the image into one of the pre-defined classes. You can easily train your own image classifiers using services such as <a href="https://azure.microsoft.com/services/cognitive-services/custom-vision-service/?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">Custom Vision</a></li>
@@ -379,10 +378,9 @@ df['LenB'] = df['B'].apply(len)
 <li>In the blog post <a href="https://soshnikov.com/azure/how-to-learn-data-science-without-coding/" target="_blank" rel="noopener noreferrer">How to Learn Data Science without Coding</a> we explore Instagram photos, trying to understand what makes people give more likes to a photo. We first extract as much information from pictures as possible using <a href="https://azure.microsoft.com/services/cognitive-services/computer-vision/?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">computer vision</a>, and then use <a href="https://docs.microsoft.com/azure/machine-learning/concept-automated-ml/?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">Azure Machine Learning AutoML</a> to build interpretable model.</li>
 <li>In <a href="https://github.com/CloudAdvocacy/FaceStudies" target="_blank" rel="noopener noreferrer">Facial Studies Workshop</a> we use <a href="https://azure.microsoft.com/services/cognitive-services/face/?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">Face API</a> to extract emotions on people on photographs from events, in order to try to understand what makes people happy.</li>
 </ul>
-<h2 id="conclusion">Conclusion</h2>
+<h2 id="h-conclusion">Conclusion</h2>
 <p>Whether you already have structured or unstructured data, using Python you can perform all steps related to data processing and understanding. It is probably the most flexible way of data processing, and that is the reason the majority of data scientists use Python as their primary tool. Learning Python in depth is probably a good idea if you are serious about your data science journey!</p>
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p><strong>Books</strong></p>
 <ul>
 <li><a href="https://www.amazon.com/gp/product/1491957662" target="_blank" rel="noopener noreferrer">Wes McKinney. Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython</a></li>

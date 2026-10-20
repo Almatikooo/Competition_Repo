@@ -11,8 +11,7 @@
 </tbody>
 </table></div>
 <p>Chances are you have used a spreadsheet in the past to store information. You had a set of rows and columns, where the rows contained the information (or data), and the columns described the information (sometimes called metadata). A relational database is built upon this core principle of columns and rows in tables, allowing you to have information spread across multiple tables. This allows you to work with more complex data, avoid duplication, and have flexibility in the way you explore the data. Let's explore the concepts of a relational database.</p>
-
-<h2 id="it-all-starts-with-tables">It all starts with tables</h2>
+<h2 id="h-it-all-starts-with-tables">It all starts with tables</h2>
 <p>A relational database has at its core tables. Just as with the spreadsheet, a table is a collection of columns and rows. The row contains the data or information we wish to work with, such as the name of a city or the amount of rainfall. The columns describe the data they store.</p>
 <p>Let's begin our exploration by starting a table to store information about cities. We might start with their name and country. You could store this in a table as follows:</p>
 <div class="table-wrap"><table>
@@ -38,7 +37,7 @@
 </tbody>
 </table></div>
 <p>Notice the column names of <strong>city</strong>, <strong>country</strong> and <strong>population</strong> describe the data being stored, and each row has information about one city.</p>
-<h2 id="the-shortcomings-of-a-single-table-approach">The shortcomings of a single table approach</h2>
+<h2 id="h-the-shortcomings-of-a-single-table-approach">The shortcomings of a single table approach</h2>
 <p>Chances are, the table above seems relatively familiar to you. Let's start to add some additional data to our burgeoning database - annual rainfall (in millimeters). We'll focus on the years 2018, 2019 and 2020. If we were to add it for Tokyo, it might look something like this:</p>
 <div class="table-wrap"><table>
 <thead>
@@ -108,7 +107,7 @@
 </table></div>
 <p>While this avoids the row duplication, it adds a couple of other challenges. We would need to modify the structure of our table each time there's a new year. Additionally, as our data grows having our years as columns will make it trickier to retrieve and calculate values.</p>
 <p>This is why we need multiple tables and relationships. By breaking apart our data we can avoid duplication and have more flexibility in how we work with our data.</p>
-<h2 id="the-concepts-of-relationships">The concepts of relationships</h2>
+<h2 id="h-the-concepts-of-relationships">The concepts of relationships</h2>
 <p>Let's return to our data and determine how we want to split things up. We know we want to store the name and country for our cities, so this will probably work best in one table.</p>
 <div class="table-wrap"><table>
 <thead>
@@ -136,7 +135,7 @@
 <blockquote>
 <p>✅ Primary key is frequently abbreviated as PK</p>
 </blockquote>
-<h3 id="cities">cities</h3>
+<h3 id="h-cities">cities</h3>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -167,7 +166,7 @@
 <p>✅ You will notice we use the terms "id" and "primary key" interchangeably during this lesson. The concepts here apply to DataFrames, which you will explore later. DataFrames don't use the terminology of "primary key", however you will notice they behave much in the same way.</p>
 </blockquote>
 <p>With our cities table created, let's store the rainfall. Rather than duplicating the full information about the city, we can use the id. We should also ensure the newly created table has an <em>id</em> column as well, as all tables should have an id or primary key.</p>
-<h3 id="rainfall">rainfall</h3>
+<h3 id="h-rainfall">rainfall</h3>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -238,7 +237,7 @@
 <div class="box box-note"><p class="box-title">Note</p>
 <p>Foreign key is frequently abbreviated as FK</p>
 </div>
-<h2 id="retrieving-the-data">Retrieving the data</h2>
+<h2 id="h-retrieving-the-data">Retrieving the data</h2>
 <p>With our data separated into two tables, you may be wondering how we retrieve it. If we are using a relational database such as MySQL, SQL Server or Oracle, we can use a language called Structured Query Language or SQL. SQL (sometimes pronounced sequel) is a standard language used to retrieve and modify data in a relational database.</p>
 <p>To retrieve data you use the command <code>SELECT</code>. At its core, you <strong>select</strong> the columns you want to see <strong>from</strong> the table they're contained in. If you wanted to display just the names of the cities, you could use the following:</p>
 <pre><code class="language-sql">SELECT city
@@ -261,7 +260,7 @@ WHERE country = 'New Zealand';
 -- Output:
 -- Auckland
 </code></pre>
-<h2 id="joining-data">Joining data</h2>
+<h2 id="h-joining-data">Joining data</h2>
 <p>Until now we've retrieved data from a single table. Now we want to bring the data together from both <strong>cities</strong> and <strong>rainfall</strong>. This is done by <em>joining</em> them together. You will effectively create a seam between the two tables, and match up the values from a column from each table.</p>
 <p>In our example, we will match the <strong>city_id</strong> column in <strong>rainfall</strong> with the <strong>city_id</strong> column in <strong>cities</strong>. This will match the rainfall value with its respective city. The type of join we will perform is what's called an <em>inner</em> join, meaning if any rows don't match with anything from the other table they won't be displayed. In our case every city has rainfall, so everything will be displayed.</p>
 <p>Let's retrieve the rainfall for 2019 for all our cities.</p>
@@ -286,13 +285,11 @@ WHERE rainfall.year = 2019
 -- Atlanta  | 1111
 -- Auckland |  942
 </code></pre>
-<h2 id="summary">Summary</h2>
+<h2 id="h-summary">Summary</h2>
 <p>Relational databases are centered around dividing information between multiple tables which is then brought back together for display and analysis. This provides a high degree of flexibility to perform calculations and otherwise manipulate data. You have seen the core concepts of a relational database, and how to perform a join between two tables.</p>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>There are numerous relational databases available on the internet. You can explore the data by using the skills you've learned above.</p>
-
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>There are several resources available on <a href="https://docs.microsoft.com/learn?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">Microsoft Learn</a> for you to continue your exploration of SQL and relational database concepts</p>
 <ul>
 <li><a href="https://docs.microsoft.com//learn/modules/describe-concepts-of-relational-data?WT.mc_id=academic-77958-bethanycheum" target="_blank" rel="noopener noreferrer">Describe concepts of relational data</a></li>

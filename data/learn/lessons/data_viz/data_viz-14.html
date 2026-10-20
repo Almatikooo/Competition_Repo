@@ -1,0 +1,248 @@
+<p>This guidance provides advice on how to present and publish demonstration tables in HTML and document formats.</p>
+<p><strong>Demonstration tables</strong> are used to reinforce a point made in the text of a publication. They are smaller and less detailed than reference tables.</p>
+<p><strong>Reference tables</strong> are used to supply data in a way that can be reused. They are usually published in a spreadsheet format. Advice on creating and publishing reference tables is in our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/releasing-statistics-in-spreadsheets/" target="_blank" rel="noopener noreferrer">‘Releasing statistics in spreadsheets’ guidance</a>.</p>
+<h2 id="h-accessibility-legislation">Accessibility legislation</h2> <p>Accessibility legislation came into force in September 2020. This means all content published on public sector websites must meet the level A and AA success criteria in the <a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noopener noreferrer">Web Content Accessibility Guidelines 2.2</a>.</p>
+<h3 id="h-consequences-for-inaccessible-content">Consequences for inaccessible content</h3>
+<p>Content on public sector websites that does not meet the&nbsp;<a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noopener noreferrer">Web Content Accessibility Guidelines 2.2</a>&nbsp;can get complaints related to the&nbsp;<a href="https://www.legislation.gov.uk/uksi/2018/852/contents/made" target="_blank" rel="noopener noreferrer">Public Sector Bodies (Websites and Mobile Applications) Accessibility Regulations 2018</a>&nbsp;and/or the&nbsp;<a href="https://www.legislation.gov.uk/ukpga/2010/15/contents" target="_blank" rel="noopener noreferrer">Equality Act 2010</a>. This could cause reputational damage and loss of public trust.</p>
+<p>Make sure whoever is responsible for the content you publish is aware of this and the possible risks involved.</p>
+<h3 id="h-section">
+</h3>
+<h4>Images of text</h4>
+<p>This is <a href="https://www.w3.org/TR/WCAG22/#images-of-text" target="_blank" rel="noopener noreferrer">criterion 1.4.5</a> (AA level).</p>
+<p>It states:</p>
+<blockquote>
+<p>“If the technologies being used can achieve the visual presentation, text is used to convey information rather than images of text except for the following:</p>
+<ul>
+<li>Customizable – the image of text can be visually customized to the user’s requirements</li>
+<li>Essential – a particular presentation of text is essential to the information being conveyed.”</li>
+</ul>
+</blockquote>
+<p>A table should never be published as an image of text. It should always be published as text with the correct ‘mark-up’.</p>
+<p>The ‘mark-up’ is the code that tells screen reader technology how to understand the layout.</p>
+<p>This can be in HTML or in the code behind a PDF or text document.</p>
+<p>Images of text are also difficult for people with low-vision to read as often the image loses its clarity when a user zooms in. Using the SVG format helps with this, but it is still better to present text as text whenever possible.</p>
+<p>There are many other success criteria under the guidelines <a href="https://www.w3.org/TR/WCAG22/#operable" target="_blank" rel="noopener noreferrer">2.Operable</a> and <a href="https://www.w3.org/TR/WCAG22/#understandable" target="_blank" rel="noopener noreferrer">3. Understandable</a> that can be applied to tables. But, we will not go into any more detail here as they all come down to marking-up the table correctly so it can be navigated and understood by screen reader technology.</p>
+<p>More information on how to mark-up demonstration tables is in the <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-tables/#section-5" target="_blank" rel="noopener noreferrer">‘Publication’ section</a>.</p>
+<h2 id="h-using-tables-in-publications">Using tables in publications</h2> <p>Demonstration tables are useful when:</p>
+<ul>
+<li>you want users to compare values</li>
+<li>you want to include values and measures such as percentages or indices</li>
+<li>you want to include summary statistics such as averages or totals</li>
+<li>you need to show values of very different sizes in the same display, for example values in the tens and values in the millions</li>
+</ul>
+<p>Charts should be used when you want to show patterns, trends and relationships.</p>
+<p>Reference tables should be used when you want to supply large amounts of data for further analysis.</p>
+<h2 id="h-layout">Layout</h2> <h3 id="h-comparing-numbers">Comparing numbers</h3>
+<p>To help the reader make comparisons:</p>
+<ul>
+<li>present the numbers close together</li>
+<li>present the numbers in columns, not rows</li>
+<li>use the same level of precision within each column</li>
+<li>use commas to separate thousands</li>
+<li>right align the figures and the column headings</li>
+<li>start numbers of less than one with a zero, not a point</li>
+</ul>
+<h4>Example: Figure 1.1 (fictional data)</h4>
+<h5>People employed at each Civil Service grade, UK, 2018</h5>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Grade</th><th>Headcount</th><th>Percentage of total headcount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Administrative Assistant</td><td>18,750</td><td>4.5%</td>
+</tr>
+<tr>
+<td>Administrative Officer</td><td>132,540</td><td>31.9%</td>
+</tr>
+<tr>
+<td>Executive Officer</td><td>125,420</td><td>27.8%</td>
+</tr>
+<tr>
+<td>Higher Executive Officer</td><td>63,210</td><td>15.2%</td>
+</tr>
+<tr>
+<td>Senior Executive Officer</td><td>42,150</td><td>10.1%</td>
+</tr>
+<tr>
+<td>Grade 7</td><td>29,460</td><td>7.1%</td>
+</tr>
+<tr>
+<td>Grade 6</td><td>12,540</td><td>3.0%</td>
+</tr>
+<tr>
+<td>Senior Civil Service</td><td>1,630</td><td>0.3%</td>
+</tr>
+</tbody>
+</table></div>
+<p>This table shows values and percentages. The data are presented in columns, not rows. The data columns are right aligned and the same level of precision is used within each column (for example the percentages are all to one decimal place). This ensures units sit above units, tens above tens, hundreds above hundreds and so on. Commas are used to separate thousands and numbers of less than one start with a zero, making the data easier to read.</p>
+<p>An improvement in this table would be to make the column showing the percentages a bit narrower. But when publishing tables in HTML we are sometimes restricted in what we can do with the layout. If we were publishing this table in a text document that is an extra edit we would suggest making.</p>
+<h3 id="h-rounding">Rounding</h3>
+<p>Presenting too much detail can make things harder for users. Rounding numbers makes them easier to read and remember.</p>
+<p>For example, in Figure 1.1, headcount numbers are rounded to the nearest ten.</p>
+<p>The extent of rounding will depend on the intended use. A journalist may be happy to report that the population of the UK is 66 million, or that the population has changed from 64.1 million to 66.4 million. An analyst performing further calculations will want to work with more precise figures.</p>
+<p>Rounding does reduce precision. This usually means that the reported totals no longer equal the sum of the component parts.</p>
+<p>Making a decision on rounding can be difficult when the values show a variety of units. Consider rounding to a fixed number of significant figures or effective digits.</p>
+<h3 id="h-grouping">Grouping</h3>
+<p>Objects grouped together are assumed to be associated. White space and can be used to separate data into groups.</p>
+<p>The best way to provide white space is to adjust column width and row height. Do not use blank rows or columns as this can make things confusing for screen reader users.</p>
+<h4>Example: Figure 1.2 (fictional data)</h4>
+<h5>People employed at each Civil Service grade, UK, 2018</h5>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Grade</th><th>Headcount</th><th>Percentage of total headcount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Administrative Assistant</td><td>18,750</td><td>4.5%</td>
+</tr>
+<tr>
+<td>Administrative Officer</td><td>132,540</td><td>31.9%</td>
+</tr>
+<tr>
+<td><br><br>
+Executive Officer</td><td><br><br>
+125,420</td><td><br><br>
+27.8%</td>
+</tr>
+<tr>
+<td>Higher Executive Officer<br>
+</td><td>63,210</td><td>15.2%</td>
+</tr>
+<tr>
+<td>Senior Executive Officer<br>
+</td><td>42,150</td><td>10.1%</td>
+</tr>
+<tr>
+<td><br><br>
+Grade 7</td><td><br><br>
+29,460</td><td><br><br>
+7.1%</td>
+</tr>
+<tr>
+<td>Grade 6</td><td>12,540</td><td>3.0%</td>
+</tr>
+<tr>
+<td><br><br>
+Senior Civil Service</td><td><br><br>
+1,630</td><td><br><br>
+0.3%</td>
+</tr>
+</tbody>
+</table></div>
+<p>This table shows the same data as in Figure 1.1, but in this presentation we have used line breaks in the HTML code to create white space that puts administrative roles, executive roles, Grade 6 and 7 roles and Senior Civil Service roles into four groups.</p>
+<h3 id="h-indentation">Indentation</h3>
+<p>Indentation is sometimes used in tables to indicate hierarchy, for example, to indicate a list of regions under a row for ‘England’. It is generally OK to use indentation in demonstration tables. But, be aware that in spreadsheets, indentation can cause problems for machine readability. See our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/releasing-statistics-in-spreadsheets/" target="_blank" rel="noopener noreferrer">guidance on ‘Releasing statistics in spreadsheets’</a> for more information.</p>
+<h3 id="h-ordering-categories">Ordering categories</h3>
+<p>Ordering the categories in a table can make it easier for users to see patterns and groups in the data.</p>
+<p>For some categorical variables, like month of the year or age group, there is a natural order for presentation. Other variables may have harmonised ordering, such as regions of the UK.</p>
+<p>Use natural or <a href="https://analysisfunction.civilservice.gov.uk/policy-store/?keyword=&amp;area=&amp;doctype=harmonisation-guidance-and-principles&amp;submit=Go" target="_blank" rel="noopener noreferrer">harmonised principles</a> whenever possible. An appropriate order may also be obvious from knowledge of the subject matter. For example in Figure 1.1 in this guidance we order Civil Service grades by seniority, it would not make sense to order them alphabetically.</p>
+<h3 id="h-ranking-categories">Ranking categories</h3>
+<p>If appropriate, consider ordering your categories according to the statistics in one of the columns. For example, place the largest value at the top. This shows the rankings of the categories on that statistic.</p>
+<p>Ranking the categories in this way emphasises the relative positions of the categories. It may also show where some statistics differ from the overall pattern. Be aware that in some cases, the relative positions may be determined by random variation.</p>
+<h3 id="h-summary-rows-and-columns">Summary rows and columns</h3>
+<p>Summary rows and columns, for example for totals, are traditionally placed at the bottom or right of the table. If it’s important for users to see totals first, it may be helpful to place the totals at the top or left.</p>
+<p>It can be useful to use bold text to draw attention to summary rows and columns. But be careful not to overuse bold text.</p>
+<h4>Example: Figure 1.3 (fictional data)</h4>
+<h5>People employed at each Civil Service grade, UK, 2018</h5>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Grade</th><th>Headcount</th><th>Percentage of total headcount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Administrative Assistant</td><td>18,750</td><td>4.5%</td>
+</tr>
+<tr>
+<td>Administrative Officer</td><td>132,540</td><td>31.9%</td>
+</tr>
+<tr>
+<td><br><br>
+Executive Officer</td><td><br><br>
+125,420</td><td><br><br>
+27.8%</td>
+</tr>
+<tr>
+<td>Higher Executive Officer<br>
+</td><td>63,210</td><td>15.2%</td>
+</tr>
+<tr>
+<td>Senior Executive Officer<br>
+</td><td>42,150</td><td>10.1%</td>
+</tr>
+<tr>
+<td><br><br>
+Grade 7<br>
+</td><td><br><br>
+29,460</td><td><br><br>
+7.1%</td>
+</tr>
+<tr>
+<td>Grade 6<br>
+</td><td>12,540</td><td>3.0%</td>
+</tr>
+<tr>
+<td><br><br>
+Senior Civil Service<br>
+</td><td><br><br>
+1,630</td><td><br><br>
+0.3%</td>
+</tr>
+<tr>
+<td><br><br>
+<strong>Total</strong></td><td><br><br>
+<strong>415,700</strong></td><td><br><br>
+<strong>100%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>This table shows the same data and presentation as in Figure 1.2, with an extra row showing the total headcount.</p>
+<h3 id="h-titles">Titles</h3>
+<p>All tables should have a title.</p>
+<p>Ideally, they should have a headline title which states the message you’re trying to get across and a statistical subtitle stating what the data is and the geography and time period it relates to.</p>
+<p>You do not have to have a headline title, but we recommend them as they help users see the messages in the data.</p>
+<p>If you have a mix of charts and tables in your publication, it may be useful to use ‘Figure n’ in the titles instead of numbering tables and charts separately.</p>
+<h3 id="h-column-headers-row-labels-and-merged-cells">Column headers, row labels and merged cells</h3>
+<p>Column headings and row labels are important parts of tables. Column headings should describe the data in each column. Units should also be described, unless all the data in the table has the same units. In this case information on units can be given in the table title.</p>
+<p>It is also very important that tables published in HTML have properly ‘marked-up’ column headers and row labels. This mark-up allows screen reader software to understand the table layout.</p>
+<p>This mark-up also allows HTML tables to have merged cells in the table layout.</p>
+<p>But note: merged cells in tables published in spreadsheets and text documents are not accessible. This is because the document software does not yet have the more complex mark-up this type of layout needs. Also, be aware that some HTML table builder tools may not allow you to use merged cells.</p>
+<p>The <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-tables/#section-5" target="_blank" rel="noopener noreferrer">‘Publication’ section of this guidance has</a> more information on what table mark-up is and how to do it.</p>
+<h3 id="h-footnotes">Footnotes</h3>
+<p>Tables can have footnotes but they should be avoided whenever possible as jumping from one section of text to another can be confusing. It is better to put the information at the point of need.</p>
+<p>If you do have to use footnotes, it is best practice to place them in the title, column headings or row labels. Avoid placing them in cells with data, this affects the alignment of the figures and can make the table more difficult to understand.</p>
+<h3 id="h-source">Source</h3>
+<p>It is best practice to give the source of the data in the table and hyperlink to it. This information should go underneath the table.</p>
+<p>Source information should be provided in the following format: [publication, survey or other source of data] from the [organisation].</p>
+<p>For example: Source:&nbsp;<a href="https://explore-education-statistics.service.gov.uk/find-statistics/childcare-and-early-years-survey-of-parents/2021" target="_blank" rel="noopener noreferrer">Childcare and early years survey of parents</a>&nbsp;from the Department for Education.</p>
+<p>If the table uses more than one source you should list them all.</p>
+<p>If all the tables and charts in your publication have the same source, you can state this somewhere else in the publication. You do not need to repeat the source information under every figure.</p>
+<h3 id="h-fonts">Fonts</h3>
+<p>Generally if you publish your table in HTML you will not have much control over the fonts used. But, if your publication is in a text document you will.</p>
+<p>Tips for fonts:</p>
+<ul>
+<li>Stick to one type of font.</li>
+<li>Use font size 12 point or bigger.</li>
+<li>Avoid superscript (see our guidance on <a href="https://analysisfunction.civilservice.gov.uk/policy-store/releasing-statistics-in-spreadsheets/" target="_blank" rel="noopener noreferrer">releasing statistics in spreadsheets</a> for advice on how to refer to notes).</li>
+<li>Use a sans serif font, for example Open Sans, Arial or Tahoma (serif fonts like Times New Roman can be more difficult for some people to read).</li>
+<li>Bold font can be used for emphasis but do not overuse it.</li>
+<li>Do not use italic text as it can be hard to read.</li>
+</ul>
+<h3 id="h-shading">Shading</h3>
+<p>Shading should be avoided in tables whenever possible.</p>
+<p>If you need to use shading you must not use it as the only way to communicate a message. Using colour like this will fail <a href="https://www.w3.org/TR/WCAG22/#use-of-color" target="_blank" rel="noopener noreferrer">accessibility success criterion 1.4.1 use of colour</a>.</p>
+<p>You must also ensure the colour contrast ratio between the shaded background and the font colour is 3 to 1 or higher. More information on the use of colour is in our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/" target="_blank" rel="noopener noreferrer">colours guidance.&nbsp;</a></p>
+<h3 id="h-gridlines">Gridlines</h3>
+<p>Do not over use gridlines. They can help a user read data from a table, but if they are too dark or there are too many of them they can make a table hard to read.</p>
+<p>If you publish in HTML you may not have much control over the gridlines shown on a table. If you publish your table in a text document you will.</p>
+<p>Generally, it is a good idea to mark out the line under the header row and the lines above and below any summary statistics.</p>
+<h3 id="h-symbols-and-shorthand">Symbols and shorthand</h3>
+<p>Our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/symbols-in-tables-definitions-and-help/" target="_blank" rel="noopener noreferrer">guidance on using symbols and shorthand</a> provides specific advice on this topic.</p>
+<h3 id="h-advice-from-government-digital-service">Advice from Government Digital Service</h3>
+<p>The content design manual from Government Digital Service contains <a href="https://www.gov.uk/guidance/content-design/tables" target="_blank" rel="noopener noreferrer">advice about the layout of tables published on GOV.UK</a>.</p>

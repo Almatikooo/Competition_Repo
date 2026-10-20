@@ -60,7 +60,6 @@ CLASSIFICATION: equus monoceros
 </code></pre>
 <div class="box box-callout">
 <p class="box-title">Follow the Prompt</p>
-
 <p>The shell prompt changes from <code>$</code> to <code>&gt;</code> and back again as we were
 typing in our loop. The second prompt, <code>&gt;</code>, is different to remind
 us that we haven't finished typing a complete command yet. A semicolon, <code>;</code>,
@@ -95,7 +94,6 @@ and <code>tail</code> on the output of that.
 Since the list was only three items, the shell exits the <code>for</code> loop.</p>
 <div class="box box-callout">
 <p class="box-title">Same Symbols, Different Meanings</p>
-
 <p>Here we see <code>&gt;</code> being used as a shell prompt, whereas <code>&gt;</code> is also
 used to redirect output.
 Similarly, <code>$</code> is used as a shell prompt, but, as we saw earlier,
@@ -136,10 +134,8 @@ writing the code and the person reading it.</p>
 or a subset of data.</p>
 <div class="box box-challenge">
 <p class="box-title">Write your own loop</p>
-
 <p>How would you write a loop that echoes all 10 numbers from 0 to 9?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <pre><code class="language-bash">$ for loop_variable in 0 1 2 3 4 5 6 7 8 9
 &gt; do
 &gt;     echo $loop_variable
@@ -161,7 +157,6 @@ or a subset of data.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Variables in Loops</p>
-
 <p>This exercise refers to the <code>shell-lesson-data/exercise-data/alkanes</code> directory.
 <code>ls *.pdb</code> gives the following output:</p>
 <pre><code class="language-output">cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
@@ -180,7 +175,6 @@ or a subset of data.</p>
 </code></pre>
 <p>Why do these two loops give different outputs?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <p>The first code block gives the same output on each iteration through
 the loop.
 Bash expands the wildcard <code>*.pdb</code> within the loop body (as well as
@@ -213,7 +207,6 @@ propane.pdb
 </div>
 <div class="box box-challenge">
 <p class="box-title">Limiting Sets of Files</p>
-
 <p>What would be the output of running the following loop in the
 <code>shell-lesson-data/exercise-data/alkanes</code> directory?</p>
 <pre><code class="language-bash">$ for filename in c*
@@ -228,7 +221,6 @@ propane.pdb
 <li>Only <code>cubane.pdb</code> is listed.</li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
 <p>4 is the correct answer. <code>*</code> matches zero or more characters, so any file name starting with
 the letter c, followed by zero or more other characters will be matched.</p>
 </details>
@@ -246,14 +238,12 @@ the letter c, followed by zero or more other characters will be matched.</p>
 <li>Only the file <code>octane.pdb</code> will be listed.</li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x">Solution</h2>
 <p>4 is the correct answer. <code>*</code> matches zero or more characters, so a file name with zero or more
 characters before a letter c and zero or more characters after the letter c will be matched.</p>
 </details>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Saving to a File in a Loop - Part One</p>
-
 <p>In the <code>shell-lesson-data/exercise-data/alkanes</code> directory, what is the effect of this loop?</p>
 <pre><code class="language-bash">for alkanes in *.pdb
 do
@@ -271,7 +261,6 @@ and the text from <code>propane.pdb</code> will be saved to a file called <code>
 <li>None of the above.</li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x">Solution</h2>
 <ol>
 <li>The text from each file in turn gets written to the <code>alkanes.pdb</code> file.
 However, the file gets overwritten on each loop iteration, so the final content of
@@ -282,7 +271,6 @@ is the text from the <code>propane.pdb</code> file.</li>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Saving to a File in a Loop - Part Two</p>
-
 <p>Also in the <code>shell-lesson-data/exercise-data/alkanes</code> directory,
 what would be the output of the following loop?</p>
 <pre><code class="language-bash">for datafile in *.pdb
@@ -300,7 +288,6 @@ and <code>propane.pdb</code> would be concatenated and saved to a file called <c
 and <code>propane.pdb</code> would be printed to the screen and saved to a file called <code>all.pdb</code>.</li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x">Solution</h2>
 <p>3 is the correct answer. <code>&gt;&gt;</code> appends to a file, rather than overwriting it with the redirected
 output from a command.
 Given the output from the <code>cat</code> command has been redirected, nothing is printed to the screen.</p>
@@ -324,7 +311,6 @@ from whatever file is being processed
 (assuming the file has at least 100 lines).</p>
 <div class="box box-callout">
 <p class="box-title">Spaces in Names</p>
-
 <p>Spaces are used to separate the elements of the list
 that we are going to loop over. If one of those elements
 contains a space character, we need to surround it with
@@ -399,7 +385,7 @@ unmodified loop.</p>
 shows what happens when the modified loop is executed and demonstrates how the
 judicious use of <code>echo</code> is a good debugging technique.</p>
 <p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/swcarpentry/shell-novice/b91d85b848405a4a2fe0a297d8cedb71d68ab9bd/episodes/fig/shell_script_for_loop_flow_chart.svg">{alt='The for loop "for filename in .dat; do echo cp $filename original-$filename;done" will successively assign the names of all ".dat" files in your current directory to the variable "$filename" and then execute the command. With the files "basilisk.dat", "minotaur.dat" and "unicorn.dat" in the current directory the loop will successively call the echo command three times and print threelines: "cp basislisk.dat original-basilisk.dat", then "cp minotaur.datoriginal-minotaur.dat" and finally "cp unicorn.datoriginal-unicorn.dat"'}</p>
-<h2 id="nelle-s-pipeline-processing-files">Nelle's Pipeline: Processing Files</h2>
+<h2 id="h-nelle-s-pipeline-processing-files">Nelle's Pipeline: Processing Files</h2>
 <p>Nelle is now ready to process her data files using <code>goostats.sh</code> ---
 a shell script written by her supervisor. This calculates some statistics from a
 protein sample file and takes two arguments:</p>
@@ -472,7 +458,6 @@ bash goostats.sh $datafile stats-$datafile; done
 </code></pre>
 <div class="box box-callout">
 <p class="box-title">Beginning and End</p>
-
 <p>We can move to the beginning of a line in the shell by typing <kbd>Ctrl</kbd>+<kbd>A</kbd>
 and to the end using <kbd>Ctrl</kbd>+<kbd>E</kbd>.</p>
 </div>
@@ -496,7 +481,6 @@ It looks good,
 so she decides to catch up on social media posts while waiting.</p>
 <div class="box box-callout">
 <p class="box-title">Those Who Know History Can Choose to Repeat It</p>
-
 <p>Another way to repeat previous work is to use the <code>history</code> command to
 get a list of the last few hundred commands that have been executed, and
 then to use <code>!123</code> (where '123' is replaced by the command number) to
@@ -515,7 +499,6 @@ stats-$datafile; done
 </div>
 <div class="box box-callout">
 <p class="box-title">Other History Commands</p>
-
 <p>There are a number of other shortcut commands for getting at the history.</p>
 <ul>
 <li><kbd>Ctrl</kbd>+<kbd>R</kbd> enters a history search mode 'reverse-i-search' and finds the
@@ -534,7 +517,6 @@ quicker than doing <kbd>↑</kbd> and editing the command-line.</li>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Doing a Dry Run</p>
-
 <p>A loop is a way to do many things at once --- or to make many mistakes at
 once if it does the wrong thing. One way to check what a loop <em>would</em> do
 is to <code>echo</code> the commands it would run instead of actually running them.</p>
@@ -560,7 +542,6 @@ $ for datafile in *.pdb
 &gt; done
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x-x">Solution</h2>
 <p>The second version is the one we want to run.
 This prints to screen everything enclosed in the quote marks, expanding the
 loop variable name because we have prefixed it with a dollar sign.
@@ -576,7 +557,6 @@ to the file, <code>all.pdb</code>. This file will just contain the list;
 </div>
 <div class="box box-challenge">
 <p class="box-title">Nested Loops</p>
-
 <p>Suppose we want to set up a directory structure to organize
 some experiments measuring reaction rate constants with different compounds
 <em>and</em> different temperatures.  What would be the
@@ -590,7 +570,6 @@ result of the following code:</p>
 &gt; done
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x-x-x">Solution</h2>
 <p>We have a nested loop, i.e. contained within another loop, so for each species
 in the outer loop, the inner loop (the nested loop) iterates over the list of
 temperatures, and creates a new directory for each combination.</p>

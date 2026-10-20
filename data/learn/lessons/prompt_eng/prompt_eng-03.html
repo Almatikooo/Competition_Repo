@@ -1,10 +1,82 @@
-<p>When designing and testing prompts, you typically interact with the LLM via an API. You can configure a few parameters to get different results for your prompts. Tweaking these settings are important to improve reliability and desirability of responses and it takes  a bit of experimentation to figure out the proper settings for your use cases. Below are the common settings you will come across when using different LLM providers:</p>
-<p><strong>Temperature</strong> - In short, the lower the <code>temperature</code>, the more deterministic the results in the sense that the highest probable next token is always picked. Increasing temperature could lead to more randomness, which encourages more diverse or creative outputs. You are essentially increasing the weights of the other possible tokens. In terms of application, you might want to use a lower temperature value for tasks like fact-based QA to encourage more factual and concise responses. For poem generation or other creative tasks, it might be beneficial to increase the temperature value.</p>
-<p><strong>Top P</strong> - A sampling technique with temperature, called nucleus sampling, where you can control how deterministic the model is. If you are looking for exact and factual answers keep this low. If you are looking for more diverse responses, increase to a higher value. If you use Top P it means that only the tokens comprising the <code>top_p</code> probability mass are considered for responses, so a low <code>top_p</code> value selects the most confident responses. This means that a high <code>top_p</code> value will enable the model to look at more possible words, including less likely ones, leading to more diverse outputs.</p>
-<p>The general recommendation is to alter temperature or Top P but not both.</p>
-<p><strong>Max Length</strong> - You can manage the number of tokens the model generates by adjusting the <code>max length</code>. Specifying a max length helps you prevent long or irrelevant responses and control costs.</p>
-<p><strong>Stop Sequences</strong> - A <code>stop sequence</code> is a string that stops the model from generating tokens. Specifying stop sequences is another way to control the length and structure of the model's response. For example, you can tell the model to generate lists that have no more than 10 items by adding "11" as a stop sequence.</p>
-<p><strong>Frequency Penalty</strong> - The <code>frequency penalty</code> applies a penalty on the next token proportional to how many times that token already appeared in the response and prompt. The higher the frequency penalty, the less likely a word will appear again. This setting reduces the repetition of words in the model's response by giving tokens that appear more a higher penalty.</p>
-<p><strong>Presence Penalty</strong> - The <code>presence penalty</code> also applies a penalty on repeated tokens but, unlike the frequency penalty, the penalty is the same for all repeated tokens. A token that appears twice and a token that appears 10 times are penalized the same. This setting prevents the model from repeating phrases too often in its response. If you want the model to generate diverse or creative text, you might want to use a higher presence penalty. Or, if you need the model to stay focused, try using a lower presence penalty.</p>
-<p>Similar to <code>temperature</code> and <code>top_p</code>, the general recommendation is to alter the frequency or presence penalty but not both.</p>
-<p>Before starting with some basic examples, keep in mind that your results may vary depending on the version of LLM you use.</p>
+<h2 id="h-prompting-an-llm">Prompting an LLM</h2>
+<p>You can achieve a lot with simple prompts, but the quality of results depends on how much information you provide it and how well-crafted the prompt is. A prompt can contain information like the <em>instruction</em> or <em>question</em> you are passing to the model and include other details such as <em>context</em>, <em>inputs</em>, or <em>examples</em>. You can use these elements to instruct the model more effectively to improve the quality of results.</p>
+<p>Let's get started by going over a basic example of a simple prompt:</p>
+<p><em>Prompt</em></p>
+<pre><code class="language-md">The sky is
+</code></pre>
+<p><em>Output:</em></p>
+<pre><code class="language-md">blue.
+</code></pre>
+<p>If you are using the OpenAI Playground or any other LLM playground, you can prompt the model as shown in the following screenshot:</p>
+<p><img alt="INTRO1" loading="lazy" src="https://raw.githubusercontent.com/dair-ai/Prompt-Engineering-Guide/57673726396dd94acb23bdb1e67f27c78ee85a8e/img/introduction/sky.png"></p>
+<p>Here is a tutorial on how to get started with the OpenAI Playground:</p>
+<p>Something to note is that when using the OpenAI chat models like <code>gpt-3.5-turbo</code> or <code>gpt-4</code>, you can structure your prompt using three different roles: <code>system</code>, <code>user</code>, and <code>assistant</code>. The system message is not required but helps to set the overall behavior of the assistant. The example above only includes a user message which you can use to directly prompt the model. For simplicity, all of the examples, except when it's explicitly mentioned, will use only the <code>user</code> message to prompt the <code>gpt-3.5-turbo</code> model. The <code>assistant</code> message in the example above corresponds to the model response. You can also define an assistant message to pass examples of the desired behavior you want. You can learn more about working with chat models <a href="https://www.promptingguide.ai/models/chatgpt" target="_blank" rel="noopener noreferrer">here</a>.</p>
+<p>You can observe from the prompt example above that the language model responds with a sequence of tokens that make sense given the context <code>"The sky is"</code>. The output might be unexpected or far from the task you want to accomplish. In fact, this basic example highlights the necessity to provide more context or instructions on what specifically you want to achieve with the system. This is what prompt engineering is all about.</p>
+<p>Let's try to improve it a bit:</p>
+<p><em>Prompt:</em></p>
+<pre><code>Complete the sentence: 
+
+The sky is
+</code></pre>
+<p><em>Output:</em></p>
+<pre><code>blue during the day and dark at night.
+</code></pre>
+<p>Is that better? Well, with the prompt above you are instructing the model to complete the sentence so the result looks a lot better as it follows exactly what you told it to do ("complete the sentence"). This approach of designing effective prompts to instruct the model to perform a desired task is what's referred to as <strong>prompt engineering</strong> in this guide.</p>
+<p>The example above is a basic illustration of what's possible with LLMs today. Today's LLMs are able to perform all kinds of advanced tasks that range from text summarization to mathematical reasoning to code generation.</p>
+<h2 id="h-prompt-formatting">Prompt Formatting</h2>
+<p>You have tried a very simple prompt above. A standard prompt has the following format:</p>
+<pre><code>?
+</code></pre>
+<p>or</p>
+<pre><code>
+</code></pre>
+<p>You can format this into a question answering (QA) format, which is standard in a lot of QA datasets, as follows:</p>
+<pre><code>Q: ?
+A: 
+</code></pre>
+<p>When prompting like the above, it's also referred to as <em>zero-shot prompting</em>, i.e., you are directly prompting the model for a response without any examples or demonstrations about the task you want it to achieve. Some large language models have the ability to perform zero-shot prompting but it depends on the complexity and knowledge of the task at hand and the tasks the model was trained to perform good on.</p>
+<p>A concrete prompt example is as follows:</p>
+<p><em>Prompt</em></p>
+<pre><code>Q: What is prompt engineering?
+</code></pre>
+<p>With some of the more recent models you can skip the "Q:" part as it is implied and understood by the model as a question answering task based on how the sequence is composed. In other words, the prompt could be simplified as follows:</p>
+<p><em>Prompt</em></p>
+<pre><code>What is prompt engineering?
+</code></pre>
+<p>Given the standard format above, one popular and effective technique to prompting is referred to as <em>few-shot prompting</em> where you provide exemplars (i.e., demonstrations). You can format few-shot prompts as follows:</p>
+<pre><code>?
+
+
+?
+
+
+?
+
+
+?
+
+</code></pre>
+<p>The QA format version would look like this:</p>
+<pre><code>Q: ?
+A: 
+
+Q: ?
+A: 
+
+Q: ?
+A: 
+
+Q: ?
+A:
+</code></pre>
+<p>Keep in mind that it's not required to use the QA format. The prompt format depends on the task at hand. For instance, you can perform a simple classification task and give exemplars that demonstrate the task as follows:</p>
+<p><em>Prompt:</em></p>
+<pre><code>This is awesome! // Positive
+This is bad! // Negative
+Wow that movie was rad! // Positive
+What a horrible show! //
+</code></pre>
+<p><em>Output:</em></p>
+<pre><code>Negative
+</code></pre>
+<p>Few-shot prompts enable in-context learning, which is the ability of language models to learn tasks given a few demonstrations. We discuss zero-shot prompting and few-shot prompting more extensively in upcoming sections.</p>

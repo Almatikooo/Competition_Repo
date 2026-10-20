@@ -541,11 +541,9 @@ since they're all equal).</p>
 </ol>
 <div class="box box-challenge">
 <p class="box-title">Counting Temperature Readings</p>
-
 <p>How many temperature readings did Frank Pabodie record,
 and what was their average value?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <pre><code class="language-sql">SELECT count(reading), avg(reading) FROM Survey WHERE quant = 'temp' AND person = 'pb';
 </code></pre>
 <div class="table-wrap"><table>
@@ -566,13 +564,11 @@ and what was their average value?</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Averaging with NULL</p>
-
 <p>The average of a set of values is the sum of the values
 divided by the number of values.
 Does this mean that the <code>avg</code> function returns 2.0 or 3.0
 when given the values 1.0, <code>null</code>, and 5.0?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <p>The answer is 3.0.
 <code>NULL</code> is not a value; it is the absence of a value.
 As such it is not included in the calculation.</p>
@@ -586,7 +582,6 @@ As such it is not included in the calculation.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">What Does This Query Do?</p>
-
 <p>We want to calculate the difference between
 each individual radiation reading
 and the average of all the radiation readings.
@@ -595,7 +590,6 @@ We write the query:</p>
 </code></pre>
 <p>What does this actually produce, and can you think of why?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
 <p>The query produces only one row of results when we what we really want is a result for each of the readings.
 The <code>avg()</code> function produces only a single value, and because it is run first, the table is reduced to a single row.
 The <code>reading</code> value is simply an arbitrary one.</p>
@@ -614,7 +608,6 @@ The <code>reading</code> value is simply an arbitrary one.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Using the group_concat function</p>
-
 <p>The function <code>group_concat(field, separator)</code>
 concatenates all the values in a field
 using the specified separator character

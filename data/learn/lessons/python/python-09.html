@@ -11,7 +11,7 @@
 <li>How can I store multiple values?</li>
 </ul>
 </div>
-<h2 id="a-list-stores-many-values-in-a-single-structure">A list stores many values in a single structure.</h2>
+<h2 id="h-a-list-stores-many-values-in-a-single-structure">A list stores many values in a single structure.</h2>
 <ul>
 <li>Doing calculations with a hundred variables called <code>pressure_001</code>, <code>pressure_002</code>, etc.,
 would be at least as slow as doing them by hand.</li>
@@ -30,7 +30,7 @@ print('length:', len(pressures))
 <pre><code class="language-output">pressures: [0.273, 0.275, 0.277, 0.275, 0.276]
 length: 5
 </code></pre>
-<h2 id="use-an-item-s-index-to-fetch-it-from-a-list">Use an item's index to fetch it from a list.</h2>
+<h2 id="h-use-an-item-s-index-to-fetch-it-from-a-list">Use an item's index to fetch it from a list.</h2>
 <ul>
 <li>Just like strings.</li>
 </ul>
@@ -40,7 +40,7 @@ print('fourth item of pressures:', pressures[4])
 <pre><code class="language-output">zeroth item of pressures: 0.273
 fourth item of pressures: 0.276
 </code></pre>
-<h2 id="lists-values-can-be-replaced-by-assigning-to-them">Lists' values can be replaced by assigning to them.</h2>
+<h2 id="h-lists-values-can-be-replaced-by-assigning-to-them">Lists' values can be replaced by assigning to them.</h2>
 <ul>
 <li>Use an index expression on the left of assignment to replace a value.</li>
 </ul>
@@ -49,7 +49,7 @@ print('pressures is now:', pressures)
 </code></pre>
 <pre><code class="language-output">pressures is now: [0.265, 0.275, 0.277, 0.275, 0.276]
 </code></pre>
-<h2 id="appending-items-to-a-list-lengthens-it">Appending items to a list lengthens it.</h2>
+<h2 id="h-appending-items-to-a-list-lengthens-it">Appending items to a list lengthens it.</h2>
 <ul>
 <li>Use <code>list_name.append</code> to add items to the end of a list.</li>
 </ul>
@@ -94,7 +94,7 @@ primes has finally become: [2, 3, 5, 7, 11, 13, 17, 19, [37, 41, 43, 47]]
 <p>Note that while <code>extend</code> maintains the "flat" structure of the list, appending a list to a list means
 the last element in <code>primes</code> will itself be a list, not an integer. Lists can contain values of any
 type; therefore, lists of lists are possible.</p>
-<h2 id="use-del-to-remove-items-from-a-list-entirely">Use <code>del</code> to remove items from a list entirely.</h2>
+<h2 id="h-use-del-to-remove-items-from-a-list-entirely">Use <code>del</code> to remove items from a list entirely.</h2>
 <ul>
 <li>We use <code>del list_name[index]</code> to remove an element from a list (in the example, 9 is not a prime number) and thus shorten it.</li>
 <li><code>del</code> is not a function or a method, but a statement in the language.</li>
@@ -107,7 +107,7 @@ print('primes after removing last item:', primes)
 <pre><code class="language-output">primes before removing last item: [2, 3, 5, 7, 9]
 primes after removing last item: [2, 3, 5, 7]
 </code></pre>
-<h2 id="the-empty-list-contains-no-values">The empty list contains no values.</h2>
+<h2 id="h-the-empty-list-contains-no-values">The empty list contains no values.</h2>
 <ul>
 <li>Use <code>[]</code> on its own to represent a list that doesn't contain any values.
 <ul>
@@ -117,13 +117,13 @@ primes after removing last item: [2, 3, 5, 7]
 <li>Helpful as a starting point for collecting values
 (which we will see in the <a href="https://github.com/swcarpentry/python-novice-gapminder/blob/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/12-for-loops.md" target="_blank" rel="noopener noreferrer">next episode</a>).</li>
 </ul>
-<h2 id="lists-may-contain-values-of-different-types">Lists may contain values of different types.</h2>
+<h2 id="h-lists-may-contain-values-of-different-types">Lists may contain values of different types.</h2>
 <ul>
 <li>A single list may contain numbers, strings, and anything else.</li>
 </ul>
 <pre><code class="language-python">goals = [1, 'Create lists.', 2, 'Extract items from lists.', 3, 'Modify lists.']
 </code></pre>
-<h2 id="character-strings-can-be-indexed-like-lists">Character strings can be indexed like lists.</h2>
+<h2 id="h-character-strings-can-be-indexed-like-lists">Character strings can be indexed like lists.</h2>
 <ul>
 <li>Get single characters from a character string using indexes in square brackets.</li>
 </ul>
@@ -134,7 +134,7 @@ print('third character:', element[3])
 <pre><code class="language-output">zeroth character: c
 third character: b
 </code></pre>
-<h2 id="character-strings-are-immutable">Character strings are immutable.</h2>
+<h2 id="h-character-strings-are-immutable">Character strings are immutable.</h2>
 <ul>
 <li>Cannot change the characters in a string after it has been created.
 <ul>
@@ -152,7 +152,7 @@ not a collection of values.</li>
 <ul>
 <li>Lists and character strings are both <em>collections</em>.</li>
 </ul>
-<h2 id="indexing-beyond-the-end-of-the-collection-is-an-error">Indexing beyond the end of the collection is an error.</h2>
+<h2 id="h-indexing-beyond-the-end-of-the-collection-is-an-error">Indexing beyond the end of the collection is an error.</h2>
 <ul>
 <li>Python reports an <code>IndexError</code> if we attempt to access a value that doesn't exist.
 <ul>
@@ -168,7 +168,6 @@ because the index might be calculated based on data.</li>
 </code></pre>
 <div class="box box-challenge">
 <p class="box-title">Fill in the Blanks</p>
-
 <p>Fill in the blanks so that the program below produces the output shown.</p>
 <pre><code class="language-python">values = ____
 values.____(1)
@@ -182,7 +181,6 @@ print('second time:', values)
 second time: [3, 5]
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <pre><code class="language-python">values = []
 values.append(1)
 values.append(3)
@@ -195,11 +193,9 @@ print('second time:', values)
 </div>
 <div class="box box-challenge">
 <p class="box-title">How Large is a Slice?</p>
-
 <p>If <code>start</code> and <code>stop</code> are both non-negative integers,
 how long is the list <code>values[start:stop]</code>?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <p>The list <code>values[start:stop]</code> has up to <code>stop - start</code> elements.  For example,
 <code>values[1:4]</code> has the 3 elements <code>values[1]</code>, <code>values[2]</code>, and <code>values[3]</code>.
 Why 'up to'? As we saw in <a href="https://github.com/swcarpentry/python-novice-gapminder/blob/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/02-variables.md" target="_blank" rel="noopener noreferrer">episode 2</a>,
@@ -209,7 +205,6 @@ we will still get a list back but it will be shorter than expected.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">From Strings to Lists and Back</p>
-
 <p>Given this:</p>
 <pre><code class="language-python">print('string to list:', list('tin'))
 print('list to string:', ''.join(['g', 'o', 'l', 'd']))
@@ -222,7 +217,6 @@ list to string: gold
 <li>What does <code>'-'.join(['x', 'y', 'z'])</code> generate?</li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
 <ol>
 <li><a href="https://docs.python.org/3/library/stdtypes.html#list" target="_blank" rel="noopener noreferrer"><code>list('some string')</code></a> converts a string into a list containing all of its characters.</li>
 <li><a href="https://docs.python.org/3/library/stdtypes.html#str.join" target="_blank" rel="noopener noreferrer"><code>join</code></a> returns a string that is the <em>concatenation</em>
@@ -233,7 +227,6 @@ of each string element in the list and adds the separator between each element i
 </div>
 <div class="box box-challenge">
 <p class="box-title">Working With the End</p>
-
 <p>What does the following program print?</p>
 <pre><code class="language-python">element = 'helium'
 print(element[-1])
@@ -248,7 +241,6 @@ and what location does that index represent?</li>
 (Hint: you will need to combine slicing and negative indexing.)</li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x">Solution</h2>
 <p>The program prints <code>m</code>.</p>
 <ol>
 <li>Python interprets a negative index as starting from the end (as opposed to
@@ -262,7 +254,6 @@ starting from the beginning).  The last element is <code>-1</code>.</li>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Stepping Through a List</p>
-
 <p>What does the following program print?</p>
 <pre><code class="language-python">element = 'fluorine'
 print(element[::2])
@@ -273,7 +264,6 @@ print(element[::-1])
 <li>What expression would select all of the even-numbered items from a collection?</li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x">Solution</h2>
 <p>The program prints</p>
 <pre><code class="language-python">furn
 eniroulf
@@ -289,14 +279,12 @@ goes on until the end (since no <code>end</code> is given), and uses a step size
 </div>
 <div class="box box-challenge">
 <p class="box-title">Slice Bounds</p>
-
 <p>What does the following program print?</p>
 <pre><code class="language-python">element = 'lithium'
 print(element[0:20])
 print(element[-1:3])
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x">Solution</h2>
 <pre><code class="language-output">lithium
 
 </code></pre>
@@ -306,7 +294,6 @@ The second statement returns an empty string, because the slice goes "out of bou
 </div>
 <div class="box box-challenge">
 <p class="box-title">Sort and Sorted</p>
-
 <p>What do these two programs print?
 In simple terms, explain the difference between <code>sorted(letters)</code> and <code>letters.sort()</code>.</p>
 <pre><code class="language-python"># Program A
@@ -320,7 +307,6 @@ result = letters.sort()
 print('letters is', letters, 'and result is', result)
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x-x">Solution</h2>
 <p>Program A prints</p>
 <pre><code class="language-output">letters is ['g', 'o', 'l', 'd'] and result is ['d', 'g', 'l', 'o']
 </code></pre>
@@ -334,7 +320,6 @@ list <code>letters</code> remains unchanged), while <code>letters.sort()</code> 
 </div>
 <div class="box box-challenge">
 <p class="box-title">Copying (or Not)</p>
-
 <p>What do these two programs print?
 In simple terms, explain the difference between <code>new = old</code> and <code>new = old[:]</code>.</p>
 <pre><code class="language-python"># Program A
@@ -350,7 +335,6 @@ new[0] = 'D'
 print('new is', new, 'and old is', old)
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x-x-x">Solution</h2>
 <p>Program A prints</p>
 <pre><code class="language-output">new is ['D', 'o', 'l', 'd'] and old is ['D', 'o', 'l', 'd']
 </code></pre>

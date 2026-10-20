@@ -14,7 +14,7 @@
 <li>How can programs check their own operation?</li>
 </ul>
 </div>
-<h2 id="coding-style">Coding style</h2>
+<h2 id="h-coding-style">Coding style</h2>
 <p>A consistent coding style helps others (including our future selves) read and understand code more easily. Code is read much more often than it is written, and as the <a href="https://www.python.org/dev/peps/pep-0020" target="_blank" rel="noopener noreferrer">Zen of Python</a> states, "Readability counts".
 Python proposed a standard style through one of its first Python Enhancement Proposals (PEP), <a href="https://www.python.org/dev/peps/pep-0008" target="_blank" rel="noopener noreferrer">PEP8</a>.</p>
 <p>Some points worth highlighting:</p>
@@ -23,7 +23,7 @@ Python proposed a standard style through one of its first Python Enhancement Pro
 <li>use clear, semantically meaningful variable names</li>
 <li>use white-space, <em>not</em> tabs, to indent lines (tabs can cause problems across different text editors, operating systems, and version control systems)</li>
 </ul>
-<h2 id="follow-standard-python-style-in-your-code">Follow standard Python style in your code.</h2>
+<h2 id="h-follow-standard-python-style-in-your-code">Follow standard Python style in your code.</h2>
 <ul>
 <li><a href="https://www.python.org/dev/peps/pep-0008" target="_blank" rel="noopener noreferrer">PEP8</a>:
 a style guide for Python that discusses topics such as how to name variables,
@@ -35,7 +35,7 @@ Adhering to PEP8 makes it easier for other Python developers to read and underst
 <li>Some groups and organizations follow different style guidelines besides PEP8. For example, the <a href="https://google.github.io/styleguide/pyguide.html" target="_blank" rel="noopener noreferrer">Google style guide on Python</a> makes slightly different recommendations. Google wrote an application that can help you format your code in either their style or PEP8 called <a href="https://github.com/google/yapf/" target="_blank" rel="noopener noreferrer">yapf</a>.</li>
 <li>With respect to coding style, the key is <em>consistency</em>. Choose a style for your project be it PEP8, the Google style, or something else and do your best to ensure that you and anyone else you are collaborating with sticks to it. Consistency within a project is often more impactful than the particular style used. A consistent style will make your software easier to read and understand for others and for your future self.</li>
 </ul>
-<h2 id="use-assertions-to-check-for-internal-errors">Use assertions to check for internal errors.</h2>
+<h2 id="h-use-assertions-to-check-for-internal-errors">Use assertions to check for internal errors.</h2>
 <p>Assertions are a simple but powerful method for making sure that the context in which your code is executing is as you expect.</p>
 <pre><code class="language-python">def calc_bulk_density(mass, volume):
     '''Return dry bulk density = powder mass / powder volume.'''
@@ -43,7 +43,7 @@ Adhering to PEP8 makes it easier for other Python developers to read and underst
     return mass / volume
 </code></pre>
 <p>If the assertion is <code>False</code>, the Python interpreter raises an <code>AssertionError</code> runtime exception. The source code for the expression that failed will be displayed as part of the error message. To ignore assertions in your code run the interpreter with the '-O' (optimize) switch. Assertions should contain only simple checks and never change the state of the program. For example, an assertion should never contain an assignment.</p>
-<h2 id="use-docstrings-to-provide-builtin-help">Use docstrings to provide builtin help.</h2>
+<h2 id="h-use-docstrings-to-provide-builtin-help">Use docstrings to provide builtin help.</h2>
 <p>If the first thing in a function is a character string that is not assigned directly to a variable, Python attaches it to the function, accessible via the builtin help function. This string that provides documentation is also known as a <em>docstring</em>.</p>
 <pre><code class="language-python">def average(values):
     "Return average of values, or None if no values are supplied."
@@ -61,7 +61,6 @@ average(values)
 </code></pre>
 <div class="box box-callout">
 <p class="box-title">Multiline Strings</p>
-
 <p>Often use <em>multiline strings</em> for documentation.
 These start and end with three quote characters (either single or double)
 and end with three matching characters.</p>
@@ -73,7 +72,6 @@ Blank lines are allowed."""
 </div>
 <div class="box box-challenge">
 <p class="box-title">What Will Be Shown?</p>
-
 <p>Highlight the lines in the code below that will be available as online help.
 Are there lines that should be made available, but won't be?
 Will any lines produce a syntax error or a runtime error?</p>
@@ -97,7 +95,6 @@ def overall_max(sequences):
 </div>
 <div class="box box-challenge">
 <p class="box-title">Document This</p>
-
 <p>Use comments to describe and help others understand potentially unintuitive
 sections or individual lines of code. They are especially useful to whoever
 may need to understand and edit your code in the future, including yourself.</p>
@@ -114,7 +111,6 @@ and check that <code>help</code> displays it properly.</p>
     return values[1]
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <pre><code class="language-python">def middle(a, b, c):
     '''Return the middle value of three.
     Assumes the values can actually be compared.'''
@@ -126,7 +122,6 @@ and check that <code>help</code> displays it properly.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Clean Up This Code</p>
-
 <ol>
 <li>Read this short program and try to predict what it does.</li>
 <li>Run it: how accurate was your prediction?</li>
@@ -153,7 +148,6 @@ while i &lt; n:
     i += 1
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <p>Here's one solution.</p>
 <pre><code class="language-python">def string_machine(input_string, iterations):
     """

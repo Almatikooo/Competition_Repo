@@ -11,7 +11,7 @@
 <li>How can programs do different things for different data?</li>
 </ul>
 </div>
-<h2 id="use-if-statements-to-control-whether-or-not-a-block-of-code-">Use <code>if</code> statements to control whether or not a block of code is executed.</h2>
+<h2 id="h-use-if-statements-to-control-whether-or-not-a-block-of-code-">Use <code>if</code> statements to control whether or not a block of code is executed.</h2>
 <ul>
 <li>An <code>if</code> statement (more properly called a <em>conditional</em> statement)
 controls whether some block of code is executed or not.</li>
@@ -32,7 +32,7 @@ if mass &gt; 3.0:
 </code></pre>
 <pre><code class="language-output">3.54 is large
 </code></pre>
-<h2 id="conditionals-are-often-used-inside-loops">Conditionals are often used inside loops.</h2>
+<h2 id="h-conditionals-are-often-used-inside-loops">Conditionals are often used inside loops.</h2>
 <ul>
 <li>Not much point using a conditional when we know the value (as above).</li>
 <li>But useful when we have a collection to process.</li>
@@ -45,7 +45,7 @@ for m in masses:
 <pre><code class="language-output">3.54 is large
 9.22 is large
 </code></pre>
-<h2 id="use-else-to-execute-a-block-of-code-when-an-if-condition-is-">Use <code>else</code> to execute a block of code when an <code>if</code> condition is <em>not</em> true.</h2>
+<h2 id="h-use-else-to-execute-a-block-of-code-when-an-if-condition-is-">Use <code>else</code> to execute a block of code when an <code>if</code> condition is <em>not</em> true.</h2>
 <ul>
 <li><code>else</code> can be used following an <code>if</code>.</li>
 <li>Allows us to specify an alternative to execute when the <code>if</code> <em>branch</em> isn't taken.</li>
@@ -63,7 +63,7 @@ for m in masses:
 1.86 is small
 1.71 is small
 </code></pre>
-<h2 id="use-elif-to-specify-additional-tests">Use <code>elif</code> to specify additional tests.</h2>
+<h2 id="h-use-elif-to-specify-additional-tests">Use <code>elif</code> to specify additional tests.</h2>
 <ul>
 <li>May want to provide several alternative choices, each with its own test.</li>
 <li>Use <code>elif</code> (short for "else if") and a condition to specify these.</li>
@@ -85,7 +85,7 @@ for m in masses:
 1.86 is small
 1.71 is small
 </code></pre>
-<h2 id="conditions-are-tested-once-in-order">Conditions are tested once, in order.</h2>
+<h2 id="h-conditions-are-tested-once-in-order">Conditions are tested once, in order.</h2>
 <ul>
 <li>Python steps through the branches of the conditional in order, testing each in turn.</li>
 <li>So ordering matters.</li>
@@ -138,7 +138,7 @@ moving too fast
 moving too slow
 final velocity: 30.0
 </code></pre>
-<h2 id="create-a-table-showing-variables-values-to-trace-a-program-s">Create a table showing variables' values to trace a program's execution.</h2>
+<h2 id="h-create-a-table-showing-variables-values-to-trace-a-program-s">Create a table showing variables' values to trace a program's execution.</h2>
 <div class="table-wrap"><table>
 <tbody><tr> <td><strong>i</strong></td> <td>0</td> <td>.</td> <td>1</td> <td>.</td> <td>2</td> <td>.</td> <td>3</td> <td>.</td> <td>4</td> <td>.</td>
 </tr>
@@ -152,7 +152,6 @@ since its value is updated by the last iteration of the loop.</li>
 </ul>
 <div class="box box-callout">
 <p class="box-title">Compound Relations Using and , or , and Parentheses</p>
-
 <p>Often, you want some combination of things to be true.  You can combine
 relations within a conditional using <code>and</code> and <code>or</code>.  Continuing the example
 above, suppose you have</p>
@@ -183,7 +182,6 @@ if mass[i] &lt;= 2 or (mass[i] &gt;= 5 and velocity[i] &gt; 20):
 </div>
 <div class="box box-challenge">
 <p class="box-title">Tracing Execution</p>
-
 <p>What does this program print?</p>
 <pre><code class="language-python">pressure = 71.9
 if pressure &gt; 50.0:
@@ -193,14 +191,12 @@ elif pressure &lt;= 50.0:
 print(pressure)
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <pre><code class="language-output">25.0
 </code></pre>
 </details>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Trimming Values</p>
-
 <p>Fill in the blanks so that this program creates a new list
 containing zeroes where the original list's values were negative
 and ones where the original list's values were positive.</p>
@@ -216,7 +212,6 @@ print(result)
 <pre><code class="language-output">[0, 1, 1, 1, 0, 1]
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <pre><code class="language-python">original = [-1.5, 0.2, 0.4, 0.0, -1.3, 0.4]
 result = []
 for value in original:
@@ -230,7 +225,6 @@ print(result)
 </div>
 <div class="box box-challenge">
 <p class="box-title">Processing Small Files</p>
-
 <p>Modify this program so that it only processes files with fewer than 50 records.</p>
 <pre><code class="language-python">import glob
 import pandas as pd
@@ -240,7 +234,6 @@ for filename in glob.glob('data/*.csv'):
         print(filename, len(contents))
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
 <pre><code class="language-python">import glob
 import pandas as pd
 for filename in glob.glob('data/*.csv'):
@@ -252,7 +245,6 @@ for filename in glob.glob('data/*.csv'):
 </div>
 <div class="box box-challenge">
 <p class="box-title">Initializing</p>
-
 <p>Modify this program so that it finds the largest and smallest values in the list
 no matter what the range of values originally is.</p>
 <pre><code class="language-python">values = [...some test data...]
@@ -268,7 +260,6 @@ print(smallest, largest)
 <p>What are the advantages and disadvantages of using this method
 to find the range of the data?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x">Solution</h2>
 <pre><code class="language-python">values = [-2,1,65,78,-54,-24,100]
 smallest, largest = None, None
 for v in values:

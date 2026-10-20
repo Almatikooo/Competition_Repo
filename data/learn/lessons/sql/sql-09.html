@@ -154,7 +154,6 @@ However,
 this technique is outside the scope of this chapter.</p>
 <div class="box box-callout">
 <p class="box-title">Hybrid Storage Models</p>
-
 <p>Many applications use a hybrid storage model
 instead of putting everything into a database:
 the actual data (such as astronomical images) is stored in files,
@@ -169,18 +168,15 @@ but the files themselves live on disk.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Replacing NULL</p>
-
 <p>Write an SQL statement to replace all uses of <code>null</code> in
 <code>Survey.person</code> with the string <code>'unknown'</code>.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <pre><code class="language-sql">UPDATE Survey SET person = 'unknown' WHERE person IS NULL;
 </code></pre>
 </details>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Backing Up with SQL</p>
-
 <p>SQLite has several administrative commands that aren't part of the
 SQL standard.  One of them is <code>.dump</code>, which prints the SQL commands
 needed to re-create the database.  Another is <code>.read</code>, which reads a
@@ -190,7 +186,6 @@ control is a good way to track and manage changes to the database.
 What are the pros and cons of this approach?  (Hint: records aren't
 stored in any particular order.)</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <h4>Advantages</h4>
 <ul>
 <li>A version control system will be able to show differences between versions

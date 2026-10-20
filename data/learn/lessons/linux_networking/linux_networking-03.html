@@ -13,12 +13,12 @@
 <li>How can I edit files?</li>
 </ul>
 </div>
-<h2 id="creating-directories">Creating directories</h2>
+<h2 id="h-creating-directories">Creating directories</h2>
 <p>We now know how to explore files and directories,
 but how do we create them in the first place?</p>
 <p>In this episode we will learn about creating and moving files and directories,
 using the <code>exercise-data/writing</code> directory as an example.</p>
-<h3 id="step-one-see-where-we-are-and-what-we-already-have">Step one: see where we are and what we already have</h3>
+<h3 id="h-step-one-see-where-we-are-and-what-we-already-have">Step one: see where we are and what we already have</h3>
 <p>We should still be in the <code>shell-lesson-data</code> directory on the Desktop,
 which we can check using:</p>
 <pre><code class="language-bash">$ pwd
@@ -31,7 +31,7 @@ $ ls -F
 </code></pre>
 <pre><code class="language-output">haiku.txt  LittleWomen.txt
 </code></pre>
-<h3 id="create-a-directory">Create a directory</h3>
+<h3 id="h-create-a-directory">Create a directory</h3>
 <p>Let's create a new directory called <code>thesis</code> using the command <code>mkdir thesis</code>
 (which has no output):</p>
 <pre><code class="language-bash">$ mkdir thesis
@@ -61,7 +61,6 @@ in a single operation:</p>
 </code></pre>
 <div class="box box-callout">
 <p class="box-title">Two ways of doing the same thing</p>
-
 <p>Using the shell to create a directory is no different than using a file explorer.
 If you open the current directory using your operating system's graphical file explorer,
 the <code>thesis</code> directory will appear there too.
@@ -70,7 +69,6 @@ the files and directories themselves are the same.</p>
 </div>
 <div class="box box-callout">
 <p class="box-title">Good names for files and directories</p>
-
 <p>Complicated names of files and directories can make your life painful
 when working on the command line. Here we provide a few useful
 tips for the names of your files and directories.</p>
@@ -103,7 +101,7 @@ Windows and macOS file systems are typically case insensitive
 and therefore unable to distinguish between
 <code>thesis</code> and <code>Thesis</code> in the same directory.</p>
 </div>
-<h3 id="create-a-text-file">Create a text file</h3>
+<h3 id="h-create-a-text-file">Create a text file</h3>
 <p>Let's change our working directory to <code>thesis</code> using <code>cd</code>,
 then run a text editor called Nano to create a file called <code>draft.txt</code>:</p>
 <pre><code class="language-bash">$ cd thesis
@@ -111,7 +109,6 @@ $ nano draft.txt
 </code></pre>
 <div class="box box-callout">
 <p class="box-title">Which Editor?</p>
-
 <p>When we say, '<code>nano</code> is a text editor' we really do mean 'text'. It can
 only work with plain character data, not tables, images, or any other
 human-friendly media. We use it in examples because it is one of the
@@ -143,7 +140,6 @@ the suggested default of <code>draft.txt</code>.</p>
 return to the shell.</p>
 <div class="box box-callout">
 <p class="box-title">Control, Ctrl, or ^ Key</p>
-
 <p>The Control key is also called the 'Ctrl' key. There are various ways
 in which using the Control key may be described. For example, you may
 see an instruction to press the <kbd>Control</kbd> key and, while holding it down,
@@ -168,7 +164,6 @@ but <code>ls</code> now shows that we have created a file called <code>draft.txt
 </code></pre>
 <div class="box box-challenge">
 <p class="box-title">Creating Files a Different Way</p>
-
 <p>We have seen how to create text files using the <code>nano</code> editor.
 Now, try the following command:</p>
 <pre><code class="language-bash">$ touch my_file.txt
@@ -187,7 +182,6 @@ does the file show up?</p>
 </li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <ol>
 <li>
 <p>The <code>touch</code> command generates a new file called <code>my_file.txt</code> in
@@ -220,7 +214,6 @@ To do this, use the following command:</p>
 </div>
 <div class="box box-callout">
 <p class="box-title">What's In A Name?</p>
-
 <p>You may have noticed that all of Nelle's files are named 'something dot
 something', and in this part of the lesson, we always used the extension
 <code>.txt</code>.  This is just a convention; we can call a file <code>mythesis</code> or
@@ -242,7 +235,7 @@ program. In this case, if someone double-clicked <code>whale.mp3</code> in a fil
 explorer program, the music player will automatically (and erroneously)
 attempt to open the <code>whale.mp3</code> file.</p>
 </div>
-<h2 id="moving-files-and-directories">Moving files and directories</h2>
+<h2 id="h-moving-files-and-directories">Moving files and directories</h2>
 <p>Returning to the <code>shell-lesson-data/exercise-data/writing</code> directory,</p>
 <pre><code class="language-bash">$ cd ~/Desktop/shell-lesson-data/exercise-data/writing
 </code></pre>
@@ -300,7 +293,6 @@ We can use this to see that <code>quotes.txt</code> is now present in our curren
 </code></pre>
 <div class="box box-challenge">
 <p class="box-title">Moving Files to a new folder</p>
-
 <p>After running the following commands,
 Jamie realizes that she put the files <code>sucrose.dat</code> and <code>maltose.dat</code> into the wrong folder.
 The files should have been placed in the <code>raw</code> folder.</p>
@@ -315,14 +307,13 @@ $ cd analyzed
 <pre><code class="language-bash">$ mv sucrose.dat maltose.dat ____/____
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <pre><code class="language-bash">$ mv sucrose.dat maltose.dat ../raw
 </code></pre>
 <p>Recall that <code>..</code> refers to the parent directory (i.e. one above the current directory)
 and that <code>.</code> refers to the current directory.</p>
 </details>
 </div>
-<h2 id="copying-files-and-directories">Copying files and directories</h2>
+<h2 id="h-copying-files-and-directories">Copying files and directories</h2>
 <p>The <code>cp</code> command works very much like <code>mv</code>,
 except it copies a file instead of moving it.
 We can check that it did the right thing using <code>ls</code>
@@ -356,7 +347,6 @@ you will see a message that the directory has been omitted because <code>-r not 
 </code></pre>
 <div class="box box-callout">
 <p class="box-title">Destination Can Be New Name or Directory</p>
-
 <p>When we use two arguments with <code>mv</code> or <code>cp</code>,
 the second argument can be the location and new name
 we want our file to have. Alternatively,
@@ -372,7 +362,6 @@ to that directory without changing its name.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Renaming Files</p>
-
 <p>Suppose that you created a plain-text file in your current directory to contain a list of the
 statistical tests you will need to do to analyze your data, and named it <code>statstics.txt</code></p>
 <p>After creating and saving this file you realize you misspelled the filename! You want to
@@ -384,7 +373,6 @@ correct the mistake, which of the following commands could you use to do so?</p>
 <li><code>cp statstics.txt .</code></li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
 <ol>
 <li>No.  While this would create a file with the correct name,
 the incorrectly named file still exists in the directory
@@ -400,7 +388,6 @@ identical file names cannot be created.</li>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Moving and Copying</p>
-
 <p>What is the output of the closing <code>ls</code> command in the sequence shown below?</p>
 <pre><code class="language-bash">$ pwd
 </code></pre>
@@ -422,7 +409,6 @@ $ ls
 <li><code>proteins-saved.dat</code></li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x">Solution</h2>
 <p>We start in the <code>/Users/jamie/data</code> directory, and create a new folder called <code>recombined</code>.
 The second line moves (<code>mv</code>) the file <code>proteins.dat</code> to the new folder (<code>recombined</code>).
 The third line makes a copy of the file we just moved.
@@ -439,7 +425,7 @@ So, the only thing that will show using ls (in <code>/Users/jamie/data</code>) i
 </ol>
 </details>
 </div>
-<h2 id="removing-files-and-directories">Removing files and directories</h2>
+<h2 id="h-removing-files-and-directories">Removing files and directories</h2>
 <p>Returning to the <code>shell-lesson-data/exercise-data/writing</code> directory,
 let's tidy up this directory by removing the <code>quotes.txt</code> file we created.
 The Unix command we'll use for this is <code>rm</code> (short for 'remove'):</p>
@@ -452,7 +438,6 @@ The Unix command we'll use for this is <code>rm</code> (short for 'remove'):</p>
 </code></pre>
 <div class="box box-callout">
 <p class="box-title">Deleting Is Forever</p>
-
 <p>The Unix shell doesn't have a trash bin that we can recover deleted
 files from (though most graphical interfaces to Unix do).  Instead,
 when we delete files, they are unlinked from the file system so that
@@ -463,11 +448,9 @@ file's disk space right away.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Using rm Safely</p>
-
 <p>What happens when we execute <code>rm -i thesis_backup/quotations.txt</code>?
 Why would we want this protection when using <code>rm</code>?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x">Solution</h2>
 <pre><code class="language-output">rm: remove regular file 'thesis_backup/quotations.txt'? y
 </code></pre>
 <p>The <code>-i</code> option will prompt before (every) removal (use <kbd>Y</kbd> to confirm deletion
@@ -491,7 +474,7 @@ recursive option <code>-r</code>, and it will do so <em>without any confirmation
 <p>Given that there is no way to retrieve files deleted using the shell,
 <code>rm -r</code> <em>should be used with great caution</em>
 (you might consider adding the interactive option <code>rm -r -i</code>).</p>
-<h2 id="operations-with-multiple-files-and-directories">Operations with multiple files and directories</h2>
+<h2 id="h-operations-with-multiple-files-and-directories">Operations with multiple files and directories</h2>
 <p>Oftentimes one needs to copy or move several files at once.
 This can be done by providing a list of individual filenames,
 or specifying a naming pattern using wildcards. Wildcards are
@@ -499,7 +482,6 @@ special characters that can be used to represent unknown characters
 or sets of characters when navigating the Unix file system.</p>
 <div class="box box-challenge">
 <p class="box-title">Copy with Multiple Filenames</p>
-
 <p>For this exercise, you can test the commands in the <code>shell-lesson-data/exercise-data</code> directory.</p>
 <p>We have seen how <code>cp</code> behaves when given two arguments. The second argument can
 be a filename (what to name the copy) or an existing directory (where to put the copy).</p>
@@ -518,7 +500,6 @@ $ ls -F
 <pre><code class="language-bash">$ cp minotaur.dat unicorn.dat basilisk.dat
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x">Solution</h2>
 <p>When <code>cp</code> is given three or more arguments,
 the last argument must be a directory.
 <code>cp</code> copies the other files specified
@@ -528,10 +509,9 @@ is a file name, you get an error:</p>
 </code></pre>
 </details>
 </div>
-<h3 id="using-wildcards-for-accessing-multiple-files-at-once">Using wildcards for accessing multiple files at once</h3>
+<h3 id="h-using-wildcards-for-accessing-multiple-files-at-once">Using wildcards for accessing multiple files at once</h3>
 <div class="box box-callout">
 <p class="box-title">Wildcards</p>
-
 <p><code>*</code> is a <strong>wildcard</strong>, which represents zero or more other characters.
 Let's consider the <code>shell-lesson-data/exercise-data/alkanes</code> directory:
 <code>*.pdb</code> represents <code>ethane.pdb</code>, <code>propane.pdb</code>, and every
@@ -558,7 +538,6 @@ the wildcards.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">List filenames matching a pattern</p>
-
 <p>When run in the <code>alkanes</code> directory, which <code>ls</code> command(s) will
 produce this output?</p>
 <p><code>ethane.pdb   methane.pdb</code></p>
@@ -569,7 +548,6 @@ produce this output?</p>
 <li><code>ls ethane.*</code></li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x-x">Solution</h2>
 <p>The solution is <code>3.</code></p>
 <p><code>1.</code> shows all files whose names contain zero or more characters (<code>*</code>)
 followed by the letter <code>t</code>,
@@ -587,7 +565,6 @@ This is the solution.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">More on Wildcards</p>
-
 <p>Sam has a directory containing calibration data, datasets, and descriptions of
 the datasets:</p>
 <pre><code class="language-bash">.
@@ -663,7 +640,6 @@ $ cp ____ send_to_bob/all_datasets_created_on_a_23rd/
         └── 2015-11-23-dataset_overview.txt
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x-x-x">Solution</h2>
 <pre><code class="language-bash">$ cp *calibration.txt backup/calibration
 $ cp 2015-11-* send_to_bob/all_november_files/
 $ cp *-23-dataset* send_to_bob/all_datasets_created_on_a_23rd/
@@ -672,7 +648,6 @@ $ cp *-23-dataset* send_to_bob/all_datasets_created_on_a_23rd/
 </div>
 <div class="box box-challenge">
 <p class="box-title">Organizing Directories and Files</p>
-
 <p>Jamie is working on a project, and she sees that her files aren't very well
 organized:</p>
 <pre><code class="language-bash">$ ls -F
@@ -691,7 +666,6 @@ so that the commands below will produce the output shown?</p>
 <pre><code class="language-output">fructose.dat    sucrose.dat
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x-x-x-x">Solution</h2>
 <pre><code class="language-bash">mv *.dat analyzed
 </code></pre>
 <p>Jamie needs to move her files <code>fructose.dat</code> and <code>sucrose.dat</code> to the <code>analyzed</code> directory.
@@ -701,7 +675,6 @@ The <code>mv</code> command then moves the list of .dat files to the 'analyzed' 
 </div>
 <div class="box box-challenge">
 <p class="box-title">Reproduce a folder structure</p>
-
 <p>You're starting a new experiment and would like to duplicate the directory
 structure from your previous experiment so you can add new data.</p>
 <p>Assume that the previous experiment is in a folder called <code>2016-05-18</code>,
@@ -739,7 +712,6 @@ $ mkdir data
 $ mkdir raw processed
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x-x-x-x-x">Solution</h2>
 <p>The first two sets of commands achieve this objective.
 The first set uses relative paths to create the top-level directory before
 the subdirectories.</p>

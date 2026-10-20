@@ -1,6 +1,4 @@
 <div class="box box-objectives"><p class="box-title">Learning Objectives</p>
-
-<div>
 <p>By the end of this chapter, the student should be able to:</p>
 <ul>
 <li>Understand and use the terminology of probability</li>
@@ -13,33 +11,27 @@
 <li>Calculate probabilities using the multiplication rules</li>
 </ul>
 </div>
-</div>
-
-<div>
 <figure><img alt="This is a photo taken of the night sky. A meteor and its tail are shown entering the earth's atmosphere." height="424" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2019/07/CNX_Stats_C03_CO-1.jpg" width="500"><figcaption>Figure 3.1: Meteor Shower. Meteor showers are rare, but the probability of them occurring can be calculated.</figcaption></figure>
-</div>
-<div>
 <p>You have, more than likely, used probability. In fact, you probably have an intuitive sense of probability. Probability deals with the chance of an event occurring. Whenever you weigh the odds of whether or not to do your homework or to study for an exam, you are using probability. In this chapter, you will learn how to solve probability problems using a systematic approach.</p>
-<h2 id="probability">Probability</h2>
-</div>
+<h2 id="h-probability">Probability</h2>
 <p><a href="#term_133_2768" rel="noopener noreferrer">Probability</a> is a measure that is associated with how certain we are of outcomes of a particular experiment or activity. An experiment is a planned operation carried out under controlled conditions. If the result is not predetermined, then the experiment is said to be a <a href="#term_133_3257" rel="noopener noreferrer">probability experiment</a>. Flipping one fair coin twice is an example of an experiment.</p>
 <p>A result of an experiment is called an <a href="#term_133_3255" rel="noopener noreferrer">outcome</a>. The <a href="#term_133_3259" rel="noopener noreferrer">sample space </a>of an experiment is the set of all possible outcomes. Three ways to represent a sample space are: to list the possible outcomes, to create a tree diagram, or to create a Venn diagram. The uppercase letter <em>S</em> is used to denote the sample space. For example, if you flip one fair coin, <em>S</em> = {<em>H</em>, <em>T</em>} where <em>H</em> = heads and <em>T</em> = tails are the outcomes.</p>
 <p>An <a href="#term_133_3261" rel="noopener noreferrer">event</a> is any combination of outcomes. Upper case letters like <em>A</em> and <em>B</em> represent events. For example, if the experiment is to flip one fair coin, event <em>A</em> might be getting at most one head. The probability of an event <em>A</em> is written <em>P</em>(<em>A</em>).</p>
 <p>The <a href="#term_133_2768" rel="noopener noreferrer">probability</a> of any outcome is the long-term relative frequency of that outcome. Probabilities are between zero and one, inclusive (that is, zero and one and all numbers between these values). <em>P</em>(<em>A</em>) = 0 means the event <em>A</em> can never happen. <em>P</em>(<em>A</em>) = 1 means the event <em>A</em> always happens. <em>P</em>(<em>A</em>) = 0.5 means the event <em>A</em> is equally likely to occur or not to occur. For example, if you flip one fair coin repeatedly (from 20 to 2,000 to 20,000 times) the relative frequency of heads approaches 0.5 (the probability of heads).</p>
 <p>A <a href="#term_133_3262" rel="noopener noreferrer">probability model</a> is a mathematical representation of a random process that lists all possible outcomes and assigns probabilities to each of them.&nbsp; This type of model is our ultimately our goal when moving forward in our study of statistics.</p>
-<h2 id="the-law-of-large-numbers">The Law of Large Numbers</h2>
+<h2 id="h-the-law-of-large-numbers">The Law of Large Numbers</h2>
 <p>An important characteristic of probability experiments, known as the <a href="#term_133_3263" rel="noopener noreferrer">law of large numbers</a><strong>,</strong>&nbsp;states that as the number of repetitions of an experiment is increased, the relative frequency obtained in the experiment tends to become closer and closer to the theoretical probability. Even though the outcomes do not happen according to any set pattern or order, overall, the long-term observed relative frequency will approach the theoretical probability. (The word empirical is often used instead of the word observed.)</p>
 <p>You toss a coin and record the result. What is the probability that the result is heads? If you flip a coin two times, does probability tell you that these flips will result in one heads and one tail? You might toss a fair coin ten times and record nine heads. Probability does not describe the short-term results of an experiment, rather it gives information about what can be expected in the long term. To demonstrate this, Karl Pearson once tossed a fair coin 24,000 times! He recorded the results of each toss, obtaining heads 12,012 times. In his experiment, Pearson illustrated the Law of Large Numbers.</p>
-<h2 id="the-classical-approach-to-probability">The Classical Approach to Probability</h2>
+<h2 id="h-the-classical-approach-to-probability">The Classical Approach to Probability</h2>
 <p>Equally likely means that each outcome of an experiment occurs with equal probability. For example, if you toss a fair, six-sided die, each face (1, 2, 3, 4, 5, or 6) is as likely to occur as any other face. If you toss a fair coin, a Head (<em>H</em>) and a Tail (<em>T</em>) are equally likely to occur. If you randomly guess the answer to a true/false question on an exam, you are equally likely to select a correct answer or an incorrect answer.</p>
 <p>To calculate the probability of an event <em>A</em> when all outcomes in the sample space are equally likely, count the number of outcomes for event <em>A</em> and divide by the total number of outcomes in the sample space.&nbsp; This is often called the Classical Approach to probability.</p>
 <p>Suppose you roll one fair six-sided die, with the numbers {1, 2, 3, 4, 5, 6} on its faces. Let event E = rolling a number that is at least five.<br>
 There are two outcomes {5, 6}. P(E) = <img alt="\frac{2}{6}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-3471837b0600205b83823d42275f5615_l3.png" title="Rendered by QuickLaTeX.com" width="7">. If you were to roll the die only a few times, you would not be surprised if your observed results did not match the probability. If you were to roll the die a very large number of times, you would expect that, overall, <img alt="\frac{2}{6}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-3471837b0600205b83823d42275f5615_l3.png" title="Rendered by QuickLaTeX.com" width="7">) of the rolls would result in an outcome of “at least five”. You would not expect exactly <img alt="\frac{2}{6}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-3471837b0600205b83823d42275f5615_l3.png" title="Rendered by QuickLaTeX.com" width="7">. The long-term relative frequency of obtaining this result would approach the theoretical probability of <img alt="\frac{2}{6}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-3471837b0600205b83823d42275f5615_l3.png" title="Rendered by QuickLaTeX.com" width="7"> as the number of repetitions grows larger and larger.</p>
 <div class="box box-keypoints"><p class="box-title">Example</p>
 
-<div>If you toss a fair dime and a fair nickel, the sample space is {<em>HH</em>, <em>TH</em>, <em>HT</em>, <em>TT</em>} where <em>T</em> = tails and <em>H</em> = heads. The sample space has four outcomes. <em>A</em> = getting one head. There are two outcomes that meet this condition {<em>HT</em>, <em>TH</em>}, so <em>P</em>(<em>A</em>) = <img alt="\frac{2}{4}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-f0fbe1d0a23cc6d56315752a5c1033e2_l3.png" title="Rendered by QuickLaTeX.com" width="7"> = 0.5.</div>
+If you toss a fair dime and a fair nickel, the sample space is {<em>HH</em>, <em>TH</em>, <em>HT</em>, <em>TT</em>} where <em>T</em> = tails and <em>H</em> = heads. The sample space has four outcomes. <em>A</em> = getting one head. There are two outcomes that meet this condition {<em>HT</em>, <em>TH</em>}, so <em>P</em>(<em>A</em>) = <img alt="\frac{2}{4}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-f0fbe1d0a23cc6d56315752a5c1033e2_l3.png" title="Rendered by QuickLaTeX.com" width="7"> = 0.5.
 </div>
-<h2 id="the-axioms-of-probability">The Axioms of Probability</h2>
+<h2 id="h-the-axioms-of-probability">The Axioms of Probability</h2>
 <p>Finding probabilities in more complicated situations starts with the three Axioms of Probability.</p>
 <ol>
 <li>P(S) = 1</li>
@@ -47,7 +39,7 @@ There are two outcomes {5, 6}. P(E) = <img alt="\frac{2}{6}" height="22" loading
 <li>For each two events E1 and E2 with E1 ∩ E2 = Ø, P(E1 U E2) = P(E1) + P(E2)</li>
 </ol>
 <p>The first two Axioms should be fairly intuitive.&nbsp; Axiom 1 says that the probabilities of all outcomes in a sample space will always add up to 1.&nbsp; &nbsp;Axiom 2 says the probability of any event must be between 0 and 1.&nbsp; The Third Axiom is called the disjoint addition rule which we will expand on in the future.</p>
-<h2 id="relationships-between-events">Relationships Between Events</h2>
+<h2 id="h-relationships-between-events">Relationships Between Events</h2>
 <p>Often we are not just interested in a single event, but multiple events happening at the same time.&nbsp; In order to find probabilities relating to multiple events, we first have to know about the relationship (or lack thereof) between them.&nbsp; The two main relationship terms we will look for are independence and mutually exclusive.&nbsp; Remember, these two terms certainly do not mean the same thing, neither are they opposites.</p>
 <p>Consider two events, A&amp;B.&nbsp; If it is not known whether they are mutually exclusive, assume they are not until you can show otherwise.&nbsp;Likewise, if it is not known whether <em>A</em> and <em>B</em> are independent, assume they are dependent until you can show otherwise. This “default” starting point is illustrated by the 4th position in the following table:</p>
 <div class="table-wrap"><table>
@@ -76,13 +68,13 @@ There are two outcomes {5, 6}. P(E) = <img alt="\frac{2}{6}" height="22" loading
 </table></div>
 <p>Depending on the information given in the problem and Assumptions you are able to make, as you move around the above grid, you will apply slightly different versions of each important probability rule.</p>
 <p>*<em><strong>Note:</strong></em> You will rarely, if ever, find yourself in this case</p>
-<h3 id="mutually-exclusive">Mutually exclusive</h3>
+<h3 id="h-mutually-exclusive">Mutually exclusive</h3>
 <p><em>A</em> and <em>B</em> are <a href="#term_133_3265" rel="noopener noreferrer">mutually exclusive</a> (or disjoint) events if they cannot occur at the same time. This means that <em>A</em> and <em>B</em> do not share any outcomes and <em>P</em>(<em>A</em> AND <em>B</em>) = 0.</p>
 <div class="box box-keypoints"><p class="box-title">Example</p>
 
-<div>Suppose the sample space <em>S</em> = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}. Let <em>A</em> = {1, 2, 3, 4, 5}, <em>B</em> = {4, 5, 6, 7, 8}, and <em>C</em> = {7, 9}. <em>A</em> AND <em>B</em> = {4, 5}. <em>P</em>(<em>A</em> AND <em>B</em>) = <img alt="\frac{2}{10}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-8ba7ca9fc6df84f7561f2564370255b2_l3.png" title="Rendered by QuickLaTeX.com" width="14"> and is not equal to zero. Therefore, <em>A</em> and <em>B</em> are not mutually exclusive. <em>A</em> and <em>C</em> do not have any numbers in common so <em>P</em>(<em>A</em> AND <em>C</em>) = 0. Therefore, <em>A</em> and <em>C</em> are mutually exclusive.</div>
+Suppose the sample space <em>S</em> = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}. Let <em>A</em> = {1, 2, 3, 4, 5}, <em>B</em> = {4, 5, 6, 7, 8}, and <em>C</em> = {7, 9}. <em>A</em> AND <em>B</em> = {4, 5}. <em>P</em>(<em>A</em> AND <em>B</em>) = <img alt="\frac{2}{10}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-8ba7ca9fc6df84f7561f2564370255b2_l3.png" title="Rendered by QuickLaTeX.com" width="14"> and is not equal to zero. Therefore, <em>A</em> and <em>B</em> are not mutually exclusive. <em>A</em> and <em>C</em> do not have any numbers in common so <em>P</em>(<em>A</em> AND <em>C</em>) = 0. Therefore, <em>A</em> and <em>C</em> are mutually exclusive.
 </div>
-<h3 id="independent-events">Independent events</h3>
+<h3 id="h-independent-events">Independent events</h3>
 <p>Two events <em>A</em> and <em>B</em> are <a href="#term_133_3266" rel="noopener noreferrer">independent</a> if the knowledge that one occurred does not affect the chance the other occurs. For example, the outcomes of two roles of a fair die are independent events. The outcome of the first roll does not change the probability for the outcome of the second roll. &nbsp;If two events are NOT independent, then we say that they are dependent. To show two events are independent, you only need to show one one of the equivalent conditions below:</p>
 <ul>
 <li><em>P</em>(<em>A</em>|<em>B</em>) = <em>P</em>(<em>A</em>)</li>
@@ -95,21 +87,15 @@ There are two outcomes {5, 6}. P(E) = <img alt="\frac{2}{6}" height="22" loading
 <li><strong>Without replacement</strong>: When sampling is done without replacement, each member of a population may be chosen only once. In this case, the probabilities for the second pick are affected by the result of the first pick. The events are considered to be dependent or not independent.</li>
 </ul>
 <div class="box box-keypoints"><p class="box-title">Example</p>
-
-<div>
 <p>You have a fair, well-shuffled deck of 52 cards. It consists of four suits. The suits are clubs, diamonds, hearts and spades. There are 13 cards in each suit consisting of 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, J (jack), Q (queen), K (king) of that suit. Consider the following scenarios</p>
 <ol>
 <li>Suppose you pick three cards with replacement. The first card you pick out of the 52 cards is the Q of spades. You put this card back, reshuffle the cards and pick a second card from the 52-card deck. It is the ten of clubs. You put this card back, reshuffle the cards and pick a third card from the 52-card deck. This time, the card is the Q of spades again. Your picks are {Q of spades, ten of clubs, Q of spades}. You have picked the Q of spades twice. You pick each card from the 52-card deck.</li>
 <li>Suppose you pick three cards without replacement. The first card you pick out of the 52 cards is the K of hearts. You put this card aside and pick the second card from the 51 cards remaining in the deck. It is the three of diamonds. You put this card aside and pick the third card from the remaining 50 cards in the deck. The third card is the J of spades. Your picks are {K of hearts, three of diamonds, J of spades}. Because you have picked the cards without replacement, you cannot pick the same card twice.</li>
 </ol>
-<div>
-<div></div>
 </div>
-</div>
-</div>
-<h2 id="compound-events">Compound Events</h2>
+<h2 id="h-compound-events">Compound Events</h2>
 <p>Often we are not just interested in a single event, but multiple events happening at the same time.&nbsp; There are several types of relationships and situations we may be interested in. The relationship between events can tell us a lot about the probability of compound events.&nbsp; Depending on the compound event we are looking for we will apply different rules.</p>
-<h3 id="compliments">Compliments</h3>
+<h3 id="h-compliments">Compliments</h3>
 <p>The <a href="#term_133_3271" rel="noopener noreferrer">complement</a> of event <em>A</em> is denoted <em>A′</em> (read “<em>A</em> prime”).&nbsp; <em>A′</em> consists of all outcomes in the sample space, S, that are <em><strong>NOT</strong></em>&nbsp;in <em>A</em>.</p>
 <p>There are several useful forms of the compliment rule:</p>
 <ul>
@@ -119,50 +105,37 @@ There are two outcomes {5, 6}. P(E) = <img alt="\frac{2}{6}" height="22" loading
 </ul>
 <div class="box box-keypoints"><p class="box-title">Example</p>
 
-<div>Let <em>S</em> = {1, 2, 3, 4, 5, 6} and let <em>A</em> = {1, 2, 3, 4}. Then, <em>A′</em> = {5, 6}. <em>P</em>(<em>A</em>) = <img alt="\frac{4}{6}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-b4cb74848f4bddb39c6119dabb5197e0_l3.png" title="Rendered by QuickLaTeX.com" width="7">, <em>P</em>(<em>A′</em>) = <img alt="\frac{2}{6}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-3471837b0600205b83823d42275f5615_l3.png" title="Rendered by QuickLaTeX.com" width="7">, and <em>P</em>(<em>A</em>) + <em>P</em>(<em>A′</em>) = <img alt="\frac{4}{6}+\frac{2}{6}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-6c7b8fca5780a5df5f514e8f09189725_l3.png" title="Rendered by QuickLaTeX.com" width="39"> = 1</div>
+Let <em>S</em> = {1, 2, 3, 4, 5, 6} and let <em>A</em> = {1, 2, 3, 4}. Then, <em>A′</em> = {5, 6}. <em>P</em>(<em>A</em>) = <img alt="\frac{4}{6}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-b4cb74848f4bddb39c6119dabb5197e0_l3.png" title="Rendered by QuickLaTeX.com" width="7">, <em>P</em>(<em>A′</em>) = <img alt="\frac{2}{6}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-3471837b0600205b83823d42275f5615_l3.png" title="Rendered by QuickLaTeX.com" width="7">, and <em>P</em>(<em>A</em>) + <em>P</em>(<em>A′</em>) = <img alt="\frac{4}{6}+\frac{2}{6}" height="22" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-6c7b8fca5780a5df5f514e8f09189725_l3.png" title="Rendered by QuickLaTeX.com" width="39"> = 1
 </div>
-<h3 id="unions">Unions</h3>
+<h3 id="h-unions">Unions</h3>
 <p>The <a href="#term_133_3273" rel="noopener noreferrer">union</a> of two events, denoted A <strong>∪</strong> B, is the outcomes that are in either event <em>A <strong>OR</strong></em>&nbsp;<em>B</em> (or both).</p>
 <div class="box box-keypoints"><p class="box-title">Example</p>
 
-<div>Let <em>A</em> = {1, 2, 3, 4, 5} and <em>B</em> = {4, 5, 6, 7, 8}. <em>A</em> OR <em>B</em> = {1, 2, 3, 4, 5, 6, 7, 8}. Notice that 4 and 5 are NOT listed twice.</div>
+Let <em>A</em> = {1, 2, 3, 4, 5} and <em>B</em> = {4, 5, 6, 7, 8}. <em>A</em> OR <em>B</em> = {1, 2, 3, 4, 5, 6, 7, 8}. Notice that 4 and 5 are NOT listed twice.
 </div>
-<h3 id="intersections">Intersections</h3>
+<h3 id="h-intersections">Intersections</h3>
 <p>The <a href="#term_133_3274" rel="noopener noreferrer">intersection</a> of two events, denoted A ∩ B, is the outcomes that are in both events&nbsp;<em>A <strong>AND</strong></em>&nbsp;<em>B</em>.</p>
 <div class="box box-keypoints"><p class="box-title">Example</p>
 
-<div>Let <em>A</em> and <em>B</em> be {1, 2, 3, 4, 5} and {4, 5, 6, 7, 8}, respectively. Then <em>A</em> AND <em>B</em> = {4, 5}.</div>
+Let <em>A</em> and <em>B</em> be {1, 2, 3, 4, 5} and {4, 5, 6, 7, 8}, respectively. Then <em>A</em> AND <em>B</em> = {4, 5}.
 </div>
-<h2 id="conditional-probabilities">Conditional Probabilities</h2>
+<h2 id="h-conditional-probabilities">Conditional Probabilities</h2>
 <p>Sometimes knowing one event has already happened can change the probability of another event occurring.&nbsp; A <a href="#term_133_3275" rel="noopener noreferrer">conditional probability</a> reduces the sample space by updating our probabilities based on what we already know.&nbsp; The conditional probability of <em>A</em>&nbsp;<em><b>GIVEN</b></em>&nbsp;<em>B</em> is written <em>P</em>(<em>A</em><strong>|</strong><em>B</em>). <em>P</em>(<em>A</em>|<em>B</em>) is the probability that event <em>A</em> will occur given that the event <em>B</em> has already occurred.&nbsp; . We calculate the probability of <em>A</em> from the reduced sample space <em>B</em>. The formula to calculate <em>P</em>(<em>A</em>|<em>B</em>) is <em>P</em>(<em>A</em>|<em>B</em>) = <img alt="\frac{P\left(A\text{ AND }B\right)}{P\left(B\right)}" height="29" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-227ecced50138ca759b94fd8f7152167_l3.png" title="Rendered by QuickLaTeX.com" width="83"> where <em>P</em>(<em>B</em>) is greater than zero.</p>
 <div class="box box-keypoints"><p class="box-title">Example</p>
-
-<div>
 <p>Suppose we toss one fair, six-sided die. The sample space <em>S</em> = {1, 2, 3, 4, 5, 6}. Let <em>A</em> = face is 2 or 3 and <em>B</em> = face is even (2, 4, 6). To calculate <em>P</em>(<em>A</em>|<em>B</em>), we count the number of outcomes 2 or 3 in the sample space <em>B</em> = {2, 4, 6}. Then we divide that by the number of outcomes <em>B</em> (rather than <em>S</em>).</p>
 <p>We get the same result by using the formula. Remember that <em>S</em> has six outcomes.</p>
 <p><em>P</em>(<em>A</em>|<em>B</em>) = <img alt="\frac{P\left(A\phantom{\rule{2pt}{0ex}}\text{ AND }\phantom{\rule{2pt}{0ex}}B\right)}{P\left(B\right)}=\frac{\frac{\left(\text{the number of outcomes that are 2 or 3 and even in}\phantom{\rule{2pt}{0ex}}S\right)}{6}}{\frac{\left(\text{the number of outcomes that are even in}\phantom{\rule{2pt}{0ex}}S\right)}{6}}=\frac{\frac{1}{6}}{\frac{3}{6}}=\frac{1}{3}" height="41" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-b25ac4c387c20d29558cff17f02a1990_l3.png" title="Rendered by QuickLaTeX.com" width="484"></p>
 </div>
-</div>
-
 <div class="box box-callout"><p class="box-title">Your turn!</p>
-
-<div>
 <p>Let event C = taking an English class. Let event D = taking a speech class.</p>
 <p>Suppose P(C) = 0.75, P(D) = 0.3, P(C|D) = 0.75 and P(C AND D) = 0.225.</p>
 <p>Justify your answers to the following questions numerically.</p>
 <p>Are C and D independent?<br>
 Are C and D mutually exclusive?<br>
 What is P(D|C)?</p>
-<div>
-<div></div>
 </div>
-</div>
-</div>
-
 <p>The key to probability problems is sorting through and understanding important terminology and symbols.&nbsp; First read each problem carefully to think about and understand what you are looking for.&nbsp; Look for key words (and, or, not, w/ or w/o replacement etc..) to identify the event(s) of interest and the relationships between them.&nbsp; Determine whether there is a condition stated in the wording that would indicate that the probability is conditional.&nbsp; Visualize them if possible using the tools we’ll talk about in the future.&nbsp; We can then plug into our rules to get a numerical answer.&nbsp; Finally, based on your understanding of the situation, make sure the probability you came up with makes intuitive sense.</p>
 <div class="box box-keypoints"><p class="box-title">Example</p>
-
-<div>
 <p>Consider flipping two fair coins.</p>
 <p>The sample space is {<em>HH</em>, <em>HT</em>, <em>TH</em>, <em>TT</em>} where <em>T</em> = tails and <em>H</em> = heads. The outcomes are <em>HH</em>, <em>HT</em>, <em>TH</em>, and <em>TT</em>.&nbsp; Notice the outcomes HT and TH are different. <em>HT</em> means that the first coin showed heads and the second coin showed tails. <em>TH</em> means that the first coin showed tails and the second coin showed heads.</p>
 <p>Find the probabilities of the events.</p>
@@ -178,14 +151,8 @@ What is P(D|C)?</p>
 <li>Are A and <i>F</i>&nbsp;mutually exclusive?</li>
 <li>&nbsp;Are <i>G</i> and H mutually exclusive?</li>
 </ol>
-<div>
-<div></div>
-</div>
-</div>
 </div>
 <div class="box box-callout"><p class="box-title">Your turn!</p>
-
-<div>
 <p>A box has two balls, one white and one red. We select one ball, put it back in the box, and select a second ball (sampling with replacement). Find the probability of the following events:</p>
 <ol type="a">
 <li>Let <em>F</em> = the event of getting the white ball twice.</li>
@@ -195,6 +162,3 @@ What is P(D|C)?</p>
 <li>Are <em>G</em> and <em>H</em> mutually exclusive?</li>
 </ol>
 </div>
-</div>
-
-<div></div>

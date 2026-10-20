@@ -10,9 +10,8 @@
 </tr>
 </tbody>
 </table></div>
-
 <p>Depending on its source, raw data may contain some inconsistencies that will cause challenges in analysis and modeling. In other words, this data can be categorized as “dirty” and will need to be cleaned up. This lesson focuses on techniques for cleaning and transforming the data to handle challenges of missing, inaccurate, or incomplete data. Topics covered in this lesson will utilize Python and the Pandas library and will be <a href="https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/08-data-preparation/notebook.ipynb" target="_blank" rel="noopener noreferrer">demonstrated in the notebook</a> within this directory.</p>
-<h2 id="the-importance-of-cleaning-data">The importance of cleaning data</h2>
+<h2 id="h-the-importance-of-cleaning-data">The importance of cleaning data</h2>
 <ul>
 <li>
 <p><strong>Ease of use and reuse</strong>: When data is properly organized and normalized it’s easier to search, use, and share with others.</p>
@@ -24,7 +23,7 @@
 <p><strong>Model accuracy</strong>: Data that has been cleaned improves the accuracy of models that rely on it.</p>
 </li>
 </ul>
-<h2 id="common-cleaning-goals-and-strategies">Common cleaning goals and strategies</h2>
+<h2 id="h-common-cleaning-goals-and-strategies">Common cleaning goals and strategies</h2>
 <ul>
 <li>
 <p><strong>Exploring a dataset</strong>: Data exploration, which is covered in a <a href="https://github.com/microsoft/Data-Science-For-Beginners/tree/main/4-Data-Science-Lifecycle/15-analyzing" target="_blank" rel="noopener noreferrer">later lesson</a> can help you discover data that needs to be cleaned up. Visually observing values within a dataset can set expectations of what that rest of it will look like, or provide an idea of the problems that can be resolved. Exploration can involve basic querying, visualizations, and sampling.</p>
@@ -39,7 +38,7 @@
 <p><strong>Missing Data</strong>: Missing data can cause inaccuracies as well as weak or biased results. Sometimes these can be resolved by a "reload" of the data, filling in the missing values with computation and code like Python, or simply just removing the value and corresponding data. There are numerous reasons for why data may be missing and the actions that are taken to resolve these missing values can be dependent on how and why they went missing in the first place.</p>
 </li>
 </ul>
-<h2 id="exploring-dataframe-information">Exploring DataFrame information</h2>
+<h2 id="h-exploring-dataframe-information">Exploring DataFrame information</h2>
 <blockquote>
 <p><strong>Learning goal:</strong> By the end of this subsection, you should be comfortable finding general information about the data stored in pandas DataFrames.</p>
 </blockquote>
@@ -143,7 +142,7 @@ memory usage: 4.8 KB
 <blockquote>
 <p><strong>Takeaway:</strong> Even just by looking at the metadata about the information in a DataFrame or the first and last few values in one, you can get an immediate idea about the size, shape, and content of the data you are dealing with.</p>
 </blockquote>
-<h2 id="dealing-with-missing-data">Dealing with Missing Data</h2>
+<h2 id="h-dealing-with-missing-data">Dealing with Missing Data</h2>
 <blockquote>
 <p><strong>Learning goal:</strong> By the end of this subsection, you should know how to replace or remove null values from DataFrames.</p>
 </blockquote>
@@ -333,7 +332,7 @@ dtype: float64
 <blockquote>
 <p><strong>Takeaway:</strong> There are multiple ways to deal with missing values in your datasets. The specific strategy you use (removing them, replacing them, or even how you replace them) should be dictated by the particulars of that data. You will develop a better sense of how to deal with missing values the more you handle and interact with datasets.</p>
 </blockquote>
-<h2 id="removing-duplicate-data">Removing duplicate data</h2>
+<h2 id="h-removing-duplicate-data">Removing duplicate data</h2>
 <blockquote>
 <p><strong>Learning goal:</strong> By the end of this subsection, you should be comfortable identifying and removing duplicate values from DataFrames.</p>
 </blockquote>
@@ -410,10 +409,9 @@ dtype: bool
 <blockquote>
 <p><strong>Takeaway:</strong> Removing duplicate data is an essential part of almost every data-science project. Duplicate data can change the results of your analyses and give you inaccurate results!</p>
 </blockquote>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>All of the discussed materials are provided as a <a href="https://github.com/microsoft/Data-Science-For-Beginners/blob/main/2-Working-With-Data/08-data-preparation/notebook.ipynb" target="_blank" rel="noopener noreferrer">Jupyter Notebook</a>. Additionally, there are exercises present after each section, give them a try!</p>
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>There are many ways to discover and approach preparing your data for analysis and modeling and cleaning the data is an important step that is a "hands on" experience. Try these challenges from Kaggle to explore techniques that this lesson didn't cover.</p>
 <ul>
 <li>

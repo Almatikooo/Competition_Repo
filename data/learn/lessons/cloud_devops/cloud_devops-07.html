@@ -22,7 +22,7 @@
 <li>You want to have a container image to "archive" all the specific software versions you ran for a project.</li>
 <li>You want to share your workflow with someone else.</li>
 </ul>
-<h2 id="interactive-installation">Interactive installation</h2>
+<h2 id="h-interactive-installation">Interactive installation</h2>
 <p>Before creating a reproducible installation, let's experiment with installing
 software inside a container. Start a container from the <code>alpine</code> container image we used before, interactively:</p>
 <pre><code class="language-bash">$ podman container run -it alpine sh
@@ -42,10 +42,8 @@ Linux has a installation tool called <code>apk</code> that we can use to install
 </code></pre>
 <div class="box box-challenge">
 <p class="box-title">Exercise: Searching for Help</p>
-
 <p>Can you find instructions for installing R on Alpine Linux? Do they work?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <p>A quick search should hopefully show that the way to install R on Alpine Linux is:</p>
 <pre><code class="language-bash">/# apk add R
 </code></pre>
@@ -59,12 +57,11 @@ known as a <code>Dockerfile</code>.</p>
 <p>If you haven't already, exit out of the interactively running container.</p>
 <pre><code class="language-bash">/# exit
 </code></pre>
-<h2 id="put-installation-instructions-in-a-dockerfile">Put installation instructions in a <code>Dockerfile</code></h2>
+<h2 id="h-put-installation-instructions-in-a-dockerfile">Put installation instructions in a <code>Dockerfile</code></h2>
 <p>A <code>Dockerfile</code> is a plain text file with keywords and commands that
 can be used to create a new container image.</p>
 <div class="box box-callout">
 <p class="box-title">Dockerfiles and Containerfiles</p>
-
 <p>You may see references on the Internet and in documentation to both
 <code>Dockerfile</code>s and <code>Containerfile</code>s. The two are essentially identical,
 differing only in the file name used, and Podman is capable of using both. Due
@@ -101,7 +98,6 @@ to <code>ls -lF --color /etc</code>.</li>
 </ul>
 <div class="box box-callout">
 <p class="box-title">shell-form and exec-form for CMD</p>
-
 <p>Another way to specify the parameter for the
 <a href="https://github.com/containers/common/blob/main/docs/Containerfile.5.md" target="_blank" rel="noopener noreferrer"><code>CMD</code> instruction</a>
 is the <em>shell-form</em>. Here you type the command as you would call it
@@ -114,11 +110,10 @@ are unambiguous in this format.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Exercise: Take a Guess</p>
-
 <p>Do you have any ideas about what we should use to fill in the sample Dockerfile
 to replicate the installation we did above?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution:</h2>
+<h2 id="h-solution">Solution:</h2>
 <p>Based on our experience above, edit the <code>Dockerfile</code> (in your text editor of choice)
 to look like this:</p>
 <pre><code>FROM docker.io/alpine
@@ -130,7 +125,7 @@ CMD ["python3", "--version"]
 <p>The recipe provided by the <code>Dockerfile</code> shown in the solution to the preceding exercise will use Alpine Linux as the base container image,
 add Python 3, the pip package management tool and some additional Python header files, and set a default command to request Python 3 to
 report its version information.</p>
-<h2 id="create-a-new-container-image">Create a new container image</h2>
+<h2 id="h-create-a-new-container-image">Create a new container image</h2>
 <p>So far, we only have a text file named <code>Dockerfile</code> -- we do not yet have a container image.
 We want Podman to take this <code>Dockerfile</code>,
 run the installation commands contained within it, and then save the
@@ -158,7 +153,6 @@ this command:</p>
 <p>Note, you can always re-tag an image later if the name needs to be updated.</p>
 <div class="box box-callout">
 <p class="box-title">Build Context</p>
-
 <p>Notice that the final input to <code>podman image build</code> isn't the Dockerfile -- it's
 a directory! In the command above, we've used the current working directory (<code>.</code>) of
 the shell as the final input to the <code>podman image build</code> command. This option provides
@@ -173,7 +167,6 @@ in this example.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Exercise: Review!</p>
-
 <ol>
 <li>
 <p>Think back to earlier. What command can you run to check if your container image was created
@@ -189,7 +182,6 @@ if you run such a container? Without changing the Dockerfile, can you make it do
 </li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
 <ol>
 <li>
 <p>To see your new image, run <code>podman image ls</code>. You should see the name of your new
@@ -214,7 +206,7 @@ of Python:</p>
 </details>
 </div>
 <p>While it may not look like you have achieved much, you have already effected the combination of a lightweight Linux operating system with your specification to run a given command that can operate reliably on macOS, Microsoft Windows, Linux and on the cloud!</p>
-<h2 id="boring-but-important-notes-about-installation">Boring but important notes about installation</h2>
+<h2 id="h-boring-but-important-notes-about-installation">Boring but important notes about installation</h2>
 <p>There are a lot of choices when it comes to installing software -- sometimes too many!
 Here are some things to consider when creating your own container image:</p>
 <ul>
@@ -258,7 +250,7 @@ the install instructions include options like those suggested above, try those f
 <li>From your interactive installation, create a <code>Dockerfile</code> and then try to build
 the container image from that.</li>
 </ul>
-<h2 id="share-your-new-container-image-on-docker-hub">Share your new container image on Docker Hub</h2>
+<h2 id="h-share-your-new-container-image-on-docker-hub">Share your new container image on Docker Hub</h2>
 <p>Container images that you release publicly can be stored on the Docker Hub for free.  If you
 name your container image as described above, with your Docker Hub username, all you need to do
 is run the opposite of <code>podman image pull</code> -- <code>podman image push</code>.</p>
@@ -268,7 +260,6 @@ is run the opposite of <code>podman image pull</code> -- <code>podman image push
 <p>In a web browser, open <a href="https://hub.docker.com" target="_blank" rel="noopener noreferrer">https://hub.docker.com</a>, and on your user page you should now see your container image listed, for anyone to use or build on.</p>
 <div class="box box-callout">
 <p class="box-title">Logging In</p>
-
 <p>Technically, you have to be logged into Docker Hub with Podman on your computer
 for this to work. If you haven't yet done this, <code>podman image push</code> won't work
 for you. You can do this on the command line by running <code>podman login docker.io</code>
@@ -276,7 +267,7 @@ first, entering your Docker Hub username and password, and then trying <code>pod
 in with the GUI by opening Podman Desktop, then going to 'Settings', then
 'Registries', then clicking 'Configure' for the Docker Hub entry.</p>
 </div>
-<h2 id="what-s-in-a-name-again">What's in a name? (again)</h2>
+<h2 id="h-what-s-in-a-name-again">What's in a name? (again)</h2>
 <p>You don't <em>have</em> to name your containers images using the <code>URL/USERNAME/CONTAINER_IMAGE_NAME:TAG</code> naming scheme. On your own computer, you can call container images whatever you want, and refer to
 them by the names you choose. It's only when you want to share a container image that it
 needs the correct naming format.</p>

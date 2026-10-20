@@ -12,7 +12,7 @@
 <li>How can I read tabular data?</li>
 </ul>
 </div>
-<h2 id="use-the-pandas-library-to-do-statistics-on-tabular-data">Use the Pandas library to do statistics on tabular data.</h2>
+<h2 id="h-use-the-pandas-library-to-do-statistics-on-tabular-data">Use the Pandas library to do statistics on tabular data.</h2>
 <ul>
 <li><a href="https://pandas.pydata.org/" target="_blank" rel="noopener noreferrer">Pandas</a> is a widely-used Python library for statistics, particularly on tabular data.</li>
 <li>Borrows many features from R's dataframes.
@@ -57,7 +57,6 @@ print(data_oceania)
 </ul>
 <div class="box box-callout">
 <p class="box-title">File Not Found</p>
-
 <p>Our lessons store their data files in a <code>data</code> sub-directory,
 which is why the path to the file is <code>data/gapminder_gdp_oceania.csv</code>.
 If you forget to include <code>data/</code>,
@@ -67,7 +66,7 @@ that ends with a line like this:</p>
 <pre><code class="language-error">FileNotFoundError: [Errno 2] No such file or directory: 'data/gapminder_gdp_oceania.csv'
 </code></pre>
 </div>
-<h2 id="use-index-col-to-specify-that-a-column-s-values-should-be-us">Use <code>index_col</code> to specify that a column's values should be used as row headings.</h2>
+<h2 id="h-use-index-col-to-specify-that-a-column-s-values-should-be-us">Use <code>index_col</code> to specify that a column's values should be used as row headings.</h2>
 <ul>
 <li>Row headings are numbers (0 and 1 in this case).</li>
 <li>Really want to index by country.</li>
@@ -92,7 +91,7 @@ country
 Australia       23424.76683     26997.93657     30687.75473     34435.36744
 New Zealand     18363.32494     21050.41377     23189.80135     25185.00911
 </code></pre>
-<h2 id="use-the-dataframe-info-method-to-find-out-more-about-a-dataf">Use the <code>DataFrame.info()</code> method to find out more about a dataframe.</h2>
+<h2 id="h-use-the-dataframe-info-method-to-find-out-more-about-a-dataf">Use the <code>DataFrame.info()</code> method to find out more about a dataframe.</h2>
 <pre><code class="language-python">data_oceania_country.info()
 </code></pre>
 <pre><code class="language-output">&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -123,7 +122,7 @@ memory usage: 208.0+ bytes
 </li>
 <li>Uses 208 bytes of memory.</li>
 </ul>
-<h2 id="the-dataframe-columns-variable-stores-information-about-the-">The <code>DataFrame.columns</code> variable stores information about the dataframe's columns.</h2>
+<h2 id="h-the-dataframe-columns-variable-stores-information-about-the-">The <code>DataFrame.columns</code> variable stores information about the dataframe's columns.</h2>
 <ul>
 <li>Note that this is data, <em>not</em> a method.  (It doesn't have parentheses.)
 <ul>
@@ -140,7 +139,7 @@ memory usage: 208.0+ bytes
        'gdpPercap_1992', 'gdpPercap_1997', 'gdpPercap_2002', 'gdpPercap_2007'],
       dtype='object')
 </code></pre>
-<h2 id="use-dataframe-t-to-transpose-a-dataframe">Use <code>DataFrame.T</code> to transpose a dataframe.</h2>
+<h2 id="h-use-dataframe-t-to-transpose-a-dataframe">Use <code>DataFrame.T</code> to transpose a dataframe.</h2>
 <ul>
 <li>Sometimes want to treat columns as rows and vice versa.</li>
 <li>Transpose (written <code>.T</code>) doesn't copy the data, just changes the program's view of it.</li>
@@ -162,7 +161,7 @@ gdpPercap_1997  26997.93657  21050.41377
 gdpPercap_2002  30687.75473  23189.80135
 gdpPercap_2007  34435.36744  25185.00911
 </code></pre>
-<h2 id="use-dataframe-describe-to-get-summary-statistics-about-data">Use <code>DataFrame.describe()</code> to get summary statistics about data.</h2>
+<h2 id="h-use-dataframe-describe-to-get-summary-statistics-about-data">Use <code>DataFrame.describe()</code> to get summary statistics about data.</h2>
 <p><code>DataFrame.describe()</code> gets the summary statistics of only the columns that have numerical data.
 All other columns are ignored, unless you use the argument <code>include='all'</code>.</p>
 <pre><code class="language-python">print(data_oceania_country.describe())
@@ -203,13 +202,11 @@ but very helpful when there are thousands.</li>
 </ul>
 <div class="box box-challenge">
 <p class="box-title">Reading Other Data</p>
-
 <p>Read the data in <code>gapminder_gdp_americas.csv</code>
 (which should be in the same directory as <code>gapminder_gdp_oceania.csv</code>)
 into a variable called <code>data_americas</code>
 and display its summary statistics.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <p>To read in a CSV, we use <code>pd.read_csv</code> and pass the filename <code>'data/gapminder_gdp_americas.csv'</code> to it.
 We also once again pass the column name <code>'country'</code> to the parameter <code>index_col</code> in order to index by country.
 The summary statistics can be displayed with the <code>DataFrame.describe()</code> method.</p>
@@ -220,7 +217,6 @@ data_americas.describe()
 </div>
 <div class="box box-challenge">
 <p class="box-title">Inspecting Data</p>
-
 <p>After reading the data for the Americas,
 use <code>help(data_americas.head)</code> and <code>help(data_americas.tail)</code>
 to find out what <code>DataFrame.head</code> and <code>DataFrame.tail</code> do.</p>
@@ -230,7 +226,6 @@ to find out what <code>DataFrame.head</code> and <code>DataFrame.tail</code> do.
 (Hint: you may need to change your view of the data.)</li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <ol>
 <li>We can check out the first five rows of <code>data_americas</code> by executing <code>data_americas.head()</code>
 which lets us view the beginning of the DataFrame. We can specify the number of rows we wish
@@ -306,7 +301,6 @@ so we can flip it back:</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Reading Files in Other Directories</p>
-
 <p>The data for your current project is stored in a file called <code>microbes.csv</code>,
 which is located in a folder called <code>field_data</code>.
 You are doing analysis in a notebook called <code>analysis.ipynb</code>
@@ -319,7 +313,6 @@ in a sibling folder called <code>thesis</code>:</p>
 </code></pre>
 <p>What value(s) should you pass to <code>read_csv</code> to read <code>microbes.csv</code> in <code>analysis.ipynb</code>?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
 <p>We need to specify the path to the file of interest in the call to <code>pd.read_csv</code>. We first need to 'jump' out of
 the folder <code>thesis</code> using '../' and then into the folder <code>field_data</code> using 'field_data/'. Then we can specify the filename `microbes.csv.
 The result is as follows:</p>
@@ -329,14 +322,12 @@ The result is as follows:</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Writing Data</p>
-
 <p>As well as the <code>read_csv</code> function for reading data from a file,
 Pandas provides a <code>to_csv</code> function to write dataframes to files.
 Applying what you've learned about reading from files,
 write one of your dataframes to a file called <code>processed.csv</code>.
 You can use <code>help</code> to get information on how to use <code>to_csv</code>.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x">Solution</h2>
 <p>In order to write the DataFrame <code>data_americas</code> to a file called <code>processed.csv</code>, execute the following command:</p>
 <pre><code class="language-python">data_americas.to_csv('processed.csv')
 </code></pre>

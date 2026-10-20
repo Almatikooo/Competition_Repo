@@ -1,270 +1,77 @@
-<div>
 <div class="box box-objectives"><p class="box-title">Learning Objectives</p>
-
 <ol>
-<li>Understand table properties and structure.</li>
-<li>Format data as a table.</li>
-<li>Use Freeze Panes.</li>
-<li>Work with the Table Tools Design tab.</li>
+<li>Apply formatting commands to the X and Y axes.</li>
+<li>Assign titles to the X and Y axes that clarify labels and numeric values for the reader.</li>
+<li>Apply labels and formatting techniques to the data series in the plot area of a chart.</li>
+<li>Apply formatting commands to the chart area and the plot area of a chart.</li>
 </ol>
 </div>
-<p>Organizing, maintaining, analyzing, and reporting human resources data is essentials across industries. In this chapter, we will import data, and demonstrate tabling skills by examining employee relations, payroll, benefits, and training options.</p>
-
-<figure><img alt="Screenshot Table Example" height="346" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.1_Table-Example.png" width="812"><figcaption>Figure 5.1 Table Example</figcaption></figure>
-
-<h2 id="table-properties-structure"><strong>TABLE PROPERTIES &amp; STRUCTURE&nbsp; &nbsp; &nbsp; &nbsp;</strong></h2>
-<p>Turning a range of cells into an Excel table makes related data easier to analyze, visualize, and report. Structuring and planning table layouts are vital for data integrity. Below are guidelines to consider when designing and building a table from scratch:</p>
-
-</div>
-<figure><img alt="Guidelines to consider when designing and building a table from scratch." height="517" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_5.2_Table_Layout_Guidelines.png" width="662"><figcaption>Figure 5.2 Table Layout Guidelines</figcaption></figure>
-<div class="box box-callout"><p class="box-title">Note</p>
-<details>
-<summary>Figure 5.2 Image Description</summary>
-<p>Structuring and planning table layouts is vital for data integrity. Included in the graphic are guidelines to consider when designing and building a table from scratch.</p>
-</details>
-</div>
-<h2 id="overview"><strong>OVERVIEW&nbsp;</strong></h2>
-<p>Excel tables behave independently from the rest of the information on the worksheet. Excel treats the table area as a database locking the record entries together. There are several advantages of Excel treating the data independently. For example, using integrated filters and sort functions you can effortlessly drill down data based on questions and in return get results. Excel will also automatically expand the table to accommodate new data entries and allows for automatic formatting, such as recoloring of banded rows or columns.</p>
-<p>You will also notice Excel treats formulas and calculations differently in a table, showing structured column names, along with automatically filling a calculated field to the entire table or offering quick and easy table totaling tools.</p>
-<p>When graphing and charting table data you will also see Excel automatically adjusts of associated charts and ranges based on what the user is sorting or filtering at the time.</p>
-<p>In industry, data is commonly stored in databases or multiple Excel files.&nbsp; &nbsp;Databases vary drastically, therefore in some cases, it is necessary to import data types into Excel.&nbsp; In our example, we will work with an Excel file that has imported data from a human resources database. The data downloaded from the database is stored in an Excel workbook, however, it’s in a Comma Separated Values (CSV) format. We will import the Excel file into our CH 5 Data file, turn the data into a table for further analysis.</p>
-<h2 id="import-and-format-data-as-a-table"><strong>IMPORT AND FORMAT DATA AS A TABLE</strong></h2>
-<p><em>Download Data file:&nbsp; <a href="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/CH5-Data-2.xlsx" target="_blank" rel="noopener noreferrer">CH5 Data</a></em></p>
-<p><a href="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/CH-5-HR_.xlsx" target="_blank" rel="noopener noreferrer">CH-5-HR_</a></p>
-<p>Keeping the above table guidelines in mind, import human resource data into Excel, as a table.&nbsp; Demonstrate tabling skills by examining employee relations, payroll, and benefits. Note you will need to save the <strong>CH 5 HR</strong> file on your computer as you will import this file into the <strong>CH 5 Data</strong> file in the below steps.</p>
-<p>&nbsp;1.&nbsp; Open data file <strong>CH 5 Data</strong> and save the file as <strong>CH5 HR Report</strong>.</p>
-<p>&nbsp;2.&nbsp; In the <strong>EmployeeData</strong> sheet, click on cell <strong>A5</strong>.</p>
-<p><strong><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20"> Mac Users: Excel for Mac does not have the tool for “Getting Data” </strong>from an Excel Workbook. You will set up this data using alternate steps. <strong>Please skip steps 3-11. </strong>The alternate steps can be found below after Step 11.</p>
-<p>&nbsp;3.&nbsp; From the Data tab, choose <strong>Get Data</strong>.</p>
-<p>&nbsp;4.&nbsp; From the Get Data menu, choose <strong>From File,&nbsp;</strong>then <strong>From</strong> <strong>Workbook</strong>.</p>
-
-<figure><img alt="Screenshot of the Figure Get Data From File, From Workbook menu" height="518" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Get_Data_From_File_From_Workbook.png" width="477"><figcaption>Figure 5.3 Get Data From File, From Workbook</figcaption></figure>
-
-<p>5. Navigate to the course data files.&nbsp; Find, and select the <strong>CH 5 HR</strong> file.</p>
-<p>6.&nbsp; Click <strong>Import.</strong></p>
-<figure><img alt="Screenshot" height="225" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Import_HR_File-e1581483282132.png" width="530"><figcaption>Figure 5.4 Import File Data CH 5 HR</figcaption></figure>
-
-<p>7.&nbsp; The Navigator dialogue box will open. Select the <strong>CH5 CSV File</strong> listed in the Display Options pane.</p>
-<p>8.&nbsp; At the bottom of the Navigator dialogue box, select <strong>Load</strong> to expand the menu and choose <strong>Load To</strong>…</p>
-
-<figure><img alt="Screenshot Navigator Window" height="561" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.5_Navigator-Window.png" width="667"><figcaption>Figure 5.5 Navigator Window</figcaption></figure>
-<p>9.&nbsp; The Import dialogue box will open. In the “<strong>Where do you want to put the data?</strong>” section choose <strong>Existing worksheet:&nbsp;</strong></p>
-<p>&nbsp;10.&nbsp; In the above steps A5 was already selected when we started the import, so Excel will indicate we want the information to import and display starting at cell =$A$5.&nbsp; If you did not click cell A5, then select the cell now.&nbsp; Click <strong>OK.</strong></p>
-
-<figure><img alt="Screenshot of the Import Data dialogue box" height="238" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Import_Data_.png" width="223"><figcaption>Figure 5.6 Import Data Dialogue Box</figcaption></figure>
-
-<p>11.&nbsp; The data imports as a table.&nbsp; Close the Queries &amp; Connections dialogue box.</p>
-
-<figure><img alt="Screenshot Queries &amp; Connections Window" height="268" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.7_Close-Queries-Connections.png" width="825"><figcaption>Figure 5.7 Close Queries &amp; Connections</figcaption></figure>
-<p><strong><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;These are the alternate steps for Mac Users Only. If you are using Excel for Windows, please continue with the “Table Tools Design Tab” section below these alternate steps.</strong></p>
+<p>You can use a variety of formatting techniques to enhance the appearance of a chart once you have created it. Formatting commands are applied to a chart for the same reason they are applied to a worksheet: they make the chart easier to read. However, formatting techniques also help you qualify and explain the data in a chart. For example, you can add footnotes explaining the data source as well as notes that clarify the type of numbers being presented (i.e., if the numbers in a chart are truncated, you can state whether they are in thousands, millions, etc.). These notes are also helpful in answering questions if you are using charts in a live presentation.</p>
+<h2 id="h-x-and-y-axis-formats">X and Y-Axis Formats</h2>
+<p>There are numerous formatting commands we can apply to the X and Y axes of a chart. Although adjusting the font size, style, and color are common, many more options are available through the Format Axis pane. The following steps demonstrate a few of these formatting techniques on the <strong>Grade Distribution Comparison</strong> chart. Follow the below steps&nbsp;to make some changes to the percentage numbers on the Y (vertical) axis.</p>
 <ol>
-<li>Only complete the following steps if you are using a Mac. If you are using a PC, you have already inserted the table. You should already have the <strong>CH 5 HR Report </strong>open and you should have clicked into cell A5 in the&nbsp;<strong>EmploymentData sheet.&nbsp;</strong>If you did not do this, please do it now.</li>
-<li>Open the&nbsp;<strong>CH 5 HR&nbsp;</strong>workbook that you downloaded</li>
-<li>Use the keyboard shortcut of&nbsp;<strong>Ctrl key + letter A</strong> to select all of the data in the worksheet. That should be cells A1:J102</li>
-<li>Copy this data</li>
-<li>Switch back to the&nbsp;<strong>CH 5 Report&nbsp;</strong>workbook and make sure cell A5 is the active cell</li>
-<li>Paste the data into the&nbsp;<strong>Employment Data sheet at cell A5</strong></li>
-<li>Make sure Cell A5 is still the active cell and click the&nbsp;<strong>Insert tab</strong> from the Ribbon</li>
-<li>Click the&nbsp;<strong>Tables</strong> button from the Ribbon and then click the&nbsp;<strong>Tables</strong> icon <img alt="Mac Table Button" height="98" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_table_button.png" width="117"></li>
-<li>The&nbsp;<strong>Create Table&nbsp;</strong>dialog box should appear with the cell range of&nbsp;<strong><strong>A5:J106 as shown here in Figure 5.8. </strong></strong>Click<strong> “OK” </strong>to accept this range for your table<strong>.</strong><br>
-<figure><img alt="Mac Create Table Dialog Box" height="219" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_create_table_button.png" width="316"><figcaption>Figure 5.8 Excel for Mac Create Table Dialog Box</figcaption></figure>
-</li>
-<li><strong>Congrats!&nbsp;</strong>You just converted the data to an Excel table. Continue following the steps in the section below.</li>
+<li>In the <strong>Grade Distribution</strong> worksheet, click on the <strong>Grade Distribution&nbsp;Comparison</strong> chart.&nbsp; Double-click the vertical (value) axis. &nbsp;This opens the <strong>Format Axis</strong> pane.</li>
+<li>Select <strong>Axis Options</strong>. Change the <strong>Minimum Bound</strong> to <strong>.05</strong> to make the differences in the columns more dramatic.</li>
+<li>Click the <strong>Close</strong> button at the top&nbsp;of the Format Axis pane.</li>
+<li>Save your work.</li>
 </ol>
-
-<h2 id="table-tools-design-tab"><strong>TABLE TOOLS DESIGN TAB</strong></h2>
-<p>Excel tables require specific tools. The Table Tools Design tab houses these specific tools used for formatting and editing tables. The Table Tools tab is considered a contextual tab; meaning the tabs appear when you are clicked in a table area.&nbsp; When you click out of a table, the Table Tools disappear.</p>
-<p>Explore the table tools now.&nbsp; Notice the specific checkboxes to turn on table options, for example, you can choose to display banded rows or banded columns, or a total row etc.&nbsp; We will explore table tools in the following steps.</p>
-<p>When importing data as a table, Excel automatically applied table formatting. &nbsp; Follow the below steps to format and edit the table.</p>
-<p>&nbsp;1.&nbsp; Click the <strong>Table Tools/</strong><strong>Design</strong> tab on the ribbon.<br>
-</p>
-<p><strong><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users: you don’t have a Table Tools/Design tab. Just make sure the Table tab is selected.</strong></p>
-<p>&nbsp;2.&nbsp; From the provided <strong>Table Styles</strong>, choose the <strong>Blue, Table Style Medium 2</strong> option.</p>
-<p><strong><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users: the table you just created may already have the “Blue, Table Style Medium 2 option.&nbsp;</strong><br>
-</p>
-
-<figure><img alt="Screenshot of the Table Styles gallery" height="385" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Blue_Table_Style_Medium_2.png" width="336"><figcaption>Figure 5.9 Blue Table Style Medium 2 Option</figcaption></figure>
-
-<p>Another option for inserting a table is using the Insert button. The Insert Table button, located on the Insert tab will turn a range of information into an unformatted table. We will use the insert table option later on in the chapter.</p>
-<div>
+<figure><img alt="Screenshot of Format Axis Pane Changes" height="423" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/11/Figure_4.21_Format_Axis_Pane_changes.png" width="551"><figcaption>Figure 4.22 Format Axis Pane Changes</figcaption></figure>
+<h2 id="h-x-and-y-axis-titles">X and Y-Axis Titles</h2>
+<p>Titles for the X and Y axes are necessary for defining the numbers and categories presented on a chart. For example, by looking at the Grade Distribution Comparison chart, it is not clear what the percentages along the Y-axis represent. The following steps explain how to add titles to the X and Y axes to define these numbers and categories:</p>
+<ol>
+<li>Click anywhere on the Grade Distribution Comparison chart in the Grade Distribution worksheet to activate it.</li>
+<li>In the upper right corner of the graph, choose the Charts Element plus sign.&nbsp; Select the Axis Titles, then Primary Horizontal and Primary Vertical. This inserts the place holders that you will type text in.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20"> Mac Users click the “Add Chart Element” button in the Design tab, point to “Axis Titles” and click on “Primary Horizontal”. Do this one more time and click on “Primary Vertical”.</li>
+<li>Click at the beginning of the Y-axis title and delete the generic title. Type <strong>Percent of Enrolled Excel Students</strong>.</li>
+<li>Click at the beginning of the X-axis title and delete the generic title. Type <strong>Final Course Grade</strong>.&nbsp; <strong>&nbsp;</strong></li>
+</ol>
+<figure><img alt="Screenshot of the X &amp; Y Axis Title" height="283" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.22_Selecting_a_Title_for_the_Y-Axis.png" width="622"><figcaption>Figure 4.23 Selecting a Title for the X &amp; Y-Axis</figcaption></figure>
 <div class="box box-callout"><p class="box-title">Skill Refresher</p>
-
-<p><strong>Format Data as a Table</strong></p>
+<p><strong>X and Y Axis Titles</strong></p>
 <ol>
-<li>Click on the top-left cell in your data.</li>
-<li>Click the Format As Table menu from the Home tab on the Ribbon. Choose a style.</li>
-<li>Make sure “My table has headers” is checked. Click OK.</li>
-<li>Click on the top-left cell again.</li>
-<li>Adjust the widths of the columns so that you can see the complete headings with the filter arrows showing.</li>
+<li>Click anywhere on the chart to activate it. Choose to open the Charts Element menu.</li>
+<li>Select one of the options from the second drop-down list.</li>
+<li>Click in the axis title to remove the generic title and type a new title.</li>
 </ol>
 </div>
-
-<h2 id="viewing-table-data">VIEWING table data</h2>
-<h2 id="using-panes"><strong>USING PANES&nbsp;</strong></h2>
-<p>Data sets can bridge thousands of records with dozens of fields and extend beyond a workbook window. It can be difficult to compare fields and records in widely separated columns and rows. One way of dealing with this problem is by dividing the workbook window into viewing panes by using the <strong>Split</strong> view option.&nbsp; Excel can split the workbook window into four sections called panes with each pane offering a separate view into the worksheet. By scrolling through the contents of individual panes, you can compare cells from different sections of the worksheet side-by-side within the workbook window.</p>
-<p>To split the workbook window into four panes, select any cell or range in the worksheet, and then on the View tab, in the Window group, click the Split button. Split bars divide the workbook window along the top and left border of the selected cell or range. To split the window into two vertical panes displayed side-by-side, select any cell in the first row of the worksheet and then click the Split button. To split the window into two stacked horizontal panes, select any cell in the first column and then click the Split button. To turn off the Spilt window option, simply click Split again on the View tab.</p>
-<p>In our specific example the data set is manageable, however freezing the first column, and the top heading could be useful when scrolling through data.</p>
-
-<h2 id="freeze-panes"><strong>FREEZE PANES&nbsp;</strong></h2>
-<p>To keep an area of a worksheet visible while you scroll to another area of the worksheet use Freeze Panes. &nbsp;Follow the steps below to freeze, based on selection, the first column, and heading row.</p>
-<p>&nbsp;1.&nbsp; If needed, adjust column widths so all heading names in row 5 are visible.</p>
-<p>&nbsp;2.&nbsp; Click cell <strong>B6</strong> in the table. (By selecting this specific cell, when we apply the freeze pane option,&nbsp; Excel will freeze the table where the first column ends and the heading row is viewable.)</p>
-<p>&nbsp;3.&nbsp; Click the View tab.</p>
-<p>&nbsp;4.&nbsp; Select Freeze Panes, and for the listed options choose Freeze Panes (See <strong>Figure 5.10 below)</strong>. The column and rows will remain visible based on the cell that was selected above.</p>
-<p><strong><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20"></strong>Mac Users should just click the&nbsp;<strong>Freeze Panes</strong> button <img alt="Mac Freeze Panes button" height="65" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Mac_freezepanes.png" width="203">&nbsp;under the View tab.</p>
-
-<figure><img alt="Freeze Panes Screen Shot" height="301" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_5.6_Freeze_Panes.png" width="420"><figcaption>Figure 5.10 Freeze Panes</figcaption></figure>
-
-
-<h2 id="formatting-table-data">Formatting table Data</h2>
-</div>
-<div>
-<p>After reviewing the table, two columns have data that need to be formatted accordingly. In large data sets, it is useful to know data selection short cuts.&nbsp; In this example, we are going to use keyboard short cuts to select a column of information in the table and apply number formatting.</p>
-<p>Format data by following the below steps:</p>
-<p>&nbsp;1.&nbsp; In the EmployeeData sheet, click cell <strong>E6</strong>.</p>
-<p>&nbsp;2.&nbsp; On the keyboard press and hold the <strong>CTRL</strong> and <strong>SHIFT</strong> and <strong>DOWN</strong> keys.</p>
-<p>&nbsp;3.&nbsp; With the “Years of Service” data selected, click the Home tab. In the Numbers category, format the data as a Number. The number should automatically decrease the decimal to two decimal places.</p>
-<p><strong><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users:&nbsp;</strong>click the&nbsp;<strong>“list arrow” </strong>next to <strong>“General,&nbsp;</strong><strong><img alt="Mac Number option" height="34" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Mac-Number-opton.png" width="149">&nbsp;</strong>and then choose <strong>“Number”</strong> from the list.</p>
-<p>&nbsp;4.&nbsp; Click in cell J6. <em>(Be sure you have clicked J6 so that you are in the first cell in the Current Salary column)</em>. Using the same selection process, select the Current Salary column, and format the data as Currency, zero decimal place.</p>
-<p>&nbsp;5.&nbsp; Using the non-adjacent selection method, select column headings E, G, and I, and center the data.</p>
-
-<figure><img alt="Solution Screenshot" height="422" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.11_Number-Formatting.png" width="839"><figcaption>Figure 5.11 Number Formatting</figcaption></figure>
-
-<h2 id="naming-a-table"><strong>NAMING A TABLE&nbsp;</strong></h2>
-<p>Each time a table is created, Excel assigns a default name.&nbsp; The default naming convention is similar to the way new workbooks are named (Book1, Book2, etc.), however in this case Excel recognizes the area as a table and will assign the name table instead of book: Table1, Table2, Table3, and so on.</p>
-<p>Why name a table range? Referring to the table by name rather than by range will make it easier to refer to a table in the future, for example, in a workbook that contains many tables. Seeing tables named Jan or Feb is more informational then seeing Table1 or Table 2. You can custom name each table and in the future connect named tables for reporting purposes.</p>
-<p>There are two rules to consider when naming tables. One, Excel does not allow spaces in table names, and two, Excel also requires that table names begin with a letter or underscore.</p>
-<p>Follow the next step to assign a custom name to the table.</p>
-<p>&nbsp;1.&nbsp; Click anywhere in the table and then display the Table Tools Design tab.</p>
-<p><strong><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users:</strong> there is no “Table Tools Design” tab in Excel for Mac. Simply click the&nbsp;<strong>Table</strong>&nbsp;tab and follow steps 2 and 3 below to give the table a new name.</p>
-<p>&nbsp;2.&nbsp; Click the Table Name text box, in the Properties group.</p>
-<p>&nbsp;3.&nbsp; Type <strong>Employee_DB </strong>and then press enter to name the table.</p>
-
-</div>
-<figure><img alt="Screenshot of the Table Name Box" height="142" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_5.5_Name_a_Table_Range-e1578530611101.png" width="656"><figcaption>Figure 5.12 Name a Table Range</figcaption></figure>
-
-<h2 id="entering-deleting-records"><strong>ENTERING &amp; DELETING RECORDS&nbsp;</strong></h2>
-<p>Tables require constant updating and may need calculations. When your table needs updating you can add/delete data, by adding/deleting rows, or columns. Excel adjusts the table automatically to the new content. The format applied to the banded rows updates to accommodate the new data set size.</p>
-<p>When calculations are needed you can create a calculated column or use the built-in Total Row tool.&nbsp; Excel tables are a fantastic tool for entering formulas efficiently in a calculated column. Excel allows you to enter a single formula in one cell, and then that formula will automatically expand to the rest of the column by itself. There’s no need to use the Fill or Copy commands. This feature can be incredibly time-saving, especially if you have a lot of rows. And the same thing happens when you change a formula; the change will also expand to the rest of the calculated column. The Total Row tool, available on the Table Tools Design tab automatically adds a total row to the bottom of the table. To add a new row, uncheck the Total Row checkbox, add the row, and then recheck the Total Row checkbox. From the total row drop-down, you can select a function, like Average, Count, Count Numbers, Max, Min, Sum, StdDev, Var, and more.</p>
-<p>Follow the steps below to update the employee table. You will insert new information just below the table. Data entered in rows or columns adjacent to the table becomes part of the table. Excel will format the new table data automatically.</p>
-
-<p>&nbsp;1.&nbsp; Press and hold the <strong>Ctrl</strong> and <strong>End</strong> button to move to the last record in the table.</p>
-<p><strong><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users:</strong> there is no “End” key on most Mac keyboards. Press and hold the&nbsp;<strong>“Command” key a</strong>nd tap the <strong>right arrow key. </strong>Then press and hold the <strong>Command key,&nbsp;</strong>again,&nbsp;and tap the<strong> down arrow key. </strong>That should move to the last record in the table.</p>
-<p>&nbsp;2.&nbsp; Click tab to start a new record.</p>
-<p>&nbsp;3.&nbsp; Type the new entries below. Click tab to move to the next column.</p>
-<div class="table-wrap"><table>
-<tbody>
-<tr>
-<td>3297</td>
-<td>Alfred</td>
-<td>Yelnats</td>
-<td>5/29/2015</td>
-<td>2.59</td>
-<td>2/19/1953</td>
-<td>63</td>
-<td>Seattle</td>
-<td>FT</td>
-<td>$95,552</td>
-</tr>
-<tr>
-<td>3299</td>
-<td>Jackson</td>
-<td>Brown</td>
-<td>7/15/2013</td>
-<td>4</td>
-<td>3/16/1953</td>
-<td>63</td>
-<td>Portland</td>
-<td>FT</td>
-<td>$98,655</td>
-</tr>
-</tbody>
-</table></div>
-<p>As you enter the data, notice that Excel tries to complete your fields based on previous common entries.</p>
-<h2 id="remove-duplicates"><strong>REMOVE DUPLICATES&nbsp;</strong></h2>
-<p>Duplicate entries may appear in tables. Why? Duplicates sometimes happen when data is entered incorrectly, by more than one person, or from more than one source. The following steps remove duplicate records in the table. In this particular table, Robert Griffin was entered twice by mistake. Delete the duplicate record by following the below steps:</p>
-<p>&nbsp;1.&nbsp; Click anywhere in the table.</p>
-<p>&nbsp;2.&nbsp; From the Table Tools Design tab click the <strong>Remove Duplicates</strong> button.</p>
-<p><strong><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users: Click the Table tab and click the Remove Duplicates button</strong></p>
-<p>&nbsp;3.&nbsp; The Remove Duplicates dialog box will open.</p>
-<p>&nbsp;4.&nbsp; If necessary, click the Select All button to deselect all columns.</p>
-<p>5.&nbsp; Click <strong>OK</strong> to remove duplicate records from the table.</p>
-
-<figure><img alt="Windows and Mac duplicate records dialog box" height="179" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Duplicate_Records_Box.png" width="521"><figcaption>Figure 5.13 Excel for Windows and Excel for Mac Remove Duplicates Dialog Box</figcaption></figure>
-
-<p>&nbsp;6.&nbsp; Excel notifies you that 1 duplicate record was removed.</p>
-
-<figure><img alt="Dialog box states 1 duplicate values found and removed; 102 unique values remain." height="118" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-514.png" width="342"><figcaption>Figure 5.14 Results of Remove Duplicates</figcaption></figure>
-
-<h2 id="create-new-columns"><strong>CREATE NEW COLUMNS</strong></h2>
-<p>In this next exercise, we will explore how to add two new columns in the table.&nbsp; Take note, Excel automatically adds the column to the table’s range and copies the format of the existing table heading to the new column heading. The first new column will use the VLOOKUP function to determine what cost of living adjustment (COLA) the employee qualifies for based on the region the employee lives in. The second column added will calculate the projected salary increase based on the COLA. When you use a formula in a table it is considered a calculated column.</p>
-<p>A calculated column uses a single formula that adjusts for each row and automatically expands to include additional rows in that column. The formula is immediately extended to those rows. You only need to enter a formula to have it automatically filled down to create a calculated column—there’s no need to use the&nbsp;Fill&nbsp;or&nbsp;Copy&nbsp;commands.</p>
-<p>As mentioned in the previous section, Excel assigns a name to the table, and to each column header in the table. When you add formulas to an Excel table, those names can appear automatically as you enter the formula and select the cell references in the table instead of manually entering them.</p>
-<p>As a visual reference compare the differences to a formula entered in a cell, compared to in a table:</p>
-<div class="table-wrap"><table>
-<tbody>
-<tr>
-<th scope="col"><strong>Formula – Cell References</strong></th>
-<th scope="col"><strong>Formula – Table: Excel shows field names</strong></th>
-</tr>
-<tr>
-<td>=SUM(J6:K6)</td>
-<td>=SUM([Current Salary]:[COLA])</td>
-</tr>
-</tbody>
-</table></div>
-<p>Excel displaying table and or field names in a formula is called a structured reference. The names in structured references adjust whenever you add or remove data from the table headings. Structured references also appear when you create a formula outside of an Excel table that references table data. The references can make it easier to locate tables in a large workbook. To include structured references in your formula, use point mode method to click the cells you want to reference instead of typing their cell reference in the formula.</p>
-<p>Complete the following steps to enter two new columns to determine each employee’s COLA and their projected salaries.</p>
-
-<p>&nbsp;1.&nbsp; Click cell K5, and type <strong>COLA</strong>. Autofit the column width.</p>
-<p>&nbsp;2.&nbsp; Click cell L5, and type <strong>Projected Salary Increase</strong>. Autofit the column width.</p>
-<p>&nbsp;3.&nbsp; Click cell K6.&nbsp; From the Formulas tab, choose the VLOOKUP function (it is located within the “Lookup and Reference” tool) to look up each employee’s <strong>Store</strong> location. Matching their store location to the COLA table, located on the COLA sheet, bring over their percentage of increase listed in the second (2) column of the col_index. Note this is an EXACT match, so eliminate all <strong>FALSE</strong> possibilities in the Range_lookup area:</p>
-
-<figure><img alt="Screenshot of the VLOOKUP function argument dialogue box" height="301" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_5.9_COLA_VLOOKUP.png" width="512"><figcaption>Figure 5.15 COLA VLOOKUP</figcaption></figure>
-
-<p>4.&nbsp; The Excel table will request you to overwrite all cells in the column with the formula. Click the icon, and choose the Overwrite command as shown below:</p>
-<p><strong><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users:&nbsp;</strong>Excel for Mac will automatically fill in the rest of the cells in the column. You do not have to click the icon. Close the Formula Builder pane.</p>
-
-<figure><img alt="Screenshot of the Table Auto Correct menu" height="282" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_6.0_Table_Auto_Correct_Option.png" width="489"><figcaption>Figure 5.16 Table AutoCorrect Option</figcaption></figure>
-
-<p>5.&nbsp; Using point mode method click the table cells to calculate the employees Projected Salary Increase by multiplying the Current Salary by the COLA increase:</p>
-<p>=[@[Current Salary]]*[@COLA]</p>
-<p>6.&nbsp; The Excel table will again request you to overwrite all cells in the column with the formula. Click the icon, and choose the Overwrite command.</p>
-<p><strong><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users:&nbsp;</strong>You do not have to click the icon. Excel for Mac will auto-fill the rest of the cells in the column.</p>
-<p>7.&nbsp; Format the COLA and Projected Salary Increase columns by selecting <strong>K6:K107</strong>, and applying the percentage number format, and increase the decimal to one place.&nbsp; &nbsp;Autofit the column widths.</p>
-<p>(Suggestion: Use the short cut selection method; click in K6, press and hold the <strong>CTRL</strong> and <strong>SHIFT</strong> and <strong>DOWN</strong> arrow keys to select the column data.)</p>
-<p>&nbsp;8.&nbsp; Select <strong>L6:L107</strong>, and apply the Currency number format.</p>
-<p>(Suggestion: Use the short cut selection method; click in L6, press and hold the <strong>CTR</strong>L and <strong>SHIFT</strong> and <strong>DOWN</strong> arrow keys to select the column data.)</p>
-<p>&nbsp;9.&nbsp; Select <strong>L5.&nbsp; </strong>Wrap, and right-align the text, then decrease the column width, and increase the row height to show the contents of the heading row wrapped on two lines.</p>
-<figure><img alt="Solution Screenshot of Table" height="500" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.17_Calculated-Columns.png" width="1069"><figcaption>Figure 5.17 Calculated Columns</figcaption></figure>
-<h2 id="total-row"><strong>TOTAL ROW</strong></h2>
-<p>A useful table tool for data analysis is the Total Row. You can quickly total data in an Excel table by enabling the&nbsp;<strong>Total Row</strong> option, and then use one of several built-in functions provided in a drop-down list, per column. The Total row, which is added to the end of the table after the last data record can calculate summary statistics, including the average, sum, minimum, and maximum of select fields within the table. The Total row is formatted with values displayed in bold, the double border line option is separating the data records from the Total row.</p>
-<p>Apply a Total Row, and follow the below steps to sum three columns of data:</p>
-
+<h2 id="h-data-series-labels-and-formats">Data Series Labels and Formats</h2>
+<p>Adding labels to the data series of a chart is a key formatting feature. A data series is an item that is being displayed graphically on a chart. For example, the blue bars on the Grade Distribution Comparison chart represent one data series. We can add labels at the end of each bar to show the exact percentage the bar represents. In addition, we can add other formatting enhancements to the data series, such as changing the color of the bars or adding an effect. The following steps explain how to add these labels and formats to the chart:</p>
 <ol>
-<li>Click anywhere in the table and choose the Table Tools Design tab, and click on the Total Row option.</li>
+<li>Click on any of the <strong>red columns</strong>&nbsp;representing the <strong>All Excel Classes</strong> data series, then <strong>Right-Click&nbsp;</strong>to open the menu.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20"> Mac Users should hold down the&nbsp;<strong>CTRL key</strong> and click on any of the red columns.</li>
+<li>From the menu, select <strong>Format Data Series.</strong></li>
+<li>From the <strong>Format Data Series</strong> pane, click the <strong>Fill</strong><strong>&nbsp;and Line</strong> (paint bucket) button to bring up the Fill and Border&nbsp;group of commands.</li>
+<li>Click the word&nbsp;<strong>Fill</strong> (if needed) to expand the list of Fill options.</li>
+<li>Select <strong>Pattern Fill</strong>. Then select <strong>40%</strong> (last option in the top row). Change the Foreground to white, and the Background to Red.</li>
+<li>Close the <strong>Format Data Series</strong>&nbsp;pane.</li>
 </ol>
-<p><strong><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users: just click the Table tab and click on the Total Row option</strong></p>
-
-<figure><img alt="Screen Shot of the Total Row check box option" height="192" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_6.1_Total_Row.png" width="414"><figcaption>Figure 5.18 Total Row</figcaption></figure>
-
-<p>2.&nbsp; Excel redirects you to the bottom of the table to view the total row, where a SUM defaulted in the Projected Salary Increase column. Click cell <strong>J108</strong>, select choose the Total Row menu arrow. Choose <strong>SUM</strong> to total the Current Salary column.</p>
-<figure><img alt="Screenshot of the Total Row" height="468" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.19_-Total-Row-Current-Salary-Column-SUM-Function.png" width="1085"><figcaption>Figure 5.19 Total Row, Current Salary Column, Sum Function</figcaption></figure>
-<p>3.&nbsp; Click cell <strong>K108</strong>, from the total row menu select Average. The average COLA increase will display.</p>
-
-<figure><img alt="Screenshot of the Total Row" height="413" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.20_-Total-Row-COLA-Column-Average-Function.png" width="961"><figcaption>Figure 5.20 Total Row, COLA Column, Average Function</figcaption></figure>
-<h2 id="center-across-selection"><strong>CENTER ACROSS SELECTION&nbsp;</strong></h2>
-<p>Follow the below steps to center the title in cell A1:L2 using the Center Across Selection tool located in the Format Cells dialog box. In prior chapters, we used the ‘Merge &amp; Center’ button to center text across a range. The Merge &amp; Center tool centers the title but removes access to individual cells.&nbsp; This restriction can present a problem when trying to autofit column widths in a table. The Center Across Selection format centers text across multiple cells but does not merge the selected cell range into one cell making it a better formatting choice when working with tables.</p>
-
-<p>&nbsp;1.&nbsp; Select cell <strong>A1:L2,</strong> and right-click to access the short cut menu.</p>
-<p><strong><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users:&nbsp;</strong>hold down&nbsp;<strong>CTRL key&nbsp;</strong>and click the selected cells to access the short cut menu</p>
-<p>&nbsp;2.&nbsp; Choose Format Cells.</p>
-<p>&nbsp;3.&nbsp; In the Format Cells dialogue box, choose the Alignment tab.</p>
-<p>&nbsp;4.&nbsp; From the Horizontal alignment menu, choose <strong>Center Across Selection</strong>. Click <strong>OK</strong> to return to the table.</p>
-
-<figure><img alt="Screenshot of the Format Cells Dialogue Box" height="406" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_6.3_Format_Cells_Dialogue_Box.png" width="408"><figcaption>Figure 5.21 Format Cells Dialogue Box</figcaption></figure>
-
-<figure><img alt="Center Across Selection Solution Screenshot of Table" height="504" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.22_Center-Across-Selection.png" width="1188"><figcaption>Figure 5.22 Center Across Selection</figcaption></figure>
+<figure><img alt="Screenshot of Format Data Series Pane" height="453" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.23_Changing_the_Fill_of_a_Data_Series.png" width="584"><figcaption>Figure 4.24 Changing the Fill of a Data Series</figcaption></figure>
+<p>Now we are going to add the Data Labels at the end of the columns.</p>
+<ol>
+<li>Be sure that your entire chart is selected, not just one of the data series. Click the <strong>Design</strong> tab in the <strong>Chart Tools</strong> section of the ribbon.</li>
+<li>On the <strong>Design</strong> tab select the <strong>Add Chart Element</strong> button, then <strong>Data Labels</strong>, then <strong>Outside End</strong>&nbsp;(see <strong>Figure 4.25</strong>.)</li>
+<li>Click on one of the <strong>Data Labels</strong>. Note that all of the data labels for that data series are selected.</li>
+<li>Check the spelling on all of the worksheets and make any necessary changes. Save your work.</li>
+</ol>
+<p><strong>Figure 4.25</strong>&nbsp;shows the Grade Distribution Comparison chart with the completed formatting adjustments and labels added to the data series. Note that we can move each individual data label. This might be necessary if two data labels overlap or if a data label falls in the middle of a grid line. To move an individual data label, click it twice, then click and drag.</p>
+<figure><img alt="Screenshot of the Chart Elements tool to active the Data Labels Outside End Option" height="264" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.24_Data_Labels_Outside_End.png" width="571"><figcaption>Figure 4.25 Data Labels Outside End</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Skill R e f resher :</p>
+<p><b>Ad</b><b>d</b><b>ing</b><b> </b><b>D</b><b>a</b><b>t</b><b>a</b><b> </b><b>Labels</b></p>
+<ol>
+<li>Click anywhere on the chart to activate it.</li>
+<li>Open the <b>Add Chart Element</b> group.</li>
+<li>Then, select <b>Data Labels</b></li>
+<li>Select one of the preset positions from the drop-down list.</li>
+</ol>
+</div>
+<div class="box box-keypoints"><p class="box-title">Key Takeaways</p>
+<ul>
+<li>Applying appropriate formatting techniques is critical for making a chart easier to read.</li>
+<li>Many formatting commands in the Home tab of the ribbon can be applied to a chart.</li>
+<li>To change the number format for an axis or data label, you must use the Number section in the Format Data Labels dialog box. You cannot use the Number format commands in the Home tab of the ribbon.</li>
+<li>Axis titles help the reader sees the most accurate representation of the information presented on a chart.</li>
+</ul>
+</div>
 <details class="attrib"><summary>Attribution</summary>
-<p><a href="https://openoregon.pressbooks.pub/beginningexcel19/chapter/5-1-table-basics/" target="_blank" rel="noopener noreferrer">“5.1 Table Basics”</a> by Hallie Puncochar, <a href="https://www.pcc.edu/" target="_blank" rel="noopener noreferrer">Portland Community College</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></p>
+<p>Adapted by Hallie Puncochar and Noreen Brown from <a href="https://saylordotorg.github.io/text_how-to-use-microsoft-excel-v1.1/index.html" target="_blank" rel="noopener noreferrer">How to Use Microsoft Excel: The Careers in Practice Series</a>,&nbsp;adapted by <a href="https://www.saylor.org" target="_blank" rel="noopener noreferrer">The Saylor Foundation</a> without attribution as requested by the work’s original creator or licensee,&nbsp;and licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 3.0</a>.</p>
 </details>

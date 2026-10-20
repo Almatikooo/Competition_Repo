@@ -1,6 +1,4 @@
-<div>
 <div class="box box-objectives"><p class="box-title">Learning Objectives</p>
-
 <ol>
 <li>Review the use of the =MAX function.</li>
 <li>Examine the Quick Analysis Tool to create standard calculations, formatting, and charts very quickly.</li>
@@ -9,7 +7,7 @@
 – Review the use of Absolute cell reference in a division formula.</li>
 </ol>
 </div>
-<h2 id="another-use-for-max">Another use for =MAX</h2>
+<h2 id="h-another-use-for-max">Another use for =MAX</h2>
 <p>Before we move on to the more interesting calculations we will be discussing in this chapter, we need to determine how many points it is possible for each student to earn for each of the assignments. This information will go into Row 25. The <strong>=MAX</strong> function is our tool of choice.</p>
 <p><em>Download Data File: <a href="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/CH3-Data.xlsx" target="_blank" rel="noopener noreferrer">CH3 Data</a></em></p>
 <ol>
@@ -26,7 +24,7 @@ Note that as you copy the calculation from one column to the next, the cell refe
 <p>By default, the calculations that Excel copies change their cell references <strong>relative</strong> to the row or column you copy them to. That makes sense. You wouldn’t want column N to display an answer that uses the values in column L.</p>
 <p>Want to see all the calculations you have just created? Press <strong>Ctrl ~</strong> (See <strong>Figure 3.3</strong>.) <strong>Ctrl ~</strong> displays your calculations (formulas). Pressing <strong>Ctrl ~</strong> a second time will display your calculations in the default view – as values.</p>
 <figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-3.jpg" target="_blank" rel="noopener noreferrer"><img alt="Relative references displayed as calculations at bottom of each column in row 25 for &quot;Points Possible&quot;." height="135" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-3.jpg" width="592"></a><figcaption>Figure 3.3&nbsp;Relative References – Displayed as calculations.</figcaption></figure>
-<h2 id="quick-analysis-tool">Quick Analysis Tool</h2>
+<h2 id="h-quick-analysis-tool">Quick Analysis Tool</h2>
 <p>The Quick Analysis Tool allows you to create standard calculations, formatting, and charts very quickly. In this exercise we will use it to insert the Total Points for each student in Column O.</p>
 <p><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20"><strong>Mac Users</strong>:&nbsp;the Quick Analysis Tool is not available with Excel for Mac. We have alternate steps for Mac Users below. Skip down below Figure 3.5 to continue.)</p>
 <p>Be sure to press<strong> Ctrl ~</strong> to return your spreadsheet to the normal view (the formula results should display, not the formulas themselves).</p>
@@ -50,7 +48,7 @@ Note that as you copy the calculation from one column to the next, the cell refe
 <li>Select the range B5:O25 then click the AutoSum button on the Ribbon (Home tab or Formulas tab)</li>
 <li>Select the range O5:O25 and click the Bold button.</li>
 </ol>
-<h2 id="percentage-calculation">Percentage calculation</h2>
+<h2 id="h-percentage-calculation">Percentage calculation</h2>
 <p>Column P requires a Percentage calculation. Before we launch into creating a calculation for this, it might be handy to know precisely what it is we are looking for. If you are connected to the internet and are using Excel 365, you can use the <strong>Smart Lookup</strong> tool to get some more information about calculating percentages.</p>
 <p>In general, the Smart Lookup tool allows you to get more information and definitions about unfamiliar terms or features. This tool is available in all of the Microsoft Office applications.</p>
 <ol>
@@ -61,7 +59,6 @@ Note that as you copy the calculation from one column to the next, the cell refe
 <li>If this is the first time you have used the Smart Lookup tool, you may need to respond to a statement about your privacy. Press the <strong>Got it</strong> button.&nbsp;We think the Wikipedia article does a pretty good job explaining the calculation, don’t you?</li>
 <li>Close the Smart Lookup pane after reading through the definitions.</li>
 </ol>
-
 <figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-6.jpg" target="_blank" rel="noopener noreferrer"><img alt="Smart Lookup tool in Review tab shows Insights with Wikipedia definitions for Percentage and Slugging Percentage." height="349" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-6.jpg" width="567"></a><figcaption>Figure 3.6&nbsp;Smart Lookup tool</figcaption></figure>
 <p>Now that we know what is needed for the Percentage calculation, we can have Excel do the calculation for us. We need to divide the <strong>Total Points</strong> for each student by the <strong>Total Points</strong> of all the <strong>Points Possible</strong>. Notice that there is a different number on each row – for each student. But, there is only one <strong>Total Points Possible</strong> – the value that is in cell <strong>O25</strong>.</p>
 <ol>
@@ -84,31 +81,25 @@ Note that as you copy the calculation from one column to the next, the cell refe
 <li>On the Home tab, in the Number Group, select the % (Percent Style) button.</li>
 </ol>
 <div class="box box-callout"><p class="box-title">Skill Refresher</p>
-
 <p><strong>Absolute References</strong></p>
 <ol>
 <li>Click in front of the column letter of a cell reference in a formula or function that you do not want altered when the formula or function is pasted into a new cell location.</li>
 <li>Press the F4 key or type a dollar sign ($) in front of the column letter and row number of the cell reference.</li>
 </ol>
 </div>
-<div></div>
 <div class="box box-challenge"><p class="box-title">Keyboard Shortcuts</p>
-
 <p><strong>Smart Lookup Tool</strong></p>
 <ul>
 <li>Hold down the CTRL key and click the specific cell that you are working with. Then choose “<strong>Smart Lookup</strong>“</li>
 <li><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users</strong>: Same as above</li>
 </ul>
 </div>
-
 <div class="box box-keypoints"><p class="box-title">Key Takeaways</p>
-
 <ul>
 <li>Functions can be created using cell ranges or selected cell locations separated by commas. Make sure you use a cell range (two cell locations separated by a colon) when applying a statistical function to a contiguous range of cells.</li>
 <li>To prevent Excel from changing the cell references in a formula or function when they are pasted to a new cell location, you must use an absolute reference. You can do this by placing a dollar sign ($) in front of the column letter and row number of a cell reference or by using the F4 function key.</li>
 <li>The #DIV/0 error appears if you create a formula that attempts to divide a constant or the value in a cell reference by zero.</li>
 </ul>
-</div>
 </div>
 <details class="attrib"><summary>Attribution</summary>
 <p><a href="https://openoregon.pressbooks.pub/beginningexcel19/chapter/3-1-more-on-formulas-and-functions/" target="_blank" rel="noopener noreferrer">3.1 More on Formulas and Functions</a> by Noreen Brown, Mary Schatz, and Art Schneider, <a href="https://www.pcc.edu/" target="_blank" rel="noopener noreferrer">Portland Community College</a>, is licensed under <a href="http://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></p>

@@ -1,101 +1,162 @@
-<div class="box box-objectives"><p class="box-title">Learning Objectives</p>
+&nbsp;The charts we have created up to this point have been added, or embedded in, an existing worksheet. Charts can also be placed in a dedicated worksheet called a chart sheet. It is called a chart sheet because it can only contain an Excel chart. Chart sheets are useful if you need to create several charts using the data in a single worksheet. If you embed several charts in one worksheet, it can be cumbersome to navigate and browse through the charts. It is easier to browse through charts when they are moved to a chart sheet because a separate sheet tab is added to the workbook for each chart. The following steps explain how to move the grade frequency distribution chart to a dedicated chart sheet:
+
 
 <ol>
-<li>Apply formatting commands to the X and Y axes.</li>
-<li>Assign titles to the X and Y axes that clarify labels and numeric values for the reader.</li>
-<li>Apply labels and formatting techniques to the data series in the plot area of a chart.</li>
-<li>Apply formatting commands to the chart area and the plot area of a chart.</li>
-</ol>
-</div>
-<p>You can use a variety of formatting techniques to enhance the appearance of a chart once you have created it. Formatting commands are applied to a chart for the same reason they are applied to a worksheet: they make the chart easier to read. However, formatting techniques also help you qualify and explain the data in a chart. For example, you can add footnotes explaining the data source as well as notes that clarify the type of numbers being presented (i.e., if the numbers in a chart are truncated, you can state whether they are in thousands, millions, etc.). These notes are also helpful in answering questions if you are using charts in a live presentation.</p>
-<h2 id="x-and-y-axis-formats">X and Y-Axis Formats</h2>
-<p>There are numerous formatting commands we can apply to the X and Y axes of a chart. Although adjusting the font size, style, and color are common, many more options are available through the Format Axis pane. The following steps demonstrate a few of these formatting techniques on the <strong>Grade Distribution Comparison</strong> chart. Follow the below steps&nbsp;to make some changes to the percentage numbers on the Y (vertical) axis.</p>
-<ol>
-<li>In the <strong>Grade Distribution</strong> worksheet, click on the <strong>Grade Distribution&nbsp;Comparison</strong> chart.&nbsp; Double-click the vertical (value) axis. &nbsp;This opens the <strong>Format Axis</strong> pane.</li>
-<li>Select <strong>Axis Options</strong>. Change the <strong>Minimum Bound</strong> to <strong>.05</strong> to make the differences in the columns more dramatic.</li>
-<li>Click the <strong>Close</strong> button at the top&nbsp;of the Format Axis pane.</li>
+<li>Click anywhere on the <strong>Final Grades for All Excel Classes</strong> chart on the Grade Distribution worksheet.</li>
+<li>From the Chart Tools Design tab.&nbsp; Select <strong>Move Chart . </strong>This opens the Move Chart Dialog box.</li>
+<li>Click the<strong> New sheet</strong> option on the Move Chart dialog box.</li>
+<li>The entry in the input box for assigning a name to the chart sheet tab should automatically be highlighted once you click the New sheet option. Type <strong>All Excel Classes.</strong> This replaces the generic name in the input box (see <strong>Figure 4.11</strong>).</li>
+<li>Click the <strong>OK</strong> button at the bottom of the Move Chart dialog box. This adds a new chart sheet to the workbook with the name <strong>All Excel Classes</strong>.</li>
 <li>Save your work.</li>
 </ol>
-
-<figure><img alt="Screenshot of Format Axis Pane Changes" height="423" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/11/Figure_4.21_Format_Axis_Pane_changes.png" width="551"><figcaption>Figure 4.22 Format Axis Pane Changes</figcaption></figure>
-<h2 id="x-and-y-axis-titles">X and Y-Axis Titles</h2>
-<p>Titles for the X and Y axes are necessary for defining the numbers and categories presented on a chart. For example, by looking at the Grade Distribution Comparison chart, it is not clear what the percentages along the Y-axis represent. The following steps explain how to add titles to the X and Y axes to define these numbers and categories:</p>
+<figure><img alt="" height="341" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/image18-e1580604057458.png" width="494"><figcaption>Figure 4.11 Move Chart</figcaption></figure>
+<p><strong>Figure 4.12</strong> shows the Final Grades for all the Excel Classes column chart is in a separate chart sheet. Notice the new worksheet tab added to the workbook matches the New sheet&nbsp;name entered into the Move Chart dialog box. Since the chart is moved to a separate chart sheet, it no longer is displayed in the Grade Distribution worksheet.</p>
+<figure><img alt="Screenshot of the All Excel Classes 2020 column chart" height="433" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.12_Chart_Sheet_Added_to_the_Workbook.png" width="727"><figcaption>Figure 4.12 Chart Sheet Added to the Workbook</figcaption></figure>
+<h2 id="h-frequency-comparison-column-chart-2">Frequency Comparison: Column Chart 2</h2>
+<p>We will create a second column chart to show a comparison between two frequency distributions. Column B on the Grade Distribution worksheet contains data showing the number of students who received grades within each category for the&nbsp; Current Excel Class Class. We will use a column chart to compare the grade distribution for the current class (Column B) with the overall grade distribution for Excel courses for the whole year (Column C).</p>
+<p>However, since the number of students in the term is significantly different from the total number of students in the year, we must calculate percentages in order to make an effective comparison. The following steps explain how to calculate the percentages:</p>
 <ol>
-<li>Click anywhere on the Grade Distribution Comparison chart in the Grade Distribution worksheet to activate it.</li>
-<li>In the upper right corner of the graph, choose the Charts Element plus sign.&nbsp; Select the Axis Titles, then Primary Horizontal and Primary Vertical. This inserts the place holders that you will type text in.<br>
-<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20"> Mac Users click the “Add Chart Element” button in the Design tab, point to “Axis Titles” and click on “Primary Horizontal”. Do this one more time and click on “Primary Vertical”.</li>
-<li>Click at the beginning of the Y-axis title and delete the generic title. Type <strong>Percent of Enrolled Excel Students</strong>.</li>
-<li>Click at the beginning of the X-axis title and delete the generic title. Type <strong>Final Course Grade</strong>.&nbsp; <strong>&nbsp;</strong></li>
+<li>Highlight the range <strong>B4:C9</strong> on the <strong>Grade Distribution</strong> worksheet.</li>
+<li>Click the <strong>AutoSum</strong> button in the Editing group of commands on the Home tab of the ribbon. This automatically sums the values in the selected range.</li>
+<li>Select cell <strong>E4</strong>. Enter a formula that divides the value in cell <strong>B4</strong> by the total in cell <strong>B9</strong>. Add an absolute reference to cell <strong>B9</strong> in the formula <strong>=B4/$B$9</strong>.&nbsp; Autofill the formula down to cell <strong>E8.</strong></li>
+<li>Select cell <strong>F4</strong> . Enter a formula that divides the value in cell <strong>C4</strong> by the total in cell <strong>C9</strong>. Add an absolute reference to cell <strong>C9</strong> in the formula <strong>=C4/$C$9</strong>.</li>
+<li>Autofill the down to <strong>F8</strong>.</li>
+<li>Select <strong>A3:A8, </strong>press and hold down the <strong>Ctrl</strong> key and&nbsp;select <strong>E3:F8.<br>
+</strong><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20"> Mac Users: Hold down the <strong>Command key</strong></li>
+<li>Click the <strong>Insert</strong> tab of the ribbon.</li>
+<li>Select the <strong>Column</strong> button. &nbsp;Select the first option from the drop-down list of chart formats, which is the <strong>Clustered Column</strong>.</li>
+<li>Click and drag the chart so the upper left corner is in the middle of cell <strong>H2</strong>.</li>
+<li>Resize the chart to the approximate area of H2:N12.</li>
+<li>Change the chart title to <strong>Grade Distribution Comparison</strong>. If you do not have a chart title, you can add one. On the <strong>Design</strong> tab, select <strong>Add Chart Element</strong>. Find the <strong>Chart Title</strong>. Select the<strong> Above Chart</strong> option from the drop-down list.</li>
+<li>Save your work.</li>
 </ol>
-
-<figure><img alt="Screenshot of the X &amp; Y Axis Title" height="283" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.22_Selecting_a_Title_for_the_Y-Axis.png" width="622"><figcaption>Figure 4.23 Selecting a Title for the X &amp; Y-Axis</figcaption></figure>
-
-<div>
-<div></div>
+<figure><img alt="Screenshot of the Completed Data Series for the Class Grade Distribution" height="370" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.13_Completed_Data_Series_for_the_Class_Grade_Distribution.png" width="1160"><figcaption>Figure 4.13 Completed Data Series for the Class Grade Distribution</figcaption></figure>
+<p><strong>Figure 4.13</strong> shows the final appearance of the column chart. The column chart is an appropriate type for this data as there are fewer than twenty data points and we can easily see the comparison for each category. An audience can quickly see that the class issued fewer As compared to the college. However, the class had more Bs and Cs compared with the college population.</p>
+<div class="box box-callout"><p class="box-title">Integrity Check</p>
+<p><strong>Too Many Bars on a Column Chart?</strong><br>
+Although there is no specific limit for the number of bars you should use on a column chart, a general rule of thumb is twenty bars or less.</p>
 </div>
-<div>
+<h2 id="h-map-charts">Map Charts</h2>
+<p>Data visualization brings more depth in how information, in this case geographically, connects. You can use a map chart to compare values and show categories across geographical regions like countries/regions, states, counties or postal codes. Excel will automatically convert data to geographical locations and will display values on a map. As shown below, in <strong>Figure 4.14, </strong>in the next steps we will compare West Coast Community College enrollments for Fall of 2019 using a map chart.</p>
+<figure><img alt="Screenshot of the Map Chart" height="543" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-4.14-Map_Chart_Solution.png" width="748"><figcaption>Figure 4.14 Map Chart Solution</figcaption></figure>
+<ol>
+<li>From the <strong>Enrollment Statistics </strong>worksheet, select <strong>A3:A13. </strong>Next, press and hold the <strong>CTRL</strong> key and select <strong>C3:C13</strong>.</li>
+<li>Click the Insert tab on the Ribbon.</li>
+<li>Click <strong>Maps</strong>, and choose the <strong>Filled Map</strong> option.</li>
+<li>From the Charts Design Tab, choose <strong>Move Chart</strong>, and select the <strong>New Sheet</strong> option. In the name box type <strong>Map</strong>. Click <strong>Ok</strong>.</li>
+<li>To make sure the map and data are vibrant and will stand out in a presentation make the following changes:</li>
+</ol>
+<p>a) Select the <strong>Title. </strong>Type <strong>Enrollment Totals.</strong> Change the font to <strong>bold</strong>, <strong>size 18</strong>.</p>
+<p>b) From the top right corner of the Chart area, choose the Charts Elements plus sign.</p>
+<p>c) Select the Data Labels checkbox. Notice the values appear on each State.</p>
+<p><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users: there is no “Charts Element plus sign”. &nbsp;Follow the alternate steps below.</p>
+<p>Click the <strong>“Chart Design”</strong> tab on the Ribbon<br>
+Click the&nbsp;<strong>“Add Chart Element”&nbsp;</strong>button on the Ribbon<br>
+Point to&nbsp;<strong>“Data Labels”&nbsp;</strong>option and click&nbsp;<strong>“Show”</strong></p>
+<p>d) Save your work.</p>
+<h2 id="h-funnel-charts">FUNNEL CHARTS</h2>
+<p>Another graph to visualize data is a Funnel chart.&nbsp; Funnel charts provide a visual snapshot of a process.&nbsp; From our data, we will create a Funnel Chart to show how many students we have in the admissions process.&nbsp; You can quickly review the funnel chart to see admissions predicts to have 932 new enrolled students for Winter Term 2020.</p>
+<p>Insert a Funnel chart by following the below steps.</p>
+<ol>
+<li>From the <strong>Admissions</strong> sheet, select <strong>A3:B7</strong>.</li>
+<li>From the Insert tab, choose <strong>Recommended Charts</strong>.</li>
+<li>Scroll down the list and select the <strong>Funnel Chart</strong>. Click <strong>OK</strong>.</li>
+<li>Move and resize the graph to approximately fit in the range of <strong>D1:K15.</strong></li>
+<li>From the Design Tab, click the <strong>6th style option</strong> provided in the styles gallery. (The background is black.) It is okay if your text color is different than the figure below.</li>
+<li>Change the Chart Title to&nbsp;<strong>Admissions Pipeline Winter 2020</strong><strong>.&nbsp;</strong></li>
+<li>From the Charts Elements, turn off the <strong>Legend</strong>.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users: Click the “<strong>Add Chart Element</strong>” button and change the “<strong>Legend</strong>” option to “<strong>None</strong>“</li>
+<li>Save your work.</li>
+</ol>
+<figure><img alt="Screenshot of the Funnel Chart" height="219" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.15_Funnel_Chart_001.png" width="586"><figcaption>Figure 4.15 Funnel Chart</figcaption></figure>
+<h2 id="h-percent-of-total-doughnut-pie-chart">PERCENT OF TOTAL: DOUGHNUT PIE CHART</h2>
+<p>The next chart we will demonstrate is a pie chart. A pie chart is used to show a percent of the total for a data set at a specific point in time.&nbsp; Using the Doughnut Pie Chart, show the percentage of students enrolled at a full-time status. As in the last example, the data is located on the Enrollment Statistics sheet.</p>
+<ol>
+<li>From the <strong>Enrollment Statistics </strong>worksheet, select <strong>A3:A13. </strong>Next, press and hold the <strong>CTRL</strong> key and select <strong>D3:D13</strong>.</li>
+<li>Click the <strong>Insert </strong>tab on the ribbon.</li>
+<li>Click the <strong>Pie </strong>button in the <strong>Charts </strong>group of commands.</li>
+<li>Select the “<strong>Doughnut</strong>” option from the drop-down list of options.</li>
+<li>From the Charts Design Tab, choose Move Chart, and select the New Sheet option. In the name box type <strong>Full-Time Students</strong>. Click <strong>Ok</strong>.</li>
+<li>From the Chart Tools Design Tab, click the Chart Styles gallery and apply <strong>Style 7</strong>.</li>
+<li>On the Chart, expand the Charts Elements tools. Select the <strong>Legend </strong> Choose to display the legend on the <strong>Right</strong>.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users: Click “Add Chart Element” button, point to&nbsp;<strong>Legend</strong> and choose&nbsp;<strong>“Right”</strong><br>
+</li>
+<li>From the Charts Elements, select the Data Labels checkbox. Then, drop down the Data Labels menu. Choose, <strong>More Options</strong>.<br>
+<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users: Click “Add Chart Element” button, point to&nbsp;<strong>Data Labels</strong> and choose&nbsp;<strong>“More Data Label Options”</strong><br>
+</li>
+</ol>
+<figure><img alt="Screenshot of the Doughnut Pie Chart Elements" height="398" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.15_Doughnut_Pie_Chart_Elements-e1581439238633.png" width="580"><figcaption>Figure 4.15 Doughnut Pie Chart Elements</figcaption></figure>
+<p>9.&nbsp; From the Format Data Label Options menu, select <strong>Percentages</strong>, and <strong>Deselect Values</strong> to show the percent of total students that are enrolled at a full-time status.</p>
+<p>10.&nbsp; Close the Format Data Labels menu.</p>
+<figure><img alt="Screenshot of the Doughnut Pie Format Data Labels" height="294" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.16_Doughnut_Pie_Format_Data_Labels-e1581439409507.png" width="196"><figcaption>Figure 4.16 Doughnut Pie Format Data Labels</figcaption></figure>
+<p>Notice the font is small compared to the graph size. Adjust the font size of the Title, Legend, and Data Label by following the below steps:</p>
+<ol>
+<li>Select the Title. Change the font to <strong>bold</strong>, <strong>size 18</strong>.</li>
+<li>Select the Legend. Change the font to <strong>bold, size 14.</strong></li>
+<li>Select one of the data labels in a doughnut wedge. Notice now all labels are selected. Change the font<strong> bold, size 12.</strong></li>
+</ol>
+<figure><img alt="Screenshot of the Doughnut Pie graph" height="516" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.17_Doughnut_Pie_Solution.png" width="712"><figcaption>Figure 4.18 Doughnut Pie Solution</figcaption></figure>
 <div class="box box-callout"><p class="box-title">Skill Refresher</p>
-
-<p><strong>X and Y Axis Titles</strong></p>
+<p><strong>Inserting a Pie Chart</strong></p>
 <ol>
-<li>Click anywhere on the chart to activate it. Choose to open the Charts Element menu.</li>
-<li>Select one of the options from the second drop-down list.</li>
-<li>Click in the axis title to remove the generic title and type a new title.</li>
+<li>Highlight a range of cells that contain the data you will use to create the chart.</li>
+<li>Click the Insert tab of the ribbon.</li>
+<li>Click the Pie button in the Charts group.</li>
+<li>Select a format option from the Pie Chart drop-down menu.</li>
 </ol>
 </div>
-</div>
-<h2 id="data-series-labels-and-formats">Data Series Labels and Formats</h2>
-<p>Adding labels to the data series of a chart is a key formatting feature. A data series is an item that is being displayed graphically on a chart. For example, the blue bars on the Grade Distribution Comparison chart represent one data series. We can add labels at the end of each bar to show the exact percentage the bar represents. In addition, we can add other formatting enhancements to the data series, such as changing the color of the bars or adding an effect. The following steps explain how to add these labels and formats to the chart:</p>
+<h2 id="h-bar-chart-vs-column-chart">Bar chart vs Column chart</h2>
+<p>We will statistical data to compare a bar and column chart.&nbsp; Both the Bar and the Column chart display data using rectangular bars where the length of the bar is proportional to the data value. Both charts are used to compare two or more values. However, the difference lies in their orientation. A bar chart is oriented horizontally whereas the column chart is oriented vertically. Although alike, they cannot be always used interchangeably.&nbsp; The difference in their orientation, meaning typically the more data values the harder it is to read in a column format.&nbsp; This is where visually a bar chart would be a better choice.&nbsp; &nbsp;Complete the below steps to insert both a bar and column chart comparing not only the gender and age differences of enrolled students but the type of graphs you are viewing the data in.</p>
 <ol>
-<li>Click on any of the <strong>red columns</strong>&nbsp;representing the <strong>All Excel Classes</strong> data series, then <strong>Right-Click&nbsp;</strong>to open the menu.<br>
-<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20"> Mac Users should hold down the&nbsp;<strong>CTRL key</strong> and click on any of the red columns.</li>
-<li>From the menu, select <strong>Format Data Series.</strong></li>
-<li>From the <strong>Format Data Series</strong> pane, click the <strong>Fill</strong><strong>&nbsp;and Line</strong> (paint bucket) button to bring up the Fill and Border&nbsp;group of commands.</li>
-<li>Click the word&nbsp;<strong>Fill</strong> (if needed) to expand the list of Fill options.</li>
-<li>Select <strong>Pattern Fill</strong>. Then select <strong>40%</strong> (last option in the top row). Change the Foreground to white, and the Background to Red.</li>
-<li>Close the <strong>Format Data Series</strong>&nbsp;pane.</li>
+<li>From the Enrollment Statistics sheet, select <strong>A3:A13</strong>.&nbsp;Press and hold the CTRL key and select <strong>G3:H13</strong>.</li>
+<li>From the Insert tab, choose <strong>Recommended Charts</strong>.&nbsp; Scroll down and select the <strong>Stacked Bar</strong> chart option. Click <strong>Ok</strong>.</li>
+<li>Move and resize the graph so it fits approximately in <strong>L1:U13</strong>.</li>
+<li>Add a chart title. Type <strong>Age Comparison</strong>.</li>
+<li>Notice the age difference.&nbsp; Currently, per State, the majority of students are under 20 years old. <strong>Save your work</strong>.</li>
 </ol>
-
-<figure><img alt="Screenshot of Format Data Series Pane" height="453" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.23_Changing_the_Fill_of_a_Data_Series.png" width="584"><figcaption>Figure 4.24 Changing the Fill of a Data Series</figcaption></figure>
-
-<p>Now we are going to add the Data Labels at the end of the columns.</p>
+<figure><img alt="Chart Solution Screen Shot" height="326" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.19_Stacked_Bar_chart_solutions_.png" width="577"><figcaption>Figure 4.19 Stacked Bar chart solutions</figcaption></figure>
+<p>Next, insert a column chart comparing gender.</p>
 <ol>
-<li>Be sure that your entire chart is selected, not just one of the data series. Click the <strong>Design</strong> tab in the <strong>Chart Tools</strong> section of the ribbon.</li>
-<li>On the <strong>Design</strong> tab select the <strong>Add Chart Element</strong> button, then <strong>Data Labels</strong>, then <strong>Outside End</strong>&nbsp;(see <strong>Figure 4.25</strong>.)</li>
-<li>Click on one of the <strong>Data Labels</strong>. Note that all of the data labels for that data series are selected.</li>
-<li>Check the spelling on all of the worksheets and make any necessary changes. Save your work.</li>
+<li>From the Enrollment Statistics sheet, select <strong>A3:A13</strong>. Press and hold the CTRL key and select I<strong>3:J13</strong>.</li>
+<li>From the Insert tab, choose <strong>Recommended Charts</strong>. Choose the first option, Clustered Column chart.</li>
+<li>Move and resize the graph so it fits approximately in <strong>L15:U32</strong>.</li>
+<li>Add a chart title. Type <strong>Gender Comparison</strong>.</li>
+<li>Notice the ratio of women and men enrolled are pretty equal per State.&nbsp; <strong>Save your work</strong>.</li>
 </ol>
-<div></div>
-<p><strong>Figure 4.25</strong>&nbsp;shows the Grade Distribution Comparison chart with the completed formatting adjustments and labels added to the data series. Note that we can move each individual data label. This might be necessary if two data labels overlap or if a data label falls in the middle of a grid line. To move an individual data label, click it twice, then click and drag.</p>
-<figure><img alt="Screenshot of the Chart Elements tool to active the Data Labels Outside End Option" height="264" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.24_Data_Labels_Outside_End.png" width="571"><figcaption>Figure 4.25 Data Labels Outside End</figcaption></figure>
-<div></div>
-<div>
-<div class="box box-callout"><p class="box-title">Skill R e f resher :</p>
-
-<p><b>Ad</b><b>d</b><b>ing</b><b> </b><b>D</b><b>a</b><b>t</b><b>a</b><b> </b><b>Labels</b></p>
+<figure><img alt="Screenshot of the Graph" height="357" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/11/Figure-4.20-Column-Chart-Age-Comparison-Solution_.png" width="611"><figcaption>Figure 4.20 Column Chart Age Comparison</figcaption></figure>
+<h2 id="h-stacked-column-chart">Stacked Column Chart</h2>
+<p>The last chart types we will demonstrate is the stacked column chart and a bar chart. You will use a stacked column chart to show differences in budgeted expense accounts for the admissions department and a bar chart for age comparisons of enrolled students at the college.</p>
+<p>Follow the below steps to insert a stacked column chart.</p>
 <ol>
-<li>Click anywhere on the chart to activate it.</li>
-<li>Open the <b>Add Chart Element</b> group.</li>
-<li>Then, select <b>Data Labels</b></li>
-<li>Select one of the preset positions from the drop-down list.</li>
+<li>Click the Expenses sheet. Select the range <strong>A4:G9.</strong></li>
+<li>Click the <strong>Insert</strong> tab of the ribbon.</li>
+<li>Click the <strong>Column</strong> button in the <strong>Charts</strong> group of commands. Select the <strong>3D</strong>–<strong>&nbsp;Stacked Column</strong> format.</li>
+<li>Change the Chart Title to <strong>Expenses</strong>.</li>
+<li>Move the Chart to a New Sheet. In the name box type Budget.</li>
+<li>Save your work.</li>
+</ol>
+<p><strong>Figure 4.21</strong>&nbsp;shows the final stacked column chart.</p>
+<figure><img alt="Screenshot of the Stacked Column Chart solution" height="424" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_4.18_Stacked_Column_Chart.png" width="584"><figcaption>Figure 4.21 Stacked Column Chart</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Skill Refresher:</p>
+<p><strong>&nbsp;Inserting a Stacked Column Chart</strong></p>
+<ol>
+<li>Highlight a range of cells that contain data that will be used to create the chart.</li>
+<li>Click the Insert tab of the ribbon.</li>
+<li>Click the Column button in the Charts group.</li>
+<li>Select the Stacked Column format option from the Column Chart drop-down menu to show the values of each category on the Y-axis. Select the Stacked Column option to show each category on the Y-axis.</li>
 </ol>
 </div>
-</div>
-
-
-<div>
 <div class="box box-keypoints"><p class="box-title">Key Takeaways</p>
-
-<div>
 <ul>
-<li>Applying appropriate formatting techniques is critical for making a chart easier to read.</li>
-<li>Many formatting commands in the Home tab of the ribbon can be applied to a chart.</li>
-<li>To change the number format for an axis or data label, you must use the Number section in the Format Data Labels dialog box. You cannot use the Number format commands in the Home tab of the ribbon.</li>
-<li>Axis titles help the reader sees the most accurate representation of the information presented on a chart.</li>
+<li>Identifying the message you wish to convey to an audience is a critical first step in creating an Excel chart.</li>
+<li>Both a column chart and a line chart can be used to present a trend over a period of time. However, a line chart is preferred over a column chart when presenting data over long periods of time.</li>
+<li>The number of bars on a column chart should be limited to approximately twenty bars or less.</li>
+<li>When creating a chart to compare trends, the values for each data series must be within a reasonable range. If there is a wide variance between the values in the two data series (two times or more), the percent change should be calculated with respect to the first data point for each series.</li>
+<li>When working with frequency distributions, the use of a column chart or a bar chart is a matter of preference. However, a column chart is preferred when working with a trend over a period of time.</li>
+<li>A pie chart is used to present the percent of total for a data set.</li>
+<li>A stacked column chart is used to show how a percent total changes over time.</li>
 </ul>
 </div>
-</div>
-</div>
 <details class="attrib"><summary>Attribution</summary>
-<p>Adapted by Hallie Puncochar and Noreen Brown from <a href="https://saylordotorg.github.io/text_how-to-use-microsoft-excel-v1.1/index.html" target="_blank" rel="noopener noreferrer">How to Use Microsoft Excel: The Careers in Practice Series</a>,&nbsp;adapted by <a href="https://www.saylor.org" target="_blank" rel="noopener noreferrer">The Saylor Foundation</a> without attribution as requested by the work’s original creator or licensee,&nbsp;and licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 3.0</a>.</p>
+<p>Adapted by Noreen Brown from <a href="https://saylordotorg.github.io/text_how-to-use-microsoft-excel-v1.1/index.html" target="_blank" rel="noopener noreferrer">How to Use Microsoft Excel: The Careers in Practice Series</a>,&nbsp;adapted by <a href="https://www.saylor.org" target="_blank" rel="noopener noreferrer">The Saylor Foundation</a> without attribution as requested by the work’s original creator or licensee,&nbsp;and licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 3.0</a>.</p>
 </details>

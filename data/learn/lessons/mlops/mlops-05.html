@@ -1,16 +1,5 @@
-<div>
-
-<div>
 <img alt="Spark icon" loading="lazy" src="https://developers.google.com/_static/images/icons/spark.svg">
-<div>
-<h2 id="page-summary">Page Summary</h2>
-</div>
-
-</div>
-<div>
-
-
-
+<h2 id="h-page-summary">Page Summary</h2>
 <ul>
 <li>
 <p>Deploying a machine learning model involves validating data, features, model versions, serving infrastructure, and pipeline integration.</p>
@@ -28,9 +17,6 @@
 <p>Ensure model-infrastructure compatibility by staging the model in a sandboxed server environment to avoid dependency conflicts.</p>
 </li>
 </ul>
-</div>
-
-
 <p>You're ready to deploy the unicorn model that predicts unicorn appearances!
 When deploying, your machine learning (ML) pipeline should run, update, and
 serve without a problem. If only deploying a model were as easy as pressing
@@ -49,8 +35,7 @@ However, TDD can be tricky in machine learning.
 For example, before training your model, you can't write a test to validate
 the loss. Instead, you must first discover the achievable loss during model
 development and <em>then</em> test new model versions against the achievable loss.</p>
-
-<h2 id="about-the-unicorn-model">About the unicorn model</h2>
+<h2 id="h-about-the-unicorn-model">About the unicorn model</h2>
 <p>This section refers to the <strong>unicorn model</strong>. Here's what you need to know:</p>
 <blockquote>
 <p>You are using machine learning to build a classification model that predicts
@@ -59,7 +44,7 @@ unicorn appearances. Your dataset details 10,000 unicorn appearances and
 time of day, elevation, temperature, humidity, tree cover, presence of a
 rainbow, and several other features.</p>
 </blockquote>
-<h2 id="test-model-updates-with-reproducible-training">Test model updates with reproducible training</h2>
+<h2 id="h-test-model-updates-with-reproducible-training">Test model updates with reproducible training</h2>
 <p>Perhaps you want to continue improving your unicorn model. For example, suppose
 you do some additional feature engineering on a certain feature and then
 retrain the model, hoping to get better (or at least the same) results.
@@ -78,12 +63,12 @@ pinpoint code and parameters when investigating your model or pipeline.</p></li>
 </ul>
 <p>Even after following these guidelines, other sources of nondeterminism might
 still exist.</p>
-<h2 id="test-calls-to-machine-learning-api">Test calls to machine learning API</h2>
+<h2 id="h-test-calls-to-machine-learning-api">Test calls to machine learning API</h2>
 <p>How do you test updates to API calls? You could retrain your model, but
 that's time intensive. Instead, write a unit test to generate random input data
 and run a single step of gradient descent. If this step completes without
 errors, then any updates to the API probably haven't ruined your model.</p>
-<h2 id="write-integration-tests-for-pipeline-components">Write integration tests for pipeline components</h2>
+<h2 id="h-write-integration-tests-for-pipeline-components">Write integration tests for pipeline components</h2>
 <p>In an ML pipeline, changes in one component can cause errors in other
 components. Check that components work together by writing an
 <strong>integration test</strong> that runs the entire pipeline end-to-end.</p>
@@ -94,7 +79,7 @@ tests faster, train on a subset of the data or with a simpler model. The details
 depend on your model and data. To get continuous coverage, you'd adjust your
 faster tests so that they run with every new version of model or software.
 Meanwhile, your slow tests would run continuously in the background.</p>
-<h2 id="validate-model-quality-before-serving">Validate model quality before serving</h2>
+<h2 id="h-validate-model-quality-before-serving">Validate model quality before serving</h2>
 <p>Before pushing a new model version to production, test for
 the following two types of quality degradations:</p>
 <ul>
@@ -107,13 +92,9 @@ model's predictions on a validation dataset meet a fixed threshold. If your
 validation dataset deviates from live data, then update your validation
 dataset and ensure your model still meets the same quality threshold.</p></li>
 </ul>
-<h2 id="validate-model-infrastructure-compatibility-before-serving">Validate model-infrastructure compatibility before serving</h2>
+<h2 id="h-validate-model-infrastructure-compatibility-before-serving">Validate model-infrastructure compatibility before serving</h2>
 <p>If your model is updated faster than your server, then your model could have
 different software dependencies from your server, potentially causing
 incompatibilities. Ensure that the operations used by the model are present in
 the server by staging the model in a sandboxed version of the server.</p>
-
-<div>
 <a href="https://support.google.com/machinelearningeducation" target="_blank" rel="noopener noreferrer">Help Center</a>
-</div>
-</div>

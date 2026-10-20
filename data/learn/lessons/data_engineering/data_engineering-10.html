@@ -1,9 +1,8 @@
-<h2 id="choose-a-batch-processing-technology-in-azure">Choose a batch processing technology in Azure</h2>
 <p>Big data solutions often consist of discrete batch processing tasks that contribute to the overall data processing solution. You can use batch processing for workloads that don't require immediate access to insights. Batch processing can complement real-time processing requirements. You can also use batch processing to balance complexity and reduce cost for your overall implementation.</p>
 <p>The fundamental requirement of batch processing engines is to scale out computations to handle a large volume of data. Unlike real-time processing, batch processing has latencies, or the time between data ingestion and computing a result, of minutes or hours.</p>
-<h2 id="choose-a-technology-for-batch-processing">Choose a technology for batch processing</h2>
+<h2 id="h-choose-a-technology-for-batch-processing">Choose a technology for batch processing</h2>
 <p>Microsoft offers several services that you can use to do batch processing.</p>
-<h3 id="microsoft-fabric">Microsoft Fabric</h3>
+<h3 id="h-microsoft-fabric">Microsoft Fabric</h3>
 <p><a href="https://learn.microsoft.com/fabric/fundamentals/microsoft-fabric-overview" target="_blank" rel="noopener noreferrer">Microsoft Fabric</a> is an all-in-one analytics and data platform for organizations. It's a software as a service offering that simplifies how you provision, manage, and govern an end-to-end analytics solution. Fabric handles data movement, processing, ingestion, transformation, and reporting. Fabric features that you use for batch processing include data engineering, data warehouses, lakehouses, and Apache Spark processing. Azure Data Factory in Fabric also supports lakehouses. To simplify and accelerate development, you can enable AI-driven Copilot.</p>
 <ul>
 <li>
@@ -19,7 +18,7 @@
 <p><em>Spark:</em> A prehydrated starter pool and a custom Spark pool with predefined node sizes</p>
 </li>
 </ul>
-<h3 id="azure-databricks">Azure Databricks</h3>
+<h3 id="h-azure-databricks">Azure Databricks</h3>
 <p><a href="https://learn.microsoft.com/azure/databricks/" target="_blank" rel="noopener noreferrer">Azure Databricks</a> is a Spark-based analytics platform. It features rich and premium Spark features that are built on top of open-source Spark. Azure Databricks is a Microsoft service that integrates with the rest of the Azure services. It features extra configurations for Spark cluster deployments. And Unity Catalog helps simplify the governance of Azure Databricks Spark objects.</p>
 <ul>
 <li>
@@ -44,7 +43,7 @@
 <p>Support for <a href="https://learn.microsoft.com/azure/databricks/compute/gpu" target="_blank" rel="noopener noreferrer">GPU-enabled clusters</a>.</p>
 </li>
 </ul>
-<h2 id="key-selection-criteria">Key selection criteria</h2>
+<h2 id="h-key-selection-criteria">Key selection criteria</h2>
 <p>To choose your technology for batch processing, consider the following questions:</p>
 <ul>
 <li>
@@ -60,9 +59,9 @@
 <p>Do you need to query relational data stores along with your batch processing, for example to look up reference data? If yes, consider options that provide the ability to query external relational stores.</p>
 </li>
 </ul>
-<h2 id="capability-matrix">Capability matrix</h2>
+<h2 id="h-capability-matrix">Capability matrix</h2>
 <p>The following tables summarize key differences in capabilities between services.</p>
-<h3 id="general-capabilities">General capabilities</h3>
+<h3 id="h-general-capabilities">General capabilities</h3>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -96,7 +95,7 @@
 </table></div>
 <p>[1] Assigned Fabric capacity.</p>
 <p>[2] An Azure Databricks unit is the processing capability per hour.</p>
-<h3 id="other-capabilities">Other capabilities</h3>
+<h3 id="h-other-capabilities">Other capabilities</h3>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -153,7 +152,7 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="contributors">Contributors</h2>
+<h2 id="h-contributors">Contributors</h2>
 <p><em>This article is maintained by Microsoft. It was originally written by the following contributors.</em></p>
 <p>Principal authors:</p>
 <ul>
@@ -161,17 +160,10 @@
 <li><a href="https://www.linkedin.com/in/pratimavalavala/" target="_blank" rel="noopener noreferrer">Pratima Valavala</a> | Principal Solutions Architect</li>
 </ul>
 <p><em>To see non-public LinkedIn profiles, sign in to LinkedIn.</em></p>
-<h2 id="next-steps">Next steps</h2>
+<h2 id="h-next-steps">Next steps</h2>
 <ul>
 <li><a href="https://learn.microsoft.com/fabric/fundamentals/microsoft-fabric-overview" target="_blank" rel="noopener noreferrer">What is Fabric?</a></li>
 <li><a href="https://learn.microsoft.com/fabric/fundamentals/decision-guide-pipeline-dataflow-spark" target="_blank" rel="noopener noreferrer">Fabric decision guide</a></li>
 <li><a href="https://learn.microsoft.com/azure/hdinsight/hdinsight-overview" target="_blank" rel="noopener noreferrer">What is Azure HDInsight?</a></li>
 <li><a href="https://learn.microsoft.com/azure/databricks/introduction/" target="_blank" rel="noopener noreferrer">What is Azure Databricks?</a></li>
-</ul>
-<h2 id="related-resources">Related resources</h2>
-<ul>
-<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/solution-ideas/articles/analytics-get-started.md" target="_blank" rel="noopener noreferrer">Analytics architecture design</a></li>
-<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/technology-choices/analytical-data-stores.md" target="_blank" rel="noopener noreferrer">Choose an analytical data store in Azure</a></li>
-<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/technology-choices/analysis-visualizations-reporting.md" target="_blank" rel="noopener noreferrer">Choose a data analytics technology in Azure</a></li>
-<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/example-scenario/dataplate2e/data-platform-end-to-end.yml" target="_blank" rel="noopener noreferrer">Analytics end-to-end with Microsoft Fabric</a></li>
 </ul>

@@ -1,6 +1,4 @@
 <div class="box box-objectives"><p class="box-title">Learning Objectives</p>
-
-<div>
 <p>By the end of this chapter, the student should be able to:</p>
 <ul>
 <li>Understand point estimation</li>
@@ -11,20 +9,18 @@
 <li>Understand the probabilities of error in hypothesis tests</li>
 </ul>
 </div>
-</div>
-
 <figure><img alt="Coins spilling out of a mason jar on a white table." height="310" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/08/6.1.jpeg" width="431"><figcaption>Figure 6.1: Loose Change. If you want to figure out the distribution of the change people carry in their pockets, and your sample is large enough, you will find that the distribution follows certain patterns.</figcaption></figure>
-<h2 id="statistical-inference">Statistical Inference</h2>
-<div>
-<div>It is often necessary to “guess”, infer, or generalize about the outcome of an event in order to make a decision. Politicians study polls to guess their likelihood of winning an election. Teachers choose a particular course of study based on what they think students can comprehend. Doctors choose the treatments needed for various diseases based on their assessment of likely results. You may have visited a casino where people play games chosen because of the belief that the likelihood of winning is good. You may have chosen your course of study based on the probable availability of jobs.</div>
-</div>
+<h2 id="h-statistical-inference">Statistical Inference</h2>
+
+It is often necessary to “guess”, infer, or generalize about the outcome of an event in order to make a decision. Politicians study polls to guess their likelihood of winning an election. Teachers choose a particular course of study based on what they think students can comprehend. Doctors choose the treatments needed for various diseases based on their assessment of likely results. You may have visited a casino where people play games chosen because of the belief that the likelihood of winning is good. You may have chosen your course of study based on the probable availability of jobs.
+
 <p><a href="#term_281_3318" rel="noopener noreferrer">Statistical inference</a> uses what we know about probability to make our best “guesses” or estimates from <a href="#term_281_2771" rel="noopener noreferrer">samples</a> about the <a href="#term_281_2769" rel="noopener noreferrer">population</a> they came from. The main forms of Inference are:</p>
 <ol>
 <li><a href="#term_281_3319" rel="noopener noreferrer">Point estimation</a></li>
 <li><a href="#term_281_3329" rel="noopener noreferrer">confidence interval</a></li>
 <li><a href="#term_281_3321" rel="noopener noreferrer">Hypothesis testing</a></li>
 </ol>
-<h2 id="point-estimation">Point Estimation</h2>
+<h2 id="h-point-estimation">Point Estimation</h2>
 <p>Suppose you were trying to determine the mean rent of a two-bedroom apartment in your town. You might look in the classified section of the newspaper, write down several rents listed, and average them together. You would have obtained a <a href="#term_281_3319" rel="noopener noreferrer">point estimate</a> of the true mean. If you are trying to determine the percentage of times you make a basket when shooting a basketball, you might count the number of shots you make and divide that by the number of shots you attempted. In this case, you would have obtained a point estimate for the true proportion.</p>
 <p>The most natural way to estimate features of the population (<a href="#term_281_2770" rel="noopener noreferrer">parameters</a>) is to use the corresponding summary <a href="#term_281_2772" rel="noopener noreferrer">statistic</a> calculated from the sample.&nbsp; Some common point estimates and their corresponding parameters are found i n the following table:</p>
 <div class="table-wrap"><table>
@@ -72,15 +68,14 @@
 </tr>
 </tbody>
 </table></div>
-
 <p>Suppose the mean weight of a sample of 60 adults is 173.3 lbs; this sample mean is a point estimate of the population mean weight, µ.&nbsp; Remember this is one of many samples that we could have taken from the population.&nbsp; If a different random sample of 60 individuals were taken from the same population, the new sample mean would likely be different as a result of <a href="#term_281_3192" rel="noopener noreferrer">sampling variability</a>.&nbsp; While estimates generally vary from one sample to another, the population mean is a fixed value.</p>
 <p>Suppose a poll suggested the US President’s approval rating is 45%. We would consider 45% to be a point estimate of the approval rating we might see if we collected responses from the entire population. This entire-population response proportion is generally referred to as the parameter of interest. When the parameter is a proportion, it is often denoted by p, and we often refer to the sample proportion as ˆp (pronounced “p-hat”). Unless we collect responses from every individual in the population, p remains unknown, and we use ˆp as our estimate of p.</p>
 <p>How would one estimate the difference in average weight between men and women?&nbsp; Suppose a sample of men yields a mean of 185.1 lbs and a sample of women men yields a mean of 162.3 lbs.&nbsp; What is a good point estimate for the difference in these two population means?&nbsp; We will expand on this in following chapters.</p>
-<h2 id="sampling-distributions">Sampling Distributions</h2>
+<h2 id="h-sampling-distributions">Sampling Distributions</h2>
 <p>We have established that different samples yield different statistics due to sampling variability . These statistics have their own distributions, called sampling distributions, that reflect this as a random variable.&nbsp; The <a href="#term_281_3322" rel="noopener noreferrer">sampling distribution</a> of a sample statistic is the distribution of the point estimates based on samples of a fixed size, n, from a certain population. It is useful to think of a particular point estimate as being drawn from a sampling distribution.</p>
 <p>Recall the sample mean weight calculated from a previous sample of 173.3 lbs. Suppose another random sample of 60 participants might produce a different value of x, such as 169.5 lbs.&nbsp; Repeated random sampling could result in additional different values, perhaps 172.1 lbs, 168.5 lbs, and so on. Each sample mean can be thought of as a single observation from a random variable X. The distribution of X is called the sampling distribution of the sample mean, and has its own mean and standard deviation like the random variables discussed previously.&nbsp; We will simulate the concept of a sampling distribution using technology to repeatedly sample, calculate statistics, and graph them.&nbsp; However, the actual sampling distribution would only be attainable if we could theoretically take an infinite amount of samples.</p>
 <p>Each of the point estimates in the table above have their own unique sampling distributions which we will look at in the future</p>
-<h2 id="unbiased-estimation">Unbiased Estimation</h2>
+<h2 id="h-unbiased-estimation">Unbiased Estimation</h2>
 <p>Although variability in samples is present, there remains a fixed value for any population parameter.&nbsp; What makes a statistical estimate of this parameter of interest a “Good” one?&nbsp; It must be both accurate and precise.</p>
 <p>The accuracy of an estimate refers to how well it estimates the actual value of that parameter.&nbsp; Mathematically, this is true when that the expected value your statistic is equal to the value of that parameter.&nbsp; This can be visualized as the center of the sampling distribution appearing to be situated at the value of that parameter.</p>
 <p>According to the <a href="#term_281_3263" rel="noopener noreferrer">law of large numbers</a>, probabilities converge to what we expect over time.&nbsp; Point estimates follow this rule, becoming more accurate with increasing sample size. The figure below shows the sample mean weight calculated for random samples drawn, where sample size increases by 1 for each draw until sample size equals 500.&nbsp; The maroon dashed horizontal line is drawn at the average weight of all adults 169.7 lbs, which represents the population mean weight according to the CDC.</p>
@@ -90,5 +85,4 @@
 <details class="attrib"><summary>Image Credits</summary>
 <p>Figure 6.1: Michael Longmire (2019). “Coins spilling out of a jar.” Public domain. Retrieved from <a href="https://unsplash.com/photos/lhltMGdohc8" target="_blank" rel="noopener noreferrer">https://unsplash.com/photos/lhltMGdohc8</a></p>
 <p>Figure 6.3: Kindred Grey (2020). “Figure 6.3.” CC BY-SA 4.0. Retrieved from <a href="https://commons.wikimedia.org/wiki/File:Figure_6.3.png" target="_blank" rel="noopener noreferrer">https://commons.wikimedia.org/wiki/File:Figure_6.3.png</a></p>
-
-<div></div></details>
+</details>

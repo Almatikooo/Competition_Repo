@@ -55,52 +55,52 @@
    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/05-relational-databases/README.md",
    "toc": [
     {
-     "id": "it-all-starts-with-tables",
+     "id": "h-it-all-starts-with-tables",
      "text": "It all starts with tables",
      "level": 2
     },
     {
-     "id": "the-shortcomings-of-a-single-table-approach",
+     "id": "h-the-shortcomings-of-a-single-table-approach",
      "text": "The shortcomings of a single table approach",
      "level": 2
     },
     {
-     "id": "the-concepts-of-relationships",
+     "id": "h-the-concepts-of-relationships",
      "text": "The concepts of relationships",
      "level": 2
     },
     {
-     "id": "cities",
+     "id": "h-cities",
      "text": "cities",
      "level": 3
     },
     {
-     "id": "rainfall",
+     "id": "h-rainfall",
      "text": "rainfall",
      "level": 3
     },
     {
-     "id": "retrieving-the-data",
+     "id": "h-retrieving-the-data",
      "text": "Retrieving the data",
      "level": 2
     },
     {
-     "id": "joining-data",
+     "id": "h-joining-data",
      "text": "Joining data",
      "level": 2
     },
     {
-     "id": "summary",
+     "id": "h-summary",
      "text": "Summary",
      "level": 2
     },
     {
-     "id": "challenge",
+     "id": "h-challenge",
      "text": "🚀 Challenge",
      "level": 2
     },
     {
-     "id": "review-self-study",
+     "id": "h-review-self-study",
      "text": "Review & Self Study",
      "level": 2
     }
@@ -115,32 +115,32 @@
    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/2-Working-With-Data/06-non-relational/README.md",
    "toc": [
     {
-     "id": "spreadsheets",
+     "id": "h-spreadsheets",
      "text": "Spreadsheets",
      "level": 2
     },
     {
-     "id": "managing-an-inventory",
+     "id": "h-managing-an-inventory",
      "text": "Managing an Inventory",
      "level": 3
     },
     {
-     "id": "nosql",
+     "id": "h-nosql",
      "text": "NoSQL",
      "level": 2
     },
     {
-     "id": "document-data-stores-with-the-azure-cosmos-db",
+     "id": "h-document-data-stores-with-the-azure-cosmos-db",
      "text": "Document Data Stores with the Azure Cosmos DB",
      "level": 3
     },
     {
-     "id": "challenge",
+     "id": "h-challenge",
      "text": "🚀 Challenge",
      "level": 2
     },
     {
-     "id": "review-self-study",
+     "id": "h-review-self-study",
      "text": "Review & Self Study",
      "level": 2
     }
@@ -148,240 +148,225 @@
   },
   {
    "id": "data_engineering-03",
-   "title": "Understand Data Models",
-   "words": 2995,
+   "title": "Understand data models",
+   "words": 2886,
    "minutes": 15,
    "source": "azure-arch",
    "url": "https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/technology-choices/understand-data-store-models.md",
    "toc": [
     {
-     "id": "how-to-use-this-guide",
+     "id": "h-how-to-use-this-guide",
      "text": "How to use this guide",
      "level": 2
     },
     {
-     "id": "classification-overview",
+     "id": "h-classification-overview",
      "text": "Classification overview",
      "level": 2
     },
     {
-     "id": "relational-data-stores",
+     "id": "h-relational-data-stores",
      "text": "Relational data stores",
      "level": 2
     },
     {
-     "id": "select-an-azure-service-for-relational-data-stores",
+     "id": "h-select-an-azure-service-for-relational-data-stores",
      "text": "Select an Azure service for relational data stores",
      "level": 3
     },
     {
-     "id": "nonrelational-data-stores",
+     "id": "h-nonrelational-data-stores",
      "text": "Nonrelational data stores",
      "level": 2
     },
     {
-     "id": "document-data-stores",
+     "id": "h-document-data-stores",
      "text": "Document data stores",
      "level": 3
     },
     {
-     "id": "column-family-data-stores",
+     "id": "h-column-family-data-stores",
      "text": "Column-family data stores",
      "level": 3
     },
     {
-     "id": "key-value-data-stores",
+     "id": "h-key-value-data-stores",
      "text": "Key-value data stores",
      "level": 3
     },
     {
-     "id": "graph-data-stores",
+     "id": "h-graph-data-stores",
      "text": "Graph data stores",
      "level": 3
     },
     {
-     "id": "time-series-data-stores",
+     "id": "h-time-series-data-stores",
      "text": "Time-series data stores",
      "level": 3
     },
     {
-     "id": "object-data-stores",
+     "id": "h-object-data-stores",
      "text": "Object data stores",
      "level": 3
     },
     {
-     "id": "search-and-indexing-data-stores",
+     "id": "h-search-and-indexing-data-stores",
      "text": "Search and indexing data stores",
      "level": 3
     },
     {
-     "id": "vector-search-data-stores",
+     "id": "h-vector-search-data-stores",
      "text": "Vector search data stores",
      "level": 3
     },
     {
-     "id": "analytics-data-stores",
+     "id": "h-analytics-data-stores",
      "text": "Analytics data stores",
      "level": 3
     },
     {
-     "id": "comparative-characteristics-core-nonrelational-models",
+     "id": "h-comparative-characteristics-core-nonrelational-models",
      "text": "Comparative characteristics (core nonrelational models)",
      "level": 2
     },
     {
-     "id": "comparative-characteristics-specialized-nonrelational-models",
+     "id": "h-comparative-characteristics-specialized-nonrelational-models",
      "text": "Comparative characteristics (specialized nonrelational models)",
      "level": 2
     },
     {
-     "id": "choose-among-models-heuristics",
+     "id": "h-choose-among-models-heuristics",
      "text": "Choose among models (heuristics)",
      "level": 2
     },
     {
-     "id": "combine-models-and-avoid-pitfalls",
+     "id": "h-combine-models-and-avoid-pitfalls",
      "text": "Combine models and avoid pitfalls",
      "level": 2
     },
     {
-     "id": "when-to-re-evaluate-your-model-choice",
+     "id": "h-when-to-re-evaluate-your-model-choice",
      "text": "When to re-evaluate your model choice",
      "level": 2
     },
     {
-     "id": "next-steps",
+     "id": "h-next-steps",
      "text": "Next steps",
-     "level": 2
-    },
-    {
-     "id": "related-resources",
-     "text": "Related resources",
      "level": 2
     }
    ]
   },
   {
    "id": "data_engineering-04",
-   "title": "Online Transaction Processing (OLTP)",
-   "words": 1216,
-   "minutes": 7,
+   "title": "Online transaction processing (OLTP)",
+   "words": 1198,
+   "minutes": 6,
    "source": "azure-arch",
    "url": "https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/relational-data/online-transaction-processing.md",
    "toc": [
     {
-     "id": "transactional-data",
+     "id": "h-transactional-data",
      "text": "Transactional data",
      "level": 2
     },
     {
-     "id": "typical-traits-of-transactional-data",
+     "id": "h-typical-traits-of-transactional-data",
      "text": "Typical traits of transactional data",
      "level": 2
     },
     {
-     "id": "when-to-use-this-solution",
+     "id": "h-when-to-use-this-solution",
      "text": "When to use this solution",
      "level": 2
     },
     {
-     "id": "challenges",
+     "id": "h-challenges",
      "text": "Challenges",
      "level": 2
     },
     {
-     "id": "oltp-in-azure",
+     "id": "h-oltp-in-azure",
      "text": "OLTP in Azure",
      "level": 2
     },
     {
-     "id": "key-selection-criteria",
+     "id": "h-key-selection-criteria",
      "text": "Key selection criteria",
      "level": 2
     },
     {
-     "id": "contributors",
+     "id": "h-contributors",
      "text": "Contributors",
      "level": 2
     },
     {
-     "id": "next-steps",
+     "id": "h-next-steps",
      "text": "Next steps",
-     "level": 2
-    },
-    {
-     "id": "related-resources",
-     "text": "Related resources",
      "level": 2
     }
    ]
   },
   {
    "id": "data_engineering-05",
-   "title": "Online Analytical Processing",
-   "words": 2063,
-   "minutes": 11,
+   "title": "Online analytical processing",
+   "words": 1792,
+   "minutes": 9,
    "source": "azure-arch",
    "url": "https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/relational-data/online-analytical-processing.md",
    "toc": [
     {
-     "id": "semantic-modeling",
+     "id": "h-semantic-modeling",
      "text": "Semantic modeling",
      "level": 2
     },
     {
-     "id": "example-use-case",
+     "id": "h-example-use-case",
      "text": "Example use case",
      "level": 2
     },
     {
-     "id": "typical-traits-of-semantic-modeling",
+     "id": "h-typical-traits-of-semantic-modeling",
      "text": "Typical traits of semantic modeling",
      "level": 2
     },
     {
-     "id": "when-to-use-this-solution",
+     "id": "h-when-to-use-this-solution",
      "text": "When to use this solution",
      "level": 2
     },
     {
-     "id": "challenges",
+     "id": "h-challenges",
      "text": "Challenges",
      "level": 2
     },
     {
-     "id": "olap-in-azure",
+     "id": "h-olap-in-azure",
      "text": "OLAP in Azure",
      "level": 2
     },
     {
-     "id": "key-selection-criteria",
+     "id": "h-key-selection-criteria",
      "text": "Key selection criteria",
      "level": 2
     },
     {
-     "id": "capability-matrix",
+     "id": "h-capability-matrix",
      "text": "Capability matrix",
      "level": 2
     },
     {
-     "id": "general-capabilities",
+     "id": "h-general-capabilities",
      "text": "General capabilities",
      "level": 3
     },
     {
-     "id": "scalability-capabilities",
+     "id": "h-scalability-capabilities",
      "text": "Scalability capabilities",
      "level": 3
     },
     {
-     "id": "next-steps",
+     "id": "h-next-steps",
      "text": "Next steps",
-     "level": 2
-    },
-    {
-     "id": "related-resources",
-     "text": "Related resources",
      "level": 2
     }
    ]
@@ -395,47 +380,47 @@
    "url": "https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/relational-data/etl-content.md",
    "toc": [
     {
-     "id": "extract-transform-load-etl-process",
+     "id": "h-extract-transform-load-etl-process",
      "text": "Extract, transform, load (ETL) process",
      "level": 2
     },
     {
-     "id": "extract-load-transform-elt",
+     "id": "h-extract-load-transform-elt",
      "text": "Extract, load, transform (ELT)",
      "level": 2
     },
     {
-     "id": "choosing-etl-or-elt",
+     "id": "h-choosing-etl-or-elt",
      "text": "Choosing ETL or ELT",
      "level": 2
     },
     {
-     "id": "data-flow-and-control-flow",
+     "id": "h-data-flow-and-control-flow",
      "text": "Data flow and control flow",
      "level": 2
     },
     {
-     "id": "reverse-etl",
+     "id": "h-reverse-etl",
      "text": "Reverse ETL",
      "level": 2
     },
     {
-     "id": "streaming-data-and-hot-path-architectures",
+     "id": "h-streaming-data-and-hot-path-architectures",
      "text": "Streaming data and hot path architectures",
      "level": 2
     },
     {
-     "id": "reliability-considerations-for-streaming",
+     "id": "h-reliability-considerations-for-streaming",
      "text": "Reliability considerations for streaming",
      "level": 3
     },
     {
-     "id": "technology-choices",
+     "id": "h-technology-choices",
      "text": "Technology choices",
      "level": 2
     },
     {
-     "id": "next-steps",
+     "id": "h-next-steps",
      "text": "Next steps",
      "level": 2
     }
@@ -443,64 +428,59 @@
   },
   {
    "id": "data_engineering-07",
-   "title": "Choose a Data Pipeline Orchestration Technology",
-   "words": 648,
+   "title": "Choose a data pipeline orchestration technology in Azure",
+   "words": 640,
    "minutes": 4,
    "source": "azure-arch",
    "url": "https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/technology-choices/pipeline-orchestration-data-movement.md",
    "toc": [
     {
-     "id": "choose-a-data-pipeline-orchestration-technology-in-azure",
-     "text": "Choose a data pipeline orchestration technology in Azure",
-     "level": 2
-    },
-    {
-     "id": "options-for-data-pipeline-orchestration",
+     "id": "h-options-for-data-pipeline-orchestration",
      "text": "Options for data pipeline orchestration",
      "level": 2
     },
     {
-     "id": "key-selection-criteria",
+     "id": "h-key-selection-criteria",
      "text": "Key selection criteria",
      "level": 2
     },
     {
-     "id": "capability-matrix",
+     "id": "h-capability-matrix",
      "text": "Capability matrix",
      "level": 2
     },
     {
-     "id": "general-capabilities",
+     "id": "h-general-capabilities",
      "text": "General capabilities",
      "level": 3
     },
     {
-     "id": "pipeline-capabilities",
+     "id": "h-pipeline-capabilities",
      "text": "Pipeline capabilities",
      "level": 3
     },
     {
-     "id": "scalability-capabilities",
+     "id": "h-scalability-capabilities",
      "text": "Scalability capabilities",
      "level": 3
     },
     {
-     "id": "alternative-approach",
+     "id": "h-alternative-approach",
      "text": "Alternative approach",
      "level": 2
     },
     {
-     "id": "contributors",
+     "id": "h-contributors",
      "text": "Contributors",
      "level": 2
     },
     {
-     "id": "next-steps",
+     "id": "h-next-steps",
      "text": "Next steps",
      "level": 2
     },
     {
-     "id": "related-resource",
+     "id": "h-related-resource",
      "text": "Related resource",
      "level": 2
     }
@@ -508,229 +488,204 @@
   },
   {
    "id": "data_engineering-08",
-   "title": "What Is a Data Lake?",
-   "words": 1500,
+   "title": "What is a data lake?",
+   "words": 1425,
    "minutes": 8,
    "source": "azure-arch",
    "url": "https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/scenarios/data-lake.md",
    "toc": [
     {
-     "id": "advantages-of-a-data-lake",
+     "id": "h-advantages-of-a-data-lake",
      "text": "Advantages of a data lake",
      "level": 2
     },
     {
-     "id": "typical-data-lake-architecture",
+     "id": "h-typical-data-lake-architecture",
      "text": "Typical data lake architecture",
      "level": 2
     },
     {
-     "id": "when-to-use-a-data-lake",
+     "id": "h-when-to-use-a-data-lake",
      "text": "When to use a data lake",
      "level": 2
     },
     {
-     "id": "data-lake-as-a-source-for-data-warehouses",
+     "id": "h-data-lake-as-a-source-for-data-warehouses",
      "text": "Data lake as a source for data warehouses",
      "level": 3
     },
     {
-     "id": "event-streaming-and-iot-scenarios",
+     "id": "h-event-streaming-and-iot-scenarios",
      "text": "Event streaming and IoT scenarios",
      "level": 3
     },
     {
-     "id": "challenges-of-data-lakes",
+     "id": "h-challenges-of-data-lakes",
      "text": "Challenges of data lakes",
      "level": 2
     },
     {
-     "id": "technology-choices",
+     "id": "h-technology-choices",
      "text": "Technology choices",
      "level": 2
     },
     {
-     "id": "contributors",
+     "id": "h-contributors",
      "text": "Contributors",
      "level": 2
     },
     {
-     "id": "next-steps",
+     "id": "h-next-steps",
      "text": "Next steps",
-     "level": 2
-    },
-    {
-     "id": "related-resources",
-     "text": "Related resources",
      "level": 2
     }
    ]
   },
   {
    "id": "data_engineering-09",
-   "title": "Big Data Architecture Style",
-   "words": 2103,
-   "minutes": 11,
+   "title": "Big data architecture style",
+   "words": 1825,
+   "minutes": 10,
    "source": "azure-arch",
    "url": "https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/guide/architecture-styles/big-data.md",
    "toc": [
     {
-     "id": "when-to-use-this-architecture",
+     "id": "h-when-to-use-this-architecture",
      "text": "When to use this architecture",
      "level": 2
     },
     {
-     "id": "benefits",
+     "id": "h-benefits",
      "text": "Benefits",
      "level": 2
     },
     {
-     "id": "challenges",
+     "id": "h-challenges",
      "text": "Challenges",
      "level": 2
     },
     {
-     "id": "best-practices",
+     "id": "h-best-practices",
      "text": "Best practices",
      "level": 2
     },
     {
-     "id": "iot-architecture",
+     "id": "h-iot-architecture",
      "text": "IoT architecture",
-     "level": 2
-    },
-    {
-     "id": "related-resources",
-     "text": "Related resources",
      "level": 2
     }
    ]
   },
   {
    "id": "data_engineering-10",
-   "title": "Choose a batch processing technology",
-   "words": 649,
+   "title": "Choose a batch processing technology in Azure",
+   "words": 618,
    "minutes": 4,
    "source": "azure-arch",
    "url": "https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/technology-choices/batch-processing.md",
    "toc": [
     {
-     "id": "choose-a-batch-processing-technology-in-azure",
-     "text": "Choose a batch processing technology in Azure",
-     "level": 2
-    },
-    {
-     "id": "choose-a-technology-for-batch-processing",
+     "id": "h-choose-a-technology-for-batch-processing",
      "text": "Choose a technology for batch processing",
      "level": 2
     },
     {
-     "id": "microsoft-fabric",
+     "id": "h-microsoft-fabric",
      "text": "Microsoft Fabric",
      "level": 3
     },
     {
-     "id": "azure-databricks",
+     "id": "h-azure-databricks",
      "text": "Azure Databricks",
      "level": 3
     },
     {
-     "id": "key-selection-criteria",
+     "id": "h-key-selection-criteria",
      "text": "Key selection criteria",
      "level": 2
     },
     {
-     "id": "capability-matrix",
+     "id": "h-capability-matrix",
      "text": "Capability matrix",
      "level": 2
     },
     {
-     "id": "general-capabilities",
+     "id": "h-general-capabilities",
      "text": "General capabilities",
      "level": 3
     },
     {
-     "id": "other-capabilities",
+     "id": "h-other-capabilities",
      "text": "Other capabilities",
      "level": 3
     },
     {
-     "id": "contributors",
+     "id": "h-contributors",
      "text": "Contributors",
      "level": 2
     },
     {
-     "id": "next-steps",
+     "id": "h-next-steps",
      "text": "Next steps",
-     "level": 2
-    },
-    {
-     "id": "related-resources",
-     "text": "Related resources",
      "level": 2
     }
    ]
   },
   {
    "id": "data_engineering-11",
-   "title": "Choose a Stream Processing Technology",
-   "words": 1964,
-   "minutes": 10,
+   "title": "Choose a stream processing technology in Azure",
+   "words": 1780,
+   "minutes": 9,
    "source": "azure-arch",
    "url": "https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/technology-choices/stream-processing.md",
    "toc": [
     {
-     "id": "choose-a-stream-processing-technology-in-azure",
-     "text": "Choose a stream processing technology in Azure",
-     "level": 2
-    },
-    {
-     "id": "streaming-data-overview",
+     "id": "h-streaming-data-overview",
      "text": "Streaming data overview",
      "level": 2
     },
     {
-     "id": "technology-options-for-real-time-processing",
+     "id": "h-technology-options-for-real-time-processing",
      "text": "Technology options for real-time processing",
      "level": 2
     },
     {
-     "id": "high-level-stream-processing-flow",
+     "id": "h-high-level-stream-processing-flow",
      "text": "High-level stream processing flow",
      "level": 3
     },
     {
-     "id": "stream-producers",
+     "id": "h-stream-producers",
      "text": "Stream producers",
      "level": 3
     },
     {
-     "id": "stream-ingestion",
+     "id": "h-stream-ingestion",
      "text": "Stream ingestion",
      "level": 3
     },
     {
-     "id": "stream-processing",
+     "id": "h-stream-processing",
      "text": "Stream processing",
      "level": 3
     },
     {
-     "id": "streaming-sinks",
+     "id": "h-streaming-sinks",
      "text": "Streaming sinks",
      "level": 3
     },
     {
-     "id": "contributors",
+     "id": "h-contributors",
      "text": "Contributors",
      "level": 2
     },
     {
-     "id": "next-steps",
+     "id": "h-next-steps",
      "text": "Next steps",
      "level": 2
     },
     {
-     "id": "related-resource",
+     "id": "h-related-resource",
      "text": "Related resource",
      "level": 2
     }
@@ -739,63 +694,38 @@
   {
    "id": "data_engineering-12",
    "title": "Working with OpenRefine",
-   "words": 2578,
+   "words": 2573,
    "minutes": 13,
    "source": "dc-openrefine",
    "url": "https://github.com/datacarpentry/openrefine-socialsci/blob/af4cafeaf16b19d58f9c61c28d187c212ebcaf79/episodes/02-working-with-openrefine.md",
    "toc": [
     {
-     "id": "creating-a-new-openrefine-project",
+     "id": "h-creating-a-new-openrefine-project",
      "text": "Creating a new OpenRefine project",
      "level": 2
     },
     {
-     "id": "using-facets",
+     "id": "h-using-facets",
      "text": "Using Facets",
      "level": 2
     },
     {
-     "id": "solution",
-     "text": "Solution",
-     "level": 3
-    },
-    {
-     "id": "solution-x",
-     "text": "Solution",
-     "level": 3
-    },
-    {
-     "id": "using-clustering-to-detect-possible-typing-errors",
+     "id": "h-using-clustering-to-detect-possible-typing-errors",
      "text": "Using clustering to detect possible typing errors",
      "level": 2
     },
     {
-     "id": "transforming-data",
+     "id": "h-transforming-data",
      "text": "Transforming data",
      "level": 2
     },
     {
-     "id": "solution-x-x",
-     "text": "Solution",
-     "level": 3
-    },
-    {
-     "id": "solution-x-x-x",
-     "text": "Solution",
-     "level": 3
-    },
-    {
-     "id": "solution-x-x-x-x",
-     "text": "Solution",
-     "level": 3
-    },
-    {
-     "id": "using-undo-and-redo",
+     "id": "h-using-undo-and-redo",
      "text": "Using undo and redo",
      "level": 2
     },
     {
-     "id": "trim-leading-and-trailing-whitespace",
+     "id": "h-trim-leading-and-trailing-whitespace",
      "text": "Trim Leading and Trailing Whitespace",
      "level": 2
     }
@@ -804,23 +734,18 @@
   {
    "id": "data_engineering-13",
    "title": "Examining Numbers in OpenRefine",
-   "words": 549,
+   "words": 548,
    "minutes": 3,
    "source": "dc-openrefine",
    "url": "https://github.com/datacarpentry/openrefine-socialsci/blob/af4cafeaf16b19d58f9c61c28d187c212ebcaf79/episodes/04-numbers.md",
    "toc": [
     {
-     "id": "numbers",
+     "id": "h-numbers",
      "text": "Numbers",
      "level": 2
     },
     {
-     "id": "solution",
-     "text": "Solution",
-     "level": 3
-    },
-    {
-     "id": "numeric-facet",
+     "id": "h-numeric-facet",
      "text": "Numeric facet",
      "level": 3
     }
@@ -828,14 +753,14 @@
   },
   {
    "id": "data_engineering-14",
-   "title": "Using scripts ",
+   "title": "Using scripts",
    "words": 447,
    "minutes": 3,
    "source": "dc-openrefine",
    "url": "https://github.com/datacarpentry/openrefine-socialsci/blob/af4cafeaf16b19d58f9c61c28d187c212ebcaf79/episodes/05-scripts.md",
    "toc": [
     {
-     "id": "how-openrefine-records-what-you-have-done",
+     "id": "h-how-openrefine-records-what-you-have-done",
      "text": "How OpenRefine records what you have done",
      "level": 2
     }
@@ -884,23 +809,136 @@
     "source": "ms-ds"
    },
    {
-    "q": "What do you use to do calculations in spreadsheets?",
+    "q": "What does 'polyglot persistence' mean?",
     "options": [
-     "Python",
-     "Aliases",
-     "Formulas"
+     "Storing every dataset in one relational database",
+     "Selecting multiple storage models for different needs in one system",
+     "Writing pipelines in several programming languages",
+     "Keeping several backups of the same table"
+    ],
+    "answer": 1,
+    "explain": "Most production systems mix relational, document, key-value and other stores, each where it fits best.",
+    "lesson": "data_engineering-03",
+    "evidence": "Most production systems adopt polyglot persistence , which means that you select multiple storage models.",
+    "origin": "authored"
+   },
+   {
+    "q": "In transaction processing (OLTP), what does atomicity mean?",
+    "options": [
+     "Each value is stored in its own column",
+     "Transactions run on a single atomic clock",
+     "An entire transaction succeeds or fails as one unit and is never left half-completed",
+     "Only one user can write at a time"
     ],
     "answer": 2,
-    "explain": "",
-    "lesson": "data_engineering-02",
-    "origin": "bank:ds:11",
-    "source": "ms-ds"
+    "explain": "Atomicity is the 'A' of ACID — no partial updates are ever visible.",
+    "lesson": "data_engineering-04",
+    "evidence": "Atomicity means that an entire transaction always succeeds or fails as one unit of work, and is never left in a half-completed state.",
+    "origin": "authored"
+   },
+   {
+    "q": "What is online analytical processing (OLAP) for?",
+    "options": [
+     "Organising large business databases to perform complex calculations and trend analysis",
+     "Recording individual sales as they happen",
+     "Encrypting data in transit",
+     "Backing up databases overnight"
+    ],
+    "answer": 0,
+    "explain": "OLAP serves read-heavy analytics; OLTP databases are optimised for individual record entries.",
+    "lesson": "data_engineering-05",
+    "evidence": "Online analytical processing (OLAP) is a technology that organizes large business databases to perform complex calculations and trend analysis.",
+    "origin": "authored"
+   },
+   {
+    "q": "What is ETL?",
+    "options": [
+     "A query language for spreadsheets",
+     "A way to encrypt, transfer and log files",
+     "A type of data lake",
+     "A data integration process that consolidates data from diverse sources into a unified data store"
+    ],
+    "answer": 3,
+    "explain": "Extract from sources, transform with business rules, load into a target store.",
+    "lesson": "data_engineering-06",
+    "evidence": "Extract, transform, load (ETL) is a data integration process that consolidates data from diverse sources into a unified data store.",
+    "origin": "authored"
+   },
+   {
+    "q": "How does a data lake hold data?",
+    "options": [
+     "Only after it has been cleaned and modelled",
+     "In large volumes in its native, raw format",
+     "As printed reports",
+     "In a single spreadsheet per department"
+    ],
+    "answer": 1,
+    "explain": "Data lakes keep data untransformed and apply transformation only when the data is needed.",
+    "lesson": "data_engineering-08",
+    "evidence": "A data lake is a storage repository that holds large volumes of data in its native, raw format.",
+    "origin": "authored"
+   },
+   {
+    "q": "What is the fundamental requirement of batch processing engines?",
+    "options": [
+     "To answer each query in milliseconds",
+     "To store data in its raw format",
+     "To scale out computations to handle a large volume of data",
+     "To run only once a year"
+    ],
+    "answer": 2,
+    "explain": "Batch jobs process large, bounded datasets, so they must scale out across many machines.",
+    "lesson": "data_engineering-10",
+    "evidence": "The fundamental requirement of batch processing engines is to scale out computations to handle a large volume of data.",
+    "origin": "authored"
+   },
+   {
+    "q": "How is streaming data produced?",
+    "options": [
+     "At high volume in a continuous, incremental manner that can be processed in near real-time",
+     "In large monthly files",
+     "Only when a user requests a report",
+     "As a single snapshot of a database"
+    ],
+    "answer": 0,
+    "explain": "Stream processing handles unbounded data as it arrives, often with validation logic for errors.",
+    "lesson": "data_engineering-11",
+    "evidence": "Streaming data is emitted at high volume in a continuous, incremental manner that can be processed in near real-time.",
+    "origin": "authored"
+   },
+   {
+    "q": "When a table is imported into OpenRefine, how are its columns treated at first?",
+    "options": [
+     "As numbers wherever possible",
+     "As dates",
+     "As formulas",
+     "All columns are treated as containing text values"
+    ],
+    "answer": 3,
+    "explain": "You must transform a column to numbers explicitly before numeric facets make sense.",
+    "lesson": "data_engineering-13",
+    "evidence": "When a table is imported into OpenRefine, all columns are treated as containing text values.",
+    "origin": "authored"
+   },
+   {
+    "q": "Why can an OpenRefine cleaning process be reapplied to another dataset?",
+    "options": [
+     "Because it only works on CSV files",
+     "Because OpenRefine saves every change you make, and the steps can be exported as JSON and imported elsewhere",
+     "Because it uploads data to the cloud",
+     "Because changes cannot be undone"
+    ],
+    "answer": 1,
+    "explain": "The recorded history is a script you can export and replay — a repeatable pipeline step.",
+    "lesson": "data_engineering-14",
+    "evidence": "OpenRefine saves every change you make to the dataset.",
+    "origin": "authored"
    }
   ],
-  "pass_mark": 3,
+  "pass_mark": 9,
   "missing": false
  },
- "minutes": 110,
+ "minutes": 105,
  "sources": [
   {
    "id": "azure-arch",

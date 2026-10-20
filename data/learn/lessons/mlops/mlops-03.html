@@ -1,16 +1,5 @@
-<div>
-
-<div>
 <img alt="Spark icon" loading="lazy" src="https://developers.google.com/_static/images/icons/spark.svg">
-<div>
-<h2 id="page-summary">Page Summary</h2>
-</div>
-
-</div>
-<div>
-
-
-
+<h2 id="h-page-summary">Page Summary</h2>
 <ul>
 <li>
 <p>Machine learning models can be trained statically (once) or dynamically (continuously).</p>
@@ -28,9 +17,6 @@
 <p>Monitoring input data is essential for both static and dynamic training to ensure reliable predictions.</p>
 </li>
 </ul>
-</div>
-
-
 <p>Broadly speaking, you can train a model in either of two ways:</p>
 <ul>
 <li><a href="https://developers.google.com/machine-learning/glossary#static" target="_blank" rel="noopener noreferrer"><strong>Static training</strong></a> (also
@@ -48,7 +34,6 @@ recently trained model.</li>
        multiple times. (Images by Pexels and by fancycrave1.)
   </figcaption>
 </figure>
-
 <figure>
 <img alt="Figure 3. Raw dough creates slightly different loaves of bread
             each time." loading="lazy" src="https://developers.google.com/static/machine-learning/crash-course/images/DynamicModel.png" width="66%">
@@ -57,7 +42,6 @@ recently trained model.</li>
        recently built model. (Images by Pexels and by Couleur.)
   </figcaption>
 </figure>
-
 <p><strong>Table 1.</strong> Primary advantages and disadvantages.</p>
 <div class="table-wrap"><table>
 <tbody><tr> <th> </th> <th>Static training</th> <th>Dynamic training</th> </tr>
@@ -89,79 +73,77 @@ user behavior during that floral holiday period changes dramatically.</p>
 <p>For a more detailed exploration of static and dynamic training, see the
 <a href="https://developers.google.com/machine-learning/managing-ml-projects/pipelines" target="_blank" rel="noopener noreferrer">Managing ML Projects</a>
 course.</p>
-<h2 id="exercises-check-your-understanding">Exercises: Check your understanding</h2>
-<div>
+<h2 id="h-exercises-check-your-understanding">Exercises: Check your understanding</h2>
 
-<div>
+
+
       Which <strong>two</strong> of the following statements are true about
       static (offline) training?
-    </div>
-<div>
-<div> The model stays up to date as new data arrives. </div>
-<div> Actually, if you train offline, then the model has no way to
+    
+
+ The model stays up to date as new data arrives. 
+ Actually, if you train offline, then the model has no way to
             incorporate new data as it arrives. This can lead to model
             staleness, if the distribution you are trying to learn from
-            changes over time.</div>
-</div>
-<div>
-<div> You can verify the model before applying it in production. </div>
-<div> Yes, offline training gives ample opportunity to verify model
-            performance before introducing the model in production.</div>
-</div>
-<div>
-<div> Offline training requires less monitoring of training jobs
-            than online training. </div>
-<div> In general, monitoring requirements at training time are more modest
+            changes over time.
+
+
+ You can verify the model before applying it in production. 
+ Yes, offline training gives ample opportunity to verify model
+            performance before introducing the model in production.
+
+
+ Offline training requires less monitoring of training jobs
+            than online training. 
+ In general, monitoring requirements at training time are more modest
             for offline training, which insulates you from many production
             considerations. However, the more frequently you train your model,
             the higher the investment you'll need to make in monitoring. You'll
             also want to validate regularly to ensure that changes to your code
-            (and its dependencies) don't adversely affect model quality.</div>
-</div>
-<div>
-<div> Very little monitoring of input data needs to be done at
-            inference time. </div>
-<div> Counterintuitively, you do need to monitor input data at serving
+            (and its dependencies) don't adversely affect model quality.
+
+
+ Very little monitoring of input data needs to be done at
+            inference time. 
+ Counterintuitively, you do need to monitor input data at serving
             time. If the input distributions change, then our model's
             predictions may become unreliable. Imagine, for example, a model
             trained only on summertime clothing data suddenly being used to
-            predict clothing buying behavior in wintertime.</div>
-</div>
+            predict clothing buying behavior in wintertime.
 
-</div>
-<div>
 
-<div>
+
+
+
+
       Which <strong>one</strong> of the following statements is true of
       dynamic (online) training?
-    </div>
-<div>
-<div> The model stays up to date as new data arrives. </div>
-<div> This is the primary benefit of online training; you can avoid many
+    
+
+ The model stays up to date as new data arrives. 
+ This is the primary benefit of online training; you can avoid many
             staleness issues by allowing the model to train on new data as
-            it comes in. </div>
-</div>
-<div>
-<div> Very little monitoring of training jobs needs to be done. </div>
-<div> Actually, you must continuously monitor training jobs to ensure that
+            it comes in. 
+
+
+ Very little monitoring of training jobs needs to be done. 
+ Actually, you must continuously monitor training jobs to ensure that
             they are healthy and working as intended. You'll also need
             supporting infrastructure like the ability to roll a model back
             to a previous snapshot in case something goes wrong in training,
-            such as a buggy job or corruption in input data.  </div>
-</div>
-<div>
-<div> Very little monitoring of input data needs to be done at
-            inference time.</div>
-<div> Just like a static, offline model, it is also important to
+            such as a buggy job or corruption in input data.  
+
+
+ Very little monitoring of input data needs to be done at
+            inference time.
+ Just like a static, offline model, it is also important to
             monitor the inputs to the dynamically updated models. You are
             likely not at risk for large seasonality effects, but sudden,
             large changes to inputs (such as an upstream data source going
-            down) can still cause unreliable predictions.</div>
-</div>
+            down) can still cause unreliable predictions.
 
-</div>
 
-<div>
+
+
+
 <a href="https://support.google.com/machinelearningeducation" target="_blank" rel="noopener noreferrer">Help Center</a>
-</div>
-</div>

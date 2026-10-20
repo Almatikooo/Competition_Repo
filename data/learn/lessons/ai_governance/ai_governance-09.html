@@ -1,1394 +1,174 @@
-<div><h2 id="introduction">Introduction</h2>
-<p>This framework provides a set of principles and activities to guide the responsible development, procurement and use of data and artificial intelligence (AI) in the public sector. It helps public servants understand ethical considerations and how to address these in their work.</p>
-<p>Data and AI ethics is about using data and data-driven technologies responsibly, including:</p>
-<ul>
-<li>respecting privacy</li>
-<li>promoting fairness</li>
-<li>protecting individuals, communities and society from harm</li>
-</ul>
-<p>This includes ensuring that data is collected, shared and used in appropriate, fair, safe, sustainable and transparent ways.</p>
-<p>The framework applies to any project that involves:</p>
-<ul>
-<li>data (collection, sharing or use)</li>
-<li>data-driven technologies</li>
-<li>AI</li>
-<li>automated decision-making and algorithmic tools</li>
-</ul>
-<p>In this guidance, this is what we mean when we refer to ‘data and AI’.</p>
-<h3 id="who-this-guidance-is-for">Who this guidance is for</h3>
-<p>The framework is for people who work in government and other public sector organisations. It’s mainly written for people who are designing, building, maintaining, using or updating projects that use data and AI.</p>
-<p>This may include:</p>
-<ul>
-<li>developers</li>
-<li>project managers</li>
-<li>analysts</li>
-<li>statisticians</li>
-<li>policy makers</li>
-<li>commercial or procurement professionals</li>
-</ul>
-<p>We also encourage anyone who works directly or indirectly with data and AI to read this guidance and apply it to their work. This includes operational staff and anyone helping to produce data-informed insight.</p>
-<h3 id="how-to-use-this-guidance">How to use this guidance</h3>
-<p>Your team should work through the framework together as you plan, implement and evaluate a project. You should regularly revisit it throughout your project, especially when you make changes to your work or project.</p>
-<p>The framework covers a broad range of use cases and challenges that you might encounter. Some projects may be limited to certain aspects – for example, data collection and processing –&nbsp;while others may cover a full AI development life cycle. This means you might find certain parts of this guidance more or less relevant to your project.</p>
-<h4>Data and AI Ethics Self-Assessment Tool</h4>
-<p>If your team is working on an AI or data-driven technology project, then as well as reading this guidance you should use the <a href="https://www.gov.uk/government/publications/data-ethics-framework" target="_blank" rel="noopener noreferrer">Data and AI Ethics Self-Assessment Tool</a>.</p>
-<p>The tool will help you capture information, and share learnings, challenges and progress with colleagues. We recommend that you maintain it along with your other project documentation to record decision making across the life cycle of a project.</p>
-<h3 id="why-this-guidance-is-important">Why this guidance is important</h3>
-<p>Government guidance needs to address the rapidly evolving ethical challenges and risks posed by data and AI technologies. We’ve updated the previous version of this guidance to meet this need.</p>
-<p>The Data and AI Ethics Framework bridges the gap between high-level ethical principles and practical actions. It considers themes such as safety, security and privacy through an ethical lens. It does not replace technical or regulatory guidance in these areas, but instead complements and connects to them.</p>
-<p>It complements existing tools, standards and guidance, including the:</p>
-<ul>
-<li><a href="https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html" target="_blank" rel="noopener noreferrer">AI Playbook for the UK Government</a></li>
-<li><a href="https://www.gov.uk/data-ethics-guidance/the-model-for-responsible-innovation" target="_blank" rel="noopener noreferrer">Model for Responsible Innovation</a></li>
-<li><a href="https://www.gov.uk/government/collections/algorithmic-transparency-recording-standard-hub" target="_blank" rel="noopener noreferrer">Algorithmic Transparency Recording Standard (<abbr title="Algorithmic Transparency Recording Standard">ATRS</abbr>)</a></li>
-</ul>
-<p>This guidance does not replace:</p>
-<ul>
-<li>existing ethics guidance and tools for statisticians and social researchers, such as the UKSA’s <a href="https://uksa.statisticsauthority.gov.uk/the-authority-board/committees/national-statisticians-advisory-committees-and-panels/national-statisticians-data-ethics-advisory-committee/ethics-self-assessment-tool/" target="_blank" rel="noopener noreferrer">Ethics Self-Assessment Tool</a>
-</li>
-<li>bespoke guidance provided by individual departments, devolved administrations or for specific professions</li>
-</ul>
-<h3 id="principles">Principles</h3>
-<p>This is an overview of the main principles everyone should follow when working with data and AI in the public sector. The rest of the guidance explores each principle in more detail.</p>
-<h4>Transparency</h4>
-<p>Transparency means that information about your project, actions, processes and data are communicated to relevant parties in an understandable, easily accessible and free way. Transparency includes the concept of explainability, which refers to the ability to understand and communicate how a system makes decisions, including how it arrived at an individual decision.</p>
-<h4>Accountability</h4>
-<p>Accountability means that data and AI projects have appropriate and effective governance, oversight, and routes to challenge decisions in place, where this is necessary. It involves setting clear roles and responsibilities, and being transparent about the system and the processes around it.</p>
-<h4>Fairness</h4>
-<p>Fairness means avoiding unfair biases and impacts, and addressing accessibility barriers, while actively maximising positive impacts. You should assess data representativeness, bias, and the different potential impacts that can result from data use.</p>
-<p>You should mitigate model biases and aim for outputs and decisions generated with the help of automated processes to:</p>
-<ul>
-<li>be non-discriminatory</li>
-<li>be just</li>
-<li>respect dignity</li>
-<li>align with the public interest, human rights and democratic values</li>
-<li>comply with the <a href="https://www.gov.uk/guidance/equality-act-2010-guidance" target="_blank" rel="noopener noreferrer">Equality Act 2010</a> and the <a href="https://www.gov.uk/government/publications/public-sector-equality-duty-guidance-for-public-authorities/public-sector-equality-duty-guidance-for-public-authorities" target="_blank" rel="noopener noreferrer">Public Sector Equality Duty (<abbr title="Public Sector Equality Duty">PSED</abbr>)</a>
-</li>
-</ul>
-<h4>Privacy</h4>
-<p>Privacy means that personal data is respected and handled responsibly, ensuring it’s used only for intended purposes with an appropriate legal basis. It also means adhering to UK data protection regulation, including principles of data minimisation, purpose limitation and informed consent.</p>
-<h4>Safety</h4>
-<p>Safety refers to the use of data or development of a system without causing harm to people, organisations, wider social institutions or the environment. Data-driven systems such as AI should be robust, secure and safe at every stage of their life cycle. This means ensuring that they operate properly and reliably, without causing unnecessary safety or security risks.</p>
-<h4>Societal impact</h4>
-<p>Societal impact is about how the development and use of data and data-driven technologies impact wider society. For example, by helping to solve societal challenges and deliver public good.</p>
-<h4>Environmental sustainability</h4>
-<p>Sustainability calls for responsible design and use of data and AI that minimises environmental impact, and supports long-term wellbeing for people and the planet. This means considering biospheric consequences when scoping potential AI and data projects, and building tools and systems that are robust and energy efficient. Biospheric consequences are the effects a project can have not only on the planet’s ecosystems but also its climate and the entire biosphere.</p>
-<h3 id="trade-offs">Trade-offs</h3>
-<p>There may be instances where you find that 2 or more of the ethical principles are in tension with one another. For example, using more demographic information may help to identify biases and promote fairness, but this may come at the expense of an individual’s privacy. Here, you might need to consider trade-offs. Ethical trade-offs are inherently complex and you must treat them with care.</p>
-<p>Here are some approaches which can help you establish suitable trade-offs:</p>
-<ul>
-<li>include stakeholder perspectives by engaging with affected communities to understand values and impacts</li>
-<li>consult legal and human rights frameworks to ensure that decisions align with national and international standards</li>
-<li>balance proportionality and necessity</li>
-<li>ensure meaningful and inclusive deliberation</li>
-<li>establish mechanisms to monitor outcomes, and adjust if necessary</li>
-</ul>
-<h2 id="transparency">Transparency</h2>
-<p>Transparency is foundational to all other ethical principles. Being transparent allows for scrutiny of actions, decisions and processes. It cultivates accountability and can help to build trust in the use of data and technology.&nbsp;</p>
-<p>Explainability applies specifically to AI systems and the ability to describe how a system arrives at a given output or decision. For example, this could include explaining what factors led to a benefit application being granted or denied. Explainability can help to build trust by making it easier to understand decision-making processes, and easier to identify risks, inaccuracies and harms.&nbsp;</p>
-<p>A lack of transparency might lead to:</p>
-<ul>
-<li>solutions being designed suboptimally – at worst leading to harmful outcomes</li>
-<li>insufficient accountability and no clear ways to appeal decisions of automated systems –&nbsp;which may result in public distrust</li>
-</ul>
-<p>The first data protection principle in the <a href="https://ico.org.uk/for-organisations/data-protection-and-the-eu/data-protection-and-the-eu-in-detail/the-uk-gdpr/" target="_blank" rel="noopener noreferrer">UK General Data Protection Regulation (UK <abbr title="General Data Protection Regulation">GDPR</abbr>)</a> is that of ‘lawfulness, fairness and transparency’. In the context of data protection, transparent processing is about being clear, open and honest with people from the start about:</p>
-<ul>
-<li>who you are</li>
-<li>how and why you use someone’s personal information</li>
-</ul>
-<h3 id="what-transparency-means-in-practice">What transparency means in practice</h3>
-<p>It can be helpful to think about:</p>
-<ul>
-<li>why you’re being transparent</li>
-<li>what you’re being transparent about</li>
-<li>to whom you’re being transparent</li>
-</ul>
-<p>For why you’re being transparent, consider these questions:</p>
-<ul>
-<li>are you following a particular mandate or requirement to be transparent?&nbsp;</li>
-<li>are you trying to address topics such as safety, trust, accountability, internal or external scrutiny, reproducibility, transferability or robustness​?</li>
-<li>what are the potential consequences of not being transparent?​</li>
-<li>how will your organisation balance the resources required to make material transparent with other competing operational priorities?</li>
-</ul>
-<p>For what you’re being transparent about, consider:</p>
-<ul>
-<li>the tools you’re using – for example, for data analysis or automated processes –&nbsp;and explaining the process or context for how you’re using them</li>
-<li>publishing open data or source code, where this is safe and complies with internal governance</li>
-<li>explaining the factors that influence a system’s output</li>
-<li>providing contact details to get in touch with your team</li>
-</ul>
-<p>In terms of who you’re aiming to be transparent to, consider:</p>
-<ul>
-<li>internal transparency within your organisation – for example, record-keeping for handover and continuity purposes</li>
-<li>cross-organisational transparency –&nbsp;for example, sharing case studies with other government departments</li>
-<li>transparency as part of oversight requirements –&nbsp;for example, being transparent to regulators, auditors or evaluators</li>
-<li>transparency with directly affected individuals or defined groups –&nbsp;for example, explaining algorithm-assisted decision making</li>
-<li>public transparency –&nbsp;for example, publishing information about a project on <a href="http://gov.uk" target="_blank" rel="noopener noreferrer">GOV.UK</a>
-</li>
-</ul>
-<p>Depending on who you’re trying to be transparent to, you should engage with these people and organisations. Ask them what type and level of transparency would be most meaningful and useful to them.&nbsp;</p>
-<p>This might involve:</p>
-<ul>
-<li>talking to users about what level of explainability is useful</li>
-<li>talking to civil society about what they need to know to effectively hold you to account</li>
-<li>talking to researchers about what information would help them evaluate the system</li>
-<li>talking to other teams in government about what information they would like about what you’re doing</li>
-</ul>
-<p>These considerations will help you identify the right content and level of transparency to use in each specific case, across relevant stakeholder groups. As an example, you might be the owner of a data set that others might benefit from, and which does not contain personal data. You might consider publishing it openly on <a href="http://data.gov.uk" target="_blank" rel="noopener noreferrer">data.gov.uk</a>. However, where personal data is concerned, you may have to provide transparency information in response to a data subject access request via official channels.</p>
-<p>As another example, if you want to ensure a smooth handover of an in-house AI system, you might choose to record and share its technical details and source code with colleagues. This will ensure it remains safe, functional and easy to maintain. Or, if you’re generating explanations of a system’s outcome to affected parties, you may adapt transparency information to include simple, non-technical and user-accessible explanations where possible.</p>
-<h3 id="transparency-in-the-context-of-data">Transparency in the context of data</h3>
-<p>Data transparency is about communicating:</p>
-<ul>
-<li>where the data comes from</li>
-<li>how the data is collected, cleaned, used, stored, shared, analysed and interpreted</li>
-<li>the limitations of the data</li>
-<li>how you’ve complied with applicable laws –&nbsp;for example, data protection and intellectual property law</li>
-</ul>
-<p>This applies to the data itself, but also to metadata (such as file format or author) and paradata (data about the data collection process itself).&nbsp;</p>
-<p>Being transparent about data can involve the following elements.</p>
-<h4>Open data</h4>
-<p>Making data openly available can support trust and transparency by allowing others to replicate and scrutinise published results. If data is non-sensitive, non-personal, and if data sharing agreements with the supplier allow it, you should make the data open and assign it a <a href="https://www.doi.org/" target="_blank" rel="noopener noreferrer">digital object identifier (<abbr title="digital object identifier">DOI</abbr>)</a>.</p>
-<p>You can publish government data sets on <a href="http://data.gov.uk" target="_blank" rel="noopener noreferrer">data.gov.uk</a>, following the <a href="https://www.gov.uk/government/publications/open-data-charter" target="_blank" rel="noopener noreferrer">Open Data Charter</a>.</p>
-<h4>Documentation about the provenance (collection or generation) of data</h4>
-<p>If you’re collecting or generating data, it’s important to be open about why, what and how (by which methods) data is being collected.</p>
-<h4>Documentation about any pre-processing to address limitations of the data</h4>
-<p>Discuss what pre-processing steps you’ve taken to ensure adequate data quality. Disclose any limitations of the data, such as quality issues, missing or incomplete data, gaps in representativeness, or known errors.</p>
-<h4>Documentation about how the data is used in a specific project&nbsp;</h4>
-<p>When using data in a specific project, clearly communicate the problem domain, user need, project aims and value to relevant stakeholders. When starting data analysis, you should be able to clearly explain the purpose and methodology of your analysis.</p>
-<h4>Documentation about data sharing and access</h4>
-<p>Be open about who has access to the data, what data sharing agreements are in place, and what the conditions for reuse are, such as licensing.</p>
-<h4>Data protection-related transparency</h4>
-<p>Where personal data is being processed, you must comply with relevant laws: You need to carry out a <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/accountability-and-governance/data-protection-impact-assessments-dpias/" target="_blank" rel="noopener noreferrer">Data Protection Impact Assessment (<abbr title="Data Protection Impact Assessment">DPIA</abbr>)</a> before you process personal data when the processing is likely to result in a high risk to the rights and freedoms of individuals. It’s good practice to publish your completed <abbr title="Data Protection Impact Assessment">DPIA</abbr> to demonstrate that you’re taking the appropriate precautions to protect personal data and ensure your system is fair.</p>
-<p>When processing personal data, you must provide a privacy notice that is easy to locate and explains in clear, accessible language:</p>
-<ul>
-<li>why you need the data</li>
-<li>how long you’ll keep the data</li>
-<li>whether you’ll share the data with others</li>
-<li>how people can exercise their rights or raise complaints</li>
-</ul>
-<p>You should also explain the safeguards that achieve effective <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-protection-principles/a-guide-to-the-data-protection-principles/data-minimisation/" target="_blank" rel="noopener noreferrer">data minimisation</a>, such as anonymisation or pseudonymisation, in plain language.</p>
-<p>Concepts such as data sheets or data set cards can be helpful in recording some of this information. Good examples include <a href="https://arxiv.org/pdf/1803.09010" target="_blank" rel="noopener noreferrer">data sheets for data sets</a> and variations of data set cards that have been developed based on this approach, such as <a href="https://github.com/PAIR-code/datacardsplaybook/blob/main/templates/DataCardsExtendedTemplate.pdf" target="_blank" rel="noopener noreferrer">Google’s data cards</a>.</p>
-<p>For more information, refer to the <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/" target="_blank" rel="noopener noreferrer">UK <abbr title="General Data Protection Regulation">GDPR</abbr> guidance and resources</a> on the Information Commissioner’s Office (ICO) website.</p>
-<h4>Fairness-related transparency</h4>
-<p>You must comply with the <a href="https://www.gov.uk/government/publications/public-sector-equality-duty-guidance-for-public-authorities/public-sector-equality-duty-guidance-for-public-authorities" target="_blank" rel="noopener noreferrer">Public Sector Equality Duty</a> and <a href="https://www.gov.uk/guidance/equality-act-2010-guidance" target="_blank" rel="noopener noreferrer">Equality Act 2010</a>. This means you need to carefully consider and document the equality impact of processing <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/personal-information-what-is-it/what-is-personal-data/what-is-personal-data/" target="_blank" rel="noopener noreferrer">personal data</a> where it can be used to identify individuals as having a protected characteristic. This document is often referred to as an Equality Impact Assessment (EIA). For more information, consult the <a href="https://www.equalityhumanrights.com/guidance/public-sector-equality-duty-psed" target="_blank" rel="noopener noreferrer">EHRC guidance on the Public Sector Equality Duty</a>.</p>
-<p>It’s good practice to publish your EIA. This will demonstrate that you’ve considered the potential equality implications (both positive and negative) of processing data that relates to any protected characteristics. Publishing your completed <abbr title="Data Protection Impact Assessment">DPIA</abbr> and EIA will build trust in your use of data and data-driven technologies.</p>
-<h3 id="transparency-in-the-context-of-ai-and-algorithmic-tools">Transparency in the context of AI and algorithmic tools</h3>
-<p>Ensuring transparency and explainability can be complex in the context of AI, algorithmic and automated systems. Transparency can be limited by ‘black box’ algorithms or proprietary commercial tools. Explainability may not be possible for certain forms of machine learning, or may only be achievable at the cost of performance.</p>
-<p>To be transparent in the context of AI and automated systems, you should consider the following concepts.</p>
-<h4>Technical transparency&nbsp;</h4>
-<p>This is information about the technical operation of the AI system, such as the code used to create the algorithms and the underlying data sets used to train the model.</p>
-<h4>Process transparency&nbsp;</h4>
-<p>This is information about the design, development and deployment decisions and practices behind your AI solutions, and the mechanisms used to demonstrate that the solution is responsible and trustworthy. This may also include an audit log of the prompts and outputs generated by AI systems.</p>
-<p>To enable process-based transparency, you should have the following in place:</p>
-<ul>
-<li>robust reporting mechanisms</li>
-<li>process-centred governance frameworks</li>
-<li>AI assurance techniques</li>
-</ul>
-<h4>Outcome-based transparency and explainability&nbsp;</h4>
-<p>This means the ability to clarify to any person who is using or impacted by a service that uses AI, how the solution works, and which factors influence its decision making and outputs. This includes individual-level explanations of decisions, where this is requested. It can also include aggregate statistics about outcomes that can be used to monitor fairness.</p>
-<h4>Explainability in practice</h4>
-<p>For certain types of machine learning models, such as deep learning or large language models (LLMs), it can be impossible to fully explain the logic behind an output or decision due to their complex, ‘black box’ nature. For example, LLMs may <a href="https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government" target="_blank" rel="noopener noreferrer">hallucinate</a> (where LLMs generate plausible but factually incorrect information) for unexpected reasons. The size and complexity of these models may make it difficult or impossible to identify a determinate causal chain for why this has happened.</p>
-<p>You should assess the degree of explainability that’s necessary for your project given its specific domain context and use case. Do this before making technical or architectural decisions about the type of algorithmic techniques you’ll employ in model development. For instance, in high-impact contexts such as social care or criminal justice, you might need a higher level of explainability to ensure fairness and comply with applicable regulation. Considering explainability needs will help you avoid investing in inappropriate technology.</p>
-<p>In other cases, where it’s impossible to understand or interpret the rationale behind the outputs of the model, consider alternative methods of explainability such as visualisation techniques or counterfactual explanations. The ICO has guidance on <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/" target="_blank" rel="noopener noreferrer">explaining decisions made with AI</a>.</p>
-<h4>Using the Algorithmic Transparency Recording Standard</h4>
-<p>The <a href="https://www.gov.uk/government/collections/algorithmic-transparency-recording-standard-hub" target="_blank" rel="noopener noreferrer">Algorithmic Transparency Recording Standard (<abbr title="Algorithmic Transparency Recording Standard">ATRS</abbr>)</a> establishes a standardised way for public sector organisations to publish information about how and why they’re using algorithmic tools.</p>
-<p>All central government departments and arm’s length bodies that provide public or frontline services, or routinely interact with the general public, <a href="https://www.gov.uk/government/publications/algorithmic-transparency-recording-standard-mandatory-scope-and-exemptions-policy/algorithmic-transparency-recording-standard-atrs-mandatory-scope-and-exemptions-policy" target="_blank" rel="noopener noreferrer">must use the <abbr title="Algorithmic Transparency Recording Standard">ATRS</abbr></a>. This involves documenting information about any algorithmic tools used in decision-making processes, and making this clearly accessible to the public.</p>
-<p>We also recommend the <abbr title="Algorithmic Transparency Recording Standard">ATRS</abbr> to other public sector bodies, such as local government, even if they’re not currently mandated to use it.</p>
-<p>Even where a tool does not strictly fall within scope of the <abbr title="Algorithmic Transparency Recording Standard">ATRS</abbr>, we recommend <a href="https://www.gov.uk/government/collections/algorithmic-transparency-recording-standard-hub" target="_blank" rel="noopener noreferrer">publishing an <abbr title="Algorithmic Transparency Recording Standard">ATRS</abbr> record</a>.</p>
-<h4>If you’re using a third-party supplier</h4>
-<p>Vendors of AI systems must be able to clearly explain:</p>
-<ul>
-<li>the steps they take to build tools</li>
-<li>the logic and assumptions built into their tools</li>
-<li>how their tools generate outputs</li>
-</ul>
-<p>This explanation should include information about:</p>
-<ul>
-<li>the data used to train the AI model&nbsp;</li>
-<li>the function of the AI models</li>
-<li>the system’s intended purpose</li>
-<li>the steps they’ve taken to mitigate risks</li>
-</ul>
-<p>Before entering into a contract, consider asking your supplier:</p>
-<ul>
-<li>how they engaged with users and affected communities across the development life cycle</li>
-<li>how they identified, evaluated and mitigated risks</li>
-<li>what the source of the data is</li>
-<li>how the data sets were created</li>
-<li>what data the model has been trained on</li>
-<li>if training data sets are sufficiently representative to facilitate fair performance</li>
-<li>where third-party data has been used to train the AI, if the organisation has a valid and lawful basis for processing</li>
-<li>if there are any known biases in the data or the trained model</li>
-<li>how accurate the system is</li>
-<li>if the system has been tested for differential performance on relevant demographic groups</li>
-<li>if the system is based on an LLM, what the observed rate of hallucinations is, and under what conditions they normally occur</li>
-<li>what benchmarks or other modes of model assessment and evaluation have been used to measure safety, reliability, robustness, performance, privacy preservation, toxicity and bias</li>
-<li>if there are any issues likely to affect quality</li>
-</ul>
-<p>You should update the answers to these questions when significant changes are made to data sets, models, APIs or other relevant components that you’re procuring.</p>
-<p>For further guidance on procuring AI systems, refer to the <a href="https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government" target="_blank" rel="noopener noreferrer">AI Playbook</a> and the <a href="https://www.local.gov.uk/publications/responsible-buying-how-build-equality-data-protection-your-ai-commissioning" target="_blank" rel="noopener noreferrer">Responsibly buying AI guide for councils in England</a>.</p>
-<p>You should consider any tools you’re procuring from a third party which are intended to be used in decision-making processes. These tools might fall within the scope of the mandatory requirement to use the <abbr title="Algorithmic Transparency Recording Standard">ATRS</abbr>. At the stage, it’s helpful to ensure that the supplier is providing you with all the required transparency information requested in the <abbr title="Algorithmic Transparency Recording Standard">ATRS</abbr>.</p>
-<p>You can also check the <a href="https://senseaboutscience.org/responsible-handover-of-ai/" target="_blank" rel="noopener noreferrer">Responsible Handover Framework</a> to identify the information needed for a successful AI system handover from supplier to buyer.</p>
-<h3 id="recommended-actions">Recommended actions</h3>
-<p>Your team should:&nbsp;</p>
-<ul>
-<li>
-<p>explain the what, how and why of your project in plain language to a non-expert audience; if you cannot articulate how the use of data or AI solves a defined problem, you should consider alternative solutions</p>
-</li>
-<li>maintain detailed records of the project –&nbsp;include the decisions that were made in its design,&nbsp;for example:</li>
-<li>how the project delivers positive social outcomes for the public</li>
-<li>what the user need is that it tries to address</li>
-<li>who the senior responsible owner of the project is</li>
-<li>how a relationship with a third-party supplier was set up&nbsp;</li>
-<li>
-<p>your EIA and <abbr title="Data Protection Impact Assessment">DPIA</abbr></p>
-</li>
-<li>
-<p>make information publicly available –&nbsp;consider where you can make information about a project or tool publicly accessible, such as on GitHub, in blogs, on <a href="http://gov.uk" target="_blank" rel="noopener noreferrer">GOV.UK</a> or on your organisation’s webpage</p>
-</li>
-<li>
-<p>use the <abbr title="Algorithmic Transparency Recording Standard">ATRS</abbr> if your organisation is within mandatory scope, and consider publishing an <abbr title="Algorithmic Transparency Recording Standard">ATRS</abbr> record even if your organisation is not in mandatory scope</p>
-</li>
-<li>
-<p>give appropriate disclosure when AI has been used to produce an output –&nbsp;this concerns both internal and external uses of AI</p>
-</li>
-<li>
-<p>maintain detailed records of all data sources used, including collection methods, licenses and pre-processing steps</p>
-</li>
-<li>
-<p>publish DPIAs and EIAs where possible –&nbsp;refer to the <a href="#fairness-section" rel="noopener noreferrer">Fairness</a> and <a href="#privacy-section" rel="noopener noreferrer">Privacy</a> sections for more information</p>
-</li>
-<li>
-<p>maintain detailed records of all the design decisions and assumptions that went into the development of a solution</p>
-</li>
-<li>
-<p>create and regularly update assurance documentation that explains the model’s purpose, performance limitations and intended use cases –&nbsp;this might include model cards or data set cards</p>
-</li>
-<li>
-<p>if possible, publish your source code openly –&nbsp;for example, on GitHub</p>
-</li>
-<li>
-<p>build algorithmic tools with explainability in mind –&nbsp;consider how important explainability is for the intended use case, and the degree of explainability that would meet domain-specific expectations and regulation</p>
-</li>
-<li>use technical methods for assessing the interpretability of machine learning models&nbsp;–&nbsp;you should have a good working understanding of their limitations:</li>
-<li>common explainability techniques such as <a href="https://shap.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer">SHAP (SHapley Additive exPlanations)</a> and <a href="https://c3.ai/glossary/data-science/lime-local-interpretable-model-agnostic-explanations/" target="_blank" rel="noopener noreferrer">LIME (Local Interpretable Model-Agnostic Explanations)</a> may be helpful in some cases, but may be ineffective for, and inapplicable to, LLMs and generative AI systems</li>
-<li>consult technical experts and state-of-the-art research when choosing appropriate explainability methods</li>
-</ul>
-<h2 id="accountability">Accountability</h2>
-<p>Accountability involves setting clear roles and responsibilities and being transparent about decisions. It means that people and organisations are responsible for the data they collect, use and share, and for the technology they build. It also means that if something goes wrong and a system or process harms someone, this can be raised and fixed.</p>
-<p>Being accountable helps keep people safe, and ensures that data and AI is used fairly and responsibly. A lack of accountability or failure to uphold ethical standards can result in serious consequences, including:
-- unaddressed harm to people, such as unfair decisions
-- harm to public services
-- legal risks and repercussions
-- regulatory action
-- reputational damage and a loss of trust in organisations</p>
-<h3 id="what-accountability-means-in-practice">What accountability means in practice</h3>
-<p>You should take the following steps to establish and support accountability across a data or AI project.</p>
-<h4>Set clear roles and responsibilities</h4>
-<p>You need strong oversight and clear responsibilities to ensure accountability across the life cycle of your data or AI project. You must set out who is responsible at each stage of the project.</p>
-<p>This includes naming:</p>
-<ul>
-<li>
-<a href="https://www.gov.uk/government/publications/the-role-of-the-senior-responsible-owner/the-role-of-the-senior-responsible-owner" target="_blank" rel="noopener noreferrer">senior responsible owners (SROs)</a> –&nbsp;as the primary risk owners for the project, they ensure a real policy or business need is being addressed, engage with stakeholders and assure ongoing viability</li>
-<li>data owners –&nbsp;data sets must have named data owners accountable for quality, access controls and life cycle governance</li>
-<li>data stewards –&nbsp;they should be responsible for metadata and day-to-day quality controls</li>
-<li>data custodians –&nbsp;they should be responsible for capturing, storing and disposing of data in line with the data owner’s requirements</li>
-<li>AI asset owners –&nbsp;they should be responsible for AI outputs, including model predictions and any generated data</li>
-</ul>
-<p>For project governance to be effective, it’s essential that the people accountable have appropriate technical expertise and knowledge, and authority, to implement necessary changes. This is especially important for complex projects or those involving multiple suppliers, which is often the case with data and AI projects.</p>
-<p>For more information, refer to the:</p>
-<ul>
-<li>
-<a href="https://www.gov.uk/service-manual" target="_blank" rel="noopener noreferrer">Service Manual</a> –&nbsp;which explains how to build a digital and data team</li>
-<li>
-<a href="https://ddat-capability-framework.service.gov.uk/#it-operations-job-family" target="_blank" rel="noopener noreferrer">Government Digital and Data Profession Capability Framework</a> –&nbsp;which outlines the skills needed for any digital and data role</li>
-<li>guidance on <a href="https://www.gov.uk/government/publications/the-role-of-the-senior-responsible-owner/the-role-of-the-senior-responsible-owner" target="_blank" rel="noopener noreferrer">the role of the SRO</a>
-</li>
-<li>
-<a href="https://www.gov.uk/government/publications/project-delivery-functional-standard" target="_blank" rel="noopener noreferrer">Government Project Delivery Functional Standard</a> –&nbsp;which sets expectations for the management of government projects</li>
-<li>guidance on <a href="https://www.gov.uk/government/publications/essential-shared-data-assets-and-data-ownership-in-government/data-ownership-in-government-html" target="_blank" rel="noopener noreferrer">Data Ownership in Government</a> – which sets out a data ownership model that formalises the roles of the people in government responsible for managing data throughout its life cycle</li>
-</ul>
-<h4>Traceability and auditability</h4>
-<p>Your project team should keep clear records to show how your data or AI system was designed, developed and used, who made a decision and the evidence they used. This will make your project accessible for audit, oversight and review by appropriate parties. It will help others check that your work is trustworthy, and that it meets legal and ethical standards.</p>
-<p>For any project that uses data, your team must:</p>
-<ul>
-<li>name an SRO and data owner for the data</li>
-<li>establish who is responsible for each component of the project, including third-party vendors</li>
-<li>document lawful use and purpose of processing, including legal basis and a recording of processing activities</li>
-<li>register new data assets – either via organisational data catalogues, or cross-departmentally by designating <a href="https://www.gov.uk/government/publications/essential-shared-data-assets-and-data-ownership-in-government/essential-shared-data-assets-esdas-guidance-for-departments-html" target="_blank" rel="noopener noreferrer">Essential Shared Data Assets (ESDAs)</a>
-</li>
-<li>record and retain audit trails of who has access to the data and why</li>
-<li>record all important decisions and maintain a process log with evidence of responsible data practices</li>
-<li>provide routes for people to raise concerns, complaints or request corrections</li>
-</ul>
-<p>To ensure AI and algorithmic systems can be audited or reviewed, your team must:
-- record who is responsible for each part of the system, including suppliers
-- keep information about where the data came from and how it was used – from data collection and preparation, to training, testing and use
-- record decisions made during project design, model deployment and system deployment processes
-- keep clear records that show how the system was designed, developed, tested and implemented</p>
-<p>This information should be easy to find and understandable to a range of stakeholders. For example, a data set factsheet can help explain how data was handled. The <a href="https://www.gov.uk/government/publications/algorithmic-transparency-template" target="_blank" rel="noopener noreferrer">Algorithmic Transparency Recording Standard (<abbr title="Algorithmic Transparency Recording Standard">ATRS</abbr>)</a> also provides a template for public sector organisations to document and share information about how and why they’re using algorithmic tools.</p>
-<p>If you’re building an AI system, you should take steps to ensure that the system is explainable. For example, you can explain why a model or algorithmic tool has produced a particular outcome. There are some cases where it can be difficult to trace the inputs and outputs of AI systems, such as large language models (LLMs). The <a href="#transparency-section" rel="noopener noreferrer">Transparency</a> section has more information on explainability.</p>
-<h4>Establish feedback mechanisms</h4>
-<p>Upholding accountability means ensuring that people affected by the use of a data or AI system can:</p>
-<ul>
-<li>understand how decisions were made – this may include data sources, decision-making criteria and logic</li>
-<li>provide feedback</li>
-<li>contest outcomes that are incorrect</li>
-<li>seek redress if they‘ve been affected by erroneous or unjust outcomes –&nbsp;for example, by asking for the decision to be reviewed or corrected, especially in the case of automated decision making</li>
-</ul>
-<p>You should create a clear mechanism for monitoring the ongoing use of your data or AI project. This involves evaluating how it’s used, and providing a feedback loop where users and operators can identify issues and send them back to the development team.</p>
-<p>You should also set up a clear way of handling and responding to feedback, complaints and appeals.</p>
-<p>Examples of feedback mechanisms might include:</p>
-<ul>
-<li>surveys and feedback forms</li>
-<li>reporting mechanisms integrated into the tool or service</li>
-<li>stakeholder workshops</li>
-</ul>
-<p>Where appropriate, you should engage with civil society organisations for guidance on how to design and integrate feedback and redress mechanisms for your AI project or system.</p>
-<h4>Maintain human oversight</h4>
-<p>People must be able to monitor and influence how systems work, even when the system is partially or fully automated. People should remain responsible for the decisions they make when these are supported or informed by an AI system.</p>
-<p>If your system includes automated processing, make sure there’s appropriate human oversight. This includes:</p>
-<ul>
-<li>recording how much of the process is automated and how much is controlled by people</li>
-<li>naming the roles and people responsible for oversight and for managing risks</li>
-<li>avoiding fully automated decisions where the outcome could significantly affect individuals or groups, and making sure a person makes the final decision in these cases</li>
-<li>if using LLM tools, ensuring someone is verifying outputs for incorrect information and potential biases</li>
-</ul>
-<p>In some AI use cases, automated decision making can be difficult to avoid. For example, it would typically be impossible for humans to review every conversational output of an LLM-based chatbot. Here you should weigh the risks of incorrect or harmful outputs and resulting negative impacts against the benefits of using the system.</p>
-<p>In some cases, where the risks of potential harm and incorrect outputs are high, the right choice might be to not use the system at all. In other cases, you may want to put risk mitigations in place – for example, providing easy access to human agents if a chatbot malfunctions or is unable to help users.</p>
-<p><strong>If your project uses personal data</strong>, you must meet your legal duties under the <a href="https://ico.org.uk/for-organisations/data-protection-and-the-eu/data-protection-and-the-eu-in-detail/the-uk-gdpr/" target="_blank" rel="noopener noreferrer">UK General Data Protection Regulation (UK <abbr title="General Data Protection Regulation">GDPR</abbr>)</a>. This includes:</p>
-<ul>
-<li>being responsible for how personal data is used</li>
-<li>showing how you meet the data protection principles</li>
-<li>completing and documenting <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/accountability-and-governance/data-protection-impact-assessments-dpias/" target="_blank" rel="noopener noreferrer">Data Protection Impact Assessments (DPIAs)</a>
-</li>
-<li>fulfilling transparency obligations – including the publication of privacy notices or fair processing notices</li>
-<li>enabling people to exercise their data protection rights</li>
-</ul>
-<p>Your organisation’s data protection officer (DPO) or information assurance team should be able to advise on your data protection obligations.</p>
-<h4>Accountability if you’re using a third party supplier</h4>
-<p>If you buy a data-driven or AI system from a supplier, you must:</p>
-<ul>
-<li>make sure the supplier understands their responsibilities</li>
-<li>agree what risks they must manage</li>
-<li>ask them to share information about how the system works</li>
-</ul>
-<p>As a baseline, make sure that any supplier maintains the same standards as would be expected from you if the system was developed internally. This applies to data governance, performance evaluation, data minimisation and legal accountability.</p>
-<p>You should include the following responsibilities in the contract:</p>
-<ul>
-<li>product liability –&nbsp;suppliers may be liable if the system causes harm because it gives unsafe outcomes or fails</li>
-<li>data liability&nbsp;–&nbsp;if the system breaks data protection or other applicable law or misuses data</li>
-<li>algorithmic harm –&nbsp;if the system breaks equality law for discriminatory, biased or unfair outcomes, particularly in public services (such as social welfare or policing)</li>
-<li>security liability –&nbsp;liability for damage caused by insufficient security measures or third-party manipulation</li>
-<li>failure to meet contract terms –&nbsp;including penalties, clawback clauses and potential contract termination</li>
-<li>insurance –&nbsp;you can ask suppliers to have insurance that covers harm caused by AI</li>
-</ul>
-<p>For more guidance on procuring AI technologies, refer to the:</p>
-<ul>
-<li>
-<a href="https://www.crowncommercial.gov.uk/downloadable-resource/request/67557/buyers-guidance-supporting-the-procurement-of-artificial-intelligence-via-ccs-agreements" target="_blank" rel="noopener noreferrer">Buyer’s guidance on AI procurement</a>&nbsp;</li>
-<li>
-<a href="https://www.gov.uk/government/publications/guidelines-for-ai-procurement" target="_blank" rel="noopener noreferrer">Guidelines for AI procurement</a>&nbsp;</li>
-<li><a href="https://www.local.gov.uk/publications/responsible-buying-how-build-equality-data-protection-your-ai-commissioning" target="_blank" rel="noopener noreferrer">Responsibly buying AI guidance</a></li>
-</ul>
-<p>Ultimately, it’s important to keep in mind that the public body remains responsible for all data and algorithm-assisted decisions or outputs, and their impacts.</p>
-<h3 id="recommended-actions-x">Recommended actions</h3>
-<p>Your team should:</p>
-<ul>
-<li>
-<p>nominate an SRO, typically a senior decision maker, to be accountable for the project</p>
-</li>
-<li>
-<p>talk to your organisation’s DPO and ensure they have the necessary information, tools and authority to govern the project</p>
-</li>
-<li>
-<p>establish mechanisms for independent reviews of your project to review and challenge decisions relating to data and AI systems, where appropriate</p>
-</li>
-<li>clarify legal responsibilities across the data and AI supply chain, ensuring that all parties involved in the data and AI project life cycle –&nbsp;from vendors and technical teams to system users – are acting lawfully and understand their respective legal obligations
-    <ul>
-<li>if you’re buying a system commercially, define detailed responsibilities and liability contractually</li>
-</ul>
-</li>
-<li>publish information that’s accessible to technical and non-technical stakeholders, and explains:
-    <ul>
-<li>how your AI system works (including its purpose, data sources and decision logic)&nbsp;</li>
-<li>how the actions and decisions you’ve taken across the entire AI project life cycle have ensured that it’s ethical, lawful and trustworthy</li>
-</ul>
-</li>
-<li>
-<p>have mechanisms in place for users to provide feedback, such as reporting errors or contesting decisions that might be inaccurate or harmful</p>
-</li>
-<li>establish a human-in-the-loop process to oversee and validate outputs and decisions where AI is used in risky or high-impact situations –&nbsp;this person or team should be able to identify risks and intervene, where appropriate</li>
-</ul>
-<p>identify who is responsible for the outputs and decisions made by the AI systems you use, and assume responsibility if this is not clear&nbsp;–&nbsp;this includes interactions with LLM-based tools such as ChatGPT, Gemini and Copilot</p>
-<h2 id="fairness">Fairness</h2>
-<p>Fairness is a diverse concept. It concerns both the way people are treated and described, and how opportunities and resources are distributed in society. Fairness is deeply rooted in our cultural, moral and political practices, and you should regard it as a good in its own right.&nbsp;</p>
-<p>Unfairness undermines social and economic opportunity and creates power imbalances. Inequality can undermine the legitimacy of government and erode trust.&nbsp;</p>
-<p>Unfairness in your project may result in:</p>
-<ul>
-<li>unlawful discrimination and other conduct prohibited in the <a href="https://www.gov.uk/guidance/equality-act-2010-guidance" target="_blank" rel="noopener noreferrer">Equality Act 2010</a>
-</li>
-<li>growing inequalities and community tensions</li>
-<li>regulatory, reputational and legal risk</li>
-</ul>
-<p>Fairness in data and AI involves a combination of social, technological and legal concerns to determine whether people and organisations are treated justly, without systemic advantage or disadvantage.</p>
-<p>The government’s collection and use of data and implementation of AI systems have wide-reaching impacts on society. Each time a data point is collected or an algorithm deployed, it can have the potential to widen or close gaps in opportunity, representation and resources.</p>
-<h3 id="equality-and-inclusion">Equality and inclusion</h3>
-<p>Equality and inclusion are fundamental ethical principles for fairness. Equality is about:</p>
-<ul>
-<li>ensuring that all people have equality of opportunity</li>
-<li>exercising government functions in a way that’s designed to reduce inequitable outcomes stemming from socio-economic disadvantage</li>
-</ul>
-<p>You must take care when ensuring equality in your project. Avoid any form of positive discrimination, as this is prohibited. Instead, take positive action such as targeted training and learning more about <a href="https://www.gov.uk/government/publications/positive-action-in-the-workplace-guidance-for-employers/positive-action-in-the-workplace" target="_blank" rel="noopener noreferrer">positive action in the workplace</a>.</p>
-<p>Inclusion is about ensuring that all groups can use and benefit from your project, accommodating for the needs of different physical and mental abilities and different contextual and cultural needs.</p>
-<h3 id="what-fairness-means-in-practice">What fairness means in practice</h3>
-<p>Fairness considerations are critical across the life cycle of your project – from initial decisions about what data to collect and how, to the impacts of your project years after deployment.</p>
-<p>To understand what fairness means in your project, first determine what aspects of fairness are most relevant to your project. For example:</p>
-<ul>
-<li>if your project involves classifying events or objects – such as flagging fraudulent claims –&nbsp;the most relevant interpretation of fairness may be equal error rates between groups</li>
-<li>if your system provides access to a public service or type of benefit –&nbsp;such as access to government grants for research – proportional access may be more important</li>
-</ul>
-<p>You must understand and comply with your legal obligations and duties. Refer to the <a href="https://www.equalityhumanrights.com/guidance/public-sector-equality-duty-psed" target="_blank" rel="noopener noreferrer">Public Sector Equality Duty (<abbr title="Public Sector Equality Duty">PSED</abbr>)</a> and the <a href="https://www.gov.uk/guidance/equality-act-2010-guidance" target="_blank" rel="noopener noreferrer">Equality Act 2010</a>. The <abbr title="Public Sector Equality Duty">PSED</abbr> is made of a general duty across Britain, with specific duties that vary between England, Wales and Scotland. There’s guidance for public sector bodies on the <a href="https://www.equalityhumanrights.com/new-guidance-ai-and-equality-available-public-sector-bodies?return-url=https%3A%2F%2Fwww.equalityhumanrights.com%2Fsearch%3Fkeys%3DAi%2Bguidance" target="_blank" rel="noopener noreferrer"><abbr title="Public Sector Equality Duty">PSED</abbr> and AI</a> and a <a href="https://www.equalityhumanrights.com/guidance/how-consider-equality-policy-making-10-step-guide-public-bodies-england" target="_blank" rel="noopener noreferrer">10-step guide</a> on how to deliver an Equality Impact Assessment.</p>
-<div>
-<h4>Proxies</h4>
-<p>Proxies are data points that are strongly correlated to other characteristics. For example, postcodes might be strongly correlated with age and race. While use of proxies is, in many instances, lawful, it’s essential to review data sets and models for proxies that may be introducing bias.</p>
-<p>This especially applies to bias against <a href="https://www.equalityhumanrights.com/equality/equality-act-2010/protected-characteristics" target="_blank" rel="noopener noreferrer">protected characteristics</a> such as:</p>
-<ul>
-<li>age</li>
-<li>disability</li>
-<li>gender reassignment</li>
-<li>marriage and civil partnership</li>
-<li>pregnancy and maternity</li>
-<li>race</li>
-<li>religion or belief</li>
-<li>sex</li>
-<li>sexual orientation</li>
-</ul>
-<p>Some attributes can be used to accurately infer a protected characteristic. For example, someone’s age can be inferred by their date of birth. Other attributes may be used to deduce a protected characteristic with varying degrees of accuracy – for example, postcodes that indicate likely ethnicities.</p>
-<p>Proxies are not inherently harmful. For example, an organisation might use a proxy to monitor where a policy is having positive impact, or use that data to improve outcomes for people with protected characteristics where direct data does not exist.</p>
-<p>However, harmful outcomes can occur when a public body:</p>
-<ul>
-<li>is not aware that the data it’s processing can be proxies for protected characteristics</li>
-<li>does not consider the potential impact on people with protected characteristics</li>
-<li>does not measure or remedy impacts, as this can lead to unlawful discrimination and reduced equality of opportunity</li>
-</ul>
-</div>
-<h4>Understand impacted groups</h4>
-<p>You should understand which individuals or groups could potentially benefit or be treated unfairly by your project, and which are most vulnerable to harm as a result.</p>
-<p>These may be groups that share a <a href="https://www.equalityhumanrights.com/equality/equality-act-2010/protected-characteristics" target="_blank" rel="noopener noreferrer">protected characteristic</a>, or groups connected through different attributes such as their location, interests, the industry that they work in, and more.</p>
-<p>Understanding and assessing the impact that a project may have on people, particularly in relation to the protected characteristics, helps public bodies demonstrate they comply with the <abbr title="Public Sector Equality Duty">PSED</abbr>.</p>
-<p>You must assess the equality impact of your project:</p>
-<ul>
-<li>before making any decisions to initiate a project, including procuring and development</li>
-<li>during implementation</li>
-<li>after implementation</li>
-</ul>
-<p>There’s no set way for you to record your equality considerations and your organisation may have its own Equality Impact Assessment (EIA) template for you to complete. We recommend that your EIA follows the <a href="https://www.equalityhumanrights.com/guidance/how-consider-equality-policy-making-10-step-guide-public-bodies-england" target="_blank" rel="noopener noreferrer">10-step guide</a> published by the Equality and Human Rights Commission (EHRC). This will help you navigate what you must do to comply with the law, and what you should do to demonstrate best practice.</p>
-<div>
-<h4>Representational and allocational harms</h4>
-<p>Another way to understand fairness in your project is by considering the harms that it may cause. Harms are often categorised as either representational or allocational. Both concepts existed long before AI or data-enabled services, but technology means they may manifest in different ways and may need to be addressed differently.</p>
-<p>Representational harms concern how people are portrayed, including stereotyping, misrecognition and denigration. There are many cultural and institutional examples, such as in advertising, branding and entertainment. The impact of these harms can include reinforcing negative societal biases and social norms, psychological impacts and more.</p>
-<p>Representational harms are linked with the <a href="https://www.equalityhumanrights.com/guidance/public-sector-equality-duty-psed" target="_blank" rel="noopener noreferrer">third aim of the <abbr title="Public Sector Equality Duty">PSED</abbr></a> – ‘to foster good relations between people who have protected characteristics and those who do not’. Avoiding these harms will help you uphold your duty.&nbsp;</p>
-<p>Digital technologies, especially AI, are introducing new avenues for representational harms to occur. These harms are especially prevalent in generative AI models. The many different ways that AI may manifest in different types of content (text, video, image, audio) can make it particularly difficult to identify and mitigate.</p>
-<p>For example, large language models (LLMs) are known to encode biases and stereotypes from the text that they’re trained on. This may result in displaying gender bias when describing certain job roles, or reproduce negative stereotypes associated with protected demographic groups. Meanwhile, AI models that generate images have been found to typically generate images of light-skinned men when prompted to produce images of CEOs and judges, perpetuating harmful biases.</p>
-<p>Representational harms can also emerge in data sets. For instance, over-representation of minority groups in crime statistics could result in unfair and unlawful treatment.</p>
-<p>Allocational harms are linked with the <a href="https://www.equalityhumanrights.com/guidance/public-sector-equality-duty-psed" target="_blank" rel="noopener noreferrer">first and second aims of the <abbr title="Public Sector Equality Duty">PSED</abbr></a>, and concern how resources or opportunities are distributed among society. In particular, they impact operational departments responsible for providing access to any kind of service or resource. Examples include citizen-facing services that give access to medical procedures or medicines, or structural systems like the allocation of funding to build new schools. The impact of allocational harms can include loss of opportunity, reinforcing and perpetuating inequalities, and more.</p>
-<p>You should pay particular care to any algorithm employed where there are known historical inequalities, as the available training data is likely to encode these same biases.&nbsp;</p>
-<p>Though representational and allocational harms are described as distinct areas, they often overlap in the real world. For instance, a hiring system that is biased towards hiring women into nursing roles displays both representational and allocational harms. It stereotypes nursing as a job conducted by women, and increases the likelihood that the employment opportunity is allocated to a woman.</p>
-</div>
-<h4>Understand downstream impacts</h4>
-<p>The <abbr title="Public Sector Equality Duty">PSED</abbr> and any other fairness and equality requirements that you’ve identified for your work are ongoing. It’s important for you to regularly review the impacts that your work is having on people and society.</p>
-<p>This can help you to determine whether:</p>
-<ul>
-<li>you’re delivering the intended benefits you set out to deliver through your project, and that your investment is delivering value for taxpayers’ money</li>
-<li>your project is not leading to unintended consequences, including unlawful discrimination</li>
-<li>the actions you’ve taken to mitigate negative impact and maximise positive impact are having the intended effect</li>
-</ul>
-<p>Downstream impacts can be hard to predict. User research and journey mapping can help you understand the downstream impacts of your project. Civil society organisations may be able to provide important insights on potentially impacted groups. They may also be able to support the recruitment of user research participants in difficult-to-reach communities.</p>
-<h4>Building for fairness</h4>
-<p>If you determine that the risks and impacts identified in your EIA are acceptable, you’re likely to begin assembling a team to develop your project.</p>
-<p>Having a diverse and multidisciplinary team can provide a strong foundation for building fairer tools and services. A diverse team is often able to spot issues early in the development process by bringing varied perspectives and lived experiences.</p>
-<p>If it’s not possible to assemble a diverse team, you should note any potential gaps in understanding and proactively seek ways to engage with a variety of stakeholders. This might include through user testing, public engagement and, where possible, presenting ideas at internal or external community events.</p>
-<p>You should note the potential blind spots and pay attention to these in testing and in conversation with civil society groups.</p>
-<p>You should also apply these considerations when contracting out work to third-party organisations. For example, consider the diversity of their development teams and the methods they employ to mitigate potential gaps.</p>
-<p>Fairness metrics are different ways to measure whether your data set is representative and free from bias, and whether AI systems treat people equitably. They can help to identify and quantify biases, and inform further development to ensure outcomes are not disproportionately favourable or harmful to certain demographic groups.&nbsp;</p>
-<p>You should identify fairness metrics that are relevant to your project and address the potential harms you’ve identified. These can include:</p>
-<ul>
-<li>demographic parity – where the proportion of positive or negative outcomes is the same for all groups</li>
-<li>equalised odds –&nbsp;a measurement of the accuracy of results (true-positive rate and false-positive rate) across different groups</li>
-</ul>
-<p>Fairness metrics are an evolving area. Each metric has relative strengths and weaknesses and research may uncover better methods. We recommend that you read current research on this topic to identify the most appropriate measurement for your project.</p>
-<p>If you identify bias in your data or AI system, you must identify and implement mitigation techniques to reduce the risk and potential severity of harms. Apply these techniques anywhere in your project where bias occurs, including:</p>
-<ul>
-<li>data collection and processing methods</li>
-<li>bias in any systems, including AI systems</li>
-<li>biased impacts felt downstream</li>
-</ul>
-<p>Data on demographics, particularly related to protected characteristics, can support equality monitoring and meeting your obligations under the <abbr title="Public Sector Equality Duty">PSED</abbr>. You should consider privacy here, referring to the <a href="https://www.equalityhumanrights.com/guidance/public-sector-equality-duty-and-data-protection" target="_blank" rel="noopener noreferrer">guidance on the use of personal data to support the <abbr title="Public Sector Equality Duty">PSED</abbr></a>.</p>
-<h4>Accessibility and fairness</h4>
-<p>Fairness is not just about the outputs of your data set or AI system, but also about how people interact with the project and who can access and use it.</p>
-<p>It’s important to remember that a proportion of the population does not have access to the internet or devices such as smartphones and tablets. Some groups are more at risk of being digitally excluded, including older people and people with disabilities. Some users may prefer non-digital channels.</p>
-<p>This means that certain, often vulnerable, groups may not have access to digital services or be represented in data collected through digital platforms. As a result, their needs may be entirely missed or underrepresented.</p>
-<p>You should actively conduct research with groups that may be excluded to understand their needs. You should also provide non-digital alternatives where possible, such as phone support or paper forms.</p>
-<p>All public sector websites and applications must adhere to the <a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noopener noreferrer">Web Content Accessibility Guidelines (WCAG) 2.2 requirements</a> unless they qualify for a specific <a href="https://www.legislation.gov.uk/uksi/2018/952/pdfs/uksiem_20180952_en.pdf" target="_blank" rel="noopener noreferrer">exemption</a>. Even for exempt services, the WCAG 2.2 still provides useful guidance.</p>
-<p>WCAG 2.2 provides information covering colour contrast, screen reader support, captions, and more. You should ensure that all content is written in plain language. Where appropriate, you should also make the content available in alternative languages and formats such as braille or British Sign Language. These and other similar changes may be considered <a href="https://www.equalityhumanrights.com/guidance/business/employing-people-workplace-adjustments/examples-reasonable-adjustments-practice" target="_blank" rel="noopener noreferrer">reasonable adjustments</a>. There are examples of reasonable adjustments applied to service delivery in the <a href="https://www.equalityhumanrights.com/guidance/how-consider-equality-policy-making-10-step-guide-public-bodies-england" target="_blank" rel="noopener noreferrer">EHRC’s 10-step guide</a>.&nbsp;</p>
-<h4>Data sets and labels</h4>
-<p>Fairness may be negatively impacted by bias in data sets, or bias emerging from the way a data set is transformed and used. Here are some of the ways in which your data sets may be biased.</p>
-<h4>Representation bias</h4>
-<div>
-<p>Data may be biased if it’s not representative –&nbsp;for example, not including enough examples from a particular group, or not including the group at all. This could cause higher levels of inaccuracy for impacted groups, leading to inaccurate decision making. It could also cause lower levels of performance, which may result in frustrating user experiences or barriers to accessing a service.<br><br>Minority groups are inherently more likely to be underrepresented, which may lead to compounding negative effects. In these instances, oversampling (capturing more information about the concerned group) may be beneficial.<br><br>Certain locations have historically been better researched than others. On a global scale, the Global North (North America and Europe) tends to be more represented in data sets when compared to the Global South (Africa, South Asia and Latin America). Within countries, major cities tend to be more highly represented when compared to rural areas and informal settlements.</p>
-</div>
-<h4>Societal bias</h4>
-<div>
-<p>Bias may still be present in a data set even if it’s fully representative of the population, due to biases present in our current and past society. Societal bias occurs when the data we collect, generate and use reflects discriminatory patterns present in society.</p>
-</div>
-<h4>Data aggregation bias</h4>
-<div>
-<p>This occurs when data is grouped or aggregated in a way that distorts the results of the analysis. For example, over-aggregating ethnic groups in demographic data –&nbsp;such as by only using ‘White’, ‘Black’, ‘Asian’ or ‘Other’ –&nbsp;can mask differences between groups,&nbsp;such as ‘Gypsy, Roma and Traveller (GRT) communities’.<br><br>The act of grouping data can obscure important variations and nuances present within the subgroups or individual data points, leading to a misrepresentation of the underlying relationships. Note that <a href="https://aiethics.turing.ac.uk/modules/fairness/?modulepage=design-biases" target="_blank" rel="noopener noreferrer">aggregation bias in AI</a> has a different meaning, referring to instances where trained models are applied in a one-size-fits-all manner.&nbsp;</p>
-</div>
-<h4>Measurement bias</h4>
-<div>
-<p>This arises from discrepancies between gathered data and real-world experiences or events. This can happen due to flawed measurement processes and inconsistent or inaccurate data labelling. Measurement bias may also <a href="https://aiethics.turing.ac.uk/modules/fairness/?modulepage=design-biases" target="_blank" rel="noopener noreferrer">be present in AI systems</a>.<br><br>Data labelling practices (the process of assigning a tag, name or description to data to provide additional context) can also be a source of bias. Labels may be assigned inaccurately, and improperly designed labelling schemes may make it impossible to be accurate in all cases.</p>
-</div>
-<h4>Ongoing fairness commitments</h4>
-<p>Your fairness commitments do not end once the project has gone live. Unforeseen problems may emerge in the real world. Shifts in the societal, cultural, economic and technological landscapes may mean that your project does not remain fair throughout its life cycle.</p>
-<p>It’s vital that you continue to monitor the performance of your project post-implementation, including fairness and inclusion. You should include fairness and equality clauses in contractual arrangements with any third-party suppliers. Your monitoring should include information from suppliers if aspects of your project are procured or contracted out to third-party organisations. The Local Government Association has guidance on <a href="https://www.local.gov.uk/publications/responsible-buying-how-build-equality-data-protection-your-ai-commissioning" target="_blank" rel="noopener noreferrer">responsibly buying AI</a>.</p>
-<p>You should maintain user feedback and issue reporting systems throughout the system’s life, and make these visible to users. Consider what resources you should make available throughout the life cycle of the system, to fix newly identified fairness problems and to remediate harms. You should disaggregate your investigations into this feedback to understand the impact on different groups.</p>
-<h4>Disaggregated feedback</h4>
-<p>Aggregated feedback –&nbsp;the combined feedback from all the groups on your project –&nbsp;may help explain technical aspects of the project’s performance. However, it’s unlikely to tell the full story.&nbsp;</p>
-<p>For instance, your project may involve a chatbot which receives 95% positive feedback from users. While this statistic may seem positive on the surface, it’s critical to understand which groups of people are satisfied, and which fall into the 5% that are dissatisfied. This may reveal that the dissatisfied group aligns with a particular protected characteristic. Identifying this provides an opportunity to mitigate impacts and build a fairer and more inclusive service.</p>
-<p>The <a href="https://www.gov.uk/government/collections/algorithmic-transparency-recording-standard-hub" target="_blank" rel="noopener noreferrer">Algorithmic Transparency Recording Standard (<abbr title="Algorithmic Transparency Recording Standard">ATRS</abbr>)</a> provides a way to publish information about:</p>
-<ul>
-<li>fairness metrics –&nbsp;for example, those included in your EIA</li>
-<li>activities such as testing and bias mitigations</li>
-</ul>
-<p>If your project involves an algorithmic tool that’s in scope of the standard, your transparency record could provide a strong platform to communicate the fairness attributes of your project.</p>
-<h3 id="recommended-actions-x-x">Recommended actions</h3>
-<p>Your team should:</p>
-<ul>
-<li>
-<p>define fairness –&nbsp;understanding what fairness and associated risks and opportunities mean in your project, and how you might measure that across its life cycle</p>
-</li>
-<li>
-<p>understand your users&nbsp;–&nbsp;identify the groups most likely to be positively or negatively impacted by your project, and how this relates to the protected characteristics described in the Equality Act 2010</p>
-</li>
-<li>
-<p>consider which proxies might relate to the protected characteristics in your data set and be mindful and transparent about their use and purpose</p>
-</li>
-<li>
-<p>complete an EIA and consider publishing it alongside your <abbr title="Data Protection Impact Assessment">DPIA</abbr> and <abbr title="Algorithmic Transparency Recording Standard">ATRS</abbr> record (if relevant) for transparency and accountability</p>
-</li>
-<li>
-<p>include diverse views –&nbsp;consider the diversity of your project team and any third parties you’re contracting</p>
-</li>
-<li>
-<p>collect feedback and data throughout your project to ensure that it continues to be fair and delivers its intended benefits, as society and user groups change</p>
-</li>
-<li>
-<p>regularly update your EIA</p>
-</li>
-</ul>
-<h2 id="privacy">Privacy</h2>
-<p>Privacy is a complex ethical, legal, technological and social principle. It protects individual autonomy, meaning people should have the freedom to live, think, choose, socialise and more without undue observation or interference.&nbsp;</p>
-<p>In a digital and data-driven society, personal data is routinely collected, processed and used by public sector bodies to generate insights, develop AI tools and make decisions. This impacts peoples’ privacy and needs to be protected in line with ethical and legal obligations.&nbsp;</p>
-<p>A failure to respect individuals’ privacy can lead to:</p>
-<ul>
-<li>loss of public trust</li>
-<li>harm to people, particularly vulnerable individuals</li>
-<li>regulatory risk</li>
-</ul>
-<p>Privacy is not just a legal compliance exercise, but a fundamental human right that fosters trust and empowers individuals in the digital age. This guidance explores ethical responsibilities that extend beyond legal compliance, but you must still comply with the law at all times by following:</p>
-<ul>
-<li>the <a href="https://ico.org.uk/for-organisations/data-protection-and-the-eu/data-protection-and-the-eu-in-detail/the-uk-gdpr/" target="_blank" rel="noopener noreferrer">UK General Data Protection Regulation (UK <abbr title="General Data Protection Regulation">GDPR</abbr></a>)</li>
-<li>the <a href="https://www.legislation.gov.uk/ukpga/2018/12/contents/enacted" target="_blank" rel="noopener noreferrer">Data Protection Act 2018</a>
-</li>
-<li>the <a href="https://www.gov.uk/government/collections/data-use-and-access-act-2025" target="_blank" rel="noopener noreferrer">Data (Use and Access) Act 2025</a>
-</li>
-<li>any other applicable privacy legislation</li>
-</ul>
-<h3 id="what-privacy-means-in-practice">What privacy means in practice</h3>
-<p>You must design and build privacy into your project from the start. This includes:</p>
-<ul>
-<li>the very first decisions you make about what information you intend to record</li>
-<li>every way that the data, or AI system built using this data, is used throughout your project</li>
-<li>the safe decommissioning of the system and data set</li>
-</ul>
-<p>This concept is referred to in the UK <abbr title="General Data Protection Regulation">GDPR</abbr> as <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/accountability-and-governance/guide-to-accountability-and-governance/data-protection-by-design-and-default/" target="_blank" rel="noopener noreferrer">privacy by design and default</a>.</p>
-<p>Privacy is about:</p>
-<ul>
-<li>
-<p>autonomy – citizens’ capacity to live their own lives and make decisions based on their own motives and reasons, free from external manipulation (provided actions are within the law)</p>
-</li>
-<li>
-<p>confidentiality&nbsp;–&nbsp;data can be both sensitive and private, and confidentiality is the duty to ensure it’s only shared in appropriate and authorised ways</p>
-</li>
-</ul>
-<p>dignity – this is about the intrinsic value of all people, not as data points, but as people; it means ensuring that any methods of data collection, processing and use of AI do not exploit, humiliate or dehumanise people</p>
-<h4>Purpose and benefit in the context of data protection</h4>
-<p>Before you start collecting, sharing or using data, you should clearly understand:</p>
-<ul>
-<li>why you’re processing the data (the purpose)</li>
-<li>what public benefit this will bring</li>
-</ul>
-<p>The scope of your project should be strictly limited to your identified purpose throughout its life cycle. You should:</p>
-<ul>
-<li>
-<p>engage with your organisation’s data protection officer (DPO)</p>
-</li>
-<li>
-<p>consider whether your purpose could be easily understood by someone with no technical background in the domain –&nbsp;people must be able to understand your project so they can provide clear, informed and unambiguous consent</p>
-</li>
-<li>clearly record the purpose and benefit of your project&nbsp;–&nbsp;for example, who benefits, and how you’ll know if you achieve your aims
-    <ul>
-<li>examples of measures could include cost savings, reduced waiting times or the number of people who receive support</li>
-</ul>
-</li>
-<li>explain why AI is the right tool for this purpose, if your project uses AI</li>
-</ul>
-<p>Articulating and recording your purpose and public benefit at this stage can help to avoid scope creep and may help you comply with regulation such as the UK <abbr title="General Data Protection Regulation">GDPR</abbr>.</p>
-<h3 id="scoping-and-data-acquisition">Scoping and data acquisition</h3>
-<p>If your project involves the collection or use of any personal data, you should start by:</p>
-<ul>
-<li>establishing precisely what information you need to meet your purpose</li>
-<li>creating a high-level map of your data flow before this begins –&nbsp;for example, a document that lists each data element as a line item, and records why it’s necessary, proportionate and what the effect would be if it was not used</li>
-</ul>
-<p>The data you request and acquire must be adequate, relevant and limited to what is necessary in relation to the purposes for which it is processed. This is known as data minimisation. The Information Commissioner’s Office has guidance on <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-protection-principles/a-guide-to-the-data-protection-principles/data-minimisation/" target="_blank" rel="noopener noreferrer">data minimisation</a>, including how to determine if the use of data is adequate, relevant and limited.</p>
-<p>Consider whether you could use anonymised or <a href="https://www.gov.uk/government/publications/ai-insights/ai-insights-synthetic-data-html" target="_blank" rel="noopener noreferrer">synthetic data</a> to replace some or all of the personal data your project requires. If personally identifiable information is essential for your project, ensure that the risks are proportional to the benefits.</p>
-<p>Your project might not itself gather or process personal data. For example, if you procure an AI model from a third party or use a pre-trained model. Here you must still ensure that any personal data used to train these models meets your privacy standards and complies with relevant legislation. The UK Statistics Authority (UKSA) provides an <a href="https://uksa.statisticsauthority.gov.uk/publication/ethical-considerations-relating-to-the-creation-and-use-of-synthetic-data/pages/6/" target="_blank" rel="noopener noreferrer">Ethics Checklist</a> relating to the creation and use of synthetic data which may support these decisions.</p>
-<p>The Local Government Association has guidance on <a href="https://www.local.gov.uk/publications/responsible-buying-how-build-equality-data-protection-your-ai-commissioning" target="_blank" rel="noopener noreferrer">responsibly buying AI</a> which discusses data protection.</p>
-<h3 id="privacy-by-design-and-default">Privacy by design and default</h3>
-<p>There are 2 main principles to guide the development of your system or service:</p>
-<ul>
-<li>
-<p>privacy by design – making design and development decisions from the very start that enhance privacy objectives</p>
-</li>
-<li>
-<p>privacy by default - ensuring that default settings for the product or service are the most privacy-preserving options</p>
-</li>
-</ul>
-<p><a href="https://www.gov.uk/government/publications/privacy-enhancing-technologies-cost-benefit-awareness-tool/cost-benefit-awareness-tool" target="_blank" rel="noopener noreferrer">Privacy enhancing technologies (PETs)</a> can help to achieve a privacy-by-design approach.</p>
-<p>Transparency can also support privacy. Design methods and notices to explain:</p>
-<ul>
-<li>what data you collect</li>
-<li>why you need the data</li>
-<li>how the data is used</li>
-<li>how long the data will be stored for</li>
-</ul>
-<p>A good principle to uphold is that nobody should be surprised about how their data is being used.</p>
-<p>AI systems require greater attention and introduce new risks. For example, AI systems may re-identify individuals that were believed to be anonymised by linking information with other data sets, or information made available when it was trained. In addition, large language model (LLM) tools like ChatGPT, Claude, Gemini or Copilot may ‘memorise’ sensitive or personal information contained within their training data sets and leak this private information during their operation.</p>
-<p>To mitigate this risk we recommend that you:&nbsp;</p>
-<ul>
-<li>treat all models that have been trained on data about people as though they potentially contain personally identifiable data, and make security and risk-based decisions accordingly</li>
-<li>where appropriate, manage access via an <a href="https://www.gov.uk/service-manual/technology/application-programming-interfaces-apis" target="_blank" rel="noopener noreferrer">Application Programming Interface (API)</a> to limit information leakage, and apply PETs such as Trusted Research Environments to protect data sets</li>
-<li>integrate re-identification risk into your security and risk management processes</li>
-</ul>
-<h3 id="test-and-validate">Test and validate&nbsp;</h3>
-<p>Before going live with a new service, you must thoroughly test to ensure that it works as intended and does not introduce new privacy risks.&nbsp;</p>
-<p>You should conduct testing throughout the build phases, and repeat it after your service goes live. This is particularly important if any changes are made to the system, data source(s), or when there are significant societal changes that may impact the service.</p>
-<p>Where possible, you should conduct tests with anonymised or synthetic data. If it’s necessary to test with personal data, make sure you do this in a secure environment with strict limitations on access.</p>
-<p>Red teaming exercises may help to probe the service or AI system. Pay particular attention to any:</p>
-<ul>
-<li>data that may be exposed which links the protected characteristics as defined in the <a href="https://www.gov.uk/guidance/equality-act-2010-guidance" target="_blank" rel="noopener noreferrer">Equality Act 2010</a>
-</li>
-<li>health and location data</li>
-<li>data that may relate to vulnerabilities</li>
-</ul>
-<p>The <a href="https://www.ncsc.gov.uk/" target="_blank" rel="noopener noreferrer">National Cyber Security Centre</a> has guidance on protecting personal data, including the <a href="https://www.ncsc.gov.uk/collection/cyber-assessment-framework" target="_blank" rel="noopener noreferrer">Cyber Assessment Framework</a>.</p>
-<h3 id="be-transparent-and-give-users-control">Be transparent and give users control</h3>
-<p>Users who are impacted by your service should be able to understand what information you collect, including:</p>
-<ul>
-<li>what it will be used for</li>
-<li>how long you’ll retain it</li>
-<li>how they can manage their privacy settings</li>
-</ul>
-<p>This information should be clearly available at the point of use. Use clear and accessible language in privacy documentation, avoiding jargon and legalistic terms where possible. When interacting with the public, we recommend offering configurable privacy options. A good rule of thumb is to make it as easy to opt-in as it is to opt-out, give people free choices and respect users’ autonomy. You can also review previous <a href="https://www.bi.team/publications/active-online-choices-designing-to-empower-users-2/" target="_blank" rel="noopener noreferrer">government research</a> into how different ways of collecting consent can impact users’ behaviour and enable ‘active’ online choices.</p>
-<p>There are basic requirements for consent to be legally valid. It must be properly informed, freely given, specific and unambiguous. If you rely on the consent of data subjects, you also need to:</p>
-<ul>
-<li>provide an effective and straightforward way for them to withdraw their consent</li>
-<li>tell users what withdrawal means for the service they receive</li>
-</ul>
-<p>The concept of ‘freely given consent’ implies providing a real choice for the data subject. Any element of inappropriate pressure or influence which could affect the outcome of that choice renders the consent invalid. The law takes a certain imbalance between the controller and the data subject into consideration.</p>
-<p>For example, in an employer-employee relationship the employee may worry that refusal to consent may have negative consequences for their employment relationship. Similar issues of imbalance arise between people and the state, where there is little or no choice for people when it comes to many public services. For example, there’s no alternative when it comes to seeking welfare benefits, or applying for a passport. Here, consent can only be a valid lawful basis for processing in a few exceptional circumstances.</p>
-<p>We also encourage a privacy-by-default approach, where the most privacy-preserving settings are enabled by default unless the user decides to choose otherwise.</p>
-<p>Transparency extends beyond privacy notices. You should design processes to ensure users understand how their data is being used at every point. This builds trust and supports informed consent.&nbsp;</p>
-<p>You should review your service at important points, including milestones and significant updates. This will ensure that you’re still achieving your intended goals and aligning users with your use of data. Even if your service does not change, societal expectations may.</p>
-<h3 id="plan-for-and-respond-to-data-breaches">Plan for and respond to data breaches</h3>
-<p>Even with strong safeguards, it’s impossible to guarantee that breaches will never happen. Prepare in advance to ensure you have answers to the following questions:</p>
-<ul>
-<li>who investigates suspected breaches and how?</li>
-<li>how can you contain potential breaches and secure data?</li>
-<li>how will you inform impacted users of a breach?</li>
-<li>what support will you offer to anyone harmed by a breach?</li>
-</ul>
-<p>A well-handled breach can reduce or eliminate harm and preserve public trust, while a poorly handled one may cause lasting damage.</p>
-<p>Ensure that your safeguards and processes evolve and adapt to a changing threat landscape.&nbsp;</p>
-<h3 id="decommissioning">Decommissioning</h3>
-<p>You must retire all platforms at an appropriate time.</p>
-<p>This may be when:</p>
-<ul>
-<li>the service is no longer needed</li>
-<li>your purpose is better met, or greater public benefit is achieved, with a new service</li>
-<li>the public benefit of the current system is no longer meeting social expectations</li>
-</ul>
-<p>When decommissioning a service, make sure you honour data retention limits, including any data which has been stored or processed by third-party organisations.&nbsp;</p>
-<p>Where there’s a legal duty or other obligation to retain certain data, ensure this is done securely and with strict access controls, and that confidentiality is protected.</p>
-<p>We encourage teams to record, and publish in their internal knowledge bases, any lessons learned about:</p>
-<ul>
-<li>how privacy risks were managed</li>
-<li>public attitudes towards data sharing and AI –&nbsp;ensuring that these findings are aligned with any agreements that were in place with research participants</li>
-</ul>
-<h3 id="recommended-actions-x-x-x">Recommended actions</h3>
-<p>Your team should:</p>
-<ul>
-<li>
-<p>involve information governance teams early in the project design process –&nbsp;this will help you to comply with privacy and data protection legislation, and plan resources effectively so that support is available for project teams when needed</p>
-</li>
-<li>
-<p>record the purpose and benefit to understand why any data collection is necessary and whether it’s balanced against privacy risks, and use this record to ensure your project does not grow beyond its defined scope</p>
-</li>
-<li>
-<p>embed privacy by design and default from the outset –&nbsp;undertake a Data Protection Impact Assessment (<abbr title="Data Protection Impact Assessment">DPIA</abbr>) to access and mitigate against data privacy risks</p>
-</li>
-<li>
-<p>adopt data minimisation techniques –&nbsp;ensure that the data you collect and process is the lowest amount required to achieve your purpose</p>
-</li>
-<li>
-<p>facilitate data subjects’ rights –&nbsp;build in mechanisms for data access and correction, and ensure consent is informed and meaningful</p>
-</li>
-<li>
-<p>use PETs where possible, applying techniques such as anonymisation or the use of synthetic data</p>
-</li>
-<li>share data responsibly by having a robust, privacy-preserving governance regime that safeguards:
-    <ul>
-<li>security</li>
-<li>lawful basis</li>
-<li>explicit retention or deletion protocols,</li>
-<li>provisions that secure individuals’ privacy and data protection rights as part of sharing agreements and records</li>
-</ul>
-</li>
-<li>consider the impact of AI –&nbsp;explore additional privacy risks that AI systems may introduce, such as re-identification of individuals in data sets
-    <ul>
-<li>using public AI tools, such as ChatGPT, can increase the risk of data leakage</li>
-</ul>
-</li>
-<li>
-<p>be transparent by providing clear privacy notices that tell users exactly how their data is being used and their options, and give users a free choice to configure settings</p>
-</li>
-<li>
-<p>prepare for breaches –&nbsp;develop clear plans and assign responsibilities to investigate and tackle any suspected data breaches</p>
-</li>
-<li>plan for decommissioning –&nbsp;create plans for data archival or deletion at an appropriate time, considering how long the data will be needed for the service you’re providing and the life cycle of your project</li>
-</ul>
-<h2 id="environmental-sustainability">Environmental sustainability</h2>
-<p>Environmental sustainability means thinking about the wider impact of your project on people and the planet, and being mindful about the resources you use every day. It’s important to consider this from the start, as it can influence your choices about tools, suppliers and infrastructure.</p>
-<p>For data and AI projects, acting sustainably means:</p>
-<ul>
-<li>using only the necessary resources</li>
-<li>protecting natural resources and using them responsibly</li>
-<li>designing systems that last and are easy to maintain</li>
-</ul>
-<p>Sustainability also includes social responsibility. This means supporting inclusion, fairness and human rights in how technologies are designed, manufactured, used and disposed of.</p>
-<h3 id="what-environmental-sustainability-means-in-practice">What environmental sustainability means in practice</h3>
-<p>Data and AI can support environmental goals, such as predicting weather patterns or monitoring biodiversity levels. However, developing and training AI models, especially large language models (LLMs), requires the use of critical minerals, energy, water and computing resources.</p>
-<p>This means that you should consider environmental impact:</p>
-<ul>
-<li>at every level in your organisation –&nbsp;from analysts to senior decision-makers</li>
-<li>across the entire life cycle of your tool or project –&nbsp;including when it is decommissioned or handed over to another team</li>
-</ul>
-<p>The complex supply chains of data-driven technologies, and the natural resources required to build them, mean they can have a long-lasting impact on people and the planet. For example, the mining of raw materials to build computing chips and other AI infrastructure. This has a significant environmental cost and impact on the health and wellbeing of workers and affected communities.</p>
-<p>Setting clear sustainability objectives and using greener software practices will help make sustainability a core part of your project design.</p>
-<p>You should also consider whether there’s a reasonable trade-off between the benefits of your tool or system and its environmental impact. There may be trade-offs between different ethical principles. For example, the use of a more energy-intensive algorithm that’s also more explainable, or that brings wider benefits and value to the public. Make sure you clearly document when you’ve made decisions about trade-offs, and the governance processes you used.</p>
-<h3 id="measuring-monitoring-and-evaluating-environmental-impact">Measuring, monitoring and evaluating environmental impact</h3>
-<p>Sustainability reporting for cloud and wider digital services is an evolving area where research and development is ongoing. This means it may be challenging to identify appropriate metrics, and the reliability of reporting may differ across suppliers. The following tools and methods will provide you with a starting point.</p>
-<p>Before you begin building a tool or system, think about:</p>
-<ul>
-<li>whether AI is the best technology or tool for the task – there may be alternatives that provide as good, or better, results and require less resource-intensive training and development</li>
-<li>project size and complexity – how much data will be processed, the number of end users, bandwidth and latency requirements, prompt efficiency</li>
-<li>software requirements – including model type&nbsp;</li>
-<li>hardware requirements – such as data centre usage or Internet of Things (IoT) devices</li>
-</ul>
-<p>There are various environmental factors that you should monitor and manage across the life cycle of your project.</p>
-<div>
-<p><strong>Electricity consumption</strong><br>Data centres use large amounts of electricity for running servers and data processing. Some even use fossil fuel-based generators due to a lack of capacity in local grids. Using electricity results in the release of greenhouse gases such as carbon dioxide (CO2), methane and nitrous oxide, which contribute to climate change.</p>
-</div>
-<div>
-<p><strong>Water consumption</strong><br>For example, data centres require significant amounts of fresh water for cooling systems and to avoid hardware failure.</p>
-</div>
-<div>
-<p><strong>Consumption of raw materials</strong><br>The mining of raw materials, for example to build computing chips and other AI infrastructure, has a significant environmental cost and impact on the health and wellbeing of workers and affected communities.</p>
-</div>
-<div>
-<p><strong>E-waste</strong><br>Electronic waste (e-waste) from discarded electrical devices contains rare earth materials such as neodymium; if not disposed of properly, these materials can contaminate soil and water, and release noxious gases into the atmosphere, posing extremely harmful risks to biodiversity, human health and the environment.</p>
-</div>
-<p>In your project, consider how the following may impact resource consumption:</p>
-<ul>
-<li>
-<p>data set size – large data sets require more energy to store and process, especially when used to train AI systems, and you should also consider the impact of the resolution or bit rate of the data sets</p>
-</li>
-<li>
-<p>data type –&nbsp;generating or handling high-volume text (for example, training LLMs), video or image data is typically more energy-intensive than other data types because it requires more intensive computing, memory and bandwidth workloads</p>
-</li>
-<li>
-<p>data velocity –&nbsp;high-velocity data (such as real-time streaming) increases compute load</p>
-</li>
-<li>
-<p>architecture –&nbsp;using technologies like virtualisation can reduce energy consumption, hardware needs and associated resource demands by allowing data to be accessed and queried without the need for transfer or duplication; adopting modular design can help promote reuse and reduce future resource consumption</p>
-</li>
-<li>
-<p>storage – data storage has an ongoing carbon footprint, primarily in data centres, due to the continuous generation of heat and use of water and electricity to run them; establishing and running data centres also involves biodiversity loss from land clearing, droughts caused by fresh water extraction, e-waste and pollutants</p>
-</li>
-<li>
-<p>model type – multi-purpose, generative architectures typically use more resources than task-specific systems; you should always explore different options, including not using AI at all, before choosing a technical approach</p>
-</li>
-<li>
-<p>model size – LLMs and other generative AI systems generally require more energy and emit more carbon compared to running a single prediction on a trained model</p>
-</li>
-<li>location – try to run algorithms in locations with higher uses of renewable energy to reduce your carbon footprint
-    <ul>
-<li>you can use electricity maps to understand the electricity usage and emissions of different regions</li>
-<li>you should adhere to any relevant data residency rules if selecting a server location based on energy mix</li>
-</ul>
-</li>
-<li>time of day – the source of energy on the grid changes during the day; where it’s viable, you can make carrying out computationally complex processing tasks more environmentally friendly by shifting the time they take place, even by a few hours, to when energy generation is cleaner</li>
-</ul>
-<h4>Selecting metrics</h4>
-<p>You should select appropriate metrics and key performance indicators (KPIs) that can be tracked over time. There are several ways of quantifying environmental impact across the development and deployment phases of a project.</p>
-<p>Common metrics include:</p>
-<ul>
-<li>carbon footprint (CO2-equivalent emissions)</li>
-<li>energy consumption (measured kilowatt-hour or kWh)</li>
-<li>compute efficiency (for example, FLOPs per watt – how many calculations a system can perform for every watt of power it uses)</li>
-<li>water consumption (measured in litres)</li>
-</ul>
-<p>There are some open-source tools that can help to analyse and measure the environmental impact of a data or AI project:</p>
-<ul>
-<li>
-<a href="https://digitaldecarb.org/data-carbon-ladder/" target="_blank" rel="noopener noreferrer">Data Carbon Ladder</a> can provide an estimated data CO2 footprint for your project, highlighting areas to improve to minimise environmental impact&nbsp;–&nbsp;this tool is particularly useful at the project planning stage</li>
-<li>
-<a href="https://codecarbon.io/" target="_blank" rel="noopener noreferrer">CodeCarbon</a> is a software package that integrates into your Python codebase; it estimates the amount of CO2 produced by the cloud or personal computing resources used to execute the code</li>
-<li>
-<a href="https://mlco2.github.io/impact/" target="_blank" rel="noopener noreferrer">ML CO2 Impact</a> is a free machine learning emissions calculator which provides information about the raw carbon emissions produced and the approximate offset carbon emissions of a given project</li>
-<li>
-<a href="https://ojs.aaai.org/index.php/AAAI/article/view/26686" target="_blank" rel="noopener noreferrer">Carburacy</a> is a carbon-aware accuracy measure for evaluating the eco-sustainability of Natural Language Processing (NLP) models</li>
-<li>
-<a href="https://ecologits.ai/latest/" target="_blank" rel="noopener noreferrer">EcoLogits</a> is a tool that can help to track the energy consumption and environmental impacts of using generative AI models through APIs</li>
-</ul>
-<p>It’s important to note that there are often trade-offs when selecting particular metrics over others, and some impacts will be harder to quantify. For example, carbon emissions may be more easily tracked but neglect a tool’s broader impact, like water usage or impact on local communities.</p>
-<h4>Minimising environmental impact</h4>
-<p>There’s no one-size-fits-all approach to minimising your environmental impact, but even small actions can make a big difference. Depending on your project, there are many ways to make a positive change.</p>
-<p>If you’re handling or analysing data, you should:</p>
-<ul>
-<li>
-<p>minimise the data you’re collecting and using&nbsp;–&nbsp;collect only the data necessary to meet the research or project objectives</p>
-</li>
-<li>
-<p>use data compression and aggregation to reduce storage and bandwidth requirements –&nbsp;for example, compressing data before transmission (using formats like GZIP or Parquet) can help to save bandwidth</p>
-</li>
-<li>
-<p>regularly review whether the data you hold to help reduce its volume –&nbsp;consider whether there’s any redundant, obsolete or trivial (ROT) data that can be safely deleted</p>
-</li>
-<li>
-<p>avoid re-running entire pipelines –&nbsp;use incremental workflows which only re-process new or changed data</p>
-</li>
-<li>
-<p>use cloud storage tiers, scaling and right-sizing instances –&nbsp;this can help to optimise data storage allocation by, for example, automatically moving infrequently accessed (‘cold’) data to lower-energy storage</p>
-</li>
-<li>
-<p>use narrow prompts for generative AI tools – shorter or more focused prompts typically result in less processing time and improved accuracy of responses</p>
-</li>
-<li>
-<p>use techniques such as virtualisation to reduce duplication</p>
-</li>
-<li>
-<p>design modular components for potential reuse in future projects</p>
-</li>
-</ul>
-<p>If you’re building AI or algorithmic tools (including using pre-trained models), you should:<br>
-- consider reuse –&nbsp;where you can meet the requirements of your project lawfully and safely, consider reusing existing models or services (for example, open source, or models trained for previous projects) over building and retraining from scratch</p>
-<ul>
-<li>
-<p>explore how you might be able to achieve comparable results using a smaller data set –&nbsp;for model training, evaluate whether a curated subset can achieve similar performance compared to using a full data set</p>
-</li>
-<li>
-<p>use smaller models for specific tasks – this can help to reduce cost and power consumption, making the technology easier to deploy</p>
-</li>
-<li>
-<p>use model optimisation techniques to improve performance, efficiency and accuracy –&nbsp;this might include quantisation (converting input values to smaller output values to reduce compute and memory requirements) or model pruning to remove unused or unnecessary parameters</p>
-</li>
-<li>
-<p>clean up unused resources, such as idle or outdated coding notebooks</p>
-</li>
-<li>
-<p>introduce early stopping rules to stop training when a model’s performance plateaus –&nbsp;this can prevent redundant training cycles</p>
-</li>
-<li>
-<p>find out about the environmental credentials of models –&nbsp;if you’re using open-source models, you can find information on environmental impact on the <a href="https://huggingface.co/open-llm-leaderboard" target="_blank" rel="noopener noreferrer">Hugging Face open LLM Leaderboard</a> or <a href="https://ecologits.ai/latest/" target="_blank" rel="noopener noreferrer">EcoLogits</a>&nbsp;</p>
-<ul>
-<li>if you cannot find information about a particular model, consider whether you could achieve similar results with a more transparent alternative</li>
-</ul>
-</li>
-</ul>
-<p>If you’re using a third party supplier, you should:</p>
-<ul>
-<li>
-<p>include sustainability as a criteria during the supplier selection process&nbsp;–&nbsp;ask about the energy consumption and carbon footprint of the AI models and infrastructure before engaging a service</p>
-</li>
-<li>
-<p>find information about the broader ethical practices of the organisation, such as labour standards and sustainability commitments –&nbsp;be aware of potential greenwashing terms and practices</p>
-</li>
-<li>
-<p>ask suppliers what happens to hardware at the end of life&nbsp;–&nbsp;for example, if hardware is refurbished, donated or responsibly recycled</p>
-</li>
-</ul>
-<p>The <a href="https://www.gov.uk/service-manual" target="_blank" rel="noopener noreferrer">Service Manual</a> also has guidance on how to build more <a href="https://www.gov.uk/service-manual/design/environmentally-sustainable-services" target="_blank" rel="noopener noreferrer">environmentally sustainable digital services</a> in government.</p>
-<h3 id="recommended-actions-x-x-x-x">Recommended actions</h3>
-<p>Your team should:</p>
-<ul>
-<li>
-<p>explore and evaluate alternative solutions –&nbsp;the latest technology or innovation isn’t always best for the job, so explore different options, including simple and low-energy options, before selecting an approach</p>
-</li>
-<li>
-<p>consider reuse of existing models – advocate for the use of open-source models where source code, data and model weights are available for community reuse, rather than using energy to retrain or build similar models</p>
-</li>
-<li>
-<p>select suitable metrics for measuring and assessing environmental impact –&nbsp;this can be a complex task but is vital for ensuring proper stewardship of data and AI projects</p>
-</li>
-<li>
-<p>evaluate the sustainability credentials and practices of third-party providers, including their use of renewable energy</p>
-</li>
-<li>
-<p>raise awareness about the environmental and social impact of digital technologies –&nbsp;share knowledge with colleagues and look for opportunities to bring sustainability into training and discussions</p>
-</li>
-</ul>
-<h2 id="societal-impact">Societal impact</h2>
-<p>The use of data and AI is already changing how people live and work. For example, the accessibility of tools such as ChatGPT has started to reshape how we undertake daily tasks. These rapid changes raise important questions about how digital technologies are used, and how they affect society.</p>
-<p>Societal impact refers to the effects that data and AI can have on individuals, communities, social structures and economies. This includes both positive and negative impacts.</p>
-<p>For example, adopting chatbots in public sector call centres might reduce costs, boost productivity and allow for faster handling of cases. However, it can also lead to job losses, or create a less personal relationship between government and the public that leaves citizens feeling disempowered.</p>
-<p>Taking care to respect other principles such as privacy and fairness can have wider societal impacts, building trust and improving education and health outcomes.</p>
-<p>Even relatively simple technical solutions can have significant societal impact. For example, an automated form that checks eligibility for a service might unintentionally exclude people if it does not account for different living situations or types of identification. This could stop people from getting the support they need and reduce trust in public services.</p>
-<h3 id="what-societal-impact-means-in-practice">What societal impact means in practice</h3>
-<p>To understand how data and AI can impact society, you need to understand the broader social and technical context in which they are used and built.</p>
-<p>For example, the context and mechanisms of data collection can have a significant impact on who is, and is not, represented in a data set. As a result, an entire group of people might be excluded or underrepresented. In the context of government, this could lead to poor or even discriminatory policy decisions.</p>
-<p>Both complex supply chains and resource usage of data and AI have a significant societal impact. This includes the displacement of local communities, and food and water scarcity in already vulnerable parts of the world. You must consider what knock-on effects your project might have on communities.</p>
-<p>Proactive public and stakeholder engagement is critical to understand the potential societal impact of a tool or system. Engaging with stakeholders can help to build trust and improve adoption of AI tools and systems.</p>
-<p>You should consider:</p>
-<ul>
-<li>how data was collected and processed</li>
-<li>who technology affects and how</li>
-<li>how and where data or a particular technology is used</li>
-<li>how a data-driven system is designed and built</li>
-</ul>
-<p>Data and AI tools can help improve public services and benefit society. However, they also raise societal risks that must be managed, such as:</p>
-<ul>
-<li>
-<p>unfair treatment – the use of data or AI systems can lead to unequal outcomes, such as people being treated differently based on race, gender or other protected characteristics</p>
-</li>
-<li>
-<p>misinformation and disinformation – AI tools can be used to create misleading or deliberately false content, including text and images, which is then circulated online at scale; this can contribute to the spread of hate speech, in some cases causing widespread distrust and political violence</p>
-</li>
-<li>
-<p>changes to jobs – automation may reduce demand for some roles and increase the need for new skills; the increased adoption of AI tools has the potential to reshape the world of work, including work becoming less fulfilling</p>
-</li>
-<li>
-<p>changes to relationships – using technology can change the way people relate to each other, removing opportunities for care, connection and community that can combat loneliness and build trust and community cohesion</p>
-</li>
-<li>
-<p>ownership of creative work – the use of generative AI, typically trained on web-scraped data, such as original images and academic articles, raises legal questions about intellectual property and the ownership of content</p>
-</li>
-<li>
-<p>power imbalances – the information about many AI tools is not transparent or accessible; this can give more control to those who build or use them, and less to those affected, leading to distrust, disaffection and disempowerment</p>
-</li>
-<li>
-<p>adverse impacts on human rights and fundamental freedoms – irresponsibly designed or misused AI technologies can, among other things:</p>
-<ul>
-<li>harm human dignity</li>
-<li>damage physical, psychological and moral integrity</li>
-<li>undermine freedoms of expression and assembly</li>
-<li>infringe on the right to private and family life</li>
-</ul>
-</li>
-</ul>
-<h4>Understanding stakeholders</h4>
-<p>To understand your project’s societal impact, identify who could be affected and how. The act of public engagement can help to build trust and improve adoption of new tools and services.</p>
-<p>At the start of your project, you should make sure that:</p>
-<ul>
-<li>your project has a clear purpose</li>
-<li>there’s a clear public benefit</li>
-<li>you’re designing with humans in mind and in a human-centred way</li>
-</ul>
-<p>Ethical use of data and AI means listening to different perspectives and checking that your tools work as intended. Otherwise, you could unintentionally exclude people or cause harm.</p>
-<p>You should ask:</p>
-<ul>
-<li>who could be negatively or positively affected?&nbsp;</li>
-<li>do the risks outweigh the expected benefits?</li>
-<li>how are the risks and benefits distributed across different groups?&nbsp;</li>
-<li>what might be the long-term consequences?</li>
-</ul>
-<p>To better understand the lived experiences of users, it can be helpful to use qualitative and <a href="https://www.gov.uk/guidance/ethnographic-study-qualitative-studies" target="_blank" rel="noopener noreferrer">ethnographic methods</a> such as observations, informal conversations or interviews. Think about how different people experience services, including colleagues who will be using the tools.</p>
-<p>Consider:</p>
-<ul>
-<li>age</li>
-<li>disability</li>
-<li>gender reassignment</li>
-<li>marriage and civil partnership</li>
-<li>pregnancy and maternity</li>
-<li>race</li>
-<li>religion or belief</li>
-<li>sex and sexual orientation</li>
-<li>income</li>
-<li>access to technology</li>
-<li>other attributes relevant to your project</li>
-</ul>
-<p>To better understand the views of, or potential impacts on, wider stakeholders and the public, consider proactive stakeholder or public engagement. For a helpful overview, refer to the <a href="https://aiethics.turing.ac.uk/modules/sustainability-1/?modulepage=stakeholder-engagement" target="_blank" rel="noopener noreferrer">Alan Turing Institute’s stakeholder engagement overview</a> or <a href="https://connectedbydata.org/topics/participation" target="_blank" rel="noopener noreferrer">resources from Connected by Data</a>.</p>
-<p>You should factor in ways to empower the public and workers who may be using data and AI tools. To adopt AI safely and effectively, teams should have:</p>
-<ul>
-<li>suitable training and resources</li>
-<li>a working environment that considers and prioritises broader ‘human’ factors –&nbsp;including cultural shifts, organisational change and skill development</li>
-</ul>
-<p>To learn more, refer to the guidance on <a href="https://www.gov.uk/government/publications/a-human-centred-approach-to-scaling-and-de-risking-ai-tools/the-people-factor-a-human-centred-approach-to-scaling-ai-tools-html" target="_blank" rel="noopener noreferrer">a human-centred approach to scaling AI tools</a>.</p>
-<p>You should continually revisit user needs throughout your project. The Service Manual explains more about <a href="https://www.gov.uk/service-manual/user-research/start-by-learning-user-needs" target="_blank" rel="noopener noreferrer">user needs</a>.</p>
-<h4>Identifying harms and benefits</h4>
-<p>A practical way to identify the harms and benefits of a data or AI project is to bring teams and affected people and communities together to discuss:</p>
-<ul>
-<li>the intended and unintended consequences of the system</li>
-<li>what could go wrong</li>
-<li>what can be done to mitigate risks</li>
-</ul>
-<p>Not all harms and potential impacts are obvious. You should factor in time during the project planning stage to run workshops, following practices such as The <a href="https://www.gov.uk/government/publications/the-model-for-responsible-innovation/the-model-for-responsible-innovation" target="_blank" rel="noopener noreferrer">Model for Responsible Innovation</a> or <a href="https://doteveryone.org.uk/project/consequence-scanning/" target="_blank" rel="noopener noreferrer">Consequence Scanning</a>. The Model for Responsible Innovation is a practical tool created by the Department for Science, Innovation and Technology (DSIT) to help teams across the public sector to innovate responsibly with data and AI. You can use the model to run red teaming workshops with teams developing data-driven technology.</p>
-<p>Horizon or risk scanning workshops can help to create an open dialogue, so team members, colleagues and external stakeholders can raise concerns and ideas. As part of this scanning, include structured reflection on the team’s perspectival limitations and stakeholder diversity to mitigate blind spots. Often, project teams do not sufficiently reflect the social and demographic characteristics of affected groups. This can limit inclusion of impacted viewpoints and reduce the ability to identify, understand and weigh risks, benefits and trade‑offs.</p>
-<p><a href="https://www.gov.uk/government/publications/a-guide-to-inclusive-social-research-practices/a-guide-to-inclusive-social-research-practices" target="_blank" rel="noopener noreferrer">Positionality‑aware</a> analysis, coupled with meaningful engagement, can surface concerns and opportunities more effectively and equitably. Adopting this reflective and inclusive approach can help to:</p>
-<ul>
-<li>identify risks before they happen</li>
-<li>make more informed decisions about design and use</li>
-<li>align projects more closely with organisational and societal values</li>
-<li>build systems that are safer, more trustworthy and more contextually responsive to user needs and interests</li>
-</ul>
-<h4>Continuous monitoring and evaluation</h4>
-<p>Usually, the full effect of a project or tool is not fully known during design and development. This means teams may miss risks or unintended consequences until the system is used in the real world.</p>
-<p>You should continuously monitor for potentially harmful societal impacts, and actively address them. This includes:</p>
-<ul>
-<li>
-<p>providing ways for users and other stakeholders to give feedback –&nbsp;such as adding a feedback form to a service or webpage, or running follow-up user research sessions</p>
-</li>
-<li>
-<p>making adjustments based on user engagement and testing – such as adapting your design or approach when you identify risks</p>
-</li>
+<p>
+      The AI RMF 1.0 is being updated. A revised version is in progress.
+    </p>
+<h2 id="h-appendix-b-how-ai-risks-differ-from-traditional-software-ris">
+    Appendix B: How AI Risks Differ from Traditional Software Risks
+  </h2>
+<i> Excerpt from the NIST AI Risk Management Framework 1.0 (2023).</i>
+<p>
+    As with traditional software, risks from AI-based technology can be bigger
+    than an enterprise, span organizations, and lead to societal impacts. AI
+    systems also bring a set of risks that are not comprehensively addressed by
+    current risk frameworks and approaches. Some AI system features that present
+    risks also can be beneficial. For example, pre-trained models and transfer
+    learning can advance research and increase accuracy and resilience when
+    compared to other models and approaches. Identifying contextual factors in
+    the
+    <strong>map</strong>
+    function will assist AI actors in determining the level of risk and
+    potential management efforts.
+  </p>
+<p>
+    Compared to traditional software, AI-specific risks that are new or
+    increased include the following:
+  </p>
+<ul>
+<li>
+<p>
+        The data used for building an AI system may not be a true or appropriate
+        representation of the context or intended use of the AI system, and the
+        ground truth may either not exist or not be available. Additionally,
+        harmful bias and other data quality issues can affect AI system
+        trustworthiness, which could lead to negative impacts.
+      </p>
+</li>
+<li>
+<p>
+        AI system dependency and reliance on data for training tasks, combined
+        with increased volume and complexity typically associated with such
+        data.
+      </p>
+</li>
+<li>
+<p>
+        Intentional or unintentional changes during training may fundamentally
+        alter AI system performance.
+      </p>
+</li>
+<li>
+<p>
+        Datasets used to train AI systems may become detached from their
+        original and intended context or may become stale or outdated relative
+        to deployment context.
+      </p>
+</li>
+<li>
+<p>
+        AI system scale and complexity (many systems contain billions or even
+        trillions of decision points) housed within more traditional software
+        applications.
+      </p>
+</li>
+<li>
+<p>
+        Use of pre-trained models that can advance research and improve
+        performance can also increase levels of statistical uncertainty and
+        cause issues with bias management, scientific validity, and
+        reproducibility.
+      </p>
+</li>
+<li>
+<p>
+        Higher degree of difficulty in predicting failure modes for emergent
+        properties of large-scale pre-trained models.
+      </p>
+</li>
+<li>
+<p>
+        Privacy risk due to enhanced data aggregation capability for AI systems.
+      </p>
+</li>
+<li>
+<p>
+        AI systems may require more frequent maintenance and triggers for
+        conducting corrective maintenance due to data, model, or concept drift.
+      </p>
+</li>
+<li><p>Increased opacity and concerns about reproducibility.</p></li>
+<li>
+<p>
+        Underdeveloped software testing standards and inability to document
+        AI-based practices to the standard expected of traditionally engineered
+        software for all but the simplest of cases.
+      </p>
+</li>
+<li>
+<p>
+        Difficulty in performing regular AI-based software testing, or
+        determining what to test, since AI systems are not subject to the same
+        controls as traditional code development.
+      </p>
+</li>
 <li>
-<p>being transparent about decisions – keep a clear record of what was changed, why, and who was involved; refer to the <a href="#transparency-section" rel="noopener noreferrer">Transparency</a> section for more on this</p>
-</li>
-<li>monitoring the system post-deployment for any unintended impacts of the system, such as factors relating to workforce engagement or public trust
-    <ul>
-<li>evaluate outcomes based on demographic segments, for example by checking if the tool is affecting groups in unequal ways</li>
-<li>think about how the introduction of a data-driven tool or approach could inadvertently embed a particular worldview</li>
-</ul>
-</li>
-<li>
-<p>reviewing and evaluating on a continuous basis, and when real-world conditions change – pay attention to the dynamic and changing character of the technology (for example, AI models are regularly updated) and to the shifting conditions of the real-world environments in which systems will be embedded</p>
-</li>
-<li>considering independent evaluation – commissioning external evaluation, such as audits, can provide impartial perspectives that can help with building trust</li>
-</ul>
-<p>For more guidance, refer to:</p>
-<ul>
-<li>the <a href="https://testing-ai-standards.github.io/cross-gov-ai-testing-framework/" target="_blank" rel="noopener noreferrer">AI Testing and Assurance Framework for Public Sector</a> –&nbsp;this covers continuous monitoring and improvement of AI systems post-deployment</li>
-<li>
-<a href="https://www.gov.uk/government/publications/the-magenta-book/guidance-on-the-impact-evaluation-of-ai-interventions-html" target="_blank" rel="noopener noreferrer">Guidance on the Impact Evaluation of AI Interventions</a> for best practice in carrying out a robust impact evaluation of programmes and initiatives using AI systems in central government or the delivery of public services</li>
-</ul>
-<h3 id="recommended-actions-x-x-x-x-x">Recommended actions</h3>
-<p>Your team should:</p>
-<ul>
-<li>write down project objectives in non-technical terms, so that you understand the objectives before jumping to a technical solution
-    <ul>
-<li>for example, ‘the project seeks to [enhance public safety, reduce waiting times, improve customer experience]’</li>
-</ul>
-</li>
-<li>involve diverse stakeholders in the design and testing process –&nbsp;undertake thorough user research and public engagement, ensuring that you include the views of those likely to be most affected by the project
-    <ul>
-<li>this might include running co-design workshops or focus groups</li>
-</ul>
-</li>
-<li>
-<p>complete an Equality Impact Assessment (EIA) –&nbsp;this can help to ensure that the project and its outcomes are fair and do not disadvantage protected groups</p>
-</li>
-<li>
-<p>use feedback mechanisms, such as surveys and advisory boards, to enable stakeholders to continuously shape project outcomes&nbsp;–&nbsp;this can help to reduce any negative impacts across the project life cycle</p>
-</li>
-<li>
-<p>make sure you have meaningful human control at the right stages –&nbsp;having human oversight of AI systems can help to maintain accountability and correct any erroneous or potentially harmful impacts</p>
-</li>
-<li>continuously evaluate and improve the project to ensure it’s meeting user needs and its intended use, by asking:
-    <ul>
-<li>at the beginning of the project, are we doing the right thing?</li>
-<li>during the project, have we designed it well and how can we improve?</li>
-<li>after the project, is it still doing the thing we designed it for, and if it’s no longer serving a purpose, is there a process or decommissioning the system with minimal impact on end users?</li>
-</ul>
-</li>
-</ul>
-<h2 id="safety">Safety</h2>
-<p>In the context of data and data-driven technologies, safety refers to themes such as accuracy, security, reliability and robustness. It also covers topics such as the safety of researchers and research participants, and safe personal data collection and management.</p>
-<p>In the context of AI, safety means ensuring that a system performs as intended across its life cycle, even in unexpected circumstances. This is particularly important in high-risk areas such as healthcare, policing and justice.</p>
-<p>The scale and criticality of government services means they have the potential to cause widespread harm if they’re not designed with safety in mind.</p>
-<p>If data-driven systems are not built safely, they can:</p>
-<ul>
-<li>perform poorly and produce incorrect results</li>
-<li>cause harm to individuals and society</li>
-<li>reduce trust in public services and organisations</li>
-</ul>
-<p>Important concepts for data and AI safety are:</p>
-<ul>
-<li>
-<p>accuracy – making sure that data is accurate and high quality, and that AI systems perform accurately</p>
-</li>
-<li>
-<p>security – protecting data and AI systems against unauthorised access, tampering and leakage</p>
-</li>
-<li>
-<p>reliability – ensuring that data pipelines and AI systems consistently deliver acceptable and expected results in all expected scenarios across the duration of use and deployment</p>
-</li>
-<li>
-<p>robustness – designing data infrastructure and AI systems to withstand unexpected inputs, adversarial attacks and failures across the duration of its deployment</p>
-</li>
-<li>
-<p>protection from harm – data use and AI systems must not cause harm to individuals, society or the planet</p>
-</li>
-<li>
-<p>controllability – maintaining human oversight over data and AI systems, including the ability to intervene and align outcomes with societal values</p>
-</li>
-</ul>
-<p>Find out more about AI safety principles in the Alan Turing Institute’s <a href="https://aiethics.turing.ac.uk/modules/safety/" target="_blank" rel="noopener noreferrer">guidance on AI Safety in Practice</a> and <a href="https://www.gov.uk/guidance/understanding-artificial-intelligence-ethics-and-safety" target="_blank" rel="noopener noreferrer">Understanding artificial intelligence ethics and safety</a>.</p>
-<h3 id="what-safety-means-in-practice">What safety means in practice</h3>
-<p>Safety considerations can emerge across a project life cycle –&nbsp;from initial research and data collection, to the downstream impacts of a system.</p>
-<p>In the context of data collection, sharing and use, safety means:</p>
-<ul>
-<li>ensuring data is only used for lawful purposes</li>
-<li>handling data in a way that protects individuals’ privacy and minimises harm</li>
-<li>ensuring data is of high quality</li>
-<li>using secure systems for storing and processing data</li>
-<li>applying appropriate anonymisation techniques</li>
-</ul>
-<p>In the context of data-driven tools and AI systems, safety means:</p>
-<ul>
-<li>designing data-driven systems that work as expected and do not cause harm</li>
-<li>testing systems to make sure they perform accurately and reliably under unexpected conditions</li>
-<li>keeping systems secure and protecting them from misuse</li>
-</ul>
-<h4>Start with safe research</h4>
-<p>Research is vital to design a project responsibly and robustly, and make sure that systems and products meet user needs. Research can help you understand fairness issues and build trust.</p>
-<p>Research and data collection are often essential for improving government services and shaping new projects. But both quantitative and qualitative research can carry risks for participants.</p>
-<p>You must consider the safety of both researchers and participants before starting a project. You should have safeguards in place and maintain them for as long as needed.</p>
-<p>Qualitative research can carry risks if not planned carefully. This type of research involves collecting non-numerical data, such as:</p>
-<ul>
-<li>interviews&nbsp;</li>
-<li>focus groups</li>
-<li>direct observations</li>
-</ul>
-<p>The safety of research participants in qualitative research is critical. Participants may be at risk of harm or distress, especially if the research involves sensitive topics. There may also be risks to their physical safety –&nbsp;for example, if taking part causes tension within their community or social group.</p>
-<h4>Reduce risks for participants</h4>
-<p>You must take steps to protect research participants. This applies to your team and to any third-party researchers you work with.&nbsp;</p>
-<p>You should:</p>
-<ul>
-<li>make sure that participants understand the research and any risks involved&nbsp;</li>
-<li>only include participants who give clear, informed consent without pressure or coercion&nbsp;</li>
-<li>allow participants to withdraw at any time (with exceptions for situations like medical research where participant information is anonymised and aggregated and cannot be removed from the research data set)</li>
-<li>anonymise all data used in reports or analysis&nbsp;</li>
-</ul>
-<p>Anonymising qualitative data can be difficult. Even if names, places or dates are removed, the detail in participants’ stories may still make them identifiable. You should take extra steps to protect their identity. The Service Manual has guidance on <a href="https://www.gov.uk/service-manual/user-research/managing-user-research-data-participant-privacy" target="_blank" rel="noopener noreferrer">managing user research data and participant privacy</a>.</p>
-<h3 id="reduce-risks-for-researchers">Reduce risks for researchers</h3>
-<p>Some research projects involve sensitive topics, such as child protection or adult safeguarding. These can be distressing for both researchers and participants. To reduce risk, you should:</p>
-<ul>
-<li>highlight any sensitive topics in workshop or interview plans</li>
-<li>set up a ‘safety check-in’ protocol to support staff after sessions, particularly for one-to-one or lone working</li>
-<li>use existing ethical guidelines and processes, such as the Service Manual’s guidance on <a href="https://www.gov.uk/service-manual/user-research/researching-emotionally-sensitive-subjects" target="_blank" rel="noopener noreferrer">researching emotionally sensitive subjects</a>
-</li>
-</ul>
-<p>In rare cases, researchers may be targeted by participants or others. If this happens, or if the risk is known in advance, put safeguards in place to protect staff.</p>
-<p>The Government Analysis Function provides <a href="https://analysisfunction.civilservice.gov.uk/policy-store/" target="_blank" rel="noopener noreferrer">a list of resources</a> related to conducting research and analysis in government.</p>
-<h4>Safe data collection and management</h4>
-<p>There are several safety risks related to the collection and management of data, including:</p>
-<ul>
-<li>
-<p>poor data quality – including incomplete data, duplicated data, and insufficient or poor-quality metadata</p>
-</li>
-<li>
-<p>data leakage – the unauthorised exposure of personal or sensitive information</p>
-</li>
-<li>
-<p>data drift – the changes in the statistical properties of real-world data distributions over time, which can affect the performance of machine learning models trained on historical data</p>
-</li>
-<li>
-<p>data poisoning – a malicious act where a hacker compromises data sources during collection and pre-processing by introducing corrupted data</p>
-</li>
-</ul>
-<p>Data security principles and processes are required the moment you begin collecting data. Limiting the amount and sensitivity of data that you collect reduces the potential for harm if data is exposed. Principles like data minimisation, as covered in the <a href="#privacy-section" rel="noopener noreferrer">Privacy</a> section, are relevant to safety and security.</p>
-<p>Loss or theft of personal data can have wide-reaching legal and financial consequences. It can also cause significant psychological harm to people affected. Working directly or indirectly with data in the public sector comes with a duty to protect the personal data you hold about individuals. Refer to the government’s <a href="https://www.gov.uk/guidance/principles-for-securing-personal-data-in-government-services" target="_blank" rel="noopener noreferrer">personal data security principles</a> when processing and sharing personal data.</p>
-<p>If you’re working with any third-party suppliers to store, collect or process data, make sure they’re vetted and that they comply with the security requirements of your project. There’s guidance on security measures for AI systems in the <a href="https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government" target="_blank" rel="noopener noreferrer">AI Playbook for the UK Government.</a>&nbsp;</p>
-<h4>Ensure data is fit for purpose</h4>
-<p>All civil servants have a responsibility to ensure that the data they manage and use is of high quality and fit for purpose. Data quality should be checked and validated across the <a href="https://www.gov.uk/government/publications/the-government-data-quality-framework/the-government-data-quality-framework#The-Data-Lifecycle" target="_blank" rel="noopener noreferrer">data life cycle</a>. This includes ensuring data is fit for purpose before, during and after data analysis or model development and deployment.</p>
-<p>Refer to the <a href="https://www.gov.uk/government/publications/the-government-data-quality-framework" target="_blank" rel="noopener noreferrer">Government Data Quality Framework</a> for guidance on understanding, documenting and improving data quality, and for information about real public sector case studies. The framework sets out the main dimensions of data quality, including:</p>
-<ul>
-<li>completeness</li>
-<li>uniqueness</li>
-<li>consistency</li>
-<li>timeliness</li>
-<li>validity</li>
-<li>accuracy</li>
-</ul>
-<p>Maintaining data quality is a continuous process. You should maintain clear documentation of any known limitations, biases and quality concerns. If using data for analysis and model development, you should conduct ongoing validation of outputs, especially where models are reused or retrained.</p>
-<p>Tools such as data sheets or data set cards can be helpful in documenting information about data quality. The <a href="#transparency-section" rel="noopener noreferrer">Transparency</a> section has more information on this.</p>
-<h4>Data and model poisoning</h4>
-<p>Data poisoning, otherwise known as AI or model poisoning, is a type of cyberattack that involves hackers modifying or introducing new data points into a training data set.</p>
-<p>Data poisoning attacks can be direct or indirect. Direct attacks involve deliberately manipulating a machine learning model to behave in a particular way. Indirect attacks aim to degrade the performance of models more generally. This could include inserting irrelevant or incorrect data into a training set, reducing model accuracy.</p>
-<p>It can be difficult to determine if and how data poisoning has taken place, particularly when using an AI model from a third-party source. For example, poisoned models may function as expected until triggered by a specific prompt or scenario.</p>
-<p>Data poisoning can occur in different ways across the data and AI life cycle, such as:</p>
-<ul>
-<li>collecting and using data from uncontrollable or unreliable sources, like social media or Internet of Things (IoT) devices</li>
-<li>weak access controls&nbsp;</li>
-<li>malicious actors modifying training data labels to reflect wrong information</li>
-</ul>
-<h4>A data poisoning example</h4>
-<p>A company builds a voice assistant that helps users control smart devices. To improve the system, the company invites users to help by transcribing voice recordings.</p>
-<p>A competitor finds out about this and deliberately mislabels thousands of recordings. For example, they label recordings of users saying “turn the lights off” as “turn the lights on”.</p>
-<p>Over time, the system learns the wrong behaviour. After an update, the AI assistant starts turning lights on when users ask for them to be turned off, and vice versa. This leads to a poor user experience and damages the company’s reputation.</p>
-<h4>The impact of data poisoning</h4>
-<p>The impacts of an AI model trained or fine-tuned with poisoned data are wide-ranging, including:</p>
-<ul>
-<li>security threats to the organisation deploying the model</li>
-<li>biased or harmful outputs being sent to users&nbsp;</li>
-<li>poor system performance and accuracy, such as misclassification</li>
-</ul>
-<p>Reducing the risk of data poisoning should include technical safeguards and clear policies for data management.</p>
-<p>Example steps include:</p>
-<ul>
-<li>using encryption and strict access controls to prevent unauthorised access to systems and data sets
-    <ul>
-<li>the Information Commissioner’s Office has <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/security/encryption/" target="_blank" rel="noopener noreferrer">guidance on encryption</a>
-</li>
-<li>industry-standard encryption methods and protocols, such as advanced encryption standards (AES 256) and Transport Layer Security/Secure Socket Layer (TLS/SSL), also apply to AI systems, data sets and models</li>
-</ul>
-</li>
-<li>conducting supply chain checks, as poisoned models often originate from pre-trained models that have been fine-tuned using poisoned or compromised data sources</li>
-<li>implementing strong validation techniques to check data set quality and accuracy –&nbsp;methods such as anomaly detection can help to detect abnormal outliers and extreme data points</li>
-<li>monitoring and auditing systems for signs of unusual behaviour, such as sudden drops in system performance</li>
-</ul>
-<h3 id="building-safe-ai-systems">Building safe AI systems</h3>
-<p>AI systems can behave in unexpected ways, especially if they’re designed poorly or deployed without adequate testing. Many AI systems work in complex and unpredictable environments. This makes it harder to build systems that are safe and reliable.</p>
-<p>Elements to consider in the context of AI safety include:</p>
-<ul>
-<li>safety of data – ensuring that data used for AI model training and AI system operation is accurate, high quality and legally compliant
-    <ul>
-<li>this should include testing data for anomalies, identifying and addressing harmful biases, and documenting information about data sets</li>
-</ul>
-</li>
-<li>safety of the AI model – ensuring that the model is technically robust and reliable, and performs accurately even in unexpected conditions
-    <ul>
-<li>consider testing and measuring model performance on validation data sets against metrics such as accuracy and precision, and fairness metrics</li>
-</ul>
-</li>
-<li>safety of the AI system – ensuring that the AI system functions safely and as intended within its wider context, including with users and other systems
-    <ul>
-<li>continually monitor for unusual behaviour post-deployment, including any potentially harmful outputs</li>
-</ul>
-</li>
-</ul>
-<p>You should prioritise the technical objectives of accuracy, reliability, security and robustness from the outset. Building an AI system that meets these objectives requires testing, validation and re-assessment throughout its entire life cycle. It also requires maintaining human oversight and control.</p>
-<p>You should run rigorous testing to identify potential failure modes for AI systems. This may include using semi-automated techniques, such as using adversarial models to develop prompts, or red teaming exercises, to record how models behave under unexpected scenarios.</p>
-<p>If it’s not possible to make the system sufficiently safe for the intended use, even with available mitigations, because of the potential risks or failure modes, you should not use the system to address the problem.</p>
-<p>If using off-the-shelf generative AI tools, you will likely need to put additional guardrails in place, such as pre- and post-prompt filters. While no generative AI system can be guaranteed to be entirely safe, these measures, combined with ongoing testing and monitoring, can help reduce risks to an acceptable level.</p>
-<p>Consider adopting the following practices to make AI systems safer and more secure:</p>
-<ul>
-<li>
-<p>be transparent –&nbsp;you should document information about models, data sets and system prompts, and make sure operators understand how the system works in different situations</p>
-</li>
-<li>
-<p>design for resilience –&nbsp;use backup components for critical functions so that the system can continue operating safely even if one element fails</p>
-</li>
-<li>
-<p>apply least privilege principles – distribute responsibility and prevent any single person from having too much control or access</p>
-</li>
-<li>
-<p>build in risk controls – build in ways for the system to slow down or stop if it starts to behave in unexpected or unusual ways</p>
-</li>
-<li>
-<p>establish multiple system defences –&nbsp;apply multiple safety measures rather than relying on just one, including a human-in-the-loop to review outputs</p>
-</li>
-<li>
-<p>continually evaluate security factors – you should continually reassess factors that might impact security, including training data sets, model complexity and supply chains</p>
-</li>
-</ul>
-<p>Find out more about AI safety and security in the <a href="https://www.gov.uk/government/publications/ai-cyber-security-code-of-practice/code-of-practice-for-the-cyber-security-of-ai" target="_blank" rel="noopener noreferrer">Code of Practice for the Cyber Security of AI</a> and the National Cyber Security Centre’s (NCSC) <a href="https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development" target="_blank" rel="noopener noreferrer">guidelines for secure AI system development</a>.</p>
-<p>There’s also guidance in the:</p>
-<ul>
-<li>
-<a href="https://www.gov.uk/government/publications/introduction-to-ai-assurance/introduction-to-ai-assurance" target="_blank" rel="noopener noreferrer">Introduction to AI Assurance</a> which explores AI assurance techniques</li>
-<li>
-<a href="https://www.gov.uk/government/collections/responsible-ai-toolkit#:~:text=This%20toolkit%20of%20guidance%20aims,over%20time%20with%20new%20resources." target="_blank" rel="noopener noreferrer">Responsible AI Toolkit</a> which lists various resources that support the safe and responsible development and deployment of AI systems</li>
-<li>
-<a href="https://testing-ai-standards.github.io/cross-gov-ai-testing-framework/" target="_blank" rel="noopener noreferrer">AI Testing and Assurance Framework for Public Sector</a> which sets out a practical approach for testing, evaluation and assurance of AI systems</li>
-<li>
-<a href="https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html" target="_blank" rel="noopener noreferrer">AI Playbook for the UK Government</a> for information about the security and safety of AI systems</li>
-</ul>
-<h3 id="recommended-actions-x-x-x-x-x-x">Recommended actions</h3>
-<p>Your team should:</p>
-<ul>
-<li>
-<p>make sure researchers and research participants are physically and emotionally safe –&nbsp;consider how a research topic could cause distress or discomfort, and reduce these risks by providing clear information, gaining informed consent, and allowing participants to withdraw at any time</p>
-</li>
-<li>
-<p>comply with security requirements and standards&nbsp;–&nbsp;new services, including AI systems, must comply with the government’s <a href="https://www.security.gov.uk/policy-and-guidance/secure-by-design/" target="_blank" rel="noopener noreferrer">Secure by Design principles</a> which help ensure that systems are secure throughout their life cycle</p>
-</li>
-<li>
-<p>apply data minimisation to limit the potential harms of a data breach –&nbsp;this means processing only the minimum amount of personal data necessary to achieve your purpose</p>
-</li>
-<li>keep all data secure throughout the project, referring to the <a href="https://www.gov.uk/guidance/principles-for-securing-personal-data-in-government-services" target="_blank" rel="noopener noreferrer">personal data security principles</a>
-</li>
-<li>check for issues that could affect data quality, accuracy or reliability, such as data drift or model poisoning, by referring to the <a href="https://www.gov.uk/government/publications/the-government-data-quality-framework" target="_blank" rel="noopener noreferrer">Government Data Quality Framework</a>
-</li>
-<li>
-<p>ensure human oversight and have strategies to intervene where necessary, especially in high-risk use cases of AI, so that humans can validate decisions and outputs</p>
-</li>
-<li>run rigorous testing to identify potential failure modes for AI systems&nbsp;
-    <ul>
-<li>this may include using semi-automated techniques, such as using adversarial models to develop prompts, or red teaming exercises</li>
-<li>if it’s not possible to make the system sufficiently safe for the intended use, you should not use it to address the problem</li>
-</ul>
-</li>
-<li>use available resources, including the <a href="https://learn.civilservice.gov.uk/courses/f7Sf3JPkTQiwYgr2qatDEw" target="_blank" rel="noopener noreferrer">courses on risks and ethics on Civil Service Learning</a> and the <a href="https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html" target="_blank" rel="noopener noreferrer">AI Playbook</a>
-</li>
-</ul>
-<h2 id="further-resources">Further resources</h2>
-<p>There’s a range of <a href="https://www.gov.uk/data-ethics-guidance" target="_blank" rel="noopener noreferrer">data ethics guidance, standards and frameworks</a> developed by and for government and public sector bodies. These resources support the responsible use and development of data and data-driven technologies, including AI.</p>
-<p>The <a href="https://www.gov.uk/government/collections/responsible-ai-toolkit" target="_blank" rel="noopener noreferrer">Responsible AI Toolkit</a> also lists guidance related to deploying AI systems.</p>
-<p>The UK Statistics Authority provides <a href="https://uksa.statisticsauthority.gov.uk/what-we-do/data-ethics/centre-for-applied-data-ethics/guidance-and-support/ethics-guidance-documents/" target="_blank" rel="noopener noreferrer">guidance related to applied data ethics</a> in research and statistics.</p>
-<p>Here are some other public sector resources.</p>
-<h4>AI Knowledge Hub</h4>
-<p>The <a href="https://ai.gov.uk/knowledge-hub/" target="_blank" rel="noopener noreferrer">AI Knowledge Hub</a> brings together guidance and case studies for teams adopting AI technologies in the public sector.</p>
-<h4>AI Playbook for the UK Government</h4>
-<p>The <a href="https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government" target="_blank" rel="noopener noreferrer">AI Playbook</a> offers guidance on using AI safely, effectively and securely for civil servants and people working in government organisations.</p>
-<h4>Algorithmic Transparency Recording Standard (<abbr title="Algorithmic Transparency Recording Standard">ATRS</abbr>)</h4>
-<p>The <a href="https://www.gov.uk/government/collections/algorithmic-transparency-recording-standard-hub" target="_blank" rel="noopener noreferrer"><abbr title="Algorithmic Transparency Recording Standard">ATRS</abbr></a> provides a standardised way for public bodies to document information about algorithmic tools used in decision-making processes which impact the public.</p>
-<h4>Analytical Quality Assurance Book (<abbr title="Analytical Quality Assurance Book">AQuA</abbr>)</h4>
-<p>The <a href="https://www.gov.uk/guidance/the-aqua-book" target="_blank" rel="noopener noreferrer"><abbr title="Analytical Quality Assurance Book">AQuA</abbr> Book</a> is a best practice guide for civil servants working with analysis and analytical models.</p>
-<h4>Data Sharing Governance Framework</h4>
-<p>This <a href="https://www.gov.uk/government/publications/data-sharing-governance-framework/data-sharing-governance-framework" target="_blank" rel="noopener noreferrer">framework</a> is one of a growing suite of tools which enable better use, reuse and sharing of data across government.</p>
-<h4>Government Data Quality Framework</h4>
-<p>This <a href="https://www.gov.uk/government/publications/the-government-data-quality-framework" target="_blank" rel="noopener noreferrer">guidance</a> sets out principles and practices to assess, communicate and improve the quality of data in government. Linked with this, there’s guidance on <a href="https://www.gov.uk/government/publications/implementing-a-data-quality-action-plan" target="_blank" rel="noopener noreferrer">implementing a data quality action plan</a>.</p>
-<h4>
-<abbr title="Defence Science and Technology Laboratory">Dstl</abbr> biscuit book – Assurance of AI and Autonomous Systems</h4>
-<p>This is a <a href="https://www.gov.uk/government/publications/assurance-of-ai-and-autonomous-systems-a-dstl-biscuit-book" target="_blank" rel="noopener noreferrer">guide</a> to understanding and describing the trustworthiness of autonomous systems and associated AI algorithms. It was written by the Defence Science and Technology Laboratory (<abbr title="Defence Science and Technology Laboratory">Dstl</abbr>).</p>
-<h4>Explaining decisions made with AI</h4>
-<p>This <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/" target="_blank" rel="noopener noreferrer">guidance</a> is from the Information Commissioner’s Office and the Alan Turing Institute. It gives organisations practical advice to help explain the processes, services and decisions delivered or assisted by AI, to the individuals affected by them.</p>
-<h4>Five Safes framework</h4>
-<p>The <a href="https://ukdataservice.ac.uk/help/secure-lab/what-is-the-five-safes-framework/" target="_blank" rel="noopener noreferrer">Five Safes framework</a> is a set of principles which enable data services to provide safe research access to data.</p>
-<h4>Guidelines for AI Procurement</h4>
-<p>Use these <a href="https://www.gov.uk/government/publications/guidelines-for-ai-procurement/guidelines-for-ai-procurement" target="_blank" rel="noopener noreferrer">guidelines</a> when procuring AI-powered solutions.</p>
-<h4>Model for Responsible Innovation&nbsp;</h4>
-<p>The <a href="https://www.gov.uk/government/publications/the-model-for-responsible-innovation/the-model-for-responsible-innovation" target="_blank" rel="noopener noreferrer">Model for Responsible Innovation</a> is a practical tool created by the Department for Science, Innovation and Technology (DSIT). It helps teams across the public sector and beyond to innovate responsibly with data and AI. You can use the model to run red teaming workshops with teams developing data-driven technology.</p>
-<h4>PETs Adoption Guide</h4>
-<p>The <a href="https://cdeiuk.github.io/pets-adoption-guide/adoption-guide/" target="_blank" rel="noopener noreferrer">PETs Adoption Guide</a> provides an interactive flowchart to help decision makers determine which privacy enhancing technologies (PETs) might be useful for their project. The guide is primarily aimed at technical architects and product owners working on projects that involve the sharing or processing of sensitive information.</p>
-<h4>Portfolio of AI assurance techniques</h4>
-<p>The <a href="https://www.gov.uk/ai-assurance-techniques" target="_blank" rel="noopener noreferrer">portfolio of AI assurance techniques</a> provides a searchable repository of cross-industry AI assurance techniques.</p>
-<h4>Technology Code of Practice</h4>
-<p>The <a href="https://www.gov.uk/guidance/the-technology-code-of-practice" target="_blank" rel="noopener noreferrer">Technology Code of Practice</a> is a set of criteria to help the government design, build and buy technology.</p>
-<h4>UKSA Ethics Self-Assessment Tool</h4>
-<p>The <a href="https://uksa.statisticsauthority.gov.uk/the-authority-board/committees/national-statisticians-advisory-committees-and-panels/national-statisticians-data-ethics-advisory-committee/ethics-self-assessment-tool/#pid-archived-guidance" target="_blank" rel="noopener noreferrer">Ethics Self-Assessment Tool</a> developed by the UK Statistics Authority gives researchers an easy-to-use framework to review the ethics of their projects throughout the research cycle.</p>
-</div>
+<p>
+        Computational costs for developing AI systems and their impact on the
+        environment and planet.
+      </p>
+</li>
+<li>
+<p>
+        Inability to predict or detect the side effects of AI-based systems
+        beyond statistical measures.
+      </p>
+</li>
+</ul>
+<p>
+    Privacy and cybersecurity risk management considerations and approaches are
+    applicable in the design, development, deployment, evaluation, and use of AI
+    systems. Privacy and cybersecurity risks are also considered as part of
+    broader enterprise risk management considerations, which may incorporate AI
+    risks. As part of the effort to address AI trustworthiness characteristics
+    such as “Secure and Resilient” and “Privacy-Enhanced,” organizations may
+    consider leveraging available standards and guidance that provide broad
+    guidance to organizations to reduce security and privacy risks, such as, but
+    not limited to, the NIST Cybersecurity Framework, the NIST Privacy
+    Framework, the NIST Risk Management Framework, and the Secure Software
+    Development Framework. These frameworks have some features in common with
+    the AI RMF. Like most risk management approaches, they are outcome-based
+    rather than prescriptive and are often structured around a Core set of
+    functions, categories, and subcategories. While there are significant
+    differences between these frameworks based on the domain addressed – and
+    because AI risk management calls for addressing many other types of risks –
+    frameworks like those mentioned above may inform security and privacy
+    considerations in the
+    <strong>map</strong>,
+    <strong>measure</strong>, and
+    <strong>manage</strong>
+    functions of the AI RMF.
+  </p>
+<p>
+    At the same time, guidance available before publication of this AI RMF does
+    not comprehensively address many AI system risks. For example, existing
+    frameworks and guidance are unable to:
+  </p>
+<ul>
+<li><p>adequately manage the problem of harmful bias in AI systems;</p></li>
+<li><p>confront the challenging risks related to generative AI;</p></li>
+<li>
+<p>
+        comprehensively address security concerns related to evasion, model
+        extraction, membership inference, availability, or other machine
+        learning attacks;
+      </p>
+</li>
+<li>
+<p>
+        account for the complex attack surface of AI systems or other security
+        abuses enabled by AI systems; and
+      </p>
+</li>
+<li>
+<p>
+        consider risks associated with third-party AI technologies, transfer
+        learning, and off-label use where AI systems may be trained for
+        decision-making outside an organization’s security controls or trained
+        in one domain and then “fine-tuned” for another.
+      </p>
+</li>
+</ul>
+<p>
+    Both AI and traditional software technologies and systems are subject to
+    rapid innovation. Technology advances should be monitored and deployed to
+    take advantage of those developments and work towards a future of AI that is
+    both trustworthy and responsible.
+  </p>

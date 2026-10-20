@@ -1,4 +1,4 @@
-<h2 id="beginner-note">Beginner Note</h2>
+<h2 id="h-beginner-note">Beginner Note</h2>
 <p>Linear regression is used when we want to predict a <strong>numerical value</strong> (for example, house price, temperature, or sales).
 It works by finding a straight line that best represents the relationship between input features and the output.</p>
 <p>In this lesson, we focus on understanding the concept before exploring more advanced regression techniques.
@@ -6,24 +6,22 @@ It works by finding a straight line that best represents the relationship betwee
 <blockquote>
 <p>Infographic by <a href="https://twitter.com/dasani_decoded" target="_blank" rel="noopener noreferrer">Dasani Madipalli</a></p>
 </blockquote>
-
 <blockquote>
-<h3 id="this-lesson-is-available-in-r"><a href="https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/3-Linear/solution/R/lesson_3.html" target="_blank" rel="noopener noreferrer">This lesson is available in R!</a></h3>
+<h3 id="h-this-lesson-is-available-in-r"><a href="https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/3-Linear/solution/R/lesson_3.html" target="_blank" rel="noopener noreferrer">This lesson is available in R!</a></h3>
 </blockquote>
-<h3 id="introduction">Introduction</h3>
+<h3 id="h-introduction">Introduction</h3>
 <p>So far you have explored what regression is with sample data gathered from the pumpkin pricing dataset that we will use throughout this lesson. You have also visualized it using Matplotlib.</p>
 <p>Now you are ready to dive deeper into regression for ML. While visualization allows you to make sense of data, the real power of Machine Learning comes from <em>training models</em>. Models are trained on historic data to automatically capture data dependencies, and they allow you to predict outcomes for new data, which the model has not seem before.</p>
 <p>In this lesson, you will learn more about two types of regression: <em>basic linear regression</em> and <em>polynomial regression</em>, along with some of the math underlying these techniques. Those models will allow us to predict pumpkin prices depending on different input data.</p>
 <p><a href="https://youtu.be/CRxFT8oTDMg" target="_blank" rel="noopener noreferrer"><img alt="ML for beginners - Understanding Linear Regression" loading="lazy" src="https://img.youtube.com/vi/CRxFT8oTDMg/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
 <blockquote>
 <p>Throughout this curriculum, we assume minimal knowledge of math, and seek to make it accessible for students coming from other fields, so watch for notes, 🧮 callouts, diagrams, and other learning tools to aid in comprehension.</p>
 </blockquote>
-<h3 id="prerequisite">Prerequisite</h3>
+<h3 id="h-prerequisite">Prerequisite</h3>
 <p>You should be familiar by now with the structure of the pumpkin data that we are examining. You can find it preloaded and pre-cleaned in this lesson's <em>notebook.ipynb</em> file. In the file, the pumpkin price is displayed per bushel in a new data frame.  Make sure you can run these notebooks in kernels in Visual Studio Code.</p>
-<h3 id="preparation">Preparation</h3>
+<h3 id="h-preparation">Preparation</h3>
 <p>As a reminder, you are loading this data so as to ask questions of it.</p>
 <ul>
 <li>When is the best time to buy pumpkins?</li>
@@ -33,7 +31,7 @@ Let's keep digging into this data.</li>
 </ul>
 <p>In the previous lesson, you created a Pandas data frame and populated it with part of the original dataset, standardizing the pricing by the bushel. By doing that, however, you were only able to gather about 400 datapoints and only for the fall months.</p>
 <p>Take a look at the data that we preloaded in this lesson's accompanying notebook. The data is preloaded and an initial scatterplot is charted to show month data. Maybe we can get a little more detail about the nature of the data by cleaning it more.</p>
-<h2 id="a-linear-regression-line">A linear regression line</h2>
+<h2 id="h-a-linear-regression-line">A linear regression line</h2>
 <p>As you learned in Lesson 1, the goal of a linear regression exercise is to be able to plot a line to:</p>
 <ul>
 <li><strong>Show variable relationships</strong>. Show the relationship between variables</li>
@@ -64,7 +62,7 @@ Let's keep digging into this data.</li>
 <p>The math that calculates the line must demonstrate the slope of the line, which is also dependent on the intercept, or where <code>Y</code> is situated when <code>X = 0</code>.</p>
 <p>You can observe the method of calculation for these values on the <a href="https://www.mathsisfun.com/data/least-squares-regression.html" target="_blank" rel="noopener noreferrer">Math is Fun</a> web site. Also visit <a href="https://www.mathsisfun.com/data/least-squares-calculator.html" target="_blank" rel="noopener noreferrer">this Least-squares calculator</a> to watch how the numbers' values impact the line.</p>
 </blockquote>
-<h2 id="correlation">Correlation</h2>
+<h2 id="h-correlation">Correlation</h2>
 <p>One more term to understand is the <strong>Correlation Coefficient</strong> between given X and Y variables. Using a scatterplot, you can quickly visualize this coefficient. A plot with datapoints scattered in a neat line have high correlation, but a plot with datapoints scattered everywhere between X and Y have a low correlation.</p>
 <p>A good linear regression model will be one that has a high (nearer to 1 than 0) Correlation Coefficient using the Least-Squares Regression method with a line of regression.</p>
 <p>✅ Run the notebook accompanying this lesson and look at the Month to Price scatterplot. Does the data associating Month to Price for pumpkin sales seem to have high or low correlation, according to your visual interpretation of the scatterplot? Does that change if you use more fine-grained measure instead of <code>Month</code>, eg. <em>day of the year</em> (i.e. number of days since the beginning of the year)?</p>
@@ -147,10 +145,9 @@ Let's keep digging into this data.</li>
 <pre><code class="language-python">day_of_year = pd.to_datetime(pumpkins['Date']).apply(lambda dt: (dt-datetime(dt.year,1,1)).days)
 </code></pre>
 <p>Now that you have an understanding of the math behind linear regression, let's create a Regression model to see if we can predict which package of pumpkins will have the best pumpkin prices. Someone buying pumpkins for a holiday pumpkin patch might want this information to be able to optimize their purchases of pumpkin packages for the patch.</p>
-<h2 id="looking-for-correlation">Looking for Correlation</h2>
+<h2 id="h-looking-for-correlation">Looking for Correlation</h2>
 <p><a href="https://youtu.be/uoRq-lW2eQo" target="_blank" rel="noopener noreferrer"><img alt="ML for beginners - Looking for Correlation: The Key to Linear Regression" loading="lazy" src="https://img.youtube.com/vi/uoRq-lW2eQo/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
 <p>From the previous lesson you have probably seen that the average price for different months looks like this:</p>
 <img alt="Average price by month" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/2-Data/images/barchart.png" width="50%">
@@ -185,10 +182,9 @@ pie_pumpkins.plot.scatter('DayOfYear','Price')
 pie_pumpkins.info()
 </code></pre>
 <p>Another approach would be to fill those empty values with mean values from the corresponding column.</p>
-<h2 id="simple-linear-regression">Simple Linear Regression</h2>
+<h2 id="h-simple-linear-regression">Simple Linear Regression</h2>
 <p><a href="https://youtu.be/e4c_UP2fSjg" target="_blank" rel="noopener noreferrer"><img alt="ML for beginners - Linear and Polynomial Regression using Scikit-learn" loading="lazy" src="https://img.youtube.com/vi/e4c_UP2fSjg/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
 <p>To train our Linear Regression model, we will use the <strong>Scikit-learn</strong> library.</p>
 <pre><code class="language-python">from sklearn.linear_model import LinearRegression
@@ -226,7 +222,7 @@ print('Model determination: ', score)
 plt.plot(X_test,pred)
 </code></pre>
 <img alt="Linear regression" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/3-Linear/images/linear-results.png" width="50%">
-<h2 id="polynomial-regression">Polynomial Regression</h2>
+<h2 id="h-polynomial-regression">Polynomial Regression</h2>
 <p>Another type of Linear Regression is Polynomial Regression. While sometimes there's a linear relationship between variables - the bigger the pumpkin in volume, the higher the price - sometimes these relationships can't be plotted as a plane or straight line.</p>
 <p>✅ Here are <a href="https://online.stat.psu.edu/stat501/lesson/9/9.8" target="_blank" rel="noopener noreferrer">some more examples</a> of data that could use Polynomial Regression</p>
 <p>Take another look at the relationship between Date and Price. Does this scatterplot seem like it should necessarily be analyzed by a straight line? Can't prices fluctuate? In this case, you can try polynomial regression.</p>
@@ -264,11 +260,10 @@ plt.plot(X_range, y_range)
 <p>You can see that the minimal pumpkin prices are observed somewhere around Halloween. How can you explain this?</p>
 </blockquote>
 <p>🎃 Congratulations, you just created a model that can help predict the price of pie pumpkins. You can probably repeat the same procedure for all pumpkin types, but that would be tedious. Let's learn now how to take pumpkin variety into account in our model!</p>
-<h2 id="categorical-features">Categorical Features</h2>
+<h2 id="h-categorical-features">Categorical Features</h2>
 <p>In the ideal world, we want to be able to predict prices for different pumpkin varieties using the same model. However, the <code>Variety</code> column is somewhat different from columns like <code>Month</code>, because it contains non-numeric values. Such columns are called <strong>categorical</strong>.</p>
 <p><a href="https://youtu.be/DYGliioIAE0" target="_blank" rel="noopener noreferrer"><img alt="ML for beginners - Categorical Feature Predictions with Linear Regression" loading="lazy" src="https://img.youtube.com/vi/DYGliioIAE0/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
 <p>Here you can see how average price depends on variety:</p>
 <img alt="Average price by variety" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/3-Linear/images/price-by-variety.png" width="50%">
@@ -361,7 +356,7 @@ y = new_pumpkins['Price']
 y = new_pumpkins['Price']
 </code></pre>
 <p>Here we also take into account <code>City</code> and <code>Package</code> type, which gives us RMSE 2.84 (10.5%), and determination 0.94!</p>
-<h2 id="putting-it-all-together">Putting it all together</h2>
+<h2 id="h-putting-it-all-together">Putting it all together</h2>
 <p>To make the best model, we can use combined (one-hot encoded categorical + numeric) data from the above example together with Polynomial Regression. Here is the complete code for your convenience:</p>
 <pre><code class="language-python"># set up training data
 X = pd.get_dummies(new_pumpkins['Variety']) \
@@ -426,8 +421,7 @@ print('Model determination: ', score)
 </table></div>
 <p>🏆 Well done! You created four Regression models in one lesson, and improved the model quality to 97%. In the final section on Regression, you will learn about Logistic Regression to determine categories.</p>
 <hr>
-<h2 id="challenge">🚀Challenge</h2>
+<h2 id="h-challenge">🚀Challenge</h2>
 <p>Test several different variables in this notebook to see how correlation corresponds to model accuracy.</p>
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>In this lesson we learned about Linear Regression. There are other important types of Regression. Read about Stepwise, Ridge, Lasso and Elasticnet techniques. A good course to study to learn more is the <a href="https://online.stanford.edu/courses/sohs-ystatslearning-statistical-learning" target="_blank" rel="noopener noreferrer">Stanford Statistical Learning course</a></p>

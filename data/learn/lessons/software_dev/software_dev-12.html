@@ -1,126 +1,547 @@
-<div class="box box-objectives">
-<p class="box-title">Objectives</p>
+<pre><code class="language-mermaid">journey
+    title Your HTML Learning Journey
+    section Foundation
+      Create HTML file: 3: Student
+      Add DOCTYPE: 4: Student
+      Structure document: 5: Student
+    section Content
+      Add metadata: 4: Student
+      Include images: 5: Student
+      Organize layout: 5: Student
+    section Semantics
+      Use proper tags: 4: Student
+      Enhance accessibility: 5: Student
+      Build terrarium: 5: Student
+</code></pre>
+<p><img alt="Introduction to HTML" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Web-Dev-For-Beginners/78085398be0dea7abaaf5eda914817f46f6ddbbc/sketchnotes/webdev101-html.png"></p>
+<blockquote>
+<p>Sketchnote by <a href="https://twitter.com/girlie_mac" target="_blank" rel="noopener noreferrer">Tomomi Imura</a></p>
+</blockquote>
+<p>HTML, or HyperText Markup Language, is the foundation of every website you've ever visited. Think of HTML as the skeleton that gives structure to web pages – it defines where content goes, how it's organized, and what each piece represents. While CSS will later "dress up" your HTML with colors and layouts, and JavaScript will bring it to life with interactivity, HTML provides the essential structure that makes everything else possible.</p>
+<p>In this lesson, you'll create the HTML structure for a virtual terrarium interface. This hands-on project will teach you fundamental HTML concepts while building something visually engaging. You'll learn how to organize content using semantic elements, work with images, and create the foundation for an interactive web application.</p>
+<p>By the end of this lesson, you'll have a working HTML page displaying plant images in organized columns, ready for styling in the next lesson. Don't worry if it looks basic at first – that's exactly what HTML should do before CSS adds the visual polish.</p>
+<pre><code class="language-mermaid">mindmap
+  root((HTML Fundamentals))
+    Structure
+      DOCTYPE Declaration
+      HTML Element
+      Head Section
+      Body Content
+    Elements
+      Tags &amp; Attributes
+      Self-closing Tags
+      Nested Elements
+      Block vs Inline
+    Content
+      Text Elements
+      Images
+      Containers (div)
+      Lists
+    Semantics
+      Meaningful Tags
+      Accessibility
+      Screen Readers
+      SEO Benefits
+    Best Practices
+      Proper Nesting
+      Valid Markup
+      Descriptive Alt Text
+      Organized Structure
+</code></pre>
+<blockquote>
+<p>📺 <strong>Watch and Learn</strong>: Check out this helpful video overview</p>
+<p><a href="https://www.youtube.com/watch?v=1TvxJKBzhyQ" target="_blank" rel="noopener noreferrer"><img alt="HTML Fundamentals Video" loading="lazy" src="https://img.youtube.com/vi/1TvxJKBzhyQ/0.jpg"></a></p>
+</blockquote>
+<h2 id="h-setting-up-your-project">Setting Up Your Project</h2>
+<p>Before we dive into HTML code, let's set up a proper workspace for your terrarium project. Creating an organized file structure from the beginning is a crucial habit that will serve you well throughout your web development journey.</p>
+<h3 id="h-task-create-your-project-structure">Task: Create Your Project Structure</h3>
+<p>You'll create a dedicated folder for your terrarium project and add your first HTML file. Here are two approaches you can use:</p>
+<p><strong>Option 1: Using Visual Studio Code</strong></p>
+<ol>
+<li>Open Visual Studio Code</li>
+<li>Click "File" → "Open Folder" or use <code>Ctrl+K, Ctrl+O</code> (Windows/Linux) or <code>Cmd+K, Cmd+O</code> (Mac)</li>
+<li>Create a new folder called <code>terrarium</code> and select it</li>
+<li>In the Explorer pane, click the "New File" icon</li>
+<li>Name your file <code>index.html</code></li>
+</ol>
+<p><img alt="VS Code Explorer showing new file creation" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Web-Dev-For-Beginners/78085398be0dea7abaaf5eda914817f46f6ddbbc/3-terrarium/1-intro-to-html/images/vs-code-index.png"></p>
+<p><strong>Option 2: Using Terminal Commands</strong></p>
+<pre><code class="language-bash">mkdir terrarium
+cd terrarium
+touch index.html
+code index.html
+</code></pre>
+<p><strong>Here's what these commands accomplish:</strong></p>
 <ul>
-<li>Create a local Git repository.</li>
-<li>Describe the purpose of the <code>.git</code> directory.</li>
+<li><strong>Creates</strong> a new directory called <code>terrarium</code> for your project</li>
+<li><strong>Navigates</strong> into the terrarium directory</li>
+<li><strong>Creates</strong> an empty <code>index.html</code> file</li>
+<li><strong>Opens</strong> the file in Visual Studio Code for editing</li>
 </ul>
-</div>
-<div class="box box-questions">
-<p class="box-title">Questions</p>
+<blockquote>
+<p>💡 <strong>Pro Tip</strong>: The filename <code>index.html</code> is special in web development. When someone visits a website, browsers automatically look for <code>index.html</code> as the default page to display. This means a URL like <code>https://mysite.com/projects/</code> will automatically serve the <code>index.html</code> file from the <code>projects</code> folder without needing to specify the filename in the URL.</p>
+</blockquote>
+<h2 id="h-understanding-html-document-structure">Understanding HTML Document Structure</h2>
+<p>Every HTML document follows a specific structure that browsers need to understand and display correctly. Think of this structure like a formal letter – it has required elements in a particular order that help the recipient (in this case, the browser) process the content properly.</p>
+<pre><code class="language-mermaid">flowchart TD
+    A["&lt;!DOCTYPE html&gt;"] --&gt; B["&lt;html&gt;"]
+    B --&gt; C["&lt;head&gt;"]
+    C --&gt; D["&lt;title&gt;"]
+    C --&gt; E["&lt;meta charset&gt;"]
+    C --&gt; F["&lt;meta viewport&gt;"]
+    B --&gt; G["&lt;body&gt;"]
+    G --&gt; H["&lt;h1&gt; Heading"]
+    G --&gt; I["&lt;div&gt; Containers"]
+    G --&gt; J["&lt;img&gt; Images"]
+    
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#fff3e0
+    style G fill:#e8f5e8
+</code></pre>
+<p>Let's start by adding the essential foundation that every HTML document needs.</p>
+<h3 id="h-the-doctype-declaration-and-root-element">The DOCTYPE Declaration and Root Element</h3>
+<p>The first two lines of any HTML file serve as the document's "introduction" to the browser:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;&lt;/html&gt;
+</code></pre>
+<p><strong>Understanding what this code does:</strong></p>
 <ul>
-<li>Where does Git store information?</li>
+<li><strong>Declares</strong> the document type as HTML5 using <code>&lt;!DOCTYPE html&gt;</code></li>
+<li><strong>Creates</strong> the root <code>&lt;html&gt;</code> element that will contain all page content</li>
+<li><strong>Establishes</strong> modern web standards for proper browser rendering</li>
+<li><strong>Ensures</strong> consistent display across different browsers and devices</li>
 </ul>
-</div>
-<p>Once Git is configured,
-we can start using it.</p>
-<p>We will help Alfredo with his new project, create a repository with all his recipes.</p>
-<p>First, let's create a new directory in the <code>Desktop</code> folder for our work and then change the current working directory to the newly created one:</p>
-<pre><code class="language-bash">$ cd ~/Desktop
-$ mkdir recipes
-$ cd recipes
-</code></pre>
-<p>Then we tell Git to make <code>recipes</code> a <a href="https://github.com/swcarpentry/git-novice/blob/78b9c02a074e6712b9b013ef6e8a568a56d8cf37/learners/reference.md#repository" target="_blank" rel="noopener noreferrer">repository</a>
--- a place where Git can store versions of our files:</p>
-<pre><code class="language-bash">$ git init
-</code></pre>
-<p>It is important to note that <code>git init</code> will create a repository that
-can include subdirectories and their files---there is no need to create
-separate repositories nested within the <code>recipes</code> repository, whether
-subdirectories are present from the beginning or added later. Also, note
-that the creation of the <code>recipes</code> directory and its initialization as a
-repository are completely separate processes.</p>
-<p>If we use <code>ls</code> to show the directory's contents,
-it appears that nothing has changed:</p>
-<pre><code class="language-bash">$ ls
-</code></pre>
-<p>But if we add the <code>-a</code> flag to show everything,
-we can see that Git has created a hidden directory within <code>recipes</code> called <code>.git</code>:</p>
-<pre><code class="language-bash">$ ls -a
-</code></pre>
-<pre><code class="language-output">.	..	.git
-</code></pre>
-<p>Git uses this special subdirectory to store all the information about the project,
-including the tracked files and sub-directories located within the project's directory.
-If we ever delete the <code>.git</code> subdirectory,
-we will lose the project's history.</p>
-<p>We can now start using one of the most important git commands, which is particularly helpful to beginners. <code>git status</code> tells us the status of our project, and better, a list of changes in the project and options on what to do with those changes. We can use it as often as we want, whenever we want to understand what is going on.</p>
-<pre><code class="language-bash">$ git status
-</code></pre>
-<pre><code class="language-output">On branch main
-
-No commits yet
-
-nothing to commit (create/copy files and use "git add" to track)
-</code></pre>
-<p>If you are using a different version of <code>git</code>, the exact
-wording of the output might be slightly different.</p>
-<div class="box box-challenge">
-<p class="box-title">Places to Create Git Repositories</p>
-
-<p>Along with tracking information about recipes (the project we have already created),
-Alfredo would also like to track information about desserts specifically.
-Alfredo creates a <code>desserts</code> project inside his <code>recipes</code>
-project with the following sequence of commands:</p>
-<pre><code class="language-bash">$ cd ~/Desktop    # return to Desktop directory
-$ cd recipes      # go into recipes directory, which is already a Git repository
-$ ls -a           # ensure the .git subdirectory is still present in the recipes directory
-$ mkdir desserts # make a sub-directory recipes/desserts
-$ cd desserts    # go into desserts subdirectory
-$ git init        # make the desserts subdirectory a Git repository
-$ ls -a           # ensure the .git subdirectory is present indicating we have created a new Git repository
-</code></pre>
-<p>Is the <code>git init</code> command, run inside the <code>desserts</code> subdirectory, required for
-tracking files stored in the <code>desserts</code> subdirectory?</p>
-<details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
-<p>No. Alfredo does not need to make the <code>desserts</code> subdirectory a Git repository
-because the <code>recipes</code> repository will track all files, sub-directories, and
-subdirectory files under the <code>recipes</code> directory.  Thus, in order to track
-all information about desserts, Alfredo only needed to add the <code>desserts</code> subdirectory
-to the <code>recipes</code> directory.</p>
-<p>Additionally, Git repositories can interfere with each other if they are "nested":
-the outer repository will try to version-control
-the inner repository. Therefore, it's best to create each new Git
-repository in a separate directory. To be sure that there is no conflicting
-repository in the directory, check the output of <code>git status</code>. If it looks
-like the following, you are good to go to create a new repository as shown
-above:</p>
-<pre><code class="language-bash">$ git status
-</code></pre>
-<pre><code class="language-output">fatal: Not a git repository (or any of the parent directories): .git
-</code></pre>
-</details>
-<h2 id="correcting-git-init-mistakes">Correcting <code>git init</code> Mistakes</h2>
-<p>Jimmy explains to Alfredo how a nested repository is redundant and may cause confusion
-down the road. Alfredo would like to go back to a single git repository. How can Alfredo undo
-his last <code>git init</code> in the <code>desserts</code> subdirectory?</p>
-<details class="solution"><summary>Show solution</summary>
-<h2 id="solution-use-with-caution">Solution -- USE WITH CAUTION!</h2>
-<h3 id="background">Background</h3>
-<p>Removing files from a Git repository needs to be done with caution. But we have not learned
-yet how to tell Git to track a particular file; we will learn this in the next episode. Files
-that are not tracked by Git can easily be removed like any other "ordinary" files with</p>
-<pre><code class="language-bash">$ rm filename
-</code></pre>
-<p>Similarly a directory can be removed using <code>rm -r dirname</code>.
-If the files or folder being removed in this fashion are tracked by Git, then their removal
-becomes another change that we will need to track, as we will see in the next episode.</p>
-<h3 id="solution-x">Solution</h3>
-<p>Git keeps all of its files in the <code>.git</code> directory.
-To recover from this little mistake, Alfredo can remove the <code>.git</code>
-folder in the desserts subdirectory by running the following command from inside the <code>recipes</code> directory:</p>
-<pre><code class="language-bash">$ rm -rf desserts/.git
-</code></pre>
-<p>But be careful! Running this command in the wrong directory will remove
-the entire Git history of a project you might want to keep.
-In general, deleting files and directories using <code>rm</code> from the command line cannot be reversed.
-Therefore, always check your current directory using the command <code>pwd</code>.</p>
-</details>
-</div>
-<div class="box box-keypoints">
-<p class="box-title">Key points</p>
+<blockquote>
+<p>💡 <strong>VS Code Tip</strong>: Hover over any HTML tag in VS Code to see helpful information from MDN Web Docs, including usage examples and browser compatibility details.</p>
+</blockquote>
+<blockquote>
+<p>📚 <strong>Learn More</strong>: The DOCTYPE declaration prevents browsers from entering "quirks mode," which was used to support very old websites. Modern web development uses the simple <code>&lt;!DOCTYPE html&gt;</code> declaration to ensure <a href="https://developer.mozilla.org/docs/Web/HTML/Quirks_Mode_and_Standards_Mode" target="_blank" rel="noopener noreferrer">standards-compliant rendering</a>.</p>
+</blockquote>
+<h3 id="h-pedagogical-check-in">🔄 <strong>Pedagogical Check-in</strong></h3>
+<p><strong>Pause and Reflect</strong>: Before continuing, make sure you understand:</p>
 <ul>
-<li><code>git init</code> initializes a repository.</li>
-<li>Git stores all of its repository data in the <code>.git</code> directory.</li>
+<li>✅ Why every HTML document needs a DOCTYPE declaration</li>
+<li>✅ What the <code>&lt;html&gt;</code> root element contains</li>
+<li>✅ How this structure helps browsers render pages correctly</li>
 </ul>
-</div>
+<p><strong>Quick Self-Test</strong>: Can you explain in your own words what "standards-compliant rendering" means?</p>
+<h2 id="h-adding-essential-document-metadata">Adding Essential Document Metadata</h2>
+<p>The <code>&lt;head&gt;</code> section of an HTML document contains crucial information that browsers and search engines need, but that visitors don't see directly on the page. Think of it as the "behind-the-scenes" information that helps your webpage work properly and appear correctly across different devices and platforms.</p>
+<p>This metadata tells browsers how to display your page, what character encoding to use, and how to handle different screen sizes – all essential for creating professional, accessible web pages.</p>
+<h3 id="h-task-add-the-document-head">Task: Add the Document Head</h3>
+<p>Insert this <code>&lt;head&gt;</code> section between your opening and closing <code>&lt;html&gt;</code> tags:</p>
+<pre><code class="language-html">&lt;head&gt;
+	&lt;title&gt;Welcome to my Virtual Terrarium&lt;/title&gt;
+	&lt;meta charset="utf-8" /&gt;
+	&lt;meta http-equiv="X-UA-Compatible" content="IE=edge" /&gt;
+	&lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+&lt;/head&gt;
+</code></pre>
+<p><strong>Breaking down what each element accomplishes:</strong></p>
+<ul>
+<li><strong>Sets</strong> the page title that appears in browser tabs and search results</li>
+<li><strong>Specifies</strong> UTF-8 character encoding for proper text display worldwide</li>
+<li><strong>Ensures</strong> compatibility with modern versions of Internet Explorer</li>
+<li><strong>Configures</strong> responsive design by setting the viewport to match device width</li>
+<li><strong>Controls</strong> initial zoom level to display content at natural size</li>
+</ul>
+<blockquote>
+<p>🤔 <strong>Think About This</strong>: What would happen if you set a viewport meta tag like this: <code>&lt;meta name="viewport" content="width=600"&gt;</code>? This would force the page to always be 600 pixels wide, breaking responsive design! Learn more about <a href="https://developer.mozilla.org/docs/Web/HTML/Viewport_meta_tag" target="_blank" rel="noopener noreferrer">proper viewport configuration</a>.</p>
+</blockquote>
+<h2 id="h-building-the-document-body">Building the Document Body</h2>
+<p>The <code>&lt;body&gt;</code> element contains all the visible content of your webpage – everything users will see and interact with. While the <code>&lt;head&gt;</code> section provided instructions to the browser, the <code>&lt;body&gt;</code> section contains the actual content: text, images, buttons, and other elements that create your user interface.</p>
+<p>Let's add the body structure and understand how HTML tags work together to create meaningful content.</p>
+<h3 id="h-understanding-html-tag-structure">Understanding HTML Tag Structure</h3>
+<p>HTML uses paired tags to define elements. Most tags have an opening tag like <code>&lt;p&gt;</code> and a closing tag like <code>&lt;/p&gt;</code>, with content in between: <code>&lt;p&gt;Hello, world!&lt;/p&gt;</code>. This creates a paragraph element containing the text "Hello, world!".</p>
+<h3 id="h-task-add-the-body-element">Task: Add the Body Element</h3>
+<p>Update your HTML file to include the <code>&lt;body&gt;</code> element:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;Welcome to my Virtual Terrarium&lt;/title&gt;
+		&lt;meta charset="utf-8" /&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="IE=edge" /&gt;
+		&lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+	&lt;/head&gt;
+	&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><strong>Here's what this complete structure provides:</strong></p>
+<ul>
+<li><strong>Establishes</strong> the basic HTML5 document framework</li>
+<li><strong>Includes</strong> essential metadata for proper browser rendering</li>
+<li><strong>Creates</strong> an empty body ready for your visible content</li>
+<li><strong>Follows</strong> modern web development best practices</li>
+</ul>
+<p>Now you're ready to add the visible elements of your terrarium. We'll use <code>&lt;div&gt;</code> elements as containers to organize different sections of content, and <code>&lt;img&gt;</code> elements to display the plant images.</p>
+<h3 id="h-working-with-images-and-layout-containers">Working with Images and Layout Containers</h3>
+<p>Images are special in HTML because they use "self-closing" tags. Unlike elements like <code>&lt;p&gt;&lt;/p&gt;</code> that wrap around content, the <code>&lt;img&gt;</code> tag contains all the information it needs within the tag itself using attributes like <code>src</code> for the image file path and <code>alt</code> for accessibility.</p>
+<p>Before adding images to your HTML, you'll need to organize your project files properly by creating an images folder and adding the plant graphics.</p>
+<p><strong>First, set up your images:</strong></p>
+<ol>
+<li>Create a folder called <code>images</code> inside your terrarium project folder</li>
+<li>Download the plant images from the <a href="https://github.com/microsoft/Web-Dev-For-Beginners/blob/78085398be0dea7abaaf5eda914817f46f6ddbbc/3-terrarium/solution/images" target="_blank" rel="noopener noreferrer">solution folder</a> (14 plant images total)</li>
+<li>Copy all plant images into your new <code>images</code> folder</li>
+</ol>
+<h3 id="h-task-create-the-plant-display-layout">Task: Create the Plant Display Layout</h3>
+<p>Now add the plant images organized in two columns between your <code>&lt;body&gt;&lt;/body&gt;</code> tags:</p>
+<pre><code class="language-html">&lt;div id="page"&gt;
+	&lt;div id="left-container" class="container"&gt;
+		&lt;div class="plant-holder"&gt;
+			&lt;img class="plant" alt="plant" id="plant1" src="./images/plant1.png" /&gt;
+		&lt;/div&gt;
+		&lt;div class="plant-holder"&gt;
+			&lt;img class="plant" alt="plant" id="plant2" src="./images/plant2.png" /&gt;
+		&lt;/div&gt;
+		&lt;div class="plant-holder"&gt;
+			&lt;img class="plant" alt="plant" id="plant3" src="./images/plant3.png" /&gt;
+		&lt;/div&gt;
+		&lt;div class="plant-holder"&gt;
+			&lt;img class="plant" alt="plant" id="plant4" src="./images/plant4.png" /&gt;
+		&lt;/div&gt;
+		&lt;div class="plant-holder"&gt;
+			&lt;img class="plant" alt="plant" id="plant5" src="./images/plant5.png" /&gt;
+		&lt;/div&gt;
+		&lt;div class="plant-holder"&gt;
+			&lt;img class="plant" alt="plant" id="plant6" src="./images/plant6.png" /&gt;
+		&lt;/div&gt;
+		&lt;div class="plant-holder"&gt;
+			&lt;img class="plant" alt="plant" id="plant7" src="./images/plant7.png" /&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div id="right-container" class="container"&gt;
+		&lt;div class="plant-holder"&gt;
+			&lt;img class="plant" alt="plant" id="plant8" src="./images/plant8.png" /&gt;
+		&lt;/div&gt;
+		&lt;div class="plant-holder"&gt;
+			&lt;img class="plant" alt="plant" id="plant9" src="./images/plant9.png" /&gt;
+		&lt;/div&gt;
+		&lt;div class="plant-holder"&gt;
+			&lt;img class="plant" alt="plant" id="plant10" src="./images/plant10.png" /&gt;
+		&lt;/div&gt;
+		&lt;div class="plant-holder"&gt;
+			&lt;img class="plant" alt="plant" id="plant11" src="./images/plant11.png" /&gt;
+		&lt;/div&gt;
+		&lt;div class="plant-holder"&gt;
+			&lt;img class="plant" alt="plant" id="plant12" src="./images/plant12.png" /&gt;
+		&lt;/div&gt;
+		&lt;div class="plant-holder"&gt;
+			&lt;img class="plant" alt="plant" id="plant13" src="./images/plant13.png" /&gt;
+		&lt;/div&gt;
+		&lt;div class="plant-holder"&gt;
+			&lt;img class="plant" alt="plant" id="plant14" src="./images/plant14.png" /&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>Step by step, here's what's happening in this code:</strong></p>
+<ul>
+<li><strong>Creates</strong> a main page container with <code>id="page"</code> to hold all content</li>
+<li><strong>Establishes</strong> two column containers: <code>left-container</code> and <code>right-container</code></li>
+<li><strong>Organizes</strong> 7 plants in the left column and 7 plants in the right column</li>
+<li><strong>Wraps</strong> each plant image in a <code>plant-holder</code> div for individual positioning</li>
+<li><strong>Applies</strong> consistent class names for CSS styling in the next lesson</li>
+<li><strong>Assigns</strong> unique IDs to each plant image for JavaScript interaction later</li>
+<li><strong>Includes</strong> proper file paths pointing to the images folder</li>
+</ul>
+<blockquote>
+<p>🤔 <strong>Consider This</strong>: Notice that all images currently have the same alt text "plant". This isn't ideal for accessibility. Screen reader users would hear "plant" repeated 14 times without knowing which specific plant each image shows. Can you think of better, more descriptive alt text for each image?</p>
+</blockquote>
+<blockquote>
+<p>📝 <strong>HTML Element Types</strong>: <code>&lt;div&gt;</code> elements are "block-level" and take up full width, while <code>&lt;span&gt;</code> elements are "inline" and only take up necessary width. What do you think would happen if you changed all these <code>&lt;div&gt;</code> tags to <code>&lt;span&gt;</code> tags?</p>
+</blockquote>
+<h3 id="h-pedagogical-check-in-x">🔄 <strong>Pedagogical Check-in</strong></h3>
+<p><strong>Structure Understanding</strong>: Take a moment to review your HTML structure:</p>
+<ul>
+<li>✅ Can you identify the main containers in your layout?</li>
+<li>✅ Do you understand why each image has a unique ID?</li>
+<li>✅ How would you describe the purpose of the <code>plant-holder</code> divs?</li>
+</ul>
+<p><strong>Visual Inspection</strong>: Open your HTML file in a browser. You should see:</p>
+<ul>
+<li>A basic list of plant images</li>
+<li>Images organized in two columns</li>
+<li>Simple, unstyled layout</li>
+</ul>
+<p><strong>Remember</strong>: This plain appearance is exactly what HTML should look like before CSS styling!</p>
+<p>With this markup added, the plants will appear on screen, though they won't look polished yet – that's what CSS is for in the next lesson! For now, you have a solid HTML foundation that properly organizes your content and follows accessibility best practices.</p>
+<h2 id="h-using-semantic-html-for-accessibility">Using Semantic HTML for Accessibility</h2>
+<p>Semantic HTML means choosing HTML elements based on their meaning and purpose, not just their appearance. When you use semantic markup, you're communicating the structure and meaning of your content to browsers, search engines, and assistive technologies like screen readers.</p>
+<pre><code class="language-mermaid">flowchart TD
+    A[Need to add content?] --&gt; B{What type?}
+    B --&gt;|Main heading| C["&lt;h1&gt;"]
+    B --&gt;|Subheading| D["&lt;h2&gt;, &lt;h3&gt;, etc."]
+    B --&gt;|Paragraph| E["&lt;p&gt;"]
+    B --&gt;|List| F["&lt;ul&gt;, &lt;ol&gt;"]
+    B --&gt;|Navigation| G["&lt;nav&gt;"]
+    B --&gt;|Article| H["&lt;article&gt;"]
+    B --&gt;|Section| I["&lt;section&gt;"]
+    B --&gt;|Generic container| J["&lt;div&gt;"]
+    
+    C --&gt; K[Screen readers announce as main title]
+    D --&gt; L[Creates proper heading hierarchy]
+    E --&gt; M[Provides proper text spacing]
+    F --&gt; N[Enables list navigation shortcuts]
+    G --&gt; O[Identifies navigation landmarks]
+    H --&gt; P[Marks standalone content]
+    I --&gt; Q[Groups related content]
+    J --&gt; R[Use only when no semantic tag fits]
+    
+    style C fill:#4caf50
+    style D fill:#4caf50
+    style E fill:#4caf50
+    style F fill:#4caf50
+    style G fill:#2196f3
+    style H fill:#2196f3
+    style I fill:#2196f3
+    style J fill:#ff9800
+</code></pre>
+<p>This approach makes your websites more accessible to users with disabilities and helps search engines better understand your content. It's a fundamental principle of modern web development that creates better experiences for everyone.</p>
+<h3 id="h-adding-a-semantic-page-title">Adding a Semantic Page Title</h3>
+<p>Let's add a proper heading to your terrarium page. Insert this line right after your opening <code>&lt;body&gt;</code> tag:</p>
+<pre><code class="language-html">&lt;h1&gt;My Terrarium&lt;/h1&gt;
+</code></pre>
+<p><strong>Why semantic markup matters:</strong></p>
+<ul>
+<li><strong>Helps</strong> screen readers navigate and understand page structure</li>
+<li><strong>Improves</strong> search engine optimization (SEO) by clarifying content hierarchy</li>
+<li><strong>Enhances</strong> accessibility for users with visual impairments or cognitive differences</li>
+<li><strong>Creates</strong> better user experiences across all devices and platforms</li>
+<li><strong>Follows</strong> web standards and best practices for professional development</li>
+</ul>
+<p><strong>Examples of semantic vs. non-semantic choices:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>✅ Semantic Choice</th>
+<th>❌ Non-Semantic Choice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Main heading</td>
+<td><code>&lt;h1&gt;Title&lt;/h1&gt;</code></td>
+<td><code>&lt;div class="big-text"&gt;Title&lt;/div&gt;</code></td>
+</tr>
+<tr>
+<td>Navigation</td>
+<td><code>&lt;nav&gt;&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/nav&gt;</code></td>
+<td><code>&lt;div class="menu"&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;</code></td>
+</tr>
+<tr>
+<td>Button</td>
+<td><code>&lt;button&gt;Click me&lt;/button&gt;</code></td>
+<td><code>&lt;span onclick="..."&gt;Click me&lt;/span&gt;</code></td>
+</tr>
+<tr>
+<td>Article content</td>
+<td><code>&lt;article&gt;&lt;p&gt;&lt;/p&gt;&lt;/article&gt;</code></td>
+<td><code>&lt;div class="content"&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;</code></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>🎥 <strong>See It in Action</strong>: Watch <a href="https://www.youtube.com/watch?v=OUDV1gqs9GA" target="_blank" rel="noopener noreferrer">how screen readers interact with web pages</a> to understand why semantic markup is crucial for accessibility. Notice how proper HTML structure helps users navigate efficiently.</p>
+</blockquote>
+<h2 id="h-creating-the-terrarium-container">Creating the Terrarium Container</h2>
+<p>Now let's add the HTML structure for the terrarium itself – the glass container where plants will eventually be placed. This section demonstrates an important concept: HTML provides structure, but without CSS styling, these elements won't be visible yet.</p>
+<p>The terrarium markup uses descriptive class names that will make CSS styling intuitive and maintainable in the next lesson.</p>
+<h3 id="h-task-add-the-terrarium-structure">Task: Add the Terrarium Structure</h3>
+<p>Insert this markup above the last <code>&lt;/div&gt;</code> tag (before the closing tag of the page container):</p>
+<pre><code class="language-html">&lt;div id="terrarium"&gt;
+	&lt;div class="jar-top"&gt;&lt;/div&gt;
+	&lt;div class="jar-walls"&gt;
+		&lt;div class="jar-glossy-long"&gt;&lt;/div&gt;
+		&lt;div class="jar-glossy-short"&gt;&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="dirt"&gt;&lt;/div&gt;
+	&lt;div class="jar-bottom"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>Understanding this terrarium structure:</strong></p>
+<ul>
+<li><strong>Creates</strong> a main terrarium container with a unique ID for styling</li>
+<li><strong>Defines</strong> separate elements for each visual component (top, walls, dirt, bottom)</li>
+<li><strong>Includes</strong> nested elements for glass reflection effects (glossy elements)</li>
+<li><strong>Uses</strong> descriptive class names that clearly indicate each element's purpose</li>
+<li><strong>Prepares</strong> the structure for CSS styling that will create the glass terrarium appearance</li>
+</ul>
+<blockquote>
+<p>🤔 <strong>Notice Something?</strong>: Even though you added this markup, you don't see anything new on the page! This perfectly illustrates how HTML provides structure while CSS provides appearance. These <code>&lt;div&gt;</code> elements exist but have no visual styling yet – that's coming in the next lesson!</p>
+</blockquote>
+<pre><code class="language-mermaid">flowchart TD
+    A[HTML Document] --&gt; B[Document Head]
+    A --&gt; C[Document Body]
+    B --&gt; D[Title Element]
+    B --&gt; E[Meta Charset]
+    B --&gt; F[Meta Viewport]
+    C --&gt; G[Main Heading]
+    C --&gt; H[Page Container]
+    H --&gt; I[Left Container with 7 plants]
+    H --&gt; J[Right Container with 7 plants]
+    H --&gt; K[Terrarium Structure]
+    
+    style A fill:#e1f5fe
+    style B fill:#fff3e0
+    style C fill:#e8f5e8
+    style H fill:#f3e5f5
+</code></pre>
+<h3 id="h-pedagogical-check-in-x-x">🔄 <strong>Pedagogical Check-in</strong></h3>
+<p><strong>HTML Structure Mastery</strong>: Before moving forward, ensure you can:</p>
+<ul>
+<li>✅ Explain the difference between HTML structure and visual appearance</li>
+<li>✅ Identify semantic vs. non-semantic HTML elements</li>
+<li>✅ Describe how proper markup benefits accessibility</li>
+<li>✅ Recognize the complete document tree structure</li>
+</ul>
+<p><strong>Testing Your Understanding</strong>: Try opening your HTML file in a browser with JavaScript disabled and CSS removed. This shows you the pure semantic structure you've created!</p>
+<hr>
+<h2 id="h-github-copilot-agent-challenge">GitHub Copilot Agent Challenge</h2>
+<p>Use the Agent mode to complete the following challenge:</p>
+<p><strong>Description:</strong> Create a semantic HTML structure for a plant care guide section that could be added to the terrarium project.</p>
+<p><strong>Prompt:</strong> Create a semantic HTML section that includes a main heading "Plant Care Guide", three subsections with headings "Watering", "Light Requirements", and "Soil Care", each containing a paragraph of plant care information. Use proper semantic HTML tags like <code>&lt;section&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, and <code>&lt;p&gt;</code> to structure the content appropriately.</p>
+<p>Learn more about <a href="https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode" target="_blank" rel="noopener noreferrer">agent mode</a> here.</p>
+<h2 id="h-explore-html-history-challenge">Explore HTML History Challenge</h2>
+<p><strong>Learning About Web Evolution</strong></p>
+<p>HTML has evolved significantly since Tim Berners-Lee created the first web browser at CERN in 1990. Some older tags like <code>&lt;marquee&gt;</code> are now deprecated because they don't work well with modern accessibility standards and responsive design principles.</p>
+<p><strong>Try This Experiment:</strong></p>
+<ol>
+<li>Temporarily wrap your <code>&lt;h1&gt;</code> title in a <code>&lt;marquee&gt;</code> tag: <code>&lt;marquee&gt;&lt;h1&gt;My Terrarium&lt;/h1&gt;&lt;/marquee&gt;</code></li>
+<li>Open your page in a browser and observe the scrolling effect</li>
+<li>Consider why this tag was deprecated (hint: think about user experience and accessibility)</li>
+<li>Remove the <code>&lt;marquee&gt;</code> tag and return to semantic markup</li>
+</ol>
+<p><strong>Reflection Questions:</strong></p>
+<ul>
+<li>How might a scrolling title affect users with visual impairments or motion sensitivity?</li>
+<li>What modern CSS techniques could achieve similar visual effects more accessibly?</li>
+<li>Why is it important to use current web standards instead of deprecated elements?</li>
+</ul>
+<p>Explore more about <a href="https://developer.mozilla.org/docs/Web/HTML/Element#Obsolete_and_deprecated_elements" target="_blank" rel="noopener noreferrer">obsolete and deprecated HTML elements</a> to understand how web standards evolve to improve user experience.</p>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
+<p><strong>Deepen Your HTML Knowledge</strong></p>
+<p>HTML has been the foundation of the web for over 30 years, evolving from a simple document markup language to a sophisticated platform for building interactive applications. Understanding this evolution helps you appreciate modern web standards and make better development decisions.</p>
+<p><strong>Recommended Learning Paths:</strong></p>
+<ol>
+<li>
+<p><strong>HTML History and Evolution</strong></p>
+<ul>
+<li>Research the timeline from HTML 1.0 to HTML5</li>
+<li>Explore why certain tags were deprecated (accessibility, mobile-friendliness, maintainability)</li>
+<li>Investigate emerging HTML features and proposals</li>
+</ul>
+</li>
+<li>
+<p><strong>Semantic HTML Deep Dive</strong></p>
+<ul>
+<li>Study the complete list of <a href="https://developer.mozilla.org/docs/Web/HTML/Element" target="_blank" rel="noopener noreferrer">HTML5 semantic elements</a></li>
+<li>Practice identifying when to use <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;aside&gt;</code>, and <code>&lt;main&gt;</code></li>
+<li>Learn about ARIA attributes for enhanced accessibility</li>
+</ul>
+</li>
+<li>
+<p><strong>Modern Web Development</strong></p>
+<ul>
+<li>Explore <a href="https://docs.microsoft.com/learn/modules/build-simple-website/?WT.mc_id=academic-77807-sagibbon" target="_blank" rel="noopener noreferrer">building responsive websites</a> on Microsoft Learn</li>
+<li>Understand how HTML integrates with CSS and JavaScript</li>
+<li>Learn about web performance and SEO best practices</li>
+</ul>
+</li>
+</ol>
+<p><strong>Reflection Questions:</strong></p>
+<ul>
+<li>Which deprecated HTML tags did you discover, and why were they removed?</li>
+<li>What new HTML features are being proposed for future versions?</li>
+<li>How does semantic HTML contribute to web accessibility and SEO?</li>
+</ul>
+<h3 id="h-what-you-can-do-in-the-next-5-minutes">⚡ <strong>What You Can Do in the Next 5 Minutes</strong></h3>
+<ul>
+<li>[ ] Open DevTools (F12) and inspect the HTML structure of your favorite website</li>
+<li>[ ] Create a simple HTML file with basic tags: <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, and <code>&lt;img&gt;</code></li>
+<li>[ ] Validate your HTML using the W3C HTML Validator online</li>
+<li>[ ] Try adding a comment to your HTML using <code>&lt;!-- comment --&gt;</code></li>
+</ul>
+<h3 id="h-what-you-can-accomplish-this-hour">🎯 <strong>What You Can Accomplish This Hour</strong></h3>
+<ul>
+<li>[ ] Complete the post-lesson quiz and review semantic HTML concepts</li>
+<li>[ ] Build a simple webpage about yourself using proper HTML structure</li>
+<li>[ ] Experiment with different heading levels and text formatting tags</li>
+<li>[ ] Add images and links to practice multimedia integration</li>
+<li>[ ] Research HTML5 features you haven't tried yet</li>
+</ul>
+<h3 id="h-your-week-long-html-journey">📅 <strong>Your Week-Long HTML Journey</strong></h3>
+<ul>
+<li>[ ] Complete the terrarium project assignment with semantic markup</li>
+<li>[ ] Create an accessible webpage using ARIA labels and roles</li>
+<li>[ ] Practice form creation with various input types</li>
+<li>[ ] Explore HTML5 APIs like localStorage or geolocation</li>
+<li>[ ] Study responsive HTML patterns and mobile-first design</li>
+<li>[ ] Review other developers' HTML code for best practices</li>
+</ul>
+<h3 id="h-your-month-long-web-foundation">🌟 <strong>Your Month-Long Web Foundation</strong></h3>
+<ul>
+<li>[ ] Build a portfolio website showcasing your HTML mastery</li>
+<li>[ ] Learn HTML templating with a framework like Handlebars</li>
+<li>[ ] Contribute to open source projects by improving HTML documentation</li>
+<li>[ ] Master advanced HTML concepts like custom elements</li>
+<li>[ ] Integrate HTML with CSS frameworks and JavaScript libraries</li>
+<li>[ ] Mentor others learning HTML fundamentals</li>
+</ul>
+<h2 id="h-your-html-mastery-timeline">🎯 Your HTML Mastery Timeline</h2>
+<pre><code class="language-mermaid">timeline
+    title HTML Learning Progression
+    
+    section Foundation (5 minutes)
+        Document Structure: DOCTYPE declaration
+                         : HTML root element
+                         : Head vs Body understanding
+        
+    section Metadata (10 minutes)
+        Essential Meta Tags: Character encoding
+                           : Viewport configuration
+                           : Browser compatibility
+        
+    section Content Creation (15 minutes)
+        Image Integration: Proper file paths
+                         : Alt text importance
+                         : Self-closing tags
+        
+    section Layout Organization (20 minutes)
+        Container Strategy: Div elements for structure
+                          : Class and ID naming
+                          : Nested element hierarchy
+        
+    section Semantic Mastery (30 minutes)
+        Meaningful Markup: Heading hierarchy
+                         : Screen reader navigation
+                         : Accessibility best practices
+        
+    section Advanced Concepts (1 hour)
+        HTML5 Features: Modern semantic elements
+                      : ARIA attributes
+                      : Performance considerations
+        
+    section Professional Skills (1 week)
+        Code Organization: File structure patterns
+                         : Maintainable markup
+                         : Team collaboration
+        
+    section Expert Level (1 month)
+        Modern Web Standards: Progressive enhancement
+                            : Cross-browser compatibility
+                            : HTML specification updates
+</code></pre>
+<h3 id="h-your-html-toolkit-summary">🛠️ Your HTML Toolkit Summary</h3>
+<p>After completing this lesson, you now have:</p>
+<ul>
+<li><strong>Document Structure</strong>: Complete HTML5 foundation with proper DOCTYPE</li>
+<li><strong>Semantic Markup</strong>: Meaningful tags that enhance accessibility and SEO</li>
+<li><strong>Image Integration</strong>: Proper file organization and alt text practices</li>
+<li><strong>Layout Containers</strong>: Strategic use of divs with descriptive class names</li>
+<li><strong>Accessibility Awareness</strong>: Understanding of screen reader navigation</li>
+<li><strong>Modern Standards</strong>: Current HTML5 practices and deprecated tag knowledge</li>
+<li><strong>Project Foundation</strong>: Solid base for CSS styling and JavaScript interactivity</li>
+</ul>
+<p><strong>Next Steps</strong>: Your HTML structure is ready for CSS styling! The semantic foundation you've built will make the next lesson much easier to understand.</p>

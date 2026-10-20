@@ -18,7 +18,7 @@
 <li>How can we find and correct errors in our raw data?</li>
 </ul>
 </div>
-<h2 id="creating-a-new-openrefine-project">Creating a new OpenRefine project</h2>
+<h2 id="h-creating-a-new-openrefine-project">Creating a new OpenRefine project</h2>
 <p>OpenRefine can import a variety of file types, including tab separated (<code>tsv</code>),
 comma separated (<code>csv</code>), Excel (<code>xls</code>, <code>xlsx</code>), JSON, XML, RDF as XML, and
 Google Spreadsheets. See the <a href="https://docs.openrefine.org/manual/starting/#create-a-project-by-importing-data" target="_blank" rel="noopener noreferrer">OpenRefine Create a Project by Importing Data
@@ -70,7 +70,7 @@ Fully understanding this functionality is out of scope for this lesson.
 The <a href="https://docs.openrefine.org/manual/starting#web-addresses-urls" target="_blank" rel="noopener noreferrer">OpenRefine manual's section on importing from Web addresses
 (URLs)</a> provides
 further information.</p>
-<h2 id="using-facets">Using Facets</h2>
+<h2 id="h-using-facets">Using Facets</h2>
 <p><em>Exploring data by applying multiple filters</em></p>
 <p>Facets are one of the most useful features of OpenRefine and can help both get
 an overview of the data in a project as well as help you bring more consistency
@@ -89,7 +89,6 @@ OpenRefine interface.</p>
 <p>Here we will use faceting to look for potential errors in data entry in the <code>village</code> column.</p>
 <div class="box box-challenge">
 <p class="box-title">Finding (potential) errors</p>
-
 <ol>
 <li>Scroll over to the <code>village</code> column.</li>
 <li>Click the down arrow and choose <code>Facet</code> &gt; <code>Text facet</code>.</li>
@@ -107,7 +106,6 @@ errors, which we'll use instead. We'll learn about these when we talk about
 clustering.</li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h3 id="solution">Solution</h3>
 <ul>
 <li><code>Chirdozo</code> is likely a mis-entry of <code>Chirodzo</code>.</li>
 <li><code>Ruca</code> is likely a mis-entry of <code>Ruaca</code>.</li>
@@ -122,7 +120,6 @@ it by reference to other data.</li>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Interview collection dates</p>
-
 <ol>
 <li>
 <p>Using faceting, find out how many different <code>interview_date</code> values there
@@ -141,7 +138,6 @@ column to dates.</p>
 </li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h3 id="solution-x">Solution</h3>
 <p>For the column <code>interview_date</code> do <code>Facet</code> &gt; <code>Text facet</code>. A box will
 appear in the left panel showing that there are 19 unique entries in
 this column.
@@ -154,7 +150,6 @@ of entries for each date.</p>
 </div>
 <div class="box box-callout">
 <p class="box-title">Other types of Facets</p>
-
 <p>Please see the
 <a href="https://openrefine.org/docs/manual/facets" target="_blank" rel="noopener noreferrer">OpenRefine Manual section on Facets</a>
 for reference information on all types of facets.</p>
@@ -191,14 +186,13 @@ when looking for rows missing key data.</li>
 </div>
 <div class="box box-callout">
 <p class="box-title">Bookmark a project with facets and filters</p>
-
 <p>OpenRefine saves the project continuously so that you can close the browser
 and use "Open Project" from the start page to continue the work.
 However, any facets and filters (discussed in the next episode) are not saved.
 To save the exact view, you can bookmark the "Permalink" that is to the right
 of the project name in the top left corner of the screen.</p>
 </div>
-<h2 id="using-clustering-to-detect-possible-typing-errors">Using clustering to detect possible typing errors</h2>
+<h2 id="h-using-clustering-to-detect-possible-typing-errors">Using clustering to detect possible typing errors</h2>
 <p>In OpenRefine, clustering means "finding groups of different values that might
 be alternative representations of the same thing". For example, the two strings
 <code>New York</code> and <code>new york</code> are very likely to refer to the same concept and just
@@ -230,7 +224,7 @@ times than described in the instructions above, your solutions for later
 exercises will not be the same as shown in those exercise solutions.</p>
 <p>The <a href="https://openrefine.org/docs/technical-reference/clustering-in-depth" target="_blank" rel="noopener noreferrer">manual's section on clustering</a> provides technical details on
 how the different clustering algorithms work.</p>
-<h2 id="transforming-data">Transforming data</h2>
+<h2 id="h-transforming-data">Transforming data</h2>
 <p>The data in the <code>items_owned</code> column is a set of items in a list. The list is
 in square brackets and each item is in single quotes. Before we split the list
 into individual items in the next section, we first want to remove the brackets
@@ -260,11 +254,9 @@ longer any left square brackets.</p>
 </ol>
 <div class="box box-challenge">
 <p class="box-title">Remove unwanted characters</p>
-
 <p>Use this same strategy to remove the single quote marks (<code>'</code>), the
 right square brackets (<code>]</code>), and spaces from the <code>items_owned</code> column.</p>
 <details class="solution"><summary>Show solution</summary>
-<h3 id="solution-x-x">Solution</h3>
 <ol>
 <li><code>value.replace("'", "")</code></li>
 <li><code>value.replace("]", "")</code></li>
@@ -285,23 +277,19 @@ rarely owned by the interview respondents.</p>
 <p>You should now see a new text facet box in the left-hand pane.</p>
 <div class="box box-challenge">
 <p class="box-title">Commonly owned items</p>
-
 <p>Which two items are the most commonly owned? Which are the two
 least commonly owned?</p>
 <details class="solution"><summary>Show solution</summary>
-<h3 id="solution-x-x-x">Solution</h3>
 <p>Select <code>Sort by:</code> <code>count</code>. The most commonly owned items are
 mobile phone and radio, the least commonly owned are cars and computers.</p>
 </details>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Month(s) with farmers lacking food</p>
-
 <p>Perform the same clean up steps and customized text faceting for
 the <code>months_lack_food</code> column. Which month(s) were farmers
 more likely to lack food?</p>
 <details class="solution"><summary>Show solution</summary>
-<h3 id="solution-x-x-x-x">Solution</h3>
 <p>All four cleaning steps can be performed by combining <code>.replace</code>
 statements. The command is:
 <code>value.replace("[", "").replace("]", "").replace(" ", "").replace("'", "")</code>
@@ -311,20 +299,18 @@ November was the most common month for respondents to lack food.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Clean up other columns</p>
-
 <p>Perform the same clean up steps for the <code>months_no_water</code>, <code>liv_owned</code>,
 <code>res_change</code>, and <code>no_food_mitigation</code> columns.
 Hint: To reuse a GREL command, click the <code>History</code> tab and then
 click <code>Reuse</code> next to the command you would like to apply to that
 column.</p>
 </div>
-<h2 id="using-undo-and-redo">Using undo and redo</h2>
+<h2 id="h-using-undo-and-redo">Using undo and redo</h2>
 <p>It's common while exploring and cleaning a dataset to discover after you've
 made a change that you really should have done something else first. OpenRefine
 provides <code>Undo</code> and <code>Redo</code> operations to make this easy.</p>
 <div class="box box-challenge">
 <p class="box-title">Explore undo and redo</p>
-
 <ol>
 <li>Click where it says <code>Undo / Redo</code> on the left side of the screen. All the
 changes you have made so far are listed here.</li>
@@ -338,7 +324,7 @@ so that all of the columns you modified are lacking in square brackets,
 spaces, and single quotes.</li>
 </ol>
 </div>
-<h2 id="trim-leading-and-trailing-whitespace">Trim Leading and Trailing Whitespace</h2>
+<h2 id="h-trim-leading-and-trailing-whitespace">Trim Leading and Trailing Whitespace</h2>
 <p>Sometimes spaces (or tabs, or newline characters) will be present at the beginning
 or end of a text cell.
 They may have been in the dataset that was imported, or appear when you perform
@@ -353,7 +339,6 @@ This is then applied to the data in all columns.</p>
 characters from the beginning and end of any entries in the column that you choose.</p>
 <div class="box box-challenge">
 <p class="box-title">Remove a trailing space</p>
-
 <ol>
 <li>Edit the <code>village</code> on the first row to introduce a space at the end, set to <code>God </code>.</li>
 <li>Create a new text facet for the <code>village</code> column. You should now see two

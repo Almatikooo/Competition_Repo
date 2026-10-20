@@ -35,7 +35,6 @@ We will only look at a handful of queries,
 but that handful accounts for most of what scientists do.</p>
 <div class="box box-callout">
 <p class="box-title">Changing Database Managers</p>
-
 <p>Many database managers --- Oracle,
 IBM DB2, PostgreSQL, MySQL, Microsoft Access, and SQLite ---  understand
 SQL but each stores data in a different way,
@@ -46,7 +45,6 @@ so it <em>is</em> possible to move information from one to another.</p>
 </div>
 <div class="box box-callout">
 <p class="box-title">Getting Into and Out Of SQLite</p>
-
 <p>In order to use the SQLite commands <em>interactively</em>, we need to
 enter into the SQLite console.  So, open up a terminal, and run</p>
 <pre><code class="language-bash">$ cd /path/to/survey/data/
@@ -60,8 +58,6 @@ terminals, <code>Ctrl-D</code> can also work.  If you forget any SQLite <code>.<
 command, type <code>.help</code>.</p>
 </div>
 <p>Before we get into using SQLite to select the data, let's take a look at the tables of the database we will use in our examples:</p>
-<div>
-<div>
 <p><strong>Person</strong>: People who took readings, <code>id</code> being the unique identifier for that person.</p>
 <div class="table-wrap"><table>
 <thead>
@@ -178,8 +174,6 @@ command, type <code>.help</code>.</p>
 </tr>
 </tbody>
 </table></div>
-</div>
-<div>
 <p><strong>Survey</strong>: The measurements taken at each precise location on these sites. They are&nbsp;identified as <code>taken</code>. The field <code>quant</code> is short for quantity and indicates what is being measured. &nbsp;The values are <code>rad</code>, <code>sal</code>, and <code>temp</code> referring to 'radiation', 'salinity' and 'temperature', respectively.</p>
 <div class="table-wrap"><table>
 <thead>
@@ -319,8 +313,6 @@ command, type <code>.help</code>.</p>
 </tr>
 </tbody>
 </table></div>
-</div>
-</div>
 <p>Notice that three entries --- one in the <code>Visited</code> table,
 and two in the <code>Survey</code> table --- don't contain any actual
 data, but instead have a special <code>-null-</code> entry:
@@ -328,7 +320,6 @@ we'll return to these missing values
 <a href="https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/episodes/05-null.md" target="_blank" rel="noopener noreferrer">later</a>.</p>
 <div class="box box-callout">
 <p class="box-title">Checking If Data is Available</p>
-
 <p>On the shell command line,
 change the working directory to the one where you saved <code>survey.db</code>.
 If you saved it at your Desktop you should use</p>
@@ -605,10 +596,8 @@ we can select all of the columns in a table using <code>*</code>:</p>
 </table></div>
 <div class="box box-challenge">
 <p class="box-title">Understanding CREATE statements</p>
-
 <p>Use the <code>.schema</code> to identify column that contains integers.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <pre><code class="language-sql">.schema
 </code></pre>
 <pre><code class="language-output">CREATE TABLE Person (id text, personal text, family text);
@@ -621,10 +610,8 @@ CREATE TABLE Visited (id integer, site text, dated text);
 </div>
 <div class="box box-challenge">
 <p class="box-title">Selecting Site Names</p>
-
 <p>Write a query that selects only the <code>name</code> column from the <code>Site</code> table.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <pre><code class="language-sql">SELECT name FROM Site;
 </code></pre>
 <div class="table-wrap"><table>
@@ -649,7 +636,6 @@ CREATE TABLE Visited (id integer, site text, dated text);
 </div>
 <div class="box box-challenge">
 <p class="box-title">Query Style</p>
-
 <p>Many people format queries as:</p>
 <pre><code class="language-sql">SELECT personal, family FROM person;
 </code></pre>

@@ -23,13 +23,14 @@
     "precision_agri-03",
     "precision_agri-04",
     "precision_agri-05",
-    "precision_agri-06"
+    "precision_agri-06",
+    "precision_agri-07"
    ]
   },
   {
    "title": "Seeing from space",
    "lessons": [
-    "precision_agri-07"
+    "precision_agri-08"
    ]
   }
  ],
@@ -43,67 +44,67 @@
    "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/2-farm/lessons/1-predict-plant-growth/README.md",
    "toc": [
     {
-     "id": "introduction",
+     "id": "h-introduction",
      "text": "Introduction",
      "level": 2
     },
     {
-     "id": "digital-agriculture",
+     "id": "h-digital-agriculture",
      "text": "Digital agriculture",
      "level": 2
     },
     {
-     "id": "why-is-temperature-important-when-farming",
+     "id": "h-why-is-temperature-important-when-farming",
      "text": "Why is temperature important when farming?",
      "level": 2
     },
     {
-     "id": "measure-ambient-temperature",
+     "id": "h-measure-ambient-temperature",
      "text": "Measure ambient temperature",
      "level": 2
     },
     {
-     "id": "task-measure-temperature",
+     "id": "h-task-measure-temperature",
      "text": "Task - measure temperature",
      "level": 3
     },
     {
-     "id": "growing-degree-days",
+     "id": "h-growing-degree-days",
      "text": "Growing degree days",
      "level": 2
     },
     {
-     "id": "example-corn-maize",
+     "id": "h-example-corn-maize",
      "text": "Example - Corn/Maize 🌽",
      "level": 3
     },
     {
-     "id": "calculate-gdd-using-temperature-sensor-data",
+     "id": "h-calculate-gdd-using-temperature-sensor-data",
      "text": "Calculate GDD using temperature sensor data",
      "level": 2
     },
     {
-     "id": "task-publish-temperature-information",
+     "id": "h-task-publish-temperature-information",
      "text": "Task - publish temperature information",
      "level": 3
     },
     {
-     "id": "task-capture-and-store-the-temperature-information",
+     "id": "h-task-capture-and-store-the-temperature-information",
      "text": "Task - capture and store the temperature information",
      "level": 3
     },
     {
-     "id": "task-calculate-gdd-using-the-stored-data",
+     "id": "h-task-calculate-gdd-using-the-stored-data",
      "text": "Task - calculate GDD using the stored data",
      "level": 3
     },
     {
-     "id": "challenge",
+     "id": "h-challenge",
      "text": "🚀 Challenge",
      "level": 2
     },
     {
-     "id": "review-self-study",
+     "id": "h-review-self-study",
      "text": "Review & Self Study",
      "level": 2
     }
@@ -118,82 +119,82 @@
    "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/2-farm/lessons/2-detect-soil-moisture/README.md",
    "toc": [
     {
-     "id": "introduction",
+     "id": "h-introduction",
      "text": "Introduction",
      "level": 2
     },
     {
-     "id": "soil-moisture",
+     "id": "h-soil-moisture",
      "text": "Soil moisture",
      "level": 2
     },
     {
-     "id": "ways-to-measure-soil-moisture",
+     "id": "h-ways-to-measure-soil-moisture",
      "text": "Ways to measure soil moisture",
      "level": 3
     },
     {
-     "id": "how-sensors-communicate-with-iot-devices",
+     "id": "h-how-sensors-communicate-with-iot-devices",
      "text": "How sensors communicate with IoT devices",
      "level": 2
     },
     {
-     "id": "general-purpose-input-output-gpio-pins",
+     "id": "h-general-purpose-input-output-gpio-pins",
      "text": "General Purpose Input Output (GPIO) pins",
      "level": 3
     },
     {
-     "id": "analog-pins",
+     "id": "h-analog-pins",
      "text": "Analog pins",
      "level": 3
     },
     {
-     "id": "inter-integrated-circuit-i-2-c",
+     "id": "h-inter-integrated-circuit-i-2-c",
      "text": "Inter Integrated Circuit  (I 2 C)",
      "level": 3
     },
     {
-     "id": "universal-asynchronous-receiver-transmitter-uart",
+     "id": "h-universal-asynchronous-receiver-transmitter-uart",
      "text": "Universal asynchronous receiver-transmitter (UART)",
      "level": 3
     },
     {
-     "id": "serial-peripheral-interface-spi",
+     "id": "h-serial-peripheral-interface-spi",
      "text": "Serial Peripheral Interface (SPI)",
      "level": 3
     },
     {
-     "id": "wireless",
+     "id": "h-wireless",
      "text": "Wireless",
      "level": 3
     },
     {
-     "id": "measure-the-moisture-levels-in-soil",
+     "id": "h-measure-the-moisture-levels-in-soil",
      "text": "Measure the moisture levels in soil",
      "level": 2
     },
     {
-     "id": "task-measure-soil-moisture",
+     "id": "h-task-measure-soil-moisture",
      "text": "Task - measure soil moisture",
      "level": 3
     },
     {
-     "id": "sensor-calibration",
+     "id": "h-sensor-calibration",
      "text": "Sensor calibration",
      "level": 2
     },
     {
-     "id": "soil-moisture-sensor-calibration",
+     "id": "h-soil-moisture-sensor-calibration",
      "text": "Soil moisture sensor calibration",
      "level": 3
     },
     {
-     "id": "challenge",
+     "id": "h-challenge",
      "text": "🚀 Challenge",
      "level": 2
     },
     {
-     "id": "review-self-study",
+     "id": "h-review-self-study",
      "text": "Review & Self Study",
      "level": 2
     }
@@ -208,77 +209,77 @@
    "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/2-farm/lessons/3-automated-plant-watering/README.md",
    "toc": [
     {
-     "id": "introduction",
+     "id": "h-introduction",
      "text": "Introduction",
      "level": 2
     },
     {
-     "id": "control-high-power-devices-from-a-low-power-iot-device",
+     "id": "h-control-high-power-devices-from-a-low-power-iot-device",
      "text": "Control high power devices from a low power IoT device",
      "level": 2
     },
     {
-     "id": "relays",
+     "id": "h-relays",
      "text": "Relays",
      "level": 3
     },
     {
-     "id": "relay-power",
+     "id": "h-relay-power",
      "text": "Relay power",
      "level": 3
     },
     {
-     "id": "control-a-relay",
+     "id": "h-control-a-relay",
      "text": "Control a relay",
      "level": 2
     },
     {
-     "id": "task-control-a-relay",
+     "id": "h-task-control-a-relay",
      "text": "Task - control a relay",
      "level": 3
     },
     {
-     "id": "control-your-plant-over-mqtt",
+     "id": "h-control-your-plant-over-mqtt",
      "text": "Control your plant over MQTT",
      "level": 2
     },
     {
-     "id": "task-control-the-relay-over-mqtt",
+     "id": "h-task-control-the-relay-over-mqtt",
      "text": "Task - control the relay over MQTT",
      "level": 3
     },
     {
-     "id": "sensor-and-actuator-timing",
+     "id": "h-sensor-and-actuator-timing",
      "text": "Sensor and actuator timing",
      "level": 2
     },
     {
-     "id": "timing-for-soil-moisture",
+     "id": "h-timing-for-soil-moisture",
      "text": "Timing for soil moisture",
      "level": 3
     },
     {
-     "id": "control-sensor-and-actuator-timing",
+     "id": "h-control-sensor-and-actuator-timing",
      "text": "Control sensor and actuator timing",
      "level": 3
     },
     {
-     "id": "add-timing-to-your-plant-control-server",
+     "id": "h-add-timing-to-your-plant-control-server",
      "text": "Add timing to your plant control server",
      "level": 2
     },
     {
-     "id": "task-add-timing-to-your-plant-control-server",
+     "id": "h-task-add-timing-to-your-plant-control-server",
      "text": "Task - add timing to your plant control server",
      "level": 3
     },
     {
-     "id": "challenge",
+     "id": "h-challenge",
      "text": "🚀 Challenge",
      "level": 2
     },
     {
-     "id": "review-self-study",
+     "id": "h-review-self-study",
      "text": "Review & Self Study",
      "level": 2
     }
@@ -287,103 +288,103 @@
   {
    "id": "precision_agri-04",
    "title": "Migrate your plant to the cloud",
-   "words": 3776,
+   "words": 3711,
    "minutes": 19,
    "source": "ms-iot",
    "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/2-farm/lessons/4-migrate-your-plant-to-the-cloud/README.md",
    "toc": [
     {
-     "id": "introduction",
+     "id": "h-introduction",
      "text": "Introduction",
      "level": 2
     },
     {
-     "id": "what-is-the-cloud",
+     "id": "h-what-is-the-cloud",
      "text": "What is the cloud?",
      "level": 2
     },
     {
-     "id": "someone-else-s-computer",
+     "id": "h-someone-else-s-computer",
      "text": "Someone else's computer",
      "level": 3
     },
     {
-     "id": "microsoft-azure",
+     "id": "h-microsoft-azure",
      "text": "Microsoft Azure",
      "level": 3
     },
     {
-     "id": "create-a-cloud-subscription",
+     "id": "h-create-a-cloud-subscription",
      "text": "Create a cloud subscription",
      "level": 2
     },
     {
-     "id": "task-sign-up-for-a-free-cloud-subscription",
+     "id": "h-task-sign-up-for-a-free-cloud-subscription",
      "text": "Task - sign up for a free cloud subscription",
      "level": 3
     },
     {
-     "id": "cloud-iot-services",
+     "id": "h-cloud-iot-services",
      "text": "Cloud IoT services",
      "level": 2
     },
     {
-     "id": "create-an-iot-service-in-the-cloud",
+     "id": "h-create-an-iot-service-in-the-cloud",
      "text": "Create an IoT service in the cloud",
      "level": 2
     },
     {
-     "id": "task-install-the-azure-cli",
+     "id": "h-task-install-the-azure-cli",
      "text": "Task - install the Azure CLI",
      "level": 3
     },
     {
-     "id": "task-create-a-resource-group",
+     "id": "h-task-create-a-resource-group",
      "text": "Task - create a resource group",
      "level": 3
     },
     {
-     "id": "task-create-an-iot-hub",
+     "id": "h-task-create-an-iot-hub",
      "text": "Task - create an IoT Hub",
      "level": 3
     },
     {
-     "id": "communicate-with-iot-hub",
+     "id": "h-communicate-with-iot-hub",
      "text": "Communicate with IoT Hub",
      "level": 2
     },
     {
-     "id": "connect-your-device-to-the-iot-service",
+     "id": "h-connect-your-device-to-the-iot-service",
      "text": "Connect your device to the IoT service",
      "level": 2
     },
     {
-     "id": "task-register-your-iot-device",
+     "id": "h-task-register-your-iot-device",
      "text": "Task - register your IoT device",
      "level": 3
     },
     {
-     "id": "task-connect-your-iot-device-to-the-cloud",
+     "id": "h-task-connect-your-iot-device-to-the-cloud",
      "text": "Task - connect your IoT device to the cloud",
      "level": 3
     },
     {
-     "id": "task-monitor-events",
+     "id": "h-task-monitor-events",
      "text": "Task - monitor events",
      "level": 3
     },
     {
-     "id": "task-control-your-iot-device",
+     "id": "h-task-control-your-iot-device",
      "text": "Task - control your IoT device",
      "level": 3
     },
     {
-     "id": "challenge",
+     "id": "h-challenge",
      "text": "🚀 Challenge",
      "level": 2
     },
     {
-     "id": "review-self-study",
+     "id": "h-review-self-study",
      "text": "Review & Self Study",
      "level": 2
     }
@@ -392,178 +393,103 @@
   {
    "id": "precision_agri-05",
    "title": "Migrate your application logic to the cloud",
-   "words": 4615,
-   "minutes": 24,
+   "words": 3017,
+   "minutes": 16,
    "source": "ms-iot",
    "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/2-farm/lessons/5-migrate-application-to-the-cloud/README.md",
    "toc": [
     {
-     "id": "introduction",
+     "id": "h-introduction",
      "text": "Introduction",
      "level": 2
     },
     {
-     "id": "what-is-serverless",
+     "id": "h-what-is-serverless",
      "text": "What is serverless?",
      "level": 2
     },
     {
-     "id": "create-a-serverless-application",
+     "id": "h-create-a-serverless-application",
      "text": "Create a serverless application",
      "level": 2
     },
     {
-     "id": "task-install-the-azure-functions-tooling",
+     "id": "h-task-install-the-azure-functions-tooling",
      "text": "Task - install the Azure Functions tooling",
      "level": 3
     },
     {
-     "id": "task-create-an-azure-functions-project",
+     "id": "h-task-create-an-azure-functions-project",
      "text": "Task - create an Azure Functions project",
      "level": 3
     },
     {
-     "id": "create-an-iot-hub-event-trigger",
+     "id": "h-create-an-iot-hub-event-trigger",
      "text": "Create an IoT Hub event trigger",
      "level": 2
     },
     {
-     "id": "task-get-the-event-hub-compatible-endpoint-connection-string",
+     "id": "h-task-get-the-event-hub-compatible-endpoint-connection-string",
      "text": "Task - get the Event Hub compatible endpoint connection string",
      "level": 3
     },
     {
-     "id": "task-create-an-event-trigger",
+     "id": "h-task-create-an-event-trigger",
      "text": "Task - create an event trigger",
      "level": 3
     },
     {
-     "id": "task-run-the-event-trigger",
+     "id": "h-task-run-the-event-trigger",
      "text": "Task - run the event trigger",
      "level": 3
-    },
-    {
-     "id": "send-direct-method-requests-from-serverless-code",
-     "text": "Send direct method requests from serverless code",
-     "level": 2
-    },
-    {
-     "id": "task-get-the-registry-manager-connection-string",
-     "text": "Task - get the Registry Manager connection string",
-     "level": 3
-    },
-    {
-     "id": "task-send-a-direct-method-request-to-a-device",
-     "text": "Task - send a direct method request to a device",
-     "level": 3
-    },
-    {
-     "id": "deploy-your-serverless-code-to-the-cloud",
-     "text": "Deploy your serverless code to the cloud",
-     "level": 2
-    },
-    {
-     "id": "task-create-the-cloud-resources",
-     "text": "Task - create the cloud resources",
-     "level": 3
-    },
-    {
-     "id": "task-upload-your-application-settings",
-     "text": "Task - upload your application settings",
-     "level": 3
-    },
-    {
-     "id": "task-deploy-your-functions-app-to-the-cloud",
-     "text": "Task - deploy your Functions App to the cloud",
-     "level": 3
-    },
-    {
-     "id": "challenge",
-     "text": "🚀 Challenge",
-     "level": 2
-    },
-    {
-     "id": "review-self-study",
-     "text": "Review & Self Study",
-     "level": 2
     }
    ]
   },
   {
    "id": "precision_agri-06",
-   "title": "Keep your plant secure",
-   "words": 3013,
-   "minutes": 16,
+   "title": "Send direct method requests from serverless code",
+   "words": 1591,
+   "minutes": 8,
    "source": "ms-iot",
-   "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/2-farm/lessons/6-keep-your-plant-secure/README.md",
+   "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/2-farm/lessons/5-migrate-application-to-the-cloud/README.md",
    "toc": [
     {
-     "id": "introduction",
-     "text": "Introduction",
+     "id": "h-task-get-the-registry-manager-connection-string",
+     "text": "Task - get the Registry Manager connection string",
+     "level": 3
+    },
+    {
+     "id": "h-task-send-a-direct-method-request-to-a-device",
+     "text": "Task - send a direct method request to a device",
+     "level": 3
+    },
+    {
+     "id": "h-deploy-your-serverless-code-to-the-cloud",
+     "text": "Deploy your serverless code to the cloud",
      "level": 2
     },
     {
-     "id": "why-do-you-need-to-secure-iot-devices",
-     "text": "Why do you need to secure IoT devices?",
-     "level": 2
-    },
-    {
-     "id": "cryptography",
-     "text": "Cryptography",
-     "level": 2
-    },
-    {
-     "id": "early-cryptography",
-     "text": "Early cryptography",
+     "id": "h-task-create-the-cloud-resources",
+     "text": "Task - create the cloud resources",
      "level": 3
     },
     {
-     "id": "modern-cryptography",
-     "text": "Modern cryptography",
+     "id": "h-task-upload-your-application-settings",
+     "text": "Task - upload your application settings",
      "level": 3
     },
     {
-     "id": "symmetric-and-asymmetric-keys",
-     "text": "Symmetric and asymmetric keys",
+     "id": "h-task-deploy-your-functions-app-to-the-cloud",
+     "text": "Task - deploy your Functions App to the cloud",
      "level": 3
     },
     {
-     "id": "secure-your-iot-devices",
-     "text": "Secure your IoT devices",
-     "level": 2
-    },
-    {
-     "id": "symmetric-keys",
-     "text": "Symmetric keys",
-     "level": 3
-    },
-    {
-     "id": "x-509-certificates",
-     "text": "X.509 certificates",
-     "level": 3
-    },
-    {
-     "id": "generate-and-use-an-x-509-certificate",
-     "text": "Generate and use an X.509 certificate",
-     "level": 2
-    },
-    {
-     "id": "task-create-a-device-identity-using-an-x-509-certificate",
-     "text": "Task - create a device identity using an X.509 certificate",
-     "level": 3
-    },
-    {
-     "id": "task-use-the-x-509-certificate-in-your-device-code",
-     "text": "Task - use the X.509 certificate in your device code",
-     "level": 3
-    },
-    {
-     "id": "challenge",
+     "id": "h-challenge",
      "text": "🚀 Challenge",
      "level": 2
     },
     {
-     "id": "review-self-study",
+     "id": "h-review-self-study",
      "text": "Review & Self Study",
      "level": 2
     }
@@ -571,6 +497,86 @@
   },
   {
    "id": "precision_agri-07",
+   "title": "Keep your plant secure",
+   "words": 3013,
+   "minutes": 16,
+   "source": "ms-iot",
+   "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/2-farm/lessons/6-keep-your-plant-secure/README.md",
+   "toc": [
+    {
+     "id": "h-introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "h-why-do-you-need-to-secure-iot-devices",
+     "text": "Why do you need to secure IoT devices?",
+     "level": 2
+    },
+    {
+     "id": "h-cryptography",
+     "text": "Cryptography",
+     "level": 2
+    },
+    {
+     "id": "h-early-cryptography",
+     "text": "Early cryptography",
+     "level": 3
+    },
+    {
+     "id": "h-modern-cryptography",
+     "text": "Modern cryptography",
+     "level": 3
+    },
+    {
+     "id": "h-symmetric-and-asymmetric-keys",
+     "text": "Symmetric and asymmetric keys",
+     "level": 3
+    },
+    {
+     "id": "h-secure-your-iot-devices",
+     "text": "Secure your IoT devices",
+     "level": 2
+    },
+    {
+     "id": "h-symmetric-keys",
+     "text": "Symmetric keys",
+     "level": 3
+    },
+    {
+     "id": "h-x-509-certificates",
+     "text": "X.509 certificates",
+     "level": 3
+    },
+    {
+     "id": "h-generate-and-use-an-x-509-certificate",
+     "text": "Generate and use an X.509 certificate",
+     "level": 2
+    },
+    {
+     "id": "h-task-create-a-device-identity-using-an-x-509-certificate",
+     "text": "Task - create a device identity using an X.509 certificate",
+     "level": 3
+    },
+    {
+     "id": "h-task-use-the-x-509-certificate-in-your-device-code",
+     "text": "Task - use the X.509 certificate in your device code",
+     "level": 3
+    },
+    {
+     "id": "h-challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "h-review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "precision_agri-08",
    "title": "Earth observation data basics",
    "words": 1790,
    "minutes": 9,
@@ -578,152 +584,152 @@
    "url": "https://www.earthdata.nasa.gov/learn/earth-observation-data-basics",
    "toc": [
     {
-     "id": "remote-sensing",
+     "id": "h-remote-sensing",
      "text": "Remote Sensing",
      "level": 2
     },
     {
-     "id": "get-data",
+     "id": "h-get-data",
      "text": "Get Data",
      "level": 3
     },
     {
-     "id": "remote-sensing-data-basics",
+     "id": "h-remote-sensing-data-basics",
      "text": "Remote Sensing Data Basics",
      "level": 2
     },
     {
-     "id": "orbits",
+     "id": "h-orbits",
      "text": "Orbits",
      "level": 2
     },
     {
-     "id": "resolution",
+     "id": "h-resolution",
      "text": "Resolution",
      "level": 2
     },
     {
-     "id": "the-electromagnetic-spectrum",
+     "id": "h-the-electromagnetic-spectrum",
      "text": "The Electromagnetic Spectrum",
      "level": 2
     },
     {
-     "id": "active-instruments",
+     "id": "h-active-instruments",
      "text": "Active Instruments",
      "level": 2
     },
     {
-     "id": "passive-instruments",
+     "id": "h-passive-instruments",
      "text": "Passive Instruments",
      "level": 2
     },
     {
-     "id": "essential-variables",
+     "id": "h-essential-variables",
      "text": "Essential Variables",
      "level": 2
     },
     {
-     "id": "data-processing-interpretation-and-analysis",
+     "id": "h-data-processing-interpretation-and-analysis",
      "text": "Data Processing, Interpretation, and Analysis",
      "level": 2
     },
     {
-     "id": "field-spectroscopy",
+     "id": "h-field-spectroscopy",
      "text": "Field Spectroscopy",
      "level": 2
     },
     {
-     "id": "understanding-metadata",
+     "id": "h-understanding-metadata",
      "text": "Understanding Metadata",
      "level": 2
     },
     {
-     "id": "parts-of-the-earthdata-dataset-landing-page",
+     "id": "h-parts-of-the-earthdata-dataset-landing-page",
      "text": "Parts of the Earthdata Dataset Landing Page",
      "level": 3
     },
     {
-     "id": "technology",
+     "id": "h-technology",
      "text": "Technology",
      "level": 2
     },
     {
-     "id": "cloud-computing",
+     "id": "h-cloud-computing",
      "text": "Cloud Computing",
      "level": 3
     },
     {
-     "id": "earth-observation-data-and-artificial-intelligence",
+     "id": "h-earth-observation-data-and-artificial-intelligence",
      "text": "Earth Observation Data and Artificial Intelligence",
      "level": 3
     },
     {
-     "id": "synthetic-aperture-radar",
+     "id": "h-synthetic-aperture-radar",
      "text": "Synthetic Aperture Radar",
      "level": 2
     },
     {
-     "id": "synthetic-aperture-radar-sar",
+     "id": "h-synthetic-aperture-radar-sar",
      "text": "Synthetic Aperture Radar (SAR)",
      "level": 2
     },
     {
-     "id": "the-sar-handbook",
+     "id": "h-the-sar-handbook",
      "text": "The SAR Handbook",
      "level": 2
     },
     {
-     "id": "types-of-sar-products",
+     "id": "h-types-of-sar-products",
      "text": "Types of SAR Products",
      "level": 2
     },
     {
-     "id": "sar-image-interpretation",
+     "id": "h-sar-image-interpretation",
      "text": "SAR Image Interpretation",
      "level": 2
     },
     {
-     "id": "join-our-community-of-nasa-data-users",
+     "id": "h-join-our-community-of-nasa-data-users",
      "text": "Join Our Community of NASA Data Users",
      "level": 2
     },
     {
-     "id": "orbits-x",
+     "id": "h-orbits-x",
      "text": "Orbits",
      "level": 2
     },
     {
-     "id": "resolution-x",
+     "id": "h-resolution-x",
      "text": "Resolution",
      "level": 2
     },
     {
-     "id": "the-electromagnetic-spectrum-x",
+     "id": "h-the-electromagnetic-spectrum-x",
      "text": "The Electromagnetic Spectrum",
      "level": 2
     },
     {
-     "id": "active-instruments-x",
+     "id": "h-active-instruments-x",
      "text": "Active Instruments",
      "level": 2
     },
     {
-     "id": "passive-instruments-x",
+     "id": "h-passive-instruments-x",
      "text": "Passive Instruments",
      "level": 2
     },
     {
-     "id": "essential-variables-x",
+     "id": "h-essential-variables-x",
      "text": "Essential Variables",
      "level": 2
     },
     {
-     "id": "data-processing-interpretation-and-analysis-x",
+     "id": "h-data-processing-interpretation-and-analysis-x",
      "text": "Data Processing, Interpretation, and Analysis",
      "level": 2
     },
     {
-     "id": "field-spectroscopy-x",
+     "id": "h-field-spectroscopy-x",
      "text": "Field Spectroscopy",
      "level": 2
     }
@@ -844,7 +850,7 @@
     ],
     "answer": 2,
     "explain": "",
-    "lesson": "precision_agri-05",
+    "lesson": "precision_agri-06",
     "origin": "bank:iot:18",
     "source": "ms-iot"
    },
@@ -856,7 +862,7 @@
     ],
     "answer": 0,
     "explain": "",
-    "lesson": "precision_agri-05",
+    "lesson": "precision_agri-06",
     "origin": "bank:iot:18",
     "source": "ms-iot"
    },
@@ -870,7 +876,7 @@
     ],
     "answer": 2,
     "explain": "",
-    "lesson": "precision_agri-06",
+    "lesson": "precision_agri-07",
     "origin": "bank:iot:20",
     "source": "ms-iot"
    },
@@ -883,7 +889,7 @@
     ],
     "answer": 1,
     "explain": "",
-    "lesson": "precision_agri-06",
+    "lesson": "precision_agri-07",
     "origin": "bank:iot:20",
     "source": "ms-iot"
    }

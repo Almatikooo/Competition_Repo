@@ -47,22 +47,22 @@
    "url": "https://github.com/swcarpentry/shell-novice/blob/b91d85b848405a4a2fe0a297d8cedb71d68ab9bd/episodes/01-intro.md",
    "toc": [
     {
-     "id": "what-is-the-shell",
+     "id": "h-what-is-the-shell",
      "text": "What is the Shell?",
      "level": 3
     },
     {
-     "id": "why-use-the-shell",
+     "id": "h-why-use-the-shell",
      "text": "Why use the shell?",
      "level": 3
     },
     {
-     "id": "let-s-get-started",
+     "id": "h-let-s-get-started",
      "text": "Let's get started.",
      "level": 3
     },
     {
-     "id": "nelle-s-pipeline-a-typical-problem",
+     "id": "h-nelle-s-pipeline-a-typical-problem",
      "text": "Nelle's Pipeline: A Typical Problem",
      "level": 2
     }
@@ -71,53 +71,28 @@
   {
    "id": "linux_networking-02",
    "title": "Navigating Files and Directories",
-   "words": 4012,
+   "words": 4007,
    "minutes": 21,
    "source": "swc-shell",
    "url": "https://github.com/swcarpentry/shell-novice/blob/b91d85b848405a4a2fe0a297d8cedb71d68ab9bd/episodes/02-filedir.md",
    "toc": [
     {
-     "id": "getting-help",
+     "id": "h-getting-help",
      "text": "Getting help",
      "level": 3
     },
     {
-     "id": "solution",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "exploring-other-directories",
+     "id": "h-exploring-other-directories",
      "text": "Exploring Other Directories",
      "level": 3
     },
     {
-     "id": "solution-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "general-syntax-of-a-shell-command",
+     "id": "h-general-syntax-of-a-shell-command",
      "text": "General Syntax of a Shell Command",
      "level": 2
     },
     {
-     "id": "nelle-s-pipeline-organizing-files",
+     "id": "h-nelle-s-pipeline-organizing-files",
      "text": "Nelle's Pipeline: Organizing Files",
      "level": 3
     }
@@ -126,184 +101,94 @@
   {
    "id": "linux_networking-03",
    "title": "Working With Files and Directories",
-   "words": 3789,
+   "words": 3779,
    "minutes": 19,
    "source": "swc-shell",
    "url": "https://github.com/swcarpentry/shell-novice/blob/b91d85b848405a4a2fe0a297d8cedb71d68ab9bd/episodes/03-create.md",
    "toc": [
     {
-     "id": "creating-directories",
+     "id": "h-creating-directories",
      "text": "Creating directories",
      "level": 2
     },
     {
-     "id": "step-one-see-where-we-are-and-what-we-already-have",
+     "id": "h-step-one-see-where-we-are-and-what-we-already-have",
      "text": "Step one: see where we are and what we already have",
      "level": 3
     },
     {
-     "id": "create-a-directory",
+     "id": "h-create-a-directory",
      "text": "Create a directory",
      "level": 3
     },
     {
-     "id": "create-a-text-file",
+     "id": "h-create-a-text-file",
      "text": "Create a text file",
      "level": 3
     },
     {
-     "id": "solution",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "moving-files-and-directories",
+     "id": "h-moving-files-and-directories",
      "text": "Moving files and directories",
      "level": 2
     },
     {
-     "id": "solution-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "copying-files-and-directories",
+     "id": "h-copying-files-and-directories",
      "text": "Copying files and directories",
      "level": 2
     },
     {
-     "id": "solution-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "removing-files-and-directories",
+     "id": "h-removing-files-and-directories",
      "text": "Removing files and directories",
      "level": 2
     },
     {
-     "id": "solution-x-x-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "operations-with-multiple-files-and-directories",
+     "id": "h-operations-with-multiple-files-and-directories",
      "text": "Operations with multiple files and directories",
      "level": 2
     },
     {
-     "id": "solution-x-x-x-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "using-wildcards-for-accessing-multiple-files-at-once",
+     "id": "h-using-wildcards-for-accessing-multiple-files-at-once",
      "text": "Using wildcards for accessing multiple files at once",
      "level": 3
-    },
-    {
-     "id": "solution-x-x-x-x-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x-x-x-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x-x-x-x-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x-x-x-x-x-x-x",
-     "text": "Solution",
-     "level": 2
     }
    ]
   },
   {
    "id": "linux_networking-04",
    "title": "Pipes and Filters",
-   "words": 2710,
+   "words": 2702,
    "minutes": 14,
    "source": "swc-shell",
    "url": "https://github.com/swcarpentry/shell-novice/blob/b91d85b848405a4a2fe0a297d8cedb71d68ab9bd/episodes/04-pipefilter.md",
    "toc": [
     {
-     "id": "capturing-output-from-commands",
+     "id": "h-capturing-output-from-commands",
      "text": "Capturing output from commands",
      "level": 2
     },
     {
-     "id": "filtering-output",
+     "id": "h-filtering-output",
      "text": "Filtering output",
      "level": 2
     },
     {
-     "id": "solution",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "passing-output-to-another-command",
+     "id": "h-passing-output-to-another-command",
      "text": "Passing output to another command",
      "level": 2
     },
     {
-     "id": "combining-multiple-commands",
+     "id": "h-combining-multiple-commands",
      "text": "Combining multiple commands",
      "level": 2
     },
     {
-     "id": "solution-x-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "tools-designed-to-work-together",
+     "id": "h-tools-designed-to-work-together",
      "text": "Tools designed to work together",
      "level": 2
     },
     {
-     "id": "solution-x-x-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x-x-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "nelle-s-pipeline-checking-files",
+     "id": "h-nelle-s-pipeline-checking-files",
      "text": "Nelle's Pipeline: Checking Files",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x-x-x-x-x",
-     "text": "Solution",
      "level": 2
     }
    ]
@@ -311,54 +196,14 @@
   {
    "id": "linux_networking-05",
    "title": "Loops",
-   "words": 3140,
+   "words": 3132,
    "minutes": 16,
    "source": "swc-shell",
    "url": "https://github.com/swcarpentry/shell-novice/blob/b91d85b848405a4a2fe0a297d8cedb71d68ab9bd/episodes/05-loop.md",
    "toc": [
     {
-     "id": "solution",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "nelle-s-pipeline-processing-files",
+     "id": "h-nelle-s-pipeline-processing-files",
      "text": "Nelle's Pipeline: Processing Files",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x-x-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x-x-x-x-x",
-     "text": "Solution",
      "level": 2
     }
    ]
@@ -366,44 +211,14 @@
   {
    "id": "linux_networking-06",
    "title": "Shell Scripts",
-   "words": 2341,
+   "words": 2335,
    "minutes": 12,
    "source": "swc-shell",
    "url": "https://github.com/swcarpentry/shell-novice/blob/b91d85b848405a4a2fe0a297d8cedb71d68ab9bd/episodes/06-script.md",
    "toc": [
     {
-     "id": "solution",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "nelle-s-pipeline-creating-a-script",
+     "id": "h-nelle-s-pipeline-creating-a-script",
      "text": "Nelle's Pipeline: Creating a Script",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solutions",
-     "text": "Solutions",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x-x",
-     "text": "Solution",
      "level": 2
     }
    ]
@@ -411,37 +226,11 @@
   {
    "id": "linux_networking-07",
    "title": "Finding Things",
-   "words": 2396,
+   "words": 2391,
    "minutes": 12,
    "source": "swc-shell",
    "url": "https://github.com/swcarpentry/shell-novice/blob/b91d85b848405a4a2fe0a297d8cedb71d68ab9bd/episodes/07-find.md",
-   "toc": [
-    {
-     "id": "solution",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solutions",
-     "text": "Solutions",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x",
-     "text": "Solution",
-     "level": 2
-    }
-   ]
+   "toc": []
   },
   {
    "id": "linux_networking-08",
@@ -452,32 +241,32 @@
    "url": "https://github.com/microsoft/Security-101/blob/b0a31ff7ebb9983d24bcdc6a38a4d008e6e89d0c/3.1%20Networking%20key%20concepts.md",
    "toc": [
     {
-     "id": "what-is-ip-addressing",
+     "id": "h-what-is-ip-addressing",
      "text": "What is IP addressing?",
      "level": 2
     },
     {
-     "id": "what-is-the-osi-model",
+     "id": "h-what-is-the-osi-model",
      "text": "What is the OSI Model?",
      "level": 2
     },
     {
-     "id": "what-is-tcp-udp",
+     "id": "h-what-is-tcp-udp",
      "text": "What is TCP/UDP?",
      "level": 2
     },
     {
-     "id": "what-are-port-numbers",
+     "id": "h-what-are-port-numbers",
      "text": "What are Port Numbers?",
      "level": 2
     },
     {
-     "id": "what-is-encryption-at-rest-and-in-transit",
+     "id": "h-what-is-encryption-at-rest-and-in-transit",
      "text": "What is encryption at rest and in transit?",
      "level": 2
     },
     {
-     "id": "further-reading",
+     "id": "h-further-reading",
      "text": "Further reading",
      "level": 2
     }
@@ -492,27 +281,27 @@
    "url": "https://github.com/microsoft/Security-101/blob/b0a31ff7ebb9983d24bcdc6a38a4d008e6e89d0c/3.2%20Networking%20zero%20trust%20architecture.md",
    "toc": [
     {
-     "id": "what-is-network-segmentation",
+     "id": "h-what-is-network-segmentation",
      "text": "What is network segmentation?",
      "level": 2
     },
     {
-     "id": "how-does-network-segmentation-help-implement-zero-trust",
+     "id": "h-how-does-network-segmentation-help-implement-zero-trust",
      "text": "How does network segmentation help implement zero trust?",
      "level": 2
     },
     {
-     "id": "what-is-end-to-end-encryption",
+     "id": "h-what-is-end-to-end-encryption",
      "text": "What is end-to-end encryption?",
      "level": 2
     },
     {
-     "id": "what-is-sase",
+     "id": "h-what-is-sase",
      "text": "What is SASE?",
      "level": 2
     },
     {
-     "id": "further-reading",
+     "id": "h-further-reading",
      "text": "Further reading",
      "level": 2
     }
@@ -527,47 +316,47 @@
    "url": "https://github.com/microsoft/Security-101/blob/b0a31ff7ebb9983d24bcdc6a38a4d008e6e89d0c/3.3%20Network%20security%20capabilities.md",
    "toc": [
     {
-     "id": "traditional-firewalls",
+     "id": "h-traditional-firewalls",
      "text": "Traditional Firewalls",
      "level": 2
     },
     {
-     "id": "web-application-firewalls",
+     "id": "h-web-application-firewalls",
      "text": "Web Application Firewalls",
      "level": 2
     },
     {
-     "id": "cloud-security-groups",
+     "id": "h-cloud-security-groups",
      "text": "Cloud security groups",
      "level": 2
     },
     {
-     "id": "content-delivery-network-cdn",
+     "id": "h-content-delivery-network-cdn",
      "text": "Content Delivery Network (CDN)",
      "level": 2
     },
     {
-     "id": "load-balancers",
+     "id": "h-load-balancers",
      "text": "Load Balancers",
      "level": 2
     },
     {
-     "id": "bastion-hosts",
+     "id": "h-bastion-hosts",
      "text": "Bastion Hosts",
      "level": 2
     },
     {
-     "id": "virtual-private-networks-vpns",
+     "id": "h-virtual-private-networks-vpns",
      "text": "Virtual Private Networks (VPNs)",
      "level": 2
     },
     {
-     "id": "ddos-protection-tooling",
+     "id": "h-ddos-protection-tooling",
      "text": "DDoS protection tooling",
      "level": 2
     },
     {
-     "id": "further-reading",
+     "id": "h-further-reading",
      "text": "Further reading",
      "level": 2
     }
@@ -582,22 +371,22 @@
    "url": "https://www.gov.uk/service-manual/technology/using-https",
    "toc": [
     {
-     "id": "configuring-hsts",
+     "id": "h-configuring-hsts",
      "text": "Configuring HSTS",
      "level": 2
     },
     {
-     "id": "serving-your-assets-efficiently",
+     "id": "h-serving-your-assets-efficiently",
      "text": "Serving your assets efficiently",
      "level": 2
     },
     {
-     "id": "further-reading",
+     "id": "h-further-reading",
      "text": "Further reading",
      "level": 2
     },
     {
-     "id": "related-guides",
+     "id": "h-related-guides",
      "text": "Related guides",
      "level": 2
     }
@@ -605,9 +394,164 @@
   }
  ],
  "quiz": {
-  "questions": [],
-  "pass_mark": 0,
-  "missing": true
+  "questions": [
+   {
+    "q": "What is a shell?",
+    "options": [
+     "A graphical file manager",
+     "A program whose primary purpose is to read commands and run other programs",
+     "The physical case of a computer",
+     "A type of network cable"
+    ],
+    "answer": 1,
+    "explain": "The shell is the command-line interface between you and the operating system.",
+    "lesson": "linux_networking-01",
+    "evidence": "A shell is a program whose primary purpose is to read commands and run other programs.",
+    "origin": "authored"
+   },
+   {
+    "q": "What does a command-line interface (CLI) let users do?",
+    "options": [
+     "Draw diagrams with a mouse",
+     "Use voice commands only",
+     "Browse the web faster",
+     "Interact with a computer by reading and writing text"
+    ],
+    "answer": 3,
+    "explain": "Text commands are easy to repeat, combine and automate.",
+    "lesson": "linux_networking-01",
+    "evidence": "A command-line interface (CLI) allows users to interact with a computer by reading and writing text.",
+    "origin": "authored"
+   },
+   {
+    "q": "What is your current working directory?",
+    "options": [
+     "The one place you are in at any moment while using the shell",
+     "The folder where the shell program is installed",
+     "Your desktop",
+     "The root of the file system"
+    ],
+    "answer": 0,
+    "explain": "Relative paths are interpreted from the current working directory (see pwd).",
+    "lesson": "linux_networking-02",
+    "evidence": "at any time while we are using the shell, we are in exactly one place called our current working directory",
+    "origin": "authored"
+   },
+   {
+    "q": "Why is it better to avoid spaces in the names of files and directories?",
+    "options": [
+     "Spaces make files larger",
+     "Spaces are not allowed by any operating system",
+     "Spaces are used to separate arguments on the command line",
+     "Spaces slow down the shell"
+    ],
+    "answer": 2,
+    "explain": "Use hyphens or underscores instead, e.g. north-pacific-gyre.",
+    "lesson": "linux_networking-03",
+    "evidence": "since spaces are used to separate arguments on the command line it is better to avoid them in names of files and directories.",
+    "origin": "authored"
+   },
+   {
+    "q": "A command is waiting for input and seems stuck. How do you get out?",
+    "options": [
+     "Close the laptop lid",
+     "Press Ctrl + C",
+     "Type exit twice",
+     "Press the space bar"
+    ],
+    "answer": 1,
+    "explain": "Ctrl + C interrupts the running program.",
+    "lesson": "linux_networking-04",
+    "evidence": "you can escape out of this state by holding down the control key ( Ctrl ) and pressing the letter C once",
+    "origin": "authored"
+   },
+   {
+    "q": "What do loops let you do in the shell?",
+    "options": [
+     "Undo the last command",
+     "Connect two computers",
+     "Search inside files",
+     "Repeat a command or set of commands for each item in a list"
+    ],
+    "answer": 3,
+    "explain": "for filename in *.dat; do …; done applies the same steps to every file.",
+    "lesson": "linux_networking-05",
+    "evidence": "Loops are a programming construct which allow us to repeat a command or set of commands for each item in a list.",
+    "origin": "authored"
+   },
+   {
+    "q": "What is a shell script?",
+    "options": [
+     "A set of commands saved in a file — really a small program",
+     "A log of commands you typed yesterday",
+     "A graphical menu",
+     "A compressed archive"
+    ],
+    "answer": 0,
+    "explain": "Saving repeated commands lets you re-run a whole workflow with a single command.",
+    "lesson": "linux_networking-06",
+    "evidence": "a bunch of commands saved in a file is usually called a shell script",
+    "origin": "authored"
+   },
+   {
+    "q": "Which command finds files and directories whose names match simple patterns?",
+    "options": [
+     "grep",
+     "find",
+     "cat",
+     "wc"
+    ],
+    "answer": 1,
+    "explain": "grep searches inside files for lines that match; find searches for the files themselves.",
+    "lesson": "linux_networking-07",
+    "evidence": "Use find to find files and directories whose names match simple patterns.",
+    "origin": "authored"
+   },
+   {
+    "q": "When is UDP a suitable protocol?",
+    "options": [
+     "When every packet must arrive in order",
+     "When sending email attachments",
+     "When speed and efficiency matter more than guaranteed delivery",
+     "When encrypting passwords"
+    ],
+    "answer": 2,
+    "explain": "Streaming, gaming and DNS lookups prefer speed; TCP guarantees delivery.",
+    "lesson": "linux_networking-08",
+    "evidence": "UDP is suitable for applications where speed and efficiency are more important than guaranteed delivery",
+    "origin": "authored"
+   },
+   {
+    "q": "Why is network segmentation used?",
+    "options": [
+     "To increase download speeds",
+     "To reduce the number of IP addresses",
+     "To make the network easier to cable",
+     "To contain the impact of breaches and limit attackers' lateral movement"
+    ],
+    "answer": 3,
+    "explain": "Isolated segments with strict access policies stop an intruder spreading.",
+    "lesson": "linux_networking-09",
+    "evidence": "Network segmentation is used to improve security by containing the impact of potential breaches and limiting lateral movement for attackers within the network.",
+    "origin": "authored"
+   },
+   {
+    "q": "What does the HTTPS guidance require for your service, including its APIs?",
+    "options": [
+     "It must only be accessible through secure connections",
+     "It must allow plain HTTP for older browsers",
+     "It must use a separate domain for each page",
+     "It must block all mobile devices"
+    ],
+    "answer": 0,
+    "explain": "Encryption in transit stops information being intercepted or modified.",
+    "lesson": "linux_networking-11",
+    "evidence": "you must make sure your service (including APIs ) is only accessible through secure connections.",
+    "origin": "authored"
+   }
+  ],
+  "pass_mark": 8,
+  "missing": false
  },
  "minutes": 116,
  "sources": [

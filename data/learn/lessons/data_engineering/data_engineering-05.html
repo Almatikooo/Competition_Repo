@@ -2,15 +2,11 @@
 <p>Business transactions and records are stored in databases known as <em>online transaction processing (OLTP) databases</em>, which are optimized for individual record entries. These databases hold valuable information, but they're not designed for analysis, so data retrieval is time-consuming and difficult.</p>
 <p>To address this problem, OLAP systems efficiently extract business intelligence from data. OLAP databases are optimized for heavy-read and low-write tasks. They're modeled and cleansed for effective analysis. OLAP databases often preserve historical data for time-series analysis.</p>
 <p>OLAP systems traditionally use multidimensional data cubes to organize data in a way that supports complex queries and analysis. The following diagram shows a traditional OLAP system architecture.</p>
-<p>:::image type="complex" source="../images/olap-data-pipeline.svg" lightbox="../images/olap-data-pipeline.svg" alt-text="Diagram that shows a traditional OLAP logical architecture in Azure that uses Analysis Services." border="false":::
-This diagram shows a flow from the client applications, to the OLTP system, to the OLAP system, and finally to analytics and reporting. The client applications contain web apps, API apps, and logic apps. The OLTP system contains SQL Database, SQL Server on VMs, Azure Database for MySQL, and Azure Database for PostgreSQL. The OLAP system contains Azure Analysis Services. Analytics and reporting contains Power BI and SQL Server reporting services. Orchestration runs along the bottom of the OLTP system and the OLAP system. It contains SQL Server Integration Services and Azure Data Factory.
-:::image-end:::</p>
+<p><img alt="Diagram that shows a traditional OLAP logical architecture in Azure that uses Analysis Services." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/architecture-center/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/images/olap-data-pipeline.svg"></p>
 <p>As technology progresses and both data and computation scales increase, OLAP systems transition to massively parallel processing (MPP) architectures that <a href="https://learn.microsoft.com/fabric/fundamentals/microsoft-fabric-overview" target="_blank" rel="noopener noreferrer">Microsoft Fabric</a> supports. For more information, see <a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/technology-choices/fabric-analytical-data-stores.md" target="_blank" rel="noopener noreferrer">Choose an analytical data store in Microsoft Fabric</a>.</p>
 <p>The following diagram shows a modern OLAP system architecture.</p>
-<p>:::image type="complex" source="../images/olap-fabric.svg" lightbox="../images/olap-fabric.svg" alt-text="Diagram that shows a modern OLAP logical architecture in Azure that uses Fabric." border="false":::
-This diagram shows a flow from the client application, to the OLTP system, to the OLAP system - Fabric. The client application contains web apps, API apps, and logic apps. The OLTP system contains on-premises databases, Azure databases, Azure Database for MySQL, and Azure Database for PostgreSQL. The OLAP system contains One Lake and Power BI. Orchestration runs along the bottom of the OLTP systems and is integrated with the OLAP system. It contains Azure Data Factory.
-:::image-end:::</p>
-<h2 id="semantic-modeling">Semantic modeling</h2>
+<p><img alt="Diagram that shows a modern OLAP logical architecture in Azure that uses Fabric." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/architecture-center/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/images/olap-fabric.svg"></p>
+<h2 id="h-semantic-modeling">Semantic modeling</h2>
 <p>A semantic data model is a conceptual model that describes the meaning of the data elements that it contains. Organizations often have their own terms for items, and sometimes those terms have synonyms. Organizations might also have different meanings for the same term. For example, an inventory database might track a piece of equipment by using an asset ID and a serial number. But a sales database might refer to the serial number as the asset ID. There's no straightforward way to relate these values without a model that describes the relationship.</p>
 <p>Semantic modeling provides a level of abstraction over the database schema so that users don't need to know the underlying data structures. End users can easily query data without performing aggregates and joins over the underlying schema. Columns are often renamed to more user-friendly names to make the context and meaning of the data more obvious.</p>
 <p>Semantic modeling is predominately for read-heavy scenarios, such as analytics and business intelligence (OLAP), rather than more write-heavy transactional data processing (OLTP). Semantic modeling suits read-heavy scenarios because of the characteristics of a typical semantic layer:</p>
@@ -22,9 +18,7 @@ This diagram shows a flow from the client application, to the OLTP system, to th
 <li>Real-time analytics are supported.</li>
 </ul>
 <p>Traditionally, the semantic layer is placed over a data warehouse for these reasons.</p>
-<p>:::image type="complex" source="../images/semantic-modeling.png" lightbox="../images/semantic-modeling.png" alt-text="Diagram that shows a semantic layer between a data warehouse and a reporting tool." border="false":::
-The diagram flow starts at source data. The source data goes to the data warehouse, to the semantic layer, and then to reporting and analysis. The semantic layer contains the data model, calculations, and relationships.
-:::image-end:::</p>
+<p><img alt="Diagram that shows a semantic layer between a data warehouse and a reporting tool." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/architecture-center/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/images/semantic-modeling.png"></p>
 <p>There are two primary types of semantic models:</p>
 <ul>
 <li>
@@ -35,11 +29,11 @@ The diagram flow starts at source data. The source data goes to the data warehou
 </li>
 </ul>
 <p><a href="https://azure.microsoft.com/services/analysis-services/" target="_blank" rel="noopener noreferrer">Analysis Services</a> and <a href="https://learn.microsoft.com/fabric/fundamentals/microsoft-fabric-overview" target="_blank" rel="noopener noreferrer">Fabric</a> provide the necessary infrastructure and tools to implement semantic modeling effectively.</p>
-<h2 id="example-use-case">Example use case</h2>
+<h2 id="h-example-use-case">Example use case</h2>
 <p>An organization stores data in a large database. It wants to make this data available to business users and customers to create their own reports and do analysis.</p>
 <p>They could give those users direct access to the database, but this option has drawbacks, including security management and access control. And users might have difficulty understanding the design of the database, including the names of tables and columns. This option requires users to know which tables to query, how those tables should be joined, and how to apply other business logic to get the correct results. Users also need to know a query language like SQL. Typically, this option leads to multiple users reporting the same metrics but with different results.</p>
 <p>A better option is to encapsulate all the information that users need into a semantic model. Users can more easily query the semantic model by using a reporting tool of their choice. The data that the semantic model provides comes from a data warehouse, which ensures that all users view a single source of truth. The semantic model also provides user-friendly table and column names, defines relationships between tables, includes descriptions and calculations, and enforces row-level security.</p>
-<h2 id="typical-traits-of-semantic-modeling">Typical traits of semantic modeling</h2>
+<h2 id="h-typical-traits-of-semantic-modeling">Typical traits of semantic modeling</h2>
 <p>Semantic modeling and analytical processing tends to have the following traits.</p>
 <div class="table-wrap"><table>
 <thead>
@@ -99,7 +93,7 @@ The diagram flow starts at source data. The source data goes to the data warehou
 </tr>
 </tbody>
 </table></div>
-<h2 id="when-to-use-this-solution">When to use this solution</h2>
+<h2 id="h-when-to-use-this-solution">When to use this solution</h2>
 <p>Consider using OLAP for the following scenarios:</p>
 <ul>
 <li>
@@ -114,7 +108,7 @@ The diagram flow starts at source data. The source data goes to the data warehou
 </ul>
 <p>OLAP is especially useful for applying aggregate calculations over large amounts of data. OLAP systems are optimized for read-heavy scenarios. OLAP also allows users to segment multidimensional data into slices that they can view in two dimensions, such as a pivot table. Or they can filter the data by specific values. Users can do these processes, known as <em>slicing and dicing</em> the data, regardless of whether the data is partitioned across several data sources. Users can easily explore the data without knowing the details of traditional data analysis.</p>
 <p>Semantic models can help business users abstract relationship complexities and make it easier to analyze data quickly.</p>
-<h2 id="challenges">Challenges</h2>
+<h2 id="h-challenges">Challenges</h2>
 <p>OLAP systems also produce challenges:</p>
 <ul>
 <li>
@@ -124,7 +118,7 @@ The diagram flow starts at source data. The source data goes to the data warehou
 <p>Unlike traditional, normalized relational tables in OLTP systems, OLAP data models tend to be multidimensional. So it's difficult or impossible to directly map them to entity-relationship or object-oriented models, where each attribute corresponds to one column. Instead, OLAP systems typically use a star or snowflake schema instead of traditional normalization.</p>
 </li>
 </ul>
-<h2 id="olap-in-azure">OLAP in Azure</h2>
+<h2 id="h-olap-in-azure">OLAP in Azure</h2>
 <p>In Azure, data in OLTP systems, such as Azure SQL Database, is copied into OLAP systems like <a href="https://learn.microsoft.com/fabric/fundamentals/microsoft-fabric-overview" target="_blank" rel="noopener noreferrer">Fabric</a> or <a href="https://learn.microsoft.com/analysis-services/azure-analysis-services/" target="_blank" rel="noopener noreferrer">Analysis Services</a>. Data exploration and visualization tools like <a href="https://powerbi.microsoft.com" target="_blank" rel="noopener noreferrer">Power BI</a>, Excel, and non-Microsoft options connect to Analysis Services servers and provide users with highly interactive and visually rich insights into the modeled data. You can use SQL Server Integration Services to orchestrate the flow of data from OLTP systems to OLAP systems. To implement SQL Server Integration Services, use <a href="https://learn.microsoft.com/azure/data-factory/concepts-integration-runtime" target="_blank" rel="noopener noreferrer">Azure Data Factory</a>.</p>
 <p>The following Azure data stores meet the core requirements for OLAP:</p>
 <ul>
@@ -135,7 +129,7 @@ The diagram flow starts at source data. The source data goes to the data warehou
 </ul>
 <p>SQL Server Analysis Services provides OLAP and data-mining functionality for business intelligence applications. You can either install SQL Server Analysis Services on local servers or host it within a virtual machine (VM) in Azure. Analysis Services is a fully managed service that provides the same major features as SQL Server Analysis Services. Analysis Services supports connecting to <a href="https://learn.microsoft.com/analysis-services/azure-analysis-services/analysis-services-datasource" target="_blank" rel="noopener noreferrer">various data sources</a> in the cloud and on-premises in your organization.</p>
 <p>Clustered columnstore indexes are available in SQL Server 2014 and higher and in SQL Database. These indexes are ideal for OLAP workloads. Beginning with SQL Server 2016, including SQL Database, you can take advantage of hybrid transactional and analytical processing (HTAP) through updateable nonclustered columnstore indexes. Use HTAP to perform OLTP and OLAP processing on the same platform. This approach eliminates the need for multiple copies of your data and separate OLTP and OLAP systems. For more information, see <a href="https://learn.microsoft.com/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics" target="_blank" rel="noopener noreferrer">Columnstore for real-time operational analytics</a>.</p>
-<h2 id="key-selection-criteria">Key selection criteria</h2>
+<h2 id="h-key-selection-criteria">Key selection criteria</h2>
 <p>To narrow the choices, answer the following questions:</p>
 <ul>
 <li>
@@ -157,7 +151,7 @@ The diagram flow starts at source data. The source data goes to the data warehou
 <p>Provide aggregates to help users consistently calculate data aggregates. Pre-aggregated data can also provide a large performance boost if you have several columns across many rows. You can pre-aggregate data in multidimensional cubes or tabular semantic models.</p>
 </li>
 </ul>
-<h2 id="capability-matrix">Capability matrix</h2>
+<h2 id="h-capability-matrix">Capability matrix</h2>
 <p>The following tables summarize the key differences in capabilities between these services:</p>
 <ul>
 <li>Fabric</li>
@@ -166,7 +160,7 @@ The diagram flow starts at source data. The source data goes to the data warehou
 <li>SQL Server with columnstore indexes</li>
 <li>SQL Database with columnstore indexes</li>
 </ul>
-<h3 id="general-capabilities">General capabilities</h3>
+<h3 id="h-general-capabilities">General capabilities</h3>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -248,7 +242,7 @@ The diagram flow starts at source data. The source data goes to the data warehou
 <p>[1] SQL Server and SQL Database can't query from and integrate multiple external data sources, but you can build a pipeline to do these functions by using <a href="https://learn.microsoft.com/sql/integration-services/sql-server-integration-services" target="_blank" rel="noopener noreferrer">SQL Server Integration Services</a> or <a href="https://learn.microsoft.com/azure/data-factory/" target="_blank" rel="noopener noreferrer">Azure Data Factory</a>. Azure VM-hosted SQL Server has more options, such as linked servers and <a href="https://learn.microsoft.com/sql/relational-databases/polybase/overview" target="_blank" rel="noopener noreferrer">PolyBase</a>. For more information, see <a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/technology-choices/pipeline-orchestration-data-movement.md" target="_blank" rel="noopener noreferrer">Choose a data pipeline orchestration technology</a>.</p>
 <p>[2] A Microsoft Entra account doesn't support connecting to Azure VM-hosted SQL Server. Use a domain Windows Server Active Directory account instead.</p>
 <p>[3] Fabric provides the flexibility to integrate data sources by moving data into OneLake via Azure Data Factory pipelines or mirroring. You can also create shortcuts or do real-time analytics on data streams without moving the data.</p>
-<h3 id="scalability-capabilities">Scalability capabilities</h3>
+<h3 id="h-scalability-capabilities">Scalability capabilities</h3>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -287,15 +281,11 @@ The diagram flow starts at source data. The source data goes to the data warehou
 </tr>
 </tbody>
 </table></div>
-<h2 id="next-steps">Next steps</h2>
+<h2 id="h-next-steps">Next steps</h2>
 <ul>
 <li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/technology-choices/fabric-analytical-data-stores.md" target="_blank" rel="noopener noreferrer">Choose an analytical data store in Microsoft Fabric</a></li>
 <li><a href="https://learn.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview" target="_blank" rel="noopener noreferrer">Columnstore indexes</a></li>
 <li><a href="https://learn.microsoft.com/analysis-services/azure-analysis-services/analysis-services-create-server" target="_blank" rel="noopener noreferrer">Create an Analysis Services server</a></li>
 <li><a href="https://learn.microsoft.com/azure/data-factory/introduction" target="_blank" rel="noopener noreferrer">What is Azure Data Factory?</a></li>
 <li><a href="https://learn.microsoft.com/power-bi/fundamentals/power-bi-overview" target="_blank" rel="noopener noreferrer">What is Power BI?</a></li>
-</ul>
-<h2 id="related-resources">Related resources</h2>
-<ul>
-<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/guide/architecture-styles/big-data.md" target="_blank" rel="noopener noreferrer">Big data architecture style</a></li>
 </ul>

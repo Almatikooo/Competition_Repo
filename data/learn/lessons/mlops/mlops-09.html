@@ -1,262 +1,138 @@
-<div class="box box-objectives">
-<p class="box-title">Objectives</p>
+<p>For a rapid and reliable update of the pipelines in production, you need a
+robust automated CI/CD system. This automated CI/CD system lets your data
+scientists rapidly explore new ideas around feature engineering, model
+architecture, and hyperparameters. They can implement these ideas and
+automatically build, test, and deploy the new pipeline components to the target
+environment.</p>
+<p>The following diagram shows the implementation of the ML pipeline using CI/CD,
+which has the characteristics of the automated ML pipelines setup plus the
+automated CI/CD routines.</p>
+<p><img alt="Workflow of the ML pipeline with CI/CD integration." loading="lazy" src="https://cloud.google.com/static/architecture/images/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning-4-ml-automation-ci-cd.svg"></p>
+<p><strong>Figure 4</strong>. CI/CD and automated ML pipeline.</p>
+<p>This MLOps setup includes the following components:</p>
 <ul>
-<li>Use the correct command to see which container images are on your computer.</li>
-<li>Be able to download new container images.</li>
-<li>Demonstrate how to start an instance of a container from a container image.</li>
-<li>Describe at least two ways to execute commands inside a running container.</li>
+<li>Source control</li>
+<li>Test and build services</li>
+<li>Deployment services</li>
+<li>Model registry</li>
+<li>Feature store</li>
+<li>ML metadata store</li>
+<li>ML pipeline orchestrator</li>
 </ul>
-</div>
-<div class="box box-questions">
-<p class="box-title">Questions</p>
+<h3 id="h-characteristics">Characteristics</h3>
+<p>The following diagram shows the stages of the ML CI/CD automation pipeline:</p>
+<p><img alt="Characteristics of the CI/CD automated ML pipeline." loading="lazy" src="https://cloud.google.com/static/architecture/images/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning-5-stages.svg"></p>
+<p><strong>Figure 5</strong>. Stages of the CI/CD automated ML pipeline.</p>
+<p>The pipeline consists of the following stages:</p>
+<ol>
+<li><p>Development and experimentation: You iteratively try out new ML
+algorithms and new modeling where the experiment steps are orchestrated.
+The output of this stage is the source code of the ML pipeline steps that
+are then pushed to a source repository.</p></li>
+<li><p>Pipeline continuous integration: You build source code and run various
+tests. The outputs of this stage are pipeline components (packages,
+executables, and artifacts) to be deployed in a later stage.</p></li>
+<li><p>Pipeline continuous delivery: You deploy the artifacts produced by the CI
+stage to the target environment. The output of this stage is a deployed
+pipeline with the new implementation of the model.</p></li>
+<li><p>Automated triggering: The pipeline is automatically executed in production
+based on a schedule or in response to a trigger.
+The output of this stage is a trained model that is pushed to the model
+registry.</p></li>
+<li><p>Model continuous delivery: You serve the trained model as a prediction
+service for the predictions. The output of this stage is a deployed model
+prediction service.</p></li>
+<li><p>Monitoring: You collect statistics on the model performance based on live
+data. The output of this stage is a trigger to execute the pipeline or to
+execute a new experiment cycle.</p></li>
+</ol>
+<p>The data analysis step is still a manual process for data scientists before
+the pipeline starts a new iteration of the experiment. The model analysis step is also a
+manual process.</p>
+<h3 id="h-continuous-integration">Continuous integration</h3>
+<p>In this setup, the pipeline and its components are built, tested, and
+packaged when new code is committed or pushed to the source code repository.
+Besides building packages, container images, and executables, the CI process can
+include the following tests:</p>
 <ul>
-<li>How do I interact with Podman containers and container images on my computer?</li>
+<li><p>Unit testing your feature engineering logic.</p></li>
+<li><p>Unit testing the different methods implemented in your model. For
+example, you have a function that accepts a categorical data column and
+you encode the function as a
+<a href="https://en.wikipedia.org/wiki/One-hot" target="_blank" rel="noopener noreferrer">one-hot</a> 
+feature.</p></li>
+<li><p>Testing that your model training converges (that is, the loss of your
+model goes down by iterations and
+<a href="https://en.wikipedia.org/wiki/Overfitting" target="_blank" rel="noopener noreferrer">overfits</a> 
+a few sample records).</p></li>
+<li><p>Testing that your model training doesn't produce
+<a href="https://en.wikipedia.org/wiki/NaN" target="_blank" rel="noopener noreferrer">NaN</a> 
+values due to dividing by zero or manipulating small or large values.</p></li>
+<li><p>Testing that each component in the pipeline produces the expected
+artifacts.</p></li>
+<li><p>Testing integration between pipeline components.</p></li>
 </ul>
-</div>
-<div class="box box-callout">
-<p class="box-title">Reminder of terminology: container images and containers</p>
-
-<p>Recall that a <em>container image</em> is the template from which particular instances of <em>containers</em> will be created.</p>
-</div>
-<p>Let's explore our first Podman container. The Podman team provides a simple container
-image online called <code>hello</code>. We'll start with that one.</p>
-<h2 id="downloading-podman-images">Downloading Podman images</h2>
-<p>The <code>podman image</code> command is used to interact with Podman container images.
-You can find out what container images you have on your computer by using the following command ("ls" is short for "list"):</p>
-<pre><code class="language-bash">$ podman image ls
-</code></pre>
-<p>If you've just installed Podman, you won't see any container images listed.</p>
-<p>To get a copy of the <code>hello</code> Podman container image from the internet, run this command:</p>
-<pre><code class="language-bash">$ podman image pull hello
-</code></pre>
-<p>You should see output like this:</p>
-<pre><code class="language-output">Resolved "hello" as an alias (/etc/containers/registries.conf.d/000-shortnames.conf)
-Trying to pull quay.io/podman/hello:latest...
-Getting image source signatures
-Copying blob sha256:1ff9adeff4443b503b304e7aa4c37bb90762947125f4a522b370162a7492ff47
-Copying config sha256:83fc7ce1224f5ed3885f6aaec0bb001c0bbb2a308e3250d7408804a720c72a32
-Writing manifest to image destination
-83fc7ce1224f5ed3885f6aaec0bb001c0bbb2a308e3250d7408804a720c72a32
-</code></pre>
-<div class="box box-callout">
-<p class="box-title">Docker Hub</p>
-
-<p>Where did the <code>hello</code> container image come from? If you look carefully in the
-output when you pulled the image, you will see that it came from the Quay container
-registry, which is a place to share container images with other people. Specifically,
-Podman expanded the short container name to <code>quay.io/podman/hello</code>.
-Other container registries exist, sometimes with differing use cases. Docker Hub is probably the
-most widely used. Although under the 'Docker' name, Docker Hub can be used by any
-compatible containerization service, including Podman and Singularity. We can get Docker's
-version of a <code>hello</code> image by instead pulling <code>docker.io/hello-world</code>.</p>
-</div>
-<div class="box box-challenge">
-<p class="box-title">Exercise: Check on Your Images</p>
-
-<p>What command would you use to see if the <code>hello</code> container image had downloaded
-successfully and was on your computer?
-Give it a try before checking the solution.</p>
-<details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
-<p>To see if the <code>hello</code> container image is now on your computer, run:</p>
-<pre><code class="language-bash">$ podman image ls
-</code></pre>
-</details>
-</div>
-<p>Note that the downloaded <code>hello</code> container image is not in the folder where you are in the terminal! (Run
-<code>ls</code> by itself to check.) The container image is not a file like our normal programs and documents;
-Podman stores it in a specific location that isn't commonly accessed, so it's necessary
-to use the special <code>podman image</code> command to see what Podman container images you have on your
-computer.</p>
-<h2 id="running-the-hello-container">Running the <code>hello</code> container</h2>
-<p>To create and run containers from named Podman container images you use the <code>podman container run</code> command. Try the following <code>podman container run</code> invocation. Note that it does not matter what your current working directory is.</p>
-<pre><code class="language-bash">$ podman container run hello
-</code></pre>
-<pre><code class="language-output">!... Hello Podman World ...!
-
-         .--"--.
-       / -     - \
-      / (O)   (O) \
-   ~~~| -=(,Y,)=- |
-    .---. /`  \   |~~
- ~/  o  o \~~~~.----. ~~
-  | =(X)= |~  / (O (O) \
-   ~~~~~~~  ~| =(Y_)=-  |
-  ~~~~    ~~~|   U      |~~
-
-Project:   https://github.com/containers/podman
-Website:   https://podman.io
-Desktop:   https://podman-desktop.io
-Documents: https://docs.podman.io
-YouTube:   https://youtube.com/@Podman
-X/Twitter: @Podman_io
-Mastodon:  @Podman_io@fosstodon.org
-</code></pre>
-<p>What just happened? When we use the <code>podman container run</code> command, Podman does three things:</p>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>1. Starts a Running Container</th>
-<th>2. Performs Default Action</th>
-<th>3. Shuts Down the Container</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Starts a running container, based on the container image. Think of this as the "alive" or "inflated" version of the container -- it's actually doing something.</td>
-<td>If the container has a default action set, it will perform that default action. This could be as simple as printing a message (as above) or running a whole analysis pipeline!</td>
-<td>Once the default action is complete, the container stops running (or exits). The container image is still there, but nothing is actively running.</td>
-</tr>
-</tbody>
-</table></div>
-<p>The <code>hello</code> container is set up to run an action by default --
-namely to print this message.</p>
-<div class="box box-callout">
-<p class="box-title">Using podman container run to get the image</p>
-
-<p>We could have skipped the <code>podman image pull</code> step; if you use the <code>podman container run</code>
-command and you don't already have a copy of the Podman container image, Podman will
-automatically pull the container image first and then run it.</p>
-</div>
-<h2 id="running-a-container-with-a-chosen-command">Running a container with a chosen command</h2>
-<p>But what if we wanted to do something different with the container? Let's use a
-different container image to explore what else we can do with the <code>podman container run</code> command. One image we could use is <code>ubuntu</code> which provides, as
-the name suggests, a container running Ubuntu Linux. However, we're going to run
-a different type of Linux instead, <code>alpine</code>, because it's smaller and so the
-image is quicker to download.</p>
-<div class="box box-challenge">
-<p class="box-title">Run the Alpine Podman container</p>
-
-<p>Try downloading the <code>alpine</code> container image and using it to run a container. You can do it in
-two steps, or one. What are they?</p>
-</div>
-<p>What happened when you ran the Alpine Podman container?</p>
-<pre><code class="language-bash">$ podman container run alpine
-</code></pre>
-<p>If you have never used the <code>alpine</code> container image on your computer, Podman probably printed a
-message that it couldn't find the container image and had to download it.
-If you used the <code>alpine</code> container image before, the command will probably show no output. That's
-because this particular container is designed for you to provide commands yourself. Try running
-this instead:</p>
-<pre><code class="language-bash">$ podman container run alpine cat /etc/os-release
-</code></pre>
-<p>You should see the output of the <code>cat /etc/os-release</code> command, which prints out
-the version of Alpine Linux that this container is using and a few additional bits of information.</p>
-<div class="box box-challenge">
-<p class="box-title">Hello World, Part 2</p>
-
-<p>Can you run a copy of the <code>alpine</code> container and make it print a "hello world" message?</p>
-<p>Give it a try before checking the solution.</p>
-<details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
-<p>Use the same command as above, but with the <code>echo</code> command to print a message.</p>
-<pre><code class="language-bash">$ podman container run alpine echo 'Hello World'
-</code></pre>
-</details>
-</div>
-<p>So here, we see another option -- we can provide commands at the end of the <code>podman container run</code>
-command and they will execute inside the running container.</p>
-<h2 id="running-containers-interactively">Running containers interactively</h2>
-<p>In all the examples above, Podman has started the container, run a command, and then
-immediately stopped the container. But what if we wanted to keep the container
-running so we could log into it and test drive more commands? The way to
-do this is by adding the interactive flags <code>-i</code> and <code>-t</code> (usually combined as <code>-it</code>)
-to the <code>podman container run</code> command and provide a shell (<code>bash</code>,<code>sh</code>, etc.)
-as our command. The <code>alpine</code> container image doesn't include <code>bash</code> so we need
-to use <code>sh</code>.</p>
-<pre><code class="language-bash">$ podman container run -it alpine sh
-</code></pre>
-<div class="box box-callout">
-<p class="box-title">Technically...</p>
-
-<p>Technically, the interactive flag is just <code>-i</code> -- the extra <code>-t</code> (combined
-as <code>-it</code> above) is the "pseudo-TTY" option, a fancy term that means a text interface.
-This allows you to connect to a shell, like <code>sh</code>, using a command line. Since you usually
-want to have a command line when running interactively, it makes sense to use the two together.</p>
-</div>
-<p>Your prompt should change significantly to look like this:</p>
-<pre><code class="language-bash">/ #
-</code></pre>
-<p>That's because you're now inside the running container! Try these commands:</p>
+<h3 id="h-continuous-delivery">Continuous delivery</h3>
+<p>In this level, your system continuously delivers new pipeline implementations
+to the target environment that in turn delivers prediction services of the newly
+trained model. For rapid and reliable continuous delivery of pipelines and
+models, you should consider the following:</p>
 <ul>
-<li><code>pwd</code></li>
-<li><code>ls</code></li>
-<li><code>whoami</code></li>
-<li><code>echo $PATH</code></li>
-<li><code>cat /etc/os-release</code></li>
+<li><p>Verifying the compatibility of the model with the target
+infrastructure before you deploy your model. For example, you need to
+verify that the packages that are required by the model are installed in the
+serving environment, and that the required memory, compute, and accelerator
+resources are available.</p></li>
+<li><p>Testing the prediction service by calling the service API with the expected
+inputs, and making sure that you get the response that you expect. This test
+usually captures problems that might occur when you update the model version
+and it expects a different input.</p></li>
+<li><p>Testing prediction service performance, which involves load testing the
+service to capture metrics such as
+<a href="https://en.wikipedia.org/wiki/Queries_per_second" target="_blank" rel="noopener noreferrer">queries per second (QPS)</a> 
+and model latency.</p></li>
+<li><p>Validating the data either for retraining or batch prediction.</p></li>
+<li><p>Verifying that models meet the predictive performance targets before they
+are deployed.</p></li>
+<li><p>Automated deployment to a test environment, for example, a deployment that
+is triggered by pushing code to the development branch.</p></li>
+<li><p>Semi-automated deployment to a pre-production environment, for example,
+a deployment that is triggered by merging code to the main branch after
+reviewers approve the changes.</p></li>
+<li><p>Manual deployment to a production environment after several successful
+runs of the pipeline on the pre-production environment.</p></li>
 </ul>
-<p>All of these are being run from inside the running container, so you'll get information
-about the container itself, instead of your computer. To finish using the container,
-type <code>exit</code>.</p>
-<pre><code class="language-bash">/ # exit
-</code></pre>
-<div class="box box-challenge">
-<p class="box-title">Practice Makes Perfect</p>
-
-<p>Can you find out the version of Ubuntu installed on the <code>ubuntu</code> container image?
-(Hint: You can use the same command as used to find the version of alpine.)</p>
-<p>Can you also find the <code>apt-get</code> program? What does it do? (Hint: try passing <code>--help</code>
-to almost any command will give you more information.)</p>
-<details class="solution"><summary>Show solution</summary>
-<h2 id="solution-1-interactive">Solution 1 -- Interactive</h2>
-<p>Run an interactive ubuntu container -- you can use <code>podman image pull</code> first, or just
-run it with this command:</p>
-<pre><code class="language-bash">$ podman container run -it ubuntu sh
-</code></pre>
-<p>OR you can get the bash shell instead</p>
-<pre><code class="language-bash">$ podman container run -it ubuntu bash
-</code></pre>
-<p>Then try, running these commands</p>
-<pre><code class="language-bash">/# cat /etc/os-release
-/# apt-get --help
-</code></pre>
-<p>Exit when you're done.</p>
-<pre><code class="language-bash">/# exit
-</code></pre>
-</details>
-<details class="solution"><summary>Show solution</summary>
-<h2 id="solution-2-run-commands">Solution 2 -- Run commands</h2>
-<p>Run a ubuntu container, first with a command to read out the Linux version:</p>
-<pre><code class="language-bash">$ podman container run ubuntu cat /etc/os-release
-</code></pre>
-<p>Then run a container with a command to print out the apt-get help:</p>
-<pre><code class="language-bash">$ podman container run ubuntu apt-get --help
-</code></pre>
-</details>
-</div>
-<div class="box box-callout">
-<p class="box-title">Even More Options</p>
-
-<p>There are many more options, besides <code>-it</code> that can be used with the <code>podman container run</code>
-command!  A few of them will be covered in <a href="https://github.com/advanced-containers" target="_blank" rel="noopener noreferrer">later episodes</a>
-and we'll share two more common ones here:</p>
+<p>To summarize, implementing ML in a production environment doesn't only mean
+deploying your model as an API for prediction. Rather, it means deploying an ML
+pipeline that can automate the retraining and deployment of new models. Setting
+up a CI/CD system lets you automatically test and deploy new pipeline
+implementations. This system lets you cope with rapid changes in your data and
+business environment. You don't have to immediately move all of your processes
+from one level to another. You can gradually implement these practices to help
+improve the automation of your ML system development and production.</p>
+<h2 id="h-what-s-next">What's next</h2>
 <ul>
+<li>Learn more about
+<a href="https://cloud.google.com/solutions/machine-learning/architecture-for-mlops-using-tfx-kubeflow-pipelines-and-cloud-build" target="_blank" rel="noopener noreferrer">Architecture for MLOps using TensorFlow Extended, Gemini Enterprise Agent Platform Pipelines, and Cloud Build</a>.</li>
+<li>Learn about the
+<a href="https://cloud.google.com/resources/mlops-whitepaper" target="_blank" rel="noopener noreferrer">Practitioners Guide to Machine Learning Operations (MLOps)</a>.</li>
+<li>Watch the
+<a href="https://www.youtube.com/watch?v=20h_RTHEtZI" target="_blank" rel="noopener noreferrer">MLOps Best Practices on Google Cloud (Cloud Next '19)</a> 
+on YouTube.</li>
 <li>
-<p><code>--rm</code>: this option guarantees that any running container is completely
-removed from your computer after the container is stopped. Without this option,
-Podman actually keeps the "stopped" container around, which you'll see in a later
-episode. Note that this option doesn't impact the <em>container images</em> that you've pulled,
-just running instances of containers.</p>
+
+For an overview of architectural principles and recommendations that are specific to AI
+and ML workloads in Google Cloud, see the
+<a href="https://cloud.google.com/architecture/framework/perspectives/ai-ml" target="_blank" rel="noopener noreferrer">AI and ML perspective</a>
+in the Well-Architected Framework.
+
 </li>
 <li>
-<p><code>--name=</code>: By default, Podman assigns a random name and ID number to each container
-instance that you run on your computer. If you want to be able to more easily refer
-to a specific running container, you can assign it a name using this option.</p>
+
+For more reference architectures, diagrams, and best practices, explore the
+<a href="https://cloud.google.com/architecture" target="_blank" rel="noopener noreferrer">Cloud Architecture Center</a>.
+
 </li>
 </ul>
-</div>
-<h2 id="conclusion">Conclusion</h2>
-<p>So far, we've seen how to download container images, use Podman to run commands inside
-running containers, and even how to explore a running container from the inside.
-Next, we'll take a closer look at all the different kinds of container images that are out there.</p>
-
-
-<div class="box box-keypoints">
-<p class="box-title">Key points</p>
-<ul>
-<li>The <code>podman image pull</code> command downloads container images from the internet.</li>
-<li>The <code>podman image ls</code> command lists Podman container images that are (now) on your computer.</li>
-<li>The <code>podman container run</code> command creates running containers from container images and can run commands inside them.</li>
-<li>When using the <code>podman container run</code> command, a container can run a default action (if it has one), a user specified action, or a shell to be used interactively.</li>
-</ul>
-</div>
+<h2 id="h-contributors">Contributors</h2><p>Authors:
+        </p><ul><li><a href="https://www.linkedin.com/in/jarek-kazmierczak-1b64166" target="_blank" rel="noopener noreferrer">Jarek Kazmierczak</a> | Solutions Architect</li><li><a href="https://www.linkedin.com/in/khalid-salama-24403144" target="_blank" rel="noopener noreferrer">Khalid Salama</a> | Staff Software Engineer, Machine Learning</li><li><a href="https://www.linkedin.com/in/valentinhuerta/" target="_blank" rel="noopener noreferrer">Valentín Huerta</a> | AI Engineer</li></ul><p>Other contributor: <a href="https://www.linkedin.com/in/sunilkumar88" target="_blank" rel="noopener noreferrer">Sunil Kumar Jang Bahadur</a> | Customer Engineer</p>

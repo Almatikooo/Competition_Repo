@@ -2,17 +2,16 @@
 <p>This section will provide more examples of how to use prompts to achieve different tasks and introduce key concepts along the way. Often, the best way to learn concepts is by going through examples. The few examples below illustrate how you can use well-crafted prompts to perform different types of tasks.</p>
 <p>Topics:</p>
 <ul>
-<li><a href="#text-summarization" rel="noopener noreferrer">Text Summarization</a></li>
-<li><a href="#information-extraction" rel="noopener noreferrer">Information Extraction</a></li>
-<li><a href="#question-answering" rel="noopener noreferrer">Question Answering</a></li>
-<li><a href="#text-classification" rel="noopener noreferrer">Text Classification</a></li>
-<li><a href="#conversation" rel="noopener noreferrer">Conversation</a></li>
-<li><a href="#code-generation" rel="noopener noreferrer">Code Generation</a></li>
-<li><a href="#reasoning" rel="noopener noreferrer">Reasoning</a></li>
+<li><a href="#h-text-summarization" rel="noopener noreferrer">Text Summarization</a></li>
+<li><a href="#h-information-extraction" rel="noopener noreferrer">Information Extraction</a></li>
+<li><a href="#h-question-answering" rel="noopener noreferrer">Question Answering</a></li>
+<li><a href="#h-text-classification" rel="noopener noreferrer">Text Classification</a></li>
+<li><a href="#h-conversation" rel="noopener noreferrer">Conversation</a></li>
+<li><a href="#h-code-generation" rel="noopener noreferrer">Code Generation</a></li>
+<li><a href="#h-reasoning" rel="noopener noreferrer">Reasoning</a></li>
 </ul>
 <hr>
-
-<h2 id="text-summarization">Text Summarization</h2>
+<h2 id="h-text-summarization">Text Summarization</h2>
 <p>One of the standard tasks in natural language generation is text summarization. Text summarization can include many different flavors and domains. In fact, one of the most promising applications of language models is the ability to summarize articles and concepts into quick and easy-to-read summaries. Let's try a basic summarization task using prompts.</p>
 <p>Let's say you are interested to learn about antibiotics, you could try a prompt like this:</p>
 <p><em>Prompt:</em></p>
@@ -34,7 +33,7 @@ Explain the above in one sentence:
 </code></pre>
 <p>Without paying too much attention to the accuracy of the output above, which is something we will touch on in a later guide, the model tried to summarize the paragraph in one sentence. You can get clever with the instructions but we will leave that for a later chapter. Feel free to pause here and experiment to see if you get better results.</p>
 <hr>
-<h2 id="information-extraction">Information Extraction</h2>
+<h2 id="h-information-extraction">Information Extraction</h2>
 <p>While language models are trained to perform natural language generation and related tasks, it's also very capable of performing classification and a range of other natural language processing (NLP) tasks.</p>
 <p>Here is an example of a prompt that extracts information from a given paragraph.</p>
 <p><em>Prompt:</em></p>
@@ -49,7 +48,7 @@ Mention the large language model based product mentioned in the paragraph above:
 <p>By now it should be obvious that you can ask the model to perform different tasks by simply instructing it what to do. That's a powerful capability that AI product developers are already using to build powerful products and experiences.</p>
 <p>Paragraph source: <a href="https://www.nature.com/articles/d41586-023-00288-7" target="_blank" rel="noopener noreferrer">ChatGPT: five priorities for research</a></p>
 <hr>
-<h2 id="question-answering">Question Answering</h2>
+<h2 id="h-question-answering">Question Answering</h2>
 <p>One of the best ways to get the model to respond with specific answers is to improve the format of the prompt. As covered before, a prompt could combine instructions, context, input, and output indicators to get improved results. While these components are not required, it becomes a good practice as the more specific you are with instruction, the better results you will get. Below is an example of how this would look following a more structured prompt.</p>
 <p><em>Prompt:</em></p>
 <pre><code>Answer the question based on the context below. Keep the answer short and concise. Respond "Unsure about answer" if not sure about the answer.
@@ -65,7 +64,7 @@ Answer:
 </code></pre>
 <p>Context obtained from <a href="https://www.nature.com/articles/d41586-023-00400-x" target="_blank" rel="noopener noreferrer">Nature</a>.</p>
 <hr>
-<h2 id="text-classification">Text Classification</h2>
+<h2 id="h-text-classification">Text Classification</h2>
 <p>So far, you have used simple instructions to perform a task. As a prompt engineer, you need to get better at providing better instructions. But that's not all! You will also find that for harder use cases, just providing instructions won't be enough. This is where you need to think more about the context and the different elements you can use in a prompt. Other elements you can provide are <code>input data</code> or <code>examples</code>.</p>
 <p>Let's try to demonstrate this by providing an example of text classification.</p>
 <p><em>Prompt:</em></p>
@@ -103,7 +102,7 @@ Sentiment:
 </code></pre>
 <p>What is the problem here? As a hint, the made-up <code>nutral</code> label is completely ignored by the model. Instead, the model outputs <code>Neutral</code> as it has some bias towards that label. But let's assume that what you really want is <code>nutral</code>. How would you fix this? Maybe you can try adding descriptions to the labels or add more examples to the prompt? If you are not sure, we will discuss a few ideas in the upcoming sections.</p>
 <hr>
-<h2 id="conversation">Conversation</h2>
+<h2 id="h-conversation">Conversation</h2>
 <p>Perhaps one of the more interesting things you can achieve with prompt engineering is instructing the LLM system on how to behave, its intent, and its identity. This is particularly useful when you are building conversational systems like customer service chatbots.</p>
 <p>For instance, let's create a conversational system that's able to generate more technical and scientific responses to questions. Note how you are explicitly telling it how to behave through the instruction. This is sometimes referred to as <em>role prompting</em>.</p>
 <p><em>Prompt:</em></p>
@@ -131,7 +130,7 @@ AI:
 </code></pre>
 <p>You made some progress. You can continue improving it. If you add more examples, you might get even better results.</p>
 <hr>
-<h2 id="code-generation">Code Generation</h2>
+<h2 id="h-code-generation">Code Generation</h2>
 <p>One application where LLMs are quite effective is code generation. Copilot is a great example of this. There are a vast number of code-generation tasks you can perform with clever prompts. Let's look at a few examples below.</p>
 <p>First, let's try a simple program that greets the user.</p>
 <p><em>Prompt:</em></p>
@@ -159,7 +158,7 @@ WHERE DepartmentId IN (SELECT DepartmentId FROM departments WHERE DepartmentName
 </code></pre>
 <p>This is very impressive. In this case, you provided data about the database schema and asked it to generate a valid MySQL query.</p>
 <hr>
-<h2 id="reasoning">Reasoning</h2>
+<h2 id="h-reasoning">Reasoning</h2>
 <p>Perhaps one of the most difficult tasks for an LLM today is one that requires some form of reasoning. Reasoning is one of most interesting areas due to the types of complex applications that can emerge from LLMs.</p>
 <p>There have been some improvements in tasks involving mathematical capabilities. That said, it's important to note that current LLMs struggle to perform reasoning tasks so this requires even more advanced prompt engineering techniques. We will cover these advanced techniques in the next guide. For now, we will cover a few basic examples to show arithmetic capabilities.</p>
 <p><em>Prompt:</em></p>
@@ -190,5 +189,5 @@ Sum: 41
 </code></pre>
 <p>Much better, right? By the way, we tried this task a couple of times and the model sometimes fails. If you provide better instructions combined with examples, it might help get more accurate results.</p>
 <p>In the upcoming section, we will cover even more advanced prompt engineering concepts and techniques for improving performance on all these and more difficult tasks.</p>
-<h2 id="notebook">Notebook</h2>
+<h2 id="h-notebook">Notebook</h2>
 <p>If you want to practice with the prompts above using Python, we have prepared a notebook to test some of the prompts using the OpenAI models.</p>

@@ -55,7 +55,6 @@ ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00
 our script's output is exactly what we would get if we ran that pipeline directly.</p>
 <div class="box box-callout">
 <p class="box-title">Text vs. Whatever</p>
-
 <p>We usually call programs like Microsoft Word or LibreOffice Writer "text
 editors", but we need to be a bit more careful when it comes to
 programming. By default, Microsoft Word uses <code>.docx</code> files to store not
@@ -98,7 +97,6 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 </code></pre>
 <div class="box box-callout">
 <p class="box-title">Double-Quotes Around Arguments</p>
-
 <p>For the same reason that we put the loop variable inside double-quotes,
 in case the filename happens to contain any spaces,
 we surround <code>$1</code> with double-quotes.</p>
@@ -190,7 +188,6 @@ wc -l "$@" | sort -n
 </code></pre>
 <div class="box box-challenge">
 <p class="box-title">List Unique Species</p>
-
 <p>Leah has several hundred data files, each of which is formatted like this:</p>
 <pre><code class="language-source">2013-11-05,deer,5
 2013-11-05,rabbit,22
@@ -211,7 +208,6 @@ a scientist may choose to write a shell script instead.</p>
 filenames as command-line arguments and uses a variation of the above command
 to print a list of the unique species appearing in each of those files separately.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <pre><code class="language-bash"># Script to find unique species in csv files where species is the second data field
 # This script accepts any number of file names as command line arguments
 
@@ -246,7 +242,6 @@ and to remove the final line where we called the <code>history</code> command,
 we have a completely accurate record of how we created that figure.</p>
 <div class="box box-challenge">
 <p class="box-title">Why Record Commands in the History Before Running Them?</p>
-
 <p>If you run the command:</p>
 <pre><code class="language-bash">$ history | tail -n 5 &gt; recent.sh
 </code></pre>
@@ -255,7 +250,6 @@ the shell has added <code>history</code> to the command log before actually
 running it. In fact, the shell <em>always</em> adds commands to the log
 before running them. Why do you think it does this?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <p>If a command causes something to crash or hang, it might be useful
 to know what that command was, in order to investigate the problem.
 Were the command only be recorded after running it, we would not
@@ -270,7 +264,7 @@ This style of work allows people to recycle
 what they discover about their data and their workflow with one call to <code>history</code>
 and a bit of editing to clean up the output
 and save it as a shell script.</p>
-<h2 id="nelle-s-pipeline-creating-a-script">Nelle's Pipeline: Creating a Script</h2>
+<h2 id="h-nelle-s-pipeline-creating-a-script">Nelle's Pipeline: Creating a Script</h2>
 <p>Nelle's supervisor insisted that all her analytics must be reproducible.
 The easiest way to capture all the steps is in a script.</p>
 <p>First we return to Nelle's project directory:</p>
@@ -318,7 +312,6 @@ and use <code>NENE*A.txt NENE*B.txt</code> if none were provided.
 Of course, this introduces another tradeoff between flexibility and complexity.</p>
 <div class="box box-challenge">
 <p class="box-title">Variables in Shell Scripts</p>
-
 <p>In the <code>alkanes</code> directory, imagine you have a shell script called <code>script.sh</code> containing the
 following commands:</p>
 <pre><code class="language-bash">head -n $2 $1
@@ -336,7 +329,6 @@ in the <code>alkanes</code> directory</li>
 <li>An error because of the quotes around <code>*.pdb</code></li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
 <p>The correct answer is 2.</p>
 <p>The special variables <code>$1</code>, <code>$2</code> and <code>$3</code> represent the command line arguments given to the
 script, such that the commands run are:</p>
@@ -350,7 +342,6 @@ script by <code>head</code> and <code>tail</code>.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Find the Longest File With a Given Extension</p>
-
 <p>Write a shell script called <code>longest.sh</code> that takes the name of a
 directory and a filename extension as its arguments, and prints
 out the name of the file with the most lines in that directory
@@ -363,7 +354,6 @@ the most lines.</p>
 <pre><code class="language-bash">$ bash longest.sh shell-lesson-data/exercise-data/writing txt
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x">Solution</h2>
 <pre><code class="language-bash"># Shell script which takes two arguments:
 #    1. a directory name
 #    2. a file extension
@@ -383,7 +373,6 @@ the output.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Script Reading Comprehension</p>
-
 <p>For this question, consider the <code>shell-lesson-data/exercise-data/alkanes</code> directory once again.
 This contains a number of <code>.pdb</code> files in addition to any other files you
 may have created.
@@ -402,7 +391,6 @@ done
 echo $@.pdb
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solutions">Solutions</h2>
 <p>In each case, the shell expands the wildcard in <code>*.pdb</code> before passing the resulting
 list of file names as arguments to the script.</p>
 <p>Script 1 would print out a list of all files containing a dot in their name.
@@ -418,7 +406,6 @@ followed by <code>.pdb</code>.
 </div>
 <div class="box box-challenge">
 <p class="box-title">Debugging Scripts</p>
-
 <p>Suppose you have saved the following script in a file called <code>do-errors.sh</code>
 in Nelle's <code>north-pacific-gyre</code> directory:</p>
 <pre><code class="language-bash"># Calculate stats for data files.
@@ -438,7 +425,6 @@ To figure out why, re-run the script using the <code>-x</code> option:</p>
 <p>What is the output showing you?
 Which line is responsible for the error?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x">Solution</h2>
 <p>The <code>-x</code> option causes <code>bash</code> to run in debug mode.
 This prints out each command as it is run, which will help you to locate errors.
 In this example, we can see that <code>echo</code> isn't printing anything. We have made a typo

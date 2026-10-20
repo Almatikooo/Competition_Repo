@@ -1,8 +1,86 @@
-<h2 id="decision-making-flowchart-for-your-design">Decision-making flowchart for your design</h2>
-<p>Based on the design considerations mentioned previously in this section, this flowchart can help you determine how to architect your automation.</p>
-<p><img alt="Decision-making flowchart for your design." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/decision-making-flow.png">
-From Start, an arrow leads to the decision "Connectors are available." From "Connectors are available," Yes leads to the decision "Is run on a schedule" and No leads to the decision "Have a developer who can create connector." From "Is run on a schedule," Yes leads to the endpoint "Automation using connectors with scheduled triggers", and No leads to another decision, "Is run based on events of other systems." From "Is run based on events of other systems," No leads to the endpoint "Automation using connectors with instant triggers" and Yes leads to the endpoint "Automation using connectors with automated triggers." From "Have a developer who can create connector," Yes leads to the endpoint "Automation using custom connector" and No leads to the endpoint "Automation using desktop flows."
-:::image-end:::</p>
+<p>After you've finished making your flows and automation, the next step is for you to test it. You should consider testing all possible patterns and outcomes of your
+flows. This is because your flow might not simply fail, it might run but produce
+unexpected results. Testing all patterns will reduce this risk.</p>
+<p>If you're new to building flows in Power Automate, testing the
+automation each time you add a new step is the best way to ensure that you catch
+mistakes, rather than attempting to build the entire flow and then testing it.</p>
+<p>Let's take a look at the example shown in the following illustration.</p>
+<p><img alt="Example of a compliance check flow." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/compliance-flow.png"></p>
+<p>We recommend that you record your results in the <strong>Actual result</strong> column in a table like the following, to make sure you've covered all
+possible combinations that might fail.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Case No.</th>
+<th>Step details</th>
+<th>Condition</th>
+<th>Expected result</th>
+<th>Actual result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1-1</td>
+<td>Check whether report meets compliance</td>
+<td>Compliance met</td>
+<td>Status updated to "Compliance check complete"</td>
+<td></td>
+</tr>
+<tr>
+<td>1-2</td>
+<td>Check whether report meets compliance</td>
+<td>Compliance not met</td>
+<td>Email sent to employee to fix the expense report</td>
+<td></td>
+</tr>
+<tr>
+<td>1-3</td>
+<td>Check whether report meets compliance</td>
+<td>Compliance check fails</td>
+<td>Notified flow maker and logged failure to the "flow runs" feature.</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Status updated to "Compliance check complete"</td>
+<td>Status update fails</td>
+<td>Notified flow maker and logged failure to the "flow runs" feature.</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Email sent to employee to fix the expense report</td>
+<td>Email send fails</td>
+<td>Notified flow maker and logged failure to the "flow runs" feature.</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="box box-tip"><p class="box-title">Tip</p>
+<p>To simulate email send failures, try sending a test email to a nonexistent address.</p>
+</div>
+<h2 id="h-testing-in-live-only-environments">Testing in "live only" environments</h2>
+<p>Ideally, all tests should be done in test environments. However, there might be
+situations where you don't have an environment to test separately from
+live systems. In these cases, you can use the following methods:</p>
+<ul>
+<li>
+<p><strong>For lookups</strong>: Use static text as the result to mimic a lookup.</p>
+</li>
+<li>
+<p><strong>For data entry</strong>: Create a step to make new record, followed by another flow
+to delete the same record.</p>
+</li>
+<li>
+<p><strong>For sending data</strong>: If possible, set up a test environment on the system you want to send the
+data to.</p>
+</li>
+</ul>
+<h2 id="h-testing-with-users">Testing with users</h2>
+<p>After you've completed the systematic tests, you should also run a final check
+with your users (ideally the same people who were working on the process prior
+to the automation). This helps ensure your automation does what you expect and
+presents consistent outcomes.</p>
 <blockquote>
-<p><a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/making-phase.md" target="_blank" rel="noopener noreferrer">Next step: Making phase</a></p>
+<p><a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/tools-and-settings.md" target="_blank" rel="noopener noreferrer">Next step: Tools to test your automation</a></p>
 </blockquote>

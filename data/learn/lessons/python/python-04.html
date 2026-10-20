@@ -16,11 +16,11 @@
 <li>What kind of errors can occur in programs?</li>
 </ul>
 </div>
-<h2 id="use-comments-to-add-documentation-to-programs">Use comments to add documentation to programs.</h2>
+<h2 id="h-use-comments-to-add-documentation-to-programs">Use comments to add documentation to programs.</h2>
 <pre><code class="language-python"># This sentence isn't executed by Python.
 adjustment = 0.5   # Neither is this - anything after '#' is ignored.
 </code></pre>
-<h2 id="a-function-may-take-zero-or-more-arguments">A function may take zero or more arguments.</h2>
+<h2 id="h-a-function-may-take-zero-or-more-arguments">A function may take zero or more arguments.</h2>
 <ul>
 <li>We have seen some functions already --- now let's take a closer look.</li>
 <li>An <em>argument</em> is a value passed into a function.</li>
@@ -42,7 +42,7 @@ print('after')
 
 after
 </code></pre>
-<h2 id="every-function-returns-something">Every function returns something.</h2>
+<h2 id="h-every-function-returns-something">Every function returns something.</h2>
 <ul>
 <li>Every function call produces some result.</li>
 <li>If the function doesn't have a useful result to return,
@@ -55,7 +55,7 @@ print('result of print is', result)
 <pre><code class="language-output">example
 result of print is None
 </code></pre>
-<h2 id="commonly-used-built-in-functions-include-max-min-and-round">Commonly-used built-in functions include <code>max</code>, <code>min</code>, and <code>round</code>.</h2>
+<h2 id="h-commonly-used-built-in-functions-include-max-min-and-round">Commonly-used built-in functions include <code>max</code>, <code>min</code>, and <code>round</code>.</h2>
 <ul>
 <li>Use <code>max</code> to find the largest value of one or more values.</li>
 <li>Use <code>min</code> to find the smallest.</li>
@@ -71,7 +71,7 @@ print(min('a', 'A', '0'))
 <pre><code class="language-output">3
 0
 </code></pre>
-<h2 id="functions-may-only-work-for-certain-combinations-of-argument">Functions may only work for certain (combinations of) arguments.</h2>
+<h2 id="h-functions-may-only-work-for-certain-combinations-of-argument">Functions may only work for certain (combinations of) arguments.</h2>
 <ul>
 <li><code>max</code> and <code>min</code> must be given at least one argument.
 <ul>
@@ -88,7 +88,7 @@ print(min('a', 'A', '0'))
 
 TypeError: '&gt;' not supported between instances of 'str' and 'int'
 </code></pre>
-<h2 id="functions-may-have-default-values-for-some-arguments">Functions may have default values for some arguments.</h2>
+<h2 id="h-functions-may-have-default-values-for-some-arguments">Functions may have default values for some arguments.</h2>
 <ul>
 <li><code>round</code> will round off a floating-point number.</li>
 <li>By default, rounds to zero decimal places.</li>
@@ -104,7 +104,7 @@ TypeError: '&gt;' not supported between instances of 'str' and 'int'
 </code></pre>
 <pre><code class="language-output">3.7
 </code></pre>
-<h2 id="functions-attached-to-objects-are-called-methods">Functions attached to objects are called methods</h2>
+<h2 id="h-functions-attached-to-objects-are-called-methods">Functions attached to objects are called methods</h2>
 <ul>
 <li>Functions take another form that will be common in the pandas episodes.</li>
 <li>Methods have parentheses like functions, but come after the variable.</li>
@@ -135,7 +135,7 @@ print(my_string.upper().isupper())  # Now all the letters are uppercase
 HELLO WORLD
 True
 </code></pre>
-<h2 id="use-the-built-in-function-help-to-get-help-for-a-function">Use the built-in function <code>help</code> to get help for a function.</h2>
+<h2 id="h-use-the-built-in-function-help-to-get-help-for-a-function">Use the built-in function <code>help</code> to get help for a function.</h2>
 <ul>
 <li>Every built-in function has online documentation.</li>
 </ul>
@@ -149,7 +149,7 @@ round(number, ndigits=None)
     The return value is an integer if ndigits is omitted or None.  Otherwise
     the return value has the same type as the number.  ndigits may be negative.
 </code></pre>
-<h2 id="the-jupyter-notebook-has-two-ways-to-get-help">The Jupyter Notebook has two ways to get help.</h2>
+<h2 id="h-the-jupyter-notebook-has-two-ways-to-get-help">The Jupyter Notebook has two ways to get help.</h2>
 <ul>
 <li>Option 1: Place the cursor near where the function is invoked in a cell
 (i.e., the function name or its parameters),
@@ -160,7 +160,7 @@ round(number, ndigits=None)
 </li>
 <li>Option 2: Type the function name in a cell with a question mark after it. Then run the cell.</li>
 </ul>
-<h2 id="python-reports-a-syntax-error-when-it-can-t-understand-the-s">Python reports a syntax error when it can't understand the source of a program.</h2>
+<h2 id="h-python-reports-a-syntax-error-when-it-can-t-understand-the-s">Python reports a syntax error when it can't understand the source of a program.</h2>
 <ul>
 <li>Won't even try to run the program if it can't be parsed.</li>
 </ul>
@@ -203,7 +203,7 @@ the error occurred in cell 6 of our Notebook.</li>
 <li>Next is the problematic line of code,
 indicating the problem with a <code>^</code> pointer.</li>
 </ul>
-<h2 id="python-reports-a-runtime-error-when-something-goes-wrong-whi">Python reports a runtime error when something goes wrong while a program is executing. {#runtime-error}</h2>
+<h2 id="h-python-reports-a-runtime-error-when-something-goes-wrong-whi">Python reports a runtime error when something goes wrong while a program is executing. {#runtime-error}</h2>
 <pre><code class="language-python">age = 53
 remaining = 100 - aege # mis-spelled 'age'
 </code></pre>
@@ -217,7 +217,7 @@ NameError: name 'aege' is not defined
 <ul>
 <li>Fix syntax errors by reading the source and runtime errors by tracing execution.</li>
 </ul>
-<h2 id="other-ways-to-get-help">Other ways to get help</h2>
+<h2 id="h-other-ways-to-get-help">Other ways to get help</h2>
 <p>There are several other ways that people often get help when they are stuck with their Python code.</p>
 <ul>
 <li>Search the internet:
@@ -233,7 +233,7 @@ If you have a colleague or friend with more expertise in Python than you have, s
 <li>Sometimes, the act of articulating your question can help you to identify what is going wrong.
 This is known as <a href="https://en.wikipedia.org/wiki/Rubber_duck_debugging" target="_blank" rel="noopener noreferrer">"rubber duck debugging"</a> among programmers.</li>
 </ul>
-<h3 id="generative-ai">Generative AI</h3>
+<h3 id="h-generative-ai">Generative AI</h3>
 <p>It is increasingly common for people to use <em>generative AI</em> chatbots such as ChatGPT to get help while coding.
 You will probably receive some useful guidance by presenting your error message to the chatbot and asking it what went wrong.
 However, the way this help is provided by the chatbot is different.
@@ -259,7 +259,6 @@ This means that a generative AI chatbot is <em>more likely to produce accurate r
 </ol>
 <div class="box box-challenge">
 <p class="box-title">What Happens When</p>
-
 <ol>
 <li>Explain in simple terms the order of operations in the following program:
 when does the addition happen, when does the subtraction happen,
@@ -270,7 +269,6 @@ when is each function called, etc.</li>
 radiance = max(2.1, 2.0 + min(radiance, 1.1 * radiance - 0.5))
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <ol>
 <li>Order of operations:</li>
 <li><code>1.1 * radiance = 1.1</code></li>
@@ -284,7 +282,6 @@ radiance = max(2.1, 2.0 + min(radiance, 1.1 * radiance - 0.5))
 </div>
 <div class="box box-challenge">
 <p class="box-title">Spot the Difference</p>
-
 <ol>
 <li>Predict what each of the <code>print</code> statements in the program below will print.</li>
 <li>Does <code>max(len(rich), poor)</code> run or produce an error message?
@@ -298,7 +295,6 @@ print(max(rich, poor))
 print(max(len(rich), len(poor)))
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <pre><code class="language-python">print(max(easy_string))
 </code></pre>
 <pre><code class="language-output">c
@@ -323,10 +319,8 @@ TypeError: '&gt;' not supported between instances of 'str' and 'int'
 </div>
 <div class="box box-challenge">
 <p class="box-title">Why Not?</p>
-
 <p>Why is it that <code>max</code> and <code>min</code> do not return <code>None</code> when they are called with no arguments?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
 <p><code>max</code> and <code>min</code> return TypeErrors in this case because the correct number of parameters
 was not supplied. If it just returned <code>None</code>, the error would be much harder to trace as it
 would likely be stored into a variable and used later in the program, only to likely throw
@@ -335,19 +329,16 @@ a runtime error.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Last Character of a String</p>
-
 <p>If Python starts counting from zero,
 and <code>len</code> returns the number of characters in a string,
 what index expression will get the last character in the string <code>name</code>?
 (Note: we will see a simpler way to do this in a later episode.)</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x">Solution</h2>
 <p><code>name[len(name) - 1]</code></p>
 </details>
 </div>
 <div class="box box-callout">
 <p class="box-title">Explore the Python docs!</p>
-
 <p>The <a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer">official Python documentation</a> is arguably the most complete
 source of information about the language. It is available in different languages and contains a lot of useful
 resources. The <a href="https://docs.python.org/3/library/functions.html" target="_blank" rel="noopener noreferrer">Built-in Functions page</a> contains a catalogue of

@@ -1,15 +1,12 @@
 <p>Clustering is a type of <a href="https://wikipedia.org/wiki/Unsupervised_learning" target="_blank" rel="noopener noreferrer">Unsupervised Learning</a> that presumes that a dataset is unlabelled or that its inputs are not matched with predefined outputs. It uses various algorithms to sort through unlabeled data and provide groupings according to patterns it discerns in the data.</p>
 <p><a href="https://youtu.be/ty2advRiWJM" target="_blank" rel="noopener noreferrer"><img alt="No One Like You by PSquare" loading="lazy" src="https://img.youtube.com/vi/ty2advRiWJM/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
-
-<h3 id="introduction">Introduction</h3>
+<h3 id="h-introduction">Introduction</h3>
 <p><a href="https://link.springer.com/referenceworkentry/10.1007%2F978-0-387-30164-8_124" target="_blank" rel="noopener noreferrer">Clustering</a> is very useful for data exploration. Let's see if it can help discover trends and patterns in the way Nigerian audiences consume music.</p>
 <p>✅ Take a minute to think about the uses of clustering. In real life, clustering happens whenever you have a pile of laundry and need to sort out your family members' clothes 🧦👕👖🩲. In data science, clustering happens when trying to analyze a user's preferences, or determine the characteristics of any unlabeled dataset. Clustering, in a way, helps make sense of chaos, like a sock drawer.</p>
 <p><a href="https://youtu.be/esmzYhuFnds" target="_blank" rel="noopener noreferrer"><img alt="Introduction to ML" loading="lazy" src="https://img.youtube.com/vi/esmzYhuFnds/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
 <p>In a professional setting, clustering can be used to determine things like market segmentation, determining what age groups buy what items, for example. Another use would be anomaly detection, perhaps to detect fraud from a dataset of credit card transactions. Or you might use clustering to determine tumors in a batch of medical scans.</p>
 <p>✅ Think a minute about how you might have encountered clustering 'in the wild', in a banking, e-commerce, or business setting.</p>
@@ -19,7 +16,7 @@
 <p>Alternately, you could use it for grouping search results - by shopping links, images, or reviews, for example. Clustering is useful when you have a large dataset that you want to reduce and on which you want to perform more granular analysis, so the technique can be used to learn about data before other models are constructed.</p>
 <p>✅ Once your data is organized in clusters, you assign it a cluster Id, and this technique can be useful when preserving a dataset's privacy; you can instead refer to a data point by its cluster id, rather than by more revealing identifiable data. Can you think of other reasons why you'd refer to a cluster Id rather than other elements of the cluster to identify it?</p>
 <p>Deepen your understanding of clustering techniques in this <a href="https://docs.microsoft.com/learn/modules/train-evaluate-cluster-models?WT.mc_id=academic-77952-leestott" target="_blank" rel="noopener noreferrer">Learn module</a></p>
-<h2 id="getting-started-with-clustering">Getting started with clustering</h2>
+<h2 id="h-getting-started-with-clustering">Getting started with clustering</h2>
 <p><a href="https://scikit-learn.org/stable/modules/clustering.html" target="_blank" rel="noopener noreferrer">Scikit-learn offers a large array</a> of methods to perform clustering. The type you choose will depend on your use case. According to the documentation, each method has various benefits. Here is a simplified table of the methods supported by Scikit-learn and their appropriate use cases:</p>
 <div class="table-wrap"><table>
 <thead>
@@ -91,7 +88,7 @@
 <p>🎓 'Density'</p>
 <p>Data that is 'noisy' is considered to be 'dense'. The distances between points in each of its clusters may prove, on examination, to be more or less dense, or 'crowded' and thus this data needs to be analyzed with the appropriate clustering method. <a href="https://www.kdnuggets.com/2020/02/understanding-density-based-clustering.html" target="_blank" rel="noopener noreferrer">This article</a> demonstrates the difference between using K-Means clustering vs. HDBSCAN algorithms to explore a noisy dataset with uneven cluster density.</p>
 </blockquote>
-<h2 id="clustering-algorithms">Clustering algorithms</h2>
+<h2 id="h-clustering-algorithms">Clustering algorithms</h2>
 <p>There are over 100 clustering algorithms, and their use depends on the nature of the data at hand. Let's discuss some of the major ones:</p>
 <ul>
 <li>
@@ -118,7 +115,7 @@
 <p><strong>Grid-based clustering</strong>. For multi-dimensional datasets, a grid is created and the data is divided amongst the grid's cells, thereby creating clusters.</p>
 </li>
 </ul>
-<h2 id="exercise-cluster-your-data">Exercise - cluster your data</h2>
+<h2 id="h-exercise-cluster-your-data">Exercise - cluster your data</h2>
 <p>Clustering as a technique is greatly aided by proper visualization, so let's get started by visualizing our music data. This exercise will help us decide which of the methods of clustering we should most effectively use for the nature of this data.</p>
 <ol>
 <li>
@@ -519,7 +516,7 @@ sns.heatmap(corrmat, vmax=.8, square=True)
 </ol>
 <p>Is there any convergence in this dataset around a song's perceived popularity and danceability? A FacetGrid shows that there are concentric circles that line up, regardless of genre. Could it be that Nigerian tastes converge at a certain level of danceability for this genre?</p>
 <p>✅ Try different datapoints (energy, loudness, speechiness) and more or different musical genres. What can you discover? Take a look at the <code>df.describe()</code> table to see the general spread of the data points.</p>
-<h3 id="exercise-data-distribution">Exercise - data distribution</h3>
+<h3 id="h-exercise-data-distribution">Exercise - data distribution</h3>
 <p>Are these three genres significantly different in the perception of their danceability, based on their popularity?</p>
 <ol>
 <li>
@@ -551,9 +548,8 @@ g = sns.jointplot(
 </ol>
 <p>In general, for clustering, you can use scatterplots to show clusters of data, so mastering this type of visualization is very useful. In the next lesson, we will take this filtered data and use k-means clustering to discover groups in this data that seem to overlap in interesting ways.</p>
 <hr>
-<h2 id="challenge">🚀Challenge</h2>
+<h2 id="h-challenge">🚀Challenge</h2>
 <p>In preparation for the next lesson, make a chart about the various clustering algorithms you might discover and use in a production environment. What kinds of problems is the clustering trying to address?</p>
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>Before you apply clustering algorithms, as we have learned, it's a good idea to understand the nature of your dataset. Read more on this topic <a href="https://www.kdnuggets.com/2019/10/right-clustering-algorithm.html" target="_blank" rel="noopener noreferrer">here</a></p>
 <p><a href="https://www.freecodecamp.org/news/8-clustering-algorithms-in-machine-learning-that-all-data-scientists-should-know/" target="_blank" rel="noopener noreferrer">This helpful article</a> walks you through the different ways that various clustering algorithms behave, given different data shapes.</p>

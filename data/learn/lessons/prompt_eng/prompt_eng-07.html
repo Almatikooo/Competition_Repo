@@ -5,21 +5,21 @@
 </blockquote>
 <p>There are also two steps to writing prompts: constructing the prompt, by providing relevant context, and <em>optimization</em>, how to gradually improve the prompt.</p>
 <p>At this point, we have some basic understanding of how to write prompts, but we need to go deeper. In this chapter, you will go from trying out various prompts to understanding why one prompt is better than another. You will learn how to construct prompts following some basic techniques that can be applied to any LLM.</p>
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p>In this chapter, we will cover the following topics:</p>
 <ul>
 <li>Extend your knowledge of prompt engineering by applying different techniques to your prompts.</li>
 <li>Configuring your prompts to vary the output.</li>
 </ul>
-<h2 id="learning-goals">Learning goals</h2>
+<h2 id="h-learning-goals">Learning goals</h2>
 <p>After completing this lesson, you'll be able to:</p>
 <ul>
 <li>Apply prompt engineering techniques that improve the outcome of your prompts.</li>
 <li>Perform prompting that is either varied or deterministic.</li>
 </ul>
-<h2 id="prompt-engineering">Prompt engineering</h2>
+<h2 id="h-prompt-engineering">Prompt engineering</h2>
 <p>Prompt engineering is the process of creating prompts that will produce the desired outcome. There's more to prompt engineering than just writing a text prompt. Prompt engineering is not an engineering discipline, it's more a set of techniques that you can apply to get the desired outcome.</p>
-<h3 id="an-example-of-a-prompt">An example of a prompt</h3>
+<h3 id="h-an-example-of-a-prompt">An example of a prompt</h3>
 <p>Let's take a basic prompt like this one:</p>
 <blockquote>
 <p>Generate 10 questions on geography.</p>
@@ -30,7 +30,7 @@
 <li><strong>Context</strong>, you specify it should be about "geography".</li>
 <li><strong>Limiting the output</strong>, you want no more than 10 questions.</li>
 </ul>
-<h3 id="limitations-of-simple-prompting">Limitations of simple prompting</h3>
+<h3 id="h-limitations-of-simple-prompting">Limitations of simple prompting</h3>
 <p>You may or may not get the desired outcome. You will get your questions generated, but geography is a big topic and you may not get what you want to due the following reasons:</p>
 <ul>
 <li><strong>Big topic</strong>, you don't know if it's going to be about countries, capitals, rivers and so on.</li>
@@ -38,7 +38,7 @@
 </ul>
 <p>As you can see, there's a lot to consider when creating prompts.</p>
 <p>So far, we've seen a simple prompt example, but generative AI is capable of much more to help people in a variety of roles and industries. Let's explore some basic techniques next.</p>
-<h3 id="techniques-for-prompting">Techniques for prompting</h3>
+<h3 id="h-techniques-for-prompting">Techniques for prompting</h3>
 <p>First, we need to understand that prompting is an <em>emergent</em> property of an LLM meaning that this is not a feature that is built into the model but rather something we discover as we use the model.</p>
 <p>There are some basic techniques that we can use to prompt an LLM. Let's explore them.</p>
 <ul>
@@ -50,13 +50,13 @@
 <li><strong>Self-refine</strong>, this technique is about critiquing the LLM's output and then asking it to improve.</li>
 <li><strong>Maieutic prompting</strong>. What you want here is to ensure the LLM answer is correct and you ask it to explain various parts of the answer. This is a form of self-refine.</li>
 </ul>
-<h3 id="zero-shot-prompting">Zero-shot prompting</h3>
+<h3 id="h-zero-shot-prompting">Zero-shot prompting</h3>
 <p>This style of prompting is very simple, it consists of a single prompt. This technique is probably what you're using as you're starting to learn about LLMs. Here's an example:</p>
 <ul>
 <li>Prompt: "What is Algebra?"</li>
 <li>Answer: "Algebra is a branch of mathematics that studies mathematical symbols and the rules for manipulating these symbols."</li>
 </ul>
-<h3 id="few-shot-prompting">Few-shot prompting</h3>
+<h3 id="h-few-shot-prompting">Few-shot prompting</h3>
 <p>This style of prompting helps the model by providing a few examples along with the request. It consists of a single prompt with additional task-specific data. Here's an example:</p>
 <ul>
 <li>Prompt: "Write a poem in the style of Shakespeare. Here are a few examples of Shakespearean sonnets.:
@@ -67,7 +67,7 @@ Now, write a sonnet about the beauty of the moon."</li>
 <li>Answer: "Upon the sky, the moon doth softly gleam, In silv'ry light that casts its gentle grace,..."</li>
 </ul>
 <p>Examples provide the LLM with the context, format or style of the desired output. They help the model understand the specific task and generate more accurate and relevant responses.</p>
-<h3 id="chain-of-thought">Chain-of-thought</h3>
+<h3 id="h-chain-of-thought">Chain-of-thought</h3>
 <p>Chain-of-thought is a very interesting technique as it's about taking the LLM through a series of steps. The idea is to instruct the LLM in such a way that it understands how to do something. Consider the following example, with and without chain-of-thought:</p>
 <pre><code>- Prompt: "Alice has 5 apples, throws 3 apples, gives 2 to Bob and Bob gives one back, how many apples does Alice have?"
 - Answer: 5
@@ -91,7 +91,7 @@ Answer: 1</li>
 </ul>
 <p>Note how we write substantially longer prompts with another example, a calculation and then the original prompt and we arrive at the correct answer 1.</p>
 <p>As you can see chain-of-thought is a very powerful technique.</p>
-<h3 id="generated-knowledge">Generated knowledge</h3>
+<h3 id="h-generated-knowledge">Generated knowledge</h3>
 <p>Many times when you want to construct a prompt, you want to do so using your own company's data. You want part of the prompt to be from the company and the other part should be the actual prompt you're interested in.</p>
 <p>As an example, this is what your prompt then can look like if you're in the insurance business:</p>
 <pre><code class="language-text">{{company}}: {{company_name}}
@@ -139,7 +139,7 @@ Budget: $1000 restrict choice to types: Car, Home
 <pre><code class="language-output">Given the budget and requirements, we suggest the Car, Cheap insurance product which costs 500 USD per month.
 </code></pre>
 <p>The point of this example was to show that even though we're using a basic technique like <em>generated knowledge</em>, we still need to optimize the prompt in most cases to get the desired outcome.</p>
-<h3 id="least-to-most">Least-to-most</h3>
+<h3 id="h-least-to-most">Least-to-most</h3>
 <p>The idea with Least-to-most prompting is to break down a bigger problem into subproblems. That way, you help guide the LLM on how to "conquer" the bigger problem. A good example could be for data science where you can ask the LLM to divide up a problem like so:</p>
 <blockquote>
 <p>Prompt: How to perform data science in 5 steps?</p>
@@ -152,7 +152,7 @@ Budget: $1000 restrict choice to types: Car, Home
 <li>Plot data</li>
 <li>Present data</li>
 </ol>
-<h3 id="self-refine-critique-the-results">Self-refine, critique the results</h3>
+<h3 id="h-self-refine-critique-the-results">Self-refine, critique the results</h3>
 <p>With generative AIs and LLMs, you can't trust the output. You need to verify it. After all, the LLM is just presenting you what's the next most likely thing to say, not what's correct. Therefore, a good idea is to ask the LLM to critique itself, which leads us to the self-refine technique.</p>
 <p>How it works is that you follow the following steps:</p>
 <ol>
@@ -206,7 +206,7 @@ if __name__ == '__main__':
     app.run()
 </code></pre>
 <p>As you can see, the above AI response is improving the first suggested code thanks to critiquing the first answer.</p>
-<h3 id="maieutic-prompting">Maieutic prompting</h3>
+<h3 id="h-maieutic-prompting">Maieutic prompting</h3>
 <p>Maieutic prompting is a technique that is similar to self-refine but it's more about asking the LLM to explain itself. The goal is to reduce inconsistencies in the LLM's output so to ensure it arrives at the correct answer. The workflow to follow is:</p>
 <ol>
 <li>Ask the LLM to answer a question</li>
@@ -249,7 +249,7 @@ LLM answer:</p>
 <pre><code class="language-text">The two biggest risks are loss of life and loss of business.
 </code></pre>
 <p>At this point, the LLM is consistent and mentions "life" and "business" as the top two risks. We can now continue to the next step and feel fairly confident. However, we shouldn't trust the LLM blindly, we should always verify the output.</p>
-<h2 id="vary-your-output">Vary your output</h2>
+<h2 id="h-vary-your-output">Vary your output</h2>
 <p>LLMs are nondeterministic by nature, meaning that you will get different results each time you run the same prompt. Try the following prompt for example:</p>
 <blockquote>
 <p>"Generate code for a Python Web API"</p>
@@ -355,7 +355,7 @@ app.run()
 <p>So is the varied output a problem?</p>
 </blockquote>
 <p>Depends on what you're trying to do. If you want a specific response then it's a problem. If you're ok with a varied output like "Generate any 3 questions on geography", then it's not a problem.</p>
-<h3 id="using-temperature-to-vary-your-output">Using temperature to vary your output</h3>
+<h3 id="h-using-temperature-to-vary-your-output">Using temperature to vary your output</h3>
 <p>Ok, so we've decided we want to limit the output to be more predictable, that is more deterministic. How do we do that?</p>
 <p>Temperature is a value between 0 and 1, where 0 is the most deterministic and 1 is the most varied. The default value is 0.7. Let's see what happens with two runs of the same prompt with temperature set to 0.1:</p>
 <blockquote>
@@ -486,7 +486,7 @@ def home():
 <blockquote>
 <p>Note, that there are more parameters you can change to vary the output, like top-k, top-p, repetition penalty, length penalty and diversity penalty but these are outside the scope of this curriculum.</p>
 </blockquote>
-<h2 id="good-practices">Good practices</h2>
+<h2 id="h-good-practices">Good practices</h2>
 <p>There are many practices you can apply to try to get what you want. You will find your own style as you use prompting more and more.</p>
 <p>Additionally to the techniques we've covered, there are some good practices to consider when prompting an LLM.</p>
 <p>Here are some good practices to consider:</p>
@@ -497,19 +497,11 @@ def home():
 <li><strong>Use templates</strong>. Often, you will want to enrich your prompts with data from your company. Use templates to do this. Templates can have variables that you replace with actual data.</li>
 <li><strong>Spell correctly</strong>. LLMs might provide you with a correct response, but if you spell correctly, you will get a better response.</li>
 </ul>
-<h2 id="solution">Solution</h2>
+<h2 id="h-solution">Solution</h2>
 <p>Please attempt to solve the assignment by adding suitable prompts to the code.</p>
 <div class="box box-tip"><p class="box-title">Tip</p>
 <p>Phrase a prompt to ask it to improve, it's a good idea to limit how many improvements. You can also ask to improve it in a certain way, for example architecture, performance, security, etc.</p>
 </div>
 <p><a href="https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/05-advanced-prompts/python/aoai-solution.py?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">Solution</a></p>
-<h2 id="knowledge-check">Knowledge check</h2>
-<p>Why would I use chain-of-thought prompting? Show me 1 correct response and 2 incorrect responses.</p>
-<ol>
-<li>To teach the LLM how to solve a problem.</li>
-<li>B, To teach the LLM to find errors in code.</li>
-<li>C, To instruct the LLM to come up with different solutions.</li>
-</ol>
-<p>A: 1, because chain-of-thought is about showing the LLM how to solve a problem by providing it with a series of steps, and similar problems and how they were solved.</p>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>You just used the self-refine technique in the assignment. Take any program you built and consider what improvements you would want to apply to it. Now use the self-refine technique to apply the proposed changes. What did you think the result, better or worse?</p>

@@ -1,5 +1,5 @@
 <p>If you know a person’s pinky (smallest) finger length, do you think you could predict that person’s height? Imagine collecting data on this and constructing a scatterplot of the points on graph paper.&nbsp; Then draw a line that appears to “fit” the data.&nbsp; For your line, pick two convenient points and use them to find the slope of the line.&nbsp; Find the <em>y</em>-intercept of the line by extending your line so it crosses the <em>y</em>-axis.&nbsp; Using the slopes and the <em>y</em>-intercepts, write your equation of “best fit.”&nbsp; According to your equation, what is the predicted height for a pinky length of 2.5 inches? You have just started the process of linear regression.</p>
-<h2 id="linear-regression">Linear Regression</h2>
+<h2 id="h-linear-regression">Linear Regression</h2>
 <p>Data rarely perfectly fit a straight line, but we can be satisfied with rough predictions. Typically, you have a set of data whose scatter plot appears to “fit” a straight line. This is called a Line of Best Fit or Least-Squares Line. This process of fitting the best-fit line is called <a href="#term_480_3417" rel="noopener noreferrer">linear regression</a>.&nbsp;</p>
 <p>The equation of the regression line is <em>ŷ</em> =a+bx</p>
 <p>The <em>ŷ</em> is read “<em>y</em> hat” and is the estimated value of <em>y</em>. It is the value of <em>y</em> obtained using the regression line. It may or may not be equal to values of <em>y</em> observed from the data.</p>
@@ -7,12 +7,8 @@
 <p>The <a href="#term_480_3418" rel="noopener noreferrer">slope</a>, <em>b</em> can be written as <img alt="b=r\left(\frac{{s}_{y}}{{s}_{x}}\right)" height="32" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-466f4ce53ba5525ac15ad8108713921b_l3.png" title="Rendered by QuickLaTeX.com" width="79"> where <em>s</em><sub><em>y</em></sub> = the standard deviation of the <em>y</em> values and <em>s</em><sub><em>x</em></sub> = the standard deviation of the <em>x</em> values. <em>r</em> is the correlation coefficient, which is discussed in the next section.</p>
 <p>The <a href="#term_480_3419" rel="noopener noreferrer">y-intercept</a>, a, can then be calculated by using the slope, and means of x and y.</p>
 <div class="box box-keypoints"><p class="box-title">Example</p>
-
-<div>
 <p>Recall our example:</p>
-<div>
 <p>A random sample of 11 statistics students produced the following data, where <em>x</em> is the third exam score out of 80, and <em>y</em> is the final exam score out of 200. Can you predict the final exam score of a random student if you know the third exam score?</p>
-</div>
 <div class="box box-callout"><p class="box-title">Example</p>
 <div class="table-wrap"><table>
 <caption>Figure 9.7 (repeat): Third and Final Exam Scores Data</caption>
@@ -69,33 +65,11 @@
 </tr>
 </tbody>
 </table></div>
-<div></div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div></div>
-</div>
-</div>
-</div>
 </div>
 <p>Consider the following diagram. Each point of data is of the the form (<em>x</em>, <em>y</em>) and each point of the line of best fit using least-squares linear regression has the form (<em>x</em>, <em>ŷ</em>).</p>
 <figure><img alt="Scatter plot of exam scores with a line of best fit. One data point is highlighted along with the corresponding point on the line of best fit." height="200" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/9.10-1.png" width="321"><figcaption>Figure 9.10: Line of Best Fit</figcaption></figure>
-<div>
-<div></div>
 </div>
-</div>
-</div>
-<div>
-<div></div>
-</div>
-<div>
 <div class="box box-callout"><p class="box-title">Your turn!</p>
-
-<div>
-<div>
-<div>
 <p>SCUBA divers have maximum dive times they cannot exceed when going to different depths. The data in the figure below&nbsp;show different depths with the maximum dive times in minutes. Use your calculator to find the least squares regression line and predict the maximum dive time for 110 feet.</p>
 <div class="table-wrap"><table>
 <caption>Figure 9.11: SCUBA Diver Stats</caption>
@@ -133,73 +107,35 @@
 </tbody>
 </table></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<h2 id="understanding-slope">Understanding Slope</h2>
-</div>
-<div>
+<h2 id="h-understanding-slope">Understanding Slope</h2>
 <p>The <a href="#term_480_3418" rel="noopener noreferrer">slope</a> of the line, <em>b</em>, describes how changes in the variables are related. It is important to interpret the slope of the line in the context of the situation represented by the data. You should be able to write a sentence interpreting the slope in plain English.</p>
 <p><strong>INTERPRETATION:</strong>&nbsp;The slope of the best-fit line tells us how the dependent variable (<em>y</em>) changes for every one unit increase in the independent (<em>x</em>) variable, on average.</p>
 <div class="box box-keypoints"><p class="box-title">Example</p>
-
-<div>
 <p>[Previous Example Continued]</p>
 <p>The slope of the line is <em>b</em> = 4.83.</p>
 <p><strong>Interpretation:</strong> For a one-point increase in the score on the third exam, the final exam score increases by 4.83 points, on average.</p>
 </div>
-</div>
-<div>
-<h2 id="understanding-the-y-intercept">Understanding the Y-Intercept</h2>
+<h2 id="h-understanding-the-y-intercept">Understanding the Y-Intercept</h2>
 <p>The <a href="#term_480_3419" rel="noopener noreferrer">y-intercept</a> of the line, a, can tell us what we would predict the value of y to be when x is 0.&nbsp; This may make sense in some cases, but in many it may not make sense for x to be equal to 0, therefore the y intercept may not be useful.</p>
 <div class="box box-keypoints"><p class="box-title">Example</p>
-
-<div>
 <p>[Previous Example Continued]</p>
 <p>The y-intercept of the line is&nbsp;–173.51</p>
 <p><strong>Interpretation:</strong> In this context it does not really make sense for x to be 0 (unless a student did not take the exam or try at all).&nbsp; Therefore our y intercept does not make sense.</p>
 </div>
-</div>
-</div>
-</div>
-<div>
-<h2 id="prediction">Prediction</h2>
+<h2 id="h-prediction">Prediction</h2>
 <p>The next, and most useful step in regression is to actually use that equation to predict future values of y.</p>
 <p>Recall in our example we have examined the scatterplot and found the <a href="#term_480_3410" rel="noopener noreferrer">correlation coefficient</a> and <a href="#term_480_3421" rel="noopener noreferrer">coefficient of determination</a>. We found the equation of the best-fit line for the final exam grade as a function of the grade on the third-exam. We can now use the least-squares regression line for prediction.</p>
 <div class="box box-keypoints"><p class="box-title">Example</p>
-
-<div>
 <p>[Previous Example Continued]</p>
 <p>Suppose you want to estimate, or predict, the mean final exam score of statistics students who received 73 on the third exam. The exam scores (<em>x</em>-values) range from 65 to 75. Since 73 is between the <em>x</em>-values 65 and 75, substitute <em>x</em> = 73 into the equation. Then:</p>
-<div><img alt="\stackrel{^}{y}=-173.51+4.83\left(73\right)=179.08" height="19" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-17b2a3686e5718431a14a7c5a0c5c4ef_l3.png" title="Rendered by QuickLaTeX.com" width="257"></div>
-<div>
-<div></div>
-</div>
-<div>
+<img alt="\stackrel{^}{y}=-173.51+4.83\left(73\right)=179.08" height="19" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-17b2a3686e5718431a14a7c5a0c5c4ef_l3.png" title="Rendered by QuickLaTeX.com" width="257">
 <p>What would you predict the final exam score to be for a student who scored a 66 on the third exam?</p>
-<div>
-<div></div>
-</div>
-<div>
 <p>What would you predict the final exam score to be for a student who scored a 90 on the third exam?</p>
-<div>
-<div></div>
-</div>
-</div>
-</div>
-</div>
 </div>
 <div class="box box-callout"><p class="box-title">Your turn!</p>
-
-<div>
 <p>Data are collected on the relationship between the number of hours per week practicing a musical instrument and scores on a math test. The line of best fit is as follows:</p>
 <p><em>ŷ</em> = 72.5 + 2.8<em>x</em> <br>
 What would you predict the score on a math test would be for a student who practices a musical instrument for five hours a week?</p>
 </div>
-</div>
-<h3 id="image-references">Image References</h3>
+<h3 id="h-image-references">Image References</h3>
 <p>Figure 9.10: Kindred Grey via Virginia Tech (2020). “Figure 9.10” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_9.10.png . Adaptation of Figure 12.11 from OpenStax Introductory Statistics (2013) (CC BY 4.0). Retrieved from https://openstax.org/books/introductory-statistics/pages/12-3-the-regression-equation</p>
-</div>
-<div></div>

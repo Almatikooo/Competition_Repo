@@ -1,6 +1,5 @@
-<h2 id="choose-a-stream-processing-technology-in-azure">Choose a stream processing technology in Azure</h2>
 <p>This article compares technology choices for real-time stream processing in Azure.</p>
-<h2 id="streaming-data-overview">Streaming data overview</h2>
+<h2 id="h-streaming-data-overview">Streaming data overview</h2>
 <p>Organizations often have various data sources that simultaneously emit messages, records, or data. The amount of data can range from a few bytes to several megabytes (MB). Streaming data is emitted at high volume in a continuous, incremental manner that can be processed in near real-time. This type of data includes information that companies use for real-time analytics and visibility into various aspects of their business, such as application logs, geolocation updates, events, and sensor readings.</p>
 <p>Streaming data often has the following characteristics:</p>
 <ul>
@@ -17,14 +16,12 @@
 <p><strong>Time-sensitive data order:</strong> Individual elements in a data stream contain timestamps. And the data stream itself might be time-sensitive and lose value after a specific time. In some cases, you need to preserve the data processing order.</p>
 </li>
 </ul>
-<h2 id="technology-options-for-real-time-processing">Technology options for real-time processing</h2>
+<h2 id="h-technology-options-for-real-time-processing">Technology options for real-time processing</h2>
 <p>To help you choose the right technology, this section outlines common options in Azure, from ingestion to consumption. Each subsection highlights recommended technologies based on their role within the streaming processing flow.</p>
-<h3 id="high-level-stream-processing-flow">High-level stream processing flow</h3>
-<p><img alt="A diagram that shows the data flow for a stream processing solution." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/architecture-center/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/images/stream-processing.svg">
-Left to right, the diagram shows a four-stage numbered streaming data pipeline: 1 Stream producers, 2 Stream ingestion, 3 Stream processing, 4 Streaming sinks. At the far left a tall box contains Mobile apps above Customer-facing apps. To its right three stacked producer boxes: the top box labeled Device endpoint metrics contains IoT Hub left of IoT Edge; the middle box labeled CDC generated from databases contains Azure Cosmos DB left of SQL Database; the bottom box labeled metrics and events from custom applications contains AKS left of Functions. Right-pointing arrows from each producer box converge on the ingestion box, which lists (top row left to right) Event Hubs and Event Grid, and (bottom row) HDInsight Kafka left of Confluent Kafka. A single arrow leads to the processing box showing (top row) Stream Analytics, Eventstream, Functions, and below them an inset Spark Structured Streaming box containing Fabric left of Azure Databricks. Another arrow points to the sinks box listing Azure Data Explorer above Blob Storage, Azure Cosmos DB above One Lake, and Eventhouse at the bottom.
-:::image-end:::</p>
+<h3 id="h-high-level-stream-processing-flow">High-level stream processing flow</h3>
+<p><img alt="A diagram that shows the data flow for a stream processing solution." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/architecture-center/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/images/stream-processing.svg"></p>
 <p><em>Download a <a href="https://arch-center.azureedge.net/stream-processing.vsdx" target="_blank" rel="noopener noreferrer">Visio file</a> of this architecture.</em></p>
-<h3 id="stream-producers">Stream producers</h3>
+<h3 id="h-stream-producers">Stream producers</h3>
 <p>Stream producers generate and push data into Azure ingestion services. They continuously produce data from sources like Internet of Things (IoT) devices, application logs, or databases.</p>
 <p>Stream producers provide the following benefits:</p>
 <ul>
@@ -85,7 +82,7 @@ Left to right, the diagram shows a four-stage numbered streaming data pipeline: 
 </tr>
 </tbody>
 </table></div>
-<h3 id="stream-ingestion">Stream ingestion</h3>
+<h3 id="h-stream-ingestion">Stream ingestion</h3>
 <p>Producers, such as web and mobile applications, IoT devices, and sensors, continuously generate data. The stream processing pipeline must efficiently ingest this data for real-time and batch analysis.</p>
 <p>Consider the following factors:</p>
 <ul>
@@ -164,7 +161,7 @@ Left to right, the diagram shows a four-stage numbered streaming data pipeline: 
 </tr>
 </tbody>
 </table></div>
-<h3 id="stream-processing">Stream processing</h3>
+<h3 id="h-stream-processing">Stream processing</h3>
 <p>This step involves processes that transform data in real-time and filter, aggregate, enrich, or analyze ingested data.</p>
 <p>Consider the following factors:</p>
 <ul>
@@ -252,7 +249,7 @@ Left to right, the diagram shows a four-stage numbered streaming data pipeline: 
 </tr>
 </tbody>
 </table></div>
-<h3 id="streaming-sinks">Streaming sinks</h3>
+<h3 id="h-streaming-sinks">Streaming sinks</h3>
 <p>After the system processes the data, it directs the data to appropriate destinations, or <em>sinks</em>, for storage, further analysis, or use in real-time applications. These destinations can include databases, data lakes, analytics tools, or dashboards for visualization.</p>
 <p>Consider the following factors:</p>
 <ul>
@@ -330,14 +327,14 @@ Left to right, the diagram shows a four-stage numbered streaming data pipeline: 
 </tr>
 </tbody>
 </table></div>
-<h2 id="contributors">Contributors</h2>
+<h2 id="h-contributors">Contributors</h2>
 <p><em>Microsoft maintains this article. The following contributors wrote this article.</em></p>
 <p>Principal author:</p>
 <ul>
 <li><a href="https://www.linkedin.com/in/pratimavalavala" target="_blank" rel="noopener noreferrer">Pratima Valavala</a> | Principal Solution Architect</li>
 </ul>
 <p><em>To see nonpublic LinkedIn profiles, sign in to LinkedIn.</em></p>
-<h2 id="next-steps">Next steps</h2>
+<h2 id="h-next-steps">Next steps</h2>
 <ul>
 <li><a href="https://learn.microsoft.com/fabric/real-time-intelligence/eventhouse" target="_blank" rel="noopener noreferrer">Fabric Eventhouse</a></li>
 <li><a href="https://learn.microsoft.com/azure/well-architected/service-guides/iot-hub/reliability" target="_blank" rel="noopener noreferrer">Fabric</a></li>
@@ -350,7 +347,7 @@ Left to right, the diagram shows a four-stage numbered streaming data pipeline: 
 <li><a href="https://learn.microsoft.com/training/modules/perform-advanced-streaming-data-transformations-with-spark-kafka" target="_blank" rel="noopener noreferrer">Perform advanced streaming data transformations</a></li>
 <li><a href="https://learn.microsoft.com/training/modules/use-apache-spark-azure-databricks" target="_blank" rel="noopener noreferrer">Use Apache Spark in Azure Databricks</a></li>
 </ul>
-<h2 id="related-resource">Related resource</h2>
+<h2 id="h-related-resource">Related resource</h2>
 <ul>
 <li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/reference-architectures/data/stream-processing-stream-analytics.yml" target="_blank" rel="noopener noreferrer">Stream processing with Stream Analytics</a></li>
 </ul>

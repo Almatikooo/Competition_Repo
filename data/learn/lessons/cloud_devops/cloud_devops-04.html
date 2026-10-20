@@ -15,12 +15,11 @@
 </div>
 <div class="box box-callout">
 <p class="box-title">Reminder of terminology: container images and containers</p>
-
 <p>Recall that a <em>container image</em> is the template from which particular instances of <em>containers</em> will be created.</p>
 </div>
 <p>Let's explore our first Podman container. The Podman team provides a simple container
 image online called <code>hello</code>. We'll start with that one.</p>
-<h2 id="downloading-podman-images">Downloading Podman images</h2>
+<h2 id="h-downloading-podman-images">Downloading Podman images</h2>
 <p>The <code>podman image</code> command is used to interact with Podman container images.
 You can find out what container images you have on your computer by using the following command ("ls" is short for "list"):</p>
 <pre><code class="language-bash">$ podman image ls
@@ -40,7 +39,6 @@ Writing manifest to image destination
 </code></pre>
 <div class="box box-callout">
 <p class="box-title">Docker Hub</p>
-
 <p>Where did the <code>hello</code> container image come from? If you look carefully in the
 output when you pulled the image, you will see that it came from the Quay container
 registry, which is a place to share container images with other people. Specifically,
@@ -52,12 +50,10 @@ version of a <code>hello</code> image by instead pulling <code>docker.io/hello-w
 </div>
 <div class="box box-challenge">
 <p class="box-title">Exercise: Check on Your Images</p>
-
 <p>What command would you use to see if the <code>hello</code> container image had downloaded
 successfully and was on your computer?
 Give it a try before checking the solution.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <p>To see if the <code>hello</code> container image is now on your computer, run:</p>
 <pre><code class="language-bash">$ podman image ls
 </code></pre>
@@ -68,7 +64,7 @@ Give it a try before checking the solution.</p>
 Podman stores it in a specific location that isn't commonly accessed, so it's necessary
 to use the special <code>podman image</code> command to see what Podman container images you have on your
 computer.</p>
-<h2 id="running-the-hello-container">Running the <code>hello</code> container</h2>
+<h2 id="h-running-the-hello-container">Running the <code>hello</code> container</h2>
 <p>To create and run containers from named Podman container images you use the <code>podman container run</code> command. Try the following <code>podman container run</code> invocation. Note that it does not matter what your current working directory is.</p>
 <pre><code class="language-bash">$ podman container run hello
 </code></pre>
@@ -113,12 +109,11 @@ Mastodon:  @Podman_io@fosstodon.org
 namely to print this message.</p>
 <div class="box box-callout">
 <p class="box-title">Using podman container run to get the image</p>
-
 <p>We could have skipped the <code>podman image pull</code> step; if you use the <code>podman container run</code>
 command and you don't already have a copy of the Podman container image, Podman will
 automatically pull the container image first and then run it.</p>
 </div>
-<h2 id="running-a-container-with-a-chosen-command">Running a container with a chosen command</h2>
+<h2 id="h-running-a-container-with-a-chosen-command">Running a container with a chosen command</h2>
 <p>But what if we wanted to do something different with the container? Let's use a
 different container image to explore what else we can do with the <code>podman container run</code> command. One image we could use is <code>ubuntu</code> which provides, as
 the name suggests, a container running Ubuntu Linux. However, we're going to run
@@ -126,7 +121,6 @@ a different type of Linux instead, <code>alpine</code>, because it's smaller and
 image is quicker to download.</p>
 <div class="box box-challenge">
 <p class="box-title">Run the Alpine Podman container</p>
-
 <p>Try downloading the <code>alpine</code> container image and using it to run a container. You can do it in
 two steps, or one. What are they?</p>
 </div>
@@ -144,11 +138,9 @@ this instead:</p>
 the version of Alpine Linux that this container is using and a few additional bits of information.</p>
 <div class="box box-challenge">
 <p class="box-title">Hello World, Part 2</p>
-
 <p>Can you run a copy of the <code>alpine</code> container and make it print a "hello world" message?</p>
 <p>Give it a try before checking the solution.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <p>Use the same command as above, but with the <code>echo</code> command to print a message.</p>
 <pre><code class="language-bash">$ podman container run alpine echo 'Hello World'
 </code></pre>
@@ -156,7 +148,7 @@ the version of Alpine Linux that this container is using and a few additional bi
 </div>
 <p>So here, we see another option -- we can provide commands at the end of the <code>podman container run</code>
 command and they will execute inside the running container.</p>
-<h2 id="running-containers-interactively">Running containers interactively</h2>
+<h2 id="h-running-containers-interactively">Running containers interactively</h2>
 <p>In all the examples above, Podman has started the container, run a command, and then
 immediately stopped the container. But what if we wanted to keep the container
 running so we could log into it and test drive more commands? The way to
@@ -168,7 +160,6 @@ to use <code>sh</code>.</p>
 </code></pre>
 <div class="box box-callout">
 <p class="box-title">Technically...</p>
-
 <p>Technically, the interactive flag is just <code>-i</code> -- the extra <code>-t</code> (combined
 as <code>-it</code> above) is the "pseudo-TTY" option, a fancy term that means a text interface.
 This allows you to connect to a shell, like <code>sh</code>, using a command line. Since you usually
@@ -192,13 +183,12 @@ type <code>exit</code>.</p>
 </code></pre>
 <div class="box box-challenge">
 <p class="box-title">Practice Makes Perfect</p>
-
 <p>Can you find out the version of Ubuntu installed on the <code>ubuntu</code> container image?
 (Hint: You can use the same command as used to find the version of alpine.)</p>
 <p>Can you also find the <code>apt-get</code> program? What does it do? (Hint: try passing <code>--help</code>
 to almost any command will give you more information.)</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-1-interactive">Solution 1 -- Interactive</h2>
+<h2 id="h-solution-1-interactive">Solution 1 -- Interactive</h2>
 <p>Run an interactive ubuntu container -- you can use <code>podman image pull</code> first, or just
 run it with this command:</p>
 <pre><code class="language-bash">$ podman container run -it ubuntu sh
@@ -215,7 +205,7 @@ run it with this command:</p>
 </code></pre>
 </details>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-2-run-commands">Solution 2 -- Run commands</h2>
+<h2 id="h-solution-2-run-commands">Solution 2 -- Run commands</h2>
 <p>Run a ubuntu container, first with a command to read out the Linux version:</p>
 <pre><code class="language-bash">$ podman container run ubuntu cat /etc/os-release
 </code></pre>
@@ -226,7 +216,6 @@ run it with this command:</p>
 </div>
 <div class="box box-callout">
 <p class="box-title">Even More Options</p>
-
 <p>There are many more options, besides <code>-it</code> that can be used with the <code>podman container run</code>
 command!  A few of them will be covered in <a href="https://github.com/advanced-containers" target="_blank" rel="noopener noreferrer">later episodes</a>
 and we'll share two more common ones here:</p>
@@ -245,12 +234,10 @@ to a specific running container, you can assign it a name using this option.</p>
 </li>
 </ul>
 </div>
-<h2 id="conclusion">Conclusion</h2>
+<h2 id="h-conclusion">Conclusion</h2>
 <p>So far, we've seen how to download container images, use Podman to run commands inside
 running containers, and even how to explore a running container from the inside.
 Next, we'll take a closer look at all the different kinds of container images that are out there.</p>
-
-
 <div class="box box-keypoints">
 <p class="box-title">Key points</p>
 <ul>

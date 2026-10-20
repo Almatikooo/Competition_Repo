@@ -1,9 +1,8 @@
 <p><img alt="Logistic vs. linear regression infographic" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/4-Logistic/images/linear-vs-logistic.png"></p>
-
 <blockquote>
-<h3 id="this-lesson-is-available-in-r"><a href="https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/4-Logistic/solution/R/lesson_4.html" target="_blank" rel="noopener noreferrer">This lesson is available in R!</a></h3>
+<h3 id="h-this-lesson-is-available-in-r"><a href="https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/4-Logistic/solution/R/lesson_4.html" target="_blank" rel="noopener noreferrer">This lesson is available in R!</a></h3>
 </blockquote>
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p>In this final lesson on Regression, one of the basic <em>classic</em> ML techniques, we will take a look at Logistic Regression. You would use this technique to discover patterns to predict binary categories. Is this candy chocolate or not? Is this disease contagious or not? Will this customer choose this product or not?</p>
 <p>In this lesson, you will learn:</p>
 <ul>
@@ -11,46 +10,44 @@
 <li>Techniques for logistic regression</li>
 </ul>
 <p>✅ Deepen your understanding of working with this type of regression in this <a href="https://docs.microsoft.com/learn/modules/train-evaluate-classification-models?WT.mc_id=academic-77952-leestott" target="_blank" rel="noopener noreferrer">Learn module</a></p>
-<h2 id="prerequisite">Prerequisite</h2>
+<h2 id="h-prerequisite">Prerequisite</h2>
 <p>Having worked with the pumpkin data, we are now familiar enough with it to realize that there's one binary category that we can work with: <code>Color</code>.</p>
 <p>Let's build a logistic regression model to predict that, given some variables, <em>what color a given pumpkin is likely to be</em> (orange 🎃 or white 👻).</p>
 <blockquote>
 <p>Why are we talking about binary classification in a lesson grouping about regression? Only for linguistic convenience, as logistic regression is <a href="https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression" target="_blank" rel="noopener noreferrer">really a classification method</a>, albeit a linear-based one. Learn about other ways to classify data in the next lesson group.</p>
 </blockquote>
-<h2 id="define-the-question">Define the question</h2>
+<h2 id="h-define-the-question">Define the question</h2>
 <p>For our purposes, we will express this as a binary: 'White' or 'Not White'. There is also a 'striped' category in our dataset but there are few instances of it, so we will not use it. It disappears once we remove null values from the dataset, anyway.</p>
 <blockquote>
 <p>🎃 Fun fact, we sometimes call white pumpkins 'ghost' pumpkins. They aren't very easy to carve, so they aren't as popular as the orange ones but they are cool looking! So we could also reformulate our question as: 'Ghost' or 'Not Ghost'. 👻</p>
 </blockquote>
-<h2 id="about-logistic-regression">About logistic regression</h2>
+<h2 id="h-about-logistic-regression">About logistic regression</h2>
 <p>Logistic regression differs from linear regression, which you learned about previously, in a few important ways.</p>
 <p><a href="https://youtu.be/KpeCT6nEpBY" target="_blank" rel="noopener noreferrer"><img alt="ML for beginners - Understanding Logistic Regression for Machine Learning Classification" loading="lazy" src="https://img.youtube.com/vi/KpeCT6nEpBY/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
-<h3 id="binary-classification">Binary classification</h3>
+<h3 id="h-binary-classification">Binary classification</h3>
 <p>Logistic regression does not offer the same features as linear regression. The former offers a prediction about a binary category ("white or not white") whereas the latter is capable of predicting continual values, for example given the origin of a pumpkin and the time of harvest, <em>how much its price will rise</em>.</p>
 <p><img alt="Pumpkin classification Model" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/4-Logistic/images/pumpkin-classifier.png"></p>
 <blockquote>
 <p>Infographic by <a href="https://twitter.com/dasani_decoded" target="_blank" rel="noopener noreferrer">Dasani Madipalli</a></p>
 </blockquote>
-<h3 id="other-classifications">Other classifications</h3>
+<h3 id="h-other-classifications">Other classifications</h3>
 <p>There are other types of logistic regression, including multinomial and ordinal:</p>
 <ul>
 <li><strong>Multinomial</strong>, which involves having more than one category - "Orange, White, and Striped".</li>
 <li><strong>Ordinal</strong>, which involves ordered categories, useful if we wanted to order our outcomes logically, like our pumpkins that are ordered by a finite number of sizes (mini,sm,med,lg,xl,xxl).</li>
 </ul>
 <p><img alt="Multinomial vs ordinal regression" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/4-Logistic/images/multinomial-vs-ordinal.png"></p>
-<h3 id="variables-do-not-have-to-correlate">Variables DO NOT have to correlate</h3>
+<h3 id="h-variables-do-not-have-to-correlate">Variables DO NOT have to correlate</h3>
 <p>Remember how linear regression worked better with more correlated variables? Logistic regression is the opposite - the variables don't have to align. That works for this data which has somewhat weak correlations.</p>
-<h3 id="you-need-a-lot-of-clean-data">You need a lot of clean data</h3>
+<h3 id="h-you-need-a-lot-of-clean-data">You need a lot of clean data</h3>
 <p>Logistic regression will give more accurate results if you use more data; our small dataset is not optimal for this task, so keep that in mind.</p>
 <p><a href="https://youtu.be/B2X4H9vcXTs" target="_blank" rel="noopener noreferrer"><img alt="ML for beginners - Data Analysis and Preparation for Logistic Regression" loading="lazy" src="https://img.youtube.com/vi/B2X4H9vcXTs/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
 <p>✅ Think about the types of data that would lend themselves well to logistic regression</p>
-<h2 id="exercise-tidy-the-data">Exercise - tidy the data</h2>
+<h2 id="h-exercise-tidy-the-data">Exercise - tidy the data</h2>
 <p>First, clean the data a bit, dropping null values and selecting only some of the columns:</p>
 <ol>
 <li>
@@ -66,7 +63,7 @@ pumpkins.dropna(inplace=True)
 </code></pre>
 </li>
 </ol>
-<h3 id="visualization-categorical-plot">Visualization - categorical plot</h3>
+<h3 id="h-visualization-categorical-plot">Visualization - categorical plot</h3>
 <p>By now you have loaded up the <a href="https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/4-Logistic/notebook.ipynb" target="_blank" rel="noopener noreferrer">starter notebook</a> with pumpkin data once again and cleaned it so as to preserve a dataset containing a few variables, including <code>Color</code>. Let's visualize the dataframe in the notebook using a different library: <a href="https://seaborn.pydata.org/index.html" target="_blank" rel="noopener noreferrer">Seaborn</a>, which is built on Matplotlib which we used earlier.</p>
 <p>Seaborn offers some neat ways to visualize your data. For example, you can compare distributions of the data for each <code>Variety</code> and <code>Color</code> in a categorical plot.</p>
 <ol>
@@ -89,7 +86,7 @@ palette=palette,
 <p>✅ Given this categorical plot, what are some interesting explorations you can envision?</p>
 </li>
 </ol>
-<h3 id="data-pre-processing-feature-and-label-encoding">Data pre-processing: feature and label encoding</h3>
+<h3 id="h-data-pre-processing-feature-and-label-encoding">Data pre-processing: feature and label encoding</h3>
 <p>Our pumpkins dataset contains string values for all its columns. Working with categorical data is intuitive for humans but not for machines. Machine learning algorithms work well with numbers. That's why encoding is a very important step in the data pre-processing phase, since it enables us to turn categorical data into numerical data, without losing any information. Good encoding leads to building a good model.</p>
 <p>For feature encoding there are two main types of encoders:</p>
 <ol>
@@ -132,7 +129,7 @@ categorical_encoder = OneHotEncoder(sparse_output=False)
 <pre><code class="language-python">    encoded_pumpkins = encoded_features.assign(Color=encoded_label)
 </code></pre>
 <p>✅ What are the advantages of using an ordinal encoder for the <code>Item Size</code> column?</p>
-<h3 id="analyse-relationships-between-variables">Analyse relationships between variables</h3>
+<h3 id="h-analyse-relationships-between-variables">Analyse relationships between variables</h3>
 <p>Now that we have pre-processed our data, we can analyse the relationships between the features and the label to grasp an idea of how well the model will be able to predict the label given the features.
 The best way to perform this kind of analysis is plotting the data. We'll be using again the Seaborn <code>catplot</code> function, to visualize the relationships between <code>Item Size</code>,  <code>Variety</code> and <code>Color</code> in a categorical plot. To better plot the data we'll be using the encoded <code>Item Size</code> column and the unencoded <code>Variety</code> column.</p>
 <pre><code class="language-python">    palette = {
@@ -152,7 +149,7 @@ The best way to perform this kind of analysis is plotting the data. We'll be usi
     g.set_titles(row_template="{row_name}")
 </code></pre>
 <p><img alt="A catplot of visualized data" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/4-Logistic/images/pumpkins_catplot_2.png"></p>
-<h3 id="use-a-swarm-plot">Use a swarm plot</h3>
+<h3 id="h-use-a-swarm-plot">Use a swarm plot</h3>
 <p>Since Color is a binary category (White or Not), it needs 'a <a href="https://seaborn.pydata.org/tutorial/categorical.html?highlight=bar" target="_blank" rel="noopener noreferrer">specialized approach</a> to visualization'. There are other ways to visualize the relationship of this category with other variables.</p>
 <p>You can visualize variables side-by-side with Seaborn plots.</p>
 <ol>
@@ -174,11 +171,10 @@ sns.swarmplot(x="Color", y="ord__Item Size", data=encoded_pumpkins, palette=pale
 <p><img alt="logistic function" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/4-Logistic/images/sigmoid.png"></p>
 <p>where the sigmoid's midpoint finds itself at x's 0 point, L is the curve's maximum value, and k is the curve's steepness. If the outcome of the function is more than 0.5, the label in question will be given the class '1' of the binary choice. If not, it will be classified as '0'.</p>
 </blockquote>
-<h2 id="build-your-model">Build your model</h2>
+<h2 id="h-build-your-model">Build your model</h2>
 <p>Building a model to find these binary classification is surprisingly straightforward in Scikit-learn.</p>
 <p><a href="https://youtu.be/MmZS2otPrQ8" target="_blank" rel="noopener noreferrer"><img alt="ML for beginners - Logistic Regression for classification of data" loading="lazy" src="https://img.youtube.com/vi/MmZS2otPrQ8/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
 <ol>
 <li>
@@ -225,7 +221,7 @@ print('F1-score: ', f1_score(y_test, predictions))
 </code></pre>
 </li>
 </ol>
-<h2 id="better-comprehension-via-a-confusion-matrix">Better comprehension via a confusion matrix</h2>
+<h2 id="h-better-comprehension-via-a-confusion-matrix">Better comprehension via a confusion matrix</h2>
 <p>While you can get a scoreboard report <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html?highlight=classification_report#sklearn.metrics.classification_report" target="_blank" rel="noopener noreferrer">terms</a> by printing out the items above, you might be able to understand your model more easily by using a <a href="https://scikit-learn.org/stable/modules/model_evaluation.html#confusion-matrix" target="_blank" rel="noopener noreferrer">confusion matrix</a> to help us understand how the model is performing.</p>
 <blockquote>
 <p>🎓 A '<a href="https://wikipedia.org/wiki/Confusion_matrix" target="_blank" rel="noopener noreferrer">confusion matrix</a>' (or 'error matrix') is a table that expresses your model's true vs. false positives and negatives, thus gauging the accuracy of predictions.</p>
@@ -285,10 +281,9 @@ confusion_matrix(y_test, predictions)
 <p>🎓 Macro Avg: The calculation of the unweighted mean metrics for each label, not taking label imbalance into account.</p>
 <p>🎓 Weighted Avg: The calculation of the mean metrics for each label, taking label imbalance into account by weighting them by their support (the number of true instances for each label).</p>
 <p>✅ Can you think which metric you should watch if you want your model to reduce the number of false negatives?</p>
-<h2 id="visualize-the-roc-curve-of-this-model">Visualize the ROC curve of this model</h2>
+<h2 id="h-visualize-the-roc-curve-of-this-model">Visualize the ROC curve of this model</h2>
 <p><a href="https://youtu.be/GApO575jTA0" target="_blank" rel="noopener noreferrer"><img alt="ML for beginners - Analyzing Logistic Regression Performance with ROC Curves" loading="lazy" src="https://img.youtube.com/vi/GApO575jTA0/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
 <p>Let's do one more visualization to see the so-called 'ROC' curve:</p>
 <pre><code class="language-python">from sklearn.metrics import roc_curve, roc_auc_score
@@ -316,8 +311,7 @@ print(auc)
 <p>The result is <code>0.9749908725812341</code>. Given that the AUC ranges from 0 to 1, you want a big score, since a model that is 100% correct in its predictions will have an AUC of 1; in this case, the model is <em>pretty good</em>.</p>
 <p>In future lessons on classifications, you will learn how to iterate to improve your model's scores. But for now, congratulations! You've completed these regression lessons!</p>
 <hr>
-<h2 id="challenge">🚀Challenge</h2>
+<h2 id="h-challenge">🚀Challenge</h2>
 <p>There's a lot more to unpack regarding logistic regression! But the best way to learn is to experiment. Find a dataset that lends itself to this type of analysis and build a model with it. What do you learn? tip: try <a href="https://www.kaggle.com/search?q=logistic+regression+datasets" target="_blank" rel="noopener noreferrer">Kaggle</a> for interesting datasets.</p>
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>Read the first few pages of <a href="https://web.stanford.edu/~jurafsky/slp3/5.pdf" target="_blank" rel="noopener noreferrer">this paper from Stanford</a> on some practical uses for logistic regression. Think about tasks that are better suited for one or the other type of regression tasks that we have studied up to this point. What would work best?</p>

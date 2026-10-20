@@ -25,7 +25,7 @@ NE.States.Boundary.US &lt;- vect("data/NEON-DS-Site-Layout-Files/US-Boundary-Lay
 lines_HARV &lt;- vect("data/NEON-DS-Site-Layout-Files/HARV/HARV_roads.shp")
 point_HARV &lt;- vect("data/NEON-DS-Site-Layout-Files/HARV/HARVtower_UTM18N.shp")
 </code></pre>
-<h2 id="about-vector-data">About Vector Data</h2>
+<h2 id="h-about-vector-data">About Vector Data</h2>
 <p>Vector data structures represent specific features on the Earth's surface, and
 assign attributes to those features. Vectors are composed of discrete geometric
 locations (x, y values) known as vertices that define the shape of the spatial
@@ -53,14 +53,12 @@ countries are often represented by polygons.</p>
 </ul>
 <div class="box box-callout">
 <p class="box-title">Data Tip</p>
-
 <p>Sometimes, boundary layers such as states and countries, are stored as lines
 rather than polygons. However, these boundaries, when represented as a line,
 will not create a closed object with a defined area that can be filled.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Identify Vector Types</p>
-
 <p>The plot below includes examples of two of the three types of vector
 objects. Use the definitions above to identify which features
 are represented by which vector type.</p>
@@ -77,7 +75,6 @@ are represented by which vector type.</p>
    theme(legend.background = element_rect(color = NA)) 
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <p>State boundaries are polygons. The Fisher Tower location is
 a point. There are no line features shown.</p>
 </details>
@@ -102,7 +99,7 @@ structures in use tend to join points using arcs and complex curves rather than
 straight lines. Computer-aided design (CAD) is also vector- based. The
 difference is that geospatial datasets are accompanied by information tying
 their features to real-world locations.</p>
-<h2 id="vector-data-format-for-this-workshop">Vector Data Format for this Workshop</h2>
+<h2 id="h-vector-data-format-for-this-workshop">Vector Data Format for this Workshop</h2>
 <p>Like raster data, vector data can also come in many different formats. For this
 workshop, we will use the Shapefile format which has the extension <code>.shp</code>. A
 <code>.shp</code> file stores the geographic coordinates of each vertice in the vector, as
@@ -122,13 +119,11 @@ or all polygons). You will not find a mixture of point, line and polygon
 objects in a single shapefile.</p>
 <div class="box box-challenge">
 <p class="box-title">Extent Challenge</p>
-
 <p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/organization-geospatial/5d96b1cd0bfd358c9a4e044dbfe9f73075656083/episodes/fig/dc-spatial-vector/spatial_extent.png">{alt='Spatial extent image'}
 In the image above, the dashed boxes around each set of objects
 seems to imply that the three objects have the same extent. Is this
 accurate? If not, which object(s) have a different extent?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <p>The lines and polygon objects have the same extent. The extent for
 the points object is smaller in the vertical direction than the
 other two because there are no points on the line at y = 8.</p>
@@ -136,13 +131,11 @@ other two because there are no points on the line at y = 8.</p>
 </div>
 <div class="box box-callout">
 <p class="box-title">More Resources</p>
-
 <p>More about shapefiles can be found on
 <a href="https://en.wikipedia.org/wiki/Shapefile" target="_blank" rel="noopener noreferrer">Wikipedia</a></p>
 </div>
 <div class="box box-callout">
 <p class="box-title">Why not both?</p>
-
 <p>Very few formats can contain both raster and vector data - in fact, most are
 even more restrictive than that. Vector datasets are usually locked to one
 geometry type, e.g. points only. Raster datasets can usually only encode one

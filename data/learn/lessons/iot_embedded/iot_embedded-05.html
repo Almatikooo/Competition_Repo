@@ -2,27 +2,24 @@
 <blockquote>
 <p>Sketchnote by <a href="https://github.com/nitya" target="_blank" rel="noopener noreferrer">Nitya Narasimhan</a>. Click the image for a larger version.</p>
 </blockquote>
-
-
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p>The main process for getting food from a farmer to a consumer involves loading boxes of produce on to trucks, ships, airplanes, or other commercial transport vehicles, and delivering the food somewhere - either directly to a customer, or to a central hub or warehouse for processing. The whole end-to-end process from farm to consumer is part of a process called the <em>supply chain</em>. The video below from Arizona State University's W. P. Carey School of Business talks about the idea of the supply chain and how it is managed in more detail.</p>
 <p><a href="https://www.youtube.com/watch?v=Mi1QBxVjZAw" target="_blank" rel="noopener noreferrer"><img alt="What is Supply Chain Management? A video from Arizona State University's W. P. Carey School of Business" loading="lazy" src="https://img.youtube.com/vi/Mi1QBxVjZAw/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
 <p>Adding IoT devices can drastically improve your supply chain, allowing you to manage where items are, plan transport and goods handling better, and respond quicker to problems.</p>
 <p>When managing a fleet of vehicles such as trucks, it is helpful to know where each vehicle is at a given time. Vehicles can be fitted with GPS sensors that send their location to IoT systems, allowing the owners to pinpoint their location, see the route they have taken, and know when they will arrive at their destination. Most vehicles operate outside of WiFi coverage, so they use cellular networks to send this kind of data. Sometimes the GPS sensor is built into more complex IoT devices such as electronic log books. These devices track how long a truck has been in transit to ensure drivers are in compliance with local laws on working hours.</p>
 <p>In this lesson you will learn how to track a vehicles location using a Global Positioning System (GPS) sensor.</p>
 <p>In this lesson we'll cover:</p>
 <ul>
-<li><a href="#connected-vehicles" rel="noopener noreferrer">Connected vehicles</a></li>
-<li><a href="#geospatial-coordinates" rel="noopener noreferrer">Geospatial coordinates</a></li>
-<li><a href="#global-positioning-systems-gps" rel="noopener noreferrer">Global Positioning Systems (GPS)</a></li>
-<li><a href="#read-gps-sensor-data" rel="noopener noreferrer">Read GPS sensor data</a></li>
-<li><a href="#nmea-gps-data" rel="noopener noreferrer">NMEA GPS data</a></li>
-<li><a href="#decode-gps-sensor-data" rel="noopener noreferrer">Decode GPS sensor data</a></li>
+<li><a href="#h-connected-vehicles" rel="noopener noreferrer">Connected vehicles</a></li>
+<li><a href="#h-geospatial-coordinates" rel="noopener noreferrer">Geospatial coordinates</a></li>
+<li><a href="#h-global-positioning-systems-gps" rel="noopener noreferrer">Global Positioning Systems (GPS)</a></li>
+<li><a href="#h-read-gps-sensor-data" rel="noopener noreferrer">Read GPS sensor data</a></li>
+<li><a href="#h-nmea-gps-data" rel="noopener noreferrer">NMEA GPS data</a></li>
+<li><a href="#h-decode-gps-sensor-data" rel="noopener noreferrer">Decode GPS sensor data</a></li>
 </ul>
-<h2 id="connected-vehicles">Connected vehicles</h2>
+<h2 id="h-connected-vehicles">Connected vehicles</h2>
 <p>IoT is transforming the way goods are transported by creating fleets of <em>connected vehicles</em>. These vehicles are connected to central IT systems reporting information on their location, and other sensor data. Having a fleet of connected vehicles has a wide range of benefits:</p>
 <ul>
 <li>
@@ -47,9 +44,9 @@
 <p>🎓 Logistics is the process of transporting goods from one place to another, such as from a farm to a supermarket via one or more warehouses. A farmer packs boxes of tomatoes that are loaded onto a truck, delivered to a central warehouse, and put onto a second truck that may contain a mixture of different types of produce which are then delivered to a supermarket.</p>
 </blockquote>
 <p>The core component of vehicle tracking is GPS - sensors that can pinpoint their location anywhere on Earth. In this lesson you will learn how to use a GPS sensor, starting with learning about how to define a location on Earth.</p>
-<h2 id="geospatial-coordinates">Geospatial coordinates</h2>
+<h2 id="h-geospatial-coordinates">Geospatial coordinates</h2>
 <p>Geospatial coordinates are used to define points on the Earth's surface, similar to how coordinates can be used to draw to a pixel on a computer screen or position stitches in cross stitch. For a single point, you have a pair of coordinates. For example, the Microsoft Campus in Redmond, Washington, USA is located at 47.6423109, -122.1390293.</p>
-<h3 id="latitude-and-longitude">Latitude and longitude</h3>
+<h3 id="h-latitude-and-longitude">Latitude and longitude</h3>
 <p>The Earth is a sphere - a three-dimensional circle. Because of this, points are defined by dividing it into 360 degrees, the same as the geometry of circles. Latitude measures the number of degrees north to south, longitude measures the number of degrees east to west.</p>
 <blockquote>
 <p>💁 No-one really knows the original reason why circles are divided into 360 degrees. The <a href="https://wikipedia.org/wiki/Degree_(angle)" target="_blank" rel="noopener noreferrer">degree (angle) page on Wikipedia</a> covers some of the possible reasons.</p>
@@ -66,7 +63,7 @@
 <p>💁 The antimeridian is not to be confused with the International Date Line, which is in approximately the same position, but is not a straight line and varies to fit around geo-political boundaries.</p>
 </blockquote>
 <p>✅ Do some research: Try to find the latitude and longitude of your current location.</p>
-<h3 id="degrees-minutes-and-seconds-vs-decimal-degrees">Degrees, minutes and seconds vs decimal degrees</h3>
+<h3 id="h-degrees-minutes-and-seconds-vs-decimal-degrees">Degrees, minutes and seconds vs decimal degrees</h3>
 <p>Traditionally, measurements of degrees of latitude and longitude were done using sexagesimal numbering, or base-60, a numbering system used by the Ancient Babylonians who did the first measurements and recordings of time and distance. You use sexagesimal every day probably without even realising it - dividing hours into 60 minutes and minutes into 60 seconds.</p>
 <p>Longitude and latitude are measured in degrees, minutes and seconds, with one minute being 1/60 of a degree, and 1 second being 1/60 minute.</p>
 <p>For example, at the equator:</p>
@@ -83,7 +80,7 @@
 <li>A longitude of -122.1390293 (122.1390293 degrees west of the Prime Meridian).</li>
 </ul>
 <p><img alt="The Microsoft Campus at 47.6423109,-122.117198" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/microsoft-gps-location-world.png"></p>
-<h2 id="global-positioning-systems-gps">Global Positioning Systems (GPS)</h2>
+<h2 id="h-global-positioning-systems-gps">Global Positioning Systems (GPS)</h2>
 <p>GPS systems use multiple satellites orbiting the Earth to locate your position. You've probably used GPS systems without even knowing it - to find your location on a mapping app on your phone such as Apple Maps or Google Maps, or to see where your ride is in a ride hailing app such as Uber or Lyft, or when using satellite navigation (sat-nav) in your car.</p>
 <blockquote>
 <p>🎓 The satellites in 'satellite navigation' are GPS satellites!</p>
@@ -103,20 +100,20 @@
 <blockquote>
 <p>🎓 The groups of satellites in each deployment are referred to as constellations.</p>
 </blockquote>
-<h2 id="read-gps-sensor-data">Read GPS sensor data</h2>
+<h2 id="h-read-gps-sensor-data">Read GPS sensor data</h2>
 <p>Most GPS sensors send GPS data over UART.</p>
 <blockquote>
 <p>⚠️ UART was covered in <a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/2-farm/lessons/2-detect-soil-moisture/README.md#universal-asynchronous-receiver-transmitter-uart" target="_blank" rel="noopener noreferrer">project 2, lesson 2</a>. Refer back to that lesson if needed.</p>
 </blockquote>
 <p>You can use a GPS sensor on your IoT device to get GPS data.</p>
-<h3 id="task-connect-a-gps-sensor-and-read-gps-data">Task - connect a GPS sensor and read GPS data</h3>
+<h3 id="h-task-connect-a-gps-sensor-and-read-gps-data">Task - connect a GPS sensor and read GPS data</h3>
 <p>Work through the relevant guide to read GPS data using your IoT device:</p>
 <ul>
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/3-transport/lessons/1-location-tracking/wio-terminal-gps-sensor.md" target="_blank" rel="noopener noreferrer">Arduino - Wio Terminal</a></li>
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/3-transport/lessons/1-location-tracking/pi-gps-sensor.md" target="_blank" rel="noopener noreferrer">Single-board computer - Raspberry Pi</a></li>
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/3-transport/lessons/1-location-tracking/virtual-device-gps-sensor.md" target="_blank" rel="noopener noreferrer">Single-board computer - Virtual device</a></li>
 </ul>
-<h2 id="nmea-gps-data">NMEA GPS data</h2>
+<h2 id="h-nmea-gps-data">NMEA GPS data</h2>
 <p>When you ran your code, you would have seen what might appear to be gibberish in the output. This is actually standard GPS data, and it all has meaning.</p>
 <p>GPS sensors output data using NMEA messages, using the NMEA 0183 standard. NMEA is an acronym for the <a href="https://www.nmea.org" target="_blank" rel="noopener noreferrer">National Marine Electronics Association</a>, a US-based trade organization that sets standard for communication between marine electronics.</p>
 <blockquote>
@@ -160,20 +157,18 @@
 <p>The longitude part is <code>12208.341758,W</code>, which converts to -122.1390293 in decimal degrees. <code>12208.341758</code> is 122.1390293°, and the direction is <code>W</code> (west), so it is a negative longitude.</p>
 </li>
 </ul>
-<h2 id="decode-gps-sensor-data">Decode GPS sensor data</h2>
+<h2 id="h-decode-gps-sensor-data">Decode GPS sensor data</h2>
 <p>Rather than use the raw NMEA data, it is better to decode it into a more useful format. There are multiple open-source libraries you can use to help extract useful data from the raw NMEA messages.</p>
-<h3 id="task-decode-gps-sensor-data">Task - decode GPS sensor data</h3>
+<h3 id="h-task-decode-gps-sensor-data">Task - decode GPS sensor data</h3>
 <p>Work through the relevant guide to decode GPS sensor data using your IoT device:</p>
 <ul>
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/3-transport/lessons/1-location-tracking/wio-terminal-gps-decode.md" target="_blank" rel="noopener noreferrer">Arduino - Wio Terminal</a></li>
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/3-transport/lessons/1-location-tracking/single-board-computer-gps-decode.md" target="_blank" rel="noopener noreferrer">Single-board computer - Raspberry Pi/Virtual IoT device</a></li>
 </ul>
 <hr>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>Write your own NMEA decoder! Rather than relying on third party libraries to decode NMEA sentences, can you write your own decoder to extract latitude and longitude from NMEA sentences?</p>
-
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <ul>
 <li>Read more on Geospatial Coordinates on the <a href="https://wikipedia.org/wiki/Geographic_coordinate_system" target="_blank" rel="noopener noreferrer">Geographic coordinate system page on Wikipedia</a>.</li>
 <li>Read up on the Prime Meridians on other celestial bodies besides the Earth on the <a href="https://wikipedia.org/wiki/Prime_meridian#Prime_meridian_on_other_planetary_bodies" target="_blank" rel="noopener noreferrer">Prime Meridian page on Wikipedia</a></li>

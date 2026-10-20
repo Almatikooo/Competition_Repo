@@ -1,24 +1,23 @@
 <p><a href="https://youtu.be/KIRUeDKscfI?si=8BHX1zvwzQBn-PlK" target="_blank" rel="noopener noreferrer"><img alt="Exploring and comparing different LLMs" loading="lazy" src="https://raw.githubusercontent.com/microsoft/generative-ai-for-beginners/c35bc1950f9dc56af773d2c362dafce6f76e9a56/02-exploring-and-comparing-different-llms/images/02-lesson-banner.png?WT.mc_id=academic-105485-koreyst"></a></p>
 <blockquote>
-
 </blockquote>
 <p>With the previous lesson, we have seen how Generative AI is changing the technology landscape, how Large Language Models (LLMs) work and how a business - like our startup - can apply them to their use cases and grow! In this chapter, we're looking to compare and contrast different types of large language models (LLMs) to understand their pros and cons.</p>
 <p>The next step in our startup's journey is exploring the current landscape of LLMs and understanding which are suitable for our use case.</p>
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p>This lesson will cover:</p>
 <ul>
 <li>Different types of LLMs in the current landscape.</li>
 <li>Testing, iterating, and comparing different models for your use case in Azure.</li>
 <li>How to deploy an LLM.</li>
 </ul>
-<h2 id="learning-goals">Learning Goals</h2>
+<h2 id="h-learning-goals">Learning Goals</h2>
 <p>After completing this lesson, you will be able to:</p>
 <ul>
 <li>Select the right model for your use case.</li>
 <li>Understand how to test, iterate, and improve the performance of your model.</li>
 <li>Know how businesses deploy models.</li>
 </ul>
-<h2 id="understand-different-types-of-llms">Understand different types of LLMs</h2>
+<h2 id="h-understand-different-types-of-llms">Understand different types of LLMs</h2>
 <p>LLMs can have multiple categorizations based on their architecture, training data, and use case. Understanding these differences will help our startup select the right model for the scenario, and understand how to test, iterate, and improve performance.</p>
 <p>There are many different types of LLM models, your choice of model depends on what you aim to use them for, your data, how much you're ready to pay and more.</p>
 <p>Depending on if you aim to use the models for text, audio, video, image generation and so on, you might opt for a different type of model.</p>
@@ -37,7 +36,7 @@
 </li>
 </ul>
 <p>Selecting a model means you get some basic capabilities, that might not be enough however. Often you have company specific data that you somehow need to tell the LLM about. There are a few different choices on how to approach that, more on that in the upcoming sections.</p>
-<h3 id="foundation-models-versus-llms">Foundation Models versus LLMs</h3>
+<h3 id="h-foundation-models-versus-llms">Foundation Models versus LLMs</h3>
 <p>The term Foundation Model was <a href="https://arxiv.org/abs/2108.07258?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">coined by Stanford researchers</a> and defined as an AI model that follows some criteria, such as:</p>
 <ul>
 <li><strong>They are trained using unsupervised learning or self-supervised learning</strong>, meaning they are trained on unlabeled multi-modal data, and they do not require human annotation or labeling of data for their training process.</li>
@@ -50,11 +49,11 @@
 <p>To further clarify this distinction, let’s take ChatGPT as a historical example. Early versions of ChatGPT used GPT-3.5 as a foundation model. OpenAI then used chat-specific data and alignment techniques to create a tuned version that performed better in conversational scenarios, such as chatbots. Modern AI services often route between several model variants, so the service name and the underlying model name are not always the same thing.</p>
 <p><img alt="Foundation Model" loading="lazy" src="https://raw.githubusercontent.com/microsoft/generative-ai-for-beginners/c35bc1950f9dc56af773d2c362dafce6f76e9a56/02-exploring-and-comparing-different-llms/images/Multimodal.png?WT.mc_id=academic-105485-koreyst"></p>
 <p>Image source: <a href="https://arxiv.org/pdf/2108.07258.pdf?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">2108.07258.pdf (arxiv.org)</a></p>
-<h3 id="open-weight-open-source-versus-proprietary-models">Open-Weight/Open-Source versus Proprietary Models</h3>
+<h3 id="h-open-weight-open-source-versus-proprietary-models">Open-Weight/Open-Source versus Proprietary Models</h3>
 <p>Another way to categorize LLMs is whether they are open-weight, open-source, or proprietary.</p>
 <p>Open-source and open-weight models make model artifacts available for inspection, download, or customization, but their licenses differ. Some are fully open source, while others are open-weight models with usage restrictions. They can be useful when a business needs more control over deployment, data locality, cost, or customization. However, teams still need to review license terms, serving costs, maintenance, security updates, and evaluation quality before using them in production. Examples include <a href="https://ai.meta.com/blog/llama-4-multimodal-intelligence/?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">Meta Llama 4</a>, some <a href="https://docs.mistral.ai/models/overview?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">Mistral models</a>, and many models hosted on <a href="https://huggingface.co/models?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">Hugging Face</a>.</p>
 <p>Proprietary models are owned and hosted by a provider. These models are often optimized for managed production use and can offer strong support, safety systems, tool integration, and scale. However, customers usually cannot inspect or modify the model weights, and they must review provider terms for privacy, retention, compliance, and acceptable use. Examples include <a href="https://platform.openai.com/docs/models?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">OpenAI models</a>, <a href="https://deepmind.google/models/gemini/pro/?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">Google Gemini</a>, and <a href="https://platform.claude.com/docs/en/about-claude/models/overview?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">Anthropic Claude</a>.</p>
-<h3 id="embedding-versus-image-generation-versus-text-and-code-gener">Embedding versus Image generation versus Text and Code generation</h3>
+<h3 id="h-embedding-versus-image-generation-versus-text-and-code-gener">Embedding versus Image generation versus Text and Code generation</h3>
 <p>LLMs can also be categorized by the output they generate.</p>
 <p>Embeddings are a set of models that can convert text into a numerical form, called embedding, which is a numerical representation of the input text. Embeddings make it easier for machines to understand the relationships between words or sentences and can be consumed as inputs by other models, such as classification models, or clustering models that have better performance on numerical data. Embedding models are often used for transfer learning, where a model is built for a surrogate task for which there’s an abundance of data, and then the model weights (embeddings) are re-used for other downstream tasks. An example of this category is <a href="https://platform.openai.com/docs/models/embeddings?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">OpenAI embeddings</a>.</p>
 <p><img alt="Embedding" loading="lazy" src="https://raw.githubusercontent.com/microsoft/generative-ai-for-beginners/c35bc1950f9dc56af773d2c362dafce6f76e9a56/02-exploring-and-comparing-different-llms/images/Embedding.png?WT.mc_id=academic-105485-koreyst"></p>
@@ -62,17 +61,17 @@
 <p><img alt="Image generation" loading="lazy" src="https://raw.githubusercontent.com/microsoft/generative-ai-for-beginners/c35bc1950f9dc56af773d2c362dafce6f76e9a56/02-exploring-and-comparing-different-llms/images/Image.png?WT.mc_id=academic-105485-koreyst"></p>
 <p>Text and code generation models are models that generate text or code. These models are often used for text summarization, translation, and question answering. Text generation models are often trained on large datasets of text, such as <a href="https://www.cv-foundation.org/openaccess/content_iccv_2015/html/Zhu_Aligning_Books_and_ICCV_2015_paper.html?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">BookCorpus</a>, and can be used to generate new text, or to answer questions. Code generation models, like <a href="https://huggingface.co/codeparrot?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">CodeParrot</a>, are often trained on large datasets of code, such as GitHub, and can be used to generate new code, or to fix bugs in existing code.</p>
 <p><img alt="Text and code generation" loading="lazy" src="https://raw.githubusercontent.com/microsoft/generative-ai-for-beginners/c35bc1950f9dc56af773d2c362dafce6f76e9a56/02-exploring-and-comparing-different-llms/images/Text.png?WT.mc_id=academic-105485-koreyst"></p>
-<h3 id="encoder-decoder-versus-decoder-only">Encoder-Decoder versus Decoder-only</h3>
+<h3 id="h-encoder-decoder-versus-decoder-only">Encoder-Decoder versus Decoder-only</h3>
 <p>To talk about the different types of architectures of LLMs, let's use an analogy.</p>
 <p>Imagine your manager gave you a task for writing a quiz for the students. You have two colleagues; one oversees creating the content and the other oversees reviewing them.</p>
 <p>The content creator is like a decoder-only model: they can look at the topic, see what you already wrote, and then continue generating content based on that context. They are very good at writing engaging and informative content, but they are not always the best choice when the task is only to classify, retrieve, or encode information. Examples of decoder-only model families include GPT and Llama models.</p>
 <p>The reviewer is like an Encoder only model, they look at the course written and the answers, noticing the relationship between them and understanding context, but they are not good at generating content. An example of Encoder only model would be BERT.</p>
 <p>Imagine that we can have someone as well who could create and review the quiz, this is an Encoder-Decoder model. Some examples would be BART and T5.</p>
-<h3 id="service-versus-model">Service versus Model</h3>
+<h3 id="h-service-versus-model">Service versus Model</h3>
 <p>Now, let's talk about the difference between a service and a model. A service is a product that is offered by a Cloud Service Provider, and is often a combination of models, data, and other components. A model is the core component of a service, and is often a foundation model, such as an LLM.</p>
 <p>Services are often optimized for production use and are often easier to use than models, via a graphical user interface. However, services are not always available for free, and may require a subscription or payment to use, in exchange for leveraging the service owner’s equipment and resources, optimizing expenses and scaling easily. An example of a service is <a href="https://learn.microsoft.com/azure/ai-foundry/openai/overview?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">Azure OpenAI Service</a>, which offers a pay-as-you-go rate plan, meaning users are charged proportionally to how much they use the service. Azure OpenAI Service also offers enterprise-grade security and a responsible AI framework on top of the models' capabilities.</p>
 <p>Models are the neural network artifacts: parameters, weights, architecture, tokenizer, and supporting configuration. Running a model locally or in a private environment requires suitable hardware, serving infrastructure, monitoring, and either a compatible open-source/open-weight license or a commercial license. Open-weight models such as Llama 4 or Mistral models can be self-hosted, but they still require computational power and operational expertise.</p>
-<h2 id="how-to-test-and-iterate-with-different-models-to-understand-">How to test and iterate with different models to understand performance on Azure</h2>
+<h2 id="h-how-to-test-and-iterate-with-different-models-to-understand-">How to test and iterate with different models to understand performance on Azure</h2>
 <p>Once our team has explored the current LLMs landscape and identified some good candidates for their scenarios, the next step is testing them on their data and on their workload. This is an iterative process, done by experiments and measures.
 Most of the models we mentioned in previous paragraphs (OpenAI models, open-weight models like Llama 4 and Mistral, and Hugging Face models) are available in <a href="https://learn.microsoft.com/azure/foundry/concepts/foundry-models-overview?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">Microsoft Foundry Models</a>.</p>
 <p><a href="https://learn.microsoft.com/azure/foundry/what-is-foundry?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">Microsoft Foundry</a>, formerly Azure AI Studio/Azure AI Foundry, is a unified Azure platform for building AI apps and agents. It helps developers manage the lifecycle from experimentation and evaluation to deployment, monitoring, and governance. The model catalog in Microsoft Foundry enables the user to:</p>
@@ -99,7 +98,7 @@ Most of the models we mentioned in previous paragraphs (OpenAI models, open-weig
 <div class="box box-note"><p class="box-title">Note</p>
 <p>Not all models in the catalog are currently available for fine-tuning and/or pay-as-you-go deployment. Check the model card for details on the model's capabilities and limitations.</p>
 </div>
-<h2 id="improving-llm-results">Improving LLM results</h2>
+<h2 id="h-improving-llm-results">Improving LLM results</h2>
 <p>We’ve explored with our startup team different kinds of LLMs and a cloud platform (Microsoft Foundry) that enables us to compare different models, evaluate them on test data, improve performance, and deploy them on inference endpoints.</p>
 <p>But when shall they consider fine-tuning a model rather than using a pre-trained one? Are there other approaches to improve model performance on specific workloads?</p>
 <p>There are several approaches a business can use to get the results they need from an LLM. You can select different types of models with different degrees of training when deploying an LLM in production, with different levels of complexity, cost, and quality. Here are some different approaches:</p>
@@ -116,15 +115,15 @@ Most of the models we mentioned in previous paragraphs (OpenAI models, open-weig
 </ul>
 <p><img alt="LLMs deployment" loading="lazy" src="https://raw.githubusercontent.com/microsoft/generative-ai-for-beginners/c35bc1950f9dc56af773d2c362dafce6f76e9a56/02-exploring-and-comparing-different-llms/images/Deploy.png?WT.mc_id=academic-105485-koreyst"></p>
 <p>Img source: <a href="https://www.fiddler.ai/blog/four-ways-that-enterprises-deploy-llms?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">Four Ways that Enterprises Deploy LLMs | Fiddler AI Blog</a></p>
-<h3 id="prompt-engineering-with-context">Prompt Engineering with Context</h3>
+<h3 id="h-prompt-engineering-with-context">Prompt Engineering with Context</h3>
 <p>Pre-trained LLMs work very well on generalized natural language tasks, even by calling them with a short prompt, like a sentence to complete or a question – the so-called “zero-shot” learning.</p>
 <p>However, the more the user can frame their query, with a detailed request and examples – the Context – the more accurate and closest to user’s expectations the answer will be. In this case, we talk about “one-shot” learning if the prompt includes only one example and “few shot learning” if it includes multiple examples.
 Prompt engineering with context is the most cost-effective approach to kick-off with.</p>
-<h3 id="retrieval-augmented-generation-rag">Retrieval Augmented Generation (RAG)</h3>
+<h3 id="h-retrieval-augmented-generation-rag">Retrieval Augmented Generation (RAG)</h3>
 <p>LLMs have the limitation that they can use only the data that has been used during their training to generate an answer. This means that they don’t know anything about the facts that happened after their training process, and they cannot access non-public information (like company data).
 This can be overcome through RAG, a technique that augments prompt with external data in the form of chunks of documents, considering prompt length limits. This is supported by Vector database tools (like <a href="https://learn.microsoft.com/azure/search/vector-search-overview?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">Azure Vector Search</a>) that retrieve the useful chunks from varied pre-defined data sources and add them to the prompt Context.</p>
 <p>This technique is very helpful when a business doesn’t have enough data, enough time, or resources to fine-tune an LLM, but still wishes to improve performance on a specific workload and reduce risks of hallucinated, outdated, or unsupported answers.</p>
-<h3 id="fine-tuned-model">Fine-tuned model</h3>
+<h3 id="h-fine-tuned-model">Fine-tuned model</h3>
 <p>Fine-tuning is a process that leverages transfer learning to ‘adapt’ the model to a downstream task or to solve a specific problem. Differently from few-shot learning and RAG, it results in a new model being generated, with updated weights and biases. It requires a set of training examples consisting of a single input (the prompt) and its associated output (the completion).
 This would be the preferred approach if:</p>
 <ul>
@@ -138,18 +137,10 @@ This would be the preferred approach if:</p>
 <p><strong>Adapting stable behavior</strong>. A business has many high-quality examples and wants the model to consistently follow a task pattern, output format, tone, or domain-specific style. If the main problem is fresh facts or private knowledge that changes often, use RAG instead of relying on fine-tuning alone.</p>
 </li>
 </ul>
-<h3 id="trained-model">Trained model</h3>
+<h3 id="h-trained-model">Trained model</h3>
 <p>Training an LLM from scratch is without a doubt the most difficult and the most complex approach to adopt, requiring massive amounts of data, skilled resources, and appropriate computational power. This option should be considered only in a scenario where a business has a domain-specific use case and a large amount of domain-centric data.</p>
-<h2 id="knowledge-check">Knowledge check</h2>
-<p>What could be a good approach to improve LLM completion results?</p>
-<ol>
-<li>Prompt engineering with context</li>
-<li>RAG</li>
-<li>Fine-tuned model</li>
-</ol>
-<p>A: All three can help. Start with prompt engineering and context for quick improvements, and use RAG when the model needs current facts or private business data. Choose fine-tuning when you have enough high-quality examples and need the model to consistently follow a task, format, tone, or domain pattern.</p>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>Read up more on how you can <a href="https://learn.microsoft.com/azure/search/retrieval-augmented-generation-overview?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">use RAG</a> for your business.</p>
-<h2 id="great-work-continue-your-learning">Great Work, Continue Your Learning</h2>
+<h2 id="h-great-work-continue-your-learning">Great Work, Continue Your Learning</h2>
 <p>After completing this lesson, check out our <a href="https://aka.ms/genai-collection?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">Generative AI Learning collection</a> to continue leveling up your Generative AI knowledge!</p>
 <p>Head over to Lesson 3 where we will look at how to <a href="https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/03-using-generative-ai-responsibly/README.md?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">build with Generative AI Responsibly</a>!</p>

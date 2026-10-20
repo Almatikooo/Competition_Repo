@@ -1,11 +1,6 @@
-<div>
 <figure><img alt="White bowl with lots of M&amp;Ms sits on a white table." height="309" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/6.5.jpeg" width="464"><figcaption>Figure 6.7: M&amp;Ms. Have you ever wondered what the average number of M&amp;Ms in a bag at the grocery store is? You can use confidence intervals to answer this question.</figcaption></figure>
-</div>
-<div></div>
-<div>
 <p>We use <a href="#term_311_2767" rel="noopener noreferrer">inferential statistics</a>&nbsp;to make generalizations about an unknown <a href="#term_311_2769" rel="noopener noreferrer">population</a>. The simplest way of doing this is to use the sample data help us to make a <a href="#term_311_3319" rel="noopener noreferrer">point estimate</a> of a population <a href="#term_311_2770" rel="noopener noreferrer">parameter</a>. We realize that due to <a href="#term_311_3192" rel="noopener noreferrer">sampling variability</a> the point estimate is most likely not the exact value of the population parameter, but should be close to it. After calculating point estimates, we can build off of them to construct interval estimates, called confidence intervals.</p>
-</div>
-<h2 id="confidence-intervals">Confidence Intervals</h2>
+<h2 id="h-confidence-intervals">Confidence Intervals</h2>
 <p>A <a href="#term_311_3329" rel="noopener noreferrer">confidence interval</a> is another type of estimate but, instead of being just one number, it is an interval of numbers. It provides a range of reasonable values in which we expect the population parameter to fall. Essentially the idea is that since a point estimate may not be perfect due to variability, we will build an interval based on a point estimate to hopefully capture the parameter of interest in the interval. There is no guarantee that a given confidence interval does capture the parameter, but there is a predictable probability of success. It is important to keep in mind that the confidence interval itself is a random variable, while the population parameter is fixed.</p>
 <p>If you worked in the marketing department of an entertainment company, you might be interested in the mean number of songs a consumer downloads a month from iTunes. If so, you could conduct a survey and calculate the sample mean, <img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11">. You would use <img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11"> to estimate the population mean. The sample mean, <img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11">, is the point estimate for the population mean, <em>μ</em>.</p>
 <p>Suppose, for the iTunes example, we do not know the population mean <em>μ</em>, but we do know that the population standard deviation is <em>σ</em> = 1 and our sample size is 100. Then, by the central limit theorem, the standard deviation for the sample mean is</p>
@@ -20,10 +15,8 @@
 <p>(Point Estimate ± Margin of Error) = (Point Estimate – Margin of Error, Point Estimate + Margin of Error)</p>
 <p>The <a href="#term_311_3331" rel="noopener noreferrer">margin of error (MoE)</a> depends on the confidence level or percentage of confidence and the standard error of the mean.</p>
 <p>When you read newspapers and journals, some reports will use the phrase “margin of error.” Other reports will not use that phrase, but include a confidence interval as the point estimate plus or minus the margin of error. These are two ways of expressing the same concept.</p>
-<div>
 <p>A confidence interval for a population mean with a known standard deviation is based on the fact that the sample means follow an approximately normal distribution. Suppose that our sample has a mean of <img alt="\overline{x}\text{ = 10}" height="12" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-f305587903dfd99de37efa7891363072_l3.png" title="Rendered by QuickLaTeX.com" width="54"> and we have constructed the 90% confidence interval (5, 15) where MoE = 5.</p>
-<div>
-<h2 id="calculating-the-confidence-interval">Calculating the Confidence Interval</h2>
+<h2 id="h-calculating-the-confidence-interval">Calculating the Confidence Interval</h2>
 <p>To construct a confidence interval for a single unknown population mean <em>μ</em>, where the population standard deviation is known, we need <img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11"> as an estimate for <em>μ</em> and we need the margin of error. Here, the margin of error (MoE).&nbsp;The sample mean <img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11"> is the point estimate of the unknown population mean <em>μ</em>.</p>
 <p>Since a confidence interval estimate will have the form:</p>
 <p><img alt="(PE-MoE, PE+MoE)" height="19" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-24d5c45b069fe897cf8a6b7be076a516_l3.png" title="Rendered by QuickLaTeX.com" width="203"></p>
@@ -32,7 +25,6 @@
 <p>Remember, the margin of error (MoE) depends mainly on the confidence level (abbreviated <strong><em>CL</em></strong>). The confidence level is often considered the probability that the calculated confidence interval estimate will contain the true population parameter. However, it is more accurate to state that the confidence level is the percent of confidence intervals that contain the true population parameter when repeated samples are taken. Most often, it is the choice of the person constructing the confidence interval to choose a confidence level of 90% or higher because that person wants to be reasonably certain of his or her conclusions.</p>
 <p>There is another probability called alpha (<em>α</em>). <em>α</em> is related to the confidence level, <em>CL </em>and represents the chance that the interval does not contain the unknown population parameter. <br>
 Mathematically, <em>α</em> + <em>CL</em> = 1.</p>
-</div>
 <p>To construct a confidence interval estimate for an unknown population mean, we need data from a random sample. The steps to construct and interpret the confidence interval are:</p>
 <ul>
 <li>Calculate the sample mean <img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11"> from the sample data. Remember, in this section we already know the population standard deviation <em>σ</em>.</li>
@@ -42,128 +34,58 @@ Mathematically, <em>α</em> + <em>CL</em> = 1.</p>
 <li>Write a sentence that interprets the estimate in the context of the situation in the problem. (Explain what the confidence interval means, in the words of the problem.)</li>
 </ul>
 <p>We will first examine each step in more detail, and then illustrate the process with some examples.</p>
-<div>
 <div class="box box-keypoints"><p class="box-title">Example</p>
-
-<div>
 <p>Suppose we have collected data from a sample. We know the sample mean but we do not know the mean for the entire population. The sample mean is seven, and the error bound for the mean is 2.5. Find the confidence interval and interpret.</p>
-<div>
-<div></div>
 </div>
-</div>
-</div>
-<div>
-<div></div>
-<div>
 <div class="box box-callout"><p class="box-title">Your turn!</p>
-
-<div>
 <p>Suppose we have data from a sample. The sample mean is 15, and the margin of error for the mean is 3.2. What is the confidence interval estimate for the population mean?</p>
 </div>
-</div>
-</div>
-</div>
-<h2 id="changing-the-confidence-level">Changing the Confidence Level</h2>
+<h2 id="h-changing-the-confidence-level">Changing the Confidence Level</h2>
 <p>A confidence interval for a population mean with a known standard deviation is based on the fact that the sample means follow an approximately normal distribution. Suppose that our sample has a mean of <img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11"> = 10, and we have constructed the 90% confidence interval (5, 15) where MoE = 5.</p>
 <p>To get a 90% confidence interval, we must include the central 90% of the probability of the normal distribution. If we include the central 90%, we leave out a total of <em>α</em> = 10% in both tails, or 5% in each tail, of the normal distribution.</p>
 <figure><img alt="This is a normal distribution curve. The peak of the curve coincides with the point 10 on the horizontal axis. The points 5 and 15 are labeled on the axis. Vertical lines are drawn from these points to the curve, and the region between the lines is shaded. The shaded region has area equal to 0.90." height="220" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/6.6.png" width="474"><figcaption>Figure 6.8: 90% Confidence Level</figcaption></figure>
 <p>To capture the central 90%, we must go out 1.645 “standard deviations” on either side of the calculated sample mean. The value 1.645 is the <em>z</em>-score from a standard normal probability distribution that puts an area of 0.90 in the center, an area of 0.05 in the far left tail, and an area of 0.05 in the far right tail.</p>
 <p>It is important that the “standard deviation” used must be appropriate for the parameter we are estimating, so in this section we need to use the standard deviation that applies to sample means, which is <img alt="\frac{\sigma }{\sqrt{n}}" height="24" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-711a7419e6ee5d5d2cce236a0a199359_l3.png" title="Rendered by QuickLaTeX.com" width="20">. The fraction <img alt="\frac{\sigma }{\sqrt{n}}" height="24" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-711a7419e6ee5d5d2cce236a0a199359_l3.png" title="Rendered by QuickLaTeX.com" width="20">, is commonly called the “standard error of the mean” in order to distinguish clearly the standard deviation for a mean from the population standard deviation <em>σ</em>.</p>
-<div>
-<div>In summary, as a result of the central limit theorem:</div>
+
+In summary, as a result of the central limit theorem:
 <ul>
 <li><img alt="\overline{X}" height="15" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-5b485d4231dfeb4b50ddf271c3abb0b3_l3.png" title="Rendered by QuickLaTeX.com" width="17"> is normally distributed, that is, <img alt="\overline{X}" height="15" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-5b485d4231dfeb4b50ddf271c3abb0b3_l3.png" title="Rendered by QuickLaTeX.com" width="17"> ~ <em>N</em><img alt="\left({\mu }_{X},\frac{\sigma }{\sqrt{n}}\right)" height="32" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-d276850d3048fdaf4d85e7fcf0cd90ec_l3.png" title="Rendered by QuickLaTeX.com" width="71">.</li>
 <li>When the population standard deviation <em>σ</em> is known, we use a normal distribution to calculate the margin of error.</li>
 </ul>
-</div>
-<div>
-<h2 id="finding-the-critical-value">Finding the Critical Value</h2>
-</div>
-<div>
+<h2 id="h-finding-the-critical-value">Finding the Critical Value</h2>
 <p>When we know the population standard deviation <em>σ</em>, we use a standard normal distribution to calculate the margin of error (MoE) and construct the confidence interval. We need to find the value of <em>z</em> that puts an area equal to the confidence level (in decimal form) in the middle of the standard normal distribution <em>Z</em> ~ <em>N</em>(0, 1).&nbsp; This Z score is also called a <a href="#term_311_3332" rel="noopener noreferrer">critical value</a>.</p>
 <p>The confidence level, <em>CL</em>, is the area in the middle of the standard normal distribution. <em>CL</em> = 1 – <em>α</em>, so <em>α</em> is the area that is split equally between the two tails. Each of the tails contains an area equal to <img alt="\frac{\alpha }{2}" height="19" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-e26ecd5c8af9a0f1001e96b1bb94d1c1_l3.png" title="Rendered by QuickLaTeX.com" width="9">.</p>
 <p>The z-score that has an area to the right of <img alt="\frac{\alpha }{2}" height="19" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-e26ecd5c8af9a0f1001e96b1bb94d1c1_l3.png" title="Rendered by QuickLaTeX.com" width="9"> is denoted by <img alt="{z}_{\frac{\alpha }{2}}" height="16" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-963e4760ee07e94a83a7d63a6932f2f9_l3.png" title="Rendered by QuickLaTeX.com" width="18">.</p>
 <p><strong><em>Note:</em> </strong>Remember to use the area to the LEFT of <img alt="{z}_{\frac{\alpha }{2}}" height="16" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-963e4760ee07e94a83a7d63a6932f2f9_l3.png" title="Rendered by QuickLaTeX.com" width="18"></p>
 <div class="box box-keypoints"><p class="box-title">Example</p>
-
-<div>
 <p>Find the critical value for a 95% Confidence Interval:</p>
-<div>
-<div></div>
-</div>
-</div>
 </div>
 <div class="box box-callout"><p class="box-title">Examples</p>
-
-<div>
 <p>Find the critical value for a 90% Confidence Interval</p>
 </div>
-</div>
-</div>
-<h2 id="calculating-the-margin-of-error-moe">Calculating the Margin of Error (MoE)</h2>
-<div>
+<h2 id="h-calculating-the-margin-of-error-moe">Calculating the Margin of Error (MoE)</h2>
 <p>The error bound formula for an unknown population mean <em>μ</em> when the population standard deviation <em>σ</em> is known is</p>
 <p>MoE&nbsp;= <img alt="\left({z}_{\frac{\alpha }{2}}\right)\left(\frac{\sigma }{\sqrt{n}}\right)" height="32" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-854bd981ccd362f1c75cc46015434fab_l3.png" title="Rendered by QuickLaTeX.com" width="84"></p>
-</div>
-<div>
-<h2 id="constructing-the-confidence-interval">Constructing the Confidence Interval</h2>
+<h2 id="h-constructing-the-confidence-interval">Constructing the Confidence Interval</h2>
 <p>A confidence interval estimate has the format:</p>
 <p><img alt="\left(\overline{x}-MoE,\overline{x}+MoE\right)" height="19" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a5f0bcbecebdc111702ed37f33376505_l3.png" title="Rendered by QuickLaTeX.com" width="167">.</p>
 <p>The graph gives a picture of the entire situation.</p>
 <p><em>CL</em> + <img alt="\frac{\alpha }{2}" height="19" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-e26ecd5c8af9a0f1001e96b1bb94d1c1_l3.png" title="Rendered by QuickLaTeX.com" width="9">+ <img alt="\frac{\alpha }{2}" height="19" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-e26ecd5c8af9a0f1001e96b1bb94d1c1_l3.png" title="Rendered by QuickLaTeX.com" width="9"> = <em>CL</em> + <em>α</em> = 1.</p>
 <figure><img alt="This is a normal distribution curve. The peak of the curve coincides with the point x-bar on the horizontal axis. The points x-bar - MoE and x-bar + MoE are labeled on the axis. Vertical lines are drawn from these points to the curve, and the region between the lines is shaded. The shaded region has area equal to 1 - a and represents the confidence level. Each unshaded tail has area a/2." height="206" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/6.7.png" width="471"><figcaption>Figure 6.9: Constructing the Confidence Interval</figcaption></figure>
-<div></div>
-</div>
-<div>
-<h2 id="writing-the-interpretation">Writing the Interpretation</h2>
+<h2 id="h-writing-the-interpretation">Writing the Interpretation</h2>
 <p>The interpretation should clearly state the confidence level (<em>CL</em>), explain what population parameter is being estimated (here the population mean), and state the confidence interval (both endpoints). “We can be &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; % confident that the interval we created, &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; to___ captures the true population mean (include the context of the problem and&nbsp;appropriate units).”</p>
 <p>Be careful that you do not associate the confidence level with the parameter itself.&nbsp; Your parameter is a fixed value, what is changing is the sample you take and the interval you calculate.&nbsp; We always want to associate the CL% with the sampling process and the interval.</p>
 <div class="box box-keypoints"><p class="box-title">Example</p>
-
-<div>
 <p>Suppose scores on exams in statistics are normally distributed with an unknown population mean and a population standard deviation of three points. A random sample of 36 scores is taken and gives a sample mean (sample mean score) of 68. Find a confidence interval estimate for the population mean exam score (the mean score on all exams).</p>
-<div>
-<div>
 <p>Find a 90% confidence interval for the true (population) mean of statistics exam scores.</p>
-</div>
-<div>
 <p>The step-by-step solution is shown below. If you are comfortable using software, you can use it to calculate the confidence interval directly.</p>
 </div>
-<div>
-<div>
-<div>
-<div></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
 <div class="box box-callout"><p class="box-title">Your turn!</p>
-
-<div>
 <p>Suppose average pizza delivery times are normally distributed with an unknown population mean and a population standard deviation of six minutes. A random sample of 28 pizza delivery restaurants is taken and has a sample mean delivery time of 36 minutes.</p>
-<div>
-<div>
 <p>Find a 90% confidence interval estimate for the population mean delivery time and interpret.</p>
-</div>
-<div>
-<div>
-<div></div>
-</div>
-</div>
-</div>
-</div>
 </div>
 <details class="attrib"><summary>Image Credits</summary>
 <p>Figure 6.7: Sebastian Gomez (2020). “Yellow green and red candies” Public domain. Retrieved from <a href="https://unsplash.com/photos/w9pT3v9z1CM" target="_blank" rel="noopener noreferrer">https://unsplash.com/photos/w9pT3v9z1CM</a></p>
 <p>Figure 6.8: Kindred Grey via Virginia Tech (2020). “Figure 6.6” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_6.6.png . Adaptation of Figure 5.39 from OpenStax Introductory Statistics (2013) (CC BY 4.0). Retrieved from https://openstax.org/books/statistics/pages/5-practice</p>
 <p>Figure 6.9: Kindred Grey via Virginia Tech (2020). “Figure 6.7” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_6.7.png . Adaptation of Figure 5.39 from OpenStax Introductory Statistics (2013) (CC BY 4.0). Retrieved from https://openstax.org/books/statistics/pages/5-practice</p>
-</details></div>
-</div>
-</div>
-</div>
-</div>
-<div></div>
+</details>

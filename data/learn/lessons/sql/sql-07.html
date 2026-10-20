@@ -646,10 +646,8 @@ and we can use those record numbers in queries:</p>
 </table></div>
 <div class="box box-challenge">
 <p class="box-title">Listing Radiation Readings</p>
-
 <p>Write a query that lists all radiation readings from the DR-1 site.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <pre><code class="language-sql">SELECT
    Survey.reading
 FROM
@@ -686,10 +684,8 @@ WHERE
 </div>
 <div class="box box-challenge">
 <p class="box-title">Where's Frank?</p>
-
 <p>Write a query that lists all sites visited by people named "Frank".</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <pre><code class="language-sql">SELECT
   DISTINCT Site.name
 FROM
@@ -718,7 +714,6 @@ WHERE
 </div>
 <div class="box box-challenge">
 <p class="box-title">Reading Queries</p>
-
 <p>Describe in your own words what the following query produces:</p>
 <pre><code class="language-sql">SELECT Site.name FROM Site JOIN Visited
 ON Site.lat &lt; -49.0 AND Site.name = Visited.site AND Visited.dated &gt;= '1932-01-01';
@@ -726,13 +721,11 @@ ON Site.lat &lt; -49.0 AND Site.name = Visited.site AND Visited.dated &gt;= '193
 </div>
 <div class="box box-challenge">
 <p class="box-title">Who Has Been Where?</p>
-
 <p>Write a query that shows each site with exact location (lat, long) ordered by visited date,
 followed by personal name and family name of the person who visited the site
 and the type of measurement taken and its reading. Please avoid all null values.
 Tip: you should get 15 records with 8 fields.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
 <pre><code class="language-sql">SELECT Site.name, Site.lat, Site.long, Person.personal, Person.family, Survey.quant, Survey.reading, Visited.dated
 FROM
    Site

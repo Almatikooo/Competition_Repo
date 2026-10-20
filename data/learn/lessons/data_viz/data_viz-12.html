@@ -1,0 +1,287 @@
+<h3 id="h-what-is-categorical-data">What is categorical data?</h3>
+<p>Categorical data can be divided into groups or categories by using names or labels.</p>
+<h3 id="h-palette-table">Palette table</h3>
+<p>Note: the cells in the “Example of colour” column may appear blank to screen reader software. They contain a colour fill, but no data.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Colour</th><th>Hex code</th><th>RGB code </th><th>CYMK code</th><th>Example of colour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dark blue</td><td>#12436D</td><td>(18, 67, 109)</td><td>(83, 39, 0, 57)</td><td></td>
+</tr>
+<tr>
+<td>Turquoise</td><td>#28A197</td><td>(40, 161, 151)</td><td>(75, 0, 6, 37)</td><td></td>
+</tr>
+<tr>
+<td>Dark pink </td><td>#801650</td><td>(128, 22, 80)</td><td>(0, 83, 38, 50)</td><td></td>
+</tr>
+<tr>
+<td>Orange</td><td>#F46A25<br>
+</td><td>(244, 106, 37)</td><td>(0, 57, 85, 4)</td><td></td>
+</tr>
+<tr>
+<td>Dark grey </td><td>#3D3D3D</td><td>(61, 61, 61)</td><td>(0, 0, 0, 76)</td><td></td>
+</tr>
+<tr>
+<td>Light purple</td><td>#A285D1</td><td>(162, 133, 209)</td><td>(22, 36, 0, 18)</td><td></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="h-contrast-ratios">Contrast ratios</h3>
+<p>Numbers in the contrast ratio table give the ratio to 1 between the colours in the relevant row and column. These are important because of the <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-3" target="_blank" rel="noopener noreferrer">accessibility legislation</a>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Colours </th><th>White</th><th>Dark blue</th><th>Turquoise</th><th>Dark pink </th><th>Orange</th><th>Dark grey </th><th>Light purple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>White</td><td>[no ratio]</td><td>10.24</td><td>3.16</td><td>9.77</td><td>3.02</td><td>10.86</td><td>3.08</td>
+</tr>
+<tr>
+<td>Dark blue </td><td>10.24</td><td>[no ratio]</td><td>3.23</td><td>1.04</td><td>3.38</td><td>1.06</td><td>3.32</td>
+</tr>
+<tr>
+<td>Turquoise </td><td>3.16</td><td>3.23</td><td>[no ratio]</td><td>3.08</td><td>1.04</td><td>3.43</td><td>1.02</td>
+</tr>
+<tr>
+<td>Dark pink</td><td>9.77</td><td>1.04</td><td>3.08</td><td>[no ratio]</td><td>3.22</td><td>1.11</td><td>3.17</td>
+</tr>
+<tr>
+<td>Orange</td><td>3.02</td><td>3.38</td><td>1.04</td><td>3.22</td><td>[no ratio]</td><td>3.58</td><td>1.01</td>
+</tr>
+<tr>
+<td>Dark grey </td><td>10.86</td><td>1.06</td><td>3.43</td><td>1.11</td><td>3.58</td><td>[no ratio]</td><td>3.52</td>
+</tr>
+<tr>
+<td>Light purple</td><td>3.08</td><td>3.32</td><td>1.02</td><td>3.17</td><td>1.01</td><td>3.52</td><td>[no ratio]</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="h-information-about-these-colours">Information about these colours</h3>
+<ul>
+<li>All colours have a contrast ratio of at least 3 to 1 against white.</li>
+<li>When used in the order presented in the list, all adjacent colours have a contrast ratio of at least 3 to 1.</li>
+<li>All colours have passed our checks for colour blindness – see the section on ‘Using other colour palettes’ for more information.</li>
+<li>When used in the order presented in the list, all adjacent colours appear distinct in greyscale.</li>
+</ul>
+<h3 id="h-ideally-use-just-the-first-four">Ideally, use just the first four</h3>
+<p>We recommend a limit of four categories as best practice for basic data visualisations. More than four series can make a chart too cluttered. This is why all our examples of using the categorical colour palette only use four series.</p>
+<p>The dark grey and light purple have been added to this palette due to demand for extra colours. But these should only be used when essential.</p>
+<h3 id="h-plain-text-alternative">Plain text alternative</h3>
+<p>Remember, using an accessible colour palette is not the only thing to consider when it comes to accessibility. All charts should have a plain text alternative that communicates the overall message of the chart. This can be given through a table of data or a text description. When deciding which to provide you should focus on the best way to communicate the message in the chart.</p>
+<p>If you decide to provide a table, a good way of doing this is to use toggle functionality, if your website has it. The <a href="https://www.gov.uk/government/publications/examples-of-visual-content-to-use-on-govuk/examples-of-visual-content-to-use-on-govuk" target="_blank" rel="noopener noreferrer">HTML horizontal bar charts on GOV.UK</a> allow users to toggle between a chart or plain text table view. The charts on Department for Education’s website ‘<a href="https://explore-education-statistics.service.gov.uk/find-statistics/16-18-destination-measures#dataBlock-96bf320f-e5a6-40fc-aeb6-7b24160d03a3-tables" target="_blank" rel="noopener noreferrer">Explore education statistics’</a> also have this functionality.</p>
+<p>If you do not have toggle functionality we recommend providing the table of data in HTML in the body text of the page. However, you can link to the data if necessary: <a href="https://www.gov.uk/government/statistics/local-authority-and-childrens-homes-in-england-inspections-and-outcomes-autumn-2021/main-findings-local-authority-and-childrens-homes-in-england-inspections-and-outcomes-autumn-2021#figure1" target="_blank" rel="noopener noreferrer">example of tables for charts linked to in an annex.</a></p>
+<p>If you provide a text description of your chart this should also be given in the body text of the page. <a href="https://www.gov.uk/government/statistics/transport-statistics-great-britain-2021/transport-statistics-great-britain-2021#domestic-passenger-transport" target="_blank" rel="noopener noreferrer">Example of a plain text description of a chart in the body text.</a></p>
+<p>Note: when the chart shows a large amount of data, a text description is better than showing or linking to a large data table.</p>
+<h3 id="h-using-the-categorical-colour-palette">Using the categorical colour palette</h3>
+<h4>Simple bar charts</h4>
+<p>Use a single colour for all bars in vertical column charts and horizontal bar charts where there are no groups to highlight. We recommend using the first colour in the palette. We call this colour ‘dark blue’. We recommend dark blue because it:</p>
+<ul>
+<li>has the highest contrast ratio with a white background out of the first four main colours in the palette</li>
+<li>works for different types of colour blindness</li>
+<li>works in greyscale</li>
+</ul>
+<p>The gap between the bars should be slightly narrower than the width of a single bar. Unless you are presenting a histogram. Histograms should have no gaps between bars.</p>
+<p>Remember: all charts should have a plain text alternative. This can be a text description or a table of data, ideally in the body text of a page.</p>
+<h4>Example: bar chart showing one series with accompanying text description</h4>
+<h5>Figure 1: Profit for four fictional companies in 2020</h5>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2019/12/bar_chart_one_series_wider.svg" target="_blank" rel="noopener noreferrer"><img alt="large version of chart showing profit for four fictional companies" height="720" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2019/12/bar_chart_one_series_wider.svg" width="1280"></a></p>
+<p>Bar chart showing fictional data on profit for four companies. The same dark blue colour is used for all bars as they all represent profit.</p>
+<h4>Clustered and stacked bar charts</h4>
+<p>We advise that clustered and stacked bar charts should have no more than four series.</p>
+<p>We recommend using our suggested colour palette<strong> in the order given in the list</strong> when using more than two colours to make sure adjacent colours have enough contrast. It will also mean the colours will work for different types of colour blindness and in greyscale. If you only need two colours, we recommend using the colours from the palette called ‘dark blue’ and ‘orange’. This is because this is the pair of colours from the palette with the highest contrast ratio.</p>
+<p>In clustered bar charts the gap between the clusters should be wider than a single bar. If you’re presenting discrete data in clustered bar charts, leave a small gap between the bars in each cluster to increase contrast and help users work out the meaning of the colours.</p>
+<h5>Accessibility and use of legends</h5>
+<p>Stacked and clustered bar charts both require the use of legends.</p>
+<p>Make sure the order and orientation of the legend matches the order and orientation of the bars in each cluster. You should also state the legend order matches the order of the bars in the clusters.&nbsp; This should be stated above the chart so people can use this information to match the labels.</p>
+<p>Alternatively, for horizontal clustered bar charts the first cluster could be labelled directly.</p>
+<h4>Examples: clustered bar charts with four categories – providing information on legends</h4>
+<h5>Figure 2a: Number of apples, bananas, pears and pineapples found in four shops (fictional data)</h5>
+<p>The legend is presented in the same order as the bars in the clusters.</p>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/03/Clustered-bar-chart-new-order.svg" target="_blank" rel="noopener noreferrer"><img alt="large version of chart showing number of apples, bananas, pears and pineapples found in four shops" height="720" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/03/Clustered-bar-chart-new-order.svg" width="1280"></a></p>
+<h5>Figure 2b: Number of apples, bananas, pears and pineapples found in four shops (fictional data)</h5>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2023/07/Data-visualisation-colours-guidance-figure-2b.svg" target="_blank" rel="noopener noreferrer"><img alt="" height="570" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2023/07/Data-visualisation-colours-guidance-figure-2b.svg" width="1012"></a></p>
+<p>Both these clustered bar charts show fictional data using the four colours in the categorical data colour palette. The fictional data shows all shops had more apples than any other fruit listed. Shop 4 had the highest number of apples (44). Out of the fruits listed, bananas were the next most stocked in all shops – shop 1 had the most (33). This was followed by pears and then pineapples. All shops had 10 pineapples.</p>
+<p>Figure 2a states the layout of the legend above the chart. Figure 2b labels the first cluster directly instead of using a legend.</p>
+<h4>Example: stacked bar chart with four categories and accompanying table of data</h4>
+<h5>Figure 3: Percentage of each house type within each ownership situation (fictional data)</h5>
+<p>The legend is presented in the same order as the categories within the bars.</p>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/03/Stacked-bar-chart-new-order.svg" target="_blank" rel="noopener noreferrer"><img alt="large version of chart showing percentage of each house type within each ownership situation" height="720" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/03/Stacked-bar-chart-new-order.svg" width="1280"></a></p>
+<h5>Table of data</h5>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>House type</th><th>Owns outright</th><th>Owns with mortgage</th><th>Rents</th><th>Not stated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Detached</td><td>33</td><td>30</td><td>21</td><td>16</td>
+</tr>
+<tr>
+<td>Semi-detached</td><td>31</td><td>20</td><td>38</td><td>11</td>
+</tr>
+<tr>
+<td>Terraced</td><td>38</td><td>25</td><td>19</td><td>18</td>
+</tr>
+<tr>
+<td>Flat</td><td>44</td><td>25</td><td>19</td><td>12</td>
+</tr>
+</tbody>
+</table></div>
+<h4>Line charts with one series</h4>
+<p>We recommend using the first colour in the palette called ‘dark blue’. We recommend dark blue because it has the highest contrast ratio with a white background.</p>
+<p>Make sure you choose a suitable level of thickness for the line. Some people who have mild colour blindness are able to see a colour, but only if there is enough ‘mass’ of it. The exact thickness you need will depend on how you create your image.</p>
+<h4>Example: line chart with one series and accompanying text description</h4>
+<h5>Figure 4: Revenue of a fictional company, 2010 to 2020</h5>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2019/12/line_chart_one_series.svg" target="_blank" rel="noopener noreferrer"><img alt="large version of line chart showing revenue of fictional company" height="720" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2019/12/line_chart_one_series.svg" width="1280"></a></p>
+<p>Line chart showing fictional data on revenue. There is one line on the chart. This line uses the dark blue colour from the palette. The fictional data shows volatile revenue since 2010, but in 2020 it stood at £60 million.</p>
+<h4>Line charts with two series</h4>
+<p>We recommend using the colours from the palette called ‘dark blue’ and ‘orange’. This is because this is the pair of colours from the palette with the highest contrast ratio. They also work for different types of colour blindness and are distinct in greyscale</p>
+<p>Remember to be careful with the cultural&nbsp;<a href="https://www.thoughtco.com/visual-color-symbolism-chart-by-culture-4062177" target="_blank" rel="noopener noreferrer">associations of colour</a>. Orange in particular can have strong cultural and political associations in some settings.</p>
+<p>Label the lines directly rather than using a separate legend. This means that users will not have to rely on colour to match the labels to the series.</p>
+<p>If the order of the series is important, use the&nbsp;colour palette for sequential data. See the sequential colour palette section of this guidance for more information.</p>
+<h4>Example: line chart with two series and accompanying text description</h4>
+<h5>Figure 5: Annual revenue of two fictional companies, 2010 to 2020</h5>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2023/05/Duo_palette_chart_example.svg" target="_blank" rel="noopener noreferrer"><img alt="Larger version of figure 5." height="720" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2023/05/Duo_palette_chart_example.svg" width="1280"></a></p>
+<p>Line chart showing fictional data on revenue. There are two lines on the chart. One uses the dark blue from the palette, the other uses the orange. The fictional data shows volatile revenue since 2010. In 2020, company 1 had revenue of around £56 million (up from £40 million in 2010) and company 2 had revenue of £40 million (up from around £31 million in 2010).</p>
+<h4>Line charts with more than two series</h4>
+<p>As with stacked and clustered bar charts, we advise that line charts should have no more than four series.</p>
+<p>It is difficult to choose colours for line charts with more than two series.</p>
+<p>This is because it is not possible to have a chart colour palette of more than two colours where all colours have at least a 3 to 1 contrast ratio with:</p>
+<ul>
+<li>the white background</li>
+<li>all other colours in the palette</li>
+</ul>
+<p>In stacked and clustered bar charts with only positive values this is not an issue because the series always stay in the same order. This means we can control what colours are next to each other and make sure they have a high enough contrast ratio.</p>
+<p>But lines do not always stay in the same order. So, it is not possible to make sure adjacent colours always have at least a 3 to 1 contrast ratio.</p>
+<p>This means that it is not possible to provide a palette for line charts with more than two series that would meet the contrast ratio requirements. So, you should only use line charts with more than two series when they are essential to getting information across. This will help you meet accessibility <a href="https://www.w3.org/TR/WCAG22/#non-text-contrast" target="_blank" rel="noopener noreferrer">success criterion 1.4.11</a>.</p>
+<p>It is possible to design a colour palette for line charts with more than two series which would work:</p>
+<ul>
+<li>for different types of colour blindness</li>
+<li>in greyscale</li>
+</ul>
+<p>However, this would involve using colours that have a less than 3 to 1 contrast ratio with the white background. Remember that some people with visual disabilities may not be able to see these lines at all.</p>
+<p>So, there is no perfect solution to this problem.</p>
+<p>Our advice is:</p>
+<ol>
+<li>Use our suggested palette or another that makes sure all lines have a 3 to 1 contrast with the white background. We have chosen to prioritise the colour contrast ratio with a white background. This is because this will help many people see the lines, even if they cannot tell the colours apart.</li>
+<li>Label the lines instead of using a legend.</li>
+<li>Provide a plain text version of the chart. A plain text version can be provided through a text description or a table of data. It is necessary for all charts but particularly important when your chart cannot meet the colour contrast requirements.</li>
+<li>Consider a different approach.</li>
+</ol>
+<p>Other possible approaches:</p>
+<ul>
+<li>A small multiples plot (see&nbsp;<a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/conditionsanddiseases/bulletins/coronaviruscovid19infectionsurveypilot/14january2022" target="_blank" rel="noopener noreferrer">figure 2 in this statistical bulletin</a>) – these can make it much easier to see differences in each series.</li>
+<li>Using texture like dots and dashes to differentiate the lines – but be aware that this can make a chart too cluttered and textured lines may be misinterpreted as they are often used for projections, forecasts or targets.</li>
+<li>Add shapes to the data points on the lines – but be careful not to overuse these as they can make a chart too cluttered</li>
+<li>Using a focus chart which highlight specific chart elements – you can find more information on these in the ‘Focus charts colour palette’ section.</li>
+</ul>
+<h4>Example: Line chart with four series and accompanying data table</h4>
+<h5>Figure 6: Annual revenue of four fictional companies, 2010 to 2020</h5>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/07/line-chart-four-lines.svg" target="_blank" rel="noopener noreferrer"><img alt="large version of line chart showing revenue of four fictional companies" height="1512" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/07/line-chart-four-lines.svg" width="2457"></a></p>
+<h5>Table of data</h5>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Year</th><th>Company 1 <br>
+Revenue<br>
+(£million)</th><th>Company 2<br>
+Revenue<br>
+(£million)</th><th>Company 3<br>
+Revenue<br>
+(£million)</th><th>Company 4<br>
+Revenue<br>
+(£million)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2010</td><td>58</td><td>50</td><td>42</td><td>43</td>
+</tr>
+<tr>
+<td>2011</td><td>60</td><td>57</td><td>38</td><td>37</td>
+</tr>
+<tr>
+<td>2012</td><td>54</td><td>55</td><td>45</td><td>53</td>
+</tr>
+<tr>
+<td>2013</td><td>57</td><td>51</td><td>42</td><td>53</td>
+</tr>
+<tr>
+<td>2014</td><td>54</td><td>44</td><td>60</td><td>28</td>
+</tr>
+<tr>
+<td>2015</td><td>56</td><td>55</td><td>35</td><td>55</td>
+</tr>
+<tr>
+<td>2016</td><td>54</td><td>57</td><td>36</td><td>30</td>
+</tr>
+<tr>
+<td>2017</td><td>58</td><td>51</td><td>43</td><td>32</td>
+</tr>
+<tr>
+<td>2018</td><td>57</td><td>43</td><td>32</td><td>23</td>
+</tr>
+<tr>
+<td>2019</td><td>54</td><td>43</td><td>50</td><td>42</td>
+</tr>
+<tr>
+<td>2020</td><td>59</td><td>51</td><td>49</td><td>47</td>
+</tr>
+</tbody>
+</table></div>
+<h4>Pie charts</h4>
+<p>You should only use pie charts in certain circumstances. Please see our <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/" target="_blank" rel="noopener noreferrer">‘Data visualisation: charts’ guidance</a>.</p>
+<p>Advice for pie charts:</p>
+<ul>
+<li>Put a white border around each sector to enhance the contrast.</li>
+<li>Label the sectors directly rather than in a separate legend – this helps users to match the labels to the variables without relying on colour.</li>
+<li>Consider adding value labels to help users understand the chart.</li>
+<li>Provide a plain text version of the chart in the body text – this can be a text description or a table of data.</li>
+</ul>
+<h5>Colours for pie charts with two variables</h5>
+<p>When pie charts present two variables we recommend using the dark blue and orange colours from our palette. This is because these colours have the greatest contrast. These colours also work for different types of colour blindness and are distinct in greyscale.</p>
+<p>Be careful with the cultural&nbsp;<a href="https://www.thoughtco.com/visual-color-symbolism-chart-by-culture-4062177" target="_blank" rel="noopener noreferrer">associations of colour</a>. Remember that orange can have strong cultural and political associations in some settings.</p>
+<h5>Example: pie chart showing two sectors with accompanying text description</h5>
+<h6>Figure 7: Questions in an exam by whether they were answered</h6>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2019/12/pie_chart_two-series.svg" target="_blank" rel="noopener noreferrer"><img alt="large version of pie chart showing percentage of questions answered and unanswered in an exam" height="720" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2019/12/pie_chart_two-series.svg" width="1280"></a></p>
+<p>A pie chart with two sectors. One is labelled ‘Answered (82%)’, the other is labelled ‘Not answered (18%)’.</p>
+<h4>Colours for pie charts with more than two variables</h4>
+<p>We advise to use our suggested palette. Use the order given in a clockwise direction, starting from the 12 o’clock position.</p>
+<p>As with all charts, all colours you use in a pie chart need to have at least a 3 to 1 contrast ratio with the white background. But for pie charts with more than two variables, each colour also needs to have at least a 3 to 1 contrast ratio with the two other colours it will be next to.</p>
+<p>This is possible when you have two or four variables because you can alternate darker and lighter colours. This allows you to make sure adjacent colours have the level of contrast they need. It is not possible when you have three or five variables. This means, when you use pie charts with three and five variables the plain text alternative is very important.</p>
+<p>Note: we would not recommend using a pie chart with more than five variables.</p>
+<h5>Example: pie chart showing four sectors with accompanying table of data</h5>
+<h6>Figure 8: Responses to the “What is your religion?” question on the 2011 Census of England and Wales</h6>
+<p><a href="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/03/pie-chart-new-order.svg" target="_blank" rel="noopener noreferrer"><img alt="large version of pie chart showing responses to the What is your religion question on the 2011 Census" height="720" loading="lazy" src="https://analysisfunction.civilservice.gov.uk/wp-content/uploads/2022/03/pie-chart-new-order.svg" width="1280"></a></p>
+<h6>Table of data</h6>
+<p>
+</p><div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Response group</th><th>Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Christian</td><td>59.3</td>
+</tr>
+<tr>
+<td>No religion </td><td>25.1</td>
+</tr>
+<tr>
+<td>Other</td><td>8.4</td>
+</tr>
+<tr>
+<td>Not stated</td><td>7.2</td>
+</tr>
+</tbody>
+</table></div>
+<p></p>
+<p><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/culturalidentity/religion/articles/religioninenglandandwales2011/2012-12-11" target="_blank" rel="noopener noreferrer">Source: 2011 Census for England and Wales&nbsp;</a></p>

@@ -13,13 +13,12 @@
 <li>How can we sort our data?</li>
 </ul>
 </div>
-<h2 id="filtering">Filtering</h2>
+<h2 id="h-filtering">Filtering</h2>
 <p>There are many entries in our data table. We can filter it to work on a subset
 of the data in the list for the next set of operations. Please ensure you
 perform this step to save time during the class.</p>
 <div class="box box-challenge">
 <p class="box-title">Using a Text Filter</p>
-
 <ol>
 <li>Click the down arrow next to <code>respondent_roof_type</code> &gt; <code>Text filter</code>. A
 <code>respondent_roof_type</code> facet will appear on the left margin.</li>
@@ -35,7 +34,6 @@ of the matching rows.</li>
 </li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h3 id="solution">Solution</h3>
 <ol>
 <li>Do <code>Facet</code> &gt; <code>Text facet</code> on the <code>respondent_roof_type</code> column after
 filtering. This will show that two names match your filter criteria.
@@ -45,7 +43,7 @@ letters in your filter.</li>
 </ol>
 </details>
 </div>
-<h2 id="excluding-entries">Excluding entries</h2>
+<h2 id="h-excluding-entries">Excluding entries</h2>
 <p>In addition to the simple text filtering we used above, another way to narrow
 our filter is to <code>include</code> and/or <code>exclude</code> entries in a facet. You will see
 the <code>include</code> or <code>exclude</code> options if you hover over the name in the facet
@@ -59,10 +57,8 @@ selected, while filtering allows you to select a subset of your data for
 analysis.</p>
 <div class="box box-challenge">
 <p class="box-title">Including and excluding rows using a facet</p>
-
 <p>Use <code>include / exclude</code> to select only entries from one of these two roof types.</p>
 <details class="solution"><summary>Show solution</summary>
-<h3 id="solution-x">Solution</h3>
 <ol>
 <li>In the facet (left margin), click on one of the names, such as
 <code>mabatisloping</code>. Notice that when you click on the name, or hover over
@@ -76,7 +72,7 @@ two entries appear and disappear from the table.</li>
 </details>
 </div>
 <p>Remove the filter before moving on so that you again have the full dataset of 131 records.</p>
-<h2 id="sort">Sort</h2>
+<h2 id="h-sort">Sort</h2>
 <p>You can sort the data by a column by using the drop-down menu in that column.
 There you can sort by <code>text</code>, <code>numbers</code>, <code>dates</code> or <code>booleans</code> (<code>TRUE</code> or
 <code>FALSE</code> values). You can also specify what order to put <code>Blanks</code> and <code>Errors</code>
@@ -87,11 +83,9 @@ selected column shows <code>Sort...</code>. Select what you would like to sort b
 sorting.</p>
 <div class="box box-challenge">
 <p class="box-title">Finding GPS Altitude outliers</p>
-
 <p>Sort the data by <code>gps_Altitude</code>. Do you think the first few entries may have
 incorrect altitudes?</p>
 <details class="solution"><summary>Show solution</summary>
-<h3 id="solution-x-x">Solution</h3>
 <p>In the <code>gps_Altitude</code> column, select <code>Sort...</code> &gt; <code>numbers</code> and select
 <code>smallest first</code>. The first few values are all 0. The altitudes are more
 likely 'missing' than incorrect. The survey is delivered by Smartphone with
@@ -108,7 +102,7 @@ already used this column. It will give you additional options:</p>
 <li><code>Sort</code> &gt; <code>Reverse</code> - This option allows you to reverse the order of the sort.</li>
 <li><code>Sort</code> &gt; <code>Remove sort</code> - This option allows you to undo your sort.</li>
 </ul>
-<h3 id="sorting-by-multiple-columns">Sorting by multiple columns</h3>
+<h3 id="h-sorting-by-multiple-columns">Sorting by multiple columns</h3>
 <p>You can sort by multiple columns by performing sort on additional columns. The
 sort will depend on the order in which you select columns to sort. To restart
 the sorting process with a particular column, check the <code>sort by this column alone</code> box in the <code>Sort</code> pop-up menu.</p>
@@ -117,7 +111,6 @@ the sorting process with a particular column, check the <code>sort by this colum
 only column sorted, then data reverts to its original order.</p>
 <div class="box box-challenge">
 <p class="box-title">Finding village "49"</p>
-
 <p>We discovered in an earlier lesson that the value for one of the <code>village</code>
 entries was given as 49. This is clearly wrong. By looking at the GPS
 coordinates for the entries of the other villages can we decide what village
@@ -135,7 +128,6 @@ particular village? Is it the same village as when comparing GPS
 coordinates?</li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h3 id="solution-x-x-x">Solution</h3>
 <p>The interview data for that row is in a small cluster of Chirodzo
 interviews when sorting by GPS coordinates. When sorting by interview date,
 it is also with Chirodzo interviews. In fact, only Chirodzo had interviews

@@ -1,299 +1,146 @@
-<div class="box box-objectives">
-<p class="box-title">Objectives</p>
+<img alt="Spark icon" loading="lazy" src="https://developers.google.com/_static/images/icons/spark.svg">
+<h2 id="h-page-summary">Page Summary</h2>
 <ul>
-<li>Explain the purpose of a <code>Dockerfile</code> and show some simple examples.</li>
-<li>Demonstrate how to build a container image with Podman from a <code>Dockerfile</code>.</li>
-<li>Compare the steps of creating a container image interactively versus a <code>Dockerfile</code>.</li>
-<li>Create an installation strategy for a container image.</li>
-<li>Demonstrate how to upload ('push') your container images to the Docker Hub.</li>
-<li>Describe the significance of the Docker Hub naming scheme.</li>
+<li>
+<p>Prioritize building robust infrastructure and simple models before incorporating complex machine learning algorithms.</p>
+</li>
+<li>
+<p>Leverage existing heuristics and domain knowledge to enhance model performance and system intuition.</p>
+</li>
+<li>
+<p>Continuously iterate and refine models through feature engineering and addressing potential pitfalls like training-serving skew.</p>
+</li>
+<li>
+<p>Align machine learning objectives with measurable product goals and prioritize long-term user satisfaction.</p>
+</li>
+<li>
+<p>Explore new data sources and features when performance plateaus, considering user relationships and external information.</p>
+</li>
 </ul>
-</div>
-<div class="box box-questions">
-<p class="box-title">Questions</p>
+<h2 id="h-best-practices-for-ml-engineering">Best Practices for ML Engineering</h2>
+<p><em>Martin Zinkevich</em></p>
+<p>This document is intended to help those with a basic knowledge of machine
+learning get the benefit of Google's best practices in machine learning. It
+presents a style for machine learning, similar to the Google C++ Style Guide
+and other popular guides to practical programming. If you have taken a class
+in machine learning, or built or worked on a machine­-learned model, then you
+have the necessary background to read this document.</p>
+<figure>
+<em>Martin Zinkevich introduces 10 of his favorite rules 
+of machine learning. Read on to learn all 43 rules!</em>
+</figure>
+<h2 id="h-terminology">Terminology</h2>
+<p>The following terms will come up repeatedly in our discussion of effective
+machine learning:</p>
 <ul>
-<li>How can I make my own container images with Podman?</li>
-<li>How do I document the 'recipe' for a container image?</li>
+<li><strong>Instance</strong>: The thing about which you want to make a
+prediction. For example, the instance might be a web page that you want to
+classify as either "about cats" or "not about cats".</li>
+<li><strong>Label</strong>: An answer for a prediction task ­­ either the answer produced by a
+machine learning system, or the right answer supplied in training data. For
+example, the label for a web page might be "about cats".</li>
+<li><strong>Feature</strong>: A property of an instance used in a prediction task. For
+example, a web page might have a feature "contains the word 'cat'".</li>
+<li><strong>Feature Column</strong>: A set of related features, such as the set of all possible
+countries in which users might live. An example may have one or more features
+present in a feature column. "Feature column" is Google-specific terminology.
+A feature column is referred to as a "namespace"
+in the VW system (at Yahoo/Microsoft), or a
+<a href="https://www.csie.ntu.edu.tw/%7Ecjlin/libffm/" target="_blank" rel="noopener noreferrer">field</a>.</li>
+<li><strong>Example</strong>: An instance (with its features) and a label.</li>
+<li><strong>Model</strong>: A statistical representation of a prediction task. You train a model on
+examples then use the model to make predictions.</li>
+<li><strong>Metric</strong>: A number that you care about. May or may not be directly optimized.</li>
+<li><strong>Objective</strong>: A metric that your algorithm is trying to optimize.</li>
+<li><strong>Pipeline</strong>: The infrastructure surrounding a machine learning algorithm.
+Includes gathering the data from the front end, putting it into training data
+files, training one or more models, and exporting the models to production.</li>
+<li><strong>Click-through Rate</strong> The percentage of visitors to a web page who click a
+link in an ad.</li>
 </ul>
-</div>
-<p>There are lots of reasons why you might want to create your <strong>own</strong> container image.</p>
-<ul>
-<li>You can't find a container image with all the tools you need on Docker Hub or elsewhere.</li>
-<li>You want to have a container image to "archive" all the specific software versions you ran for a project.</li>
-<li>You want to share your workflow with someone else.</li>
-</ul>
-<h2 id="interactive-installation">Interactive installation</h2>
-<p>Before creating a reproducible installation, let's experiment with installing
-software inside a container. Start a container from the <code>alpine</code> container image we used before, interactively:</p>
-<pre><code class="language-bash">$ podman container run -it alpine sh
-</code></pre>
-<p>Because this is a basic container, there's a lot of things not installed -- for
-example, <code>python3</code>.</p>
-<pre><code class="language-bash">/# python3
-</code></pre>
-<pre><code class="language-output">sh: python3: not found
-</code></pre>
-<p>Inside the container, we can run commands to install Python 3. The Alpine version of
-Linux has a installation tool called <code>apk</code> that we can use to install Python 3.</p>
-<pre><code class="language-bash">/# apk add --update python3 py3-pip python3-dev
-</code></pre>
-<p>We can test our installation by running a Python command:</p>
-<pre><code class="language-bash">/# python3 --version
-</code></pre>
-<div class="box box-challenge">
-<p class="box-title">Exercise: Searching for Help</p>
-
-<p>Can you find instructions for installing R on Alpine Linux? Do they work?</p>
-<details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
-<p>A quick search should hopefully show that the way to install R on Alpine Linux is:</p>
-<pre><code class="language-bash">/# apk add R
-</code></pre>
-</details>
-</div>
-<p>Once we exit, these changes are not saved to a new container image by default. There is
-a command that will "snapshot" our changes, but building container images this way is
-not easily reproducible. Instead, we're going to take what we've learned from this
-interactive installation and create our container image from a reproducible recipe,
-known as a <code>Dockerfile</code>.</p>
-<p>If you haven't already, exit out of the interactively running container.</p>
-<pre><code class="language-bash">/# exit
-</code></pre>
-<h2 id="put-installation-instructions-in-a-dockerfile">Put installation instructions in a <code>Dockerfile</code></h2>
-<p>A <code>Dockerfile</code> is a plain text file with keywords and commands that
-can be used to create a new container image.</p>
-<div class="box box-callout">
-<p class="box-title">Dockerfiles and Containerfiles</p>
-
-<p>You may see references on the Internet and in documentation to both
-<code>Dockerfile</code>s and <code>Containerfile</code>s. The two are essentially identical,
-differing only in the file name used, and Podman is capable of using both. Due
-to Docker's historical prominence it is very common for the <code>Dockerfile</code> name
-to be used even in contexts which don't use Docker, and we will do so here
-also -- but remember that there is no problem with using the alternate
-<code>Containerfile</code> name.</p>
-</div>
-<p>From your shell, go to the folder you downloaded at the start of the lesson
-and print out the Dockerfile inside:</p>
-<pre><code class="language-bash">$ cd ~/Desktop/podman-intro/basic
-$ cat Dockerfile
-</code></pre>
-<pre><code class="language-output">FROM &lt;EXISTING IMAGE&gt;
-RUN &lt;INSTALL CMDS FROM SHELL&gt;
-CMD &lt;CMD TO RUN BY DEFAULT&gt;
-</code></pre>
-<p>Let's break this file down:</p>
-<ul>
-<li>The first line, <code>FROM</code>, indicates which container image we're starting with.  It is the "base" container image we are going to start from.</li>
-<li>The next two lines <code>RUN</code>, will indicate installation commands we want to run. These
-are the same commands that we used interactively above.</li>
-<li>The last line, <code>CMD</code>, indicates the default command we want a
-container based on this container image to run, if no other command is provided. It is recommended
-to provide <code>CMD</code> in <em>exec-form</em> (see the
-(see the <a href="https://github.com/containers/common/blob/main/docs/Containerfile.5.md" target="_blank" rel="noopener noreferrer"><code>CMD</code> section</a>
-of the documentation of the Containers GitHub for more details). It is written as a
-list which contains the executable to run as its first element,
-optionally followed by any arguments as subsequent elements. The list
-is enclosed in square brackets (<code>[]</code>) and its elements are
-double-quoted (<code>"</code>) strings which are separated by commas. For
-example, <code>CMD ["ls", "-lF", "--color", "/etc"]</code> would translate
-to <code>ls -lF --color /etc</code>.</li>
-</ul>
-<div class="box box-callout">
-<p class="box-title">shell-form and exec-form for CMD</p>
-
-<p>Another way to specify the parameter for the
-<a href="https://github.com/containers/common/blob/main/docs/Containerfile.5.md" target="_blank" rel="noopener noreferrer"><code>CMD</code> instruction</a>
-is the <em>shell-form</em>. Here you type the command as you would call it
-from the command line. Podman then silently runs this command in the
-image's standard shell. The <em>shell-form</em> <code>CMD cat /etc/passwd</code> is equivalent to
-the <em>exec-form</em> <code>CMD ["/bin/sh", "-c", "cat /etc/passwd"]</code>. We recommend the
-more explicit <em>exec-form</em> because we will be able to create more
-flexible container image command options and make sure complex commands
-are unambiguous in this format.</p>
-</div>
-<div class="box box-challenge">
-<p class="box-title">Exercise: Take a Guess</p>
-
-<p>Do you have any ideas about what we should use to fill in the sample Dockerfile
-to replicate the installation we did above?</p>
-<details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution:</h2>
-<p>Based on our experience above, edit the <code>Dockerfile</code> (in your text editor of choice)
-to look like this:</p>
-<pre><code>FROM docker.io/alpine
-RUN apk add --update python3 py3-pip python3-dev
-CMD ["python3", "--version"]
-</code></pre>
-</details>
-</div>
-<p>The recipe provided by the <code>Dockerfile</code> shown in the solution to the preceding exercise will use Alpine Linux as the base container image,
-add Python 3, the pip package management tool and some additional Python header files, and set a default command to request Python 3 to
-report its version information.</p>
-<h2 id="create-a-new-container-image">Create a new container image</h2>
-<p>So far, we only have a text file named <code>Dockerfile</code> -- we do not yet have a container image.
-We want Podman to take this <code>Dockerfile</code>,
-run the installation commands contained within it, and then save the
-resulting container as a new container image. To do this we will use the
-<code>podman image build</code> command.</p>
-<p>We have to provide <code>podman image build</code> with two pieces of information:</p>
-<ul>
-<li>the location of the <code>Dockerfile</code></li>
-<li>the name of the new container image. Remember the naming scheme from before? You should name
-your new image with your Docker Hub username and a name for the container image, like this: <code>USERNAME/CONTAINER_IMAGE_NAME</code>.</li>
-</ul>
-<p>All together, the build command that you should run on your computer, will have a similar structure to this:</p>
-<pre><code class="language-bash">$ podman image build -t URL/USERNAME/CONTAINER_IMAGE_NAME .
-</code></pre>
-<p>The <code>-t</code> option names the container image; the final dot indicates that the <code>Dockerfile</code> is in
-our current directory.</p>
-<p>The <code>URL</code> should be the name of the registry you are intending to upload the
-image to. If you aren't intending to ever move the image elsewhere, you can skip
-it and only give the <code>USERNAME</code> and <code>CONTAINER_IMAGE_NAME</code>. For example, if I
-were intending to push the image to Docker Hub, my Docker Hub user name was
-<code>alice</code> and I wanted to call my container image <code>alpine-python</code>, I would use
-this command:</p>
-<pre><code class="language-bash">$ podman image build -t docker.io/alice/alpine-python .
-</code></pre>
-<p>Note, you can always re-tag an image later if the name needs to be updated.</p>
-<div class="box box-callout">
-<p class="box-title">Build Context</p>
-
-<p>Notice that the final input to <code>podman image build</code> isn't the Dockerfile -- it's
-a directory! In the command above, we've used the current working directory (<code>.</code>) of
-the shell as the final input to the <code>podman image build</code> command. This option provides
-what is called the <em>build context</em> to Podman -- if there are files being copied
-into the built container image (<a href="https://github.com/carpentries-incubator/docker-introduction/blob/1dd2b07a572ae7dc295d21bb3e92b20ef1367b11/episodes/advanced-containers.md" target="_blank" rel="noopener noreferrer">more details in the next episode</a>)
-they're assumed to be in this location. Podman expects to see a Dockerfile in the
-build context also (unless you tell it to look elsewhere).</p>
-<p>Even if it won't need all of the files in the build context directory, Podman does
-"load" them before starting to build, which means that it's a good idea to have
-only what you need for the container image in a build context directory, as we've done
-in this example.</p>
-</div>
-<div class="box box-challenge">
-<p class="box-title">Exercise: Review!</p>
-
+<h2 id="h-overview">Overview</h2>
+<p>To make great products:</p>
+<p><strong>do machine learning like the great engineer you are, not like the great
+machine learning expert you aren’t.</strong></p>
+<p>Most of the problems you will face are, in fact, engineering problems. Even
+with all the resources of a great machine learning expert, most of the gains
+come from great features, not great machine learning algorithms. So, the basic
+approach is:</p>
 <ol>
-<li>
-<p>Think back to earlier. What command can you run to check if your container image was created
-successfully? (Hint: what command shows the container images on your computer?)</p>
-</li>
-<li>
-<p>We didn't specify a tag for our container image name. What tag did Podman automatically use?</p>
-</li>
-<li>
-<p>What command will run a container based on the container image you've created? What should happen by default
-if you run such a container? Without changing the Dockerfile, can you make it do something different, like print
-"hello world"?</p>
-</li>
+<li>Make sure your pipeline is solid end to end.</li>
+<li>Start with a reasonable objective.</li>
+<li>Add common­-sense features in a simple way.</li>
+<li>Make sure that your pipeline stays solid.</li>
 </ol>
-<details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
+<p>This approach will work well for a
+long period of time. Diverge from this approach only when there are no more
+simple tricks to get you any farther. Adding complexity slows future releases.</p>
+<p>Once you've exhausted the simple tricks, cutting­-edge machine learning might
+indeed be in your future. See the section on
+<a href="#ml_phase_iii_slowed_growth_optimization_refinement_and_complex_models" rel="noopener noreferrer">Phase III</a>
+machine learning projects.</p>
+<p>This document is arranged as follows:</p>
 <ol>
-<li>
-<p>To see your new image, run <code>podman image ls</code>. You should see the name of your new
-container image under the "REPOSITORY" heading, , prepended by <code>localhost</code> as, for now,
-the image is on your local machine rather than a remote registry.</p>
-</li>
-<li>
-<p>In the output of <code>podman image ls</code>, you can see that Podman has automatically
-used the <code>latest</code> tag for our new container image.</p>
-</li>
-<li>
-<p>We want to use <code>podman container run</code> to run a container based on a container image.</p>
-</li>
+<li>The <a href="#before_machine_learning" rel="noopener noreferrer">first part</a> should help you understand whether
+the time is right for building a machine learning system.</li>
+<li>The <a href="#ml_phase_i_your_first_pipeline" rel="noopener noreferrer">second part</a> is about deploying your
+first pipeline.</li>
+<li>The <a href="#ml_phase_ii_feature_engineering" rel="noopener noreferrer">third part</a> is about launching and
+iterating while adding new features to your pipeline, how to evaluate models
+and training-serving skew.</li>
+<li>The
+<a href="#ml_phase_iii_slowed_growth_optimization_refinement_and_complex_models" rel="noopener noreferrer">final part</a>
+is about what to do when you reach a plateau.</li>
+<li>Afterwards, there is a list of <a href="#related_work" rel="noopener noreferrer">related work</a> and an
+<a href="#appendix" rel="noopener noreferrer">appendix</a> with some
+background on the systems commonly used as examples in this document.</li>
 </ol>
-<p>The following command should run a container and print out our default message, the version
-of Python:</p>
-<pre><code class="language-bash">$ podman container run docker.io/alice/alpine-python
-</code></pre>
-<p>To run a container based on our container image and print out "Hello world" instead:</p>
-<pre><code class="language-bash">$ podman container run docker.io/alice/alpine-python echo "Hello World"
-</code></pre>
-</details>
-</div>
-<p>While it may not look like you have achieved much, you have already effected the combination of a lightweight Linux operating system with your specification to run a given command that can operate reliably on macOS, Microsoft Windows, Linux and on the cloud!</p>
-<h2 id="boring-but-important-notes-about-installation">Boring but important notes about installation</h2>
-<p>There are a lot of choices when it comes to installing software -- sometimes too many!
-Here are some things to consider when creating your own container image:</p>
-<ul>
-<li><strong>Start smart</strong>, or, don't install everything from scratch! If you're using Python
-as your main tool, start with a <a href="https://hub.docker.com/_/python" target="_blank" rel="noopener noreferrer">Python container
-image</a>. Same with the
-<a href="https://hub.docker.com/r/rocker/r-ver/" target="_blank" rel="noopener noreferrer">R programming language</a>. We've used Alpine Linux as an
-example
-in this lesson, but it's generally not a good container image to start with for initial development and experimentation because it is
-a less common distribution of Linux; using <a href="https://hub.docker.com/_/ubuntu" target="_blank" rel="noopener noreferrer">Ubuntu</a>, <a href="https://hub.docker.com/_/debian" target="_blank" rel="noopener noreferrer">Debian</a> and <a href="https://hub.docker.com/_/almalinux" target="_blank" rel="noopener noreferrer">Alma</a> are all
-good options for scientific software installations. The program you're using might
-recommend a particular distribution of Linux, and if so, it may be useful to start with a container image for that distribution.</li>
-<li><strong>How big?</strong> How much software do you really need to install? When you have a choice,
-lean towards using smaller starting container images and installing only what's needed for
-your software, as a bigger container image means longer download times to use.</li>
-<li><strong>Know (or Google) your Linux</strong>. Different distributions of Linux often have distinct sets of tools for installing software. The <code>apk</code> command we used above is the software package installer for Alpine Linux. The installers for various common Linux distributions are listed below:
-<ul>
-<li>Ubuntu: <code>apt</code> or <code>apt-get</code></li>
-<li>Debian: <code>deb</code></li>
-<li>Alma/Rocky/Fedora: <code>dnf</code></li>
-<li>SUSE: <code>zypper</code><br>
-Most common software installations are available to be installed via these tools.
-A web search for "install X on Y Linux" is usually a good start for common software
-installation tasks; if something isn't available via the Linux distribution's installation
-tools, try the options below.</li>
-</ul>
-</li>
-<li><strong>Use what you know</strong>. You've probably used commands like <code>pip</code> or <code>install.packages()</code>
-before on your own computer -- these will also work to install things in container images (if the basic scripting
-language is installed).</li>
-<li><strong>README</strong>. Many scientific software tools have a README or installation instructions
-that lay out how to install software. You want to look for instructions for Linux. If
-the install instructions include options like those suggested above, try those first.</li>
-</ul>
-<p>In general, a good strategy for installing software is:</p>
-<ul>
-<li>Make a list of what you want to install.</li>
-<li>Look for pre-existing container images.</li>
-<li>Read through instructions for software you'll need to install.</li>
-<li>Try installing everything interactively in your base container -- take notes!</li>
-<li>From your interactive installation, create a <code>Dockerfile</code> and then try to build
-the container image from that.</li>
-</ul>
-<h2 id="share-your-new-container-image-on-docker-hub">Share your new container image on Docker Hub</h2>
-<p>Container images that you release publicly can be stored on the Docker Hub for free.  If you
-name your container image as described above, with your Docker Hub username, all you need to do
-is run the opposite of <code>podman image pull</code> -- <code>podman image push</code>.</p>
-<pre><code class="language-bash">$ podman image push docker.io/alice/alpine-python
-</code></pre>
-<p>Make sure to substitute the full name of your container image!</p>
-<p>In a web browser, open <a href="https://hub.docker.com" target="_blank" rel="noopener noreferrer">https://hub.docker.com</a>, and on your user page you should now see your container image listed, for anyone to use or build on.</p>
-<div class="box box-callout">
-<p class="box-title">Logging In</p>
-
-<p>Technically, you have to be logged into Docker Hub with Podman on your computer
-for this to work. If you haven't yet done this, <code>podman image push</code> won't work
-for you. You can do this on the command line by running <code>podman login docker.io</code>
-first, entering your Docker Hub username and password, and then trying <code>podman image push</code> again. If you installed Podman via Podman Desktop, you can also log
-in with the GUI by opening Podman Desktop, then going to 'Settings', then
-'Registries', then clicking 'Configure' for the Docker Hub entry.</p>
-</div>
-<h2 id="what-s-in-a-name-again">What's in a name? (again)</h2>
-<p>You don't <em>have</em> to name your containers images using the <code>URL/USERNAME/CONTAINER_IMAGE_NAME:TAG</code> naming scheme. On your own computer, you can call container images whatever you want, and refer to
-them by the names you choose. It's only when you want to share a container image that it
-needs the correct naming format.</p>
-<p>You can rename container images using the <code>podman image tag</code> command. For example, imagine someone
-named Alice has been working on a workflow container image and called it <code>workflow-test</code>
-on her own computer. She now wants to share it in her <code>alice</code> Docker Hub account
-with the name <code>workflow-complete</code> and a tag of <code>v1</code>. Her <code>podman image tag</code> command
-would look like this:</p>
-<pre><code class="language-bash">$ podman image tag workflow-test docker.io/alice/workflow-complete:v1
-</code></pre>
-<p>She could then push the re-named container image to Docker Hub,
-using <code>podman image push docker.io/alice/workflow-complete:v1</code></p>
-<div class="box box-keypoints">
-<p class="box-title">Key points</p>
-<ul>
-<li><code>Dockerfile</code>s specify what is within container images.</li>
-<li>The <code>podman image build</code> command is used to build a container image from a <code>Dockerfile</code>.</li>
-<li>You can share your container images through the Docker Hub so that others can create containers from your container images.</li>
-</ul>
-</div>
+<h2 id="h-before-machine-learning">Before Machine Learning</h2>
+<h4>Rule #1: Don’t be afraid to launch a product without machine learning.</h4>
+<p>Machine learning is cool, but it requires data. Theoretically, you can take data
+from a different problem and then tweak the model for a new product, but this
+will likely underperform basic
+<a href="https://developers.google.com/machine-learning/glossary#heuristic" target="_blank" rel="noopener noreferrer"><strong>heuristics</strong></a>. If you think that
+machine learning will give you a 100% boost, then a heuristic will get you 50%
+of the way there.</p>
+<p>For instance, if you are ranking apps in an app marketplace, you could use the
+install rate or number of installs as heuristics. If you are detecting spam,
+filter out publishers that have sent spam before. Don’t be afraid to use human
+editing either. If you need to rank contacts, rank the most recently used
+highest (or even rank alphabetically). If machine learning is not absolutely
+required for your product, don't use it until you have data.</p>
+<h4>Rule #2: First, design and implement metrics.</h4>
+<p>Before formalizing what your machine learning system will do, track as much as
+possible in your current system. Do this for the following reasons:</p>
+<ol>
+<li>It is easier to gain permission from the system’s users earlier on.</li>
+<li>If you think that something might be a concern in the future, it is
+better to get historical data now.</li>
+<li>If you design your system with metric instrumentation in mind, things
+will go better for
+you in the future. Specifically, you don’t want to find yourself grepping
+for strings in logs to instrument your metrics!</li>
+<li>You will notice what things change and what stays the same. For instance,
+suppose you want to directly optimize one­-day active users. However,
+during your early manipulations of the system, you may notice that
+dramatic alterations of the user experience don’t noticeably change this
+metric.</li>
+</ol>
+<p><a href="#google_plus_overview" rel="noopener noreferrer">Google Plus</a> team measures expands per read,
+reshares per read, plus­ones per
+read, comments/read, comments per user, reshares per user, etc. which they use
+in computing the goodness of a post at serving time. <strong>Also, note that an
+experiment framework, in which you can group users into buckets and aggregate
+statistics by experiment, is important.</strong> See
+<a href="#rule_12_don_t_overthink_which_objective_you_choose_to_directly_optimize" rel="noopener noreferrer">Rule #12</a>.</p>
+<p>By being more liberal about gathering metrics, you can gain a broader picture
+of your system. Notice a problem? Add a metric to track it! Excited about some
+quantitative change on the last release? Add a metric to track it!</p>
+<h4>Rule #3: Choose machine learning over a complex heuristic.</h4>
+<p>A simple heuristic can get your product out the door. A complex heuristic is
+unmaintainable. Once you have data and a basic idea of what you are trying to
+accomplish, move on to machine learning. As in most software engineering
+tasks, you will want to be constantly updating your approach, whether it is a
+heuristic or a machine­-learned model, and you will find that the
+machine­-learned model is easier to update and maintain (see
+<a href="#rule_16_plan_to_launch_and_iterate" rel="noopener noreferrer">Rule #16</a>).</p>

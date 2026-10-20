@@ -5,22 +5,19 @@
 <p>This video gives an overview of the Azure Custom Vision service, a service that will be covered in this lesson.</p>
 <p><a href="https://www.youtube.com/watch?v=TETcDLJlWR4" target="_blank" rel="noopener noreferrer"><img alt="Custom Vision – Machine Learning Made Easy | The Xamarin Show" loading="lazy" src="https://img.youtube.com/vi/TETcDLJlWR4/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
-
-
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p>The recent rise in Artificial Intelligence (AI) and Machine Learning (ML) is providing a wide range of capabilities to todays developers. ML models can be trained to recognize different things in images, including unripe fruit, and this can be used in IoT devices to help sort produce either as it is being harvested, or during processing in factories or warehouses.</p>
 <p>In this lesson you will learn about image classification - using ML models to distinguish between images of different things. You will learn how to train an image classifier to distinguish between fruit that is good, and fruit that is bad, either under or over ripe, bruised, or rotten.</p>
 <p>In this lesson we'll cover:</p>
 <ul>
-<li><a href="#using-ai-and-ml-to-sort-food" rel="noopener noreferrer">Using AI and ML to sort food</a></li>
-<li><a href="#image-classification-via-machine-learning" rel="noopener noreferrer">Image classification via Machine Learning</a></li>
-<li><a href="#train-an-image-classifier" rel="noopener noreferrer">Train an image classifier</a></li>
-<li><a href="#test-your-image-classifier" rel="noopener noreferrer">Test your image classifier</a></li>
-<li><a href="#retrain-your-image-classifier" rel="noopener noreferrer">Retrain your image classifier</a></li>
+<li><a href="#h-using-ai-and-ml-to-sort-food" rel="noopener noreferrer">Using AI and ML to sort food</a></li>
+<li><a href="#h-image-classification-via-machine-learning" rel="noopener noreferrer">Image classification via Machine Learning</a></li>
+<li><a href="#h-train-an-image-classifier" rel="noopener noreferrer">Train an image classifier</a></li>
+<li><a href="#h-test-your-image-classifier" rel="noopener noreferrer">Test your image classifier</a></li>
+<li><a href="#h-retrain-your-image-classifier" rel="noopener noreferrer">Retrain your image classifier</a></li>
 </ul>
-<h2 id="using-ai-and-ml-to-sort-food">Using AI and ML to sort food</h2>
+<h2 id="h-using-ai-and-ml-to-sort-food">Using AI and ML to sort food</h2>
 <p>Feeding the global population is hard, especially at a price that makes food affordable for all. One of the largest costs is labor, so farmers are increasingly turning to automation and tools like IoT to reduce their labor costs. Harvesting by hand is labor intensive (and often backbreaking work), and is being replaced by machinery, especially in richer nations. Despite the savings in cost of using machinery to harvest, there is a downside - the ability to sort food as it is being harvested.</p>
 <p>Not all crops ripen evenly. Tomatoes, for example, can still have some green fruits on the vine when the majority is ready for harvest. Although it is a waste to harvest these early, it is cheaper and easier for the farmer to harvest everything using machinery and dispose of the unripe produce later.</p>
 <p>✅ Have a look at different fruits or vegetables, either growing near you in farms or in your garden, or in shops, Are they all the same ripeness, or do you see variation?</p>
@@ -30,7 +27,7 @@
 <p>In this video, as tomatoes fall from one conveyer belt to another, green tomatoes are detected and flicked into a bin using levers.</p>
 <p>✅ What conditions would you need in a factory or in a field for these optical sensors to work correctly?</p>
 <p>The latest evolutions of these sorting machines take advantage of AI and ML, using models trained to distinguish good produce from bad, not just by obvious color differences such as green tomatoes vs red, but by more subtle differences in appearance that can indicate disease or bruising.</p>
-<h2 id="image-classification-via-machine-learning">Image classification via Machine Learning</h2>
+<h2 id="h-image-classification-via-machine-learning">Image classification via Machine Learning</h2>
 <p>Traditional programming is where you take data, apply an algorithm to the data, and get output. For example, in the last project you took GPS coordinates and a geofence, applied an algorithm that was provided by Azure Maps, and got back a result of if the point was inside or outside the geofence. You input more data, you get more output.</p>
 <p><img alt="Traditional development takes input and an algorithm and gives output. Machine learning uses input and output data to train a model, and this model can take new input data to generate new output" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/traditional-vs-ml.png"></p>
 <p>Machine learning turns this around - you start with data and known outputs, and the machine learning algorithm learns from the data. You can then take that trained algorithm, called a <em>machine learning model</em> or <em>model</em>, and input new data and get new output.</p>
@@ -47,7 +44,7 @@
 <blockquote>
 <p>💁 This is an over-simplification, and there are many other ways to train models that don't always need labelled outputs, such as unsupervised learning. If you want to learn more about ML, check out <a href="https://aka.ms/ML-beginners" target="_blank" rel="noopener noreferrer">ML for beginners, a 24 lesson curriculum on Machine Learning</a>.</p>
 </blockquote>
-<h2 id="train-an-image-classifier">Train an image classifier</h2>
+<h2 id="h-train-an-image-classifier">Train an image classifier</h2>
 <p>To successfully train an image classifier you need millions of images. As it turns out, once you have an image classifier trained on millions or billions of assorted images, you can re-use it and re-train it using a small set of images and get great results, using a process called <em>transfer learning</em>.</p>
 <blockquote>
 <p>🎓 Transfer learning is where you transfer the learning from an existing ML model to a new model based off new data.</p>
@@ -59,7 +56,7 @@
 <blockquote>
 <p>💁 Training these models takes a lot of computer power, usually via Graphics Processing Units, or GPUs. The same specialized hardware that makes games on your Xbox look amazing can also be used to train machine learning models. By using the cloud you can rent time on powerful computers with GPUs to train these models, getting access to the computing power you need, just for the time you need it.</p>
 </blockquote>
-<h2 id="custom-vision">Custom Vision</h2>
+<h2 id="h-custom-vision">Custom Vision</h2>
 <p>Custom Vision is a cloud based tool for training image classifiers. It allows you to train a classifier using only a small number of images. You can upload images through a web portal, web API or an SDK, giving each image a <em>tag</em> that has the classification of that image. You then train the model, and test it out to see how well it performs. Once you are happy with the model, you can publish versions of it that can be accessed through a web API or an SDK.</p>
 <p><img alt="The Azure Custom Vision logo" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/custom-vision-logo.png"></p>
 <blockquote>
@@ -69,7 +66,7 @@
 <blockquote>
 <p>💁 The free tier is more than enough to create a model, train it, then use it for development work. You can read about the limits of the free tier on the <a href="https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/limits-and-quotas?WT.mc_id=academic-17441-jabenn" target="_blank" rel="noopener noreferrer">Custom Vision Limits and quotas page on Microsoft docs</a>.</p>
 </blockquote>
-<h3 id="task-create-a-cognitive-services-resource">Task - create a cognitive services resource</h3>
+<h3 id="h-task-create-a-cognitive-services-resource">Task - create a cognitive services resource</h3>
 <p>To use Custom Vision, you first need to create two cognitive services resources in Azure using the Azure CLI, one for Custom Vision training and one for Custom Vision prediction.</p>
 <ol>
 <li>
@@ -105,7 +102,7 @@
 <p>This will create a Custom Vision prediction resource in your Resource Group. It will be called <code>fruit-quality-detector-prediction</code> and use the <code>F0</code> sku, which is the free tier. The <code>--yes</code> option means you agree to the terms and conditions of the cognitive services.</p>
 </li>
 </ol>
-<h3 id="task-create-an-image-classifier-project">Task - create an image classifier project</h3>
+<h3 id="h-task-create-an-image-classifier-project">Task - create an image classifier project</h3>
 <ol>
 <li>
 <p>Launch the Custom Vision portal at <a href="https://customvision.ai" target="_blank" rel="noopener noreferrer">CustomVision.ai</a>, and sign in with the Microsoft account you used for your Azure account.</p>
@@ -118,7 +115,7 @@
 </li>
 </ol>
 <p>✅ Take some time to explore the Custom Vision UI for your image classifier.</p>
-<h3 id="task-train-your-image-classifier-project">Task - train your image classifier project</h3>
+<h3 id="h-task-train-your-image-classifier-project">Task - train your image classifier project</h3>
 <p>To train an image classifier, you will need multiple pictures of fruit, both good and bad quality to tag as good and bad, such as an ripe and an overripe banana.</p>
 <blockquote>
 <p>💁 These classifiers can classify images of anything, so if you don't have fruit to hand of differing quality, you can use two different types of fruit, or cats and dogs!</p>
@@ -156,9 +153,9 @@
 <blockquote>
 <p>🍌 If you decide to eat your fruit whilst the classifier is training, make sure you have enough images to test with first!</p>
 </blockquote>
-<h2 id="test-your-image-classifier">Test your image classifier</h2>
+<h2 id="h-test-your-image-classifier">Test your image classifier</h2>
 <p>Once your classifier is trained, you can test it by giving it a new image to classify.</p>
-<h3 id="task-test-your-image-classifier">Task - test your image classifier</h3>
+<h3 id="h-task-test-your-image-classifier">Task - test your image classifier</h3>
 <ol>
 <li>
 <p>Follow the <a href="https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/test-your-model?WT.mc_id=academic-17441-jabenn#test-your-model" target="_blank" rel="noopener noreferrer">test your model documentation on the Microsoft docs</a> to test your image classifier. Use the testing images you created earlier, not any of the images you used for training.</p>
@@ -168,10 +165,10 @@
 <p>Try all the testing images you have access to and observe the probabilities.</p>
 </li>
 </ol>
-<h2 id="retrain-your-image-classifier">Retrain your image classifier</h2>
+<h2 id="h-retrain-your-image-classifier">Retrain your image classifier</h2>
 <p>When you test your classifier, it may not give the results you expect. Image classifiers use machine learning to make predictions about what is in an image, based of probabilities that particular features of an image mean that it matches a particular label. It doesn't understand what is in the image - it doesn't know what a banana is or understand what makes a banana a banana instead of a boat. You can improve your classifier by retraining it with images it gets wrong.</p>
 <p>Every time you make a prediction using the quick test option, the image and results are stored. You can use these images to retrain your model.</p>
-<h3 id="task-retrain-your-image-classifier">Task - retrain your image classifier</h3>
+<h3 id="h-task-retrain-your-image-classifier">Task - retrain your image classifier</h3>
 <ol>
 <li>
 <p>Follow the <a href="https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/test-your-model?WT.mc_id=academic-17441-jabenn#use-the-predicted-image-for-training" target="_blank" rel="noopener noreferrer">use the predicted image for training documentation on the Microsoft docs</a> to retrain your model, using the correct tag for each image.</p>
@@ -181,12 +178,10 @@
 </li>
 </ol>
 <hr>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>What do you think would happen if you used a picture of a strawberry with a model trained on bananas, or a picture of an inflatable banana, or a person in a banana suit, or even a yellow cartoon character like someone from the Simpsons?</p>
 <p>Try it out and see what the predictions are. You can find images to try with using <a href="https://www.bing.com/images/trending" target="_blank" rel="noopener noreferrer">Bing Image search</a>.</p>
-
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <ul>
 <li>When you trained your classifier, you would have seen values for <em>Precision</em>, <em>Recall</em>, and <em>AP</em> that rate the model that was created. Read up on what these values are using <a href="https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier?WT.mc_id=academic-17441-jabenn#evaluate-the-classifier" target="_blank" rel="noopener noreferrer">the evaluate the classifier section of the build a classifier quickstart on the Microsoft docs</a></li>
 <li>Read up on how to improve your classifier from the <a href="https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier?WT.mc_id=academic-17441-jabenn" target="_blank" rel="noopener noreferrer">how to improve your Custom Vision model on the Microsoft docs</a></li>

@@ -1,16 +1,5 @@
-<div>
-
-<div>
 <img alt="Spark icon" loading="lazy" src="https://developers.google.com/_static/images/icons/spark.svg">
-<div>
-<h2 id="page-summary">Page Summary</h2>
-</div>
-
-</div>
-<div>
-
-
-
+<h2 id="h-page-summary">Page Summary</h2>
 <ul>
 <li>
 <p>ML pipeline monitoring involves validating data and features, tracking real-world metrics, and addressing potential biases in data slices.</p>
@@ -28,13 +17,10 @@
 <p>Maintaining invariant hashing ensures data splits remain consistent across experiments, contributing to reliable analysis and model evaluation.</p>
 </li>
 </ul>
-</div>
-
-
 <p>Congratulations! You've deployed the <a href="https://developers.google.com/machine-learning/crash-course/production-ml-systems/deployment-testing#unicorn" target="_blank" rel="noopener noreferrer">unicorn model</a>.
 Your model should run 24x7 without any problems. To ensure that it does,
 you must monitor your machine learning (ML) pipeline.</p>
-<h2 id="write-a-data-schema-to-validate-raw-data">Write a data schema to validate raw data</h2>
+<h2 id="h-write-a-data-schema-to-validate-raw-data">Write a data schema to validate raw data</h2>
 <p>To monitor your data, you should continuously check it against expected
 statistical values by writing rules that the data must satisfy. This collection
 of rules is called a <em>data schema</em>. Define a data schema by following
@@ -59,7 +45,7 @@ errors such as:</p>
 <li>Unexpected data distributions</li>
 </ul></li>
 </ol>
-<h2 id="write-unit-tests-to-validate-feature-engineering">Write unit tests to validate feature engineering</h2>
+<h2 id="h-write-unit-tests-to-validate-feature-engineering">Write unit tests to validate feature engineering</h2>
 <p>While your raw data might pass the data schema, your model doesn't train
 on raw data. Rather, your model trains on data that has been feature
 engineered. For example, your model trains on normalized numerical features
@@ -80,7 +66,7 @@ Z-scores should be 0.</li>
 are handled, such as by <a href="https://developers.google.com/machine-learning/glossary#scaling" target="_blank" rel="noopener noreferrer"><strong>scaling</strong></a>
 or <a href="https://developers.google.com/machine-learning/glossary#clipping" target="_blank" rel="noopener noreferrer"><strong>clipping</strong></a>.</li>
 </ul>
-<h2 id="check-metrics-for-important-data-slices">Check metrics for important data slices</h2>
+<h2 id="h-check-metrics-for-important-data-slices">Check metrics for important data slices</h2>
 <p>A successful whole sometimes obscures an unsuccessful subset. In other words,
 a model with great overall metrics might still make terrible predictions for
 certain situations. For example:</p>
@@ -99,14 +85,14 @@ entire dataset. Checking that your model performs well across all data slices
 helps remove bias. See
 <a href="https://developers.google.com/machine-learning/crash-course/fairness/evaluating-for-bias" target="_blank" rel="noopener noreferrer">Fairness: Evaluating for Bias</a>
 for more information.</p>
-<h2 id="use-real-world-metrics">Use real-world metrics</h2>
+<h2 id="h-use-real-world-metrics">Use real-world metrics</h2>
 <p>Model metrics don't necessarily measure the real-world impact of your model.
 For example, changing a hyperparameter might increase a model's AUC, but how
 did the change affect user experience? To measure real-world impact, you need
 to define separate metrics. For example, you could survey users of your model
 to confirm that they really did see a unicorn when the model predicted they
 would.</p>
-<h2 id="check-for-training-serving-skew">Check for training-serving skew</h2>
+<h2 id="h-check-for-training-serving-skew">Check for training-serving skew</h2>
 <p><a href="https://developers.google.com/machine-learning/glossary#training-serving-skew" target="_blank" rel="noopener noreferrer"><strong>Training-serving skew</strong></a>
 means your input data during training differs
 from your input data in serving. The following table describes the
@@ -146,21 +132,20 @@ two important types of skew:</p>
 <p>Causes of training-serving skew can be subtle.
 Always consider what data is available to your model at prediction time.
 During training, use only the features that you'll have available when serving.</p>
-
-<h3 id="exercise-check-your-understanding">Exercise: Check your understanding</h3>
+<h3 id="h-exercise-check-your-understanding">Exercise: Check your understanding</h3>
 <p>Suppose you have an online store and want to predict
 how much money you’ll make on a given day. Your ML goal is to predict daily
 revenue using the number of customers as a feature. </p>
-<div>
 
-<div>
+
+
     What problem might you encounter?
-  </div>
-<div>
-<div>
+  
+
+
       Click here to see the answer
-    </div>
-<div>
+    
+
 <p><strong>Answer:</strong> The problem is that you don't know the
       number of customers at prediction time, before the day's sales are
       complete. So, this feature isn't useful, even if this feature is
@@ -168,16 +153,12 @@ revenue using the number of customers as a feature. </p>
       training a model and get amazing evaluation metrics (like 0.99
       <a href="https://developers.google.com/machine-learning/glossary#AUC" target="_blank" rel="noopener noreferrer"><strong>AUC</strong></a>),
       look for these sorts of features that can bleed into your label.</p>
-</div>
-</div>
-
-</div>
-<h2 id="check-for-label-leakage">Check for label leakage</h2>
+<h2 id="h-check-for-label-leakage">Check for label leakage</h2>
 <p><a href="https://developers.google.com/machine-learning/glossary#label-leakage" target="_blank" rel="noopener noreferrer"><strong>Label leakage</strong></a> means that your
 <a href="https://developers.google.com/machine-learning/glossary#ground-truth" target="_blank" rel="noopener noreferrer"><strong>ground truth</strong></a> labels that you're
 trying to predict have inadvertently entered your training features. Label
 leakage is sometimes very difficult to detect.</p>
-<h3 id="exercise-check-your-understanding-x">Exercise: Check your understanding</h3>
+<h3 id="h-exercise-check-your-understanding-x">Exercise: Check your understanding</h3>
 <p>Suppose you build a binary classification model to predict whether or not
 a new hospital patient has cancer. Your model uses features like the following:</p>
 <ul>
@@ -198,17 +179,17 @@ isolated from your validation set and test set. The model performs
 exceedingly <em>well</em> on the validation set and test set; the metrics are
 fantastic. Unfortunately, the model performs <em>terribly</em> on new patients
 in the real world.</p>
-<div>
 
-<div>
+
+
     Why did this model that excelled on the test set fail miserably
     in the real world?
-  </div>
-<div>
-<div>
+  
+
+
       Click here to see the answer
-    </div>
-<div>
+    
+
 <p><strong>Answer:</strong> One of the model's features is hospital name.
       Certain hospitals specialize in treating cancer. During training, the
       model quickly learned that patients assigned to certain hospitals very
@@ -219,23 +200,18 @@ in the real world.</p>
       to an appropriate hospital. Consequently, during inference, the
       hospital name feature wasn't yet available and the model was forced
       to rely on other features.</p>
-</div>
-</div>
-
-</div>
-
-<h2 id="monitor-model-age-throughout-pipeline">Monitor model age throughout pipeline</h2>
+<h2 id="h-monitor-model-age-throughout-pipeline">Monitor model age throughout pipeline</h2>
 <p>If the serving data evolves with time but your model isn’t retrained regularly,
 then you will see a decline in model quality. Track the time since the model was
 retrained on new data and set a threshold age for alerts. Besides monitoring the
 model's age at serving, you should monitor the model's age throughout the pipeline
 to catch pipeline stalls.</p>
-<h2 id="test-that-model-weights-and-outputs-are-numerically-stable">Test that model weights and outputs are numerically stable</h2>
+<h2 id="h-test-that-model-weights-and-outputs-are-numerically-stable">Test that model weights and outputs are numerically stable</h2>
 <p>During model training, your weights and layer outputs should not be NaN
 (not a number) or Inf (infinite).
 Write tests to check for NaN and Inf values of your weights and layer outputs.
 Additionally, test that more than half of the outputs of a layer are not zero.</p>
-<h2 id="monitor-model-performance">Monitor model performance</h2>
+<h2 id="h-monitor-model-performance">Monitor model performance</h2>
 <p>Your unicorn appearance predictor has been more popular than expected! You’re
 getting lots of prediction requests and even more training data. You think
 that's great until you realize that your model is taking more and more memory
@@ -252,7 +228,7 @@ times might be outside your control, slow responses could potentially cause
 poor real-world metrics.</li>
 <li>Monitor the number of queries answered per second.</li>
 </ul>
-<h2 id="test-the-quality-of-live-model-on-served-data">Test the quality of live model on served data</h2>
+<h2 id="h-test-the-quality-of-live-model-on-served-data">Test the quality of live model on served data</h2>
 <p>You’ve validated your model. But what if real-world scenarios, such as unicorn
 behavior, change after recording your validation data? Then the quality of your
 served model will degrade. However, testing quality in serving is hard because
@@ -271,7 +247,7 @@ your new serving model, gradually switch all queries to the new version.</p></li
 </ul>
 <p>Using these tests, remember to monitor both sudden and slow degradation in
 prediction quality.</p>
-<h2 id="randomization">Randomization</h2>
+<h2 id="h-randomization">Randomization</h2>
 <p>Make your data generation pipeline reproducible. Say you want to add a feature
 to see how it affects model quality. For a fair experiment, your datasets should
 be identical except for this new feature.
@@ -290,7 +266,7 @@ current time or a random number in your hash, for example, if you want to
 recreate your hashes on demand.</li>
 </ul>
 <p>The preceding approaches apply both to sampling and splitting your data.</p>
-<h3 id="considerations-for-hashing">Considerations for hashing</h3>
+<h3 id="h-considerations-for-hashing">Considerations for hashing</h3>
 <p>Imagine again you were collecting Search queries and using hashing
 to include or exclude queries. If the hash key only used the query,
 then across multiple days of data, you'll either <em>always</em> include
@@ -315,10 +291,4 @@ hashing for each day.</p>
 <b>Figure 7.</b> Hashing on query versus hashing on query + query date.
   </figcaption>
 </figure>
-
-
-
-<div>
 <a href="https://support.google.com/machinelearningeducation" target="_blank" rel="noopener noreferrer">Help Center</a>
-</div>
-</div>

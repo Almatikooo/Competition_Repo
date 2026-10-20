@@ -12,7 +12,7 @@
 <li>How can I save my plot for publishing?</li>
 </ul>
 </div>
-<h2 id="matplotlib-is-the-most-widely-used-scientific-plotting-libra"><a href="https://matplotlib.org/" target="_blank" rel="noopener noreferrer"><code>matplotlib</code></a> is the most widely used scientific plotting library in Python.</h2>
+<h2 id="h-matplotlib-is-the-most-widely-used-scientific-plotting-libra"><a href="https://matplotlib.org/" target="_blank" rel="noopener noreferrer"><code>matplotlib</code></a> is the most widely used scientific plotting library in Python.</h2>
 <ul>
 <li>Commonly use a sub-library called <a href="https://matplotlib.org/stable/tutorials/introductory/pyplot.html" target="_blank" rel="noopener noreferrer"><code>matplotlib.pyplot</code></a>.</li>
 <li>The Jupyter Notebook will render plots inline by default.</li>
@@ -32,7 +32,6 @@ plt.ylabel('Position (km)')
 <p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/swcarpentry/python-novice-gapminder/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/fig/9_simple_position_time_plot.svg">{alt='A line chart showing time (hr) relative to position (km), using the values provided in the code block above. By default, the plotted line is blue against a white background, and the axes have been scaled automatically to fit the range of the input data.'}</p>
 <div class="box box-callout">
 <p class="box-title">Display All Open Figures</p>
-
 <p>In our Jupyter Notebook example, running the cell should generate the figure directly below the code.
 The figure is also included in the Notebook document for future viewing.
 However, other Python environments like an interactive Python session started from a terminal
@@ -43,7 +42,7 @@ or a Python script executed via the command line require an additional command t
 <p>This command can also be used within a Notebook - for instance, to display multiple figures
 if several are created by a single cell.</p>
 </div>
-<h2 id="plot-data-directly-from-a-pandas-dataframe">Plot data directly from a <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html" target="_blank" rel="noopener noreferrer"><code>Pandas dataframe</code></a>.</h2>
+<h2 id="h-plot-data-directly-from-a-pandas-dataframe">Plot data directly from a <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html" target="_blank" rel="noopener noreferrer"><code>Pandas dataframe</code></a>.</h2>
 <ul>
 <li>We can also plot <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html" target="_blank" rel="noopener noreferrer">Pandas dataframes</a>.</li>
 <li>Before plotting, we convert the column headings from a <code>string</code> to <code>integer</code> data type, since they represent numerical values,
@@ -70,7 +69,7 @@ data.columns = years.astype(int)
 data.loc['Australia'].plot()
 </code></pre>
 <p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/swcarpentry/python-novice-gapminder/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/fig/9_gdp_australia.svg">{alt='GDP plot for Australia'}</p>
-<h2 id="select-and-transform-data-then-plot-it">Select and transform data, then plot it.</h2>
+<h2 id="h-select-and-transform-data-then-plot-it">Select and transform data, then plot it.</h2>
 <ul>
 <li>By default, <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.plot.html#pandas.DataFrame.plot" target="_blank" rel="noopener noreferrer"><code>DataFrame.plot</code></a> plots with the rows as the X axis.</li>
 <li>We can transpose the data in order to plot multiple series.</li>
@@ -79,7 +78,7 @@ data.loc['Australia'].plot()
 plt.ylabel('GDP per capita')
 </code></pre>
 <p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/swcarpentry/python-novice-gapminder/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/fig/9_gdp_australia_nz.svg">{alt='GDP plot for Australia and New Zealand'}</p>
-<h2 id="many-styles-of-plot-are-available">Many styles of plot are available.</h2>
+<h2 id="h-many-styles-of-plot-are-available">Many styles of plot are available.</h2>
 <ul>
 <li>For example, do a bar plot using a fancier style.</li>
 </ul>
@@ -88,19 +87,19 @@ data.T.plot(kind='bar')
 plt.ylabel('GDP per capita')
 </code></pre>
 <p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/swcarpentry/python-novice-gapminder/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/fig/9_gdp_bar.svg">{alt='GDP barplot for Australia'}</p>
-<h2 id="data-can-also-be-plotted-by-calling-the-matplotlib-plot-func">Data can also be plotted by calling the <code>matplotlib</code> <code>plot</code> function directly.</h2>
+<h2 id="h-data-can-also-be-plotted-by-calling-the-matplotlib-plot-func">Data can also be plotted by calling the <code>matplotlib</code> <code>plot</code> function directly.</h2>
 <ul>
 <li>The command is <code>plt.plot(x, y)</code></li>
 <li>The color and format of markers can also be specified as an additional optional argument e.g., <code>b-</code> is a blue line, <code>g--</code> is a green dashed line.</li>
 </ul>
-<h2 id="get-australia-data-from-dataframe">Get Australia data from dataframe</h2>
+<h2 id="h-get-australia-data-from-dataframe">Get Australia data from dataframe</h2>
 <pre><code class="language-python">years = data.columns
 gdp_australia = data.loc['Australia']
 
 plt.plot(years, gdp_australia, 'g--')
 </code></pre>
 <p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/swcarpentry/python-novice-gapminder/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/fig/9_gdp_australia_formatted.svg">{alt='GDP formatted plot for Australia'}</p>
-<h2 id="can-plot-many-sets-of-data-together">Can plot many sets of data together.</h2>
+<h2 id="h-can-plot-many-sets-of-data-together">Can plot many sets of data together.</h2>
 <pre><code class="language-python"># Select two countries' worth of data.
 gdp_australia = data.loc['Australia']
 gdp_nz = data.loc['New Zealand']
@@ -116,7 +115,6 @@ plt.ylabel('GDP per capita ($)')
 </code></pre>
 <div class="box box-callout">
 <p class="box-title">Adding a Legend</p>
-
 <p>Often when plotting multiple datasets on the same figure it is desirable to have
 a legend describing the data.</p>
 <p>This can be done in <code>matplotlib</code> in two stages:</p>
@@ -148,7 +146,6 @@ the legend in the upper left corner of the plot, specify <code>loc='upper left'<
 <p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/swcarpentry/python-novice-gapminder/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/fig/9_gdp_correlation_data.svg">{alt='GDP correlation using data.T.plot.scatter'}</p>
 <div class="box box-challenge">
 <p class="box-title">Minima and Maxima</p>
-
 <p>Fill in the blanks below to plot the minimum GDP per capita over time
 for all the countries in Europe.
 Modify it again to plot the maximum GDP per capita over time for Europe.</p>
@@ -159,7 +156,6 @@ plt.legend(loc='best')
 plt.xticks(rotation=90)
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <pre><code class="language-python">data_europe = pd.read_csv('data/gapminder_gdp_europe.csv', index_col='country')
 data_europe.min().plot(label='min')
 data_europe.max().plot(label='max')
@@ -171,13 +167,11 @@ plt.xticks(rotation=90)
 </div>
 <div class="box box-challenge">
 <p class="box-title">Correlations</p>
-
 <p>Modify the example in the notes to create a scatter plot showing
 the relationship between the minimum and maximum GDP per capita
 among the countries in Asia for each year in the data set.
 What relationship do you see (if any)?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <pre><code class="language-python">data_asia = pd.read_csv('data/gapminder_gdp_asia.csv', index_col='country')
 data_asia.describe().T.plot(kind='scatter', x='min', y='max')
 </code></pre>
@@ -193,7 +187,6 @@ print(data_asia.idxmax())
 print(data_asia.idxmin())
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
 <p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/swcarpentry/python-novice-gapminder/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/fig/9_correlations_solution2.png">{alt='Correlations Solution 2'}</p>
 <p>Seems the variability in this value is due to a sharp drop after 1972.
 Some geopolitics at play perhaps? Given the dominance of oil producing countries,
@@ -204,7 +197,6 @@ more notably.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">More Correlations</p>
-
 <p>This short program creates a plot showing
 the correlation between GDP and life expectancy for 2007,
 normalizing marker size by population:</p>
@@ -215,7 +207,6 @@ data_all.plot(kind='scatter', x='gdpPercap_2007', y='lifeExp_2007',
 <p>Using online help and other resources,
 explain what each argument to <code>plot</code> does.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x">Solution</h2>
 <p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/swcarpentry/python-novice-gapminder/03c39315c48b6a13c4b887bb200cbcd83ac6915c/episodes/fig/9_more_correlations_solution.svg">{alt='More Correlations Solution'}</p>
 <p>A good place to look is the documentation for the plot function -
 help(data_all.plot).</p>
@@ -229,7 +220,6 @@ of the plotted points.</p>
 </div>
 <div class="box box-callout">
 <p class="box-title">Saving your plot to a file</p>
-
 <p>If you are satisfied with the plot you see you may want to save it to a file,
 perhaps to include it in a publication. There is a function in the
 matplotlib.pyplot module that accomplishes this:
@@ -256,7 +246,6 @@ fig.savefig('my_figure.png')
 </div>
 <div class="box box-callout">
 <p class="box-title">Making your plots accessible</p>
-
 <p>Whenever you are generating plots to go into a paper or a presentation, there are a few things you can do to make sure that everyone can understand your plots.</p>
 <ul>
 <li>Always make sure your text is large enough to read. Use the <code>fontsize</code> parameter in <code>xlabel</code>, <code>ylabel</code>, <code>title</code>, and <code>legend</code>, and <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.tick_params.html" target="_blank" rel="noopener noreferrer"><code>tick_params</code> with <code>labelsize</code></a> to increase the text size of the numbers on your axes.</li>

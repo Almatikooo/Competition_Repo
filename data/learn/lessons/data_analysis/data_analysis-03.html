@@ -12,12 +12,11 @@
 </table></div>
 <p>Statistics and Probability Theory are two highly related areas of Mathematics that are highly relevant to Data Science. It is possible to operate with data without deep knowledge of mathematics, but it is still better to know at least some basic concepts. Here we will present a short introduction that will help you get started.</p>
 <p><a href="https://youtu.be/Z5Zy85g4Yjw" target="_blank" rel="noopener noreferrer"><img alt="Intro Video" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/1-Introduction/04-stats-and-probability/images/video-prob-and-stats.png"></a></p>
-
-<h2 id="probability-and-random-variables">Probability and Random Variables</h2>
+<h2 id="h-probability-and-random-variables">Probability and Random Variables</h2>
 <p><strong>Probability</strong> is a number between 0 and 1 that expresses how probable an <strong>event</strong> is. It is defined as a number of positive outcomes (that lead to the event), divided by total number of outcomes, given that all outcomes are equally probable. For example, when we roll a dice, the probability that we get an even number is 3/6 = 0.5.</p>
 <p>When we talk about events, we use <strong>random variables</strong>. For example, the random variable that represents a number obtained when rolling a dice would take values from 1 to 6. Set of numbers from 1 to 6 is called <strong>sample space</strong>. We can talk about the probability of a random variable taking a certain value, for example P(X=3)=1/6.</p>
 <p>The random variable in previous example is called <strong>discrete</strong>, because it has a countable sample space, i.e. there are separate values that can be enumerated. There are cases when sample space is a range of real numbers, or the whole set of real numbers. Such variables are called <strong>continuous</strong>. A good example is the time when the bus arrives.</p>
-<h2 id="probability-distribution">Probability Distribution</h2>
+<h2 id="h-probability-distribution">Probability Distribution</h2>
 <p>In the case of discrete random variables, it is easy to describe the probability of each event by a function P(X). For each value <em>s</em> from sample space <em>S</em> it will give a number from 0 to 1, such that the sum of all values of P(X=s) for all events would be 1.</p>
 <p>The most well-known discrete distribution is <strong>uniform distribution</strong>, in which there is a sample space of N elements, with equal probability of 1/N for each of them.</p>
 <p>It is more difficult to describe the probability distribution of a continuous variable, with values drawn from some interval [a,b], or the whole set of real numbers ℝ. Consider the case of bus arrival time. In fact, for each exact arrival time <em>t</em>, the probability of a bus arriving at exactly that time is 0!</p>
@@ -28,13 +27,13 @@
 <p><img alt="P(t_1e X&lt;t_2)=nt_{t_1}^{t_2}p(x)dx" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/1-Introduction/04-stats-and-probability/images/probability-density.png"></p>
 <p>A continuous analog of uniform distribution is called <strong>continuous uniform</strong>, which is defined on a finite interval. A probability that the value X falls into an interval of length l is proportional to l, and rises up to 1.</p>
 <p>Another important distribution is <strong>normal distribution</strong>, which we will talk about in more detail below.</p>
-<h2 id="mean-variance-and-standard-deviation">Mean, Variance and Standard Deviation</h2>
+<h2 id="h-mean-variance-and-standard-deviation">Mean, Variance and Standard Deviation</h2>
 <p>Suppose we draw a sequence of n samples of a random variable X: x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub>. We can define <strong>mean</strong> (or <strong>arithmetic average</strong>) value of the sequence in the traditional way as (x<sub>1</sub>+x<sub>2</sub>+x<sub>n</sub>)/n. As we grow the size of the sample (i.e. take the limit with n→∞), we will obtain the mean (also called <strong>expectation</strong>) of the distribution. We will denote expectation by <strong>E</strong>(x).</p>
 <blockquote>
 <p>It can be demonstrated that for any discrete distribution with values {x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>N</sub>} and corresponding probabilities p<sub>1</sub>, p<sub>2</sub>, ..., p<sub>N</sub>, the expectation would equal to E(X)=x<sub>1</sub>p<sub>1</sub>+x<sub>2</sub>p<sub>2</sub>+...+x<sub>N</sub>p<sub>N</sub>.</p>
 </blockquote>
 <p>To identify how far the values are spread, we can compute the variance σ<sup>2</sup> = ∑(x<sub>i</sub> - μ)<sup>2</sup>/n, where μ is the mean of the sequence. The value σ is called <strong>standard deviation</strong>, and σ<sup>2</sup> is called a <strong>variance</strong>.</p>
-<h2 id="mode-median-and-quartiles">Mode, Median and Quartiles</h2>
+<h2 id="h-mode-median-and-quartiles">Mode, Median and Quartiles</h2>
 <p>Sometimes, mean does not adequately represent the "typical" value for data. For example, when there are a few extreme values that are completely out of range, they can affect the mean. Another good indication is a <strong>median</strong>, a value such that half of data points are lower than it, and another half - higher.</p>
 <p>To help us understand the distribution of data, it is helpful to talk about <strong>quartiles</strong>:</p>
 <ul>
@@ -45,7 +44,7 @@
 <img alt="Box Plot Explanation" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/1-Introduction/04-stats-and-probability/images/boxplot_explanation.png" width="50%">
 <p>Here we also compute <strong>inter-quartile range</strong> IQR=Q3-Q1, and so-called <strong>outliers</strong> - values, that lie outside the boundaries [Q1-1.5<em>IQR,Q3+1.5</em>IQR].</p>
 <p>For finite distribution that contains a small number of possible values, a good "typical" value is the one that appears the most frequently, which is called <strong>mode</strong>. It is often applied to categorical data, such as colors. Consider a situation when we have two groups of people - some that strongly prefer red, and others who prefer blue. If we code colors by numbers, the mean value for a favorite color would be somewhere in the orange-green spectrum, which does not indicate the actual preference on neither group. However, the mode would be either one of the colors, or both colors, if the number of people voting for them is equal (in this case we call the sample <strong>multimodal</strong>).</p>
-<h2 id="real-world-data">Real-world Data</h2>
+<h2 id="h-real-world-data">Real-world Data</h2>
 <p>When we analyze data from real life, they often are not random variables as such, in a sense that we do not perform experiments with unknown result. For example, consider a team of baseball players, and their body data, such as height, weight and age. Those numbers are not exactly random, but we can still apply the same mathematical concepts. For example, a sequence of people's weights can be considered to be a sequence of values drawn from some random variable. Below is the sequence of weights of actual baseball players from <a href="http://mlb.mlb.com/index.jsp" target="_blank" rel="noopener noreferrer">Major League Baseball</a>, taken from <a href="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_MLB_HeightsWeights" target="_blank" rel="noopener noreferrer">this dataset</a> (for your convenience, only first 20 values are shown):</p>
 <pre><code>[180.0, 215.0, 210.0, 210.0, 188.0, 176.0, 209.0, 200.0, 231.0, 180.0, 188.0, 180.0, 185.0, 160.0, 180.0, 185.0, 197.0, 189.0, 185.0, 219.0]
 </code></pre>
@@ -66,7 +65,7 @@
 <blockquote>
 <p>If we take weights of other people, not from the baseball league, the distribution is likely to be different. However, the shape of the distribution will be the same, but mean and variance would change. So, if we train our model on baseball players, it is likely to give wrong results when applied to students of a university, because the underlying distribution is different.</p>
 </blockquote>
-<h2 id="normal-distribution">Normal Distribution</h2>
+<h2 id="h-normal-distribution">Normal Distribution</h2>
 <p>The distribution of weights that we have seen above is very typical, and many measurements from real world follow the same type of distribution, but with different mean and variance. This distribution is called <strong>normal distribution</strong>, and it plays a very important role in statistics.</p>
 <p>Using normal distribution is a correct way to generate random weights of potential baseball players. Once we know mean weight <code>mean</code> and standard deviation <code>std</code>, we can generate 1000 weight samples in the following way:</p>
 <pre><code class="language-python">samples = np.random.normal(mean,std,1000)
@@ -74,7 +73,7 @@
 <p>If we plot the histogram of the generated samples we will see the picture very similar to the one shown above. And if we increase the number of samples and the number of bins, we can generate a picture of a normal distribution that is more close to ideal:</p>
 <p><img alt="Normal Distribution with mean=0 and std.dev=1" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/1-Introduction/04-stats-and-probability/images/normal-histogram.png"></p>
 <p><em>Normal Distribution with mean=0 and std.dev=1</em></p>
-<h2 id="confidence-intervals">Confidence Intervals</h2>
+<h2 id="h-confidence-intervals">Confidence Intervals</h2>
 <p>When we talk about weights of baseball players, we assume that there is certain <strong>random variable W</strong> that corresponds to ideal probability distribution of weights of all baseball players (so-called <strong>population</strong>). Our sequence of weights corresponds to a subset of all baseball players that we call <strong>sample</strong>. An interesting question is, can we know the parameters of distribution of W, i.e. mean and variance of the population?</p>
 <p>The easiest answer would be to calculate mean and variance of our sample. However, it could happen that our random sample does not accurately represent complete population. Thus it makes sense to talk about <strong>confidence interval</strong>.</p>
 <blockquote>
@@ -113,7 +112,7 @@
 </tbody>
 </table></div>
 <p>Notice that the higher is the confidence probability, the wider is the confidence interval.</p>
-<h2 id="hypothesis-testing">Hypothesis Testing</h2>
+<h2 id="h-hypothesis-testing">Hypothesis Testing</h2>
 <p>In our baseball players dataset, there are different player roles, that can be summarized below (look at the <a href="https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/1-Introduction/04-stats-and-probability/notebook.ipynb" target="_blank" rel="noopener noreferrer">accompanying notebook</a> to see how this table can be calculated):</p>
 <div class="table-wrap"><table>
 <thead>
@@ -233,13 +232,13 @@ P-value: 9.137321189738925e-12
 <li>To prove that a mean value of a sample corresponds to some predefined value</li>
 <li>To compare means of a number of samples (eg. what is the difference in happiness levels among different age groups)</li>
 </ul>
-<h2 id="law-of-large-numbers-and-central-limit-theorem">Law of Large Numbers and Central Limit Theorem</h2>
+<h2 id="h-law-of-large-numbers-and-central-limit-theorem">Law of Large Numbers and Central Limit Theorem</h2>
 <p>One of the reasons why normal distribution is so important is so-called <strong>central limit theorem</strong>. Suppose we have a large sample of independent N values X<sub>1</sub>, ..., X<sub>N</sub>, sampled from any distribution with mean μ and variance σ<sup>2</sup>. Then, for sufficiently large N (in other words, when N→∞), the mean Σ<sub>i</sub>X<sub>i</sub> would be normally distributed, with mean μ and variance σ<sup>2</sup>/N.</p>
 <blockquote>
 <p>Another way to interpret the central limit theorem is to say that regardless of distribution, when you compute the mean of a sum of any random variable values you end up with normal distribution.</p>
 </blockquote>
 <p>From the central limit theorem it also follows that, when N→∞, the probability of the sample mean to be equal to μ becomes 1. This is known as <strong>the law of large numbers</strong>.</p>
-<h2 id="covariance-and-correlation">Covariance and Correlation</h2>
+<h2 id="h-covariance-and-correlation">Covariance and Correlation</h2>
 <p>One of the things Data Science does is finding relations between data. We say that two sequences <strong>correlate</strong> when they exhibit the similar behavior at the same time, i.e. they either rise/fall simultaneously, or one sequence rises when another one falls and vice versa. In other words, there seems to be some relation between two sequences.</p>
 <blockquote>
 <p>Correlation does not necessarily indicate causal relationship between two sequences; sometimes both variables can depend on some external cause, or it can be purely by chance the two sequences correlate. However, strong mathematical correlation is a good indication that two variables are somehow connected.</p>
@@ -261,7 +260,7 @@ P-value: 9.137321189738925e-12
 <blockquote>
 <p>More examples of correlation and covariance can be found in <a href="https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/1-Introduction/04-stats-and-probability/notebook.ipynb" target="_blank" rel="noopener noreferrer">accompanying notebook</a>.</p>
 </blockquote>
-<h2 id="conclusion">Conclusion</h2>
+<h2 id="h-conclusion">Conclusion</h2>
 <p>In this section, we have learnt:</p>
 <ul>
 <li>basic statistical properties of data, such as mean, variance, mode and quartiles</li>
@@ -271,15 +270,14 @@ P-value: 9.137321189738925e-12
 <li>how to compute confidence intervals for random variable given data sample</li>
 </ul>
 <p>While this is definitely not exhaustive list of topics that exist within probability and statistics, it should be enough to give you a good start into this course.</p>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>Use the sample code in the notebook to test other hypothesis that:</p>
 <ol>
 <li>First basemen are older than second basemen</li>
 <li>First basemen are taller than third basemen</li>
 <li>Shortstops are taller than second basemen</li>
 </ol>
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>Probability and statistics is such a broad topic that it deserves its own course. If you are interested to go deeper into theory, you may want to continue reading some of the following books:</p>
 <ol>
 <li><a href="https://cims.nyu.edu/~cfgranda/" target="_blank" rel="noopener noreferrer">Carlos Fernandez-Granda</a> from New York University has great lecture notes <a href="https://cims.nyu.edu/~cfgranda/pages/stuff/probability_stats_for_DS.pdf" target="_blank" rel="noopener noreferrer">Probability and Statistics for Data Science</a> (available online)</li>

@@ -76,7 +76,7 @@ export function radar({ skills, categories, names, shorts, mine, t, lang, onSele
   const size = 680, c = size / 2, R = 300;
   const outer = [0.3, 0.54, 0.77, 1].map((f) => f * R);
   const inner = [0, ...outer.slice(0, 3)];
-  const svg = s("svg", { viewBox: `0 0 ${size} ${size}`, role: "img", "aria-label": t("radar_title") });
+  const svg = s("svg", { viewBox: `0 0 ${size} ${size}`, role: "img", "aria-label": t("radar_t") });
   outer.slice().reverse().forEach((r, i) => svg.append(s("circle", { cx: c, cy: c, r, class: `radar-ring ${i === 3 ? "radar-ring-fill-0" : ""}` })));
   svg.append(s("line", { x1: c - R, y1: c, x2: c + R, y2: c, class: "radar-axis" }));
   svg.append(s("line", { x1: c, y1: c - R, x2: c, y2: c + R, class: "radar-axis" }));

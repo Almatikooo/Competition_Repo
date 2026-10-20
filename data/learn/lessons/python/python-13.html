@@ -11,7 +11,7 @@
 <li>How can I create my own functions?</li>
 </ul>
 </div>
-<h2 id="break-programs-down-into-functions-to-make-them-easier-to-un">Break programs down into functions to make them easier to understand.</h2>
+<h2 id="h-break-programs-down-into-functions-to-make-them-easier-to-un">Break programs down into functions to make them easier to understand.</h2>
 <ul>
 <li>Human beings can only keep a few items in working memory at a time.</li>
 <li>Understand larger/more complicated ideas by understanding and combining pieces.
@@ -31,7 +31,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="define-a-function-using-def-with-a-name-parameters-and-a-blo">Define a function using <code>def</code> with a name, parameters, and a block of code.</h2>
+<h2 id="h-define-a-function-using-def-with-a-name-parameters-and-a-blo">Define a function using <code>def</code> with a name, parameters, and a block of code.</h2>
 <ul>
 <li>Begin the definition of a new function with <code>def</code>.</li>
 <li>Followed by the name of the function.
@@ -53,7 +53,7 @@
     print('The weather is nice today.')
     print('Right?')
 </code></pre>
-<h2 id="defining-a-function-does-not-run-it">Defining a function does not run it.</h2>
+<h2 id="h-defining-a-function-does-not-run-it">Defining a function does not run it.</h2>
 <ul>
 <li>Defining a function does not run it.
 <ul>
@@ -68,7 +68,7 @@
 The weather is nice today.
 Right?
 </code></pre>
-<h2 id="arguments-in-a-function-call-are-matched-to-its-defined-para">Arguments in a function call are matched to its defined parameters.</h2>
+<h2 id="h-arguments-in-a-function-call-are-matched-to-its-defined-para">Arguments in a function call are matched to its defined parameters.</h2>
 <ul>
 <li>Functions are most useful when they can operate on different data.</li>
 <li>Specify <em>parameters</em> when defining a function.
@@ -101,7 +101,7 @@ or the day for example.</p>
 <code>()</code> contains the ingredients for the function
 while the body contains the recipe.</li>
 </ul>
-<h2 id="functions-may-return-a-result-to-their-caller-using-return">Functions may return a result to their caller using <code>return</code>.</h2>
+<h2 id="h-functions-may-return-a-result-to-their-caller-using-return">Functions may return a result to their caller using <code>return</code>.</h2>
 <ul>
 <li>Use <code>return ...</code> to give a value back to the caller.</li>
 <li>May occur anywhere in the function.</li>
@@ -138,7 +138,6 @@ result of call is: None
 </code></pre>
 <div class="box box-challenge">
 <p class="box-title">Identifying Syntax Errors</p>
-
 <ol>
 <li>Read the code below and try to identify what the errors are
 <em>without</em> running it.</li>
@@ -153,7 +152,6 @@ Is it a <code>SyntaxError</code> or an <code>IndentationError</code>?</li>
   print("So they are usually not too hard to fix.")
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <pre><code class="language-python">def another_function():
   print("Syntax errors are annoying.")
   print("But at least Python tells us about them!")
@@ -163,7 +161,6 @@ Is it a <code>SyntaxError</code> or an <code>IndentationError</code>?</li>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Definition and Use</p>
-
 <p>What does the following program print?</p>
 <pre><code class="language-python">def report(pressure):
     print('pressure is', pressure)
@@ -171,7 +168,6 @@ Is it a <code>SyntaxError</code> or an <code>IndentationError</code>?</li>
 print('calling', report, 22.5)
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <pre><code class="language-output">calling &lt;function report at 0x7fd128ff1bf8&gt; 22.5
 </code></pre>
 <p>A function call always needs parenthesis, otherwise you get memory address of the function object. So, if we wanted to call the function named report, and give it the value 22.5 to report on, we could have our function call as follows</p>
@@ -185,7 +181,6 @@ pressure is 22.5
 </div>
 <div class="box box-challenge">
 <p class="box-title">Order of Operations</p>
-
 <ol>
 <li>What's wrong in this example?</li>
 </ol>
@@ -209,7 +204,6 @@ result of call is: None
 <li>Why is the result of the call <code>None</code>?</li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
 <ol>
 <li>
 <p>The problem with the example is that the function <code>print_time()</code> is defined <em>after</em> the call to the function is made. Python
@@ -229,7 +223,6 @@ of the <code>result</code> variable.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Encapsulation</p>
-
 <p>Fill in the blanks to create a function that takes a single filename as an argument,
 loads the data in the file named by the argument,
 and returns the minimum value in that data.</p>
@@ -240,7 +233,6 @@ def min_in_data(____):
     return ____
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x">Solution</h2>
 <pre><code class="language-python">import pandas as pd
 
 def min_in_data(filename):
@@ -251,7 +243,6 @@ def min_in_data(filename):
 </div>
 <div class="box box-challenge">
 <p class="box-title">Find the First</p>
-
 <p>Fill in the blanks to create a function that takes a list of numbers as an argument
 and returns the first negative value in the list.
 What does your function do if the list is empty? What if the list has no negative numbers?</p>
@@ -261,7 +252,6 @@ What does your function do if the list is empty? What if the list has no negativ
             return ____
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x">Solution</h2>
 <pre><code class="language-python">def first_negative(values):
     for v in values:
         if v &lt; 0:
@@ -277,7 +267,6 @@ print(first_negative(my_list))
 </div>
 <div class="box box-challenge">
 <p class="box-title">Calling by Name</p>
-
 <p>Earlier we saw this function:</p>
 <pre><code class="language-python">def print_date(year, month, day):
     joined = str(year) + '/' + str(month) + '/' + str(day)
@@ -292,7 +281,6 @@ print(first_negative(my_list))
 <li>When and why is it useful to call functions this way?</li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x">Solution</h2>
 <ol>
 <li><code>2003/2/1</code></li>
 <li>We saw examples of using <em>named arguments</em> when working with the pandas library. For example, when reading in a dataset
@@ -306,7 +294,6 @@ the order doesn't matter.</li>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Encapsulation of an If/Print Block</p>
-
 <p>The code below will run on a label-printer for chicken eggs.  A digital scale will report a chicken egg mass (in grams)
 to the computer and then the computer will print a label.</p>
 <pre><code class="language-python">import random
@@ -347,7 +334,6 @@ for i in range(10):
 <li>A dirty egg might have a mass of more than 90 grams, and a spoiled or broken egg will probably have a mass that's less than 50 grams.  Modify your <code>get_egg_label()</code> function to account for these error conditions. Sample output could be <code>25 too light, probably spoiled</code>.</li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x-x">Solution</h2>
 <pre><code class="language-python">def get_egg_label(mass):
     # egg sizing machinery prints a label
     egg_label = "Unlabelled"
@@ -369,7 +355,6 @@ for i in range(10):
 </div>
 <div class="box box-challenge">
 <p class="box-title">Encapsulating Data Analysis</p>
-
 <p>Assume that the following code has been executed:</p>
 <pre><code class="language-python">import pandas as pd
 
@@ -402,7 +387,6 @@ For instance, what if we also had data from years ending in 1 and 9 for each dec
 instead of enumerating them in the code.)</li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x-x-x">Solution</h2>
 <ol>
 <li>The average GDP for Japan across the years reported for the 1980s is computed with:</li>
 </ol>
@@ -444,7 +428,6 @@ avg = (japan.loc[gdp_decade + '2'] + japan.loc[gdp_decade + '7']) / 2
 </div>
 <div class="box box-challenge">
 <p class="box-title">Simulating a dynamical system</p>
-
 <p>In mathematics, a <a href="https://en.wikipedia.org/wiki/Dynamical_system" target="_blank" rel="noopener noreferrer">dynamical system</a> is a system
 in which a function describes the time dependence of a point in a geometrical space. A canonical
 example of a dynamical system is the <a href="https://en.wikipedia.org/wiki/Logistic_map" target="_blank" rel="noopener noreferrer">logistic map</a>,
@@ -473,7 +456,6 @@ and <code>1000</code> and print some of the values. Is the population trending t
 </li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x-x-x-x">Solution</h2>
 <ol>
 <li></li>
 </ol>
@@ -513,7 +495,6 @@ for period in (10, 100, 1000):
 </div>
 <div class="box box-callout">
 <p class="box-title">Using Functions With Conditionals in Pandas</p>
-
 <p>Functions will often contain conditionals.  Here is a short example that
 will indicate which quartile the argument is in based on hand-coded values
 for the quartile cut points.</p>
@@ -553,7 +534,6 @@ value of this column for every row in the dataframe.</p>
 </div>
 <div class="box box-callout">
 <p class="box-title">Reflections (optional)</p>
-
 <ul>
 <li>How can functions help make code easier to reuse, understand, or change?</li>
 <li>When would you consider turning a block of code into a function definition?</li>

@@ -12,7 +12,7 @@
 <li>How do I manage my containers and container images?</li>
 </ul>
 </div>
-<h2 id="removing-images">Removing images</h2>
+<h2 id="h-removing-images">Removing images</h2>
 <p>The container images and their corresponding containers can start to take up a lot of disk space if you don't clean them up occasionally, so it's a good idea to periodically remove containers and container images that you won't be using anymore.</p>
 <p>In order to remove a specific container image, you need to find out details about the container image,
 specifically, the "Image ID". For example, say my laptop contained the following container image:</p>
@@ -37,7 +37,7 @@ quay.io/podman/hello      latest      83fc7ce1224f  14 months ago  580 kB
 based on this container image. So, before removing the container image, we need to be able
 to see what containers are currently running, or have been run recently, and how
 to remove these.</p>
-<h2 id="what-containers-are-running">What containers are running?</h2>
+<h2 id="h-what-containers-are-running">What containers are running?</h2>
 <p>Working with containers, we are going to shift back to the command: <code>podman container</code>.  Similar to <code>podman image</code>, we can list running containers by typing:</p>
 <pre><code class="language-bash">$ podman container ls
 </code></pre>
@@ -46,11 +46,10 @@ to remove these.</p>
 <p>Notice that this command didn't return any containers because our containers all exited and thus stopped running after they completed their work.</p>
 <div class="box box-callout">
 <p class="box-title">podman ps</p>
-
 <p>The command <code>podman ps</code> serves the same purpose as <code>podman container ls</code>, and comes
 from the Unix shell command <code>ps</code> which describes running processes.</p>
 </div>
-<h2 id="what-containers-have-run-recently">What containers have run recently?</h2>
+<h2 id="h-what-containers-have-run-recently">What containers have run recently?</h2>
 <p>There is also a way to list running containers, and those that have completed recently, which is to add the <code>--all</code>/<code>-a</code> flag to the <code>podman container ls</code> command as shown below.</p>
 <pre><code class="language-bash">$ podman container ls --all
 </code></pre>
@@ -60,13 +59,12 @@ from the Unix shell command <code>ps</code> which describes running processes.</
 </code></pre>
 <div class="box box-callout">
 <p class="box-title">Keeping it clean</p>
-
 <p>You might be surprised at the number of containers Podman is still keeping track of.
 One way to prevent this from happening is to add the <code>--rm</code> flag to <code>podman container run</code>. This
 will completely wipe out the record of the run container when it exits. If you need
 a reference to the running container for any reason, <strong>don't</strong> use this flag.</p>
 </div>
-<h2 id="how-do-i-remove-an-exited-container">How do I remove an exited container?</h2>
+<h2 id="h-how-do-i-remove-an-exited-container">How do I remove an exited container?</h2>
 <p>To delete an exited container you can run the following command, inserting the <code>CONTAINER ID</code> for the container you wish to remove.
 It will repeat the <code>CONTAINER ID</code> back to you, if successful.</p>
 <pre><code class="language-bash">$ podman container rm 6091eac31f58
@@ -91,7 +89,7 @@ Are you sure you want to continue? [y/N] y
 400f00fc395f2e995130970dc0efe0b27e9a43a0a2bc9389aad9c62810a6573a
 670bfc78bcc54332c1d9de5e09dc3cf4478e12ebb37e9d00d6e228decbb1c25a
 </code></pre>
-<h2 id="removing-images-for-real-this-time">Removing images, for real this time</h2>
+<h2 id="h-removing-images-for-real-this-time">Removing images, for real this time</h2>
 <p>Now that we've removed any potentially running or stopped containers, we can try again to
 delete the <code>hello</code> <strong>container image</strong>.</p>
 <pre><code class="language-bash">$ podman image rm hello
@@ -105,7 +103,6 @@ container images will only be stored once. Now the result of <code>podman image 
 should no longer include the <code>hello</code> container image.</p>
 <div class="box box-callout">
 <p class="box-title">Using the GUI</p>
-
 <p>If you have installed the Podman Desktop GUI, you should be able to use it
 to view and delete containers and container images. It will provide the same
 information as the command line <code>podman</code> tools, and you will still need to
@@ -114,8 +111,6 @@ worth learning to use <code>podman</code> on the terminal as this underpins the 
 technology and it's not guaranteed that all systems you work on will have a
 GUI to use!</p>
 </div>
-
-
 <div class="box box-keypoints">
 <p class="box-title">Key points</p>
 <ul>

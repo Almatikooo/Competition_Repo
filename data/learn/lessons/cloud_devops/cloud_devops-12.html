@@ -9,7 +9,7 @@
 <li>improve your service, for example by using performance data to help with <a href="https://www.gov.uk/service-manual/technology/test-your-services-performance" target="_blank" rel="noopener noreferrer">capacity planning</a>
 </li>
 </ul>
-<h2 id="plan-your-monitoring">Plan your monitoring</h2>
+<h2 id="h-plan-your-monitoring">Plan your monitoring</h2>
 <p>You should start planning how to monitor your service during alpha.</p>
 <p>During alpha, your team should agree:</p>
 <ul>
@@ -17,29 +17,29 @@
 <li>how to monitor your service</li>
 <li>how to process and record issues</li>
 </ul>
-<h2 id="metrics-to-monitor">Metrics to monitor</h2>
+<h2 id="h-metrics-to-monitor">Metrics to monitor</h2>
 <p>You must track user-related metrics, as well as technical and security metrics. For example, track the percentage of users that can complete a task as well as available disk space, application programming interface (<abbr title="application programming interface">API</abbr>) performance and memory usage.</p>
-<h2 id="how-to-monitor">How to monitor</h2>
+<h2 id="h-how-to-monitor">How to monitor</h2>
 <p>Once you’ve agreed what to monitor, your team should:</p>
 <ul>
 <li>set up internal and external monitoring checks</li>
 <li>write monitoring checks</li>
 <li>write alerts</li>
 </ul>
-<h3 id="setting-up-internal-and-external-monitoring-checks">Setting up internal and external monitoring checks</h3>
+<h3 id="h-setting-up-internal-and-external-monitoring-checks">Setting up internal and external monitoring checks</h3>
 <p>You should set up internal and external monitoring checks.</p>
 <p>Internal monitoring is the monitoring you should set up inside your infrastructure and will give you real time updates about metrics like memory usage, page load times, and network traffic.</p>
 <p>External monitoring is the monitoring you should set up outside of your service which keeps checking your systems even if your infrastructure goes down.</p>
-<h3 id="writing-monitoring-checks">Writing monitoring checks</h3>
+<h3 id="h-writing-monitoring-checks">Writing monitoring checks</h3>
 <p>You need to decide the type of monitoring checks that are most useful to your service.</p>
 <p>A monitoring check is a series of tests that you can run against your systems or overall service to assess their status and tell you if something is wrong.</p>
 <p>For example, you might decide you need to see an alert if 1% of users in an hour have problems finishing a transaction. You could also capture access control issues, where excessive levels of login attempts may indicate someone trying to brute force a password.</p>
 <p>You should write monitoring checks at the same time as writing code and treat your checks as tests for your live system.</p>
 <p>Learn about <a href="https://www.security.gov.uk/policy-and-guidance/secure-by-design/activities/managing-observability/" target="_blank" rel="noopener noreferrer">managing observability</a> to track the security health of your service.</p>
-<h3 id="writing-alerts">Writing alerts</h3>
+<h3 id="h-writing-alerts">Writing alerts</h3>
 <p>Make your alert messages clear and concise. They need to be easy to understand for team members who might be woken up in the night to fix a problem.</p>
 <p>Consider creating an operations manual or documentation to help your team deal with problems quickly. Make sure every member of your team has a local copy of the documentation in case your cloud-based documentation storage is unavailable.</p>
-<h2 id="processing-and-recording-issues">Processing and recording issues</h2>
+<h2 id="h-processing-and-recording-issues">Processing and recording issues</h2>
 <p>You should manage and track errors using a ticketing system that allows you to delegate them to members of your team.</p>
 <p>Errors always contain interesting information - they can tell you about:</p>
 <ul>
@@ -56,12 +56,12 @@
 <li>discuss how to fix the cause of problems, for example, disk space or slow performance</li>
 </ul>
 <p>When fixing problems, always make sure to <a href="https://www.security.gov.uk/policy-and-guidance/secure-by-design/activities/evaluating-the-security-impact-of-changes/" target="_blank" rel="noopener noreferrer">evaluate the security impact of changes</a> being made.</p>
-<h2 id="make-data-widely-available">Make data widely available</h2>
+<h2 id="h-make-data-widely-available">Make data widely available</h2>
 <p>Unless it’s not safe to do so, you should make monitoring information and data widely available.</p>
 <p>For example, you can share performance reports with other service teams in your department or use a status dashboard, like the operations status page used by <a href="https://www.gov.uk/government/publications/govuk-notify/govuk-notify" target="_blank" rel="noopener noreferrer">GOV.UK Notify</a>, to tell users about any issues.</p>
-<h2 id="reviewing-your-monitoring-processes-regularly">Reviewing your monitoring processes regularly</h2>
+<h2 id="h-reviewing-your-monitoring-processes-regularly">Reviewing your monitoring processes regularly</h2>
 <p>You should review your monitoring processes to make sure they align with your support obligations and capabilities.</p>
 <p>If someone is called out of hours, you should make sure the issue needs that level of response.</p>
 <p>For example, if the issue doesn’t affect users and could wait until the morning, consider changing your alert strategy so that type of error doesn’t prompt an alert in future. It may be possible to implement automated responses to issues that don’t require an immediate human intervention.</p>
-<h2 id="related-guides">Related guides</h2>
+<h2 id="h-related-guides">Related guides</h2>
 <p>You may also find the <a href="https://www.gov.uk/service-manual/technology/uptime-and-availability-keeping-your-service-online" target="_blank" rel="noopener noreferrer">Uptime and availability</a> guide useful.</p>

@@ -1,764 +1,606 @@
-<pre><code class="language-mermaid">journey
-    title Your JavaScript DOM Journey
-    section Foundation
-      Understand DOM: 3: Student
-      Learn closures: 4: Student
-      Connect elements: 4: Student
-    section Interaction
-      Setup drag events: 4: Student
-      Track coordinates: 5: Student
-      Handle movement: 5: Student
-    section Polish
-      Add cleanup: 4: Student
-      Test functionality: 5: Student
-      Complete terrarium: 5: Student
-</code></pre>
-<p><img alt="DOM and a closure" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Web-Dev-For-Beginners/78085398be0dea7abaaf5eda914817f46f6ddbbc/sketchnotes/webdev101-js.png"></p>
+<p><img alt="JavaScript Basics - Making decisions" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Web-Dev-For-Beginners/78085398be0dea7abaaf5eda914817f46f6ddbbc/sketchnotes/webdev101-js-decisions.png"></p>
 <blockquote>
 <p>Sketchnote by <a href="https://twitter.com/girlie_mac" target="_blank" rel="noopener noreferrer">Tomomi Imura</a></p>
 </blockquote>
-<p>Welcome to one of the most engaging aspects of web development - making things interactive! The Document Object Model (DOM) is like a bridge between your HTML and JavaScript, and today we'll use it to bring your terrarium to life. When Tim Berners-Lee created the first web browser, he envisioned a web where documents could be dynamic and interactive - the DOM makes that vision possible.</p>
-<p>We'll also explore JavaScript closures, which might sound intimidating initially. Think of closures as creating "memory pockets" where your functions can remember important information. It's like each plant in your terrarium having its own data record to track its position. By the end of this lesson, you'll understand how natural and useful they are.</p>
-<p>Here's what we're building: a terrarium where users can drag and drop plants anywhere they want. You'll learn the DOM manipulation techniques that power everything from drag-and-drop file uploads to interactive games. Let's make your terrarium come alive.</p>
+<pre><code class="language-mermaid">journey
+    title Your JavaScript Decision-Making Adventure
+    section Foundation
+      Boolean Values: 5: You
+      Comparison Operators: 4: You
+      Logical Thinking: 5: You
+    section Basic Decisions
+      If Statements: 4: You
+      If-Else Logic: 5: You
+      Switch Statements: 4: You
+    section Advanced Logic
+      Logical Operators: 5: You
+      Complex Conditions: 4: You
+      Ternary Expressions: 5: You
+</code></pre>
+<p>Have you ever wondered how applications make smart decisions? Like how a navigation system chooses the fastest route, or how a thermostat decides when to turn on the heat? This is the fundamental concept of decision-making in programming.</p>
+<p>Just as Charles Babbage's Analytical Engine was designed to follow different sequences of operations based on conditions, modern JavaScript programs need to make choices based on varying circumstances. This ability to branch and make decisions is what transforms static code into responsive, intelligent applications.</p>
+<p>In this lesson, you'll learn how to implement conditional logic in your programs. We'll explore conditional statements, comparison operators, and logical expressions that allow your code to evaluate situations and respond appropriately.</p>
+<p>The ability to make decisions and control program flow is a fundamental aspect of programming. This section covers how to control the execution path of your JavaScript programs using Boolean values and conditional logic.</p>
+<p><a href="https://youtube.com/watch?v=SxTp8j-fMMY" target="_blank" rel="noopener noreferrer"><img alt="Making Decisions" loading="lazy" src="https://img.youtube.com/vi/SxTp8j-fMMY/0.jpg"></a></p>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>You can take this lesson on <a href="https://docs.microsoft.com/learn/modules/web-development-101-if-else/?WT.mc_id=academic-77807-sagibbon" target="_blank" rel="noopener noreferrer">Microsoft Learn</a>!</p>
+</blockquote>
 <pre><code class="language-mermaid">mindmap
-  root((DOM &amp; JavaScript))
-    DOM Tree
-      Element Selection
-      Property Access
-      Event Handling
-      Dynamic Updates
-    Events
-      Pointer Events
-      Mouse Events
-      Touch Events
-      Event Listeners
-    Closures
-      Private Variables
-      Function Scope
-      Memory Persistence
-      State Management
-    Drag &amp; Drop
-      Position Tracking
-      Coordinate Math
-      Event Lifecycle
-      User Interaction
-    Modern Patterns
-      Event Delegation
-      Performance
-      Cross-Device
-      Accessibility
+  root((Decision Making))
+    Boolean Logic
+      true/false
+      Comparison results
+      Logical expressions
+    Conditional Statements
+      if statements
+        Single condition
+        Code execution
+      if-else
+        Two paths
+        Alternative actions
+      switch
+        Multiple options
+        Clean structure
+    Operators
+      Comparison
+        === !== &lt; &gt; &lt;= &gt;=
+        Value relationships
+      Logical
+        &amp;&amp; || !
+        Combine conditions
+    Advanced Patterns
+      Ternary
+        ? : syntax
+        Inline decisions
+      Complex Logic
+        Nested conditions
+        Multiple criteria
 </code></pre>
-
-
-<h2 id="understanding-the-dom-your-gateway-to-interactive-web-pages">Understanding the DOM: Your Gateway to Interactive Web Pages</h2>
-<p>The Document Object Model (DOM) is how JavaScript communicates with your HTML elements. When your browser loads an HTML page, it creates a structured representation of that page in memory - that's the DOM. Think of it as a family tree where every HTML element is a family member that JavaScript can access, modify, or rearrange.</p>
-<p>DOM manipulation transforms static pages into interactive websites. Every time you see a button change color on hover, content update without page refresh, or elements you can drag around, that's DOM manipulation at work.</p>
-<pre><code class="language-mermaid">flowchart TD
-    A["Document"] --&gt; B["HTML"]
-    B --&gt; C["Head"]
-    B --&gt; D["Body"]
-    C --&gt; E["Title"]
-    C --&gt; F["Meta Tags"]
-    D --&gt; G["H1: My Terrarium"]
-    D --&gt; H["Div: Page Container"]
-    H --&gt; I["Div: Left Container"]
-    H --&gt; J["Div: Right Container"]
-    H --&gt; K["Div: Terrarium"]
-    I --&gt; L["Plant Elements 1-7"]
-    J --&gt; M["Plant Elements 8-14"]
-    
-    L --&gt; N["img#plant1"]
-    L --&gt; O["img#plant2"]
-    M --&gt; P["img#plant8"]
-    M --&gt; Q["img#plant9"]
-    
-    style A fill:#e1f5fe
-    style B fill:#f3e5f5
-    style D fill:#e8f5e8
-    style H fill:#fff3e0
-    style N fill:#ffebee
-    style O fill:#ffebee
-    style P fill:#ffebee
-    style Q fill:#ffebee
+<h2 id="h-a-brief-recap-on-booleans">A Brief Recap on Booleans</h2>
+<p>Before exploring decision-making, let's revisit Boolean values from our previous lesson. Named after mathematician George Boole, these values represent binary states – either <code>true</code> or <code>false</code>. There's no ambiguity, no middle ground.</p>
+<p>These binary values form the foundation of all computational logic. Every decision your program makes ultimately reduces to a Boolean evaluation.</p>
+<p>Creating Boolean variables is straightforward:</p>
+<pre><code class="language-javascript">let myTrueBool = true;
+let myFalseBool = false;
 </code></pre>
-<p><img alt="DOM tree representation" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Web-Dev-For-Beginners/78085398be0dea7abaaf5eda914817f46f6ddbbc/3-terrarium/3-intro-to-DOM-and-closures/images/dom-tree.png"></p>
-<blockquote>
-<p>A representation of the DOM and the HTML markup that references it. From <a href="https://www.researchgate.net/publication/221417012_Profile-Based_Focused_Crawler_for_Social_Media-Sharing_Websites" target="_blank" rel="noopener noreferrer">Olfa Nasraoui</a></p>
-</blockquote>
-<p><strong>Here's what makes the DOM powerful:</strong></p>
-<ul>
-<li><strong>Provides</strong> a structured way to access any element on your page</li>
-<li><strong>Enables</strong> dynamic content updates without page refreshes</li>
-<li><strong>Allows</strong> real-time response to user interactions like clicks and drags</li>
-<li><strong>Creates</strong> the foundation for modern interactive web applications</li>
-</ul>
-<h2 id="javascript-closures-creating-organized-powerful-code">JavaScript Closures: Creating Organized, Powerful Code</h2>
-<p>A <a href="https://developer.mozilla.org/docs/Web/JavaScript/Closures" target="_blank" rel="noopener noreferrer">JavaScript closure</a> is like giving a function its own private workspace with persistent memory. Consider how Darwin's finches on the Galápagos Islands each developed specialized beaks based on their specific environment - closures work similarly, creating specialized functions that "remember" their specific context even after their parent function has finished.</p>
-<p>In our terrarium, closures help each plant remember its own position independently. This pattern appears throughout professional JavaScript development, making it a valuable concept to understand.</p>
+<p>This creates two variables with explicit Boolean values.</p>
+<p>✅ Booleans are named after the English mathematician, philosopher and logician George Boole (1815–1864).</p>
+<h2 id="h-comparison-operators-and-booleans">Comparison Operators and Booleans</h2>
+<p>In practice, you'll rarely set Boolean values manually. Instead, you'll generate them by evaluating conditions: "Is this number greater than that one?" or "Are these values equal?"</p>
+<p>Comparison operators enable these evaluations. They compare values and return Boolean results based on the relationship between the operands.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;</code></td>
+<td><strong>Less than</strong>: Compares two values and returns the <code>true</code> Boolean data type if the value on the left side is less than the right</td>
+<td><code>5 &lt; 6 // true</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td><strong>Less than or equal to</strong>: Compares two values and returns the <code>true</code> Boolean data type if the value on the left side is less than or equal to the right</td>
+<td><code>5 &lt;= 6 // true</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td><strong>Greater than</strong>: Compares two values and returns the <code>true</code> Boolean data type if the value on the left side is larger than the right</td>
+<td><code>5 &gt; 6 // false</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td><strong>Greater than or equal to</strong>: Compares two values and returns the <code>true</code> Boolean data type if the value on the left side is larger than or equal to the right</td>
+<td><code>5 &gt;= 6 // false</code></td>
+</tr>
+<tr>
+<td><code>===</code></td>
+<td><strong>Strict equality</strong>: Compares two values and returns the <code>true</code> Boolean data type if values on the right and left are equal AND are the same data type.</td>
+<td><code>5 === 6 // false</code></td>
+</tr>
+<tr>
+<td><code>!==</code></td>
+<td><strong>Inequality</strong>: Compares two values and returns the opposite Boolean value of what a strict equality operator would return</td>
+<td><code>5 !== 6 // true</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>✅ Check your knowledge by writing some comparisons in your browser's console. Does any returned data surprise you?</p>
 <pre><code class="language-mermaid">flowchart LR
-    A["dragElement(plant1)"] --&gt; B["Creates Closure"]
-    A2["dragElement(plant2)"] --&gt; B2["Creates Closure"]
+    A["🔢 Values"] --&gt; B["⚖️ Comparison"]
+    B --&gt; C["✅ Boolean Result"]
     
-    B --&gt; C["Private Variables"]
-    B2 --&gt; C2["Private Variables"]
+    D["5"] --&gt; E["&lt; 6"]
+    E --&gt; F["true"]
     
-    C --&gt; D["pos1, pos2, pos3, pos4"]
-    C --&gt; E["pointerDrag function"]
-    C --&gt; F["elementDrag function"]
-    C --&gt; G["stopElementDrag function"]
+    G["10"] --&gt; H["=== '10'"]
+    H --&gt; I["false"]
     
-    C2 --&gt; D2["pos1, pos2, pos3, pos4"]
-    C2 --&gt; E2["pointerDrag function"]
-    C2 --&gt; F2["elementDrag function"]
-    C2 --&gt; G2["stopElementDrag function"]
+    J["'hello'"] --&gt; K["!== 'world'"]
+    K --&gt; L["true"]
     
-    H["Plant 1 remembers its position"] --&gt; B
-    H2["Plant 2 remembers its position"] --&gt; B2
+    M["📋 Operator Types"] --&gt; M1["Equality: === !=="]
+    M --&gt; M2["Relational: &lt; &gt; &lt;= &gt;="]
+    M --&gt; M3["Strict vs Loose"]
     
-    style B fill:#e8f5e8
-    style B2 fill:#e8f5e8
-    style C fill:#fff3e0
-    style C2 fill:#fff3e0
+    style A fill:#e3f2fd
+    style C fill:#e8f5e8
+    style M fill:#fff3e0
 </code></pre>
-<blockquote>
-<p>💡 <strong>Understanding Closures</strong>: Closures are a significant topic in JavaScript, and many developers use them for years before fully grasping all the theoretical aspects. Today, we're focusing on practical application - you'll see closures naturally emerge as we build our interactive features. Understanding will develop as you see how they solve real problems.</p>
-</blockquote>
-<p><img alt="DOM tree representation" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Web-Dev-For-Beginners/78085398be0dea7abaaf5eda914817f46f6ddbbc/3-terrarium/3-intro-to-DOM-and-closures/images/dom-tree.png"></p>
-<blockquote>
-<p>A representation of the DOM and the HTML markup that references it. From <a href="https://www.researchgate.net/publication/221417012_Profile-Based_Focused_Crawler_for_Social_Media-Sharing_Websites" target="_blank" rel="noopener noreferrer">Olfa Nasraoui</a></p>
-</blockquote>
-<p>In this lesson, we will complete our interactive terrarium project by creating the JavaScript that will allow a user to manipulate the plants on the page.</p>
-<h2 id="before-we-begin-setting-up-for-success">Before We Begin: Setting Up for Success</h2>
-<p>You'll need your HTML and CSS files from the previous terrarium lessons - we're about to make that static design interactive. If you're joining for the first time, completing those lessons first will provide important context.</p>
-<p>Here's what we'll build:</p>
+<h3 id="h-comparison-mastery-check-understanding-boolean-logic">🧠 <strong>Comparison Mastery Check: Understanding Boolean Logic</strong></h3>
+<p><strong>Test your comparison understanding:</strong></p>
 <ul>
-<li><strong>Smooth drag-and-drop</strong> for all terrarium plants</li>
-<li><strong>Coordinate tracking</strong> so plants remember their positions</li>
-<li><strong>A complete interactive interface</strong> using vanilla JavaScript</li>
-<li><strong>Clean, organized code</strong> using closure patterns</li>
+<li>Why do you think <code>===</code> (strict equality) is generally preferred over <code>==</code> (loose equality)?</li>
+<li>Can you predict what <code>5 === '5'</code> returns? How about <code>5 == '5'</code>?</li>
+<li>What's the difference between <code>!==</code> and <code>!=</code>?</li>
 </ul>
-<h2 id="setting-up-your-javascript-file">Setting Up Your JavaScript File</h2>
-<p>Let's create the JavaScript file that will make your terrarium interactive.</p>
-<p><strong>Step 1: Create your script file</strong></p>
-<p>In your terrarium folder, create a new file called <code>script.js</code>.</p>
-<p><strong>Step 2: Link the JavaScript to your HTML</strong></p>
-<p>Add this script tag to the <code>&lt;head&gt;</code> section of your <code>index.html</code> file:</p>
-<pre><code class="language-html">&lt;script src="./script.js" defer&gt;&lt;/script&gt;
-</code></pre>
-<p><strong>Why the <code>defer</code> attribute is important:</strong></p>
-<ul>
-<li><strong>Ensures</strong> your JavaScript waits until all HTML is loaded</li>
-<li><strong>Prevents</strong> errors where JavaScript looks for elements that aren't ready yet</li>
-<li><strong>Guarantees</strong> all your plant elements are available for interaction</li>
-<li><strong>Provides</strong> better performance than placing scripts at the page bottom</li>
-</ul>
-<blockquote>
-<p>⚠️ <strong>Important Note</strong>: The <code>defer</code> attribute prevents common timing issues. Without it, JavaScript may try to access HTML elements before they're loaded, causing errors.</p>
-</blockquote>
-<hr>
-<h2 id="connecting-javascript-to-your-html-elements">Connecting JavaScript to Your HTML Elements</h2>
-<p>Before we can make elements draggable, JavaScript needs to locate them in the DOM. Think of this like a library cataloging system - once you have the catalog number, you can find exactly the book you need and access all its contents.</p>
-<p>We'll use the <code>document.getElementById()</code> method to make these connections. It's like having a precise filing system - you provide an ID, and it locates exactly the element you need in your HTML.</p>
-<h3 id="enabling-drag-functionality-for-all-plants">Enabling Drag Functionality for All Plants</h3>
-<p>Add this code to your <code>script.js</code> file:</p>
-<pre><code class="language-javascript">// Enable drag functionality for all 14 plants
-dragElement(document.getElementById('plant1'));
-dragElement(document.getElementById('plant2'));
-dragElement(document.getElementById('plant3'));
-dragElement(document.getElementById('plant4'));
-dragElement(document.getElementById('plant5'));
-dragElement(document.getElementById('plant6'));
-dragElement(document.getElementById('plant7'));
-dragElement(document.getElementById('plant8'));
-dragElement(document.getElementById('plant9'));
-dragElement(document.getElementById('plant10'));
-dragElement(document.getElementById('plant11'));
-dragElement(document.getElementById('plant12'));
-dragElement(document.getElementById('plant13'));
-dragElement(document.getElementById('plant14'));
-</code></pre>
-<p><strong>Here's what this code accomplishes:</strong></p>
-<ul>
-<li><strong>Locates</strong> each plant element in the DOM using its unique ID</li>
-<li><strong>Retrieves</strong> a JavaScript reference to each HTML element</li>
-<li><strong>Passes</strong> each element to a <code>dragElement</code> function (which we'll create next)</li>
-<li><strong>Prepares</strong> every plant for drag-and-drop interaction</li>
-<li><strong>Connects</strong> your HTML structure to JavaScript functionality</li>
-</ul>
-<blockquote>
-<p>🎯 <strong>Why Use IDs Instead of Classes?</strong> IDs provide unique identifiers for specific elements, while CSS classes are designed for styling groups of elements. When JavaScript needs to manipulate individual elements, IDs offer the precision and performance we need.</p>
-</blockquote>
-<blockquote>
-<p>💡 <strong>Pro Tip</strong>: Notice how we're calling <code>dragElement()</code> for each plant individually. This approach ensures that each plant gets its own independent dragging behavior, which is essential for smooth user interaction.</p>
-</blockquote>
-<h3 id="pedagogical-check-in">🔄 <strong>Pedagogical Check-in</strong></h3>
-<p><strong>DOM Connection Understanding</strong>: Before moving to drag functionality, verify you can:</p>
-<ul>
-<li>✅ Explain how <code>document.getElementById()</code> locates HTML elements</li>
-<li>✅ Understand why we use unique IDs for each plant</li>
-<li>✅ Describe the purpose of the <code>defer</code> attribute in script tags</li>
-<li>✅ Recognize how JavaScript and HTML connect through the DOM</li>
-</ul>
-<p><strong>Quick Self-Test</strong>: What would happen if two elements had the same ID? Why does <code>getElementById()</code> return only one element?
-<em>Answer: IDs should be unique; if duplicated, only the first element is returned</em></p>
-<hr>
-<h2 id="building-the-drag-element-closure">Building the Drag Element Closure</h2>
-<p>Now we'll create the heart of our dragging functionality: a closure that manages the dragging behavior for each plant. This closure will contain multiple inner functions that work together to track mouse movements and update element positions.</p>
-<p>Closures are perfect for this task because they allow us to create "private" variables that persist between function calls, giving each plant its own independent coordinate tracking system.</p>
-<h3 id="understanding-closures-with-a-simple-example">Understanding Closures with a Simple Example</h3>
-<p>Let me demonstrate closures with a simple example that illustrates the concept:</p>
-<pre><code class="language-javascript">function createCounter() {
-    let count = 0; // This is like a private variable
-    
-    function increment() {
-        count++; // The inner function remembers the outer variable
-        return count;
-    }
-    
-    return increment; // We're giving back the inner function
-}
-
-const myCounter = createCounter();
-console.log(myCounter()); // 1
-console.log(myCounter()); // 2
-</code></pre>
-<p><strong>Here's what's happening in this closure pattern:</strong></p>
-<ul>
-<li><strong>Creates</strong> a private <code>count</code> variable that only exists within this closure</li>
-<li><strong>The inner function</strong> can access and modify that outer variable (the closure mechanism)</li>
-<li><strong>When we return</strong> the inner function, it maintains its connection to that private data</li>
-<li><strong>Even after</strong> <code>createCounter()</code> finishes execution, <code>count</code> persists and remembers its value</li>
-</ul>
-<h3 id="why-closures-are-perfect-for-drag-functionality">Why Closures Are Perfect for Drag Functionality</h3>
-<p>For our terrarium, each plant needs to remember its current position coordinates. Closures provide the perfect solution:</p>
-<p><strong>Key benefits for our project:</strong></p>
-<ul>
-<li><strong>Maintains</strong> private position variables for each plant independently</li>
-<li><strong>Preserves</strong> coordinate data between drag events</li>
-<li><strong>Prevents</strong> variable conflicts between different draggable elements</li>
-<li><strong>Creates</strong> clean, organized code structure</li>
-</ul>
-<blockquote>
-<p>🎯 <strong>Learning Goal</strong>: You don't need to master every aspect of closures right now. Focus on seeing how they help us organize code and maintain state for our dragging functionality.</p>
-</blockquote>
 <pre><code class="language-mermaid">stateDiagram-v2
-    [*] --&gt; Ready: Page loads
-    Ready --&gt; DragStart: User presses down (pointerdown)
-    DragStart --&gt; Dragging: Mouse/finger moves (pointermove)
-    Dragging --&gt; Dragging: Continue moving
-    Dragging --&gt; DragEnd: User releases (pointerup)
-    DragEnd --&gt; Ready: Reset for next drag
+    [*] --&gt; Comparison: Two values
+    Comparison --&gt; StrictEqual: === or !==
+    Comparison --&gt; Relational: &lt; &gt; &lt;= &gt;=
     
-    state DragStart {
-        [*] --&gt; CapturePosition
-        CapturePosition --&gt; SetupListeners
-        SetupListeners --&gt; [*]
-    }
+    StrictEqual --&gt; TypeCheck: Check type AND value
+    Relational --&gt; NumberCompare: Convert to numbers
     
-    state Dragging {
-        [*] --&gt; CalculateMovement
-        CalculateMovement --&gt; UpdatePosition
-        UpdatePosition --&gt; [*]
-    }
+    TypeCheck --&gt; BooleanResult: true or false
+    NumberCompare --&gt; BooleanResult
     
-    state DragEnd {
-        [*] --&gt; RemoveListeners
-        RemoveListeners --&gt; CleanupState
-        CleanupState --&gt; [*]
-    }
+    note right of StrictEqual
+        Preferred approach
+        No type conversion
+    end note
+    
+    note right of Relational
+        Useful for ranges
+        Numerical comparisons
+    end note
 </code></pre>
-<h3 id="creating-the-dragelement-function">Creating the dragElement Function</h3>
-<p>Now let's build the main function that will handle all the dragging logic. Add this function below your plant element declarations:</p>
-<pre><code class="language-javascript">function dragElement(terrariumElement) {
-    // Initialize position tracking variables
-    let pos1 = 0,  // Previous mouse X position
-        pos2 = 0,  // Previous mouse Y position  
-        pos3 = 0,  // Current mouse X position
-        pos4 = 0;  // Current mouse Y position
-    
-    // Set up the initial drag event listener
-    terrariumElement.onpointerdown = pointerDrag;
+<blockquote>
+<p><strong>Pro tip</strong>: Always use <code>===</code> and <code>!==</code> for equality checks unless you specifically need type conversion. This prevents unexpected behavior!</p>
+</blockquote>
+<h2 id="h-if-statement">If Statement</h2>
+<p>The <code>if</code> statement is like asking a question in your code. "If this condition is true, then do this thing." It's probably the most important tool you'll use for making decisions in JavaScript.</p>
+<p>Here's how it works:</p>
+<pre><code class="language-javascript">if (condition) {
+  // Condition is true. Code in this block will run.
 }
 </code></pre>
-<p><strong>Understanding the position tracking system:</strong></p>
+<p>The condition goes inside the parentheses, and if it's <code>true</code>, JavaScript runs the code inside the curly braces. If it's <code>false</code>, JavaScript just skips that whole block.</p>
+<p>You'll often use comparison operators to create these conditions. Let's see a practical example:</p>
+<pre><code class="language-javascript">let currentMoney = 1000;
+let laptopPrice = 800;
+
+if (currentMoney &gt;= laptopPrice) {
+  // Condition is true. Code in this block will run.
+  console.log("Getting a new laptop!");
+}
+</code></pre>
+<p>Since <code>1000 &gt;= 800</code> evaluates to <code>true</code>, the code inside the block executes, displaying "Getting a new laptop!" in the console.</p>
+<pre><code class="language-mermaid">flowchart TD
+    A["🚀 Program Start"] --&gt; B{"💰 currentMoney &gt;= laptopPrice?"}
+    B --&gt;|true| C["🎉 'Getting a new laptop!'"]
+    B --&gt;|false| D["⏭️ Skip code block"]
+    C --&gt; E["📋 Continue program"]
+    D --&gt; E
+    
+    F["📊 If Statement Structure"] --&gt; F1["if (condition) {"]
+    F1 --&gt; F2["  // code to run if true"]
+    F2 --&gt; F3["}"]
+    
+    style B fill:#fff3e0
+    style C fill:#e8f5e8
+    style D fill:#ffebee
+    style F fill:#e3f2fd
+</code></pre>
+<h2 id="h-if-else-statement">If..Else Statement</h2>
+<p>But what if you want your program to do something different when the condition is false? That's where <code>else</code> comes in – it's like having a backup plan.</p>
+<p>The <code>else</code> statement gives you a way to say "if this condition isn't true, do this other thing instead."</p>
+<pre><code class="language-javascript">let currentMoney = 500;
+let laptopPrice = 800;
+
+if (currentMoney &gt;= laptopPrice) {
+  // Condition is true. Code in this block will run.
+  console.log("Getting a new laptop!");
+} else {
+  // Condition is false. Code in this block will run.
+  console.log("Can't afford a new laptop, yet!");
+}
+</code></pre>
+<p>Now since <code>500 &gt;= 800</code> is <code>false</code>, JavaScript skips the first block and runs the <code>else</code> block instead. You'll see "Can't afford a new laptop, yet!" in the console.</p>
+<p>✅ Test your understanding of this code and the following code by running it in a browser console. Change the values of the currentMoney and laptopPrice variables to change the returned <code>console.log()</code>.</p>
+<h3 id="h-if-else-logic-check-branching-paths">🎯 <strong>If-Else Logic Check: Branching Paths</strong></h3>
+<p><strong>Evaluate your conditional logic understanding:</strong></p>
 <ul>
-<li><strong><code>pos1</code> and <code>pos2</code></strong>: Store the difference between old and new mouse positions</li>
-<li><strong><code>pos3</code> and <code>pos4</code></strong>: Track the current mouse coordinates</li>
-<li><strong><code>terrariumElement</code></strong>: The specific plant element we're making draggable</li>
-<li><strong><code>onpointerdown</code></strong>: The event that triggers when the user starts dragging</li>
+<li>What happens if <code>currentMoney</code> exactly equals <code>laptopPrice</code>?</li>
+<li>Can you think of a real-world scenario where if-else logic would be useful?</li>
+<li>How might you extend this to handle multiple price ranges?</li>
 </ul>
-<p><strong>Here's how the closure pattern works:</strong></p>
+<pre><code class="language-mermaid">flowchart TD
+    A["🔍 Evaluate Condition"] --&gt; B{"Condition True?"}
+    B --&gt;|Yes| C["📤 Execute IF block"]
+    B --&gt;|No| D["📥 Execute ELSE block"]
+    
+    C --&gt; E["✅ One path taken"]
+    D --&gt; E
+    
+    F["🌐 Real-world Examples"] --&gt; F1["User login status"]
+    F --&gt; F2["Age verification"]
+    F --&gt; F3["Form validation"]
+    F --&gt; F4["Game state changes"]
+    
+    style B fill:#fff3e0
+    style C fill:#e8f5e8
+    style D fill:#e3f2fd
+    style F fill:#f3e5f5
+</code></pre>
+<blockquote>
+<p><strong>Key insight</strong>: If-else ensures exactly one path is taken. This guarantees your program always has a response to any condition!</p>
+</blockquote>
+<h2 id="h-switch-statement">Switch Statement</h2>
+<p>Sometimes you need to compare one value against multiple options. While you could chain several <code>if..else</code> statements, this approach becomes unwieldy. The <code>switch</code> statement provides a cleaner structure for handling multiple discrete values.</p>
+<p>The concept resembles the mechanical switching systems used in early telephone exchanges – one input value determines which specific path the execution follows.</p>
+<pre><code class="language-javascript">switch (expression) {
+  case x:
+    // code block
+    break;
+  case y:
+    // code block
+    break;
+  default:
+    // code block
+}
+</code></pre>
+<p>Here's how it's structured:</p>
 <ul>
-<li><strong>Creates</strong> private position variables for each plant element</li>
-<li><strong>Maintains</strong> these variables throughout the dragging lifecycle</li>
-<li><strong>Ensures</strong> each plant tracks its own coordinates independently</li>
-<li><strong>Provides</strong> a clean interface through the <code>dragElement</code> function</li>
+<li>JavaScript evaluates the expression once</li>
+<li>It looks through each <code>case</code> to find a match</li>
+<li>When it finds a match, it runs that code block</li>
+<li>The <code>break</code> tells JavaScript to stop and exit the switch</li>
+<li>If no cases match, it runs the <code>default</code> block (if you have one)</li>
 </ul>
-<h3 id="why-use-pointer-events">Why Use Pointer Events?</h3>
-<p>You might wonder why we use <code>onpointerdown</code> instead of the more familiar <code>onclick</code>. Here's the reasoning:</p>
+<pre><code class="language-javascript">// Program using switch statement for day of week
+let dayNumber = 2;
+let dayName;
+
+switch (dayNumber) {
+  case 1:
+    dayName = "Monday";
+    break;
+  case 2:
+    dayName = "Tuesday";
+    break;
+  case 3:
+    dayName = "Wednesday";
+    break;
+  default:
+    dayName = "Unknown day";
+    break;
+}
+console.log(`Today is ${dayName}`);
+</code></pre>
+<p>In this example, JavaScript sees that <code>dayNumber</code> is <code>2</code>, finds the matching <code>case 2</code>, sets <code>dayName</code> to "Tuesday", and then breaks out of the switch. The result? "Today is Tuesday" gets logged to the console.</p>
+<pre><code class="language-mermaid">flowchart TD
+    A["📥 switch(expression)"] --&gt; B["🔍 Evaluate once"]
+    B --&gt; C{"Match case 1?"}
+    C --&gt;|Yes| D["📋 Execute case 1"]
+    C --&gt;|No| E{"Match case 2?"}
+    E --&gt;|Yes| F["📋 Execute case 2"]
+    E --&gt;|No| G{"Match case 3?"}
+    G --&gt;|Yes| H["📋 Execute case 3"]
+    G --&gt;|No| I["📋 Execute default"]
+    
+    D --&gt; J["🛑 break"]
+    F --&gt; K["🛑 break"]
+    H --&gt; L["🛑 break"]
+    
+    J --&gt; M["✅ Exit switch"]
+    K --&gt; M
+    L --&gt; M
+    I --&gt; M
+    
+    style A fill:#e3f2fd
+    style B fill:#fff3e0
+    style M fill:#e8f5e8
+</code></pre>
+<p>✅ Test your understanding of this code and the following code by running it in a browser console. Change the values of the variable a to change the returned <code>console.log()</code>.</p>
+<h3 id="h-switch-statement-mastery-multiple-options">🔄 <strong>Switch Statement Mastery: Multiple Options</strong></h3>
+<p><strong>Test your switch understanding:</strong></p>
+<ul>
+<li>What happens if you forget a <code>break</code> statement?</li>
+<li>When would you use <code>switch</code> instead of multiple <code>if-else</code> statements?</li>
+<li>Why is the <code>default</code> case useful even if you think you've covered all possibilities?</li>
+</ul>
+<pre><code class="language-mermaid">pie title "When to Use Each Decision Structure"
+    "Simple if-else" : 40
+    "Complex if-else chains" : 25
+    "Switch statements" : 20
+    "Ternary operators" : 15
+</code></pre>
+<blockquote>
+<p><strong>Best practice</strong>: Use <code>switch</code> when comparing one variable against multiple specific values. Use <code>if-else</code> for range checks or complex conditions!</p>
+</blockquote>
+<h2 id="h-logical-operators-and-booleans">Logical Operators and Booleans</h2>
+<p>Complex decisions often require evaluating multiple conditions simultaneously. Just as Boolean algebra allows mathematicians to combine logical expressions, programming provides logical operators to connect multiple Boolean conditions.</p>
+<p>These operators enable sophisticated conditional logic by combining simple true/false evaluations.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
-<th>Event Type</th>
-<th>Best For</th>
-<th>The Catch</th>
+<th>Symbol</th>
+<th>Description</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>onclick</code></td>
-<td>Simple button clicks</td>
-<td>Can't handle dragging (just clicks and releases)</td>
+<td><code>&amp;&amp;</code></td>
+<td><strong>Logical AND</strong>: Compares two Boolean expressions. Returns true <strong>only</strong> if both sides are true</td>
+<td><code>(5 &gt; 3) &amp;&amp; (5 &lt; 10) // Both sides are true. Returns true</code></td>
 </tr>
 <tr>
-<td><code>onpointerdown</code></td>
-<td>Both mouse and touch</td>
-<td>Newer, but well-supported these days</td>
+<td><code>||</code></td>
+<td><strong>Logical OR</strong>: Compares two Boolean expressions. Returns true if at least one side is true</td>
+<td><code>(5 &gt; 10) || (5 &lt; 10) // One side is false, other is true. Returns true</code></td>
 </tr>
 <tr>
-<td><code>onmousedown</code></td>
-<td>Desktop mouse only</td>
-<td>Leaves mobile users out in the cold</td>
+<td><code>!</code></td>
+<td><strong>Logical NOT</strong>: Returns the opposite value of a Boolean expression</td>
+<td><code>!(5 &gt; 10) // 5 is not greater than 10, so "!" makes it true</code></td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>Why pointer events are perfect for what we're building:</strong></p>
+<p>These operators let you combine conditions in useful ways:</p>
 <ul>
-<li><strong>Works great</strong> whether someone's using a mouse, finger, or even a stylus</li>
-<li><strong>Feels the same</strong> on a laptop, tablet, or phone</li>
-<li><strong>Handles</strong> the actual dragging motion (not just click-and-done)</li>
-<li><strong>Creates</strong> a smooth experience that users expect from modern web apps</li>
+<li>AND (<code>&amp;&amp;</code>) means both conditions must be true</li>
+<li>OR (<code>||</code>) means at least one condition must be true</li>
+<li>NOT (<code>!</code>) flips true to false (and vice versa)</li>
 </ul>
+<pre><code class="language-mermaid">flowchart LR
+    A["🔗 Logical Operators"] --&gt; B["&amp;&amp; AND"]
+    A --&gt; C["|| OR"]
+    A --&gt; D["! NOT"]
+    
+    B --&gt; B1["Both must be true"]
+    B --&gt; B2["true &amp;&amp; true = true"]
+    B --&gt; B3["true &amp;&amp; false = false"]
+    
+    C --&gt; C1["At least one true"]
+    C --&gt; C2["true || false = true"]
+    C --&gt; C3["false || false = false"]
+    
+    D --&gt; D1["Flips the value"]
+    D --&gt; D2["!true = false"]
+    D --&gt; D3["!false = true"]
+    
+    E["🌍 Real Examples"] --&gt; E1["Age &gt;= 18 &amp;&amp; hasLicense"]
+    E --&gt; E2["isWeekend || isHoliday"]
+    E --&gt; E3["!isLoggedIn"]
+    
+    style A fill:#e3f2fd
+    style B fill:#e8f5e8
+    style C fill:#fff3e0
+    style D fill:#f3e5f5
+    style E fill:#e0f2f1
+</code></pre>
+<h2 id="h-conditions-and-decisions-with-logical-operators">Conditions and Decisions with Logical Operators</h2>
+<p>Let's see these logical operators in action with a more realistic example:</p>
+<pre><code class="language-javascript">let currentMoney = 600;
+let laptopPrice = 800;
+let laptopDiscountPrice = laptopPrice - (laptopPrice * 0.2); // Laptop price at 20 percent off
+
+if (currentMoney &gt;= laptopPrice || currentMoney &gt;= laptopDiscountPrice) {
+  // Condition is true. Code in this block will run.
+  console.log("Getting a new laptop!");
+} else {
+  // Condition is false. Code in this block will run.
+  console.log("Can't afford a new laptop, yet!");
+}
+</code></pre>
+<p>In this example: we calculate a 20% discount price (640), then evaluate whether our available funds cover either the full price OR the discounted price. Since 600 meets the discounted price threshold of 640, the condition evaluates to true.</p>
+<h3 id="h-logical-operators-check-combining-conditions">🧮 <strong>Logical Operators Check: Combining Conditions</strong></h3>
+<p><strong>Test your logical operator understanding:</strong></p>
+<ul>
+<li>In the expression <code>A &amp;&amp; B</code>, what happens if A is false? Does B even get evaluated?</li>
+<li>Can you think of a situation where you'd need all three operators (&amp;&amp;, ||, !) together?</li>
+<li>What's the difference between <code>!user.isActive</code> and <code>user.isActive !== true</code>?</li>
+</ul>
+<pre><code class="language-mermaid">stateDiagram-v2
+    [*] --&gt; EvaluateA: A &amp;&amp; B
+    EvaluateA --&gt; CheckB: A is true
+    EvaluateA --&gt; ReturnFalse: A is false
+    CheckB --&gt; ReturnTrue: B is true
+    CheckB --&gt; ReturnFalse: B is false
+    
+    [*] --&gt; EvaluateC: A || B
+    EvaluateC --&gt; ReturnTrue: A is true
+    EvaluateC --&gt; CheckD: A is false
+    CheckD --&gt; ReturnTrue: B is true
+    CheckD --&gt; ReturnFalse: B is false
+    
+    note right of EvaluateA
+        Short-circuit evaluation:
+        If A is false, B is never checked
+    end note
+</code></pre>
 <blockquote>
-<p>💡 <strong>Future-Proofing</strong>: Pointer events are the modern way to handle user interactions. Instead of writing separate code for mouse and touch, you get both for free. Pretty neat, right?</p>
+<p><strong>Performance tip</strong>: JavaScript uses "short-circuit evaluation" - in <code>A &amp;&amp; B</code>, if A is false, B isn't even evaluated. Use this to your advantage!</p>
 </blockquote>
-<h3 id="pedagogical-check-in-x">🔄 <strong>Pedagogical Check-in</strong></h3>
-<p><strong>Event Handling Understanding</strong>: Pause to confirm your grasp of events:</p>
-<ul>
-<li>✅ Why do we use pointer events instead of mouse events?</li>
-<li>✅ How do closure variables persist between function calls?</li>
-<li>✅ What role does <code>preventDefault()</code> play in smooth dragging?</li>
-<li>✅ Why do we attach listeners to the document instead of individual elements?</li>
-</ul>
-<p><strong>Real-World Connection</strong>: Think about drag-and-drop interfaces you use daily:</p>
-<ul>
-<li><strong>File uploads</strong>: Dragging files into a browser window</li>
-<li><strong>Kanban boards</strong>: Moving tasks between columns</li>
-<li><strong>Image galleries</strong>: Rearranging photo order</li>
-<li><strong>Mobile interfaces</strong>: Swiping and dragging on touchscreens</li>
-</ul>
+<h3 id="h-negation-operator">Negation Operator</h3>
+<p>Sometimes it's easier to think about when something is NOT true. Like instead of asking "Is the user logged in?", you might want to ask "Is the user NOT logged in?" The exclamation mark (<code>!</code>) operator flips the logic for you.</p>
+<pre><code class="language-javascript">if (!condition) {
+  // runs if condition is false
+} else {
+  // runs if condition is true
+}
+</code></pre>
+<p>The <code>!</code> operator is like saying "the opposite of..." – if something is <code>true</code>, <code>!</code> makes it <code>false</code>, and vice versa.</p>
+<h3 id="h-ternary-expressions">Ternary Expressions</h3>
+<p>For simple conditional assignments, JavaScript provides the <strong>ternary operator</strong>. This concise syntax allows you to write a conditional expression in a single line, useful when you need to assign one of two values based on a condition.</p>
+<pre><code class="language-javascript">let variable = condition ? returnThisIfTrue : returnThisIfFalse;
+</code></pre>
+<p>It reads like a question: "Is this condition true? If yes, use this value. If no, use that value."</p>
+<p>Below is a more tangible example:</p>
+<pre><code class="language-javascript">let firstNumber = 20;
+let secondNumber = 10;
+let biggestNumber = firstNumber &gt; secondNumber ? firstNumber : secondNumber;
+</code></pre>
+<p>✅ Take a minute to read this code a few times. Do you understand how these operators are working?</p>
+<p>Here's what this line is saying: "Is <code>firstNumber</code> greater than <code>secondNumber</code>? If yes, put <code>firstNumber</code> in <code>biggestNumber</code>. If no, put <code>secondNumber</code> in <code>biggestNumber</code>."</p>
+<p>The ternary operator is just a shorter way to write this traditional <code>if..else</code> statement:</p>
+<pre><code class="language-javascript">let biggestNumber;
+if (firstNumber &gt; secondNumber) {
+  biggestNumber = firstNumber;
+} else {
+  biggestNumber = secondNumber;
+}
+</code></pre>
+<p>Both approaches produce identical results. The ternary operator offers conciseness, while the traditional if-else structure may be more readable for complex conditions.</p>
+<pre><code class="language-mermaid">flowchart LR
+    A["🤔 Ternary Operator"] --&gt; B["condition ?"]
+    B --&gt; C["valueIfTrue :"]
+    C --&gt; D["valueIfFalse"]
+    
+    E["📝 Traditional If-Else"] --&gt; F["if (condition) {"]
+    F --&gt; G["  return valueIfTrue"]
+    G --&gt; H["} else {"]
+    H --&gt; I["  return valueIfFalse"]
+    I --&gt; J["}"]
+    
+    K["⚡ When to Use"] --&gt; K1["Simple assignments"]
+    K --&gt; K2["Short conditions"]
+    K --&gt; K3["Inline decisions"]
+    K --&gt; K4["Return statements"]
+    
+    style A fill:#e3f2fd
+    style E fill:#fff3e0
+    style K fill:#e8f5e8
+</code></pre>
 <hr>
-<h2 id="the-pointerdrag-function-capturing-the-start-of-a-drag">The pointerDrag Function: Capturing the Start of a Drag</h2>
-<p>When a user presses down on a plant (whether with a mouse click or finger touch), the <code>pointerDrag</code> function springs into action. This function captures the initial coordinates and sets up the dragging system.</p>
-<p>Add this function inside your <code>dragElement</code> closure, right after the line <code>terrariumElement.onpointerdown = pointerDrag;</code>:</p>
-<pre><code class="language-javascript">function pointerDrag(e) {
-    // Prevent default browser behavior (like text selection)
-    e.preventDefault();
-    
-    // Capture the initial mouse/touch position
-    pos3 = e.clientX;  // X coordinate where drag started
-    pos4 = e.clientY;  // Y coordinate where drag started
-    
-    // Set up event listeners for the dragging process
-    document.onpointermove = elementDrag;
-    document.onpointerup = stopElementDrag;
-}
-</code></pre>
-<p><strong>Step by step, here's what's happening:</strong></p>
-<ul>
-<li><strong>Prevents</strong> default browser behaviors that could interfere with dragging</li>
-<li><strong>Records</strong> the exact coordinates where the user started the drag gesture</li>
-<li><strong>Establishes</strong> event listeners for the ongoing drag movement</li>
-<li><strong>Prepares</strong> the system to track mouse/finger movement across the entire document</li>
-</ul>
-<h3 id="understanding-event-prevention">Understanding Event Prevention</h3>
-<p>The <code>e.preventDefault()</code> line is crucial for smooth dragging:</p>
-<p><strong>Without prevention, browsers might:</strong></p>
-<ul>
-<li><strong>Select</strong> text when dragging across the page</li>
-<li><strong>Trigger</strong> context menus on right-click drag</li>
-<li><strong>Interfere</strong> with our custom dragging behavior</li>
-<li><strong>Create</strong> visual artifacts during the drag operation</li>
-</ul>
-<blockquote>
-<p>🔍 <strong>Experiment</strong>: After completing this lesson, try removing <code>e.preventDefault()</code> and see how it affects the dragging experience. You'll quickly understand why this line is essential!</p>
-</blockquote>
-<h3 id="coordinate-tracking-system">Coordinate Tracking System</h3>
-<p>The <code>e.clientX</code> and <code>e.clientY</code> properties give us precise mouse/touch coordinates:</p>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Property</th>
-<th>What It Measures</th>
-<th>Use Case</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>clientX</code></td>
-<td>Horizontal position relative to the viewport</td>
-<td>Tracking left-right movement</td>
-</tr>
-<tr>
-<td><code>clientY</code></td>
-<td>Vertical position relative to the viewport</td>
-<td>Tracking up-down movement</td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>Understanding these coordinates:</strong></p>
-<ul>
-<li><strong>Provides</strong> pixel-perfect positioning information</li>
-<li><strong>Updates</strong> in real-time as the user moves their pointer</li>
-<li><strong>Remains</strong> consistent across different screen sizes and zoom levels</li>
-<li><strong>Enables</strong> smooth, responsive drag interactions</li>
-</ul>
-<h3 id="setting-up-document-level-event-listeners">Setting Up Document-Level Event Listeners</h3>
-<p>Notice how we attach the move and stop events to the entire <code>document</code>, not just the plant element:</p>
-<pre><code class="language-javascript">document.onpointermove = elementDrag;
-document.onpointerup = stopElementDrag;
-</code></pre>
-<p><strong>Why attach to the document:</strong></p>
-<ul>
-<li><strong>Continues</strong> tracking even when the mouse leaves the plant element</li>
-<li><strong>Prevents</strong> drag interruption if the user moves quickly</li>
-<li><strong>Provides</strong> smooth dragging across the entire screen</li>
-<li><strong>Handles</strong> edge cases where the cursor moves outside the browser window</li>
-</ul>
-<blockquote>
-<p>⚡ <strong>Performance Note</strong>: We'll clean up these document-level listeners when dragging stops to avoid memory leaks and performance issues.</p>
-</blockquote>
-<h2 id="completing-the-drag-system-movement-and-cleanup">Completing the Drag System: Movement and Cleanup</h2>
-<p>Now we'll add the two remaining functions that handle the actual dragging movement and the cleanup when dragging stops. These functions work together to create smooth, responsive plant movement across your terrarium.</p>
-<h3 id="the-elementdrag-function-tracking-movement">The elementDrag Function: Tracking Movement</h3>
-<p>Add the <code>elementDrag</code> function right after the closing curly bracket of <code>pointerDrag</code>:</p>
-<pre><code class="language-javascript">function elementDrag(e) {
-    // Calculate the distance moved since the last event
-    pos1 = pos3 - e.clientX;  // Horizontal distance moved
-    pos2 = pos4 - e.clientY;  // Vertical distance moved
-    
-    // Update the current position tracking
-    pos3 = e.clientX;  // New current X position
-    pos4 = e.clientY;  // New current Y position
-    
-    // Apply the movement to the element's position
-    terrariumElement.style.top = (terrariumElement.offsetTop - pos2) + 'px';
-    terrariumElement.style.left = (terrariumElement.offsetLeft - pos1) + 'px';
-}
-</code></pre>
-<p><strong>Understanding the coordinate mathematics:</strong></p>
-<ul>
-<li><strong><code>pos1</code> and <code>pos2</code></strong>: Calculate how far the mouse has moved since the last update</li>
-<li><strong><code>pos3</code> and <code>pos4</code></strong>: Store the current mouse position for the next calculation</li>
-<li><strong><code>offsetTop</code> and <code>offsetLeft</code></strong>: Get the element's current position on the page</li>
-<li><strong>Subtraction logic</strong>: Moves the element by the same amount the mouse moved</li>
-</ul>
-<pre><code class="language-mermaid">sequenceDiagram
-    participant User
-    participant Mouse
-    participant JavaScript
-    participant Plant
-    
-    User-&gt;&gt;Mouse: Start drag at (100, 50)
-    Mouse-&gt;&gt;JavaScript: pointerdown event
-    JavaScript-&gt;&gt;JavaScript: Store initial position (pos3=100, pos4=50)
-    JavaScript-&gt;&gt;JavaScript: Setup move/up listeners
-    
-    User-&gt;&gt;Mouse: Move to (110, 60)
-    Mouse-&gt;&gt;JavaScript: pointermove event
-    JavaScript-&gt;&gt;JavaScript: Calculate: pos1=10, pos2=10
-    JavaScript-&gt;&gt;Plant: Update: left += 10px, top += 10px
-    Plant-&gt;&gt;Plant: Render at new position
-    
-    User-&gt;&gt;Mouse: Release at (120, 65)
-    Mouse-&gt;&gt;JavaScript: pointerup event
-    JavaScript-&gt;&gt;JavaScript: Remove listeners
-    JavaScript-&gt;&gt;JavaScript: Reset for next drag
-</code></pre>
-<p><strong>Here's the movement calculation breakdown:</strong></p>
-<ol>
-<li><strong>Measures</strong> the difference between old and new mouse positions</li>
-<li><strong>Calculates</strong> how much to move the element based on mouse movement</li>
-<li><strong>Updates</strong> the element's CSS position properties in real-time</li>
-<li><strong>Stores</strong> the new position as the baseline for the next movement calculation</li>
-</ol>
-<h3 id="visual-representation-of-the-math">Visual Representation of the Math</h3>
-<pre><code class="language-mermaid">sequenceDiagram
-    participant Mouse
-    participant JavaScript
-    participant Plant
-    
-    Mouse-&gt;&gt;JavaScript: Move from (100,50) to (110,60)
-    JavaScript-&gt;&gt;JavaScript: Calculate: moved 10px right, 10px down
-    JavaScript-&gt;&gt;Plant: Update position by +10px right, +10px down
-    Plant-&gt;&gt;Plant: Render at new position
-</code></pre>
-<h3 id="the-stopelementdrag-function-cleaning-up">The stopElementDrag Function: Cleaning Up</h3>
-<p>Add the cleanup function after the closing curly bracket of <code>elementDrag</code>:</p>
-<pre><code class="language-javascript">function stopElementDrag() {
-    // Remove the document-level event listeners
-    document.onpointerup = null;
-    document.onpointermove = null;
-}
-</code></pre>
-<p><strong>Why cleanup is essential:</strong></p>
-<ul>
-<li><strong>Prevents</strong> memory leaks from lingering event listeners</li>
-<li><strong>Stops</strong> the dragging behavior when the user releases the plant</li>
-<li><strong>Allows</strong> other elements to be dragged independently</li>
-<li><strong>Resets</strong> the system for the next drag operation</li>
-</ul>
-<p><strong>What happens without cleanup:</strong></p>
-<ul>
-<li>Event listeners continue running even after dragging stops</li>
-<li>Performance degrades as unused listeners accumulate</li>
-<li>Unexpected behavior when interacting with other elements</li>
-<li>Browser resources are wasted on unnecessary event handling</li>
-</ul>
-<h3 id="understanding-css-position-properties">Understanding CSS Position Properties</h3>
-<p>Our dragging system manipulates two key CSS properties:</p>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Property</th>
-<th>What It Controls</th>
-<th>How We Use It</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>top</code></td>
-<td>Distance from the top edge</td>
-<td>Vertical positioning during drag</td>
-</tr>
-<tr>
-<td><code>left</code></td>
-<td>Distance from the left edge</td>
-<td>Horizontal positioning during drag</td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>Key insights about offset properties:</strong></p>
-<ul>
-<li><strong><code>offsetTop</code></strong>: Current distance from the top of the positioned parent element</li>
-<li><strong><code>offsetLeft</code></strong>: Current distance from the left of the positioned parent element</li>
-<li><strong>Positioning context</strong>: These values are relative to the nearest positioned ancestor</li>
-<li><strong>Real-time updates</strong>: Changes immediately when we modify the CSS properties</li>
-</ul>
-<blockquote>
-<p>🎯 <strong>Design Philosophy</strong>: This drag system is intentionally flexible – there are no "drop zones" or restrictions. Users can place plants anywhere, giving them complete creative control over their terrarium design.</p>
-</blockquote>
-<h2 id="bringing-it-all-together-your-complete-drag-system">Bringing It All Together: Your Complete Drag System</h2>
-<p>Congratulations! You've just built a sophisticated drag-and-drop system using vanilla JavaScript. Your complete <code>dragElement</code> function now contains a powerful closure that manages:</p>
-<p><strong>What your closure accomplishes:</strong></p>
-<ul>
-<li><strong>Maintains</strong> private position variables for each plant independently</li>
-<li><strong>Handles</strong> the complete drag lifecycle from start to finish</li>
-<li><strong>Provides</strong> smooth, responsive movement across the entire screen</li>
-<li><strong>Cleans</strong> up resources properly to prevent memory leaks</li>
-<li><strong>Creates</strong> an intuitive, creative interface for terrarium design</li>
-</ul>
-<h3 id="testing-your-interactive-terrarium">Testing Your Interactive Terrarium</h3>
-<p>Now test your interactive terrarium! Open your <code>index.html</code> file in a web browser and try the functionality:</p>
-<ol>
-<li><strong>Click and hold</strong> any plant to start dragging</li>
-<li><strong>Move your mouse or finger</strong> and watch the plant follow smoothly</li>
-<li><strong>Release</strong> to drop the plant in its new position</li>
-<li><strong>Experiment</strong> with different arrangements to explore the interface</li>
-</ol>
-<p>🥇 <strong>Achievement</strong>: You've created a fully interactive web application using core concepts that professional developers use daily. That drag-and-drop functionality uses the same principles behind file uploads, kanban boards, and many other interactive interfaces.</p>
-<h3 id="pedagogical-check-in-x-x">🔄 <strong>Pedagogical Check-in</strong></h3>
-<p><strong>Complete System Understanding</strong>: Verify your mastery of the full drag system:</p>
-<ul>
-<li>✅ How do closures maintain independent state for each plant?</li>
-<li>✅ Why is the coordinate calculation math necessary for smooth movement?</li>
-<li>✅ What would happen if we forgot to clean up event listeners?</li>
-<li>✅ How does this pattern scale to more complex interactions?</li>
-</ul>
-<p><strong>Code Quality Reflection</strong>: Review your complete solution:</p>
-<ul>
-<li><strong>Modular design</strong>: Each plant gets its own closure instance</li>
-<li><strong>Event efficiency</strong>: Proper setup and cleanup of listeners</li>
-<li><strong>Cross-device support</strong>: Works on desktop and mobile</li>
-<li><strong>Performance conscious</strong>: No memory leaks or redundant calculations</li>
-</ul>
-<p><img alt="finished terrarium" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Web-Dev-For-Beginners/78085398be0dea7abaaf5eda914817f46f6ddbbc/3-terrarium/3-intro-to-DOM-and-closures/images/terrarium-final.png"></p>
+<h2 id="h-challenge">🚀 Challenge</h2>
+<p>Create a program that is written first with logical operators, and then rewrite it using a ternary expression. What's your preferred syntax?</p>
 <hr>
-<h2 id="github-copilot-agent-challenge">GitHub Copilot Agent Challenge 🚀</h2>
+<h2 id="h-github-copilot-agent-challenge">GitHub Copilot Agent Challenge 🚀</h2>
 <p>Use the Agent mode to complete the following challenge:</p>
-<p><strong>Description:</strong> Enhance the terrarium project by adding a reset functionality that returns all plants to their original positions with smooth animations.</p>
-<p><strong>Prompt:</strong> Create a reset button that, when clicked, animates all plants back to their original sidebar positions using CSS transitions. The function should store the original positions when the page loads and smoothly transition plants back to those positions over 1 second when the reset button is pressed.</p>
+<p><strong>Description:</strong> Create a comprehensive grade calculator that demonstrates multiple decision-making concepts from this lesson, including if-else statements, switch statements, logical operators, and ternary expressions.</p>
+<p><strong>Prompt:</strong> Write a JavaScript program that takes a student's numerical score (0-100) and determines their letter grade using the following criteria:</p>
+<ul>
+<li>A: 90-100</li>
+<li>B: 80-89</li>
+<li>C: 70-79</li>
+<li>D: 60-69</li>
+<li>F: Below 60</li>
+</ul>
+<p>Requirements:</p>
+<ol>
+<li>Use an if-else statement to determine the letter grade</li>
+<li>Use logical operators to check if the student passes (grade &gt;= 60) AND has honors (grade &gt;= 90)</li>
+<li>Use a switch statement to provide specific feedback for each letter grade</li>
+<li>Use a ternary operator to determine if the student is eligible for the next course (grade &gt;= 70)</li>
+<li>Include input validation to ensure the score is between 0 and 100</li>
+</ol>
+<p>Test your program with various scores including edge cases like 59, 60, 89, 90, and invalid inputs.</p>
 <p>Learn more about <a href="https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode" target="_blank" rel="noopener noreferrer">agent mode</a> here.</p>
-<h2 id="additional-challenge-expand-your-skills">🚀 Additional Challenge: Expand Your Skills</h2>
-<p>Ready to take your terrarium to the next level? Try implementing these enhancements:</p>
-<p><strong>Creative Extensions:</strong></p>
-<ul>
-<li><strong>Double-click</strong> a plant to bring it to the front (z-index manipulation)</li>
-<li><strong>Add visual feedback</strong> like a subtle glow when hovering over plants</li>
-<li><strong>Implement boundaries</strong> to prevent plants from being dragged outside the terrarium</li>
-<li><strong>Create a save function</strong> that remembers plant positions using localStorage</li>
-<li><strong>Add sound effects</strong> for picking up and placing plants</li>
-</ul>
-<blockquote>
-<p>💡 <strong>Learning Opportunity</strong>: Each of these challenges will teach you new aspects of DOM manipulation, event handling, and user experience design.</p>
-</blockquote>
-
-
-<h2 id="review-self-study-deepening-your-understanding">Review &amp; Self Study: Deepening Your Understanding</h2>
-<p>You've mastered the fundamentals of DOM manipulation and closures, but there's always more to explore! Here are some pathways to expand your knowledge and skills.</p>
-<h3 id="alternative-drag-and-drop-approaches">Alternative Drag and Drop Approaches</h3>
-<p>We used pointer events for maximum flexibility, but web development offers multiple approaches:</p>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Approach</th>
-<th>Best For</th>
-<th>Learning Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.mozilla.org/docs/Web/API/HTML_Drag_and_Drop_API" target="_blank" rel="noopener noreferrer">HTML Drag and Drop API</a></td>
-<td>File uploads, formal drag zones</td>
-<td>Understanding native browser capabilities</td>
-</tr>
-<tr>
-<td><a href="https://developer.mozilla.org/docs/Web/API/Touch_events" target="_blank" rel="noopener noreferrer">Touch Events</a></td>
-<td>Mobile-specific interactions</td>
-<td>Mobile-first development patterns</td>
-</tr>
-<tr>
-<td>CSS <code>transform</code> properties</td>
-<td>Smooth animations</td>
-<td>Performance optimization techniques</td>
-</tr>
-</tbody>
-</table></div>
-<h3 id="advanced-dom-manipulation-topics">Advanced DOM Manipulation Topics</h3>
-<p><strong>Next steps in your learning journey:</strong></p>
-<ul>
-<li><strong>Event delegation</strong>: Handling events efficiently for multiple elements</li>
-<li><strong>Intersection Observer</strong>: Detecting when elements enter/leave the viewport</li>
-<li><strong>Mutation Observer</strong>: Watching for changes in the DOM structure</li>
-<li><strong>Web Components</strong>: Creating reusable, encapsulated UI elements</li>
-<li><strong>Virtual DOM concepts</strong>: Understanding how frameworks optimize DOM updates</li>
-</ul>
-<h3 id="essential-resources-for-continued-learning">Essential Resources for Continued Learning</h3>
-<p><strong>Technical Documentation:</strong></p>
-<ul>
-<li><a href="https://developer.mozilla.org/docs/Web/API/Pointer_events" target="_blank" rel="noopener noreferrer">MDN Pointer Events Guide</a> - Comprehensive pointer event reference</li>
-<li><a href="https://www.w3.org/TR/pointerevents1/" target="_blank" rel="noopener noreferrer">W3C Pointer Events Specification</a> - Official standards documentation</li>
-<li><a href="https://developer.mozilla.org/docs/Web/JavaScript/Closures" target="_blank" rel="noopener noreferrer">JavaScript Closures Deep Dive</a> - Advanced closure patterns</li>
-</ul>
-<p><strong>Browser Compatibility:</strong></p>
-<ul>
-<li><a href="https://caniuse.com/" target="_blank" rel="noopener noreferrer">CanIUse.com</a> - Check feature support across browsers</li>
-<li><a href="https://github.com/mdn/browser-compat-data" target="_blank" rel="noopener noreferrer">MDN Browser Compatibility Data</a> - Detailed compatibility information</li>
-</ul>
-<p><strong>Practice Opportunities:</strong></p>
-<ul>
-<li><strong>Build</strong> a puzzle game using similar drag mechanics</li>
-<li><strong>Create</strong> a kanban board with drag-and-drop task management</li>
-<li><strong>Design</strong> an image gallery with draggable photo arrangements</li>
-<li><strong>Experiment</strong> with touch gestures for mobile interfaces</li>
-</ul>
-<blockquote>
-<p>🎯 <strong>Learning Strategy</strong>: The best way to solidify these concepts is through practice. Try building variations of draggable interfaces – each project will teach you something new about user interaction and DOM manipulation.</p>
-</blockquote>
-<h3 id="what-you-can-do-in-the-next-5-minutes">⚡ <strong>What You Can Do in the Next 5 Minutes</strong></h3>
-<ul>
-<li>[ ] Open browser DevTools and type <code>document.querySelector('body')</code> in the console</li>
-<li>[ ] Try changing a webpage's text using <code>innerHTML</code> or <code>textContent</code></li>
-<li>[ ] Add a click event listener to any button or link on a webpage</li>
-<li>[ ] Inspect the DOM tree structure using the Elements panel</li>
-</ul>
-<h3 id="what-you-can-accomplish-this-hour">🎯 <strong>What You Can Accomplish This Hour</strong></h3>
-<ul>
-<li>[ ] Complete the post-lesson quiz and review DOM manipulation concepts</li>
-<li>[ ] Create an interactive webpage that responds to user clicks</li>
-<li>[ ] Practice event handling with different event types (click, mouseover, keypress)</li>
-<li>[ ] Build a simple to-do list or counter using DOM manipulation</li>
-<li>[ ] Explore the relationship between HTML elements and JavaScript objects</li>
-</ul>
-<h3 id="your-week-long-javascript-journey">📅 <strong>Your Week-Long JavaScript Journey</strong></h3>
-<ul>
-<li>[ ] Complete the interactive terrarium project with drag-and-drop functionality</li>
-<li>[ ] Master event delegation for efficient event handling</li>
-<li>[ ] Learn about the event loop and asynchronous JavaScript</li>
-<li>[ ] Practice closures by building modules with private state</li>
-<li>[ ] Explore modern DOM APIs like Intersection Observer</li>
-<li>[ ] Build interactive components without using frameworks</li>
-</ul>
-<h3 id="your-month-long-javascript-mastery">🌟 <strong>Your Month-Long JavaScript Mastery</strong></h3>
-<ul>
-<li>[ ] Create a complex single-page application using vanilla JavaScript</li>
-<li>[ ] Learn a modern framework (React, Vue, or Angular) and compare it to vanilla DOM</li>
-<li>[ ] Contribute to open source JavaScript projects</li>
-<li>[ ] Master advanced concepts like web components and custom elements</li>
-<li>[ ] Build performant web applications with optimal DOM patterns</li>
-<li>[ ] Teach others about DOM manipulation and JavaScript fundamentals</li>
-</ul>
-<h2 id="your-javascript-dom-mastery-timeline">🎯 Your JavaScript DOM Mastery Timeline</h2>
-<pre><code class="language-mermaid">timeline
-    title DOM &amp; JavaScript Learning Progression
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
+<p>Read more about the many operators available to the user <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators" target="_blank" rel="noopener noreferrer">on MDN</a>.</p>
+<p>Go through Josh Comeau's wonderful <a href="https://joshwcomeau.com/operator-lookup/" target="_blank" rel="noopener noreferrer">operator lookup</a>!</p>
+<h2 id="h-your-decision-making-toolkit-summary">🧠 <strong>Your Decision-Making Toolkit Summary</strong></h2>
+<pre><code class="language-mermaid">graph TD
+    A["🎯 JavaScript Decisions"] --&gt; B["🔍 Boolean Logic"]
+    A --&gt; C["📊 Conditional Statements"]
+    A --&gt; D["🔗 Logical Operators"]
+    A --&gt; E["⚡ Advanced Patterns"]
     
-    section Foundation (15 minutes)
-        DOM Understanding: Element selection methods
-                         : Tree structure navigation
-                         : Property access patterns
-        
-    section Event Handling (20 minutes)
-        User Interaction: Pointer event basics
-                        : Event listener setup
-                        : Cross-device compatibility
-                        : Event prevention techniques
-        
-    section Closures (25 minutes)
-        Scope Management: Private variable creation
-                        : Function persistence
-                        : State management patterns
-                        : Memory efficiency
-        
-    section Drag System (30 minutes)
-        Interactive Features: Coordinate tracking
-                            : Position calculation
-                            : Movement mathematics
-                            : Cleanup procedures
-        
-    section Advanced Patterns (45 minutes)
-        Professional Skills: Event delegation
-                           : Performance optimization
-                           : Error handling
-                           : Accessibility considerations
-        
-    section Framework Understanding (1 week)
-        Modern Development: Virtual DOM concepts
-                          : State management libraries
-                          : Component architectures
-                          : Build tool integration
-        
-    section Expert Level (1 month)
-        Advanced DOM APIs: Intersection Observer
-                         : Mutation Observer
-                         : Custom Elements
-                         : Web Components
+    B --&gt; B1["true/false values"]
+    B --&gt; B2["Comparison operators"]
+    B --&gt; B3["Truthiness concepts"]
+    
+    C --&gt; C1["if statements"]
+    C --&gt; C2["if-else chains"]
+    C --&gt; C3["switch statements"]
+    
+    D --&gt; D1["&amp;&amp; (AND)"]
+    D --&gt; D2["|| (OR)"]
+    D --&gt; D3["! (NOT)"]
+    
+    E --&gt; E1["Ternary operator"]
+    E --&gt; E2["Short-circuit evaluation"]
+    E --&gt; E3["Complex conditions"]
+    
+    F["💡 Key Principles"] --&gt; F1["Clear readable conditions"]
+    F --&gt; F2["Consistent comparison style"]
+    F --&gt; F3["Proper operator precedence"]
+    F --&gt; F4["Efficient evaluation order"]
+    
+    style A fill:#e3f2fd
+    style B fill:#e8f5e8
+    style C fill:#fff3e0
+    style D fill:#f3e5f5
+    style E fill:#e0f2f1
+    style F fill:#fce4ec
 </code></pre>
-<h3 id="your-javascript-toolkit-summary">🛠️ Your JavaScript Toolkit Summary</h3>
-<p>After completing this lesson, you now have:</p>
+<hr>
+<h2 id="h-your-javascript-decision-making-mastery-timeline">🚀 Your JavaScript Decision-Making Mastery Timeline</h2>
+<h3 id="h-what-you-can-do-in-the-next-5-minutes">⚡ <strong>What You Can Do in the Next 5 Minutes</strong></h3>
 <ul>
-<li><strong>DOM Mastery</strong>: Element selection, property manipulation, and tree navigation</li>
-<li><strong>Event Expertise</strong>: Cross-device interaction handling with pointer events</li>
-<li><strong>Closure Understanding</strong>: Private state management and function persistence</li>
-<li><strong>Interactive Systems</strong>: Complete drag-and-drop implementation from scratch</li>
-<li><strong>Performance Awareness</strong>: Proper event cleanup and memory management</li>
-<li><strong>Modern Patterns</strong>: Code organization techniques used in professional development</li>
-<li><strong>User Experience</strong>: Creating intuitive, responsive interfaces</li>
+<li>[ ] Practice comparison operators in your browser console</li>
+<li>[ ] Write a simple if-else statement that checks your age</li>
+<li>[ ] Try the challenge: rewrite an if-else using a ternary operator</li>
+<li>[ ] Test what happens with different "truthy" and "falsy" values</li>
 </ul>
-<p><strong>Professional Skills Gained</strong>: You've built features using the same techniques as:</p>
+<h3 id="h-what-you-can-accomplish-this-hour">🎯 <strong>What You Can Accomplish This Hour</strong></h3>
 <ul>
-<li><strong>Trello/Kanban boards</strong>: Card dragging between columns</li>
-<li><strong>File upload systems</strong>: Drag-and-drop file handling</li>
-<li><strong>Image galleries</strong>: Photo arrangement interfaces</li>
-<li><strong>Mobile apps</strong>: Touch-based interaction patterns</li>
+<li>[ ] Complete the post-lesson quiz and review any confusing concepts</li>
+<li>[ ] Build the comprehensive grade calculator from the GitHub Copilot challenge</li>
+<li>[ ] Create a simple decision tree for a real-world scenario (like choosing what to wear)</li>
+<li>[ ] Practice combining multiple conditions with logical operators</li>
+<li>[ ] Experiment with switch statements for different use cases</li>
 </ul>
-<p><strong>Next Level</strong>: You're ready to explore modern frameworks like React, Vue, or Angular that build upon these fundamental DOM manipulation concepts!</p>
+<h3 id="h-your-week-long-logic-mastery">📅 <strong>Your Week-Long Logic Mastery</strong></h3>
+<ul>
+<li>[ ] Complete the operators assignment with creative examples</li>
+<li>[ ] Build a mini quiz application using various conditional structures</li>
+<li>[ ] Create a form validator that checks multiple input conditions</li>
+<li>[ ] Practice Josh Comeau's <a href="https://joshwcomeau.com/operator-lookup/" target="_blank" rel="noopener noreferrer">operator lookup</a> exercises</li>
+<li>[ ] Refactor existing code to use more appropriate conditional structures</li>
+<li>[ ] Study short-circuit evaluation and performance implications</li>
+</ul>
+<h3 id="h-your-month-long-transformation">🌟 <strong>Your Month-Long Transformation</strong></h3>
+<ul>
+<li>[ ] Master complex nested conditions and maintain code readability</li>
+<li>[ ] Build an application with sophisticated decision-making logic</li>
+<li>[ ] Contribute to open source by improving conditional logic in existing projects</li>
+<li>[ ] Teach someone else about different conditional structures and when to use each</li>
+<li>[ ] Explore functional programming approaches to conditional logic</li>
+<li>[ ] Create a personal reference guide for conditional best practices</li>
+</ul>
+<h3 id="h-final-decision-making-champion-check-in">🏆 <strong>Final Decision-Making Champion Check-in</strong></h3>
+<p><strong>Celebrate your logical thinking mastery:</strong></p>
+<ul>
+<li>What's the most complex decision logic you've successfully implemented?</li>
+<li>Which conditional structure feels most natural to you and why?</li>
+<li>How has learning about logical operators changed your problem-solving approach?</li>
+<li>What real-world application would benefit from sophisticated decision-making logic?</li>
+</ul>
+<pre><code class="language-mermaid">journey
+    title Your Logical Thinking Evolution
+    section Today
+      Boolean Confusion: 3: You
+      If-Else Understanding: 4: You
+      Operator Recognition: 5: You
+    section This Week
+      Complex Conditions: 4: You
+      Switch Mastery: 5: You
+      Logical Combinations: 5: You
+    section Next Month
+      Advanced Patterns: 5: You
+      Performance Awareness: 5: You
+      Teaching Others: 5: You
+</code></pre>
+<blockquote>
+<p>🧠 <strong>You've mastered the art of digital decision-making!</strong> Every interactive application relies on conditional logic to respond intelligently to user actions and changing conditions. You now understand how to make your programs think, evaluate, and choose appropriate responses. This logical foundation will power every dynamic application you build! 🎉</p>
+</blockquote>

@@ -135,7 +135,6 @@ for example by using the string concatenation operator <code>||</code>:</p>
 | Frank Danforth            |</p>
 <div class="box box-challenge">
 <p class="box-title">Fixing Salinity Readings</p>
-
 <p>After further reading,
 we realize that Valentina Roerich
 was reporting salinity as percentages.
@@ -143,7 +142,6 @@ Write a query that returns all of her salinity measurements
 from the <code>Survey</code> table
 with the values divided by 100.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <pre><code class="language-sql">SELECT taken, reading / 100 FROM Survey WHERE person = 'roe' AND quant = 'sal';
 </code></pre>
 <div class="table-wrap"><table>
@@ -168,7 +166,6 @@ with the values divided by 100.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Unions</p>
-
 <p>The <code>UNION</code> operator combines the results of two queries:</p>
 <pre><code class="language-sql">SELECT * FROM Person WHERE id = 'dyer' UNION SELECT * FROM Person WHERE id = 'roe';
 </code></pre>
@@ -249,14 +246,12 @@ The output should be something like:</p>
 </tbody>
 </table></div>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <pre><code class="language-sql">SELECT taken, reading FROM Survey WHERE person != 'roe' AND quant = 'sal' UNION SELECT taken, reading / 100 FROM Survey WHERE person = 'roe' AND quant = 'sal' ORDER BY taken ASC;
 </code></pre>
 </details>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Selecting Major Site Identifiers</p>
-
 <p>The site identifiers in the <code>Visited</code> table have two parts
 separated by a '-':</p>
 <pre><code class="language-sql">SELECT DISTINCT site FROM Visited;
@@ -328,7 +323,6 @@ of X starting at index I, with an optional length L. For example, the query:</p>
 <p>Combine these two functions to produce a list of unique major site identifiers. (For this data,
 the list should contain only "DR" and "MSK").</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
 <pre><code class="language-sql">SELECT DISTINCT substr(site, 1, instr(site, '-') - 1) AS MajorSite FROM Visited;
 </code></pre>
 </details>

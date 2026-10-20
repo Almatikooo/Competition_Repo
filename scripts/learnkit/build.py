@@ -35,7 +35,8 @@ def first_heading(md: str) -> str | None:
 def render_gh(spec: dict) -> dict:
     repo, path, flavor = spec["repo"], spec["path"], spec.get("flavor", "plain")
     meta, body = cv.split_front_matter(ft.gh_file(repo, path))
-    title = spec.get("title") or meta.get("title") or first_heading(body) or posixpath.basename(path)
+    title = spec.get("title") or (first_heading(body) if flavor == "docfx" else None) or meta.get("title") or first_heading(body) or posixpath.basename(path)
+    title = re.sub(r"\s*\|\s*Microsoft (Docs|Learn).*$", "", str(title)).strip()
     directory = posixpath.dirname(path)
     if flavor == "carpentries":
         body = cv.carpentries(body)
@@ -61,8 +62,10 @@ def render_html(spec: dict) -> dict:
     main = cv.select_main(raw, tuple(spec.get("select", ("main article", "article", "main", "body"))))
     title = spec.get("title")
     if not title:
-        h1 = BeautifulSoup(raw, "lxml").find("h1")
-        title = h1.get_text(" ", strip=True) if h1 else url
+        inner = BeautifulSoup(main, "lxml").find("h1")
+        h1s = BeautifulSoup(raw, "lxml").find_all("h1")
+        title = (inner or (h1s[-1] if h1s else None))
+        title = title.get_text(" ", strip=True) if title else url
     html = cv.clean_html(main, page_url=url, title=title, drop_selectors=tuple(spec.get("drop", ())),
                          same_host_images=spec.get("same_host_images", True), keep_images=spec.get("images", True),
                          drop_headings=tuple(spec.get("drop_headings", ())))
@@ -110,24 +113,35 @@ RENDERERS = {"gh": render_gh, "html": render_html, "govuk": render_govuk, "press
 def render(spec: dict) -> dict:
     if "parts" in spec:  # one lesson stitched from several short pages
         parts = [render(p) for p in spec["parts"]]
-        html = "".join(f'<h2 id="{cv._slug(p["title"])}">{p["title"]}</h2>{cv.demote_headings(p["html"])}' for p in parts)
+        html = "".join(f'<h2 id="{cv.heading_id(p["title"])}">{p["title"]}</h2>{cv.demote_headings(p["html"])}' for p in parts)
         quiz_ids = [q for p in parts for q in p.get("quiz_ids", [])]
         return {"title": spec["title"], "html": cv.sanitize(html), "url": parts[0]["url"], "quiz_ids": quiz_ids}
     return RENDERERS[spec["kind"]](spec)
 
 
+AUTO_SPLIT_WORDS = 4500   # longer lessons are split at their own headings into ~AUTO_SPLIT_TARGET-word parts
+AUTO_SPLIT_TARGET = 2400
+
+
 def expand(spec: dict) -> list[dict]:
-    """A spec yields one lesson, or several when a long page is split at its h2 sections."""
+    """A spec yields one lesson, or several when a long page is split at its section headings."""
     res = render(spec)
-    if not spec.get("split"):
+    opts = spec.get("split")
+    if not opts and spec.get("no_split") is not True and cv.word_count(res["html"]) > AUTO_SPLIT_WORDS:
+        opts = {"target": AUTO_SPLIT_TARGET}
+    if not opts:
         return [res]
-    opts = spec["split"] if isinstance(spec["split"], dict) else {}
+    opts = opts if isinstance(opts, dict) else {}
     parts = cv.split_sections(res["html"], target=opts.get("target", 1600), drop=tuple(opts.get("drop", ())),
-                              titles=opts.get("titles"), intro_title=opts.get("intro", res["title"]))
-    take = opts.get("take")
-    if take:
-        parts = [parts[i] for i in take if i < len(parts)]
-    return [{**res, "title": t, "html": cv.sanitize(h), "quiz_ids": []} for t, h in parts]
+                              titles=opts.get("titles"), intro_title=opts.get("intro", res["title"]), keep=tuple(opts.get("pick", ())))
+    if opts.get("take"):
+        parts = [parts[i] for i in opts["take"] if i < len(parts)]
+    if not parts:
+        raise RuntimeError(f"splitting {res['url']} left no parts (pick/take too narrow?)")
+    out = [{**res, "title": t, "html": cv.sanitize(h), "quiz_ids": [], "chapter": res["title"]} for t, h in parts]
+    out[-1]["quiz_ids"] = res.get("quiz_ids", [])  # a curriculum's post-lesson quiz follows the end of the lesson
+    out[-1]["_spec_bank"] = True
+    return out
 
 
 def lesson_bank_ref(spec: dict, res: dict):
@@ -156,14 +170,23 @@ def build_course(skill: str, course: dict) -> dict:
             for res in results:
                 n += 1
                 lid = f"{skill}-{n:02d}"
+                res["html"] = cv.finalize(res["html"])
                 words = cv.word_count(res["html"])
                 if words < MIN_WORDS:
                     raise RuntimeError(f"{lid} '{res['title']}' is suspiciously short ({words} words) — check the source {res['url']}")
                 (out_dir / f"{lid}.html").write_text(res["html"], encoding="utf-8")
                 title = spec.get("title") if len(results) == 1 and spec.get("title") else res["title"]
+                title = re.sub(r"^[^\w‘'\"(]+", "", title).strip() or title  # drop decorative emoji
+                title = re.sub(r"^(\d+\.(\d+\.?)*|\d+\.\d+(\.\d+)*)\s+", "", title) or title  # "3. Waste holders" -> "Waste holders"
+                chapter = spec.get("title") or results[0].get("chapter") or results[0]["title"]
+                if len(results) > 1 and res is results[0] and not (spec.get("split") or {}).get("titles"):
+                    title = spec.get("title") or res.get("chapter") or title  # a split chapter's first part keeps the chapter title
+                elif len(results) > 1 and len(title.split()) <= 2 and title != chapter and not (spec.get("split") or {}).get("titles"):
+                    title = f"{chapter} · {title.strip('‘’')}"  # e.g. 'Challenge' alone says nothing in a syllabus
+                bank = lesson_bank_ref(spec, res) if len(results) == 1 or res.get("_spec_bank") else None
                 lessons.append({"id": lid, "title": title, "words": words, "minutes": max(3, math.ceil(words / WPM)),
                                 "source": spec.get("source") or module.get("source") or course["source"], "url": res["url"],
-                                "toc": cv.headings(res["html"])[:30], "_bank": lesson_bank_ref(spec, res) if len(results) == 1 else None})
+                                "toc": cv.headings(res["html"])[:30], "_bank": bank})
                 ids.append(lid)
                 print(f"   {lid}  {words:5d}w  {title[:72]}")
         modules.append({"title": module["title"], "lessons": ids})

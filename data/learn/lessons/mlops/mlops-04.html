@@ -1,16 +1,5 @@
-<div>
-
-<div>
 <img alt="Spark icon" loading="lazy" src="https://developers.google.com/_static/images/icons/spark.svg">
-<div>
-<h2 id="page-summary">Page Summary</h2>
-</div>
-
-</div>
-<div>
-
-
-
+<h2 id="h-page-summary">Page Summary</h2>
 <ul>
 <li>
 <p>Inference involves using a trained model to make predictions on unlabeled examples, and it can be done statically or dynamically.</p>
@@ -28,9 +17,6 @@
 <p>Static inference is advantageous when cost and prediction verification are prioritized, while dynamic inference excels in handling diverse, real-time predictions.</p>
 </li>
 </ul>
-</div>
-
-
 <p><a href="https://developers.google.com/machine-learning/glossary#inference" target="_blank" rel="noopener noreferrer"><strong>Inference</strong></a> is the process of
 making predictions by applying a trained model to
 <a href="https://developers.google.com/machine-learning/glossary#unlabeled_example" target="_blank" rel="noopener noreferrer"><strong>unlabeled examples</strong></a>.
@@ -55,7 +41,6 @@ This would probably be an excellent situation for static inference:</p>
        which are then cached on a server.
   </figcaption>
 </figure>
-
 <p>Suppose this same complex model mistakenly uses dynamic inference instead of
 static inference. If many clients request predictions around the same time,
 most of them won't receive that prediction for hours or days.</p>
@@ -70,8 +55,7 @@ suggested in Figure 5.</p>
 <b>Figure 5.</b> In dynamic inference, a model infers predictions on demand.
   </figcaption>
 </figure>
-
-<h2 id="static-inference">Static inference</h2>
+<h2 id="h-static-inference">Static inference</h2>
 <p>Static inference offers certain advantages and disadvantages.</p>
 <p>Advantages</p>
 <ul>
@@ -84,7 +68,7 @@ suggested in Figure 5.</p>
       able to serve predictions for uncommon input examples.</li>
 <li>Update latency is likely measured in hours or days.</li>
 </ul>
-<h2 id="dynamic-inference">Dynamic inference</h2>
+<h2 id="h-dynamic-inference">Dynamic inference</h2>
 <p>Dynamic inference offers certain advantages and disadvantages.</p>
 <p>Advantages</p>
 <ul>
@@ -98,75 +82,73 @@ suggested in Figure 5.</p>
       infer predictions more quickly than a complex model could.</li>
 <li>Monitoring needs are more intensive.</li>
 </ul>
-<h2 id="exercises-check-your-understanding">Exercises: Check your understanding</h2>
-<div>
+<h2 id="h-exercises-check-your-understanding">Exercises: Check your understanding</h2>
 
-<div>
+
+
       Which <strong>three</strong> of the following four statements are
       true of static inference?
-    </div>
-<div>
-<div>The model must create predictions for all possible inputs.</div>
-<div>Yes, the model must make predictions for all possible inputs and
+    
+
+The model must create predictions for all possible inputs.
+Yes, the model must make predictions for all possible inputs and
             store them in a cache or lookup table.
             If the set of things that the model is predicting is limited, then
             static inference might be a good choice.
             However, for free-form inputs like user queries that have a long
             tail of unusual or rare items, static inference can't provide
-            full coverage.</div>
-</div>
-<div>
-<div> The system can verify inferred predictions before serving
-            them.</div>
-<div> Yes, this is a useful aspect of static inference.</div>
-</div>
-<div>
-<div> For a given input, the model can serve a prediction more quickly
-            than <i>dynamic</i> inference.</div>
-<div> Yes, static inference can almost always serve predictions faster
-            than dynamic inference. </div>
-</div>
-<div>
-<div> You can react quickly to changes in the world. </div>
-<div> No, this is a disadvantage of static inference. </div>
-</div>
+            full coverage.
 
-</div>
-<div>
 
-<div> 
+ The system can verify inferred predictions before serving
+            them.
+ Yes, this is a useful aspect of static inference.
+
+
+ For a given input, the model can serve a prediction more quickly
+            than <i>dynamic</i> inference.
+ Yes, static inference can almost always serve predictions faster
+            than dynamic inference. 
+
+
+ You can react quickly to changes in the world. 
+ No, this is a disadvantage of static inference. 
+
+
+
+
+
+ 
       Which <strong>one</strong> of the following statements is
       true of dynamic inference?
-    </div>
-<div>
-<div> You can provide predictions for all possible items. </div>
-<div> Yes, this is a strength of dynamic inference. Any request that
+    
+
+ You can provide predictions for all possible items. 
+ Yes, this is a strength of dynamic inference. Any request that
             comes in will be given a score. Dynamic inference handles long-tail
             distributions (those with many rare items), like the space of all
-            possible sentences written in movie reviews. </div>
-</div>
-<div>
-<div> You can do post-verification of predictions before they
-            are used.  </div>
-<div> In general, it's not possible to do a post-verification of all
+            possible sentences written in movie reviews. 
+
+
+ You can do post-verification of predictions before they
+            are used.  
+ In general, it's not possible to do a post-verification of all
             predictions before they get used because predictions are being
             made on demand. You can, however, potentially monitor
             <i>aggregate</i> prediction qualities to provide some level of
             quality checking, but these will signal fire alarms only after
-            the fire has already spread.</div>
-</div>
-<div>
-<div> When performing dynamic inference, you don't need to worry
+            the fire has already spread.
+
+
+ When performing dynamic inference, you don't need to worry
             about prediction latency (the lag time for returning predictions)
-            as much as when performing static inference.</div>
-<div> Prediction latency is often a real concern in dynamic inference.
+            as much as when performing static inference.
+ Prediction latency is often a real concern in dynamic inference.
             Unfortunately, you can't necessarily fix prediction latency issues
-            by adding more inference servers.</div>
-</div>
+            by adding more inference servers.
 
-</div>
 
-<div>
+
+
+
 <a href="https://support.google.com/machinelearningeducation" target="_blank" rel="noopener noreferrer">Help Center</a>
-</div>
-</div>

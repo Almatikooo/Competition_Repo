@@ -17,10 +17,10 @@
 <p>Combine models only where access patterns or life cycles clearly diverge.</p>
 </li>
 </ol>
-<h2 id="how-to-use-this-guide">How to use this guide</h2>
+<h2 id="h-how-to-use-this-guide">How to use this guide</h2>
 <p>Each model section includes a concise definition, typical workloads, data characteristics, example scenarios, and links to representative Azure services. Each section also includes a table to help you choose the right Azure service for your use case. In some cases, you can use other articles to make more informed choices about Azure service options. The respective model sections reference those articles.</p>
 <p>Two comparative tables summarize nonrelational model traits to help you quickly evaluate options without repeating content across sections.</p>
-<h2 id="classification-overview">Classification overview</h2>
+<h2 id="h-classification-overview">Classification overview</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -70,12 +70,12 @@
 <div class="box box-note"><p class="box-title">Note</p>
 <p>A single service might provide multiple models, also known as <em>multimodel</em>. Choose the best-fit model instead of combining models in a way that complicates operations.</p>
 </div>
-<h2 id="relational-data-stores">Relational data stores</h2>
+<h2 id="h-relational-data-stores">Relational data stores</h2>
 <p>Relational database management systems organize data into normalized tables by using schema-on-write. They enforce integrity and support atomicity, consistency, isolation, and durability (ACID) transactions and rich SQL queries.</p>
 <p><strong>Strengths:</strong> Multi-row transactional consistency, complex joins, strong relational constraints, and mature tooling for reporting, administration, and governance.</p>
 <p><strong>Considerations:</strong> Horizontal scale generally requires <a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/patterns/sharding.md" target="_blank" rel="noopener noreferrer">sharding</a> or partitioning, and normalization can increase join cost for read-heavy denormalized views.</p>
 <p><strong>Workloads:</strong> Order management, inventory tracking, financial ledger recording, billing, and operational reporting.</p>
-<h3 id="select-an-azure-service-for-relational-data-stores">Select an Azure service for relational data stores</h3>
+<h3 id="h-select-an-azure-service-for-relational-data-stores">Select an Azure service for relational data stores</h3>
 <ul>
 <li>
 <p><a href="https://learn.microsoft.com/azure/azure-sql/database/sql-database-paas-overview" target="_blank" rel="noopener noreferrer">SQL Database</a> is a managed relational database for modern cloud applications that use the SQL Server engine.</p>
@@ -145,9 +145,9 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="nonrelational-data-stores">Nonrelational data stores</h2>
+<h2 id="h-nonrelational-data-stores">Nonrelational data stores</h2>
 <p>Nonrelational databases, also called <em>NoSQL databases</em>, optimize for flexible schemas, horizontal scale, and specific access or aggregation patterns. They typically relax some aspects of relational behavior, such as schema rigidity and transaction scope, for scalability or agility.</p>
-<h3 id="document-data-stores">Document data stores </h3>
+<h3 id="h-document-data-stores">Document data stores </h3>
 <p>Use document data stores to store semi-structured documents, often in JSON format, where each document includes named fields and data. The data can be simple values or complex elements, such as lists and child collections. Per-document schema flexibility enables gradual evolution.</p>
 <p><strong>Strengths:</strong> Natural application object mapping, denormalized aggregates, multi-field indexing</p>
 <p><strong>Considerations:</strong> Document size growth, selective transactional scope, need for careful data shape design for high-scale queries</p>
@@ -195,7 +195,7 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="column-family-data-stores">Column-family data stores </h3>
+<h3 id="h-column-family-data-stores">Column-family data stores </h3>
 <p>A column-family database, also known as a <em>wide-column database</em>, stores sparse data into rows and organizes dynamic columns into column families to support co-access. Column orientation improves scans over selected column sets.</p>
 <p><strong>Strengths:</strong> High write throughput, efficient retrieval of wide or sparse datasets, dynamic schema within families</p>
 <p><strong>Considerations:</strong> Up-front row key and column family design, secondary index support varies, query flexibility lower than relational</p>
@@ -243,7 +243,7 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="key-value-data-stores">Key-value data stores </h3>
+<h3 id="h-key-value-data-stores">Key-value data stores </h3>
 <p>A key-value data store associates each data value with a unique key. Most key-value stores only support simple query, insert, and delete operations. To modify a value either partially or completely, an application must overwrite the existing data for the entire value. In most implementations, reading or writing a single value is an atomic operation.</p>
 <p><strong>Strengths:</strong> Simplicity, low latency, linear scalability</p>
 <p><strong>Considerations:</strong> Limited query expressiveness, redesign needed for value-based lookups, large value overwrite cost</p>
@@ -291,14 +291,14 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="graph-data-stores">Graph data stores </h3>
+<h3 id="h-graph-data-stores">Graph data stores </h3>
 <p>A graph database stores information as nodes and edges. Edges define relationships, and both nodes and edges can have properties similar to table columns. You can analyze connections between entities, such as employees and departments.</p>
 <p><strong>Strengths:</strong> Relationship-first querying patterns, efficient variable-depth traversals</p>
 <p><strong>Considerations:</strong> Overhead if relationships are shallow, requires careful modeling for performance, not ideal for bulk analytical scans</p>
 <p><strong>Workloads:</strong> Social networks, fraud rings, knowledge graphs, supply chain dependencies</p>
 <h4>Select an Azure service for graph data stores</h4>
 <p>Use <a href="https://learn.microsoft.com/sql/relational-databases/graphs/sql-graph-overview" target="_blank" rel="noopener noreferrer">SQL Server graph extensions</a> for storing graph data. The graph extension extends the capabilities of SQL Server, SQL Database, and SQL Managed Instance to enable modeling and querying complex relationships by using graph structures directly within a relational database.</p>
-<h3 id="time-series-data-stores">Time-series data stores </h3>
+<h3 id="h-time-series-data-stores">Time-series data stores </h3>
 <p>Time-series data stores manage a set of values organized by time. They support features like time-based queries and aggregations. They're optimized to ingest and analyze large volumes of data in near real time. They're typically append-only databases.</p>
 <p><strong>Strengths:</strong> Compression, high-volume ingestion, time-window queries and aggregations, out-of-order ingestion handling</p>
 <p><strong>Considerations:</strong> Tag cardinality management, retention cost, downsampling strategy, specialized query languages</p>
@@ -322,7 +322,7 @@
 <li>Additional indexes beyond date/time fields</li>
 <li>Time-series analytics and alerts</li>
 </ul>
-<h3 id="object-data-stores">Object data stores </h3>
+<h3 id="h-object-data-stores">Object data stores </h3>
 <p>Store large binary or semi-structured objects and include metadata that rarely changes or remains immutable.</p>
 <p><strong>Strengths:</strong> Virtually unlimited scale, tiered cost, durability, parallel read capability</p>
 <p><strong>Considerations:</strong> Whole-object operations, metadata query limited, eventual listing behaviors</p>
@@ -361,28 +361,28 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="search-and-indexing-data-stores">Search and indexing data stores </h3>
+<h3 id="h-search-and-indexing-data-stores">Search and indexing data stores </h3>
 <p>A search engine database allows applications to search for information in external data stores. A search engine database can index massive volumes of data and provide near real-time access to these indexes.</p>
 <p><strong>Strengths:</strong> Full-text queries, scoring, linguistic analysis, fuzzy matching</p>
 <p><strong>Considerations:</strong> Eventual consistency of indexes, separate ingestion or indexing pipeline, cost of large index updates</p>
 <p><strong>Workloads:</strong> Site or product search, log search, metadata filtering, multi-attribute discovery</p>
 <h4>Select an Azure service for search data stores</h4>
 <p>For more information, see <a href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/search-options" target="_blank" rel="noopener noreferrer">Choose a search data store in Azure</a>.</p>
-<h3 id="vector-search-data-stores">Vector search data stores</h3>
+<h3 id="h-vector-search-data-stores">Vector search data stores</h3>
 <p>Vector search data stores store and retrieve high-dimensional vector representations of data, often generated by machine learning models.</p>
 <p><strong>Strengths:</strong> Semantic search, ANN algorithms</p>
 <p><strong>Considerations:</strong> Indexing complexity, storage overhead, latency versus accuracy, integration challenges</p>
 <p><strong>Workloads:</strong> Semantic document search, recommendation engines, image and video retrieval, fraud and anomaly detection</p>
 <h4>Select an Azure service for vector search data stores</h4>
 <p>For more information, see <a href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/vector-search" target="_blank" rel="noopener noreferrer">Choose an Azure service for vector search</a>.</p>
-<h3 id="analytics-data-stores">Analytics data stores </h3>
+<h3 id="h-analytics-data-stores">Analytics data stores </h3>
 <p>Analytics data stores store big data and persist it throughout an analytics pipeline life cycle.</p>
 <p><strong>Strengths:</strong> Scalable compute and storage, support for SQL and Spark, integration with BI tools, time-series and telemetry analysis</p>
 <p><strong>Considerations:</strong> Cost and complexity of orchestration, query latency for ad-hoc workloads, governance across multiple data domains</p>
 <p><strong>Workloads:</strong> Enterprise reporting, big data analytics, telemetry aggregation, operational dashboards, data science pipelines</p>
 <h4>Select an Azure service for analytics data stores</h4>
 <p>For more information, see <a href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/analytical-data-stores" target="_blank" rel="noopener noreferrer">Choose an analytical data store in Azure</a>.</p>
-<h2 id="comparative-characteristics-core-nonrelational-models">Comparative characteristics (core nonrelational models)  </h2>
+<h2 id="h-comparative-characteristics-core-nonrelational-models">Comparative characteristics (core nonrelational models)  </h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -473,7 +473,7 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="comparative-characteristics-specialized-nonrelational-models">Comparative characteristics (specialized nonrelational models)  </h2>
+<h2 id="h-comparative-characteristics-specialized-nonrelational-models">Comparative characteristics (specialized nonrelational models)  </h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -546,7 +546,7 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="choose-among-models-heuristics">Choose among models (heuristics)</h2>
+<h2 id="h-choose-among-models-heuristics">Choose among models (heuristics)</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -597,7 +597,7 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="combine-models-and-avoid-pitfalls">Combine models and avoid pitfalls</h2>
+<h2 id="h-combine-models-and-avoid-pitfalls">Combine models and avoid pitfalls</h2>
 <p>Use more than one model when the following scenarios apply:</p>
 <ul>
 <li>Access patterns diverge, such as point lookup versus wide analytical scan versus full-text relevance.</li>
@@ -615,7 +615,7 @@
 <li>Teams add another model without operational maturity, such as monitoring or backups.</li>
 <li>A search index becomes the primary data store, which leads to misuse.</li>
 </ul>
-<h2 id="when-to-re-evaluate-your-model-choice">When to re-evaluate your model choice</h2>
+<h2 id="h-when-to-re-evaluate-your-model-choice">When to re-evaluate your model choice</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -646,27 +646,8 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="next-steps">Next steps</h2>
+<h2 id="h-next-steps">Next steps</h2>
 <ul>
 <li><a href="https://learn.microsoft.com/azure/cloud-adoption-framework/secure/overview" target="_blank" rel="noopener noreferrer">The Secure methodology in the Cloud Adoption Framework for Azure</a></li>
 <li><a href="https://learn.microsoft.com/security/zero-trust/deploy/data" target="_blank" rel="noopener noreferrer">Zero Trust framework data security</a></li>
-</ul>
-<h2 id="related-resources">Related resources</h2>
-<ul>
-<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/relational-data/online-analytical-processing.md" target="_blank" rel="noopener noreferrer">OLAP guidance</a></li>
-<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/relational-data/online-transaction-processing.md" target="_blank" rel="noopener noreferrer">OLTP guidance</a></li>
-<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/scenarios/data-lake.md" target="_blank" rel="noopener noreferrer">Data lakes overview</a></li>
-<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/relational-data/etl.yml" target="_blank" rel="noopener noreferrer">ETL overview</a></li>
-</ul>
-<p>Use the following articles to choose a specialized data store:</p>
-<ul>
-<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/technology-choices/data-storage.md" target="_blank" rel="noopener noreferrer">Choose a big data storage technology in Azure</a></li>
-<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/technology-choices/search-options.md" target="_blank" rel="noopener noreferrer">Choose a search data store in Azure</a></li>
-<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/guide/technology-choices/vector-search.md" target="_blank" rel="noopener noreferrer">Choose an Azure service for vector search</a></li>
-</ul>
-<p>Learn about reference architectures that use the Azure services in this article:</p>
-<ul>
-<li>The <a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/web-apps/app-service/architectures/baseline-zone-redundant.yml" target="_blank" rel="noopener noreferrer">baseline highly available zone-redundant web application</a> architecture uses SQL Database as its relational data store.</li>
-<li>The <a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/example-scenario/serverless/microservices-with-container-apps-dapr.yml" target="_blank" rel="noopener noreferrer">deploy microservices with Azure Container Apps and Dapr</a> architecture uses SQL Database, Azure Cosmos DB, and Azure Managed Redis as data stores.</li>
-<li>The <a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/ai-ml/architecture/automate-document-classification-durable-functions.yml" target="_blank" rel="noopener noreferrer">automate document classification in Azure</a> architecture uses Azure Cosmos DB as its data store.</li>
 </ul>

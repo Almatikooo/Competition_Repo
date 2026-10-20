@@ -6,7 +6,7 @@
 <li>A file with data about the shapes (in this case, counties) to draw on the map: the 'cartographic boundaries' file</li>
 </ul>
 <p>First, however, you need to make sure your data has been arranged properly. Unfortunately, 'properly arranged' data is not something one usually encounters in the real world. Thus, most of this lesson will demonstrate techniques to organize your data so that it can produce a useful choropleth map. This will include joining your data to 'shape files' that define <a href="https://perma.cc/X8GY-PBLT" target="_blank" rel="noopener noreferrer">county</a> boundaries, which will allow you to create a basic choropleth map. Because a basic choropleth map isn't always especially informative, this lesson will show you additional ways to manipulate your data to produce more meaningful maps.</p>
-<h3 id="lesson-goals">Lesson Goals</h3>
+<h3 id="h-lesson-goals">Lesson Goals</h3>
 <p>At the end of this lesson, you will be able to:</p>
 <ul>
 <li>Load several types of data from web sources</li>
@@ -17,12 +17,12 @@
 <li>Process numeric data to plot rates of deaths, rather than numbers of deaths ('population normalization')</li>
 <li>Enhance a basic Folium map with pop-up boxes that display specific data for each geographic region</li>
 </ul>
-<h3 id="other-programming-historian-lessons">Other <em>Programming Historian</em> lessons</h3>
+<h3 id="h-other-programming-historian-lessons">Other <em>Programming Historian</em> lessons</h3>
 <p><em>Programming Historian</em> has several other lessons under the <a href="https://github.com/en/lessons/?topic=mapping" target="_blank" rel="noopener noreferrer">'mapping' rubric</a>. These include an <a href="https://github.com/en/lessons/googlemaps-googleearth" target="_blank" rel="noopener noreferrer">introduction to Google Maps</a>; several lessons on <a href="https://www.qgis.org/" target="_blank" rel="noopener noreferrer">QGIS</a> explaining how to <a href="https://github.com/en/lessons/qgis-layers" target="_blank" rel="noopener noreferrer">install it</a>, <a href="https://github.com/en/lessons/georeferencing-qgis" target="_blank" rel="noopener noreferrer">add historical georeferences</a> and <a href="https://github.com/en/lessons/vector-layers-qgis" target="_blank" rel="noopener noreferrer">create layers</a>; directions on <a href="https://github.com/en/lessons/introduction-map-warper" target="_blank" rel="noopener noreferrer">how to use Map Warper</a> to stretch historical maps to fit modern models; and <a href="https://github.com/en/lessons/displaying-georeferenced-map-knightlab-storymap-js" target="_blank" rel="noopener noreferrer">how to use Story Map JS</a> to create interactive stories that combine maps and images.</p>
 <p>The <em>Programming Historian</em> lesson closest to this one explains <a href="https://github.com/en/lessons/mapping-with-python-leaflet" target="_blank" rel="noopener noreferrer">how to create HTML web maps with Leaflet and Python</a>. However, using Leaflet directly may be challenging for some users, since it requires an understanding of CSS and JavaScript. The advantage of this lesson is that the <a href="https://python-visualization.github.io/folium/" target="_blank" rel="noopener noreferrer">Folium</a> library we'll use automates the creation of Leaflet maps. This will allow you to create a wide variety of interactive maps <em>without</em> needing to know JavaScript or CSS: you only need to know Python, which is somewhat easier.</p>
-<h2 id="lesson-prerequisites">Lesson Prerequisites</h2>
+<h2 id="h-lesson-prerequisites">Lesson Prerequisites</h2>
 <p>Before getting started, a few comments about the tools used in this lesson.</p>
-<h3 id="python-pandas-and-geopandas">Python, Pandas, and GeoPandas</h3>
+<h3 id="h-python-pandas-and-geopandas">Python, Pandas, and GeoPandas</h3>
 <p>To get the most out of this lesson, you should have some experience with <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python</a> and <a href="https://pandas.pydata.org/" target="_blank" rel="noopener noreferrer">Pandas</a>.</p>
 <p>Python is the most popular programming language.<sup><a href="#fn3" rel="noopener noreferrer">[3]</a></sup>, <sup><a href="#fn4" rel="noopener noreferrer">[4]</a></sup> It is especially useful for data scientists,<sup><a href="#fn5" rel="noopener noreferrer">[5]</a></sup> or anyone interested in analyzing and visualizing data, because it comes with an enormous library of tools specifically for these applications. If you are unfamiliar with Python, you may find Kaggle's <a href="https://www.kaggle.com/learn/python" target="_blank" rel="noopener noreferrer">Introduction to Python</a> tutorial helpful. <em>Programming Historian</em> also has a lesson on <a href="https://github.com/en/lessons/introduction-and-installation" target="_blank" rel="noopener noreferrer">introducing and installing Python</a>.</p>
 <p>Written in Python (and <a href="https://perma.cc/6TQ6-S46L" target="_blank" rel="noopener noreferrer">C</a>), Pandas is a powerful package for data manipulation, analysis, and visualization. If you are unfamiliar with Pandas, you will find some basic <em>Programming Historian</em> lessons on <a href="https://github.com/en/lessons/visualizing-with-bokeh" target="_blank" rel="noopener noreferrer">installing Pandas</a>, and <a href="https://github.com/en/lessons/crowdsourced-data-normalization-with-pandas" target="_blank" rel="noopener noreferrer">using Pandas to handle and analyze data</a>. Kaggle also offers free <a href="https://www.kaggle.com/learn/pandas" target="_blank" rel="noopener noreferrer">introduction to Pandas</a> lessons, and Pandas has its own useful <a href="https://pandas.pydata.org/docs/getting_started/index.html" target="_blank" rel="noopener noreferrer">Getting Started tutorial</a>.</p>
@@ -35,10 +35,10 @@
 <li><a href="https://perma.cc/84BE-MVNP" target="_blank" rel="noopener noreferrer">.merge()</a></li>
 </ul>
 <p><a href="https://geopandas.org/en/stable/" target="_blank" rel="noopener noreferrer">GeoPandas</a> extends Pandas with tools for working with geospatial data. Notably, it adds some <a href="https://perma.cc/RPN3-MWBE" target="_blank" rel="noopener noreferrer">shapely</a> data types to Pandas, including <code>point</code> and <code>geometry</code>. The <code>point</code> data type can store geogrpahic coordinates (latitude/longitude data), while <code>geometry</code> can store points that define the shape of a state, county, congressional district, census tract, or other geographic region.</p>
-<h3 id="folium">Folium</h3>
+<h3 id="h-folium">Folium</h3>
 <p>The main software you'll use in this lesson is <a href="https://python-visualization.github.io/folium/" target="_blank" rel="noopener noreferrer">Folium</a>, a Python library that makes it easy to create a wide variety of Leaflet maps. You won't need to work with HTML, CSS, or JavaScript: everything can be done within the Python ecosystem. Folium allows you to specify a variety of different basemaps (terrain, street maps, colors) and display data using various visual markers, such as pins or circles. The color and size of these markers can then be customized based on your data. Folium's advanced functions include creating <a href="https://perma.cc/RK4U-A5UW" target="_blank" rel="noopener noreferrer">cluster maps</a> and <a href="https://perma.cc/M5KY-NTNA" target="_blank" rel="noopener noreferrer">heat maps</a>.</p>
 <p>Folium has a useful <a href="https://perma.cc/EN5B-M4XF" target="_blank" rel="noopener noreferrer">Getting Started guide</a> that serves as an introduction to the library.</p>
-<h3 id="google-colab">Google Colab</h3>
+<h3 id="h-google-colab">Google Colab</h3>
 <p>According to Dombrowski, Gniady, and Kloster, <a href="https://jupyter.org/" target="_blank" rel="noopener noreferrer">Jupyter Notebooks</a> are 'increasingly replacing Microsoft Word as the default authoring environment for research,' in large part because it gives 'equal weight' to prose and code.<sup><a href="#fn6" rel="noopener noreferrer">[6]</a></sup> Although you can choose to install and use Jupyter notebooks on a computer, I prefer to go through <a href="https://colab.research.google.com/" target="_blank" rel="noopener noreferrer">Google Colab</a>, a system that implements Juypter notebooks <a href="https://perma.cc/3WKY-RA3G" target="_blank" rel="noopener noreferrer">in the cloud</a>. Working in the cloud allows you to access Jupyter notebooks from any computer or tablet that runs a modern web browser. This also means that you don't need to adapt instructions for your own operating system. Google Colab is fast and powerful: its virtual machines generally have around 12GB RAM and 23GB disk space. You don't need to be working on a powerful machine to use it. Designed for machine learning, Colab can even provide a virtual graphics card and/or a hardware accelerator. What's more, most of the libraries needed for this lesson are already part of Colab's very large collection of Python libraries. For all these reasons, I recommend using the Colab environment. (For a more detailed comparison between Colab and Jupyter, see the <a href="https://perma.cc/V4TL-YVVY" target="_blank" rel="noopener noreferrer">Geeks for Geeks</a> discussion of the two systems.)</p>
 <p>This lesson only requires Colab's basic tier, which you can access for free with any Google account. Should you need it for future projects, you can always purchase more 'compute' later. Google has a helpful <a href="https://colab.research.google.com/notebooks/intro.ipynb" target="_blank" rel="noopener noreferrer">Welcome to Colab</a> notebook that explains Colab's design goals and capabilities. It includes links on how to use Pandas, machine learning, and various sample notebooks.</p>
 <h4>Not using Colab?</h4>
@@ -52,15 +52,15 @@
 <li>supports text editing, including Markdown and Markdown previewing</li>
 </ul>
 <p>Whether you are using Colab or another Jupyter notebook, you will find it easier to follow this lesson if you <a href="https://nbviewer.org/github/programminghistorian/jekyll/blob/gh-pages/assets/choropleth-maps-python-folium/choropleth-maps-python-folium.ipynb" target="_blank" rel="noopener noreferrer">open the notebook</a> containing the lesson's code.</p>
-<h2 id="getting-started">Getting Started</h2>
-<h3 id="importing-the-libraries">Importing the Libraries</h3>
+<h2 id="h-getting-started">Getting Started</h2>
+<h3 id="h-importing-the-libraries">Importing the Libraries</h3>
 <p>To start the lesson, load the Python libraries and assign them their common aliases (<code>pd</code>, <code>gpd</code>, <code>np</code>):</p>
 <pre><code class="language-python">import pandas as pd
 import geopandas as gpd
 import folium
 import numpy as np
 </code></pre>
-<h3 id="getting-the-fatal-force-data">Getting the Fatal Force Data</h3>
+<h3 id="h-getting-the-fatal-force-data">Getting the Fatal Force Data</h3>
 <p>The lesson uses data from the <em><a href="https://perma.cc/QW8X-AQUN" target="_blank" rel="noopener noreferrer">Washington Post</a></em>'s <a href="https://github.com/washingtonpost/data-police-shootings" target="_blank" rel="noopener noreferrer">Fatal Force database</a>, which is available to <a href="https://github.com/assets/choropleth-maps-python-folium/fatal-police-shootings-data.csv" target="_blank" rel="noopener noreferrer">download from <em>Programming Historian</em>'s GitHub repository</a>. The <em>Post</em> started the database in 2015, seeking to document every time a civilian encounter with a police officer ends in the death of the civilian. This data is neither reported nor collected systematically by any other body, so the <em>Post</em>'s work fills an important lacuna in understanding how police in the US interact with the people around them. The <em>Post</em> provides <a href="https://github.com/assets/choropleth-maps-python-folium/fatal-force-database-README.md" target="_blank" rel="noopener noreferrer">documentation</a> about how this data is collected and recorded.</p>
 <p>My comments will reflect the data in the database as of June 2024. If you work with the data downloaded from <em>Programming Historian</em>'s repository, your visualizations should resemble those in this lesson. However, if you access the <em>Post</em>'s database directly at your time of reading, the numbers will be different. Tragically, I can confidently predict that these numbers will continue to increase.</p>
 <p>The code block below imports the Fatal Force data as the <code>ff_df</code> DataFrame. To follow along with the lesson's archived dataset, use the code as written. If you want to see the most up-to-date version of the data from the <em>Washington Post</em> instead, comment-out (with <code>#</code>) the first two lines, and un-comment the last two lines.</p>
@@ -70,7 +70,7 @@ import numpy as np
 
 </code></pre>
 <p>Pandas parses the data as it imports it. It is pretty good at recognizing 'string' data (characters) and numeric data – importing them as <code>object</code> and <code>int64</code> or <code>float64</code> data types – but sometimes struggles with date-time fields. The <code>parse_dates=</code> parameter used above, along with the name of the date column, increases the likelihood that Pandas will correctly parse the date field as a <code>datetime64</code> data type.</p>
-<h3 id="inspecting-the-fatal-force-data">Inspecting the Fatal Force Data</h3>
+<h3 id="h-inspecting-the-fatal-force-data">Inspecting the Fatal Force Data</h3>
 <p>Let's check the data using the <code>.info()</code> and <code>.sample()</code> methods:</p>
 <pre><code class="language-python">ff_df.info()
     &lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -92,7 +92,6 @@ import numpy as np
 <p>The different data types include <code>object</code> (most variables are text data); <code>datetime64</code> (for the <code>date</code> variable); <code>float64</code> for numbers with decimals (<code>latitude</code>, <code>longitude</code>, <code>age</code>) and <code>int64</code> for integers (whole numbers). Finally, we have a few <code>bool</code> data types, in the columns marked with 'True' or 'False' boolean values.</p>
 <pre><code class="language-python">ff_df.sample(3)
 </code></pre>
-<div>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -187,8 +186,7 @@ import numpy as np
 </tr>
 </tbody>
 </table></div>
-</div>
-<h3 id="getting-the-county-geometry-data">Getting the County Geometry Data</h3>
+<h3 id="h-getting-the-county-geometry-data">Getting the County Geometry Data</h3>
 <p>To create the choropleth map, Folium needs a file that provides the geographic boundaries of the regions to be mapped. The US Census provides a number of <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html" target="_blank" rel="noopener noreferrer">different cartographic boundary files</a>: shape files for counties (at various resolutions), congressional districts, census tracts, and more. Many cities (such as <a href="https://www.chicago.gov/city/en/depts/dti/supp_info/geographic-information-systems.html" target="_blank" rel="noopener noreferrer">Chicago</a>) also publish similar files for ward boundaries, police precincts, and so on.</p>
 <p>We're going to use the Census website's <code>cb_2021_us_county_5m.zip</code> file, which is available to <a href="https://github.com/assets/choropleth-maps-python-folium/cb_2021_us_county_5m.zip" target="_blank" rel="noopener noreferrer">download from the <em>Programming Historian</em> repository</a>. If the cartographic boundary file you were using was based on another boundary type (such as <a href="https://perma.cc/QD4A-RB4Y" target="_blank" rel="noopener noreferrer">census tracts</a>, or <a href="https://perma.cc/6DCM-CZVF" target="_blank" rel="noopener noreferrer">police precincts</a>), you would follow the same basic steps – the map produced would simply reflect these different geometries instead.</p>
 <p>As in the previous section, if you want to work with the lesson’s archived dataset, use the code as written. If you'd like to use the original Census data instead, comment-out (with #) the first line, and un-comment the second line (by removing the #). GeoPandas knows how to read the ZIP format and to extract the information it needs:</p>
@@ -216,7 +214,6 @@ import numpy as np
 </code></pre>
 <pre><code class="language-python">counties.sample(3)
 </code></pre>
-<div>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -287,7 +284,6 @@ import numpy as np
 </tr>
 </tbody>
 </table></div>
-</div>
 <p>GeoPandas has imported the different fields in the correct format: all are <code>objects</code>, except for <code>ALAND</code> and <code>AWATER</code> (which record the area of the county that is land or water in square meters), and <code>geometry</code>, which is a special GeoPandas data type.</p>
 <p>The US Census Bureau has <a href="https://perma.cc/S37P-BRP9" target="_blank" rel="noopener noreferrer">assigned numbers</a> to each state (<code>STATEFP</code>) and county (<code>COUNTYFP</code>); these are combined into a five digit <a href="https://perma.cc/B995-5H72" target="_blank" rel="noopener noreferrer">Federal Information Processing Standard (FIPS) county code</a> (<code>GEOID</code>), which you will need to match these records to the Fatal Force records. The next line of code will rename this column to <code>FIPS</code> – I find it easier to use the same column names in different tables if they contain the same data.</p>
 <pre><code class="language-python">counties = counties.rename(columns={'GEOID':'FIPS'})
@@ -313,7 +309,7 @@ counties.info()
     dtypes: geometry(1), object(2)
     memory usage: 75.9+ KB
 </code></pre>
-<h3 id="matching-the-two-datasets">Matching the two Datasets</h3>
+<h3 id="h-matching-the-two-datasets">Matching the two Datasets</h3>
 <p>In order for Folium to match records from one DataFrame with the other, they need to share a common variable. In this case, you'll use the counties' Federal Information Processing Standard (FIPS) code. Many datasets of county-level data include this FIPS code, but unfortunately the Fatal Force database does not, so this lesson will first teach you how to add it.</p>
 <p>You can use the latitude and longitude values in <code>ff_df</code> to map a FIPS code to each record. What percentage of the records already have these values?</p>
 <pre><code class="language-python">print(ff_df['latitude'].notna().sum())
@@ -330,9 +326,9 @@ ff_df['latitude'].notna().sum() / len(ff_df)
 </code></pre>
 <p>You can now map the FIPS values from <code>counties</code> onto the <code>ff_df</code> records using their latitude and longitude data. For this, you'll use the GeoPandas method <a href="https://perma.cc/4DBY-YKVF" target="_blank" rel="noopener noreferrer">spatial join</a>, which is syntatically similar to a Pandas <a href="https://perma.cc/G9DS-VYVT" target="_blank" rel="noopener noreferrer">join</a>. But, where the latter only matches values from one DataFrame to values in another, the spatial join examines coordinate values, matches them to geographic region data, and returns the associated FIPS code.</p>
 <p>To prepare the spatial join, you will first create a new field in the <code>ff_df</code> DataFrame to combine the latitude and longitude columns into a single <code>point</code> data type.</p>
-<div>
+
 Note that the method to create the new variable is <code>.points_from_xy</code>, where longitude (x) must be specified <i>before</i> latitude (y), contrary to the standard way in which map coordinates are referenced.
-</div>
+
 <p>Additionally, you need to tell GeoPandas which <a href="https://perma.cc/PG5P-YBBF" target="_blank" rel="noopener noreferrer">coordinate reference system (CRS)</a> to use. The CRS is a type of mathematical model that describes how latitude and longitude data (points on the surface of a sphere) are presented on a flat surface. For this lesson, the most important thing to know is that both DataFrames need to use the same CRS before being joined.</p>
 <p>The next code block ties all this together. It:</p>
 <ol>

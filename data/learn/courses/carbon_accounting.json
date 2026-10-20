@@ -1,0 +1,731 @@
+{
+ "title": "Carbon (GHG) Accounting",
+ "subtitle": "Measure an organisation's greenhouse gas emissions across scopes 1, 2 and 3 and report them credibly.",
+ "level": "Intermediate",
+ "outcomes": [
+  "Explain greenhouse gases and where emissions come from",
+  "Draw organisational boundaries and classify scope 1, 2 and 3 emissions",
+  "Calculate emissions with activity data and emission factors",
+  "Report emissions and intensity ratios under SECR"
+ ],
+ "skill": "carbon_accounting",
+ "modules": [
+  {
+   "title": "Greenhouse gases",
+   "lessons": [
+    "carbon_accounting-01",
+    "carbon_accounting-02"
+   ]
+  },
+  {
+   "title": "Building an inventory",
+   "lessons": [
+    "carbon_accounting-03",
+    "carbon_accounting-04",
+    "carbon_accounting-05"
+   ]
+  },
+  {
+   "title": "Calculating emissions",
+   "lessons": [
+    "carbon_accounting-06",
+    "carbon_accounting-07",
+    "carbon_accounting-08"
+   ]
+  },
+  {
+   "title": "Reporting",
+   "lessons": [
+    "carbon_accounting-09",
+    "carbon_accounting-10"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "carbon_accounting-01",
+   "title": "Greenhouse gases and the climate",
+   "words": 395,
+   "minutes": 3,
+   "source": "eia",
+   "url": "https://www.eia.gov/energyexplained/energy-and-the-environment/greenhouse-gases.php",
+   "toc": [
+    {
+     "id": "h-what-are-greenhouse-gases",
+     "text": "What are greenhouse gases?",
+     "level": 2
+    },
+    {
+     "id": "h-what-are-the-types-of-greenhouse-gases",
+     "text": "What are the types of greenhouse gases?",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "carbon_accounting-02",
+   "title": "Where greenhouse gases come from",
+   "words": 913,
+   "minutes": 5,
+   "source": "eia",
+   "url": "https://www.eia.gov/energyexplained/energy-and-the-environment/where-greenhouse-gases-come-from.php",
+   "toc": [
+    {
+     "id": "h-sources-of-ghg-emissions-estimates",
+     "text": "Sources of GHG emissions estimates",
+     "level": 2
+    },
+    {
+     "id": "h-carbon-dioxide",
+     "text": "Carbon dioxide",
+     "level": 2
+    },
+    {
+     "id": "h-other-greenhouse-gases",
+     "text": "Other greenhouse gases",
+     "level": 2
+    },
+    {
+     "id": "h-the-energy-connection",
+     "text": "The energy connection",
+     "level": 2
+    },
+    {
+     "id": "h-about-half-of-u-s-energy-related-co-2-emissions-were-from-pe",
+     "text": "About half of U.S. energy-related CO 2 emissions were from petroleum use in 2023",
+     "level": 2
+    },
+    {
+     "id": "h-the-transportation-sector-accounts-for-the-largest-share-of-",
+     "text": "The transportation sector accounts for the largest share of U.S. energy-related CO 2 emissions",
+     "level": 2
+    },
+    {
+     "id": "h-the-electric-power-sector-accounts-for-about-one-third-of-to",
+     "text": "The electric power sector accounts for about one third of total U.S. energy-related CO 2 emissions",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "carbon_accounting-03",
+   "title": "The GHG inventory development process",
+   "words": 1128,
+   "minutes": 6,
+   "source": "epa",
+   "url": "https://www.epa.gov/climateleadership/ghg-inventory-development-process-and-guidance",
+   "toc": [
+    {
+     "id": "h-scopes-1-and-2-emissions-inventorying-and-guidance",
+     "text": "Scopes 1 and 2 Emissions Inventorying and Guidance",
+     "level": 2
+    },
+    {
+     "id": "h-the-ghg-inventory-development-process",
+     "text": "The GHG Inventory Development Process",
+     "level": 2
+    },
+    {
+     "id": "h-ghg-inventory-development-resources",
+     "text": "GHG Inventory Development Resources",
+     "level": 2
+    },
+    {
+     "id": "h-step-1-get-started-scope-and-plan-inventory",
+     "text": "Step 1: Get Started: Scope and Plan Inventory",
+     "level": 3
+    },
+    {
+     "id": "h-step-2-collect-data-and-quantify-ghg-emissions",
+     "text": "Step 2: Collect Data and Quantify GHG Emissions",
+     "level": 3
+    },
+    {
+     "id": "h-step-3-develop-a-ghg-inventory-management-plan",
+     "text": "Step 3: Develop a GHG Inventory Management Plan",
+     "level": 3
+    },
+    {
+     "id": "h-step-4-set-a-ghg-emission-reduction-target-and-track-and-rep",
+     "text": "Step 4: Set a GHG Emission Reduction Target and Track and Report Progress",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "carbon_accounting-04",
+   "title": "Scope 1 and scope 2 emissions",
+   "words": 709,
+   "minutes": 4,
+   "source": "epa",
+   "url": "https://www.epa.gov/climateleadership/scope-1-and-scope-2-inventory-guidance",
+   "toc": [
+    {
+     "id": "h-scope-1-and-scope-2-inventory-guidance",
+     "text": "Scope 1 and Scope 2 Inventory Guidance",
+     "level": 2
+    },
+    {
+     "id": "h-overview-of-ghg-protocol-scopes-and-emissions-across-the-val",
+     "text": "Overview of GHG Protocol scopes and emissions across the value chain",
+     "level": 2
+    },
+    {
+     "id": "h-scope-1-and-scope-2-resources",
+     "text": "Scope 1 and Scope 2 Resources",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "carbon_accounting-05",
+   "title": "Scope 3 emissions",
+   "words": 2291,
+   "minutes": 12,
+   "source": "epa",
+   "url": "https://19january2025snapshot.epa.gov/climateleadership/scope-3-inventory-guidance",
+   "toc": [
+    {
+     "id": "h-scope-3-inventory-guidance",
+     "text": "Scope 3 Inventory Guidance",
+     "level": 2
+    },
+    {
+     "id": "h-description-of-scope-3-emissions",
+     "text": "Description of Scope 3 Emissions",
+     "level": 2
+    },
+    {
+     "id": "h-scope-3-calculation-practical-guidance",
+     "text": "Scope 3 Calculation: Practical Guidance",
+     "level": 2
+    },
+    {
+     "id": "h-supply-chain-guidance",
+     "text": "Supply Chain Guidance",
+     "level": 2
+    },
+    {
+     "id": "h-scope-3-emission-factors",
+     "text": "Scope 3 Emission Factors",
+     "level": 2
+    },
+    {
+     "id": "h-scope-3-resources",
+     "text": "Scope 3 Resources",
+     "level": 2
+    },
+    {
+     "id": "h-standards-and-guidance",
+     "text": "Standards and Guidance",
+     "level": 3
+    },
+    {
+     "id": "h-tools",
+     "text": "Tools",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "carbon_accounting-06",
+   "title": "Emission factors for electricity and fuels",
+   "words": 1991,
+   "minutes": 10,
+   "source": "epa",
+   "url": "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references",
+   "toc": [
+    {
+     "id": "h-egrid-regions",
+     "text": "eGRID Regions",
+     "level": 2
+    },
+    {
+     "id": "h-electricity-avoided-kilowatt-hours",
+     "text": "Electricity avoided (kilowatt-hours)",
+     "level": 2
+    },
+    {
+     "id": "h-emission-factor",
+     "text": "Emission Factor",
+     "level": 3
+    },
+    {
+     "id": "h-electricity-used-kilowatt-hours",
+     "text": "Electricity used (kilowatt-hours)",
+     "level": 2
+    },
+    {
+     "id": "h-emission-factor-x",
+     "text": "Emission Factor",
+     "level": 3
+    },
+    {
+     "id": "h-gallons-of-gasoline-consumed",
+     "text": "Gallons of gasoline consumed",
+     "level": 2
+    },
+    {
+     "id": "h-calculation",
+     "text": "Calculation",
+     "level": 3
+    },
+    {
+     "id": "h-gallons-of-diesel-consumed",
+     "text": "Gallons of diesel consumed",
+     "level": 2
+    },
+    {
+     "id": "h-calculation-x",
+     "text": "Calculation",
+     "level": 3
+    },
+    {
+     "id": "h-therms-and-mcf-of-natural-gas",
+     "text": "Therms and Mcf of natural gas",
+     "level": 2
+    },
+    {
+     "id": "h-calculation-x-x",
+     "text": "Calculation",
+     "level": 3
+    },
+    {
+     "id": "h-barrels-of-oil-consumed",
+     "text": "Barrels of oil consumed",
+     "level": 2
+    },
+    {
+     "id": "h-calculation-x-x-x",
+     "text": "Calculation",
+     "level": 3
+    },
+    {
+     "id": "h-home-electricity-use",
+     "text": "Home electricity use",
+     "level": 2
+    },
+    {
+     "id": "h-calculation-x-x-x-x",
+     "text": "Calculation",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "carbon_accounting-07",
+   "title": "Emission factors for home energy use",
+   "words": 769,
+   "minutes": 4,
+   "source": "epa",
+   "url": "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references",
+   "toc": [
+    {
+     "id": "h-home-energy-use",
+     "text": "Home energy use",
+     "level": 2
+    },
+    {
+     "id": "h-calculation",
+     "text": "Calculation",
+     "level": 3
+    },
+    {
+     "id": "h-propane-cylinders-used-for-home-barbecues",
+     "text": "Propane cylinders used for home barbecues",
+     "level": 2
+    },
+    {
+     "id": "h-calculation-x",
+     "text": "Calculation",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "carbon_accounting-08",
+   "title": "Measuring an organisation's own emissions",
+   "words": 1098,
+   "minutes": 6,
+   "source": "govuk",
+   "url": "https://www.gov.uk/guidance/sharing-information-on-greenhouse-gas-emissions-from-local-authority-own-estate-and-operations-previously-ni-185",
+   "toc": [
+    {
+     "id": "h-overview",
+     "text": "Overview",
+     "level": 2
+    },
+    {
+     "id": "h-revisions-to-information-sharing-and-the-local-government-as",
+     "text": "Revisions to information sharing and the Local Government Association MOU",
+     "level": 2
+    },
+    {
+     "id": "h-memorandum-of-understanding-between-the-local-government-ass",
+     "text": "Memorandum of Understanding between the Local Government Association and the Department of Energy and Climate Change",
+     "level": 2
+    },
+    {
+     "id": "h-request-to-publish-annual-emissions-report",
+     "text": "Request to publish annual emissions report",
+     "level": 2
+    },
+    {
+     "id": "h-letter-from-greg-barker-to-chief-executives-of-councils-in-e",
+     "text": "Letter from Greg Barker to chief executives of councils in England, on sharing information on greenhouse gas emissions from local authority own estate and operations",
+     "level": 2
+    },
+    {
+     "id": "h-data-for-2011-2012",
+     "text": "Data for 2011/2012",
+     "level": 3
+    },
+    {
+     "id": "h-letter-from-greg-barker-to-chief-executives-of-local-authori",
+     "text": "Letter from Greg Barker to Chief Executives of Local Authorities in England: 28 March 2012",
+     "level": 2
+    },
+    {
+     "id": "h-data-for-2012-2013",
+     "text": "Data for 2012/2013",
+     "level": 3
+    },
+    {
+     "id": "h-letter-from-greg-barker-to-chief-executives-of-local-authori-x",
+     "text": "Letter from Greg Barker to Chief Executives of Local Authorities in England:  6 June 2013",
+     "level": 2
+    },
+    {
+     "id": "h-2013-2014-data-new-request",
+     "text": "2013/2014 data: new request",
+     "level": 3
+    },
+    {
+     "id": "h-letter-from-greg-barker-to-chief-executives-of-local-authori-x-x",
+     "text": "Letter from Greg Barker to Chief Executives of local authorities in England: 14 April 2014",
+     "level": 2
+    },
+    {
+     "id": "h-sharing-information-on-greenhouse-gas-emissions-from-council",
+     "text": "Sharing information on greenhouse gas emissions from council own estate and operations: Frequently asked questions",
+     "level": 2
+    },
+    {
+     "id": "h-summary-of-local-authorities-ghg-emissions-data-for-2011-201",
+     "text": "Summary of local authorities’ GHG emissions data for 2011/2012 and 2012/2013",
+     "level": 2
+    },
+    {
+     "id": "h-important-note-before-using-the-spreadsheet",
+     "text": "Important note before using the spreadsheet",
+     "level": 3
+    },
+    {
+     "id": "h-local-authority-own-emissions-reporting-emissions-reported-i",
+     "text": "Local authority own emissions reporting: emissions reported in tonnes of CO2e",
+     "level": 2
+    },
+    {
+     "id": "h-contacting-decc",
+     "text": "Contacting DECC",
+     "level": 2
+    },
+    {
+     "id": "h-clarification-over-definition-of-local-authority",
+     "text": "Clarification over definition of ‘local authority’",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "carbon_accounting-09",
+   "title": "Streamlined Energy and Carbon Reporting (SECR)",
+   "words": 1735,
+   "minutes": 9,
+   "source": "govuk",
+   "url": "https://www.gov.uk/government/publications/streamlined-energy-and-carbon-reporting-secr-for-academy-trusts/streamlined-energy-and-carbon-reporting-secr-for-academy-trusts",
+   "toc": [
+    {
+     "id": "h-2-what-is-the-status-of-this-guidance",
+     "text": "2. What is the status of this guidance?",
+     "level": 2
+    },
+    {
+     "id": "h-3-why-are-companies-being-asked-to-report-on-energy-use",
+     "text": "3. Why are companies being asked to report on energy use?",
+     "level": 2
+    },
+    {
+     "id": "h-4-who-needs-to-report-and-where",
+     "text": "4. Who needs to report and where?",
+     "level": 2
+    },
+    {
+     "id": "h-5-additional-voluntary-reporting",
+     "text": "5. Additional voluntary reporting",
+     "level": 2
+    },
+    {
+     "id": "h-6-what-do-academy-trusts-need-to-disclose",
+     "text": "6. What do academy trusts need to disclose?",
+     "level": 2
+    },
+    {
+     "id": "h-subsidiaries",
+     "text": "Subsidiaries",
+     "level": 3
+    },
+    {
+     "id": "h-basis-of-occupancy",
+     "text": "Basis of occupancy",
+     "level": 3
+    },
+    {
+     "id": "h-7-elements-of-the-disclosure-in-detail",
+     "text": "7. Elements of the disclosure in detail",
+     "level": 2
+    },
+    {
+     "id": "h-a-uk-energy-use",
+     "text": "a) UK energy use",
+     "level": 3
+    },
+    {
+     "id": "h-b-greenhouse-gas-ghg-emissions",
+     "text": "b) Greenhouse gas ( GHG ) emissions",
+     "level": 3
+    },
+    {
+     "id": "h-c-emissions-intensity-ratio",
+     "text": "c) Emissions intensity ratio",
+     "level": 3
+    },
+    {
+     "id": "h-d-methodology",
+     "text": "d) Methodology",
+     "level": 3
+    },
+    {
+     "id": "h-e-energy-efficiency-action",
+     "text": "e) Energy efficiency action",
+     "level": 3
+    },
+    {
+     "id": "h-8-other-sources-of-information",
+     "text": "8. Other sources of information",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "carbon_accounting-10",
+   "title": "Annex: How might academy trusts go about calculating their energy, greenhouse gas emissions and intensity ratio?",
+   "words": 735,
+   "minutes": 4,
+   "source": "govuk",
+   "url": "https://www.gov.uk/government/publications/streamlined-energy-and-carbon-reporting-secr-for-academy-trusts/streamlined-energy-and-carbon-reporting-secr-for-academy-trusts",
+   "toc": [
+    {
+     "id": "h-table-2-illustrative-example-of-how-an-academy-trust-might-c",
+     "text": "Table 2: illustrative example of how an academy trust might calculate figures for 2025 to 2026",
+     "level": 3
+    },
+    {
+     "id": "h-table-3-disclosure-of-minimum-information-to-be-reported-in-",
+     "text": "Table 3: disclosure of minimum information to be reported in the Trustee’s Report based on above example",
+     "level": 3
+    }
+   ]
+  }
+ ],
+ "quiz": {
+  "questions": [
+   {
+    "q": "Without the natural greenhouse effect, what would Earth's average temperature be?",
+    "options": [
+     "About the same as today",
+     "About -2°F instead of today's 57°F",
+     "About 100°F",
+     "Exactly 0°C"
+    ],
+    "answer": 1,
+    "explain": "Some greenhouse effect is natural and essential; human emissions intensify it.",
+    "lesson": "carbon_accounting-01",
+    "evidence": "Without the greenhouse effect, the average temperature of the earth would be about -2°F rather than the 57°F we currently experience.",
+    "origin": "authored"
+   },
+   {
+    "q": "In the United States, where do most human-caused greenhouse gas emissions come from?",
+    "options": [
+     "Volcanoes",
+     "Livestock",
+     "Landfills",
+     "Burning fossil fuels — coal, natural gas and petroleum — for energy"
+    ],
+    "answer": 3,
+    "explain": "About 74% of US human-caused emissions come from fossil fuel energy use.",
+    "lesson": "carbon_accounting-02",
+    "evidence": "In the United States, most (about 74%) human-caused ( anthropogenic ) greenhouse gas (GHG) emissions come from burning fossil fuels—coal, natural gas, and petroleum—for energy use.",
+    "origin": "authored"
+   },
+   {
+    "q": "Which of these belongs to the first step of developing a GHG inventory?",
+    "options": [
+     "Reviewing accounting standards, setting organisational and operational boundaries, and choosing a base year",
+     "Buying carbon offsets",
+     "Publishing the final report",
+     "Setting a net zero target"
+    ],
+    "answer": 0,
+    "explain": "Boundaries and a base year make results consistent and comparable over time.",
+    "lesson": "carbon_accounting-03",
+    "evidence": "Review accounting standards and methods, determine organizational and operational boundaries, and choose a base year.",
+    "origin": "authored"
+   },
+   {
+    "q": "What are scope 2 emissions?",
+    "options": [
+     "Direct emissions from company vehicles",
+     "Emissions from suppliers' factories",
+     "Indirect emissions associated with purchased electricity, steam, heat or cooling",
+     "Emissions from employees commuting"
+    ],
+    "answer": 2,
+    "explain": "Scope 1 is direct; scope 2 is purchased energy; scope 3 is the rest of the value chain.",
+    "lesson": "carbon_accounting-04",
+    "evidence": "Scope 2 emissions are indirect GHG emissions associated with the purchase of electricity, steam, heat, or cooling.",
+    "origin": "authored"
+   },
+   {
+    "q": "Scope 2 emissions physically happen at the power plant. Why are they counted in the buyer's inventory?",
+    "options": [
+     "Because power plants do not report emissions",
+     "Because they are a result of the organisation's energy use",
+     "Because the law double-counts all emissions",
+     "Because electricity is always generated on site"
+    ],
+    "answer": 1,
+    "explain": "The organisation's demand for energy causes those emissions.",
+    "lesson": "carbon_accounting-04",
+    "evidence": "they are accounted for in an organization’s GHG inventory because they are a result of the organization’s energy use.",
+    "origin": "authored"
+   },
+   {
+    "q": "What do scope 3 emissions include?",
+    "options": [
+     "Only business travel",
+     "Only purchased electricity",
+     "Only emissions from company-owned boilers",
+     "All sources not within the organisation's scope 1 and 2 boundary"
+    ],
+    "answer": 3,
+    "explain": "One organisation's scope 3 is another organisation's scope 1 and 2.",
+    "lesson": "carbon_accounting-05",
+    "evidence": "Scope 3 emissions include all sources not within an organization’s scope 1 and 2 boundary.",
+    "origin": "authored"
+   },
+   {
+    "q": "How many scope 3 categories does an organisation screen for relevance?",
+    "options": [
+     "15",
+     "3",
+     "7",
+     "50"
+    ],
+    "answer": 0,
+    "explain": "Not every category is relevant to every organisation.",
+    "lesson": "carbon_accounting-05",
+    "evidence": "a relevance assessment to determine which of the 15 categories are relevant to the reporting organization.",
+    "origin": "authored"
+   },
+   {
+    "q": "Why does EPA use a marginal emission factor to estimate savings from efficiency and renewable energy?",
+    "options": [
+     "It is the cheapest factor to calculate",
+     "It ignores fossil fuels",
+     "It best represents which fossil-fired units the savings displace",
+     "It is required for scope 3 only"
+    ],
+    "answer": 2,
+    "explain": "Efficiency and renewables mostly displace plants brought online to meet demand, not baseload plants.",
+    "lesson": "carbon_accounting-06",
+    "evidence": "A marginal emission factor is the best representation to estimate which fossil-fired units EE/RE are displacing across the fossil fleet.",
+    "origin": "authored"
+   },
+   {
+    "q": "In the UK guidance for councils' own estate, what should each published GHG report show at a minimum?",
+    "options": [
+     "Totals in CO2e for scope 1, scope 2 and scope 3 (if provided)",
+     "Only the electricity bill",
+     "The names of staff who travel most",
+     "A forecast for the next 50 years"
+    ],
+    "answer": 0,
+    "explain": "Publishing totals locally makes councils accountable to local people.",
+    "lesson": "carbon_accounting-08",
+    "evidence": "as a minimum totals in CO2e for Scope 1, Scope 2 and Scope 3 emissions (if provided)",
+    "origin": "authored"
+   },
+   {
+    "q": "In the SECR worked example, which intensity ratio is chosen?",
+    "options": [
+     "Energy cost per building",
+     "Total gross emissions in tonnes CO2e per pupil",
+     "Litres of fuel per bus",
+     "kWh per employee per day"
+    ],
+    "answer": 1,
+    "explain": "An intensity ratio relates emissions to a measure of activity so years can be compared.",
+    "lesson": "carbon_accounting-10",
+    "evidence": "The chosen intensity measurement ratio is total gross emissions in metric tonnes CO2e per pupil, the recommended ratio for the sector.",
+    "origin": "authored"
+   },
+   {
+    "q": "How often are the UK government's greenhouse gas conversion factors updated?",
+    "options": [
+     "Every ten years",
+     "Only when the law changes",
+     "Never — they are fixed",
+     "Annually, generally released each June"
+    ],
+    "answer": 3,
+    "explain": "Use the factors that cover the greatest part of your reporting year.",
+    "lesson": "carbon_accounting-10",
+    "evidence": "The conversion factors are updated annually and are generally released each year in June.",
+    "origin": "authored"
+   }
+  ],
+  "pass_mark": 8,
+  "missing": false
+ },
+ "minutes": 63,
+ "sources": [
+  {
+   "id": "eia",
+   "name": "U.S. EIA · Energy Explained",
+   "url": "https://www.eia.gov/energyexplained/",
+   "license": "Public domain (U.S. Government work)",
+   "license_url": "https://www.usa.gov/government-copyright",
+   "attribution": "U.S. Energy Information Administration — a U.S. Government work, not subject to copyright",
+   "noncommercial": false
+  },
+  {
+   "id": "epa",
+   "name": "U.S. Environmental Protection Agency",
+   "url": "https://www.epa.gov/",
+   "license": "Public domain (U.S. Government work)",
+   "license_url": "https://www.usa.gov/government-copyright",
+   "attribution": "U.S. Environmental Protection Agency — a U.S. Government work, not subject to copyright",
+   "noncommercial": false
+  },
+  {
+   "id": "govuk",
+   "name": "GOV.UK guidance",
+   "url": "https://www.gov.uk/",
+   "license": "Open Government Licence v3.0",
+   "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+   "attribution": "Contains public sector information licensed under the Open Government Licence v3.0",
+   "noncommercial": false
+  }
+ ]
+}

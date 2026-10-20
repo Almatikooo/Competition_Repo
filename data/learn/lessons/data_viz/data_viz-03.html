@@ -19,8 +19,7 @@
 <blockquote>
 <p>💡 A very interesting project called <a href="https://charticulator.com" target="_blank" rel="noopener noreferrer">Charticulator</a> by Microsoft Research offers a free drag and drop interface for data visualizations. In one of their tutorials they also use this mushroom dataset! So you can explore the data and learn the library at the same time: <a href="https://charticulator.com/tutorials/tutorial4.html" target="_blank" rel="noopener noreferrer">Charticulator tutorial</a>.</p>
 </blockquote>
-
-<h2 id="get-to-know-your-mushrooms">Get to know your mushrooms 🍄</h2>
+<h2 id="h-get-to-know-your-mushrooms">Get to know your mushrooms 🍄</h2>
 <p>Mushrooms are very interesting. Let's import a dataset to study them:</p>
 <pre><code class="language-python">import pandas as pd
 import matplotlib.pyplot as plt
@@ -282,7 +281,7 @@ edibleclass
 </tbody>
 </table></div>
 <p>If you follow the order presented in this table to create your class category labels, you can build a pie chart:</p>
-<h2 id="pie">Pie!</h2>
+<h2 id="h-pie">Pie!</h2>
 <pre><code class="language-python">labels=['Edible','Poisonous']
 plt.pie(edibleclass['population'],labels=labels,autopct='%.1f %%')
 plt.title('Edible?')
@@ -290,7 +289,7 @@ plt.show()
 </code></pre>
 <p>Voila, a pie chart showing the proportions of this data according to these two classes of mushrooms. It's quite important to get the order of the labels correct, especially here, so be sure to verify the order with which the label array is built!</p>
 <p><img alt="pie chart" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/11-visualization-proportions/images/pie1-wb.png"></p>
-<h2 id="donuts">Donuts!</h2>
+<h2 id="h-donuts">Donuts!</h2>
 <p>A somewhat more visually interesting pie chart is a donut chart, which is a pie chart with a hole in the middle. Let's look at our data using this method.</p>
 <p>Take a look at the various habitats where mushrooms grow:</p>
 <pre><code class="language-python">habitat=mushrooms.groupby(['habitat']).count()
@@ -315,7 +314,7 @@ plt.show()
 <p>This code draws a chart and a center circle, then adds that center circle in the chart. Edit the width of the center circle by changing <code>0.40</code> to another value.</p>
 <p>Donut charts can be tweaked in several ways to change the labels. The labels in particular can be highlighted for readability. Learn more in the <a href="https://matplotlib.org/stable/gallery/pie_and_polar_charts/pie_and_donut_labels.html?highlight=donut" target="_blank" rel="noopener noreferrer">docs</a>.</p>
 <p>Now that you know how to group your data and then display it as a pie or donut, you can explore other types of charts. Try a waffle chart, which is just a different way of exploring quantity.</p>
-<h2 id="waffles">Waffles!</h2>
+<h2 id="h-waffles">Waffles!</h2>
 <p>A 'waffle' type chart is a different way to visualize quantities as a 2D array of squares. Try visualizing the different quantities of mushroom cap colors in this dataset. To do this, you need to install a helper library called <a href="https://pypi.org/project/pywaffle/" target="_blank" rel="noopener noreferrer">PyWaffle</a> and use Matplotlib:</p>
 <pre><code class="language-python">pip install pywaffle
 </code></pre>
@@ -347,10 +346,9 @@ fig = plt.figure(
 <p><img alt="waffle chart" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/11-visualization-proportions/images/waffle.png"></p>
 <p>✅ Pywaffle supports icons within the charts that use any icon available in <a href="https://fontawesome.com/" target="_blank" rel="noopener noreferrer">Font Awesome</a>. Do some experiments to create an even more interesting waffle chart using icons instead of squares.</p>
 <p>In this lesson, you learned three ways to visualize proportions. First, you need to group your data into categories and then decide which is the best way to display the data - pie, donut, or waffle. All are delicious and gratify the user with an instant snapshot of a dataset.</p>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>Try recreating these tasty charts in <a href="https://charticulator.com" target="_blank" rel="noopener noreferrer">Charticulator</a>.</p>
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>Sometimes it's not obvious when to use a pie, donut, or waffle chart. Here are some articles to read on this topic:</p>
 <p>https://www.beautiful.ai/blog/battle-of-the-charts-pie-chart-vs-donut-chart</p>
 <p>https://medium.com/@hypsypops/pie-chart-vs-donut-chart-showdown-in-the-ring-5d24fd86a9ce</p>

@@ -13,7 +13,7 @@
 <li>How can I find out what that software does?</li>
 </ul>
 </div>
-<h2 id="most-of-the-power-of-a-programming-language-is-in-its-librar">Most of the power of a programming language is in its libraries.</h2>
+<h2 id="h-most-of-the-power-of-a-programming-language-is-in-its-librar">Most of the power of a programming language is in its libraries.</h2>
 <ul>
 <li>A <em>library</em> is a collection of files (called <em>modules</em>) that contains
 functions for use by other programs.
@@ -29,12 +29,11 @@ with Python itself.</li>
 </ul>
 <div class="box box-callout">
 <p class="box-title">Libraries and modules</p>
-
 <p>A library is a collection of modules, but the terms are often used
 interchangeably, especially since many libraries only consist of a single
 module, so don't worry if you mix them.</p>
 </div>
-<h2 id="a-program-must-import-a-library-module-before-using-it">A program must import a library module before using it.</h2>
+<h2 id="h-a-program-must-import-a-library-module-before-using-it">A program must import a library module before using it.</h2>
 <ul>
 <li>Use <code>import</code> to load a library module into a program's memory.</li>
 <li>Then refer to things from the module as <code>module_name.thing_name</code>.
@@ -60,7 +59,7 @@ doesn't somehow "inherit" the function's reference to <code>math</code>.</li>
 </ul>
 </li>
 </ul>
-<h2 id="use-help-to-learn-about-the-contents-of-a-library-module">Use <code>help</code> to learn about the contents of a library module.</h2>
+<h2 id="h-use-help-to-learn-about-the-contents-of-a-library-module">Use <code>help</code> to learn about the contents of a library module.</h2>
 <ul>
 <li>Works just like help for a function.</li>
 </ul>
@@ -89,7 +88,7 @@ FUNCTIONS
         Return the arc cosine (measured in radians) of x.
 ⋮ ⋮ ⋮
 </code></pre>
-<h2 id="import-specific-items-from-a-library-module-to-shorten-progr">Import specific items from a library module to shorten programs.</h2>
+<h2 id="h-import-specific-items-from-a-library-module-to-shorten-progr">Import specific items from a library module to shorten programs.</h2>
 <ul>
 <li>Use <code>from ... import ...</code> to load only specific items from a library module.</li>
 <li>Then refer to them directly without library name as prefix.</li>
@@ -100,7 +99,7 @@ print('cos(pi) is', cos(pi))
 </code></pre>
 <pre><code class="language-output">cos(pi) is -1.0
 </code></pre>
-<h2 id="create-an-alias-for-a-library-module-when-importing-it-to-sh">Create an alias for a library module when importing it to shorten programs.</h2>
+<h2 id="h-create-an-alias-for-a-library-module-when-importing-it-to-sh">Create an alias for a library module when importing it to shorten programs.</h2>
 <ul>
 <li>Use <code>import ... as ...</code> to give a library a short <em>alias</em> while importing it.</li>
 <li>Then refer to items in the library using that shortened name.</li>
@@ -122,14 +121,12 @@ since readers must learn your program's aliases.</li>
 </ul>
 <div class="box box-challenge">
 <p class="box-title">Exploring the Math Module</p>
-
 <ol>
 <li>What function from the <code>math</code> module can you use to calculate a square root
 <em>without</em> using <code>sqrt</code>?</li>
 <li>Since the library contains this function, why does <code>sqrt</code> exist?</li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <ol>
 <li>
 <p>Using <code>help(math)</code> we see that we've got <code>pow(x,y)</code> in addition to <code>sqrt(x)</code>,
@@ -148,7 +145,6 @@ of programming is showing in Python's function names.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Locating the Right Module</p>
-
 <p>You want to select a random character from a string:</p>
 <pre><code class="language-python">bases = 'ACTTGCTTGAC'
 </code></pre>
@@ -158,7 +154,6 @@ of programming is showing in Python's function names.</p>
 <li>Try to write a program that uses the function.</li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <p>The <a href="https://docs.python.org/3/library/random.html" target="_blank" rel="noopener noreferrer">random module</a> seems like it could help.</p>
 <p>The string has 11 characters, each having a positional index from 0 to 10.
 You could use the <a href="https://docs.python.org/3/library/random.html#random.randrange" target="_blank" rel="noopener noreferrer"><code>random.randrange</code></a>
@@ -192,7 +187,6 @@ print(choice(bases))
 </div>
 <div class="box box-challenge">
 <p class="box-title">Jigsaw Puzzle (Parson's Problem) Programming Example</p>
-
 <p>Rearrange the following statements so that a random
 DNA base is printed and its index in the string.
 Not all statements may be needed.  Feel free to use/add
@@ -205,7 +199,6 @@ ___ = len(bases)
 print("random base ", bases[___], "base index", ___)
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
 <pre><code class="language-python">import math 
 import random
 bases = "ACTTGCTTGAC" 
@@ -217,20 +210,17 @@ print("random base", bases[idx], "base index", idx)
 </div>
 <div class="box box-challenge">
 <p class="box-title">When Is Help Available?</p>
-
 <p>When a colleague of yours types <code>help(math)</code>,
 Python reports an error:</p>
 <pre><code class="language-error">NameError: name 'math' is not defined
 </code></pre>
 <p>What has your colleague forgotten to do?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x">Solution</h2>
 <p>Importing the math module (<code>import math</code>)</p>
 </details>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Importing With Aliases</p>
-
 <ol>
 <li>Fill in the blanks so that the program below prints <code>90.0</code>.</li>
 <li>Rewrite the program so that it uses <code>import</code> <em>without</em> <code>as</code>.</li>
@@ -241,7 +231,6 @@ angle = ____.degrees(____.pi / 2)
 print(____)
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x">Solution</h2>
 <pre><code class="language-python">import math as m
 angle = m.degrees(m.pi / 2)
 print(angle)
@@ -260,7 +249,6 @@ where there are clear abbreviation conventions.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">There Are Many Ways To Import Libraries!</p>
-
 <p>Match the following print statements with the appropriate library calls.</p>
 <p>Print commands:</p>
 <ol>
@@ -276,7 +264,6 @@ where there are clear abbreviation conventions.</p>
 <li><code>from math import *</code></li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x">Solution</h2>
 <ol>
 <li>Library calls 1 and 4. In order to directly refer to <code>sin</code> and <code>pi</code> without
 the library name as prefix, you need to use the <code>from ... import ...</code>
@@ -299,7 +286,6 @@ convey this information.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Importing Specific Items</p>
-
 <ol>
 <li>Fill in the blanks so that the program below prints <code>90.0</code>.</li>
 <li>Do you find this version easier to read than preceding ones?</li>
@@ -310,7 +296,6 @@ angle = degrees(pi / 2)
 print(angle)
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x-x">Solution</h2>
 <pre><code class="language-python">from math import degrees, pi
 angle = degrees(pi / 2)
 print(angle)
@@ -324,7 +309,6 @@ were to also import a function named <code>degrees</code> from another library.<
 </div>
 <div class="box box-challenge">
 <p class="box-title">Reading Error Messages</p>
-
 <ol>
 <li>Read the code below and try to identify what the errors are without running it.</li>
 <li>Run the code, and read the error message. What type of error is it?</li>
@@ -333,7 +317,6 @@ were to also import a function named <code>degrees</code> from another library.<
 log(0)
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x-x-x">Solution</h2>
 <pre><code class="language-output">---------------------------------------------------------------------------
 ValueError                                Traceback (most recent call last)
 &lt;ipython-input-1-d72e1d780bab&gt; in &lt;module&gt;

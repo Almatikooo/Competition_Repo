@@ -1,10 +1,8 @@
 <p><a href="https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn" target="_blank" rel="noopener noreferrer"><img alt="How to Design Good AI Agents" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ai-agents-for-beginners/9923c54bcc2df67e7119945e12cd2d45944da2f6/04-tool-use/images/lesson-4-thumbnail.png"></a></p>
 <blockquote>
-
 </blockquote>
-
 <p>Tools are interesting because they allow AI agents to have a broader range of capabilities. Instead of the agent having a limited set of actions it can perform, by adding a tool, the agent can now perform a wide range of actions. In this chapter, we will look at the Tool Use Design Pattern, which describes how AI agents can use specific tools to achieve their goals.</p>
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p>In this lesson, we're looking to answer the following questions:</p>
 <ul>
 <li>What is the tool use design pattern?</li>
@@ -12,7 +10,7 @@
 <li>What are the elements/building blocks needed to implement the design pattern?</li>
 <li>What are the special considerations for using the Tool Use Design Pattern to build trustworthy AI agents?</li>
 </ul>
-<h2 id="learning-goals">Learning Goals</h2>
+<h2 id="h-learning-goals">Learning Goals</h2>
 <p>After completing this lesson, you will be able to:</p>
 <ul>
 <li>Define the Tool Use Design Pattern and its purpose.</li>
@@ -20,9 +18,9 @@
 <li>Understand the key elements needed to implement the design pattern.</li>
 <li>Recognize considerations for ensuring trustworthiness in AI agents using this design pattern.</li>
 </ul>
-<h2 id="what-is-the-tool-use-design-pattern">What is the Tool Use Design Pattern?</h2>
+<h2 id="h-what-is-the-tool-use-design-pattern">What is the Tool Use Design Pattern?</h2>
 <p>The <strong>Tool Use Design Pattern</strong> focuses on giving LLMs the ability to interact with external tools to achieve specific goals. Tools are code that can be executed by an agent to perform actions. A tool can be a simple function such as a calculator, or an API call to a third-party service such as stock price lookup or weather forecast. In the context of AI agents, tools are designed to be executed by agents in response to <strong>model-generated function calls</strong>.</p>
-<h2 id="what-are-the-use-cases-it-can-be-applied-to">What are the use cases it can be applied to?</h2>
+<h2 id="h-what-are-the-use-cases-it-can-be-applied-to">What are the use cases it can be applied to?</h2>
 <p>AI Agents can leverage tools to complete complex tasks, retrieve information, or make decisions. The tool use design pattern is often used in scenarios requiring dynamic interaction with external systems, such as databases, web services, or code interpreters. This ability is useful for a number of different use cases including:</p>
 <ul>
 <li><strong>Dynamic Information Retrieval:</strong> Agents can query external APIs or databases to fetch up-to-date data (e.g., querying a SQLite database for data analysis, fetching stock prices or weather information).</li>
@@ -31,7 +29,7 @@
 <li><strong>Customer Support:</strong> Agents can interact with CRM systems, ticketing platforms, or knowledge bases to resolve user queries.</li>
 <li><strong>Content Generation and Editing:</strong> Agents can leverage tools like grammar checkers, text summarizers, or content safety evaluators to assist with content creation tasks.</li>
 </ul>
-<h2 id="what-are-the-elements-building-blocks-needed-to-implement-th">What are the elements/building blocks needed to implement the tool use design pattern?</h2>
+<h2 id="h-what-are-the-elements-building-blocks-needed-to-implement-th">What are the elements/building blocks needed to implement the tool use design pattern?</h2>
 <p>These building blocks allow the AI agent to perform a wide range of tasks. Let's look at the key elements needed to implement the Tool Use Design Pattern:</p>
 <ul>
 <li>
@@ -54,7 +52,7 @@
 </li>
 </ul>
 <p>Next, let's look at Function/Tool Calling in more detail.</p>
-<h3 id="function-tool-calling">Function/Tool Calling</h3>
+<h3 id="h-function-tool-calling">Function/Tool Calling</h3>
 <p>Function calling is the primary way we enable Large Language Models (LLMs) to interact with tools. You will often see 'Function' and 'Tool' used interchangeably because 'functions' (blocks of reusable code) are the 'tools' agents use to carry out tasks. In order for a function's code to be invoked, an LLM must compare the users request against the functions description. To do this a schema containing the descriptions of all the available functions is sent to the LLM. The LLM then selects the most appropriate function for the task and returns its name and arguments. The selected function is invoked, it's response is sent back to the LLM, which uses the information to respond to the users request.</p>
 <p>For developers to implement function calling for agents, you will need:</p>
 <ol>
@@ -183,9 +181,9 @@ return final_response.output_text
 </ol>
 <p>Function Calling is at the heart of most, if not all agent tool use design, however implementing it from scratch can sometimes be challenging.
 As we learned in <a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/02-explore-agentic-frameworks/" target="_blank" rel="noopener noreferrer">Lesson 2</a> agentic frameworks provide us with pre-built building blocks to implement tool use.</p>
-<h2 id="tool-use-examples-with-agentic-frameworks">Tool Use Examples with Agentic Frameworks</h2>
+<h2 id="h-tool-use-examples-with-agentic-frameworks">Tool Use Examples with Agentic Frameworks</h2>
 <p>Here are some examples of how you can implement the Tool Use Design Pattern using different agentic frameworks:</p>
-<h3 id="microsoft-agent-framework">Microsoft Agent Framework</h3>
+<h3 id="h-microsoft-agent-framework">Microsoft Agent Framework</h3>
 <p><a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank" rel="noopener noreferrer">Microsoft Agent Framework</a> is an open-source AI framework for building AI agents. It simplifies the process of using function calling by allowing you to define tools as Python functions with the <code>@tool</code> decorator. The framework handles the back-and-forth communication between the model and your code. It also provides access to pre-built tools like File Search and Code Interpreter through <code>FoundryChatClient</code>.</p>
 <p>The following diagram illustrates the process of function calling with the Microsoft Agent Framework:</p>
 <p><img alt="function calling" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ai-agents-for-beginners/9923c54bcc2df67e7119945e12cd2d45944da2f6/04-tool-use/images/functioncalling-diagram.png"></p>
@@ -232,7 +230,7 @@ async with web_search:
     print(response.text)
 </code></pre>
 <p>The server publishes two tools, <code>search_web_pages</code> and <code>fetch_page_content</code>. When a question needs current information, the model calls <code>search_web_pages</code>, gets back titles, URLs and text snippets, and writes its answer from them, the same loop as in the <code>get_current_time</code> example above.</p>
-<h3 id="microsoft-foundry-agent-service">Microsoft Foundry Agent Service</h3>
+<h3 id="h-microsoft-foundry-agent-service">Microsoft Foundry Agent Service</h3>
 <p><a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank" rel="noopener noreferrer">Microsoft Foundry Agent Service</a> is a newer agentic framework that is designed to empower developers to securely build, deploy, and scale high-quality, and extensible AI agents without needing to manage the underlying compute and storage resources. It is particularly useful for enterprise applications since it is a fully managed service with enterprise grade security.</p>
 <p>When compared to developing with the LLM API directly, Microsoft Foundry Agent Service provides some advantages, including:</p>
 <ul>
@@ -291,25 +289,25 @@ agent = project_client.agents.create_agent(
     toolset=toolset
 )
 </code></pre>
-<h2 id="what-are-the-special-considerations-for-using-the-tool-use-d">What are the special considerations for using the Tool Use Design Pattern to build trustworthy AI agents?</h2>
+<h2 id="h-what-are-the-special-considerations-for-using-the-tool-use-d">What are the special considerations for using the Tool Use Design Pattern to build trustworthy AI agents?</h2>
 <p>A common concern with SQL dynamically generated by LLMs is security, particularly the risk of SQL injection or malicious actions, such as dropping or tampering with the database. While these concerns are valid, they can be effectively mitigated by properly configuring database access permissions. For most databases this involves configuring the database as read-only. For database services like PostgreSQL or Azure SQL, the app should be assigned a read-only (SELECT) role.</p>
 <p>Running the app in a secure environment further enhances protection. In enterprise scenarios, data is typically extracted and transformed from operational systems into a read-only database or data warehouse with a user-friendly schema. This approach ensures that the data is secure, optimized for performance and accessibility, and that the app has restricted, read-only access.</p>
-<h2 id="sample-codes">Sample Codes</h2>
+<h2 id="h-sample-codes">Sample Codes</h2>
 <ul>
 <li>Python: <a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/04-tool-use/code_samples/04-python-agent-framework.ipynb" target="_blank" rel="noopener noreferrer">Agent Framework</a></li>
 <li>.NET: <a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/04-tool-use/code_samples/04-dotnet-agent-framework.md" target="_blank" rel="noopener noreferrer">Agent Framework</a></li>
 </ul>
-<h2 id="got-more-questions-about-the-tool-use-design-patterns">Got More Questions about the Tool Use Design Patterns?</h2>
+<h2 id="h-got-more-questions-about-the-tool-use-design-patterns">Got More Questions about the Tool Use Design Patterns?</h2>
 <p>Join the <a href="https://discord.com/invite/ATgtXmAS5D" target="_blank" rel="noopener noreferrer">Microsoft Foundry Discord</a> to meet with other learners, attend office hours and get your AI Agents questions answered.</p>
-<h2 id="additional-resources">Additional Resources</h2>
+<h2 id="h-additional-resources">Additional Resources</h2>
 <ul>
 <li><a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank" rel="noopener noreferrer">Azure AI Agents Service Workshop</a></li>
 <li><a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank" rel="noopener noreferrer">Contoso Creative Writer Multi-Agent Workshop</a></li>
 <li><a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank" rel="noopener noreferrer">Microsoft Agent Framework Overview</a></li>
 </ul>
-<h2 id="smoke-testing-this-agent-optional">Smoke-Testing This Agent (Optional)</h2>
+<h2 id="h-smoke-testing-this-agent-optional">Smoke-Testing This Agent (Optional)</h2>
 <p>After you learn to deploy agents in <a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/16-deploying-scalable-agents/README.md" target="_blank" rel="noopener noreferrer">Lesson 16</a>, you can smoke-test this lesson's <code>TravelToolAgent</code> (does it still call its tools and answer?) with <a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/tests/lesson-04-smoke-tests.json" target="_blank" rel="noopener noreferrer"><code>tests/lesson-04-smoke-tests.json</code></a>. See <a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/tests/README.md" target="_blank" rel="noopener noreferrer"><code>tests/README.md</code></a> for how to run it.</p>
-<h2 id="previous-lesson">Previous Lesson</h2>
+<h2 id="h-previous-lesson">Previous Lesson</h2>
 <p><a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/03-agentic-design-patterns/README.md" target="_blank" rel="noopener noreferrer">Understanding Agentic Design Patterns</a></p>
-<h2 id="next-lesson">Next Lesson</h2>
+<h2 id="h-next-lesson">Next Lesson</h2>
 <p><a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/05-agentic-rag/README.md" target="_blank" rel="noopener noreferrer">Agentic RAG</a></p>

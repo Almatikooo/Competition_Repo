@@ -12,7 +12,7 @@
 <li>How can I make a program do many things?</li>
 </ul>
 </div>
-<h2 id="a-for-loop-executes-commands-once-for-each-value-in-a-collec">A <em>for loop</em> executes commands once for each value in a collection.</h2>
+<h2 id="h-a-for-loop-executes-commands-once-for-each-value-in-a-collec">A <em>for loop</em> executes commands once for each value in a collection.</h2>
 <ul>
 <li>Doing calculations on the values in a list one by one
 is as painful as working with <code>pressure_001</code>, <code>pressure_002</code>, etc.</li>
@@ -38,7 +38,7 @@ print(5)
 3
 5
 </code></pre>
-<h2 id="a-for-loop-is-made-up-of-a-collection-a-loop-variable-and-a-">A <code>for</code> loop is made up of a collection, a loop variable, and a body.</h2>
+<h2 id="h-a-for-loop-is-made-up-of-a-collection-a-loop-variable-and-a-">A <code>for</code> loop is made up of a collection, a loop variable, and a body.</h2>
 <pre><code class="language-python">for number in [2, 3, 5]:
     print(number)
 </code></pre>
@@ -51,7 +51,7 @@ print(5)
 </ul>
 </li>
 </ul>
-<h2 id="the-first-line-of-the-for-loop-must-end-with-a-colon-and-the">The first line of the <code>for</code> loop must end with a colon, and the body must be indented.</h2>
+<h2 id="h-the-first-line-of-the-for-loop-must-end-with-a-colon-and-the">The first line of the <code>for</code> loop must end with a colon, and the body must be indented.</h2>
 <ul>
 <li>The colon at the end of the first line signals the start of a <em>block</em> of statements.</li>
 <li>Python uses indentation rather than <code>{}</code> or <code>begin</code>/<code>end</code> to show <em>nesting</em>.
@@ -80,7 +80,7 @@ IndentationError: unexpected indent
 <li>This error can be fixed by removing the extra spaces
 at the beginning of the second line.</li>
 </ul>
-<h2 id="loop-variables-can-be-called-anything">Loop variables can be called anything.</h2>
+<h2 id="h-loop-variables-can-be-called-anything">Loop variables can be called anything.</h2>
 <ul>
 <li>As with all variables, loop variables are:
 <ul>
@@ -92,7 +92,7 @@ at the beginning of the second line.</li>
 <pre><code class="language-python">for kitten in [2, 3, 5]:
     print(kitten)
 </code></pre>
-<h2 id="the-body-of-a-loop-can-contain-many-statements">The body of a loop can contain many statements.</h2>
+<h2 id="h-the-body-of-a-loop-can-contain-many-statements">The body of a loop can contain many statements.</h2>
 <ul>
 <li>But no loop should be more than a few lines long.</li>
 <li>Hard for human beings to keep larger chunks of code in mind.</li>
@@ -107,7 +107,7 @@ for p in primes:
 3 9 27
 5 25 125
 </code></pre>
-<h2 id="use-range-to-iterate-over-a-sequence-of-numbers">Use <code>range</code> to iterate over a sequence of numbers.</h2>
+<h2 id="h-use-range-to-iterate-over-a-sequence-of-numbers">Use <code>range</code> to iterate over a sequence of numbers.</h2>
 <ul>
 <li>The built-in function <a href="https://docs.python.org/3/library/stdtypes.html#range" target="_blank" rel="noopener noreferrer"><code>range</code></a> produces a sequence of numbers.
 <ul>
@@ -130,7 +130,7 @@ for number in range(0, 3):
 1
 2
 </code></pre>
-<h2 id="the-accumulator-pattern-turns-many-values-into-one">The Accumulator pattern turns many values into one.</h2>
+<h2 id="h-the-accumulator-pattern-turns-many-values-into-one">The Accumulator pattern turns many values into one.</h2>
 <ul>
 <li>A common pattern in programs is to:
 <ol>
@@ -159,17 +159,14 @@ print(total)
 </ul>
 <div class="box box-challenge">
 <p class="box-title">Classifying Errors</p>
-
 <p>Is an indentation error a syntax error or a runtime error?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <p>An IndentationError is a syntax error. Programs with syntax errors cannot be started.
 A program with a runtime error will start but an error will be thrown under certain conditions.</p>
 </details>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Tracing Execution</p>
-
 <p>Create a table showing the numbers of the lines that are executed when this program runs,
 and the values of the variables after each line is executed.</p>
 <pre><code class="language-python">total = 0
@@ -177,7 +174,6 @@ for char in "tin":
     total = total + 1
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -220,7 +216,6 @@ for char in "tin":
 </div>
 <div class="box box-challenge">
 <p class="box-title">Reversing a String</p>
-
 <p>Fill in the blanks in the program below so that it prints "nit"
 (the reverse of the original character string "tin").</p>
 <pre><code class="language-python">original = "tin"
@@ -230,7 +225,6 @@ for char in original:
 print(result)
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
 <pre><code class="language-python">original = "tin"
 result = ""
 for char in original:
@@ -241,7 +235,6 @@ print(result)
 </div>
 <div class="box box-challenge">
 <p class="box-title">Practice Accumulating</p>
-
 <p>Fill in the blanks in each of the programs below
 to produce the indicated result.</p>
 <pre><code class="language-python"># Total length of the strings in the list: ["red", "green", "blue"] =&gt; 12
@@ -251,7 +244,6 @@ for word in ["red", "green", "blue"]:
 print(total)
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x">Solution</h2>
 <pre><code class="language-python">total = 0
 for word in ["red", "green", "blue"]:
     total = total + len(word)
@@ -265,7 +257,6 @@ for word in ["red", "green", "blue"]:
 print(lengths)
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x">Solution</h2>
 <pre><code class="language-python">lengths = []
 for word in ["red", "green", "blue"]:
     lengths.append(len(word))
@@ -280,7 +271,6 @@ for ____ in ____:
 print(result)
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x">Solution</h2>
 <pre><code class="language-python">words = ["red", "green", "blue"]
 result = ""
 for word in words:
@@ -292,7 +282,6 @@ print(result)
 a for loop.</p>
 <p><strong>Hint:</strong> You may need to use a string method to properly format the acronym.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x-x">Solution</h2>
 <pre><code class="language-python">acronym = ""
 for word in ["red", "green", "blue"]:
     acronym = acronym + word[0].upper()
@@ -302,7 +291,6 @@ print(acronym)
 </div>
 <div class="box box-challenge">
 <p class="box-title">Cumulative Sum</p>
-
 <p>Reorder and properly indent the lines of code below
 so that they print a list with the cumulative sum of data.
 The result should be <code>[1, 3, 5, 10]</code>.</p>
@@ -315,7 +303,6 @@ print(cumulative)
 data = [1,2,2,5]
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x-x-x">Solution</h2>
 <pre><code class="language-python">total = 0
 data = [1,2,2,5]
 cumulative = []
@@ -328,7 +315,6 @@ print(cumulative)
 </div>
 <div class="box box-challenge">
 <p class="box-title">Identifying Variable Name Errors</p>
-
 <ol>
 <li>Read the code below and try to identify what the errors are
 <em>without</em> running it.</li>
@@ -348,7 +334,6 @@ variable that should have been defined but was not?</li>
 print(message)
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x-x-x-x">Solution</h2>
 <ul>
 <li>Python variable names are case sensitive: <code>number</code> and <code>Number</code> refer to different variables.</li>
 <li>The variable <code>message</code> needs to be initialized as an empty string.</li>
@@ -367,7 +352,6 @@ print(message)
 </div>
 <div class="box box-challenge">
 <p class="box-title">Identifying Item Errors</p>
-
 <ol>
 <li>Read the code below and try to identify what the errors are
 <em>without</em> running it.</li>
@@ -378,7 +362,6 @@ print(message)
 print('My favorite season is ', seasons[4])
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x-x-x-x-x">Solution</h2>
 <p>This list has 4 elements and the index to access the last element in the list is <code>3</code>.</p>
 <pre><code class="language-python">seasons = ['Spring', 'Summer', 'Fall', 'Winter']
 print('My favorite season is ', seasons[3])

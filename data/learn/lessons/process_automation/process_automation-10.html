@@ -1,110 +1,171 @@
-<h2 id="process-design">Process design</h2>
-<p>When you design a process automation, the first step is to decide when and what
-to automate. Looking at the business process you currently have, you should
-first identify which part of the process to automate.</p>
-<h2 id="identifying-automation-areas">Identifying automation areas</h2>
-<p>The types of benefits you can potentially gain by automation falls into these
-categories:</p>
+<h2 id="h-making-phase">Making phase</h2><p>You have now planned and designed how you'd like to automate your process.
+The next step is to set up the automation.</p>
+<h3 id="h-basic-steps-for-cloud-flows">Basic steps for cloud flows</h3>
+<ol>
+<li>
+<p>Create a cloud flow in <a href="https://make.powerautomate.com" target="_blank" rel="noopener noreferrer">Power Automate</a>.</p>
+</li>
+<li>
+<p>Specify an event or trigger to start the flow with
+<a href="https://learn.microsoft.com/connectors/" target="_blank" rel="noopener noreferrer">connectors</a>. Based on the way you
+want to trigger the automation, you'll specify what event you want to use
+to trigger your Power Automate flow.</p>
+</li>
+<li>
+<p><a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/multi-step-logic-flow.md" target="_blank" rel="noopener noreferrer">Add actions</a> and <a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/add-condition.md" target="_blank" rel="noopener noreferrer">conditions</a>.</p>
+</li>
+</ol>
+<p>More information: <a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/overview-cloud.md" target="_blank" rel="noopener noreferrer">Overview of cloud flows</a>, <a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/get-started-logic-template.md" target="_blank" rel="noopener noreferrer">Create a flow from a template in Power Automate</a></p>
+<h3 id="h-basic-steps-for-desktop-flows">Basic steps for desktop flows</h3>
+<ol>
+<li>
+<p>Create a new desktop flow in <a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/desktop-flows/introduction.md" target="_blank" rel="noopener noreferrer">Power Automate Desktop</a>.</p>
+</li>
+<li>
+<p>Add actions and set up configuration.</p>
+</li>
+<li>
+<p>Define inputs and outputs.</p>
+</li>
+<li>
+<p>Test the desktop flow you created.</p>
+</li>
+<li>
+<p>If needed, set up triggers and links between cloud flows and Power Automate Desktop.</p>
+</li>
+</ol>
+<blockquote>
+<p><a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/testing-strategy.md" target="_blank" rel="noopener noreferrer">Next step: Testing strategy</a></p>
+</blockquote><h2 id="h-tools-to-test-your-automation">Tools to test your automation</h2><p>This article describes the tools you can use to check your flows for basic errors and detect
+errors that occur when the automation runs.</p>
+<h3 id="h-flow-checker">Flow Checker</h3>
+<p>This tool checks for issues and errors in the automation you've created. After you feel that you've completed setting up your automation, run the
+Flow Checker to see if you've made any mistakes. More information:
+<a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/error-checker.md" target="_blank" rel="noopener noreferrer">Find and fix errors with Flow Checker</a></p>
+<h3 id="h-repair-tips">Repair tips</h3>
+<p>If your automation fails, repair tips are automatically sent to whoever created
+or owns the automation. These tips contain actionable information
+about the failure. More information: <a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/fix-flow-failures.md" target="_blank" rel="noopener noreferrer">Troubleshooting a flow</a></p>
+<h3 id="h-custom-error-notifications">Custom error notifications</h3>
+<p>If repair tips don't meet your need for error notifications—for example, if you need to inform more people than just the owner about any failures—you can set up custom error notifications by
+setting an action that runs only when the previous step has failed.</p>
+<p>In the example below, when the <strong>Get manager (V2)</strong> action fails to run, the
+**Send an email notification (V3)"**action is executed.</p>
+<p><img alt="Setting up an action to run after the previous step has failed." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/custom-error-notifications.png" title="Setting up an action to run after the previous step has failed"></p>
+<blockquote>
+<p><a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/deploy-to-production.md" target="_blank" rel="noopener noreferrer">Next step: Deploying and refining phase</a></p>
+</blockquote><h2 id="h-separate-flows-into-smaller-automated-processes">Separate flows into smaller automated processes</h2><p>When you're setting up an automation, try to architect your flows so that you
+don't have a single automation that covers the entire process. There are several reasons why you should make multiple, smaller flows:</p>
 <ul>
 <li>
-<p>Consistently apply standardized business rules</p>
+<p>Maintenance is easier.</p>
 </li>
 <li>
-<p>Reduce manual work on repetitive processes</p>
+<p>Error handling doesn't need to be as sophisticated.</p>
 </li>
 <li>
-<p>Reduce human error</p>
+<p>Multiple people can work on the automation.</p>
 </li>
 <li>
-<p>Streamline approvals</p>
-</li>
-<li>
-<p>Gain efficiency in high-volume transactions</p>
-</li>
-<li>
-<p>Efficiently move data between systems (reduce manual data entry)</p>
-</li>
-<li>
-<p>Maximize the use of available resources</p>
-</li>
-<li>
-<p>Increase throughput</p>
+<p>There's no need to restart the automation from the beginning if a step fails.</p>
 </li>
 </ul>
-<h2 id="apply-standardized-business-rules">Apply standardized business rules</h2>
-<p>Business rules are the if/then logic that applies your business policies.
-Automating them ensures that they'll be followed consistently every time.</p>
-<p>In our sample expense reporting scenario, a business rule requires that if
-an expense report amount exceeds $10,000, it needs to also be approved by
-the CFO. By automating the process, Abhay ensures that no high-dollar expense report
-will slip by unnoticed.</p>
-<h2 id="automate-repetitive-processes">Automate repetitive processes</h2>
-<p>Automating repetitive processes can help your employees avoid mental and
-physical burnout. Processes that are done the same way every time should be high
-on your list to consider for automation.</p>
-<p>For example, Abhay the accountant must collect expense forms and receipts from
-everyone. The receipts might be a paper receipt from a restaurant or paper
-invoices from vendors. Abhay has to manually scan these papers into a PDF file
-and store it. Abhay also needs to enter what's written on the paper and post
-it in the financial system for every expense report submitted.</p>
-<h2 id="reduce-human-error">Reduce human error</h2>
-<p>Tasks like copying and pasting values from one system to another, or keying in
-data from paper forms, are processes where human errors can occur.</p>
-<p>An example case for the expense reporting scenario is where Abhay needs to
-reimburse cash to the employee by looking up the employee banking details, then
-accessing the banking system.</p>
-<p><img alt="Possible areas of business process to automate for reducing human error." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/before-reminder-automation.png">
-Diagram showing a business process flow for Abhay the accountant. Two steps in the process ("Lookup employee banking details" and "Reimburse cash to applicant") are circled in red to indicate the potential areas where Power Automate can reduce human errors by automating these steps.
-:::image-end:::</p>
-<h2 id="streamline-approvals">Streamline approvals</h2>
-<p>A different type of error occurs when people forget to perform their tasks. You can set up automation to remind them to work on the task or process that they've been
-assigned.</p>
-<p>For example, Lee has submitted an expense report but Nick hasn't
-responded to the approval request for some time. An automation can be set up to
-remind Nick to make a decision, and even provide a button to respond directly
-from the reminder.</p>
-<p><img alt="Possible areas of business process to automate for streamlining business process." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/after-reminder-automation.png">
-Diagram showing a business process flow for Abhay the accountant. The approval process is altered so that a reminder for approvals is automated by setting up a trigger automation to check status. If approval is complete, the automation is ended; and if approval is not complete, a reminder is sent to the approver and the reminder automation will be run again to check until the approval is completed.
-:::image-end:::</p>
-<h2 id="gain-efficiency-in-high-volume-processes">Gain efficiency in high-volume processes</h2>
-<p>Another area you may want to automate are high-volume processes.
-High-volume processes are processes that occur very frequently on a daily basis.
-It is closely tied to repetitive processes but is slightly different. You may have a process that can only have a step or two that can be automated.
-However, if a process must be done many times, even small improvements can have large impacts.</p>
-<p>For example, if the expense reporting scenario holds for 1,000 salespeople, each
-minute of improvement would equate to two working days' worth of time
-saved. Analyzing the actual impact can be done by using the <a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/analyze-and-assess.md" target="_blank" rel="noopener noreferrer">analytics features</a>.</p>
-<h2 id="automate-data-entry">Automate data entry</h2>
-<p>You might be manually entering data because you have two systems that don't
-talk to each other. In our expense reporting scenario,
-this is where Abhay inputs data into the accounting
-system by reentering values from the submitted expense report.</p>
-<p><img alt="Example scenario to improve efficiency." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/gain-efficiency-sample-scenario.png" title="Example scenario to improve efficiency"></p>
-<h2 id="maximize-the-use-of-available-resources">Maximize the use of available resources</h2>
-<p>Additional good automation candidates are those processes that can be run
-independent of human interaction. This type of process isn't as easy to identify, so the best way is to imagine whether there are processes that can be completed outside your normal business
-hours. Such an automation acts as a "multiplier" of your people and fully uses your
-other resources (such as PCs).</p>
-<p>You might also use automation for processes that take too much time compared
-to a human interaction, but is tolerable if done during night time when there's
-no rush for the automation to finish. For example, if a person starts their
-day by processing orders that came in overnight, you might create
-automation that processes the orders as soon as they come in, so that your team can start
-fulfilling the orders first thing in the morning.</p>
-<p><img alt="Diagram showing a person performing a process from 9 AM to 6 PM, and automation performing a related process from 6 PM to 9 AM." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/maximize-use-of-resources.png" title="Diagram showing a person performing a process from 9 AM to 6 PM, and automation performing a related process from 6 PM to 9 AM"></p>
-<h2 id="increase-throughput">Increase throughput</h2>
-<p>Similar to maximizing the use of available resources, automation also helps you
-increase the throughput of a particular process. With this type of automation,
-your current process can be performed by humans in parallel with the automation.</p>
-<p>For example, Abhay the accountant may be the only person processing the expense
-reports and their standard work hours may be between 9 AM to 6 PM. By setting up an
-automation, you could also have Power Automate to process the expense reports as well, and therefore have both Abhay and the automation to process it, resulting
-in a higher throughput.</p>
-<p><img alt="Diagram showing a person performing a process from 9 AM to 6 PM in parallel with automation that runs for 24 hours." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/increasing-throughput.png" title="Diagram showing a person performing a process from 9 AM to 6 PM in parallel with automation that runs for 24 hours"></p>
-<h2 id="example-scenario">Example scenario</h2>
-<p>When all of the automation areas are applied, the example below shows how an
-expense reporting business process can be covered by Power Automate with improvements to throughput, maximizing the available resources, automating data entries as well as streamlining approvals.</p>
-<p><img alt="Diagram of process after all of the automations are applied." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/process-after-automation-applied.png" title="Diagram of processall of the automations are applied"></p>
+<p>In the example below, one automation has been set up for an approval process, covering multiple
+processes with a single automation.</p>
+<p><img alt="Example of a very long process diagram set up for automation." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/flow-before-split.png"></p>
+<p>If for example, the cash reimbursement process fails, the whole automation will
+be considered a failure. If a requirement or specification for looking up employee
+banking details changes, the whole process will have to be suspended until the updates are in place.</p>
+<p>Instead, you can separate the automation into modules, as shown in the following image.</p>
+<p><img alt="Example of process diagram split to three smaller processes." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/flow-after-split.png"></p>
+<p>In this example, Automation #2 depends on the previous automation to
+set the status of the expense report to "Compliance
+check complete." However, if there's a problem with the mail system and
+Automation #2 fails, the tasks in Automation #1 will still be completed. Only tasks in Automation #2 will need to be restarted.</p>
 <blockquote>
-<p><a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/determine-automation-methods.md" target="_blank" rel="noopener noreferrer">Next step: Determining which automation method to use</a></p>
+<p><a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/authentication-security.md" target="_blank" rel="noopener noreferrer">Next step: Authentication and security</a></p>
+</blockquote><h2 id="h-reducing-risk-and-planning-for-error-handling">Reducing risk and planning for error handling</h2><p>Always assume your automation can fail.</p>
+<p>No system is perfect. When you're designing your first set of
+automated processes, it's easy to forget the importance of designing for when things
+fail to work correctly.</p>
+<p>You should always design your automation so that there's a plan B—to make
+sure your business process can continue even if the automation doesn't work.
+This isn't to suggest that Power Automate is an unreliable system, but
+connecting with different systems increases the risk of failure, which can be
+caused by reasons unrelated to Power Automate.</p>
+<p>In general, you should consider using connectors whenever possible because they're
+more robust and aren't as fragile or easily affected by screen design changes
+as web and desktop application automation. If no connectors are available, but you do have web APIs or other methods of system integration, you
+should consult your IT pro or development teams to help you set up <a href="https://learn.microsoft.com/connectors/custom-connectors/" target="_blank" rel="noopener noreferrer">custom connectors</a>.</p>
+<p><strong>Possible failures with automation by using connectors</strong></p>
+<ul>
+<li>
+<p>Shutdown of connecting systems due to maintenance</p>
+</li>
+<li>
+<p>System unavailability due to software bugs</p>
+</li>
+<li>
+<p>Changes to how systems are connected (API versions change)</p>
+</li>
+</ul>
+<p><strong>Possible failures with web application automation</strong></p>
+<ul>
+<li>
+<p>Screen design changes (so the bot can't tell how to proceed)</p>
+</li>
+<li>
+<p>System unavailability due to regression</p>
+</li>
+</ul>
+<p><strong>Possible failures with desktop application automation</strong></p>
+<ul>
+<li>
+<p>Screen design changes (so the bot can't tell how to proceed)</p>
+</li>
+<li>
+<p>Operating system updates</p>
+</li>
+<li>
+<p>System unavailability due to regression</p>
+</li>
+</ul>
+<p><strong>Possible failures common with any automation</strong></p>
+<ul>
+<li>
+<p>Changes to passwords</p>
+</li>
+<li>
+<p>Momentary network issues</p>
+</li>
+</ul>
+<h3 id="h-retry-policy">Retry policy</h3>
+<p>You can use this feature of Power Automate to set up policies that will
+automatically retry an action if it fails. By default, this is set to retry four times, but you can change it if you need.</p>
+<p><img alt="Changing the retry policy." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/retry-policy.png" title="Changing the retry policy"></p>
+<h3 id="h-set-up-custom-failure-notifications">Set up custom failure notifications</h3>
+<p>If actions still fail, standard capabilities in Power Automate notify the owners of the
+automation with a message similar to the following image.</p>
+<p><img alt="Example of a failed flow run notification that reads &quot;The flow(s) listed had an unusual number of failures in the past week and may need your attention.&quot;" loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/failure-notification-mail.png" title="Example of a failed flow run notification that reads 'The flow(s) listed had an unusual number of failures in the past week and may need your attention'"></p>
+<p>However, if you'd like to send a custom notification, you can set it up by
+adding actions that run only if the previous steps have failed.</p>
+<p><img alt="Changing settings to run after failure." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/run-after-settings.png" title="Changing settings to run after failure"></p>
+<p>Normally, by default, all actions that are set up will run only if the previous
+step was successful. You can change this behavior by setting the action to run only
+when the previous step failed—so that, for example, an email is sent to a custom list of recipients after a failed action.</p>
+<h3 id="h-assign-multiple-owners">Assign multiple owners</h3>
+<p>Having a single owner for a particular automation can be a risk from an
+organizational and administrative perspective. If that owner is absent or
+away from the office when a problem occurs, no one else can fix the issue. You
+can prevent this by setting up multiple users or groups as owners, to make sure more than one person can edit the automation. More information: <a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/create-team-flows.md" target="_blank" rel="noopener noreferrer">Share a flow</a></p>
+<h3 id="h-reduce-risk-and-increase-throughput-by-setting-up-a-cluster">Reduce risk and increase throughput by setting up a cluster</h3>
+<p>For a business-critical automation, one of the ways to reduce
+failures and risks is by setting up a cluster. A <em>cluster</em> is a group of computers
+that you can use to run your automation. Power Automate provides <a href="https://learn.microsoft.com/data-integration/gateway/service-gateway-high-availability-clusters" target="_blank" rel="noopener noreferrer">clustering capabilities</a>
+to run the automation concurrently. This is particularly useful for unattended
+scenarios, where you have more than a single computer available to run your
+automation.</p>
+<p><img alt="Distribution of automation among available computers." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/setting-up-cluster.png" title="Distribution of automation among available computers"></p>
+<blockquote>
+<p><a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/adding-analytical-data.md" target="_blank" rel="noopener noreferrer">Next step: Adding analytical data to Microsoft Dataverse</a></p>
 </blockquote>

@@ -1,0 +1,90 @@
+<div class="box box-objectives"><p class="box-title">Learning Objectives</p>
+<ul>
+<li>Entering formulas that reference another sheet.</li>
+<li>Using the SUM function to add up multiple sheets.</li>
+</ul>
+</div>
+<p>The Summary sheet in many multiple sheet workbooks is utilized to present totaled information from the other sheets in the file. This is done to give a quick synopsis of all the other sheets in one convenient location. For this reason, the Summary sheet is usually the first sheet in multiple sheet files. Summary sheets “pull” data from the other sheets using three-dimensional (3-D) cell references. In order to distinguish between A3 in the Summary sheet, A3 in the January sheet, A3 in the February sheet, etc.; a 3-D cell reference includes the sheet name along with the cell reference. The syntax to reference a cell in a different sheet is =SheetName!CellRange. So, the cell reference for A15 in the March sheet would be =March!A15.</p>
+<p>Let’s start working on our summary sheet by trying out some 3-D formulas:</p>
+<ol>
+<li>Click on the <strong>Expenses Summary&nbsp;</strong>sheet <strong>tab</strong> at the bottom of the screen.</li>
+<li>Click on C5 and enter the formula <strong>=January!C5</strong>.&nbsp; Press Enter.<br>
+This will return the amount $700 from cell C5 in the <strong>January </strong>sheet.</li>
+<li>Delete the formula in C5 in the <strong>Expenses Summary </strong>sheet.</li>
+<li>This time, click on C5 and type <strong>=</strong>. Then click on the <strong>January </strong>sheet, and then click on C5.</li>
+<li>Press Enter. This will put the same formula, =January!C5, in cell C5 in the <strong>Expenses Summary </strong>sheet and will return the value $700. This is the&nbsp;<strong>point and click method.&nbsp;</strong>This method reduces the potential for making errors, such as misspellings or typing the wrong amount.</li>
+<li>In cell C6 in the <strong>Expenses Summary</strong> sheet<strong>,</strong> try entering a formula for the Power amount in the <strong>April </strong>sheet. You should get $135 as the Power amount, and the formula should be =April!C6.</li>
+<li>Delete the formulas in cells C5 and C6 in the <strong>Expenses Summary </strong>sheet.</li>
+</ol>
+<p>For the Annual Amounts in C5:C13 in the <strong>Expenses Summary </strong>sheet, we don’t need the amount from a single month’s sheets; instead, we need the sum of all the entries in all the monthly sheets. So, we need to sum three-dimensionally through all twelve month sheets.</p>
+<p>Let’s try adding up all the monthly amounts in our Expenses Summary sheet:</p>
+<ol>
+<li>Click in C5 in the <strong>Expenses Summary </strong>sheet.</li>
+<li>Type <strong>=SUM(</strong>. (Make sure to type the open parentheses!)</li>
+<li>Click on the <strong>January</strong> sheet.</li>
+<li>Hold the SHIFT key down and click on the <strong>December </strong>sheet.</li>
+<li>Click on C5 again and press ENTER. Cell C5 should display the sum amount of $8,400.</li>
+<li>Click on C5 in the <strong>Expenses Summary</strong> sheet. In the formula bar, you should see the following formula: =SUM(January:December!C5). This formula tells Excel to SUM cell C5 in the sheets January through December.</li>
+<li>Let’s try another 3-D SUM together. Click on C6.</li>
+<li>Type <strong>=SUM(</strong>. (Make sure to type the open parentheses!)</li>
+<li>Click on the <strong>January </strong>sheet.</li>
+<li>Hold the SHIFT key down and click on the <strong>December </strong>sheet.</li>
+<li>Click on C6 again and press ENTER. Cell C6 should now display the sum amount of $1,610.</li>
+<li>Click on C6 in the <strong>Expenses Summary </strong>sheet. In the formula bar, you should see the following formula: =SUM(January:December!C6).</li>
+</ol>
+<p>If you feel comfortable with these 3-D formulas, you can copy C6 down through C13 to fill in the rest of the formulas. If you’re not quite comfortable yet, keep practicing the above steps to add 3-D formulas to cells C7:C13. When you’re done, your Expenses Summary sheet should match <strong>Figure 6.7</strong>.</p>
+<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-6.7-Completed-Expenses-Summary-Formulas.png" target="_blank" rel="noopener noreferrer"><img alt="Expenses Summary sheet" height="351" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-6.7-Completed-Expenses-Summary-Formulas.png" width="318"></a><figcaption>Figure 6.7 Complete Expenses Summary Formulas</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Note</p>
+<details>
+<summary>Figure 6.7 Image Description</summary>
+<p>Completed Expenses Summary formulas. Title: ANNUAL EXPENSES (TO DATE). Two columns: Item (left), and Amount (right). Information displayed in cells: Rent $8400.00. Power $1610. Water $360. Cable/Internet $1080. Cell Phone $1080. Car Insurance $900. Groceries $4175. Miscellaneous $2535. Gym Membership $360.</p>
+</details>
+</div>
+<p>While our 3-D formulas are complete in the Expenses Summary sheet, our summary feels like it is lacking something. Let’s add a visual representation of our summary numbers to the sheet.</p>
+<ol>
+<li>Highlight cells B5:C13 in the <strong>Expenses Summary sheet</strong>.</li>
+<li>Click on Pie Chart in the Insert tab in the ribbon and select the 2-D pie.</li>
+<li>Move and resize the pie chart so that it fills cells D3:J15.</li>
+<li>Delete the chart title.</li>
+<li>Move the legend to the right side of the chart. Resize the legend as needed.</li>
+<li>Add percentage data labels to the pie slices. Format the data labels to be bold with white font color. Your complete Expenses Summary sheet should look like <strong>Figure 6.8</strong> below.</li>
+<li>Check the spelling on all of the worksheets and make any necessary changes.</li>
+<li>Save your file. If you’re printing your assignment at this point, print ONLY the Summary sheet in regular and formula view. Close your file.</li>
+</ol>
+<figure><img alt="Completed Expense Summary sheet" height="592" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_6.8_Completed_Expenses_Summary_Sheet.png" width="1000"><figcaption>Figure 6.8 Completed Expenses Summary Sheet</figcaption></figure>
+<div class="box box-callout"><p class="box-title">Note</p>
+<details>
+<summary>Figure 6.8 Image Description</summary>
+<p>Completed Expense Summary sheet with Annual Expenses totalled on left, and a pie graph with percentages in colors showing data on right. Legend to right of pie chart.</p>
+</details>
+</div>
+<div class="box box-callout"><p class="box-title">Skill Refresher</p>
+<p><strong>To SUM across sheets:</strong></p>
+<ol>
+<li>Click on the cell where you want the 3-D SUM to appear.</li>
+<li>Type <strong>=SUM(</strong></li>
+<li>Click on the leftmost sheet in the group of sheets you want to sum.</li>
+<li>Hold the SHIFT key down and click on the rightmost sheet in the group of sheets you want to sum.</li>
+<li>Click on the cell in the sheet you’re in that you want to sum.</li>
+<li>Press ENTER.</li>
+</ol>
+</div>
+<div class="box box-callout"><p class="box-title">Skill Refresher</p>
+<p><strong>3-D References in Formulas<br>
+</strong></p>
+<p><strong>To reference a cell in another sheet</strong>, use the formula syntax =SheetName!CellAddress.</p>
+<p><strong>To enter a 3-D reference:</strong></p>
+<ol>
+<li>Click on the cell where you want the formula to appear and type =.</li>
+<li>Click on the sheet with the cell you want.</li>
+<li>Click on the cell in the sheet you want and press ENTER.</li>
+</ol>
+</div>
+<div class="box box-keypoints"><p class="box-title">Key Takeaways</p>
+<ul>
+<li>3-D references in formulas allow you to use data from one or more sheets on another sheet.</li>
+</ul>
+</div>
+<details class="attrib"><summary>Attribution</summary>
+<p><a href="https://openoregon.pressbooks.pub/beginningexcel19/chapter/6-2-formulas-with-3-d-references/" target="_blank" rel="noopener noreferrer">“6.2 Formulas with 3-D References”</a> by Mary Schatz and Diane Shingledecker, <a href="https://www.pcc.edu/" target="_blank" rel="noopener noreferrer">Portland Community College</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></p>
+</details>

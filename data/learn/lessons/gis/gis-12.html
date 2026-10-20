@@ -37,7 +37,7 @@ cp = folium.Choropleth( # &lt;- add the 'cp' variable
      ...
 </code></pre>
 <p>The <a href="https://perma.cc/64UU-R4D2" target="_blank" rel="noopener noreferrer">JSON</a> data format is a standard way of sending information around the internet. Users familiar with Python will notice that it resembles a list of nested dictionary values. The example above shows that county <code>properties</code> are <code>key</code>:<code>value</code> pairs. County 0's <code>FIPS</code> key has a value of 01059; its <code>NAME</code> key has the value 'Franklin'.</p>
-<h3 id="adding-data-to-the-geojson-property-dictionary">Adding Data to the GeoJSON Property Dictionary</h3>
+<h3 id="h-adding-data-to-the-geojson-property-dictionary">Adding Data to the GeoJSON Property Dictionary</h3>
 <p>Unfortunately, the GeoJSON data above doesn't currently hold all the information you've generated so far. You can supplement it by iteratively selecting the desired information from the <code>map_df</code> DataFrame and adding it to the GeoJSON property dictionary. Here's how to do this:</p>
 <ol>
 <li>Create a <code>map_data_lookup</code> DataFrame that copies the <code>map_df</code>, using <code>FIPS</code> as its index.</li>
@@ -85,7 +85,7 @@ cp = folium.Choropleth( # &lt;- add the 'cp' variable
 <pre><code class="language-python">folium.GeoJsonTooltip(['NAME','count'],
                       aliases=['County:','Num of Police Killings:']).add_to(cp.geojson)
 </code></pre>
-<h3 id="adding-multiple-data-elements-to-the-information-box">Adding Multiple Data Elements to the Information Box</h3>
+<h3 id="h-adding-multiple-data-elements-to-the-information-box">Adding Multiple Data Elements to the Information Box</h3>
 <p>In the example just above, you only reported the number of police killings (<code>count</code>) – but with this technique, you can display multiple variables at once. In the next example, you create an information box that displays:</p>
 <ul>
 <li>The county name (already in the <code>cp.GeoJson</code> property dictionary)</li>
@@ -134,20 +134,20 @@ baseMap
 <p><img alt="A second animated map showing a more complex set of data displayed with the Tooltip plugin" loading="lazy" src="https://programminghistorian.org/images/choropleth-maps-python-folium/en-or-choropleth-maps-python-folium-10.gif"></p>
 <p><em>Figure 10. The tooltip plugin displays multiple variables in a floating information box.</em></p>
 <p>Despite its complexity, adding the floating information box dramatically improves the user experience of exploring your map – so do give it a try.</p>
-<h2 id="saving-your-maps">Saving Your Maps</h2>
+<h2 id="h-saving-your-maps">Saving Your Maps</h2>
 <p>You can easily save your maps as HTML files with the <code>.save()</code> method, which saves the file to Colab's virtual drive:</p>
 <pre><code class="language-python">baseMap.save('PoliceKillingsOfCivilians.html')
 </code></pre>
 <p>The files you've saved to your virtual drive are under the file folder in the left margin of the browser window. Hover your cursor over the file and select <em>Download</em> to save the file to your local hard-drive's default download folder.</p>
-<div>
+
 Remember: everything on the virtual drive will disappear when you close your Colab session.
-</div>
+
 <p>These files can be shared with other people, who can open them in a browser and then zoom, pan, and examine individual county statistics by hovering their cursor over the map.</p>
-<h2 id="conclusion">Conclusion</h2>
+<h2 id="h-conclusion">Conclusion</h2>
 <p>Choropleth maps are a powerful way to display data and inform readers by allowing them to discern patterns in data that are otherwise difficult to observe. This is especially true for areas with arbitrary boundaries: not knowing the edges of a police precinct, <a href="https://perma.cc/Q2V5-AQZY" target="_blank" rel="noopener noreferrer">alderperson</a>'s ward, or census tract makes it hard to interpret the meaning of all sorts of data (economic development, income, lead levels in the environment, life expectancy, etc.). But if that data is displayed in a choropleth map (or <a href="https://perma.cc/HME5-ZMDC" target="_blank" rel="noopener noreferrer">a series of maps</a>), you might notice correlations between variables that prompt additional investigation.</p>
-<h3 id="acknowledgments">Acknowledgments</h3>
+<h3 id="h-acknowledgments">Acknowledgments</h3>
 <p>Robert Nelson and Felipe Valdez provided very helpful feedback on drafts of this project. Alex Wermer-Colan helped guide me through the submission and review process. Nabeel Siddiqui's editorial assistance has been invaluable. Charlotte Chevrie and Anisa Hawes have been patient and helpful preparing this material for the <em>Programming Historian</em> website and shepherding me through the process. I appreciate everyone's assistance in improving this article; final responsibility, of course, remains mine.</p>
-<h2 id="footnotes">Footnotes</h2>
+<h2 id="h-footnotes">Footnotes</h2>
 <hr>
 <ol>
 <li><p>Albert Cairo, <em>How Charts Lie: Getting Smarter About Visual Information</em> (W.W. Norton &amp; Company, 2019). <a href="#fnref1" rel="noopener noreferrer">↩︎</a></p>

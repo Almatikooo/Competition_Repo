@@ -13,14 +13,13 @@
 </div>
 <pre><code class="language-r">source("files/setup.R")
 </code></pre>
-<h2 id="coordinate-reference-systems">Coordinate Reference Systems</h2>
+<h2 id="h-coordinate-reference-systems">Coordinate Reference Systems</h2>
 <p>A data structure cannot be considered geospatial unless it is accompanied by
 coordinate reference system (CRS) information, in a format that geospatial
 applications can use to display and manipulate the data correctly. CRS
 information connects data to the Earth's surface using a mathematical model.</p>
 <div class="box box-callout">
 <p class="box-title">CRS vs SRS</p>
-
 <p>CRS (coordinate reference system) and SRS (spatial reference system) are synonyms and are commonly interchanged. We
 will use only CRS throughout this workshop.</p>
 </div>
@@ -41,7 +40,7 @@ different projections will not line up in any GIS or other program. Thus, it's
 important when working with spatial data to identify the coordinate reference
 system applied to the data and retain it throughout data processing and
 analysis.</p>
-<h2 id="components-of-a-crs">Components of a CRS</h2>
+<h2 id="h-components-of-a-crs">Components of a CRS</h2>
 <p>CRS information has three components:</p>
 <ul>
 <li>
@@ -68,7 +67,6 @@ parameters depends on what is needed by each specific projection.</p>
 </ul>
 <div class="box box-discussion">
 <p class="box-title">Orange Peel Analogy</p>
-
 <p>A common analogy employed to teach projections is the orange peel analogy. If
 you imagine that the earth is an orange, how you peel it and then flatten the
 peel is similar to how projections get made.</p>
@@ -88,7 +86,7 @@ A projection is how you peel your orange and then flatten the peel.</p>
 stem of the fruit. What other parameters could be included in this analogy?</li>
 </ul>
 </div>
-<h2 id="which-projection-should-i-use">Which projection should I use?</h2>
+<h2 id="h-which-projection-should-i-use">Which projection should I use?</h2>
 <p>To decide if a projection is right for your data, answer these questions:</p>
 <ul>
 <li>What is the area of minimal distortion?</li>
@@ -97,11 +95,10 @@ stem of the fruit. What other parameters could be included in this analogy?</li>
 <p><a href="https://foote.geography.uconn.edu/gcraft/notes/mapproj/mapproj_f.html" target="_blank" rel="noopener noreferrer">University of Colorado's Map Projections</a> and the <a href="https://kartoweb.itc.nl/geometrics/Map%20projections/mappro.html" target="_blank" rel="noopener noreferrer">Department of Geo-Information Processing</a> has a good discussion of these aspects of projections. Online tools like <a href="https://projectionwizard.org/" target="_blank" rel="noopener noreferrer">Projection Wizard</a> can also help you discover projections that might be a good fit for your data.</p>
 <div class="box box-callout">
 <p class="box-title">Data Tip</p>
-
 <p>Take the time to figure identify a projection that is suited for your project.
 You don't have to stick to the ones that are popular.</p>
 </div>
-<h2 id="describing-coordinate-reference-systems">Describing Coordinate Reference Systems</h2>
+<h2 id="h-describing-coordinate-reference-systems">Describing Coordinate Reference Systems</h2>
 <p>There are several common systems in use for storing and transmitting CRS
 information, as well as translating among different CRSs. These systems
 generally comply with ISO 19111. Common systems for describing CRSs include
@@ -129,7 +126,6 @@ Commons</a>
 (CC-BY).</p>
 <div class="box box-challenge">
 <p class="box-title">Reading a PROJ4 String</p>
-
 <p>Here is a PROJ4 string for one of the datasets we will use in this workshop:</p>
 <p><code>+proj=utm +zone=18 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0</code></p>
 <ul>
@@ -138,7 +134,6 @@ Commons</a>
 <li>Using the map above, what part of the United States was this data collected from?</li>
 </ul>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <ul>
 <li>Projection is UTM, zone 18, datum is WGS84, ellipsoid is WGS84.</li>
 <li>The data is in meters.</li>
@@ -148,7 +143,6 @@ Commons</a>
 </div>
 <div class="box box-callout">
 <p class="box-title">Other Common Systems</p>
-
 <ul>
 <li>
 <p>The <a href="https://www.epsg.org" target="_blank" rel="noopener noreferrer">EPSG system</a> is a database of CRS information maintained by the
@@ -170,7 +164,7 @@ software platforms, and the spec itself has
 </li>
 </ul>
 </div>
-<h2 id="format-interoperability">Format interoperability</h2>
+<h2 id="h-format-interoperability">Format interoperability</h2>
 <p>Many existing file formats were invented by GIS software developers, often in a
 closed-source environment. This led to the large number of formats on offer today, and
 considerable problems transferring data between software environments.
@@ -182,7 +176,7 @@ and manipulating both raster and vector files, including reprojecting data to di
 CRSs. GDAL can be used as a standalone command-line tool, or built in to other GIS
 software. Several open-source GIS programs use GDAL for all file import/export
 operations. We will be working with GDAL later in this workshop.</p>
-<h2 id="metadata">Metadata</h2>
+<h2 id="h-metadata">Metadata</h2>
 <p>Spatial data is useless without metadata. Essential metadata includes the CRS
 information, but proper spatial metadata encompasses more than that. History and
 provenance of a dataset (how it was made), who is in charge of maintaining it, and
@@ -193,7 +187,6 @@ kind of information. Metadata often has to be stored in a companion file, and
 generated and maintained manually.</p>
 <div class="box box-callout">
 <p class="box-title">More Resources on CRS</p>
-
 <ul>
 <li><a href="https://spatialreference.org/ref/epsg/" target="_blank" rel="noopener noreferrer">spatialreference.org</a> - A comprehensive online library of CRS information.</li>
 <li><a href="https://docs.qgis.org/2.18/en/docs/gentle_gis_introduction/coordinate_reference_systems.html" target="_blank" rel="noopener noreferrer">QGIS Documentation - CRS Overview.</a></li>

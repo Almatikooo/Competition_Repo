@@ -39,7 +39,6 @@ the computer's response is <code>/Users/nelle</code>,
 which is Nelle's <strong>home directory</strong>:</p>
 <div class="box box-callout">
 <p class="box-title">Home Directory Variation</p>
-
 <p>The home directory path will look different on different operating systems.
 On Linux, it may look like <code>/home/nelle</code>,
 and on Windows, it will be similar to <code>C:\Documents and Settings\nelle</code> or
@@ -50,7 +49,7 @@ output may differ slightly but should be generally similar.</p>
 <p>We will also assume that your <code>pwd</code> command returns your user's home directory.
 If <code>pwd</code> returns something different, you may need to navigate there using <code>cd</code>
 or some commands in this lesson will not work as written.
-See <a href="#exploring-other-directories" rel="noopener noreferrer">Exploring Other Directories</a> for more details
+See <a href="#h-exploring-other-directories" rel="noopener noreferrer">Exploring Other Directories</a> for more details
 on the <code>cd</code> command.</p>
 </div>
 <p>To understand what a 'home directory' is,
@@ -79,7 +78,6 @@ we know that <code>/Users</code> is stored inside the root directory <code>/</co
 because its name begins with <code>/</code>.</p>
 <div class="box box-callout">
 <p class="box-title">Slashes</p>
-
 <p>Notice that there are two meanings for the <code>/</code> character.
 When it appears at the front of a file or directory name,
 it refers to the root directory. When it appears <em>inside</em> a path,
@@ -127,7 +125,6 @@ Any names in the output that don't have a classification symbol
 are <strong>files</strong> in the current working directory.</p>
 <div class="box box-spoiler">
 <p class="box-title">Clearing your terminal</p>
-
 <p>If your screen gets too cluttered, you can clear your terminal using the
 <code>clear -x</code> command. You can still access previous commands using <kbd>↑</kbd>
 and <kbd>↓</kbd> to move line-by-line, or by scrolling in your terminal.</p>
@@ -135,7 +132,7 @@ and <kbd>↓</kbd> to move line-by-line, or by scrolling in your terminal.</p>
 will not be able to scroll back after using <code>clear</code>; using <code>clear -x</code> prevents
 this. An alternative to <code>clear -x</code> is the keyboard shortcut <code>Control-L</code>.</p>
 </div>
-<h3 id="getting-help">Getting help</h3>
+<h3 id="h-getting-help">Getting help</h3>
 <p><code>ls</code> has lots of other <strong>options</strong>. There are two common ways to find out how
 to use a command and what options it accepts ---
 <strong>depending on your environment, you might find that only one of these ways works:</strong></p>
@@ -152,7 +149,6 @@ to use a command and what options it accepts ---
 <p>We'll describe both ways next.</p>
 <div class="box box-callout">
 <p class="box-title">Help for built-in commands</p>
-
 <p>Some commands are built in to the Bash shell, rather than existing as separate
 programs on the filesystem. One example is the <code>cd</code> (change directory) command.
 If you get a message like <code>No manual entry for cd</code>, try <code>help cd</code> instead. The
@@ -193,7 +189,6 @@ Mandatory arguments to long options are mandatory for short options, too.
 </code></pre>
 <div class="box box-callout">
 <p class="box-title">When to use short or long options</p>
-
 <p>When options exist as both short and long options:</p>
 <ul>
 <li>Use the short option when typing commands directly into the
@@ -204,7 +199,6 @@ It will be read many times and typed once.</li>
 </div>
 <div class="box box-callout">
 <p class="box-title">Unsupported command-line options</p>
-
 <p>If you try to use an option that is not supported, <code>ls</code> and other commands
 will usually print an error message similar to:</p>
 <pre><code class="language-bash">$ ls -j
@@ -230,7 +224,6 @@ If so, you can move between hits using <kbd>N</kbd> (for moving forward) and
 <p>To <strong>quit</strong> the <code>man</code> pages, press <kbd>q</kbd>.</p>
 <div class="box box-callout">
 <p class="box-title">Manual pages on the web</p>
-
 <p>Of course, there is a third way to access help for commands:
 searching the internet via your web browser.
 When using internet search, including the phrase <code>unix man page</code> in your search
@@ -242,14 +235,12 @@ which covers many commands introduced within this lesson.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Exploring More ls Options</p>
-
 <p>You can also use two options at the same time. What does the command <code>ls</code> do when used
 with the <code>-l</code> option? What about if you use both the <code>-l</code> and the <code>-h</code> option?</p>
 <p>Some of its output is about properties that we do not cover in this lesson (such
 as file permissions and ownership), but the rest should be useful
 nevertheless.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <p>The <code>-l</code> option makes <code>ls</code> use a <strong>l</strong>ong listing format, showing not only
 the file/directory names but also additional information, such as the file size
 and the time of its last modification. If you use both the <code>-h</code> option and the <code>-l</code> option,
@@ -259,7 +250,6 @@ instead of <code>5369</code>.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Listing in Reverse Chronological Order</p>
-
 <p>By default, <code>ls</code> lists the contents of a directory in alphabetical
 order by name. The command <code>ls -t</code> lists items by time of last
 change instead of alphabetically. The command <code>ls -r</code> lists the
@@ -268,13 +258,12 @@ Which file is displayed last when you combine the <code>-t</code> and <code>-r</
 Hint: You may need to use the <code>-l</code> option to see the
 last changed dates.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <p>The most recently changed file is listed last when using <code>-rt</code>. This
 can be very useful for finding your most recent edits or checking to
 see if a new output file was written.</p>
 </details>
 </div>
-<h3 id="exploring-other-directories">Exploring Other Directories</h3>
+<h3 id="h-exploring-other-directories">Exploring Other Directories</h3>
 <p>Not only can we use <code>ls</code> on the current working directory,
 but we can use it to list the contents of a different directory.
 Let's take a look at our <code>Desktop</code> directory by running <code>ls -F Desktop</code>,
@@ -385,7 +374,6 @@ with a single <code>-</code> and no spaces between the options; <code>ls -F -a</
 equivalent to <code>ls -Fa</code>.</p>
 <div class="box box-callout">
 <p class="box-title">Other Hidden Files</p>
-
 <p>In addition to the hidden directories <code>..</code> and <code>.</code>, you may also see a file
 called <code>.bash_profile</code>. This file usually contains shell configuration
 settings. You may also see other files and directories beginning
@@ -438,7 +426,6 @@ to move to <code>shell-lesson-data</code>.</p>
 <p>Run <code>pwd</code> and <code>ls -F</code> to ensure that we're in the directory we expect.</p>
 <div class="box box-callout">
 <p class="box-title">Two More Shortcuts</p>
-
 <p>The shell interprets a tilde (<code>~</code>) character at the start of a path to
 mean "the current user's home directory". For example, if Nelle's home
 directory is <code>/Users/nelle</code>, then <code>~/data</code> is equivalent to
@@ -467,7 +454,6 @@ Run <code>cd -</code> again and you're back in <code>~/Desktop/shell-lesson-data
 </div>
 <div class="box box-challenge">
 <p class="box-title">Absolute vs Relative Paths</p>
-
 <p>Starting from <code>/Users/nelle/data</code>,
 which of the following commands could Nelle use to navigate to her home directory,
 which is <code>/Users/nelle</code>?</p>
@@ -483,7 +469,6 @@ which is <code>/Users/nelle</code>?</p>
 <li><code>cd ..</code></li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
 <ol>
 <li>No: <code>.</code> stands for the current directory.</li>
 <li>No: <code>/</code> stands for the root directory.</li>
@@ -500,7 +485,6 @@ if it exists.</li>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Relative Path Resolution</p>
-
 <p>Using the filesystem diagram below, if <code>pwd</code> displays <code>/Users/thing</code>,
 what will <code>ls -F ../backup</code> display?</p>
 <ol>
@@ -511,7 +495,6 @@ what will <code>ls -F ../backup</code> display?</p>
 </ol>
 <p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/swcarpentry/shell-novice/b91d85b848405a4a2fe0a297d8cedb71d68ab9bd/episodes/fig/filesystem-challenge.svg">{alt='A directory tree below the Users directory where "/Users" contains the directories "backup" and "thing"; "/Users/backup" contains "original","pnas_final" and "pnas_sub"; "/Users/thing" contains "backup"; and"/Users/thing/backup" contains "2012-12-01", "2013-01-08" and"2013-01-27"'}</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x">Solution</h2>
 <ol>
 <li>No: there <em>is</em> a directory <code>backup</code> in <code>/Users</code>.</li>
 <li>No: this is the content of <code>Users/thing/backup</code>,
@@ -523,7 +506,6 @@ but with <code>..</code>, we asked for one level further up.</li>
 </div>
 <div class="box box-challenge">
 <p class="box-title">ls Reading Comprehension</p>
-
 <p>Using the filesystem diagram below,
 if <code>pwd</code> displays <code>/Users/backup</code>,
 and <code>-r</code> tells <code>ls</code> to display things in reverse order,
@@ -537,7 +519,6 @@ what command(s) will result in the following output:</p>
 <li><code>ls -r -F /Users/backup</code></li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x">Solution</h2>
 <ol>
 <li>No: <code>pwd</code> is not the name of a directory.</li>
 <li>Yes: <code>ls</code> without directory argument lists files and directories
@@ -546,7 +527,7 @@ in the current directory.</li>
 </ol>
 </details>
 </div>
-<h2 id="general-syntax-of-a-shell-command">General Syntax of a Shell Command</h2>
+<h2 id="h-general-syntax-of-a-shell-command">General Syntax of a Shell Command</h2>
 <p>We have now encountered commands, options, and arguments,
 but it is perhaps useful to formalise some terminology.</p>
 <p>Consider the command below as a general example of a command,
@@ -594,7 +575,7 @@ An example of the output you might get from the above command is given below:</p
 Library/              Users/
 Network/              Volumes/
 </code></pre>
-<h3 id="nelle-s-pipeline-organizing-files">Nelle's Pipeline: Organizing Files</h3>
+<h3 id="h-nelle-s-pipeline-organizing-files">Nelle's Pipeline: Organizing Files</h3>
 <p>Knowing this much about files and directories,
 Nelle is ready to organize the files that the protein assay machine will create.</p>
 <p>She creates a directory called <code>north-pacific-gyre</code>

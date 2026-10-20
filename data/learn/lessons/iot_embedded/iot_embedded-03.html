@@ -8,20 +8,18 @@
 <blockquote>
 <p>🎥 Click the images above to watch the videos</p>
 </blockquote>
-
-
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p>This lesson introduces two of the important concepts for your IoT device - sensors and actuators. You will also get hands on with them both, adding a light sensor to your IoT project, then adding an LED controlled by light levels, effectively building a nightlight.</p>
 <p>In this lesson we'll cover:</p>
 <ul>
-<li><a href="#what-are-sensors" rel="noopener noreferrer">What are sensors?</a></li>
-<li><a href="#use-a-sensor" rel="noopener noreferrer">Use a sensor</a></li>
-<li><a href="#sensor-types" rel="noopener noreferrer">Sensor types</a></li>
-<li><a href="#what-are-actuators" rel="noopener noreferrer">What are actuators?</a></li>
-<li><a href="#use-an-actuator" rel="noopener noreferrer">Use an actuator</a></li>
-<li><a href="#actuator-types" rel="noopener noreferrer">Actuator types</a></li>
+<li><a href="#h-what-are-sensors" rel="noopener noreferrer">What are sensors?</a></li>
+<li><a href="#h-use-a-sensor" rel="noopener noreferrer">Use a sensor</a></li>
+<li><a href="#h-sensor-types" rel="noopener noreferrer">Sensor types</a></li>
+<li><a href="#h-what-are-actuators" rel="noopener noreferrer">What are actuators?</a></li>
+<li><a href="#h-use-an-actuator" rel="noopener noreferrer">Use an actuator</a></li>
+<li><a href="#h-actuator-types" rel="noopener noreferrer">Actuator types</a></li>
 </ul>
-<h2 id="what-are-sensors">What are sensors?</h2>
+<h2 id="h-what-are-sensors">What are sensors?</h2>
 <p>Sensors are hardware devices that sense the physical world - that is they measure one or more properties around them and send the information to an IoT device. Sensors cover a huge range of devices as there are so many things that can be measured, from natural properties such as air temperature to physical interactions such as movement.</p>
 <p>Some common sensors include:</p>
 <ul>
@@ -34,16 +32,16 @@
 </ul>
 <p>✅ Do some research. What sensors does your phone have?</p>
 <p>All sensors have one thing in common - they convert whatever they sense into an electrical signal that can be interpreted by an IoT device. How this electrical signal is interpreted depends on the sensor, as well as the communication protocol used to communicate with the IoT device.</p>
-<h2 id="use-a-sensor">Use a sensor</h2>
+<h2 id="h-use-a-sensor">Use a sensor</h2>
 <p>Follow the relevant guide below to add a sensor to your IoT device:</p>
 <ul>
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/3-sensors-and-actuators/wio-terminal-sensor.md" target="_blank" rel="noopener noreferrer">Arduino - Wio Terminal</a></li>
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/3-sensors-and-actuators/pi-sensor.md" target="_blank" rel="noopener noreferrer">Single-board computer - Raspberry Pi</a></li>
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/3-sensors-and-actuators/virtual-device-sensor.md" target="_blank" rel="noopener noreferrer">Single-board computer - Virtual device</a></li>
 </ul>
-<h2 id="sensor-types">Sensor types</h2>
+<h2 id="h-sensor-types">Sensor types</h2>
 <p>Sensors are either analog or digital.</p>
-<h3 id="analog-sensors">Analog sensors</h3>
+<h3 id="h-analog-sensors">Analog sensors</h3>
 <p>Some of the most basic sensors are analog sensors. These sensors receive a voltage from the IoT device, the sensor components adjust this voltage, and the voltage that is returned from the sensor is measured to give the sensor value.</p>
 <blockquote>
 <p>🎓 Voltage is a measure of how much push there is to move electricity from one place to another, such as from a positive terminal of a battery to the negative terminal. For example, a standard AA battery is 1.5V (V is the symbol for volts) and can push electricity with the force of 1.5V from it's positive terminal to its negative terminal. Different electrical hardware requires different voltages to work, for example, an LED can light with between 2-3V, but a 100W filament lightbulb would need 240V. You can read more about voltage on the <a href="https://wikipedia.org/wiki/Voltage" target="_blank" rel="noopener noreferrer">Voltage page on Wikipedia</a>.</p>
@@ -61,7 +59,7 @@
 <p>Imagine you have an analog light sensor connected to an IoT device that uses 3.3V and is returning a value of 1V. This 1V doesn't mean anything in the digital world, so needs to be converted. The voltage will be converted to an analog value using a scale depending on the device and sensor. One example is the Seeed Grove light sensor which outputs values from 0 to 1,023. For this sensor running at 3.3V, a 1V output would be a value of 300. An IoT device can't handle 300 as an analog value, so the value would be converted to <code>0000000100101100</code>, the binary representation of 300 by the Grove hat. This would then be processed by the IoT device.</p>
 <p>✅ If you don't know binary, then do a small amount of research to learn how numbers are represented by 0s and 1s. The <a href="https://www.bbc.co.uk/bitesize/guides/zwsbwmn/revision/1" target="_blank" rel="noopener noreferrer">BBC Bitesize introduction to binary lesson</a> is a great place to start.</p>
 <p>From a coding perspective, all this is usually handled by libraries that come with the sensors, so you don't need to worry about this conversion yourself. For the Grove light sensor you would use the Python library and call the <code>light</code> property, or use the Arduino library and call <code>analogRead</code> to get a value of 300.</p>
-<h3 id="digital-sensors">Digital sensors</h3>
+<h3 id="h-digital-sensors">Digital sensors</h3>
 <p>Digital sensors, like analog sensors, detect the world around them using changes in electrical voltage. The difference is they output a digital signal, either by only measuring two states or by using a built-in ADC. Digital sensors are becoming more and more common to avoid the need to use an ADC either in a connector board or on the IoT device itself.</p>
 <p>The simplest digital sensor is a button or switch. This is a sensor with two states, on or off.</p>
 <p><img alt="A button is sent 5 volts. When not pressed it returns 0 volts, when pressed it returns 5 volts" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/button.png"></p>
@@ -76,7 +74,7 @@
 <p>More advanced digital sensors read analog values, then convert them using on-board ADCs to digital signals. For example, a digital temperature sensor will still use a thermocouple in the same way as an analog sensor, and will still measure the change in voltage caused by the resistance of the thermocouple at the current temperature. Instead of returning an analog value and relying on the device or connector board to convert to a digital signal, an ADC built into the sensor will convert the value and send it as a series of 0s and 1s to the IoT device. These 0s and 1s are sent in the same way as the digital signal for a button with 1 being full voltage and 0 being 0v.</p>
 <p><img alt="A digital temperature sensor converting an analog reading to binary data with 0 as 0 volts and 1 as 5 volts before sending it to an IoT device" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/temperature-as-digital.png"></p>
 <p>Sending digital data allows sensors to become more complex and send more detailed data, even encrypted data for secure sensors. One example is a camera. This is a sensor that captures an image and sends it as digital data containing that image, usually in a compressed format such as JPEG, to be read by the IoT device. It can even stream video by capturing images and sending either the complete image frame by frame or a compressed video stream.</p>
-<h2 id="what-are-actuators">What are actuators?</h2>
+<h2 id="h-what-are-actuators">What are actuators?</h2>
 <p>Actuators are the opposite of sensors - they convert an electrical signal from your IoT device into an interaction with the physical world such as emitting light or sound, or moving a motor.</p>
 <p>Some common actuators include:</p>
 <ul>
@@ -87,7 +85,7 @@
 <li>Screens - these are more complex actuators and show information on a multi-segment display. Screens vary from simple LED displays to high-resolution video monitors.</li>
 </ul>
 <p>✅ Do some research. What actuators does your phone have?</p>
-<h2 id="use-an-actuator">Use an actuator</h2>
+<h2 id="h-use-an-actuator">Use an actuator</h2>
 <p>Follow the relevant guide below to add an actuator to your IoT device, controlled by the sensor, to build an IoT nightlight. It will gather light levels from the light sensor, and use an actuator in the form of an LED to emit light when the detected light level is too low.</p>
 <p><img alt="A flow chart of the assignment showing light levels being read and checked, and the LED begin controlled" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/assignment-1-flow.png"></p>
 <ul>
@@ -95,9 +93,9 @@
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/3-sensors-and-actuators/pi-actuator.md" target="_blank" rel="noopener noreferrer">Single-board computer - Raspberry Pi</a></li>
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/3-sensors-and-actuators/virtual-device-actuator.md" target="_blank" rel="noopener noreferrer">Single-board computer - Virtual device</a></li>
 </ul>
-<h2 id="actuator-types">Actuator types</h2>
+<h2 id="h-actuator-types">Actuator types</h2>
 <p>Like sensors, actuators are either analog or digital.</p>
-<h3 id="analog-actuators">Analog actuators</h3>
+<h3 id="h-analog-actuators">Analog actuators</h3>
 <p>Analog actuators take an analog signal and convert it into some kind of interaction, where the interaction changes based off the voltage supplied.</p>
 <p>One example is a dimmable light, such as the ones you might have in your house. The amount of voltage supplied to the light determines how bright it is.</p>
 <p><img alt="A light dimmed at a low voltage and brighter at a higher voltage" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/dimmable-light.png"></p>
@@ -128,19 +126,17 @@
 <blockquote>
 <p>🎓 You can read more on pulse-width modulation on the <a href="https://wikipedia.org/wiki/Pulse-width_modulation" target="_blank" rel="noopener noreferrer">pulse-width modulation page on Wikipedia</a>.</p>
 </blockquote>
-<h3 id="digital-actuators">Digital actuators</h3>
+<h3 id="h-digital-actuators">Digital actuators</h3>
 <p>Digital actuators, like digital sensors, either have two states controlled by a high or low voltage or have a DAC built in so can convert a digital signal to an analog one.</p>
 <p>One simple digital actuator is an LED. When a device sends a digital signal of 1, a high voltage is sent that lights the LED. When a digital signal of 0 is sent, the voltage drops to 0V and the LED turns off.</p>
 <p><img alt="A LED is off at 0 volts and on at 5V" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/led.png"></p>
 <p>✅ What other simple 2-state actuators can you think of? One example is a solenoid, which is an electromagnet that can be activated to do things like move a door bolt locking/unlocking a door.</p>
 <p>More advanced digital actuators, such as screens require the digital data to be sent in certain formats. They usually come with libraries that make it easier to send the correct data to control them.</p>
 <hr>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>The challenge in the last two lessons was to list as many IoT devices as you can that are in your home, school or workplace and decide if they are built around microcontrollers or single-board computers, or even a mixture of both.</p>
 <p>For every device you listed, what sensors and actuators are they connected to? What is the purpose of each sensor and actuator connected to these devices?</p>
-
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <ul>
 <li>Read up on electricity and circuits on <a href="http://thinglearn.jenlooper.com/curriculum/" target="_blank" rel="noopener noreferrer">ThingLearn</a>.</li>
 <li>Read about the different types of temperature sensors on the <a href="https://www.seeedstudio.com/blog/2019/10/14/temperature-sensors-for-arduino-projects/" target="_blank" rel="noopener noreferrer">Seeed Studios Temperature Sensors guide</a></li>

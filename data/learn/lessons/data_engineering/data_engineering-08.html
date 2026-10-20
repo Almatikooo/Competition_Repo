@@ -1,8 +1,6 @@
 <p>A data lake is a storage repository that holds large volumes of data in its native, raw format. Data lakes scale cost effectively to handle terabytes and petabytes of data, which makes them suitable for handling massive and diverse datasets. The data typically comes from many different sources and can include structured data like relational tables, semistructured data like JSON, XML, or log files, and unstructured data like images, audio, or video.</p>
 <p>Data lakes store all data types in their original, untransformed state and apply transformation only when the data is needed. This approach is known as <em>schema-on-read</em>. In contrast, a <a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/relational-data/data-warehousing.yml" target="_blank" rel="noopener noreferrer">data warehouse</a> enforces structure and applies transformations as it ingests data. This approach is known as <em>schema-on-write</em>.</p>
-<p>:::image type="complex" border="false" source="./images/data-lake-use-cases.jpg" alt-text="Diagram that shows data lake use cases." lightbox="./images/data-lake-use-cases.jpg":::
-The diagram includes five use cases for a data lake: data ingestion, big data processing, analytics and machine learning, business intelligence (BI) and reporting, and data archiving. A connecting line points from these sections and merges into an arrow that points to the data lake.
-:::image-end:::</p>
+<p><img alt="Diagram that shows data lake use cases." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/architecture-center/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/scenarios/images/data-lake-use-cases.jpg"></p>
 <p>Common data lake use cases include:</p>
 <ul>
 <li>
@@ -21,7 +19,7 @@ The diagram includes five use cases for a data lake: data ingestion, big data pr
 <p><strong>Data archiving and compliance:</strong> Store historical or raw datasets for long-term retention, auditability, and regulatory compliance.</p>
 </li>
 </ul>
-<h2 id="advantages-of-a-data-lake">Advantages of a data lake</h2>
+<h2 id="h-advantages-of-a-data-lake">Advantages of a data lake</h2>
 <ul>
 <li>
 <p><strong>Retains raw data for future use:</strong> Data lakes store data in its raw format, which ensures long-term availability for future use. This approach is especially valuable in big data environments where the potential insights from the data might not be known in advance. You can also archive data as needed without losing its raw state.</p>
@@ -57,7 +55,7 @@ The diagram includes five use cases for a data lake: data ingestion, big data pr
 </li>
 </ul>
 <p>Mature solutions incorporate metadata management, security, and governance to maintain data quality, discoverability, and compliance.</p>
-<h2 id="typical-data-lake-architecture">Typical data lake architecture</h2>
+<h2 id="h-typical-data-lake-architecture">Typical data lake architecture</h2>
 <p>A typical Azure data lake architecture consists of multiple layers that organize data as it moves through the ingestion, transformation, and consumption stages.</p>
 <p>Common layers include:</p>
 <ul>
@@ -72,11 +70,11 @@ The diagram includes five use cases for a data lake: data ingestion, big data pr
 </li>
 </ul>
 <p>This layered design, known as the <em>medallion architecture</em>, improves data quality, governance, and performance.</p>
-<h2 id="when-to-use-a-data-lake">When to use a data lake</h2>
+<h2 id="h-when-to-use-a-data-lake">When to use a data lake</h2>
 <p>We recommend that you use a data lake for exploratory analytics, advanced data science, and machine learning workloads. Data lakes retain data in raw form and support schema-on-read, so teams can experiment with diverse data types and uncover insights that traditional warehouses might not capture.</p>
-<h3 id="data-lake-as-a-source-for-data-warehouses">Data lake as a source for data warehouses</h3>
+<h3 id="h-data-lake-as-a-source-for-data-warehouses">Data lake as a source for data warehouses</h3>
 <p>A data lake can function as the upstream source for a data warehouse, where you ingest raw data from source systems and load it into the lake. Modern warehouses like the Fabric Data Warehouse use built-in massively parallel processing (MPP) SQL engines to transform that raw data into a structured format through <a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/relational-data/etl.yml#extract-load-transform-elt" target="_blank" rel="noopener noreferrer">extract, load, transform (ELT)</a>. This approach differs from traditional ETL pipelines, where the ETL engine extracts and transforms data before it loads the data into the warehouse. Both approaches provide flexibility depending on the use case. They balance data quality, performance, and resource utilization and ensure that the warehouse is optimized for analytics.</p>
-<h3 id="event-streaming-and-iot-scenarios">Event streaming and IoT scenarios</h3>
+<h3 id="h-event-streaming-and-iot-scenarios">Event streaming and IoT scenarios</h3>
 <p>Data lakes are effective for event streaming and IoT use cases, where high-velocity data must persist at scale without upfront schema limits. Data lakes can ingest and store relational and nonrelational event streams, handle high volumes of small writes with low latency, and support massive parallel throughput. These capabilities make data lakes well suited for applications like real-time monitoring, predictive maintenance, and anomaly detection.</p>
 <p>The following table compares data lakes and data warehouses.</p>
 <div class="table-wrap"><table>
@@ -125,7 +123,7 @@ The diagram includes five use cases for a data lake: data ingestion, big data pr
 </tr>
 </tbody>
 </table></div>
-<h2 id="challenges-of-data-lakes">Challenges of data lakes</h2>
+<h2 id="h-challenges-of-data-lakes">Challenges of data lakes</h2>
 <ul>
 <li>
 <p><strong>Scalability and complexity:</strong> The management of petabytes of raw, unstructured, and semistructured data requires robust infrastructure, distributed processing, and careful cost management.</p>
@@ -149,7 +147,7 @@ The diagram includes five use cases for a data lake: data ingestion, big data pr
 <p><strong>Discoverability:</strong> Without proper cataloging, lakes can devolve into <em>data swamps</em> where valuable information is present but inaccessible or misunderstood.</p>
 </li>
 </ul>
-<h2 id="technology-choices">Technology choices</h2>
+<h2 id="h-technology-choices">Technology choices</h2>
 <p>When you build a comprehensive data lake solution on Azure, consider the following technologies:</p>
 <ul>
 <li>
@@ -166,7 +164,7 @@ The diagram includes five use cases for a data lake: data ingestion, big data pr
 <p>Each Fabric tenant is automatically provisioned with a single logical data lake known as <em>OneLake</em>. OneLake is built on Data Lake Storage and provides a unified storage layer that can handle structured and unstructured data.</p>
 </li>
 </ul>
-<h2 id="contributors">Contributors</h2>
+<h2 id="h-contributors">Contributors</h2>
 <p><em>Microsoft maintains this article. The following contributors wrote this article.</em></p>
 <p>Principal author:</p>
 <ul>
@@ -177,7 +175,7 @@ The diagram includes five use cases for a data lake: data ingestion, big data pr
 <li><a href="https://www.linkedin.com/in/raphael-sayegh/" target="_blank" rel="noopener noreferrer">Raphael Sayegh</a> | Cloud Solution Architect</li>
 </ul>
 <p><em>To see nonpublic LinkedIn profiles, sign in to LinkedIn.</em></p>
-<h2 id="next-steps">Next steps</h2>
+<h2 id="h-next-steps">Next steps</h2>
 <ul>
 <li><a href="https://learn.microsoft.com/fabric/onelake/onelake-overview" target="_blank" rel="noopener noreferrer">What is OneLake?</a></li>
 <li><a href="https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction" target="_blank" rel="noopener noreferrer">Introduction to Data Lake Storage</a></li>
@@ -187,9 +185,4 @@ The diagram includes five use cases for a data lake: data ingestion, big data pr
 <li><a href="https://learn.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2" target="_blank" rel="noopener noreferrer">Load data into Data Lake Storage by using Data Factory</a></li>
 <li><a href="https://learn.microsoft.com/purview/register-scan-adls-gen2" target="_blank" rel="noopener noreferrer">Connect to Data Lake Storage in Microsoft Purview</a></li>
 <li><a href="https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-best-practices" target="_blank" rel="noopener noreferrer">Best practices for using Data Lake Storage</a></li>
-</ul>
-<h2 id="related-resources">Related resources</h2>
-<ul>
-<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/technology-choices/analytical-data-stores.md" target="_blank" rel="noopener noreferrer">Choose an analytical data store in Azure</a></li>
-<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/example-scenario/data/small-medium-data-warehouse.yml" target="_blank" rel="noopener noreferrer">Modern data warehouse for small and medium businesses</a></li>
 </ul>

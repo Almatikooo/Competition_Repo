@@ -1,8 +1,6 @@
 <p>Let’s start our foray into inference by focusing on the sample mean.&nbsp; Why are we so concerned with means? Two reasons: they give us a middle ground for comparison, and they are easy to calculate. In this section we will see what we can deduce about the sampling distribution of the sample mean.</p>
-<h2 id="the-central-limit-theorem-for-a-sample-mean">The Central Limit Theorem for a Sample Mean</h2>
-<div>
+<h2 id="h-the-central-limit-theorem-for-a-sample-mean">The Central Limit Theorem for a Sample Mean</h2>
 <p>The <a href="#term_286_3325" rel="noopener noreferrer">central limit theorem (CLT)</a> is one of the most powerful and useful ideas in all of statistics. There are two alternative forms of the theorem, and both alternatives are concerned with drawing finite samples size <em>n</em> from a population with a known mean, <em>μ</em>, and a known standard deviation, <em>σ</em>. The first alternative says that if we collect samples of size <em>n</em> with a “large enough <em>n</em>,” then the resulting distribution can be approximated by the normal distribution.</p>
-</div>
 <p>Applying the <a href="#term_286_3263" rel="noopener noreferrer">law of large numbers</a> here, we could say that if you take larger and larger samples from a population, then the mean <img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11"> of the sample tends to get closer and closer to <em>μ</em>. From the central limit theorem, we know that as <em>n</em> gets larger and larger, the sample means follow a normal distribution. The larger <em>n</em> gets, the smaller the standard deviation gets. (Remember that the standard deviation for <img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11"> is <img alt="\frac{\sigma }{\sqrt{n}}" height="24" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-711a7419e6ee5d5d2cce236a0a199359_l3.png" title="Rendered by QuickLaTeX.com" width="20">.) This means that the sample mean <img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11"> must be close to the population mean <em>μ</em>. We can say that <em>μ</em> is the value that the sample means approach as <em>n</em> gets larger. The central limit theorem illustrates the law of large numbers.</p>
 <p>The size of the sample, <em>n</em>, that is required in order to be “large enough” depends on the original population from which the samples are drawn (the sample size should be at least 30 or the data should come from a normal distribution). If the original population is far from normal, then more observations are needed for the sample means or sums to be normal. Sampling is done with replacement.</p>
 <p>The following images look at sampling distributions of the sample mean built from taking 1000 samples of different sample sizes from a normal Population.&nbsp; What pattern do you notice?&nbsp;&nbsp;</p>
@@ -11,8 +9,6 @@
 <figure><img alt="Four histograms. Top left - Histogram of exponential population; Top right - Histogram of Sampling Distribution of Sample Means when n = 5; Bottom left - Histogram of Sampling Distribution of Sample Means when n = 15; Bottom right - Histogram of Sampling Distribution of Sample Means when n = 30. All histograms are skewed right and as n increases, the plot gets more narrow around the mean." height="1242" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2021/07/6.2.2.png" width="1864"><figcaption>Figure 6.5: Sampling Distributions of the Sample Mean from a Non-Normal Population</figcaption></figure>
 <p>What differences do you notice when sampling from a normal population vs. Non normal?&nbsp;</p>
 <div class="box box-keypoints"><p class="box-title">Example</p>
-
-<div>
 <p>Suppose:</p>
 <ul>
 <li>eight students roll one fair die ten times</li>
@@ -29,7 +25,6 @@
 <li>The graph appears steeper and thinner.</li>
 </ol>
 </div>
-</div>
 <p>We have just demonstrated the idea of central limit theorem (clt) for means, that as you increase the sample size, the sampling distribution of the sample mean tends toward a normal distribution.</p>
 <p>To summarize, the central limit theorem for sample means says that if you keep drawing larger and larger samples (such as rolling one, two, five, and finally, ten dice) and calculating their means, the sample means form their own normal distribution (the sampling distribution). The normal distribution has the same mean as the original distribution and a variance that equals the original variance divided by the sample size. Standard deviation is the square root of variance, so the standard deviation of the sampling distribution (aka standard error) is the standard deviation of the original distribution divided by the square root of <em>n</em>. The variable <em>n</em> is the number of values that are averaged together, not the number of times the experiment is done.</p>
 <p>It would be difficult to overstate the importance of the central limit theorem in statistical theory. Knowing that data, even if its distribution is not normal, behaves in a predictable way is a powerful tool.&nbsp; We can simulate this idea using technology.</p>
@@ -42,7 +37,7 @@
 <p>If you draw random samples of size <em>n</em>, then as <em>n</em> increases, the random variable <img alt="\overline{X}" height="15" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-5b485d4231dfeb4b50ddf271c3abb0b3_l3.png" title="Rendered by QuickLaTeX.com" width="17"> which consists of sample means, tends to be normally distributed and</p>
 <p><img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11"> ~ <em>N</em><img alt="\left({\mu }_{x}\text{, }\frac{\sigma}{\sqrt{n}}\right)" height="32" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-435b741da200432a2c9d4ee3e5ba8121_l3.png" title="Rendered by QuickLaTeX.com" width="69">.</p>
 <p>To put it more formally, if you draw random samples of size <em>n</em>, the distribution of the random variable <img alt="\overline{X}" height="15" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-5b485d4231dfeb4b50ddf271c3abb0b3_l3.png" title="Rendered by QuickLaTeX.com" width="17">, which consists of sample means, is called the sampling distribution of the sample mean. The sampling distribution of the mean approaches a normal distribution as <em>n</em>, the sample size, increases.</p>
-<h2 id="using-the-clt">Using the CLT</h2>
+<h2 id="h-using-the-clt">Using the CLT</h2>
 <p>It is important to understand when to use the central limit theorem:&nbsp;</p>
 <ul>
 <li>If you are being asked to find the probability of an individual value, do not use the CLT. Use the distribution of its random variable.</li>
@@ -51,61 +46,23 @@
 <p>The random variable <img alt="\overline{X}" height="15" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-5b485d4231dfeb4b50ddf271c3abb0b3_l3.png" title="Rendered by QuickLaTeX.com" width="17"> has a different <em>z</em>-score formula associated with it from that of a single observation. Remeber, The mean <img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11"> is the mean of one sample and<em>&nbsp;μ</em><sub><em>X</em></sub> is the average, or center, of both <em>X</em> (The original distribution) and <img alt="\overline{X}" height="15" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-5b485d4231dfeb4b50ddf271c3abb0b3_l3.png" title="Rendered by QuickLaTeX.com" width="17">.</p>
 <p><img alt="z=\frac{\overline{x}-{\mu }_{x}}{\left(\frac{{\sigma }_{x}}{\sqrt{n}}\right)}" height="36" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-1026784e91b5cf44aac6c582b285348b_l3.png" title="Rendered by QuickLaTeX.com" width="73"></p>
 <p>We can use our Z table and standardize just as we are already familiar with, or can use your technology of choice</p>
-<div>
 <div class="box box-keypoints"><p class="box-title">Example</p>
-
-<div>
 <p>An unknown distribution has a mean of 90 and a standard deviation of 15. Samples of size <em>n</em> = 25 are drawn randomly from the population.</p>
-<div>
-<div>
 <p><br>
 a. Find the probability that the sample mean is between 85 and 92.</p>
-</div>
-<div>
 <ul>
 <li>Let <em>X</em> = one value from the original unknown population. The probability question asks you to find a probability for the <strong>sample mean</strong>.</li>
 </ul>
-</div>
-
-<div>
-<div></div>
-</div>
-
-<div>
 <ul>
 <li>Find <em>P</em>(85 &lt; <img alt="\overline{x}" height="11" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-a39858a792fb4fe9a3173e004701f2a7_l3.png" title="Rendered by QuickLaTeX.com" width="11"> &lt; 92). Draw a graph.</li>
 </ul>
-<div>
-<div></div>
-</div>
 <figure><img alt="Normal distribution curve where the peak of the curve coincides with the point 90 on the horizontal axis. The points 85 and 92 are labeled on the axis. Vertical lines are drawn from these points to the curve and the area between the lines is shaded. The shaded region represents the probability that 85 &lt; x &lt; 92." height="160" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/6.4-1.png" width="329"><figcaption>Figure 6.6: Area Under the Curve</figcaption></figure>
-</div>
-</div>
-<div></div>
-<div>
-
-</div>
-<div>
-<div>
 <p>b. Find the value that is two standard deviations above the expected value, 90, of the sample mean.</p>
-<div>
-<div></div>
-</div>
-</div>
-<div></div>
-</div>
-</div>
-</div>
 </div>
 <div class="box box-callout"><p class="box-title">Your turn!</p>
-
-<div>
 <p>An unknown distribution has a mean of 45 and a standard deviation of eight. Samples of size <em>n</em> = 30 are drawn randomly from the population. Find the probability that the sample mean is between 42 and 50.</p>
-</div>
 </div>
 <p>Image References</p>
 <p>Figure 6.4: Kindred Grey via Virginia Tech (2021). “Sampling Distributions of the Sample Mean from a Normal Population.” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Sampling_Distributions_of_the_Sample_Mean_from_a_Normal_Population.png</p>
 <p>Figure 6.5: Kindred Grey via Virginia Tech (2021). “Sampling Distributions of the Sample Mean from a Non-Normal Population.” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Sampling_Distributions_of_the_Sample_Mean_from_a_Non-Normal_Population.png</p>
 <p>Figure 6.6: Kindred Grey via Virginia Tech (2020). “Figure 6.4” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_6.4.png . Adaptation of Figure 5.39 from OpenStax Introductory Statistics (2013) (CC BY 4.0). Retrieved from https://openstax.org/books/statistics/pages/5-practice</p>
-
-<div></div>

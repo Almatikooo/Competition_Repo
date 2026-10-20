@@ -1,5 +1,5 @@
 <p>Generative AI is a fascinating field of artificial intelligence that focuses on creating systems capable of generating new content. This content can range from text and images to music and even entire virtual environments. One of the most exciting applications of generative AI is in the realm of language models.</p>
-<h2 id="what-are-small-language-models">What Are Small Language Models?</h2>
+<h2 id="h-what-are-small-language-models">What Are Small Language Models?</h2>
 <p>A Small Language Model (SLM) represents a scaled-down variant of a large language model (LLM), leveraging many of the architectural principles and techniques of LLMs, while exhibiting a significantly reduced computational footprint.</p>
 <p>SLMs are a subset of language models designed to generate human-like text. Unlike their larger counterparts, such as GPT-4, SLMs are more compact and efficient, making them ideal for applications where computational resources are limited. Despite their smaller size, they can still perform a variety of tasks. Typically, SLMs are constructed by compressing or distilling LLMs, aiming to retain a substantial portion of the original model's functionality and linguistic capabilities. This reduction in model size decreases the overall complexity, making SLMs more efficient in terms of both memory usage and computational requirements. Despite these optimizations, SLMs can still perform a wide range of natural language processing (NLP) tasks:</p>
 <ul>
@@ -9,7 +9,7 @@
 <li>Summarization: Condensing long pieces of text into shorter, more digestible summaries.</li>
 </ul>
 <p>Albeit with some trade-offs in performance or depth of understanding compared to their larger counterparts.</p>
-<h2 id="how-do-small-language-models-work">How Do Small Language Models Work?</h2>
+<h2 id="h-how-do-small-language-models-work">How Do Small Language Models Work?</h2>
 <p>SLMs are trained on vast amounts of text data. During training, they learn the patterns and structures of language, enabling them to generate text that is both grammatically correct and contextually appropriate. The training process involves:</p>
 <ul>
 <li>Data Collection: Gathering large datasets of text from various sources.</li>
@@ -19,7 +19,7 @@
 </ul>
 <p>The development of SLMs aligns with the increasing need for models that can be deployed in resource-constrained environments, such as mobile devices or edge computing platforms, where full-scale LLMs may be impractical due to their heavy resource demands. By focusing on efficiency, SLMs balance performance with accessibility, enabling broader application across various domains.</p>
 <p><img alt="slm" loading="lazy" src="https://raw.githubusercontent.com/microsoft/generative-ai-for-beginners/c35bc1950f9dc56af773d2c362dafce6f76e9a56/19-slm/img/slm.png?WT.mc_id=academic-105485-koreyst"></p>
-<h2 id="learning-objectives">Learning Objectives</h2>
+<h2 id="h-learning-objectives">Learning Objectives</h2>
 <p>In this lesson, we hope to introduce the knowledge of SLM and combine it with Microsoft Phi-3 to learn different scenarios in text content, vision and MoE.</p>
 <p>By the end of this lesson, you should be able to answer the following questions:</p>
 <ul>
@@ -29,9 +29,9 @@
 <li>How to run inference with the Microsoft Phi-3/3.5 Family?</li>
 </ul>
 <p>Ready? Let's get started.</p>
-<h2 id="the-distinctions-between-large-language-models-llms-and-smal">The Distinctions between Large Language Models (LLMs) and Small Language Models (SLMs)</h2>
+<h2 id="h-the-distinctions-between-large-language-models-llms-and-smal">The Distinctions between Large Language Models (LLMs) and Small Language Models (SLMs)</h2>
 <p>Both LLMs and SLMs are built upon foundational principles of probabilistic machine learning, following similar approaches in their architectural design, training methodologies, data generation processes, and model evaluation techniques. However, several key factors differentiate these two types of models.</p>
-<h2 id="applications-of-small-language-models">Applications of Small Language Models</h2>
+<h2 id="h-applications-of-small-language-models">Applications of Small Language Models</h2>
 <p>SLMs have a wide range of applications, including:</p>
 <ul>
 <li>Chatbots: Providing customer support and engaging with users in a conversational manner.</li>
@@ -51,9 +51,9 @@
 <p>The reduced size of SLMs affords them a significant advantage in terms of inference speed, allowing them to generate outputs efficiently on local hardware without the need for extensive parallel processing. In contrast, LLMs, due to their size and complexity, often require substantial parallel computational resources to achieve acceptable inference times. The presence of multiple concurrent users further slows down LLMs' response times, especially when deployed at scale.</p>
 <p>In summary, while both LLMs and SLMs share a foundational basis in machine learning, they differ significantly in terms of model size, resource requirements, contextual understanding, susceptibility to bias, and inference speed. These distinctions reflect their respective suitability for different use cases, with LLMs being more versatile but resource-heavy, and SLMs offering more domain-specific efficiency with reduced computational demands.</p>
 <p><em><strong>Note: In this lesson, we will introduce SLM using Microsoft Phi-3 / 3.5 as an example.</strong></em></p>
-<h2 id="introduce-phi-3-phi-3-5-family">Introduce Phi-3 / Phi-3.5 Family</h2>
+<h2 id="h-introduce-phi-3-phi-3-5-family">Introduce Phi-3 / Phi-3.5 Family</h2>
 <p>Phi-3 / 3.5 Family mainly targets text, vision, and Agent (MoE) application scenarios:</p>
-<h3 id="phi-3-3-5-instruct">Phi-3 / 3.5 Instruct</h3>
+<h3 id="h-phi-3-3-5-instruct">Phi-3 / 3.5 Instruct</h3>
 <p>Mainly for text generation, chat completion, and content information extraction, etc.</p>
 <p><strong>Phi-3-mini</strong></p>
 <p>The 3.8B language model is available on Microsoft Foundry, Hugging Face, and Ollama. Phi-3 models significantly outperform language models of equal and larger sizes on key benchmarks (see benchmark numbers below, higher numbers are better). Phi-3-mini outperforms models twice its size, while Phi-3-small and Phi-3-medium outperform larger models, including GPT-3.5.</p>
@@ -63,21 +63,21 @@
 <p><strong>Phi-3.5-mini</strong></p>
 <p>We can think of it as an upgrade of Phi-3-mini. While the parameters remain unchanged, it improves the ability to support multiple languages (support 20+ languages: Arabic, Chinese, Czech, Danish, Dutch, English, Finnish, French, German, Hebrew, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Russian, Spanish, Swedish, Thai, Turkish, Ukrainian) ​​and adds stronger support for long context.</p>
 <p>Phi-3.5-mini with 3.8B parameters outperforms language models of the same size and is on par with models twice its size.</p>
-<h3 id="phi-3-3-5-vision">Phi-3 / 3.5 Vision</h3>
+<h3 id="h-phi-3-3-5-vision">Phi-3 / 3.5 Vision</h3>
 <p>We can think of the Instruct model of Phi-3/3.5 as Phi's ability to understand, and Vision is what gives Phi eyes to understand the world.</p>
 <p><strong>Phi-3-Vision</strong></p>
 <p>Phi-3-vision, with only 4.2B parameters, continues this trend and outperforms larger models such as Claude-3 Haiku and Gemini 1.0 Pro V on general visual reasoning tasks, OCR, and table and diagram comprehension tasks.</p>
 <p><strong>Phi-3.5-Vision</strong></p>
 <p>Phi-3.5-Vision is also an upgrade of Phi-3-Vision, adding support for multiple images. You can think of it as an improvement in vision, not only can you see pictures, but also videos.</p>
 <p>Phi-3.5-vision outperforms larger models such as Claude-3.5 Sonnet and Gemini 1.5 Flash across OCR, table and chart understanding tasks and on par on general visual knowledge reasoning tasks. Support multi-frame input, i.e., perform reasoning on multiple input images</p>
-<h3 id="phi-3-5-moe">Phi-3.5-MoE</h3>
+<h3 id="h-phi-3-5-moe">Phi-3.5-MoE</h3>
 <p><em><strong>Mixture of Experts(MoE)</strong></em> enables models to be pretrained with far less compute, which means you can dramatically scale up the model or dataset size with the same compute budget as a dense model. In particular, a MoE model should achieve the same quality as its dense counterpart much faster during pretraining.</p>
 <p>Phi-3.5-MoE comprises 16x3.8B expert modules. Phi-3.5-MoE with only 6.6B active parameters achieves a similar level of reasoning, language understanding, and math as much larger models</p>
 <p>We can use the Phi-3/3.5 Family model based on different scenarios. Unlike LLM, you can deploy Phi-3/3.5-mini or Phi-3/3.5-Vision on edge devices.</p>
-<h2 id="how-to-use-phi-3-3-5-family-models">How to use Phi-3/3.5 Family models</h2>
+<h2 id="h-how-to-use-phi-3-3-5-family-models">How to use Phi-3/3.5 Family models</h2>
 <p>We hope to use Phi-3/3.5 in different scenarios. Next, we will use Phi-3/3.5 based on different scenarios.</p>
 <p><img alt="phi3" loading="lazy" src="https://raw.githubusercontent.com/microsoft/generative-ai-for-beginners/c35bc1950f9dc56af773d2c362dafce6f76e9a56/19-slm/img/phi3.png?WT.mc_id=academic-105485-koreyst"></p>
-<h3 id="inference-via-cloud-apis">Inference via Cloud APIs</h3>
+<h3 id="h-inference-via-cloud-apis">Inference via Cloud APIs</h3>
 <p><strong>Microsoft Foundry Models</strong></p>
 <blockquote>
 <p><strong>Note:</strong> GitHub Models is retiring at the end of July 2026. <a href="https://ai.azure.com/catalog/models?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">Microsoft Foundry Models</a> is the direct replacement.</p>
@@ -104,7 +104,7 @@
 <ul>
 <li>Demo: Using NVIDIA NIM to call Phi-3.5-Vision-API  [<a href="https://github.com/microsoft/generative-ai-for-beginners/blob/c35bc1950f9dc56af773d2c362dafce6f76e9a56/19-slm/python/Phi-3-Vision-Nividia-NIM.ipynb?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">Click this link</a>]</li>
 </ul>
-<h3 id="running-phi-3-3-5-locally">Running Phi-3/3.5 Locally</h3>
+<h3 id="h-running-phi-3-3-5-locally">Running Phi-3/3.5 Locally</h3>
 <p>Inference in relation to Phi-3, or any language model like GPT-3, refers to the process of generating responses or predictions based on the input it receives. When you provide a prompt or question to Phi-3, it uses its trained neural network to infer the most likely and relevant response by analyzing patterns and relationships in the data it was trained on.</p>
 <p><strong>Hugging Face Transformer</strong>
 Hugging Face Transformers is a powerful library designed for natural language processing (NLP) and other machine learning tasks. Here are some key points about it:</p>
@@ -165,11 +165,11 @@ print(manager.endpoint, manager.api_key)
 </code></pre>
 <p><strong>ONNX Runtime for GenAI</strong></p>
 <p><a href="https://github.com/microsoft/onnxruntime-genai?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">ONNX Runtime</a> is a cross-platform inference and training machine-learning accelerator. ONNX Runtime for Generative AI (GENAI) is a powerful tool that helps you run generative AI models efficiently across various platforms.</p>
-<h2 id="what-is-onnx-runtime">What is ONNX Runtime?</h2>
+<h2 id="h-what-is-onnx-runtime">What is ONNX Runtime?</h2>
 <p>ONNX Runtime is an open-source project that enables high-performance inference of machine learning models. It supports models in the Open Neural Network Exchange (ONNX) format, which is a standard for representing machine learning models.ONNX Runtime inference can enable faster customer experiences and lower costs, supporting models from deep learning frameworks such as PyTorch and TensorFlow/Keras as well as classical machine learning libraries such as scikit-learn, LightGBM, XGBoost, etc. ONNX Runtime is compatible with different hardware, drivers, and operating systems, and provides optimal performance by leveraging hardware accelerators where applicable alongside graph optimizations and transforms.</p>
-<h2 id="what-is-generative-ai">What is Generative AI?</h2>
+<h2 id="h-what-is-generative-ai">What is Generative AI?</h2>
 <p>Generative AI refers to AI systems that can generate new content, such as text, images, or music, based on the data they have been trained on. Examples include language models like GPT-3 and image generation models like Stable Diffusion. ONNX Runtime for GenAI library provides the generative AI loop for ONNX models, including inference with ONNX Runtime, logits processing, search and sampling, and KV cache management.</p>
-<h2 id="onnx-runtime-for-genai">ONNX Runtime for GENAI</h2>
+<h2 id="h-onnx-runtime-for-genai">ONNX Runtime for GENAI</h2>
 <p>ONNX Runtime for GENAI extends the capabilities of ONNX Runtime to support generative AI models. Here are some key features:</p>
 <ul>
 <li><strong>Broad Platform Support:</strong> It works on various platforms, including Windows, Linux, macOS, Android, and iOS.</li>
@@ -179,15 +179,15 @@ print(manager.endpoint, manager.api_key)
 <li>Users can call a high level generate() method, or run each iteration of the model in a loop, generating one token at a time, and optionally updating generation parameters inside the loop.</li>
 <li>ONNX runtime also has support for greedy/beam search and TopP, TopK sampling to generate token sequences and built-in logits processing like repetition penalties. You can also easily add custom scoring.</li>
 </ul>
-<h2 id="getting-started">Getting Started</h2>
+<h2 id="h-getting-started">Getting Started</h2>
 <p>To get started with ONNX Runtime for GENAI, you can follow these steps:</p>
-<h3 id="install-onnx-runtime">Install ONNX Runtime:</h3>
+<h3 id="h-install-onnx-runtime">Install ONNX Runtime:</h3>
 <pre><code class="language-Python">pip install onnxruntime
 </code></pre>
-<h3 id="install-the-generative-ai-extensions">Install the Generative AI Extensions:</h3>
+<h3 id="h-install-the-generative-ai-extensions">Install the Generative AI Extensions:</h3>
 <pre><code class="language-Python">pip install onnxruntime-genai
 </code></pre>
-<h3 id="run-a-model-here-s-a-simple-example-in-python">Run a Model: Here’s a simple example in Python:</h3>
+<h3 id="h-run-a-model-here-s-a-simple-example-in-python">Run a Model: Here’s a simple example in Python:</h3>
 <pre><code class="language-Python">import onnxruntime_genai as og
 
 model = og.Model('path_to_your_model.onnx')
@@ -204,7 +204,7 @@ output_text = tokenizer.decode(output_tokens)
 
 print(output_text) 
 </code></pre>
-<h3 id="demo-using-onnx-runtime-genai-to-call-phi-3-5-vision">Demo:Using ONNX Runtime GenAI to call Phi-3.5-Vision</h3>
+<h3 id="h-demo-using-onnx-runtime-genai-to-call-phi-3-5-vision">Demo:Using ONNX Runtime GenAI to call Phi-3.5-Vision</h3>
 <pre><code class="language-python">
 import onnxruntime_genai as og
 
@@ -255,5 +255,5 @@ while not generator.is_done():
 </code></pre>
 <p><strong>Others</strong></p>
 <p>In addition to ONNX Runtime, Ollama, and Foundry Local reference methods, we can also complete the reference of quantitative models based on the model reference methods provided by different manufacturers. Such as Apple MLX framework with Apple Metal, Qualcomm QNN with NPU, Intel OpenVINO with CPU/GPU, etc. You can also get more content from <a href="https://github.com/microsoft/phi-3cookbook?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">Phi-3 Cookbook</a></p>
-<h2 id="more">More</h2>
+<h2 id="h-more">More</h2>
 <p>We have learned the basics of Phi-3/3.5 Family, but to learn more about SLM we need more knowledge. You can find the answers in the Phi-3 Cookbook. If you want to learn more, please visit the <a href="https://github.com/microsoft/phi-3cookbook?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">Phi-3 Cookbook</a>.</p>

@@ -1,431 +1,760 @@
-<div class="box box-objectives">
-<p class="box-title">Objectives</p>
+<pre><code class="language-mermaid">journey
+    title Your JavaScript DOM Journey
+    section Foundation
+      Understand DOM: 3: Student
+      Learn closures: 4: Student
+      Connect elements: 4: Student
+    section Interaction
+      Setup drag events: 4: Student
+      Track coordinates: 5: Student
+      Handle movement: 5: Student
+    section Polish
+      Add cleanup: 4: Student
+      Test functionality: 5: Student
+      Complete terrarium: 5: Student
+</code></pre>
+<p><img alt="DOM and a closure" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Web-Dev-For-Beginners/78085398be0dea7abaaf5eda914817f46f6ddbbc/sketchnotes/webdev101-js.png"></p>
+<blockquote>
+<p>Sketchnote by <a href="https://twitter.com/girlie_mac" target="_blank" rel="noopener noreferrer">Tomomi Imura</a></p>
+</blockquote>
+<p>Welcome to one of the most engaging aspects of web development - making things interactive! The Document Object Model (DOM) is like a bridge between your HTML and JavaScript, and today we'll use it to bring your terrarium to life. When Tim Berners-Lee created the first web browser, he envisioned a web where documents could be dynamic and interactive - the DOM makes that vision possible.</p>
+<p>We'll also explore JavaScript closures, which might sound intimidating initially. Think of closures as creating "memory pockets" where your functions can remember important information. It's like each plant in your terrarium having its own data record to track its position. By the end of this lesson, you'll understand how natural and useful they are.</p>
+<p>Here's what we're building: a terrarium where users can drag and drop plants anywhere they want. You'll learn the DOM manipulation techniques that power everything from drag-and-drop file uploads to interactive games. Let's make your terrarium come alive.</p>
+<pre><code class="language-mermaid">mindmap
+  root((DOM &amp; JavaScript))
+    DOM Tree
+      Element Selection
+      Property Access
+      Event Handling
+      Dynamic Updates
+    Events
+      Pointer Events
+      Mouse Events
+      Touch Events
+      Event Listeners
+    Closures
+      Private Variables
+      Function Scope
+      Memory Persistence
+      State Management
+    Drag &amp; Drop
+      Position Tracking
+      Coordinate Math
+      Event Lifecycle
+      User Interaction
+    Modern Patterns
+      Event Delegation
+      Performance
+      Cross-Device
+      Accessibility
+</code></pre>
+<h2 id="h-understanding-the-dom-your-gateway-to-interactive-web-pages">Understanding the DOM: Your Gateway to Interactive Web Pages</h2>
+<p>The Document Object Model (DOM) is how JavaScript communicates with your HTML elements. When your browser loads an HTML page, it creates a structured representation of that page in memory - that's the DOM. Think of it as a family tree where every HTML element is a family member that JavaScript can access, modify, or rearrange.</p>
+<p>DOM manipulation transforms static pages into interactive websites. Every time you see a button change color on hover, content update without page refresh, or elements you can drag around, that's DOM manipulation at work.</p>
+<pre><code class="language-mermaid">flowchart TD
+    A["Document"] --&gt; B["HTML"]
+    B --&gt; C["Head"]
+    B --&gt; D["Body"]
+    C --&gt; E["Title"]
+    C --&gt; F["Meta Tags"]
+    D --&gt; G["H1: My Terrarium"]
+    D --&gt; H["Div: Page Container"]
+    H --&gt; I["Div: Left Container"]
+    H --&gt; J["Div: Right Container"]
+    H --&gt; K["Div: Terrarium"]
+    I --&gt; L["Plant Elements 1-7"]
+    J --&gt; M["Plant Elements 8-14"]
+    
+    L --&gt; N["img#plant1"]
+    L --&gt; O["img#plant2"]
+    M --&gt; P["img#plant8"]
+    M --&gt; Q["img#plant9"]
+    
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style D fill:#e8f5e8
+    style H fill:#fff3e0
+    style N fill:#ffebee
+    style O fill:#ffebee
+    style P fill:#ffebee
+    style Q fill:#ffebee
+</code></pre>
+<p><img alt="DOM tree representation" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Web-Dev-For-Beginners/78085398be0dea7abaaf5eda914817f46f6ddbbc/3-terrarium/3-intro-to-DOM-and-closures/images/dom-tree.png"></p>
+<blockquote>
+<p>A representation of the DOM and the HTML markup that references it. From <a href="https://www.researchgate.net/publication/221417012_Profile-Based_Focused_Crawler_for_Social_Media-Sharing_Websites" target="_blank" rel="noopener noreferrer">Olfa Nasraoui</a></p>
+</blockquote>
+<p><strong>Here's what makes the DOM powerful:</strong></p>
 <ul>
-<li>Explain what the HEAD of a repository is and how to use it.</li>
-<li>Identify and use Git commit numbers.</li>
-<li>Compare various versions of tracked files.</li>
-<li>Restore old versions of files.</li>
+<li><strong>Provides</strong> a structured way to access any element on your page</li>
+<li><strong>Enables</strong> dynamic content updates without page refreshes</li>
+<li><strong>Allows</strong> real-time response to user interactions like clicks and drags</li>
+<li><strong>Creates</strong> the foundation for modern interactive web applications</li>
 </ul>
-</div>
-<div class="box box-questions">
-<p class="box-title">Questions</p>
+<h2 id="h-javascript-closures-creating-organized-powerful-code">JavaScript Closures: Creating Organized, Powerful Code</h2>
+<p>A <a href="https://developer.mozilla.org/docs/Web/JavaScript/Closures" target="_blank" rel="noopener noreferrer">JavaScript closure</a> is like giving a function its own private workspace with persistent memory. Consider how Darwin's finches on the Galápagos Islands each developed specialized beaks based on their specific environment - closures work similarly, creating specialized functions that "remember" their specific context even after their parent function has finished.</p>
+<p>In our terrarium, closures help each plant remember its own position independently. This pattern appears throughout professional JavaScript development, making it a valuable concept to understand.</p>
+<pre><code class="language-mermaid">flowchart LR
+    A["dragElement(plant1)"] --&gt; B["Creates Closure"]
+    A2["dragElement(plant2)"] --&gt; B2["Creates Closure"]
+    
+    B --&gt; C["Private Variables"]
+    B2 --&gt; C2["Private Variables"]
+    
+    C --&gt; D["pos1, pos2, pos3, pos4"]
+    C --&gt; E["pointerDrag function"]
+    C --&gt; F["elementDrag function"]
+    C --&gt; G["stopElementDrag function"]
+    
+    C2 --&gt; D2["pos1, pos2, pos3, pos4"]
+    C2 --&gt; E2["pointerDrag function"]
+    C2 --&gt; F2["elementDrag function"]
+    C2 --&gt; G2["stopElementDrag function"]
+    
+    H["Plant 1 remembers its position"] --&gt; B
+    H2["Plant 2 remembers its position"] --&gt; B2
+    
+    style B fill:#e8f5e8
+    style B2 fill:#e8f5e8
+    style C fill:#fff3e0
+    style C2 fill:#fff3e0
+</code></pre>
+<blockquote>
+<p>💡 <strong>Understanding Closures</strong>: Closures are a significant topic in JavaScript, and many developers use them for years before fully grasping all the theoretical aspects. Today, we're focusing on practical application - you'll see closures naturally emerge as we build our interactive features. Understanding will develop as you see how they solve real problems.</p>
+</blockquote>
+<p><img alt="DOM tree representation" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Web-Dev-For-Beginners/78085398be0dea7abaaf5eda914817f46f6ddbbc/3-terrarium/3-intro-to-DOM-and-closures/images/dom-tree.png"></p>
+<blockquote>
+<p>A representation of the DOM and the HTML markup that references it. From <a href="https://www.researchgate.net/publication/221417012_Profile-Based_Focused_Crawler_for_Social_Media-Sharing_Websites" target="_blank" rel="noopener noreferrer">Olfa Nasraoui</a></p>
+</blockquote>
+<p>In this lesson, we will complete our interactive terrarium project by creating the JavaScript that will allow a user to manipulate the plants on the page.</p>
+<h2 id="h-before-we-begin-setting-up-for-success">Before We Begin: Setting Up for Success</h2>
+<p>You'll need your HTML and CSS files from the previous terrarium lessons - we're about to make that static design interactive. If you're joining for the first time, completing those lessons first will provide important context.</p>
+<p>Here's what we'll build:</p>
 <ul>
-<li>How can I identify old versions of files?</li>
-<li>How do I review my changes?</li>
-<li>How can I recover old versions of files?</li>
+<li><strong>Smooth drag-and-drop</strong> for all terrarium plants</li>
+<li><strong>Coordinate tracking</strong> so plants remember their positions</li>
+<li><strong>A complete interactive interface</strong> using vanilla JavaScript</li>
+<li><strong>Clean, organized code</strong> using closure patterns</li>
 </ul>
-</div>
-<p>As we saw in the previous episode, we can refer to commits by their
-identifiers. Git also provides a special identifier called <code>HEAD</code>, which refers to the <strong>most recent commit</strong>.</p>
-<p>We can use <code>HEAD</code> together with commands we already know to examine our project’s history.</p>
-<p>Before we start, let's make a change to <code>guacamole.md</code> so we have something
-to compare. We won’t save this change yet.</p>
-<pre><code class="language-bash">$ nano guacamole.md
-$ cat guacamole.md
+<h2 id="h-setting-up-your-javascript-file">Setting Up Your JavaScript File</h2>
+<p>Let's create the JavaScript file that will make your terrarium interactive.</p>
+<p><strong>Step 1: Create your script file</strong></p>
+<p>In your terrarium folder, create a new file called <code>script.js</code>.</p>
+<p><strong>Step 2: Link the JavaScript to your HTML</strong></p>
+<p>Add this script tag to the <code>&lt;head&gt;</code> section of your <code>index.html</code> file:</p>
+<pre><code class="language-html">&lt;script src="./script.js" defer&gt;&lt;/script&gt;
 </code></pre>
-<pre><code class="language-output"># Guacamole
-## Ingredients
-* avocado
-* lime
-* salt
-## Instructions
-An ill-considered change
-</code></pre>
-<p>Now, let's see what we get.</p>
-<pre><code class="language-bash">$ git diff HEAD
-</code></pre>
-<pre><code class="language-output">diff --git a/guacamole.md b/guacamole.md
-index b36abfd..0848c8d 100644
---- a/guacamole.md
-+++ b/guacamole.md
-@@ -4,3 +4,4 @@
- * lime
- * salt
- ## Instructions
-+An ill-considered change
-</code></pre>
-<p>Here we have the difference between the file in our working directory and the most recently committed version.</p>
-<p>We can also refer to earlier commits relative to <code>HEAD</code>. For example, by adding <code>~1</code> (where "~" is "tilde", pronounced [<strong>til</strong>-d<em>uh</em>]), we can look at the commit before <code>HEAD</code>.</p>
-<pre><code class="language-bash">$ git diff HEAD~1
-</code></pre>
-<p>If we want to see the differences between older commits we can use <code>git diff</code>
-again, but with the notation <code>HEAD~1</code>, <code>HEAD~2</code>, and so on, to refer to them:</p>
-<pre><code class="language-bash">$ git diff HEAD~2
-</code></pre>
-<pre><code class="language-output">diff --git a/guacamole.md b/guacamole.md
-index df0654a..b36abfd 100644
---- a/guacamole.md
-+++ b/guacamole.md
-@@ -1,3 +1,6 @@
- # Guacamole
- ## Ingredients
-+* avocado
-+* lime
-+* salt
- ## Instructions
-</code></pre>
-<p>We could also use <code>git show</code> which shows us what changes we made at an older commit as
-well as the commit message, rather than the <em>differences</em> between a commit and our
-working directory that we see by using <code>git diff</code>.</p>
-<pre><code class="language-bash">$ git show HEAD~2
-</code></pre>
-<pre><code class="language-output">commit f22b25e3233b4645dabd0d81e651fe074bd8e73b
-Author: Alfredo Linguini &lt;a.linguini@ratatouille.fr&gt;
-Date:   Thu Aug 22 10:07:21 2013 -0400
-
-    Create a template for recipe
-
-diff --git a/guacamole.md b/guacamole.md
-new file mode 100644
-index 0000000..df0654a
---- /dev/null
-+++ b/guacamole.md
-@@ -0,0 +1,3 @@
-+# Guacamole
-+## Ingredients
-+## Instructions
-</code></pre>
-<p>In this way,
-we can build up a chain of commits.
-The most recent end of the chain is referred to as <code>HEAD</code>;
-we can refer to previous commits using the <code>~</code> notation,
-so <code>HEAD~1</code>
-means "the previous commit",
-while <code>HEAD~123</code> goes back 123 commits from where we are now.</p>
-<p>We can also refer to commits using
-those long strings of digits and letters
-that both <code>git log</code> and <code>git show</code> display.
-These are unique IDs for the changes,
-and "unique" really does mean unique:
-every change to any set of files on any computer
-has a unique 40-character identifier.
-Our first commit was given the ID
-<code>f22b25e3233b4645dabd0d81e651fe074bd8e73b</code>,
-so let's try this:</p>
-<pre><code class="language-bash">$ git diff f22b25e3233b4645dabd0d81e651fe074bd8e73b
-</code></pre>
-<pre><code class="language-output">diff --git a/guacamole.md b/guacamole.md
-index df0654a..93a3e13 100644
---- a/guacamole.md
-+++ b/guacamole.md
-@@ -1,3 +1,7 @@
- # Guacamole
- ## Ingredients
-+* avocado
-+* lime
-+* salt
- ## Instructions
-+An ill-considered change
-</code></pre>
-<p>That's the right answer,
-but typing out random 40-character strings is annoying,
-so Git lets us use just the first few characters (typically seven for normal size projects):</p>
-<pre><code class="language-bash">$ git diff f22b25e
-</code></pre>
-<pre><code class="language-output">diff --git a/guacamole.md b/guacamole.md
-index df0654a..93a3e13 100644
---- a/guacamole.md
-+++ b/guacamole.md
-@@ -1,3 +1,7 @@
- # Guacamole
- ## Ingredients
-+* avocado
-+* lime
-+* salt
- ## Instructions
-+An ill-considered change
-</code></pre>
-<p>All right! So we can save changes to files and see what we've changed. Now, how can we restore older versions of things? Let's suppose we change our mind about the last update to <code>guacamole.md</code> (the "ill-considered change").</p>
-<p><code>git status</code> now tells us that the file has been changed, but those changes haven't been staged:</p>
-<pre><code class="language-bash">$ git status
-</code></pre>
-<pre><code class="language-output">On branch main
-Changes not staged for commit:
-  (use "git add &lt;file&gt;..." to update what will be committed)
-  (use "git restore &lt;file&gt;..." to discard changes in working directory)
-    modified:   guacamole.md
-
-no changes added to commit (use "git add" and/or "git commit -a")
-</code></pre>
-<p>We can put things back the way they were
-by using <code>git restore</code>:</p>
-<pre><code class="language-bash">$ git restore guacamole.md
-$ cat guacamole.md
-</code></pre>
-<pre><code class="language-output"># Guacamole
-## Ingredients
-* avocado
-* lime
-* salt
-## Instructions
-</code></pre>
-<p>As you might guess from its name,
-<code>git restore</code> restores an old version of a file.
-By default,
-it recovers the version of the file recorded in <code>HEAD</code>,
-which is the last saved commit.
-If we want to go back even further,
-we can use a commit identifier instead, using <code>-s</code> option:</p>
-<pre><code class="language-bash">$ git restore -s f22b25e guacamole.md
-</code></pre>
-<pre><code class="language-bash">$ cat guacamole.md
-</code></pre>
-<pre><code class="language-output"># Guacamole
-## Ingredients
-## Instructions
-</code></pre>
-<pre><code class="language-bash">$ git status
-</code></pre>
-<pre><code class="language-output">On branch main
-Changes not staged for commit:
-  (use "git add &lt;file&gt;..." to update what will be committed)
-  (use "git restore &lt;file&gt;..." to discard changes in working directory)
-    modified:   guacamole.md
-
-no changes added to commit (use "git add" and/or "git commit -a")
-
-</code></pre>
-<p>Notice that the changes are not currently in the staging area, and have not been committed.
-If we wished, we can put things back the way they were at the last commit by using <code>git restore</code> to overwrite
-the working copy with the last committed version:</p>
-<pre><code class="language-bash">$ git restore guacamole.md
-$ cat guacamole.md
-</code></pre>
-<pre><code class="language-output"># Guacamole
-## Ingredients
-* avocado
-* lime
-* salt
-## Instructions
-</code></pre>
-<p>It's important to remember that
-we must use the commit number that identifies the state of the repository
-<em>before</em> the change we're trying to undo.
-A common mistake is to use the number of
-the commit in which we made the change we're trying to discard.
-In the example below, we want to retrieve the state from before the most
-recent commit (<code>HEAD~1</code>), which is commit <code>f22b25e</code>. We use the <code>.</code> to mean all files:</p>
-<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/swcarpentry/git-novice/78b9c02a074e6712b9b013ef6e8a568a56d8cf37/episodes/fig/git-restore.svg">{alt='A diagram showing how git restore can be used to restore the previous version of two files'}</p>
-<p>So, to put it all together,
-here's how Git works in cartoon form:</p>
-<p><img alt="https://figshare.com/articles/How_Git_works_a_cartoon/1328266" loading="lazy" src="https://raw.githubusercontent.com/swcarpentry/git-novice/78b9c02a074e6712b9b013ef6e8a568a56d8cf37/episodes/fig/git_staging.svg">{alt='A diagram showing the entire git workflow: local changes are staged using git add, applied to the local repository using git commit, and can be restored from the repository using git checkout'}</p>
-<p>The fact that files can be reverted one by one
-tends to change the way people organize their work.
-If everything is in one large document,
-it's hard (but not impossible) to undo changes to the introduction
-without also undoing changes made later to the conclusion.
-If the introduction and conclusion are stored in separate files,
-on the other hand,
-moving backward and forward in time becomes much easier.</p>
-<div class="box box-challenge">
-<p class="box-title">Recovering Older Versions of a File</p>
-
-<p>Jennifer has made changes to the Python script that she has been working on for weeks, and the
-modifications she made this morning "broke" the script and it no longer runs. She has spent
-~ 1hr trying to fix it, with no luck...</p>
-<p>Luckily, she has been keeping track of her project's versions using Git! Which commands below will
-let her recover the last committed version of her Python script called
-<code>data_cruncher.py</code>?</p>
-<ol>
-<li>
-<p><code>$ git restore</code></p>
-</li>
-<li>
-<p><code>$ git restore data_cruncher.py</code></p>
-</li>
-<li>
-<p><code>$ git restore -s HEAD~1 data_cruncher.py</code></p>
-</li>
-<li>
-<p><code>$ git restore -s &lt;unique ID of last commit&gt; data_cruncher.py</code></p>
-</li>
-<li>
-<p>Both 2 and 4</p>
-</li>
-</ol>
-<details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
-<p>The answer is (5)-Both 2 and 4.</p>
-<p>The <code>restore</code> command restores files from the repository, overwriting the files in your working
-directory. Answers 2 and 4 both restore the <em>latest</em> version <em>in the repository</em> of the file
-<code>data_cruncher.py</code>. Answer 2 uses <code>HEAD</code> to indicate the <em>latest</em>, whereas answer 4 uses the
-unique ID of the last commit, which is what <code>HEAD</code> means.</p>
-<p>Answer 3 gets the version of <code>data_cruncher.py</code> from the commit <em>before</em> <code>HEAD</code>, which is NOT
-what we wanted.</p>
-<p>Answer 1 results in an error. You need to specify a file to restore. If you want to restore all files
-you should use <code>git restore .</code></p>
-</details>
-</div>
-<div class="box box-challenge">
-<p class="box-title">Reverting a Commit</p>
-
-<p>Jennifer is collaborating with colleagues on her Python script.  She
-realizes her last commit to the project's repository contained an error, and
-wants to undo it.  Jennifer wants to undo correctly so everyone in the project's
-repository gets the correct change. The command <code>git revert [erroneous commit ID]</code> will create a
-new commit that reverses the erroneous commit.</p>
-<p>The command <code>git revert</code> is
-different from <code>git restore -s [commit ID] .</code> because <code>git restore</code> returns the
-files not yet committed within the local repository to a previous state, whereas <code>git revert</code>
-reverses changes committed to the local and project repositories.</p>
-<p>Below are the right steps and explanations for Jennifer to use <code>git revert</code>,
-what is the missing command?</p>
-<ol>
-<li>
-<p><code>________ # Look at the git history of the project to find the commit ID</code></p>
-</li>
-<li>
-<p>Copy the ID (the first few characters of the ID, e.g. 0b1d055).</p>
-</li>
-<li>
-<p><code>git revert [commit ID]</code></p>
-</li>
-<li>
-<p>Type in the new commit message.</p>
-</li>
-<li>
-<p>Save and close.</p>
-</li>
-</ol>
-<details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
-<p>The command <code>git log</code> lists project history with commit IDs.</p>
-<p>The command <code>git show HEAD</code> shows changes made at the latest commit, and lists
-the commit ID; however, Jennifer should double-check it is the correct commit, and no one
-else has committed changes to the repository.</p>
-</details>
-</div>
-<div class="box box-challenge">
-<p class="box-title">Understanding Workflow and History</p>
-
-<p>What is the output of the last command in</p>
-<pre><code class="language-bash">$ cd recipes
-$ echo "I like tomatoes, therefore I like ketchup" &gt; ketchup.md
-$ git add ketchup.md
-$ echo "ketchup enhances pasta dishes" &gt;&gt; ketchup.md
-$ git commit -m "My opinions about the red sauce"
-$ git restore ketchup.md
-$ cat ketchup.md # this will print the content of ketchup.md on screen
-</code></pre>
-<ol>
-<li>
-<pre><code class="language-output">ketchup enhances pasta dishes
-</code></pre>
-</li>
-<li>
-<pre><code class="language-output">I like tomatoes, therefore I like ketchup
-</code></pre>
-</li>
-<li>
-<pre><code class="language-output">I like tomatoes, therefore I like ketchup
-ketchup enhances pasta dishes
-</code></pre>
-</li>
-<li>
-<pre><code class="language-output">Error because you have changed ketchup.md without committing the changes
-</code></pre>
-</li>
-</ol>
-<details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
-<p>The answer is 2.</p>
-<p>The changes to the file from the second <code>echo</code> command are only applied to the working copy,
-not the version in the staging area.
-The command <code>git add ketchup.md</code> places the current version of <code>ketchup.md</code> into the staging area.</p>
-<p>So, when <code>git commit -m "My opinions about the red sauce"</code> is executed,
-the version of <code>ketchup.md</code> committed to the repository is the one from the staging area and
-has only one line.</p>
-<p>At this time, the working copy still has the second line (and <code>git status</code> will show that the file is modified). However, <code>git restore ketchup.md</code>
-replaces the working copy with the most recently committed version of <code>ketchup.md</code>.
-So, <code>cat ketchup.md</code> will output</p>
-<pre><code class="language-output">I like tomatoes, therefore I like ketchup
-</code></pre>
-</details>
-</div>
-<div class="box box-challenge">
-<p class="box-title">Checking Understanding of git diff</p>
-
-<p>Consider this command: <code>git diff HEAD~9 </code>. What do you predict this command
-will do if you execute it? What happens when you do execute it? Why?</p>
-<p>Try another command, <code>git diff [ID]</code>, where [ID] is replaced with the unique identifier for your most recent commit. What do you think will happen, and what does happen?</p>
-</div>
-<div class="box box-challenge">
-<p class="box-title">Getting Rid of Staged Changes</p>
-
-<p><code>git restore</code> can be used to restore a previous commit when unstaged changes have
-been made, but will it also work for changes that have been staged but not committed?
-Make a change to <code>guacamole.md</code>, add that change using <code>git add</code>,
-then use <code>git restore</code> to see if you can remove your change.</p>
-<details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x">Solution</h2>
-<p>After adding a change, <code>git restore</code> can not be used directly.
-Let's look at the output of <code>git status</code>:</p>
-<pre><code class="language-output">On branch main
-Changes to be committed:
-  (use "git restore --staged &lt;file&gt;..." to unstage)
-        modified:   guacamole.md
-
-</code></pre>
-<p>Note that if you don't have the same output
-you may either have forgotten to change the file,
-or you have added it <em>and</em> committed it.</p>
-<p>Using the command <code>git restore guacamole.md</code> now does not give an error,
-but it does not restore the file either.
-Git helpfully tells us that we need to use <code>git restore --staged</code> first
-to unstage the file:</p>
-<pre><code class="language-bash">$ git restore --staged guacamole.md
-</code></pre>
-<p>Now, <code>git status</code> gives us:</p>
-<pre><code class="language-bash">$ git status
-</code></pre>
-<pre><code class="language-output">On branch main
-Changes not staged for commit:
-  (use "git add &lt;file&gt;..." to update what will be committed)
-  (use "git git restore &lt;file&gt;..." to discard changes in working directory)
-        modified:   guacamole.md
-
-no changes added to commit (use "git add" and/or "git commit -a")
-</code></pre>
-<p>This means we can now use <code>git restore</code> to restore the file
-to the previous commit:</p>
-<pre><code class="language-bash">$ git restore guacamole.md
-$ git status
-</code></pre>
-<pre><code class="language-output">On branch main
-nothing to commit, working tree clean
-</code></pre>
-</details>
-</div>
-<div class="box box-challenge">
-<p class="box-title">Explore and Summarize Histories</p>
-
-<p>Exploring history is an important part of Git, and often it is a challenge to find
-the right commit ID, especially if the commit is from several months ago.</p>
-<p>Imagine the <code>recipes</code> project has more than 50 files.
-You would like to find a commit that modifies some specific text in <code>guacamole.md</code>.
-When you type <code>git log</code>, a very long list appeared.
-How can you narrow down the search?</p>
-<p>Recall that the <code>git diff</code> command allows us to explore one specific file,
-e.g., <code>git diff guacamole.md</code>. We can apply a similar idea here.</p>
-<pre><code class="language-bash">$ git log guacamole.md
-</code></pre>
-<p>Unfortunately some of these commit messages are very ambiguous, e.g., <code>update files</code>.
-How can you search through these files?</p>
-<p>Both <code>git diff</code> and <code>git log</code> are very useful and they summarize a different part of the history
-for you.
-Is it possible to combine both? Let's try the following:</p>
-<pre><code class="language-bash">$ git log --patch guacamole.md
-</code></pre>
-<p>You should get a long list of output, and you should be able to see both commit messages and
-the difference between each commit.</p>
-<p>Question: What does the following command do?</p>
-<pre><code class="language-bash">$ git log --patch HEAD~9 *.md
-</code></pre>
-</div>
-<div class="box box-keypoints">
-<p class="box-title">Key points</p>
+<p><strong>Why the <code>defer</code> attribute is important:</strong></p>
 <ul>
-<li><code>git diff</code> displays differences between commits.</li>
-<li><code>git restore</code> recovers old versions of files.</li>
+<li><strong>Ensures</strong> your JavaScript waits until all HTML is loaded</li>
+<li><strong>Prevents</strong> errors where JavaScript looks for elements that aren't ready yet</li>
+<li><strong>Guarantees</strong> all your plant elements are available for interaction</li>
+<li><strong>Provides</strong> better performance than placing scripts at the page bottom</li>
 </ul>
-</div>
+<blockquote>
+<p>⚠️ <strong>Important Note</strong>: The <code>defer</code> attribute prevents common timing issues. Without it, JavaScript may try to access HTML elements before they're loaded, causing errors.</p>
+</blockquote>
+<hr>
+<h2 id="h-connecting-javascript-to-your-html-elements">Connecting JavaScript to Your HTML Elements</h2>
+<p>Before we can make elements draggable, JavaScript needs to locate them in the DOM. Think of this like a library cataloging system - once you have the catalog number, you can find exactly the book you need and access all its contents.</p>
+<p>We'll use the <code>document.getElementById()</code> method to make these connections. It's like having a precise filing system - you provide an ID, and it locates exactly the element you need in your HTML.</p>
+<h3 id="h-enabling-drag-functionality-for-all-plants">Enabling Drag Functionality for All Plants</h3>
+<p>Add this code to your <code>script.js</code> file:</p>
+<pre><code class="language-javascript">// Enable drag functionality for all 14 plants
+dragElement(document.getElementById('plant1'));
+dragElement(document.getElementById('plant2'));
+dragElement(document.getElementById('plant3'));
+dragElement(document.getElementById('plant4'));
+dragElement(document.getElementById('plant5'));
+dragElement(document.getElementById('plant6'));
+dragElement(document.getElementById('plant7'));
+dragElement(document.getElementById('plant8'));
+dragElement(document.getElementById('plant9'));
+dragElement(document.getElementById('plant10'));
+dragElement(document.getElementById('plant11'));
+dragElement(document.getElementById('plant12'));
+dragElement(document.getElementById('plant13'));
+dragElement(document.getElementById('plant14'));
+</code></pre>
+<p><strong>Here's what this code accomplishes:</strong></p>
+<ul>
+<li><strong>Locates</strong> each plant element in the DOM using its unique ID</li>
+<li><strong>Retrieves</strong> a JavaScript reference to each HTML element</li>
+<li><strong>Passes</strong> each element to a <code>dragElement</code> function (which we'll create next)</li>
+<li><strong>Prepares</strong> every plant for drag-and-drop interaction</li>
+<li><strong>Connects</strong> your HTML structure to JavaScript functionality</li>
+</ul>
+<blockquote>
+<p>🎯 <strong>Why Use IDs Instead of Classes?</strong> IDs provide unique identifiers for specific elements, while CSS classes are designed for styling groups of elements. When JavaScript needs to manipulate individual elements, IDs offer the precision and performance we need.</p>
+</blockquote>
+<blockquote>
+<p>💡 <strong>Pro Tip</strong>: Notice how we're calling <code>dragElement()</code> for each plant individually. This approach ensures that each plant gets its own independent dragging behavior, which is essential for smooth user interaction.</p>
+</blockquote>
+<h3 id="h-pedagogical-check-in">🔄 <strong>Pedagogical Check-in</strong></h3>
+<p><strong>DOM Connection Understanding</strong>: Before moving to drag functionality, verify you can:</p>
+<ul>
+<li>✅ Explain how <code>document.getElementById()</code> locates HTML elements</li>
+<li>✅ Understand why we use unique IDs for each plant</li>
+<li>✅ Describe the purpose of the <code>defer</code> attribute in script tags</li>
+<li>✅ Recognize how JavaScript and HTML connect through the DOM</li>
+</ul>
+<p><strong>Quick Self-Test</strong>: What would happen if two elements had the same ID? Why does <code>getElementById()</code> return only one element?
+<em>Answer: IDs should be unique; if duplicated, only the first element is returned</em></p>
+<hr>
+<h2 id="h-building-the-drag-element-closure">Building the Drag Element Closure</h2>
+<p>Now we'll create the heart of our dragging functionality: a closure that manages the dragging behavior for each plant. This closure will contain multiple inner functions that work together to track mouse movements and update element positions.</p>
+<p>Closures are perfect for this task because they allow us to create "private" variables that persist between function calls, giving each plant its own independent coordinate tracking system.</p>
+<h3 id="h-understanding-closures-with-a-simple-example">Understanding Closures with a Simple Example</h3>
+<p>Let me demonstrate closures with a simple example that illustrates the concept:</p>
+<pre><code class="language-javascript">function createCounter() {
+    let count = 0; // This is like a private variable
+    
+    function increment() {
+        count++; // The inner function remembers the outer variable
+        return count;
+    }
+    
+    return increment; // We're giving back the inner function
+}
+
+const myCounter = createCounter();
+console.log(myCounter()); // 1
+console.log(myCounter()); // 2
+</code></pre>
+<p><strong>Here's what's happening in this closure pattern:</strong></p>
+<ul>
+<li><strong>Creates</strong> a private <code>count</code> variable that only exists within this closure</li>
+<li><strong>The inner function</strong> can access and modify that outer variable (the closure mechanism)</li>
+<li><strong>When we return</strong> the inner function, it maintains its connection to that private data</li>
+<li><strong>Even after</strong> <code>createCounter()</code> finishes execution, <code>count</code> persists and remembers its value</li>
+</ul>
+<h3 id="h-why-closures-are-perfect-for-drag-functionality">Why Closures Are Perfect for Drag Functionality</h3>
+<p>For our terrarium, each plant needs to remember its current position coordinates. Closures provide the perfect solution:</p>
+<p><strong>Key benefits for our project:</strong></p>
+<ul>
+<li><strong>Maintains</strong> private position variables for each plant independently</li>
+<li><strong>Preserves</strong> coordinate data between drag events</li>
+<li><strong>Prevents</strong> variable conflicts between different draggable elements</li>
+<li><strong>Creates</strong> clean, organized code structure</li>
+</ul>
+<blockquote>
+<p>🎯 <strong>Learning Goal</strong>: You don't need to master every aspect of closures right now. Focus on seeing how they help us organize code and maintain state for our dragging functionality.</p>
+</blockquote>
+<pre><code class="language-mermaid">stateDiagram-v2
+    [*] --&gt; Ready: Page loads
+    Ready --&gt; DragStart: User presses down (pointerdown)
+    DragStart --&gt; Dragging: Mouse/finger moves (pointermove)
+    Dragging --&gt; Dragging: Continue moving
+    Dragging --&gt; DragEnd: User releases (pointerup)
+    DragEnd --&gt; Ready: Reset for next drag
+    
+    state DragStart {
+        [*] --&gt; CapturePosition
+        CapturePosition --&gt; SetupListeners
+        SetupListeners --&gt; [*]
+    }
+    
+    state Dragging {
+        [*] --&gt; CalculateMovement
+        CalculateMovement --&gt; UpdatePosition
+        UpdatePosition --&gt; [*]
+    }
+    
+    state DragEnd {
+        [*] --&gt; RemoveListeners
+        RemoveListeners --&gt; CleanupState
+        CleanupState --&gt; [*]
+    }
+</code></pre>
+<h3 id="h-creating-the-dragelement-function">Creating the dragElement Function</h3>
+<p>Now let's build the main function that will handle all the dragging logic. Add this function below your plant element declarations:</p>
+<pre><code class="language-javascript">function dragElement(terrariumElement) {
+    // Initialize position tracking variables
+    let pos1 = 0,  // Previous mouse X position
+        pos2 = 0,  // Previous mouse Y position  
+        pos3 = 0,  // Current mouse X position
+        pos4 = 0;  // Current mouse Y position
+    
+    // Set up the initial drag event listener
+    terrariumElement.onpointerdown = pointerDrag;
+}
+</code></pre>
+<p><strong>Understanding the position tracking system:</strong></p>
+<ul>
+<li><strong><code>pos1</code> and <code>pos2</code></strong>: Store the difference between old and new mouse positions</li>
+<li><strong><code>pos3</code> and <code>pos4</code></strong>: Track the current mouse coordinates</li>
+<li><strong><code>terrariumElement</code></strong>: The specific plant element we're making draggable</li>
+<li><strong><code>onpointerdown</code></strong>: The event that triggers when the user starts dragging</li>
+</ul>
+<p><strong>Here's how the closure pattern works:</strong></p>
+<ul>
+<li><strong>Creates</strong> private position variables for each plant element</li>
+<li><strong>Maintains</strong> these variables throughout the dragging lifecycle</li>
+<li><strong>Ensures</strong> each plant tracks its own coordinates independently</li>
+<li><strong>Provides</strong> a clean interface through the <code>dragElement</code> function</li>
+</ul>
+<h3 id="h-why-use-pointer-events">Why Use Pointer Events?</h3>
+<p>You might wonder why we use <code>onpointerdown</code> instead of the more familiar <code>onclick</code>. Here's the reasoning:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Event Type</th>
+<th>Best For</th>
+<th>The Catch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>onclick</code></td>
+<td>Simple button clicks</td>
+<td>Can't handle dragging (just clicks and releases)</td>
+</tr>
+<tr>
+<td><code>onpointerdown</code></td>
+<td>Both mouse and touch</td>
+<td>Newer, but well-supported these days</td>
+</tr>
+<tr>
+<td><code>onmousedown</code></td>
+<td>Desktop mouse only</td>
+<td>Leaves mobile users out in the cold</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Why pointer events are perfect for what we're building:</strong></p>
+<ul>
+<li><strong>Works great</strong> whether someone's using a mouse, finger, or even a stylus</li>
+<li><strong>Feels the same</strong> on a laptop, tablet, or phone</li>
+<li><strong>Handles</strong> the actual dragging motion (not just click-and-done)</li>
+<li><strong>Creates</strong> a smooth experience that users expect from modern web apps</li>
+</ul>
+<blockquote>
+<p>💡 <strong>Future-Proofing</strong>: Pointer events are the modern way to handle user interactions. Instead of writing separate code for mouse and touch, you get both for free. Pretty neat, right?</p>
+</blockquote>
+<h3 id="h-pedagogical-check-in-x">🔄 <strong>Pedagogical Check-in</strong></h3>
+<p><strong>Event Handling Understanding</strong>: Pause to confirm your grasp of events:</p>
+<ul>
+<li>✅ Why do we use pointer events instead of mouse events?</li>
+<li>✅ How do closure variables persist between function calls?</li>
+<li>✅ What role does <code>preventDefault()</code> play in smooth dragging?</li>
+<li>✅ Why do we attach listeners to the document instead of individual elements?</li>
+</ul>
+<p><strong>Real-World Connection</strong>: Think about drag-and-drop interfaces you use daily:</p>
+<ul>
+<li><strong>File uploads</strong>: Dragging files into a browser window</li>
+<li><strong>Kanban boards</strong>: Moving tasks between columns</li>
+<li><strong>Image galleries</strong>: Rearranging photo order</li>
+<li><strong>Mobile interfaces</strong>: Swiping and dragging on touchscreens</li>
+</ul>
+<hr>
+<h2 id="h-the-pointerdrag-function-capturing-the-start-of-a-drag">The pointerDrag Function: Capturing the Start of a Drag</h2>
+<p>When a user presses down on a plant (whether with a mouse click or finger touch), the <code>pointerDrag</code> function springs into action. This function captures the initial coordinates and sets up the dragging system.</p>
+<p>Add this function inside your <code>dragElement</code> closure, right after the line <code>terrariumElement.onpointerdown = pointerDrag;</code>:</p>
+<pre><code class="language-javascript">function pointerDrag(e) {
+    // Prevent default browser behavior (like text selection)
+    e.preventDefault();
+    
+    // Capture the initial mouse/touch position
+    pos3 = e.clientX;  // X coordinate where drag started
+    pos4 = e.clientY;  // Y coordinate where drag started
+    
+    // Set up event listeners for the dragging process
+    document.onpointermove = elementDrag;
+    document.onpointerup = stopElementDrag;
+}
+</code></pre>
+<p><strong>Step by step, here's what's happening:</strong></p>
+<ul>
+<li><strong>Prevents</strong> default browser behaviors that could interfere with dragging</li>
+<li><strong>Records</strong> the exact coordinates where the user started the drag gesture</li>
+<li><strong>Establishes</strong> event listeners for the ongoing drag movement</li>
+<li><strong>Prepares</strong> the system to track mouse/finger movement across the entire document</li>
+</ul>
+<h3 id="h-understanding-event-prevention">Understanding Event Prevention</h3>
+<p>The <code>e.preventDefault()</code> line is crucial for smooth dragging:</p>
+<p><strong>Without prevention, browsers might:</strong></p>
+<ul>
+<li><strong>Select</strong> text when dragging across the page</li>
+<li><strong>Trigger</strong> context menus on right-click drag</li>
+<li><strong>Interfere</strong> with our custom dragging behavior</li>
+<li><strong>Create</strong> visual artifacts during the drag operation</li>
+</ul>
+<blockquote>
+<p>🔍 <strong>Experiment</strong>: After completing this lesson, try removing <code>e.preventDefault()</code> and see how it affects the dragging experience. You'll quickly understand why this line is essential!</p>
+</blockquote>
+<h3 id="h-coordinate-tracking-system">Coordinate Tracking System</h3>
+<p>The <code>e.clientX</code> and <code>e.clientY</code> properties give us precise mouse/touch coordinates:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Property</th>
+<th>What It Measures</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clientX</code></td>
+<td>Horizontal position relative to the viewport</td>
+<td>Tracking left-right movement</td>
+</tr>
+<tr>
+<td><code>clientY</code></td>
+<td>Vertical position relative to the viewport</td>
+<td>Tracking up-down movement</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Understanding these coordinates:</strong></p>
+<ul>
+<li><strong>Provides</strong> pixel-perfect positioning information</li>
+<li><strong>Updates</strong> in real-time as the user moves their pointer</li>
+<li><strong>Remains</strong> consistent across different screen sizes and zoom levels</li>
+<li><strong>Enables</strong> smooth, responsive drag interactions</li>
+</ul>
+<h3 id="h-setting-up-document-level-event-listeners">Setting Up Document-Level Event Listeners</h3>
+<p>Notice how we attach the move and stop events to the entire <code>document</code>, not just the plant element:</p>
+<pre><code class="language-javascript">document.onpointermove = elementDrag;
+document.onpointerup = stopElementDrag;
+</code></pre>
+<p><strong>Why attach to the document:</strong></p>
+<ul>
+<li><strong>Continues</strong> tracking even when the mouse leaves the plant element</li>
+<li><strong>Prevents</strong> drag interruption if the user moves quickly</li>
+<li><strong>Provides</strong> smooth dragging across the entire screen</li>
+<li><strong>Handles</strong> edge cases where the cursor moves outside the browser window</li>
+</ul>
+<blockquote>
+<p>⚡ <strong>Performance Note</strong>: We'll clean up these document-level listeners when dragging stops to avoid memory leaks and performance issues.</p>
+</blockquote>
+<h2 id="h-completing-the-drag-system-movement-and-cleanup">Completing the Drag System: Movement and Cleanup</h2>
+<p>Now we'll add the two remaining functions that handle the actual dragging movement and the cleanup when dragging stops. These functions work together to create smooth, responsive plant movement across your terrarium.</p>
+<h3 id="h-the-elementdrag-function-tracking-movement">The elementDrag Function: Tracking Movement</h3>
+<p>Add the <code>elementDrag</code> function right after the closing curly bracket of <code>pointerDrag</code>:</p>
+<pre><code class="language-javascript">function elementDrag(e) {
+    // Calculate the distance moved since the last event
+    pos1 = pos3 - e.clientX;  // Horizontal distance moved
+    pos2 = pos4 - e.clientY;  // Vertical distance moved
+    
+    // Update the current position tracking
+    pos3 = e.clientX;  // New current X position
+    pos4 = e.clientY;  // New current Y position
+    
+    // Apply the movement to the element's position
+    terrariumElement.style.top = (terrariumElement.offsetTop - pos2) + 'px';
+    terrariumElement.style.left = (terrariumElement.offsetLeft - pos1) + 'px';
+}
+</code></pre>
+<p><strong>Understanding the coordinate mathematics:</strong></p>
+<ul>
+<li><strong><code>pos1</code> and <code>pos2</code></strong>: Calculate how far the mouse has moved since the last update</li>
+<li><strong><code>pos3</code> and <code>pos4</code></strong>: Store the current mouse position for the next calculation</li>
+<li><strong><code>offsetTop</code> and <code>offsetLeft</code></strong>: Get the element's current position on the page</li>
+<li><strong>Subtraction logic</strong>: Moves the element by the same amount the mouse moved</li>
+</ul>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant User
+    participant Mouse
+    participant JavaScript
+    participant Plant
+    
+    User-&gt;&gt;Mouse: Start drag at (100, 50)
+    Mouse-&gt;&gt;JavaScript: pointerdown event
+    JavaScript-&gt;&gt;JavaScript: Store initial position (pos3=100, pos4=50)
+    JavaScript-&gt;&gt;JavaScript: Setup move/up listeners
+    
+    User-&gt;&gt;Mouse: Move to (110, 60)
+    Mouse-&gt;&gt;JavaScript: pointermove event
+    JavaScript-&gt;&gt;JavaScript: Calculate: pos1=10, pos2=10
+    JavaScript-&gt;&gt;Plant: Update: left += 10px, top += 10px
+    Plant-&gt;&gt;Plant: Render at new position
+    
+    User-&gt;&gt;Mouse: Release at (120, 65)
+    Mouse-&gt;&gt;JavaScript: pointerup event
+    JavaScript-&gt;&gt;JavaScript: Remove listeners
+    JavaScript-&gt;&gt;JavaScript: Reset for next drag
+</code></pre>
+<p><strong>Here's the movement calculation breakdown:</strong></p>
+<ol>
+<li><strong>Measures</strong> the difference between old and new mouse positions</li>
+<li><strong>Calculates</strong> how much to move the element based on mouse movement</li>
+<li><strong>Updates</strong> the element's CSS position properties in real-time</li>
+<li><strong>Stores</strong> the new position as the baseline for the next movement calculation</li>
+</ol>
+<h3 id="h-visual-representation-of-the-math">Visual Representation of the Math</h3>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant Mouse
+    participant JavaScript
+    participant Plant
+    
+    Mouse-&gt;&gt;JavaScript: Move from (100,50) to (110,60)
+    JavaScript-&gt;&gt;JavaScript: Calculate: moved 10px right, 10px down
+    JavaScript-&gt;&gt;Plant: Update position by +10px right, +10px down
+    Plant-&gt;&gt;Plant: Render at new position
+</code></pre>
+<h3 id="h-the-stopelementdrag-function-cleaning-up">The stopElementDrag Function: Cleaning Up</h3>
+<p>Add the cleanup function after the closing curly bracket of <code>elementDrag</code>:</p>
+<pre><code class="language-javascript">function stopElementDrag() {
+    // Remove the document-level event listeners
+    document.onpointerup = null;
+    document.onpointermove = null;
+}
+</code></pre>
+<p><strong>Why cleanup is essential:</strong></p>
+<ul>
+<li><strong>Prevents</strong> memory leaks from lingering event listeners</li>
+<li><strong>Stops</strong> the dragging behavior when the user releases the plant</li>
+<li><strong>Allows</strong> other elements to be dragged independently</li>
+<li><strong>Resets</strong> the system for the next drag operation</li>
+</ul>
+<p><strong>What happens without cleanup:</strong></p>
+<ul>
+<li>Event listeners continue running even after dragging stops</li>
+<li>Performance degrades as unused listeners accumulate</li>
+<li>Unexpected behavior when interacting with other elements</li>
+<li>Browser resources are wasted on unnecessary event handling</li>
+</ul>
+<h3 id="h-understanding-css-position-properties">Understanding CSS Position Properties</h3>
+<p>Our dragging system manipulates two key CSS properties:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Property</th>
+<th>What It Controls</th>
+<th>How We Use It</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>top</code></td>
+<td>Distance from the top edge</td>
+<td>Vertical positioning during drag</td>
+</tr>
+<tr>
+<td><code>left</code></td>
+<td>Distance from the left edge</td>
+<td>Horizontal positioning during drag</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Key insights about offset properties:</strong></p>
+<ul>
+<li><strong><code>offsetTop</code></strong>: Current distance from the top of the positioned parent element</li>
+<li><strong><code>offsetLeft</code></strong>: Current distance from the left of the positioned parent element</li>
+<li><strong>Positioning context</strong>: These values are relative to the nearest positioned ancestor</li>
+<li><strong>Real-time updates</strong>: Changes immediately when we modify the CSS properties</li>
+</ul>
+<blockquote>
+<p>🎯 <strong>Design Philosophy</strong>: This drag system is intentionally flexible – there are no "drop zones" or restrictions. Users can place plants anywhere, giving them complete creative control over their terrarium design.</p>
+</blockquote>
+<h2 id="h-bringing-it-all-together-your-complete-drag-system">Bringing It All Together: Your Complete Drag System</h2>
+<p>Congratulations! You've just built a sophisticated drag-and-drop system using vanilla JavaScript. Your complete <code>dragElement</code> function now contains a powerful closure that manages:</p>
+<p><strong>What your closure accomplishes:</strong></p>
+<ul>
+<li><strong>Maintains</strong> private position variables for each plant independently</li>
+<li><strong>Handles</strong> the complete drag lifecycle from start to finish</li>
+<li><strong>Provides</strong> smooth, responsive movement across the entire screen</li>
+<li><strong>Cleans</strong> up resources properly to prevent memory leaks</li>
+<li><strong>Creates</strong> an intuitive, creative interface for terrarium design</li>
+</ul>
+<h3 id="h-testing-your-interactive-terrarium">Testing Your Interactive Terrarium</h3>
+<p>Now test your interactive terrarium! Open your <code>index.html</code> file in a web browser and try the functionality:</p>
+<ol>
+<li><strong>Click and hold</strong> any plant to start dragging</li>
+<li><strong>Move your mouse or finger</strong> and watch the plant follow smoothly</li>
+<li><strong>Release</strong> to drop the plant in its new position</li>
+<li><strong>Experiment</strong> with different arrangements to explore the interface</li>
+</ol>
+<p>🥇 <strong>Achievement</strong>: You've created a fully interactive web application using core concepts that professional developers use daily. That drag-and-drop functionality uses the same principles behind file uploads, kanban boards, and many other interactive interfaces.</p>
+<h3 id="h-pedagogical-check-in-x-x">🔄 <strong>Pedagogical Check-in</strong></h3>
+<p><strong>Complete System Understanding</strong>: Verify your mastery of the full drag system:</p>
+<ul>
+<li>✅ How do closures maintain independent state for each plant?</li>
+<li>✅ Why is the coordinate calculation math necessary for smooth movement?</li>
+<li>✅ What would happen if we forgot to clean up event listeners?</li>
+<li>✅ How does this pattern scale to more complex interactions?</li>
+</ul>
+<p><strong>Code Quality Reflection</strong>: Review your complete solution:</p>
+<ul>
+<li><strong>Modular design</strong>: Each plant gets its own closure instance</li>
+<li><strong>Event efficiency</strong>: Proper setup and cleanup of listeners</li>
+<li><strong>Cross-device support</strong>: Works on desktop and mobile</li>
+<li><strong>Performance conscious</strong>: No memory leaks or redundant calculations</li>
+</ul>
+<p><img alt="finished terrarium" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Web-Dev-For-Beginners/78085398be0dea7abaaf5eda914817f46f6ddbbc/3-terrarium/3-intro-to-DOM-and-closures/images/terrarium-final.png"></p>
+<hr>
+<h2 id="h-github-copilot-agent-challenge">GitHub Copilot Agent Challenge 🚀</h2>
+<p>Use the Agent mode to complete the following challenge:</p>
+<p><strong>Description:</strong> Enhance the terrarium project by adding a reset functionality that returns all plants to their original positions with smooth animations.</p>
+<p><strong>Prompt:</strong> Create a reset button that, when clicked, animates all plants back to their original sidebar positions using CSS transitions. The function should store the original positions when the page loads and smoothly transition plants back to those positions over 1 second when the reset button is pressed.</p>
+<p>Learn more about <a href="https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode" target="_blank" rel="noopener noreferrer">agent mode</a> here.</p>
+<h2 id="h-additional-challenge-expand-your-skills">🚀 Additional Challenge: Expand Your Skills</h2>
+<p>Ready to take your terrarium to the next level? Try implementing these enhancements:</p>
+<p><strong>Creative Extensions:</strong></p>
+<ul>
+<li><strong>Double-click</strong> a plant to bring it to the front (z-index manipulation)</li>
+<li><strong>Add visual feedback</strong> like a subtle glow when hovering over plants</li>
+<li><strong>Implement boundaries</strong> to prevent plants from being dragged outside the terrarium</li>
+<li><strong>Create a save function</strong> that remembers plant positions using localStorage</li>
+<li><strong>Add sound effects</strong> for picking up and placing plants</li>
+</ul>
+<blockquote>
+<p>💡 <strong>Learning Opportunity</strong>: Each of these challenges will teach you new aspects of DOM manipulation, event handling, and user experience design.</p>
+</blockquote>
+<h2 id="h-review-self-study-deepening-your-understanding">Review &amp; Self Study: Deepening Your Understanding</h2>
+<p>You've mastered the fundamentals of DOM manipulation and closures, but there's always more to explore! Here are some pathways to expand your knowledge and skills.</p>
+<h3 id="h-alternative-drag-and-drop-approaches">Alternative Drag and Drop Approaches</h3>
+<p>We used pointer events for maximum flexibility, but web development offers multiple approaches:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Best For</th>
+<th>Learning Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.mozilla.org/docs/Web/API/HTML_Drag_and_Drop_API" target="_blank" rel="noopener noreferrer">HTML Drag and Drop API</a></td>
+<td>File uploads, formal drag zones</td>
+<td>Understanding native browser capabilities</td>
+</tr>
+<tr>
+<td><a href="https://developer.mozilla.org/docs/Web/API/Touch_events" target="_blank" rel="noopener noreferrer">Touch Events</a></td>
+<td>Mobile-specific interactions</td>
+<td>Mobile-first development patterns</td>
+</tr>
+<tr>
+<td>CSS <code>transform</code> properties</td>
+<td>Smooth animations</td>
+<td>Performance optimization techniques</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="h-advanced-dom-manipulation-topics">Advanced DOM Manipulation Topics</h3>
+<p><strong>Next steps in your learning journey:</strong></p>
+<ul>
+<li><strong>Event delegation</strong>: Handling events efficiently for multiple elements</li>
+<li><strong>Intersection Observer</strong>: Detecting when elements enter/leave the viewport</li>
+<li><strong>Mutation Observer</strong>: Watching for changes in the DOM structure</li>
+<li><strong>Web Components</strong>: Creating reusable, encapsulated UI elements</li>
+<li><strong>Virtual DOM concepts</strong>: Understanding how frameworks optimize DOM updates</li>
+</ul>
+<h3 id="h-essential-resources-for-continued-learning">Essential Resources for Continued Learning</h3>
+<p><strong>Technical Documentation:</strong></p>
+<ul>
+<li><a href="https://developer.mozilla.org/docs/Web/API/Pointer_events" target="_blank" rel="noopener noreferrer">MDN Pointer Events Guide</a> - Comprehensive pointer event reference</li>
+<li><a href="https://www.w3.org/TR/pointerevents1/" target="_blank" rel="noopener noreferrer">W3C Pointer Events Specification</a> - Official standards documentation</li>
+<li><a href="https://developer.mozilla.org/docs/Web/JavaScript/Closures" target="_blank" rel="noopener noreferrer">JavaScript Closures Deep Dive</a> - Advanced closure patterns</li>
+</ul>
+<p><strong>Browser Compatibility:</strong></p>
+<ul>
+<li><a href="https://caniuse.com/" target="_blank" rel="noopener noreferrer">CanIUse.com</a> - Check feature support across browsers</li>
+<li><a href="https://github.com/mdn/browser-compat-data" target="_blank" rel="noopener noreferrer">MDN Browser Compatibility Data</a> - Detailed compatibility information</li>
+</ul>
+<p><strong>Practice Opportunities:</strong></p>
+<ul>
+<li><strong>Build</strong> a puzzle game using similar drag mechanics</li>
+<li><strong>Create</strong> a kanban board with drag-and-drop task management</li>
+<li><strong>Design</strong> an image gallery with draggable photo arrangements</li>
+<li><strong>Experiment</strong> with touch gestures for mobile interfaces</li>
+</ul>
+<blockquote>
+<p>🎯 <strong>Learning Strategy</strong>: The best way to solidify these concepts is through practice. Try building variations of draggable interfaces – each project will teach you something new about user interaction and DOM manipulation.</p>
+</blockquote>
+<h3 id="h-what-you-can-do-in-the-next-5-minutes">⚡ <strong>What You Can Do in the Next 5 Minutes</strong></h3>
+<ul>
+<li>[ ] Open browser DevTools and type <code>document.querySelector('body')</code> in the console</li>
+<li>[ ] Try changing a webpage's text using <code>innerHTML</code> or <code>textContent</code></li>
+<li>[ ] Add a click event listener to any button or link on a webpage</li>
+<li>[ ] Inspect the DOM tree structure using the Elements panel</li>
+</ul>
+<h3 id="h-what-you-can-accomplish-this-hour">🎯 <strong>What You Can Accomplish This Hour</strong></h3>
+<ul>
+<li>[ ] Complete the post-lesson quiz and review DOM manipulation concepts</li>
+<li>[ ] Create an interactive webpage that responds to user clicks</li>
+<li>[ ] Practice event handling with different event types (click, mouseover, keypress)</li>
+<li>[ ] Build a simple to-do list or counter using DOM manipulation</li>
+<li>[ ] Explore the relationship between HTML elements and JavaScript objects</li>
+</ul>
+<h3 id="h-your-week-long-javascript-journey">📅 <strong>Your Week-Long JavaScript Journey</strong></h3>
+<ul>
+<li>[ ] Complete the interactive terrarium project with drag-and-drop functionality</li>
+<li>[ ] Master event delegation for efficient event handling</li>
+<li>[ ] Learn about the event loop and asynchronous JavaScript</li>
+<li>[ ] Practice closures by building modules with private state</li>
+<li>[ ] Explore modern DOM APIs like Intersection Observer</li>
+<li>[ ] Build interactive components without using frameworks</li>
+</ul>
+<h3 id="h-your-month-long-javascript-mastery">🌟 <strong>Your Month-Long JavaScript Mastery</strong></h3>
+<ul>
+<li>[ ] Create a complex single-page application using vanilla JavaScript</li>
+<li>[ ] Learn a modern framework (React, Vue, or Angular) and compare it to vanilla DOM</li>
+<li>[ ] Contribute to open source JavaScript projects</li>
+<li>[ ] Master advanced concepts like web components and custom elements</li>
+<li>[ ] Build performant web applications with optimal DOM patterns</li>
+<li>[ ] Teach others about DOM manipulation and JavaScript fundamentals</li>
+</ul>
+<h2 id="h-your-javascript-dom-mastery-timeline">🎯 Your JavaScript DOM Mastery Timeline</h2>
+<pre><code class="language-mermaid">timeline
+    title DOM &amp; JavaScript Learning Progression
+    
+    section Foundation (15 minutes)
+        DOM Understanding: Element selection methods
+                         : Tree structure navigation
+                         : Property access patterns
+        
+    section Event Handling (20 minutes)
+        User Interaction: Pointer event basics
+                        : Event listener setup
+                        : Cross-device compatibility
+                        : Event prevention techniques
+        
+    section Closures (25 minutes)
+        Scope Management: Private variable creation
+                        : Function persistence
+                        : State management patterns
+                        : Memory efficiency
+        
+    section Drag System (30 minutes)
+        Interactive Features: Coordinate tracking
+                            : Position calculation
+                            : Movement mathematics
+                            : Cleanup procedures
+        
+    section Advanced Patterns (45 minutes)
+        Professional Skills: Event delegation
+                           : Performance optimization
+                           : Error handling
+                           : Accessibility considerations
+        
+    section Framework Understanding (1 week)
+        Modern Development: Virtual DOM concepts
+                          : State management libraries
+                          : Component architectures
+                          : Build tool integration
+        
+    section Expert Level (1 month)
+        Advanced DOM APIs: Intersection Observer
+                         : Mutation Observer
+                         : Custom Elements
+                         : Web Components
+</code></pre>
+<h3 id="h-your-javascript-toolkit-summary">🛠️ Your JavaScript Toolkit Summary</h3>
+<p>After completing this lesson, you now have:</p>
+<ul>
+<li><strong>DOM Mastery</strong>: Element selection, property manipulation, and tree navigation</li>
+<li><strong>Event Expertise</strong>: Cross-device interaction handling with pointer events</li>
+<li><strong>Closure Understanding</strong>: Private state management and function persistence</li>
+<li><strong>Interactive Systems</strong>: Complete drag-and-drop implementation from scratch</li>
+<li><strong>Performance Awareness</strong>: Proper event cleanup and memory management</li>
+<li><strong>Modern Patterns</strong>: Code organization techniques used in professional development</li>
+<li><strong>User Experience</strong>: Creating intuitive, responsive interfaces</li>
+</ul>
+<p><strong>Professional Skills Gained</strong>: You've built features using the same techniques as:</p>
+<ul>
+<li><strong>Trello/Kanban boards</strong>: Card dragging between columns</li>
+<li><strong>File upload systems</strong>: Drag-and-drop file handling</li>
+<li><strong>Image galleries</strong>: Photo arrangement interfaces</li>
+<li><strong>Mobile apps</strong>: Touch-based interaction patterns</li>
+</ul>
+<p><strong>Next Level</strong>: You're ready to explore modern frameworks like React, Vue, or Angular that build upon these fundamental DOM manipulation concepts!</p>

@@ -6,10 +6,9 @@
 </ul>
 <p>We will continue our use of notebooks to clean data and train our model, but you can take the process one step further by exploring using a model 'in the wild', so to speak: in a web app.</p>
 <p>To do this, you need to build a web app using Flask.</p>
-
-<h2 id="building-an-app">Building an app</h2>
+<h2 id="h-building-an-app">Building an app</h2>
 <p>There are several ways to build web apps to consume machine learning models. Your web architecture may influence the way your model is trained. Imagine that you are working in a business where the data science group has trained a model that they want you to use in an app.</p>
-<h3 id="considerations">Considerations</h3>
+<h3 id="h-considerations">Considerations</h3>
 <p>There are many questions you need to ask:</p>
 <ul>
 <li><strong>Is it a web app or a mobile app?</strong> If you are building a mobile app or need to use the model in an IoT context, you could use <a href="https://www.tensorflow.org/lite/" target="_blank" rel="noopener noreferrer">TensorFlow Lite</a> and use the model in an Android or iOS app.</li>
@@ -25,11 +24,11 @@
 </ul>
 <p>You also have the opportunity to build an entire Flask web app that would be able to train the model itself in a web browser. This can also be done using TensorFlow.js in a JavaScript context.</p>
 <p>For our purposes, since we have been working with Python-based notebooks, let's explore the steps you need to take to export a trained model from such a notebook to a format readable by a Python-built web app.</p>
-<h2 id="tool">Tool</h2>
+<h2 id="h-tool">Tool</h2>
 <p>For this task, you need two tools: Flask and Pickle, both of which run on Python.</p>
 <p>✅ What's <a href="https://palletsprojects.com/p/flask/" target="_blank" rel="noopener noreferrer">Flask</a>? Defined as a 'micro-framework' by its creators, Flask provides the basic features of web frameworks using Python and a templating engine to build web pages. Take a look at <a href="https://docs.microsoft.com/learn/modules/python-flask-build-ai-web-app?WT.mc_id=academic-77952-leestott" target="_blank" rel="noopener noreferrer">this Learn module</a> to practice building with Flask.</p>
 <p>✅ What's <a href="https://docs.python.org/3/library/pickle.html" target="_blank" rel="noopener noreferrer">Pickle</a>? Pickle 🥒 is a Python module that serializes and de-serializes a Python object structure. When you 'pickle' a model, you serialize or flatten its structure for use on the web. Be careful: pickle is not intrinsically secure, so be careful if prompted to 'un-pickle' a file. A pickled file has the suffix <code>.pkl</code>.</p>
-<h2 id="exercise-clean-your-data">Exercise - clean your data</h2>
+<h2 id="h-exercise-clean-your-data">Exercise - clean your data</h2>
 <p>In this lesson you'll use data from 80,000 UFO sightings, gathered by <a href="https://nuforc.org" target="_blank" rel="noopener noreferrer">NUFORC</a> (The National UFO Reporting Center). This data has some interesting descriptions of UFO sightings, for example:</p>
 <ul>
 <li><strong>Long example description.</strong> "A man emerges from a beam of light that shines on a grassy field at night and he runs towards the Texas Instruments parking lot".</li>
@@ -82,7 +81,7 @@ ufos.head()
 </code></pre>
 </li>
 </ol>
-<h2 id="exercise-build-your-model">Exercise - build your model</h2>
+<h2 id="h-exercise-build-your-model">Exercise - build your model</h2>
 <p>Now you can get ready to train a model by dividing the data into the training and testing group.</p>
 <ol>
 <li>
@@ -113,7 +112,7 @@ print('Accuracy: ', accuracy_score(y_test, predictions))
 </ol>
 <p>The accuracy isn't bad <strong>(around 95%)</strong>, unsurprisingly, as <code>Country</code> and <code>Latitude/Longitude</code> correlate.</p>
 <p>The model you created isn't very revolutionary as you should be able to infer a <code>Country</code> from its <code>Latitude</code> and <code>Longitude</code>, but it's a good exercise to try to train from raw data that you cleaned, exported, and then use this model in a web app.</p>
-<h2 id="exercise-pickle-your-model">Exercise - 'pickle' your model</h2>
+<h2 id="h-exercise-pickle-your-model">Exercise - 'pickle' your model</h2>
 <p>Now, it's time to <em>pickle</em> your model! You can do that in a few lines of code. Once it's <em>pickled</em>, load your pickled model and test it against a sample data array containing values for seconds, latitude and longitude,</p>
 <pre><code class="language-python">import pickle
 model_filename = 'ufo-model.pkl'
@@ -123,7 +122,7 @@ model = pickle.load(open('ufo-model.pkl','rb'))
 print(model.predict([[50,44,-12]]))
 </code></pre>
 <p>The model returns <strong>'3'</strong>, which is the country code for the UK. Wild! 👽</p>
-<h2 id="exercise-build-a-flask-app">Exercise - build a Flask app</h2>
+<h2 id="h-exercise-build-a-flask-app">Exercise - build a Flask app</h2>
 <p>Now you can build a Flask app to call your model and return similar results, but in a more visually pleasing way.</p>
 <ol>
 <li>
@@ -290,8 +289,7 @@ if __name__ == "__main__":
 <p>Using a model this way, with Flask and a pickled model, is relatively straightforward. The hardest thing is to understand what shape the data is that must be sent to the model to get a prediction. That all depends on how the model was trained. This one has three data points to be input in order to get a prediction.</p>
 <p>In a professional setting, you can see how good communication is necessary between the folks who train the model and those who consume it in a web or mobile app. In our case, it's only one person, you!</p>
 <hr>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>Instead of working in a notebook and importing the model to the Flask app, you could train the model right within the Flask app! Try converting your Python code in the notebook, perhaps after your data is cleaned, to train the model from within the app on a route called <code>train</code>. What are the pros and cons of pursuing this method?</p>
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>There are many ways to build a web app to consume ML models. Make a list of the ways you could use JavaScript or Python to build a web app to leverage machine learning. Consider architecture: should the model stay in the app or live in the cloud? If the latter, how would you access it? Draw out an architectural model for an applied ML web solution.</p>

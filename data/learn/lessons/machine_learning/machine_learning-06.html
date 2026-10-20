@@ -1,10 +1,9 @@
 <p><img alt="Data visualization infographic" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/2-Data/images/data-visualization.png"></p>
 <p>Infographic by <a href="https://twitter.com/dasani_decoded" target="_blank" rel="noopener noreferrer">Dasani Madipalli</a></p>
-
 <blockquote>
-<h3 id="this-lesson-is-available-in-r"><a href="https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/2-Data/solution/R/lesson_2.html" target="_blank" rel="noopener noreferrer">This lesson is available in R!</a></h3>
+<h3 id="h-this-lesson-is-available-in-r"><a href="https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/2-Regression/2-Data/solution/R/lesson_2.html" target="_blank" rel="noopener noreferrer">This lesson is available in R!</a></h3>
 </blockquote>
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p>Now that you are set up with the tools you need to start tackling machine learning model building with Scikit-learn, you are ready to start asking questions of your data. As you work with data and apply ML solutions, it's very important to understand how to ask the right question to properly unlock the potentials of your dataset.</p>
 <p>In this lesson, you will learn:</p>
 <ul>
@@ -12,24 +11,23 @@
 <li>How to use Matplotlib for data visualization.</li>
 <li>How to use Seaborn for more expressive data visualization.</li>
 </ul>
-<h2 id="asking-the-right-question-of-your-data">Asking the right question of your data</h2>
+<h2 id="h-asking-the-right-question-of-your-data">Asking the right question of your data</h2>
 <p>The question you need answered will determine what type of ML algorithms you will leverage. And the quality of the answer you get back will be heavily dependent on the nature of your data.</p>
 <p>Take a look at the <a href="https://github.com/microsoft/ML-For-Beginners/blob/main/2-Regression/data/US-pumpkins.csv" target="_blank" rel="noopener noreferrer">data</a> provided for this lesson. You can open this .csv file in VS Code. A quick skim immediately shows that there are blanks and a mix of strings and numeric data. There's also a strange column called 'Package' where the data is a mix between 'sacks', 'bins' and other values. The data, in fact, is a bit of a mess.</p>
 <p><a href="https://youtu.be/5qGjczWTrDQ" target="_blank" rel="noopener noreferrer"><img alt="ML for beginners - How to Analyze and Clean a Dataset" loading="lazy" src="https://img.youtube.com/vi/5qGjczWTrDQ/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
 <p>In fact, it is not very common to be gifted a dataset that is completely ready to use to create a ML model out of the box. In this lesson, you will learn how to prepare a raw dataset using standard Python libraries. You will also learn various techniques to visualize the data.</p>
-<h2 id="case-study-the-pumpkin-market">Case study: 'the pumpkin market'</h2>
+<h2 id="h-case-study-the-pumpkin-market">Case study: 'the pumpkin market'</h2>
 <p>In this folder you will find a .csv file in the root <code>data</code> folder called <a href="https://github.com/microsoft/ML-For-Beginners/blob/main/2-Regression/data/US-pumpkins.csv" target="_blank" rel="noopener noreferrer">US-pumpkins.csv</a> which includes 1757 lines of data about the market for pumpkins, sorted into groupings by city. This is raw data extracted from the <a href="https://www.marketnews.usda.gov/mnp/fv-report-config-step1?type=termPrice" target="_blank" rel="noopener noreferrer">Specialty Crops Terminal Markets Standard Reports</a> distributed by the United States Department of Agriculture.</p>
-<h3 id="preparing-data">Preparing data</h3>
+<h3 id="h-preparing-data">Preparing data</h3>
 <p>This data is in the public domain. It can be downloaded in many separate files, per city, from the USDA web site. To avoid too many separate files, we have concatenated all the city data into one spreadsheet, thus we have already <em>prepared</em> the data a bit. Next, let's take a closer look at the data.</p>
-<h3 id="the-pumpkin-data-early-conclusions">The pumpkin data - early conclusions</h3>
+<h3 id="h-the-pumpkin-data-early-conclusions">The pumpkin data - early conclusions</h3>
 <p>What do you notice about this data? You already saw that there is a mix of strings, numbers, blanks and strange values that you need to make sense of.</p>
 <p>What question can you ask of this data, using a Regression technique? What about "Predict the price of a pumpkin for sale during a given month". Looking again at the data, there are some changes you need to make to create the data structure necessary for the task.</p>
-<h2 id="exercise-analyze-the-pumpkin-data">Exercise - analyze the pumpkin data</h2>
+<h2 id="h-exercise-analyze-the-pumpkin-data">Exercise - analyze the pumpkin data</h2>
 <p>Let's use <a href="https://pandas.pydata.org/" target="_blank" rel="noopener noreferrer">Pandas</a>, (the name stands for <code>Python Data Analysis</code>) a tool very useful for shaping data, to analyze and prepare this pumpkin data.</p>
-<h3 id="first-check-for-missing-dates">First, check for missing dates</h3>
+<h3 id="h-first-check-for-missing-dates">First, check for missing dates</h3>
 <p>You will first need to take steps to check for missing dates:</p>
 <ol>
 <li>Convert the dates to a month format (these are US dates, so the format is <code>MM/DD/YYYY</code>).</li>
@@ -58,7 +56,7 @@ pumpkins = pumpkins.loc[:, columns_to_select]
 </code></pre>
 </li>
 </ol>
-<h3 id="second-determine-average-price-of-pumpkin">Second, determine average price of pumpkin</h3>
+<h3 id="h-second-determine-average-price-of-pumpkin">Second, determine average price of pumpkin</h3>
 <p>Think about how to determine the average price of a pumpkin in a given month. What columns would you pick for this task? Hint: you'll need 3 columns.</p>
 <p>Solution: take the average of the <code>Low Price</code> and <code>High Price</code> columns to populate the new Price column, and convert the Date column to only show the month. Fortunately, according to the check above, there is no missing data for dates or prices.</p>
 <ol>
@@ -78,7 +76,7 @@ month = pd.DatetimeIndex(pumpkins['Date']).month
 <p>Printing out your dataframe will show you a clean, tidy dataset on which you can build your new regression model.</p>
 </li>
 </ol>
-<h3 id="but-wait-there-s-something-odd-here">But wait! There's something odd here</h3>
+<h3 id="h-but-wait-there-s-something-odd-here">But wait! There's something odd here</h3>
 <p>If you look at the <code>Package</code> column, pumpkins are sold in many different configurations. Some are sold in '1 1/9 bushel' measures, and some in '1/2 bushel' measures, some per pumpkin, some per pound, and some in big boxes with varying widths.</p>
 <blockquote>
 <p>Pumpkins seem very hard to weigh consistently</p>
@@ -92,7 +90,7 @@ month = pd.DatetimeIndex(pumpkins['Date']).month
 <p>If you print the data now, you can see that you are only getting the 415 or so rows of data containing pumpkins by the bushel.</p>
 </li>
 </ol>
-<h3 id="but-wait-there-s-one-more-thing-to-do">But wait! There's one more thing to do</h3>
+<h3 id="h-but-wait-there-s-one-more-thing-to-do">But wait! There's one more thing to do</h3>
 <p>Did you notice that the bushel amount varies per row? You need to normalize the pricing so that you show the pricing per bushel, so do some math to standardize it.</p>
 <ol>
 <li>
@@ -106,18 +104,17 @@ new_pumpkins.loc[new_pumpkins['Package'].str.contains('1/2'), 'Price'] = price/(
 <p>✅ According to <a href="https://www.thespruceeats.com/how-much-is-a-bushel-1389308" target="_blank" rel="noopener noreferrer">The Spruce Eats</a>, a bushel's weight depends on the type of produce, as it's a volume measurement. "A bushel of tomatoes, for example, is supposed to weigh 56 pounds... Leaves and greens take up more space with less weight, so a bushel of spinach is only 20 pounds." It's all pretty complicated! Let's not bother with making a bushel-to-pound conversion, and instead price by the bushel. All this study of bushels of pumpkins, however, goes to show how very important it is to understand the nature of your data!</p>
 <p>Now, you can analyze the pricing per unit based on their bushel measurement. If you print out the data one more time, you can see how it's standardized.</p>
 <p>✅ Did you notice that pumpkins sold by the half-bushel are very expensive? Can you figure out why? Hint: little pumpkins are way pricier than big ones, probably because there are so many more of them per bushel, given the unused space taken by one big hollow pie pumpkin.</p>
-<h2 id="visualization-strategies">Visualization Strategies</h2>
+<h2 id="h-visualization-strategies">Visualization Strategies</h2>
 <p>Part of the data scientist's role is to demonstrate the quality and nature of the data they are working with. To do this, they often create interesting visualizations, or plots, graphs, and charts, showing different aspects of data. In this way, they are able to visually show relationships and gaps that are otherwise hard to uncover.</p>
 <p><a href="https://youtu.be/SbUkxH6IJo0" target="_blank" rel="noopener noreferrer"><img alt="ML for beginners - How to Visualize Data with Matplotlib" loading="lazy" src="https://img.youtube.com/vi/SbUkxH6IJo0/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
 <p>Visualizations can also help determine the machine learning technique most appropriate for the data. A scatterplot that seems to follow a line, for example, indicates that the data is a good candidate for a linear regression exercise.</p>
 <p>One data visualization library that works well in Jupyter notebooks is <a href="https://matplotlib.org/" target="_blank" rel="noopener noreferrer">Matplotlib</a> (which you also saw in the previous lesson).</p>
 <blockquote>
 <p>Get more experience with data visualization in <a href="https://docs.microsoft.com/learn/modules/explore-analyze-data-with-python?WT.mc_id=academic-77952-leestott" target="_blank" rel="noopener noreferrer">these tutorials</a>.</p>
 </blockquote>
-<h2 id="exercise-experiment-with-matplotlib">Exercise - experiment with Matplotlib</h2>
+<h2 id="h-exercise-experiment-with-matplotlib">Exercise - experiment with Matplotlib</h2>
 <p>Try to create some basic plots to display the new dataframe you just created. What would a basic line plot show?</p>
 <ol>
 <li>
@@ -140,7 +137,7 @@ plt.show()
 <p>It's not particularly useful as all it does is display in your data as a spread of points in a given month.</p>
 </li>
 </ol>
-<h3 id="make-it-useful">Make it useful</h3>
+<h3 id="h-make-it-useful">Make it useful</h3>
 <p>To get charts to display useful data, you usually need to group the data somehow. Let's try creating a plot where the y axis shows the months and the data demonstrates the distribution of data.</p>
 <ol>
 <li>
@@ -152,7 +149,7 @@ plt.ylabel("Pumpkin Price")
 <p>This is a more useful data visualization! It seems to indicate that the highest price for pumpkins occurs in September and October. Does that meet your expectation? Why or why not?</p>
 </li>
 </ol>
-<h2 id="exercise-experiment-with-seaborn">Exercise - experiment with Seaborn</h2>
+<h2 id="h-exercise-experiment-with-seaborn">Exercise - experiment with Seaborn</h2>
 <p>Matplotlib is powerful, but it can take a lot of code to produce a polished chart. <a href="https://seaborn.pydata.org/" target="_blank" rel="noopener noreferrer">Seaborn</a> is a library built <em>on top of</em> Matplotlib that is designed for statistical data visualization. It works directly with Pandas dataframes, applies attractive default styles, and lets you create informative plots with far less code. Because Seaborn returns Matplotlib objects, you can still use everything you already know about Matplotlib to fine-tune the result.</p>
 <blockquote>
 <p>If you don't already have Seaborn installed, install it with <code>pip install seaborn</code>.</p>
@@ -164,7 +161,7 @@ plt.ylabel("Pumpkin Price")
 </code></pre>
 </li>
 </ol>
-<h3 id="scatter-plots-to-show-relationships">Scatter plots to show relationships</h3>
+<h3 id="h-scatter-plots-to-show-relationships">Scatter plots to show relationships</h3>
 <p>A big part of exploring data before building a model is looking for <em>relationships</em> between variables. A <a href="https://en.wikipedia.org/wiki/Scatter_plot" target="_blank" rel="noopener noreferrer">scatter plot</a> is one of the best tools for this: if the points seem to follow a line, the two variables may be correlated, which is a good sign that a linear regression model could work.</p>
 <ol>
 <li>
@@ -182,7 +179,7 @@ plt.ylabel("Pumpkin Price")
 <p>This particular data is quite noisy, so a line plot isn't the clearest choice here — but it shows how easily you can change chart types in Seaborn.</p>
 </li>
 </ol>
-<h3 id="bar-charts-to-show-distributions">Bar charts to show distributions</h3>
+<h3 id="h-bar-charts-to-show-distributions">Bar charts to show distributions</h3>
 <p>Earlier you grouped the data by hand to create a bar chart with Matplotlib. Seaborn's <a href="https://seaborn.pydata.org/generated/seaborn.catplot.html" target="_blank" rel="noopener noreferrer"><code>catplot()</code></a> (categorical plot) can do the grouping and aggregation for you. By default <code>kind="bar"</code> shows the mean of each category along with a black line indicating the confidence interval.</p>
 <ol>
 <li>
@@ -193,7 +190,7 @@ plt.ylabel("Pumpkin Price")
 <p>This confirms what you saw with Matplotlib — prices peak around September and October — but Seaborn also visualizes how much the price <em>varies</em> within each month.</p>
 </li>
 </ol>
-<h3 id="heatmaps-to-show-correlations">Heatmaps to show correlations</h3>
+<h3 id="h-heatmaps-to-show-correlations">Heatmaps to show correlations</h3>
 <p>Scatter plots compare two variables at a time. When you have several numeric columns, a <a href="https://en.wikipedia.org/wiki/Heat_map" target="_blank" rel="noopener noreferrer">heatmap</a> lets you view the strength of the relationship between <em>every</em> pair of columns at once. This is a common way to spot which features are most correlated before choosing what to feed into a model (and the same kind of chart is later used to display confusion matrices in classification).</p>
 <ol>
 <li>
@@ -205,7 +202,7 @@ sns.heatmap(correlations, annot=True, cmap="coolwarm")
 <p>Values close to <code>1</code> (or <code>-1</code>) mean the columns are strongly <em>linearly</em> correlated. Notice how <code>Low Price</code> and <code>High Price</code> are almost perfectly correlated. <code>Month</code>, on the other hand, shows only a weak linear correlation with price — even though the bar chart above revealed a clear seasonal peak in September and October. That's an important lesson: the correlation coefficient only measures <em>straight-line</em> relationships, so it can miss seasonal or otherwise non-linear patterns. ✅ Why is it useful to look at both a heatmap <em>and</em> charts like the bar chart before deciding which columns to use?</p>
 </li>
 </ol>
-<h3 id="matplotlib-or-seaborn">Matplotlib or Seaborn?</h3>
+<h3 id="h-matplotlib-or-seaborn">Matplotlib or Seaborn?</h3>
 <p>Both libraries are worth knowing:</p>
 <ul>
 <li><strong>Matplotlib</strong> gives you fine-grained control over every element of a chart and is the foundation almost every other Python plotting library builds on.</li>
@@ -213,8 +210,7 @@ sns.heatmap(correlations, annot=True, cmap="coolwarm")
 </ul>
 <p>A common workflow is to reach for Seaborn to explore your data quickly, then drop down to Matplotlib when you need to customize the details.</p>
 <hr>
-<h2 id="challenge">🚀Challenge</h2>
+<h2 id="h-challenge">🚀Challenge</h2>
 <p>Explore the different types of visualization that Matplotlib and Seaborn offer. Which types are most appropriate for regression problems?</p>
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>Take a look at the many ways to visualize data. Make a list of the various libraries available and note which are best for given types of tasks, for example 2D visualizations vs. 3D visualizations. What do you discover?</p>

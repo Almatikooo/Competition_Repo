@@ -1,0 +1,53 @@
+<p>When you're deploying an automation, it's important to consider how you'll
+replace the current business process with the new automation, to avoid
+disrupting the business.</p>
+<h2 id="h-deploying-your-automation-to-production">Deploying your automation to production</h2>
+<h3 id="h-add-redundant-owners">Add redundant owners</h3>
+<p>If you have a flow that's used by your entire team, you don't want people
+calling you up while you're on vacation if it breaks. Make sure you add a couple
+of co-owners so that they can update the flow in your absence. Who you add
+depends on how the flow is used. Probably you'll at least want to add your direct manager, who can
+act as your proxy, and maybe your manager's manager if all their reports are
+relying on your automation. If your group is large enough, or if you have a lot of team
+flows, you might consider creating a security group of two or three people who are willing
+to set aside a small amount of time to keep an eye on all the team flows. Don't
+add your entire organization as a co-owner, though; that just invites more people to mess
+up the flow. If your company has a <a href="https://learn.microsoft.com/power-platform/guidance/coe/starter-kit" target="_blank" rel="noopener noreferrer">Center of Excellence</a>
+for Microsoft Power Platform, they might have guidelines for flow ownership.</p>
+<p>Keep in mind that the access applies not just to the flows themselves but
+to the connections they use. For example, if your flow sends mail from a shared
+mailbox, make sure that the co-owners have access to that mailbox in case they
+need to re-create the connection.</p>
+<h3 id="h-use-solutions">Use solutions</h3>
+<p>Solutions are a great way to organize flows to manage versions and migrate from
+one environment to another. You'll need to start by adding (or asking your admin
+to add) a Microsoft Dataverse database to your environment. After that's done,
+you can go to the <strong>Solutions</strong> tab to create a new solution for your team, or you
+can create multiple solutions if you have a lot of flows that you'd like to
+further organize. There are a number of other benefits too, such as <a href="https://learn.microsoft.com/powerapps/maker/common-data-service/data-platform-intro" target="_blank" rel="noopener noreferrer">native storage</a>
+for your data, <a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/create-child-flows.md" target="_blank" rel="noopener noreferrer">child flows</a> to reuse
+functionality, and <a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/overview-solution-flows.md" target="_blank" rel="noopener noreferrer">solution export</a> as a
+backup. Solutions do have some known limitations, though, so this might
+not apply to all your flows.</p>
+<h3 id="h-mark-it-as-production">Mark it as production</h3>
+<p>Solutions are the recommended way to organize flows, but sometimes your flow
+can't go in a solution, or sometimes your solution will get crowded with other
+drafts and proofs of concept. Either way, we recommend prefixing the names of
+your production flows with "[PROD]" so that co-owners know to leave it be unless it has issues.</p>
+<h2 id="h-deploy-the-automation-in-stages">Deploy the automation in stages</h2>
+<p>To make sure your deployment is successful, you should consider taking the
+following approach:</p>
+<ol>
+<li>
+<p>Use the automation with a small number of people.</p>
+</li>
+<li>
+<p>Check that there are no issues for those people.</p>
+</li>
+<li>
+<p>Have the remaining people start using the automation.</p>
+</li>
+</ol>
+<blockquote>
+<p><a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/analyze-and-assess.md" target="_blank" rel="noopener noreferrer">Next step: Assessing the business impact of the automation</a></p>
+</blockquote>

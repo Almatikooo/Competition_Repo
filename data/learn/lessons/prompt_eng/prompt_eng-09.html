@@ -1,73 +1,70 @@
-<p>While large-language models demonstrate remarkable zero-shot capabilities, they still fall short on more complex tasks when using the zero-shot setting. Few-shot prompting can be used as a technique to enable in-context learning where we provide demonstrations in the prompt to steer the model to better performance. The demonstrations serve as conditioning for subsequent examples where we would like the model to generate a response.</p>
-<p>According to <a href="https://arxiv.org/pdf/2302.13971.pdf" target="_blank" rel="noopener noreferrer">Touvron et al. 2023</a> few shot properties first appeared when models were scaled to a sufficient size <a href="https://arxiv.org/abs/2001.08361" target="_blank" rel="noopener noreferrer">(Kaplan et al., 2020)</a>.</p>
-<p>Let's demonstrate few-shot prompting via an example that was presented in <a href="https://arxiv.org/abs/2005.14165" target="_blank" rel="noopener noreferrer">Brown et al. 2020</a>. In the example, the task is to correctly use a new word in a sentence.</p>
-<p><em>Prompt:</em></p>
-<pre><code class="language-markdown">A "whatpu" is a small, furry animal native to Tanzania. An example of a sentence that uses the word whatpu is:
-We were traveling in Africa and we saw these very cute whatpus.
-
-To do a "farduddle" means to jump up and down really fast. An example of a sentence that uses the word farduddle is:
-</code></pre>
-<p><em>Output:</em></p>
-<pre><code>When we won the game, we all started to farduddle in celebration.
-</code></pre>
-<p>We can observe that the model has somehow learned how to perform the task by providing it with just one example (i.e., 1-shot). For more difficult tasks, we can experiment with increasing the demonstrations (e.g., 3-shot, 5-shot, 10-shot, etc.).</p>
-<p>Following the findings from <a href="https://arxiv.org/abs/2202.12837" target="_blank" rel="noopener noreferrer">Min et al. (2022)</a>, here are a few more tips about demonstrations/exemplars when doing few-shot:</p>
-<ul>
-<li>"the label space and the distribution of the input text specified by the demonstrations are both important (regardless of whether the labels are correct for individual inputs)"</li>
-<li>the format you use also plays a key role in performance, even if you just use random labels, this is much better than no labels at all.</li>
-<li>additional results show that selecting random labels from a true distribution of labels (instead of a uniform distribution) also helps.</li>
-</ul>
-<p>Let's try out a few examples. Let's first try an example with random labels (meaning the labels Negative and Positive are randomly assigned to the inputs):</p>
-<p><em>Prompt:</em></p>
-<pre><code>This is awesome! // Negative
-This is bad! // Positive
-Wow that movie was rad! // Positive
-What a horrible show! //
-</code></pre>
-<p><em>Output:</em></p>
-<pre><code>Negative
-</code></pre>
-<p>We still get the correct answer, even though the labels have been randomized. Note that we also kept the format, which helps too. In fact, with further experimentation, it seems the newer GPT models we are experimenting with are becoming more robust to even random formats. Example:</p>
-<p><em>Prompt:</em></p>
-<pre><code>Positive This is awesome! 
-This is bad! Negative
-Wow that movie was rad!
-Positive
-What a horrible show! --
-</code></pre>
-<p><em>Output:</em></p>
-<pre><code>Negative
-</code></pre>
-<p>There is no consistency in the format above but the model still predicted the correct label. We have to conduct a more thorough analysis to confirm if this holds for different and more complex tasks, including different variations of prompts.</p>
-<h3 id="limitations-of-few-shot-prompting">Limitations of Few-shot Prompting</h3>
-<p>Standard few-shot prompting works well for many tasks but is still not a perfect technique, especially when dealing with more complex reasoning tasks. Let's demonstrate why this is the case. Do you recall the previous example where we provided the following task:</p>
-<pre><code>The odd numbers in this group add up to an even number: 15, 32, 5, 13, 82, 7, 1. 
-
-A: 
-</code></pre>
-<p>If we try this again, the model outputs the following:</p>
-<pre><code>Yes, the odd numbers in this group add up to 107, which is an even number.
-</code></pre>
-<p>This is not the correct response, which not only highlights the limitations of these systems but that there is a need for more advanced prompt engineering.</p>
-<p>Let's try to add some examples to see if few-shot prompting improves the results.</p>
+<h2 id="h-chain-of-thought-cot-prompting">Chain-of-Thought (CoT) Prompting</h2>
+<p><img alt="COT" loading="lazy" src="https://raw.githubusercontent.com/dair-ai/Prompt-Engineering-Guide/57673726396dd94acb23bdb1e67f27c78ee85a8e/img/cot.png"></p>
+<p>Image Source: <a href="https://arxiv.org/abs/2201.11903" target="_blank" rel="noopener noreferrer">Wei et al. (2022)</a></p>
+<p>Introduced in <a href="https://arxiv.org/abs/2201.11903" target="_blank" rel="noopener noreferrer">Wei et al. (2022)</a>, chain-of-thought (CoT) prompting enables complex reasoning capabilities through intermediate reasoning steps. You can combine it with few-shot prompting to get better results on more complex tasks that require reasoning before responding.</p>
 <p><em>Prompt:</em></p>
 <pre><code>The odd numbers in this group add up to an even number: 4, 8, 9, 15, 12, 2, 1.
-A: The answer is False.
+A: Adding all the odd numbers (9, 15, 1) gives 25. The answer is False.
 
 The odd numbers in this group add up to an even number: 17,  10, 19, 4, 8, 12, 24.
-A: The answer is True.
+A: Adding all the odd numbers (17, 19) gives 36. The answer is True.
 
 The odd numbers in this group add up to an even number: 16,  11, 14, 4, 8, 13, 24.
-A: The answer is True.
+A: Adding all the odd numbers (11, 13) gives 24. The answer is True.
 
 The odd numbers in this group add up to an even number: 17,  9, 10, 12, 13, 4, 2.
-A: The answer is False.
+A: Adding all the odd numbers (17, 9, 13) gives 39. The answer is False.
 
 The odd numbers in this group add up to an even number: 15, 32, 5, 13, 82, 7, 1. 
-A: 
+A:
 </code></pre>
 <p><em>Output:</em></p>
-<pre><code>The answer is True.
+<pre><code>Adding all the odd numbers (15, 5, 13, 7, 1) gives 41. The answer is False.
 </code></pre>
-<p>That didn't work. It seems like few-shot prompting is not enough to get reliable responses for this type of reasoning problem. The example above provides basic information on the task. If you take a closer look, the type of task we have introduced involves a few more reasoning steps. In other words, it might help if we break the problem down into steps and demonstrate that to the model. More recently, <a href="https://arxiv.org/abs/2201.11903" target="_blank" rel="noopener noreferrer">chain-of-thought (CoT) prompting</a> has been popularized to address more complex arithmetic, commonsense, and symbolic reasoning tasks.</p>
-<p>Overall, it seems that providing examples is useful for solving some tasks. When zero-shot prompting and few-shot prompting are not sufficient, it might mean that whatever was learned by the model isn't enough to do well at the task. From here it is recommended to start thinking about fine-tuning your models or experimenting with more advanced prompting techniques. Up next we talk about one of the popular prompting techniques called chain-of-thought prompting which has gained a lot of popularity.</p>
+<p>Wow! We can see a perfect result when we provided the reasoning step. In fact, we can solve this task by providing even fewer examples, i.e., just one example seems enough:</p>
+<p><em>Prompt:</em></p>
+<pre><code>The odd numbers in this group add up to an even number: 4, 8, 9, 15, 12, 2, 1.
+A: Adding all the odd numbers (9, 15, 1) gives 25. The answer is False.
+
+The odd numbers in this group add up to an even number: 15, 32, 5, 13, 82, 7, 1. 
+A:
+</code></pre>
+<p><em>Output:</em></p>
+<pre><code>Adding all the odd numbers (15, 5, 13, 7, 1) gives 41. The answer is False.
+</code></pre>
+<p>Keep in mind that the authors claim that this is an emergent ability that arises with sufficiently large language models.</p>
+<h2 id="h-zero-shot-cot-prompting">Zero-shot COT Prompting</h2>
+<p><img alt="Zero-shot COT" loading="lazy" src="https://raw.githubusercontent.com/dair-ai/Prompt-Engineering-Guide/57673726396dd94acb23bdb1e67f27c78ee85a8e/img/zero-cot.png"></p>
+<p>Image Source: <a href="https://arxiv.org/abs/2205.11916" target="_blank" rel="noopener noreferrer">Kojima et al. (2022)</a></p>
+<p>One recent idea that came out more recently is the idea of <a href="https://arxiv.org/abs/2205.11916" target="_blank" rel="noopener noreferrer">zero-shot CoT</a> (Kojima et al. 2022) that essentially involves adding "Let's think step by step" to the original prompt. Let's try a simple problem and see how the model performs:</p>
+<p><em>Prompt:</em></p>
+<pre><code>I went to the market and bought 10 apples. I gave 2 apples to the neighbor and 2 to the repairman. I then went and bought 5 more apples and ate 1. How many apples did I remain with?
+</code></pre>
+<p><em>Output:</em></p>
+<pre><code>11 apples
+</code></pre>
+<p>The answer is incorrect! Now Let's try with the special prompt.</p>
+<p><em>Prompt:</em></p>
+<pre><code>I went to the market and bought 10 apples. I gave 2 apples to the neighbor and 2 to the repairman. I then went and bought 5 more apples and ate 1. How many apples did I remain with?
+
+Let's think step by step.
+</code></pre>
+<p><em>Output:</em></p>
+<pre><code>First, you started with 10 apples.
+You gave away 2 apples to the neighbor and 2 to the repairman, so you had 6 apples left.
+Then you bought 5 more apples, so now you had 11 apples.
+Finally, you ate 1 apple, so you would remain with 10 apples.
+</code></pre>
+<p>It's impressive that this simple prompt is effective at this task. This is particularly useful where you don't have too many examples to use in the prompt.</p>
+<h2 id="h-automatic-chain-of-thought-auto-cot">Automatic Chain-of-Thought (Auto-CoT)</h2>
+<p>When applying chain-of-thought prompting with demonstrations, the process involves hand-crafting effective and diverse examples. This manual effort could lead to suboptimal solutions. <a href="https://arxiv.org/abs/2210.03493" target="_blank" rel="noopener noreferrer">Zhang et al. (2022)</a> propose an approach to eliminate manual efforts by leveraging LLMs with "Let's think step by step" prompt to generate reasoning chains for demonstrations one by one. This automatic process can still end up with mistakes in generated chains. To mitigate the effects of the mistakes, the diversity of demonstrations matter. This work proposes Auto-CoT, which samples questions with diversity and generates reasoning chains to construct the demonstrations.</p>
+<p>Auto-CoT consists of two main stages:</p>
+<ul>
+<li>Stage 1): <strong>question clustering</strong>: partition questions of a given dataset into a few clusters</li>
+<li>Stage 2): <strong>demonstration sampling</strong>: select a representative question from each cluster and generate its reasoning chain using Zero-Shot-CoT with simple heuristics</li>
+</ul>
+<p>The simple heuristics could be length of questions (e.g., 60 tokens) and number of steps in rationale (e.g., 5 reasoning steps). This encourages the model to use simple and accurate demonstrations.</p>
+<p>The process is illustrated below:</p>
+<p><img alt="AUTOCOT" loading="lazy" src="https://raw.githubusercontent.com/dair-ai/Prompt-Engineering-Guide/57673726396dd94acb23bdb1e67f27c78ee85a8e/img/auto-cot.png"></p>
+<p>Image Source: <a href="https://arxiv.org/abs/2210.03493" target="_blank" rel="noopener noreferrer">Zhang et al. (2022)</a></p>
+<p>Code for Auto-CoT is available <a href="https://github.com/amazon-science/auto-cot" target="_blank" rel="noopener noreferrer">here</a>.</p>

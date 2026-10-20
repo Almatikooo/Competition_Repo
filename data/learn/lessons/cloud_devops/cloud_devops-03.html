@@ -15,17 +15,15 @@
 </div>
 <div class="box box-callout">
 <p class="box-title">Learning about software containers</p>
-
 <p>The Australian Research Data Commons has produced a short introductory video
 about containers that covers many of the points below. Watch it before
 or after you go through this section to reinforce your understanding!</p>
 <p><a href="https://www.youtube.com/watch?v=HelrQnm3v4g" target="_blank" rel="noopener noreferrer">How can software containers help your research?</a></p>
 <p>Australian Research Data Commons, 2021. <em>How can software containers help your research?</em>. [video] Available at: <a href="https://www.youtube.com/watch?v=HelrQnm3v4g" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=HelrQnm3v4g</a> DOI: <a href="https://doi.org/10.5281/zenodo.5091260" target="_blank" rel="noopener noreferrer">http://doi.org/10.5281/zenodo.5091260</a></p>
 </div>
-<h2 id="scientific-software-challenges">Scientific Software Challenges</h2>
+<h2 id="h-scientific-software-challenges">Scientific Software Challenges</h2>
 <div class="box box-challenge">
 <p class="box-title">What's Your Experience?</p>
-
 <p>Take a minute to think about challenges that you have experienced in using
 scientific software (or software in general!) for your research. Then,
 share with your neighbors and try to come up with a list of common gripes or
@@ -33,7 +31,6 @@ challenges.</p>
 </div>
 <div class="box box-callout">
 <p class="box-title">What is a software dependency ?</p>
-
 <p>We will mention software <em>dependencies</em> a lot in this section of the workshop
 so it is good to clarify this term up front. A software dependency is a
 relationship between software components where one component relies on the
@@ -59,7 +56,6 @@ already running. It's no surprise that this situation is sometimes
 informally termed <strong>dependency hell</strong>.</p>
 <div class="box box-challenge">
 <p class="box-title">Software and Science</p>
-
 <p>Again, take a minute to think about how the software challenges we've discussed
 could impact (or have impacted!) the quality of your work.
 Share your thoughts with your neighbors. What can go wrong if our software
@@ -76,7 +72,7 @@ negative consequences for research:</p>
 <p>Thankfully there are ways to get underneath (a lot of) this mess: containers
 to the rescue! Containers provide a way to package up software dependencies
 and access to resources such as files and communications networks in a uniform manner.</p>
-<h2 id="what-is-a-container">What is a Container?</h2>
+<h2 id="h-what-is-a-container">What is a Container?</h2>
 <p>Imagine you want to install some research software but don't want to take the chance of making a mess of your existing system by installing a bunch of additional stuff (libraries/dependencies/etc.).
 You don't want to buy a whole new computer because it's too expensive.
 What if, instead, you could have another independent filesystem and running operating system that you could access from your main computer, and that is actually stored within this existing computer?</p>
@@ -90,7 +86,6 @@ Before shipping containers were developed, packing and unpacking cargo ships was
 Just like shipping containers keep things together that should stay together, software containers standardize the description and creation of a complete software system: you can drop a container into any computer with the container software installed (the 'container host'), and it should <em>just work</em>.</p>
 <div class="box box-callout">
 <p class="box-title">Virtualization</p>
-
 <p>Containers are an example of what's called <strong>virtualization</strong> -- having a
 second virtual computer running and accessible from a main or <strong>host</strong>
 computer. Another example of virtualization are <strong>virtual machines</strong> or
@@ -101,10 +96,10 @@ A container is considered a lightweight version of a virtual machine;
 underneath, the container is (usually) using the Linux kernel and simply has some
 flavour of Linux + the filesystem inside.</p>
 </div>
-<h2 id="what-is-podman">What is Podman?</h2>
+<h2 id="h-what-is-podman">What is Podman?</h2>
 <p><a href="https://podman.io/" target="_blank" rel="noopener noreferrer">Podman</a> is a tool that allows you to build and run containers.
 It's not the only tool that can create containers, but is the one we've chosen for this workshop.</p>
-<h2 id="container-images">Container Images</h2>
+<h2 id="h-container-images">Container Images</h2>
 <p>One final term: while the <strong>container</strong> is an alternative filesystem layer that you
 can access and run from your computer, the <strong>container image</strong> is the 'recipe' or template
 for a container. The container image has all the required information to start
@@ -115,7 +110,7 @@ can be used to create multiple copies of the same shape (or container)
 and is relatively unchanging, where cookies come and go. If you want a
 different type of container (cookie) you need a different container image (cookie cutter).</p>
 <p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/carpentries-incubator/docker-introduction/1dd2b07a572ae7dc295d21bb3e92b20ef1367b11/episodes/fig/containers-cookie-cutter.png">{alt='An image comparing using a cookie cutter to the container workflow'}</p>
-<h2 id="putting-the-pieces-together">Putting the Pieces Together</h2>
+<h2 id="h-putting-the-pieces-together">Putting the Pieces Together</h2>
 <p>Think back to some of the challenges we described at the beginning. The many layers
 of scientific software installations make it hard to install and re-install
 scientific software -- which ultimately, hinders reliability and reproducibility.</p>
@@ -131,7 +126,7 @@ tools into containers?</p>
 </ul>
 <p>The rest of this workshop will show you how to download and run containers from pre-existing
 container images on your own computer, and how to create and share your own container images.</p>
-<h2 id="use-cases-for-containers">Use cases for containers</h2>
+<h2 id="h-use-cases-for-containers">Use cases for containers</h2>
 <p>Now that we have discussed a little bit about containers -- what they do and the
 issues they attempt to address -- you may be able to think of a few potential use
 cases in your area of work. Some examples of common use cases for containers in
@@ -147,7 +142,6 @@ your collaborators for use on their computers or a remote computing resource
 <li>Archiving the container images so you can repeat analysis/modelling using the
 same software and configuration in the future -- capturing your workflow.</li>
 </ul>
-
 <div class="box box-keypoints">
 <p class="box-title">Key points</p>
 <ul>

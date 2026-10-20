@@ -5,25 +5,22 @@
 <p>This video gives an overview of Azure Maps with IoT, a service that will be covered in this lesson.</p>
 <p><a href="https://www.youtube.com/watch?v=P5i2GFTtb2s" target="_blank" rel="noopener noreferrer"><img alt="Azure Maps - The Microsoft Azure Enterprise Location Platform" loading="lazy" src="https://img.youtube.com/vi/P5i2GFTtb2s/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
-
-
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p>In the last lesson you learned how to get GPS data from your sensors to save to the cloud in a storage container using serverless code. Now you will discover how to visualize those points on an Azure map. You will learn how to create a map on a web page, learn about the GeoJSON data format and how to use it to plot all the captured GPS points on your map.</p>
 <p>In this lesson we'll cover:</p>
 <ul>
-<li><a href="#what-is-data-visualization" rel="noopener noreferrer">What is data visualization</a></li>
-<li><a href="#map-services" rel="noopener noreferrer">Map services</a></li>
-<li><a href="#create-an-azure-maps-resource" rel="noopener noreferrer">Create an Azure Maps resource</a></li>
-<li><a href="#show-a-map-on-a-web-page" rel="noopener noreferrer">Show a map on a web page</a></li>
-<li><a href="#the-geojson-format" rel="noopener noreferrer">The GeoJSON format</a></li>
-<li><a href="#plot-gps-data-on-a-map-using-geojson" rel="noopener noreferrer">Plot GPS data on a Map using GeoJSON</a></li>
+<li><a href="#h-what-is-data-visualization" rel="noopener noreferrer">What is data visualization</a></li>
+<li><a href="#h-map-services" rel="noopener noreferrer">Map services</a></li>
+<li><a href="#h-create-an-azure-maps-resource" rel="noopener noreferrer">Create an Azure Maps resource</a></li>
+<li><a href="#h-show-a-map-on-a-web-page" rel="noopener noreferrer">Show a map on a web page</a></li>
+<li><a href="#h-the-geojson-format" rel="noopener noreferrer">The GeoJSON format</a></li>
+<li><a href="#h-plot-gps-data-on-a-map-using-geojson" rel="noopener noreferrer">Plot GPS data on a Map using GeoJSON</a></li>
 </ul>
 <blockquote>
 <p>💁 This lesson will involve a small amount of HTML and JavaScript. If you would like to learn more about web development using HTML and JavaScript, check out <a href="https://github.com/microsoft/Web-Dev-For-Beginners" target="_blank" rel="noopener noreferrer">Web development for beginners</a>.</p>
 </blockquote>
-<h2 id="what-is-data-visualization">What is data visualization</h2>
+<h2 id="h-what-is-data-visualization">What is data visualization</h2>
 <p>Data visualization, as the name suggests, is about visualizing data in ways that make it easier for humans to understand. It is usually associated with charts and graphs, but is any way of pictorially representing data to help humans to not only understand the data better, but help them make decisions.</p>
 <p>Taking a simple example - back in the farm project you captured soil moisture settings. A table of soil moisture data captured every hour for the 1st June 2021 might be something like the following:</p>
 <div class="table-wrap"><table>
@@ -141,7 +138,7 @@
 <p>✅ Think about ways you've seen data visualized. Which methods have been the clearest and have allowed you to make decisions fastest?</p>
 <p>The best visualizations allow humans to humans to make decisions quickly. For example, having a wall of gauges showing all manner of readings from industrial machinery is hard to process, but a flashing red light when something goes wrong allows a human to make a decision. Sometimes the best visualization is a flashing light!</p>
 <p>When working with GPS data, the clearest visualization can be to plot the data on a map. A map showing delivery trucks for example, can help workers at a processing plant see when trucks will arrive. If this map shows more that just pictures of trucks at their current locations, but gives an idea of the contents of a truck, then the workers at the plant can plan accordingly - if they see a refrigerated truck close by they know to prepare space in a fridge.</p>
-<h2 id="map-services">Map services</h2>
+<h2 id="h-map-services">Map services</h2>
 <p>Working with maps is an interesting exercise, and there are many to choose from such as Bing Maps, Leaflet, Open Street Maps, and Google Maps. In this lesson, you will learn about <a href="https://azure.microsoft.com/services/azure-maps/?WT.mc_id=academic-17441-jabenn" target="_blank" rel="noopener noreferrer">Azure Maps</a> and how they can display your GPS data.</p>
 <p><img alt="The Azure Maps logo" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/azure-maps-logo.png"></p>
 <p>Azure Maps is "a collection of geospatial services and SDKs that use fresh mapping data to provide geographic context to web and mobile applications." Developers are provided with tools to create beautiful, interactive maps that can do things like provide recommended traffic routes, give information about traffic incidents, indoor navigation, search capabilities, elevation information, weather services and more.</p>
@@ -149,9 +146,9 @@
 <p>You can display the maps as a blank canvas, tiles, satellite images, satellite images with roads superimposed, various types of grayscale maps, maps with shaded relief to show elevation, night view maps, and a high contrast map. You can get real-time updates on your maps by integrating them with <a href="https://azure.microsoft.com/services/event-grid/?WT.mc_id=academic-17441-jabenn" target="_blank" rel="noopener noreferrer">Azure Event Grid</a>. You can control the behavior and look of your maps by enabling various controls to allow the map to react to events like pinch, drag, and click. To control the look of your map, you can add layers that include bubbles, lines, polygons, heat maps, and more. Which style of map you implement depends on your choice of SDK.</p>
 <p>You can access Azure Maps APIs by leveraging its <a href="https://docs.microsoft.com/javascript/api/azure-maps-rest/?WT.mc_id=academic-17441-jabenn&amp;view=azure-maps-typescript-latest" target="_blank" rel="noopener noreferrer">REST API</a>, its <a href="https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control?WT.mc_id=academic-17441-jabenn" target="_blank" rel="noopener noreferrer">Web SDK</a>, or, if you are building a mobile app, its <a href="https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library?WT.mc_id=academic-17441-jabenn&amp;pivots=programming-language-java-android" target="_blank" rel="noopener noreferrer">Android SDK</a>.</p>
 <p>In this lesson, you will use the web SDK to draw a map and display your sensor's GPS location's path.</p>
-<h2 id="create-an-azure-maps-resource">Create an Azure Maps resource</h2>
+<h2 id="h-create-an-azure-maps-resource">Create an Azure Maps resource</h2>
 <p>Your first step is to create an Azure Maps account.</p>
-<h3 id="task-create-an-azure-maps-resource">Task - create an Azure Maps resource</h3>
+<h3 id="h-task-create-an-azure-maps-resource">Task - create an Azure Maps resource</h3>
 <ol>
 <li>
 <p>Run the following command from your Terminal or Command Prompt to create an Azure Maps resource in your <code>gps-sensor</code> resource group:</p>
@@ -174,9 +171,9 @@
 <p>Take a copy of the <code>PrimaryKey</code> value.</p>
 </li>
 </ol>
-<h2 id="show-a-map-on-a-web-page">Show a map on a web page</h2>
+<h2 id="h-show-a-map-on-a-web-page">Show a map on a web page</h2>
 <p>Now you can take the next step which is to display your map on a web page. We will use just one <code>html</code> file for your small web app; keep in mind that in a production or team environment, your web app will most likely have more moving parts!</p>
-<h3 id="task-show-a-map-on-a-web-page">Task - show a map on a web page</h3>
+<h3 id="h-task-show-a-map-on-a-web-page">Task - show a map on a web page</h3>
 <ol>
 <li>
 <p>Create a file called index.html in a folder somewhere on your local computer. Add HTML markup to hold a map:</p>
@@ -232,7 +229,7 @@
 <blockquote>
 <p>💁 A better way to work with web apps locally is to install <a href="https://www.npmjs.com/package/http-server" target="_blank" rel="noopener noreferrer">http-server</a>. You will need <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer">node.js</a> and <a href="https://www.npmjs.com/" target="_blank" rel="noopener noreferrer">npm</a> installed before using this tool. Once those tools are installed, you can navigate to the location of your <code>index.html</code> file and type <code>http-server</code>. The web app will open on a local webserver <a href="http://127.0.0.1:8080/" target="_blank" rel="noopener noreferrer">http://127.0.0.1:8080/</a>.</p>
 </blockquote>
-<h2 id="the-geojson-format">The GeoJSON format</h2>
+<h2 id="h-the-geojson-format">The GeoJSON format</h2>
 <p>Now that you have your web app in place with the map displaying, you need to extract GPS data from your storage account and display it in a layer of markers on top of the map. Before we do that, let's look at the <a href="https://wikipedia.org/wiki/GeoJSON" target="_blank" rel="noopener noreferrer">GeoJSON</a> format that is required by Azure Maps.</p>
 <p><a href="https://geojson.org/" target="_blank" rel="noopener noreferrer">GeoJSON</a> is an open standard JSON specification with special formatting designed to handle geographic-specific data. You can learn about it by testing sample data using <a href="https://geojson.io" target="_blank" rel="noopener noreferrer">geojson.io</a>, which is also a useful tool to debug GeoJSON files.</p>
 <p>Sample GeoJSON data looks like this:</p>
@@ -256,9 +253,9 @@
 <p>✅ When building your geoJSON, pay attention to the order of <code>latitude</code> and <code>longitude</code> in the object, or your points will not appear where they should! GeoJSON expects data in the order <code>lon,lat</code> for points, not <code>lat,lon</code>.</p>
 <p><code>Geometry</code> can have different types, such as a single point or a polygon. In this example, it is a point with two coordinates specified, the longitude, and the latitude.</p>
 <p>✅ Azure Maps supports standard GeoJSON plus some <a href="https://docs.microsoft.com/azure/azure-maps/extend-geojson?WT.mc_id=academic-17441-jabenn" target="_blank" rel="noopener noreferrer">enhanced features</a> including the ability to draw circles and other geometries.</p>
-<h2 id="plot-gps-data-on-a-map-using-geojson">Plot GPS data on a Map using GeoJSON</h2>
+<h2 id="h-plot-gps-data-on-a-map-using-geojson">Plot GPS data on a Map using GeoJSON</h2>
 <p>Now you are ready to consume data from the storage that you built in the previous lesson. As a reminder, it is stored as a number of files in blob storage so you will need to retrieve the files and parse them so that Azure Maps can use the data.</p>
-<h3 id="task-configure-storage-to-be-accessed-from-a-web-page">Task - configure storage to be accessed from a web page</h3>
+<h3 id="h-task-configure-storage-to-be-accessed-from-a-web-page">Task - configure storage to be accessed from a web page</h3>
 <p>If you make a call to your storage to fetch the data you might be surprised to see errors occurring in your browser's console. That's because you need to set permissions for <a href="https://developer.mozilla.org/docs/Web/HTTP/CORS" target="_blank" rel="noopener noreferrer">CORS</a> on this storage to allow external web apps to read its data.</p>
 <blockquote>
 <p>🎓 CORS stands for "Cross-Origin Resource Sharing" and usually needs to be set explicitly in Azure for security reasons. It stops sites you don't expect from being able to access your data.</p>
@@ -276,7 +273,7 @@
 <p>This command allows any website (the wildcard <code>*</code> means any) to make a <em>GET</em> request, that is get data, from your storage account. The <code>--services b</code> means only apply this setting for blobs.</p>
 </li>
 </ol>
-<h3 id="task-load-the-gps-data-from-storage">Task - load the GPS data from storage</h3>
+<h3 id="h-task-load-the-gps-data-from-storage">Task - load the GPS data from storage</h3>
 <ol>
 <li>
 <p>Replace the entire contents of the <code>init</code> function with the following code:</p>
@@ -348,11 +345,9 @@ Once parsed, the data is set as part of a geoJSON <code>Feature</code>. The map 
 <p>💁 You can find this code in the <a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/3-transport/lessons/3-visualize-location-data/code" target="_blank" rel="noopener noreferrer">code</a> folder.</p>
 </blockquote>
 <hr>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>It's nice to be able to display static data on a map as markers. Can you enhance this web app to add animation and show the path of the markers over time, using the timestamped json files? Here are <a href="https://azuremapscodesamples.azurewebsites.net/" target="_blank" rel="noopener noreferrer">some samples</a> of using animation within maps.</p>
-
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>Azure Maps is particularly useful for working with IoT devices.</p>
 <ul>
 <li>Research some of the uses in the <a href="https://docs.microsoft.com/azure/azure-maps/tutorial-iot-hub-maps?WT.mc_id=academic-17441-jabenn" target="_blank" rel="noopener noreferrer">Azure Maps documentation on Microsoft docs</a>.</li>

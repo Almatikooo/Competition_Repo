@@ -1,6 +1,4 @@
-<div>
 <div class="box box-objectives"><p class="box-title">Learning Objectives</p>
-
 <ul>
 <li>Use an IF Function to make logical comparisons between a value and what you expect.</li>
 <li>Create a VLOOKUP calculation to look up information in a table.</li>
@@ -9,7 +7,7 @@
 </ul>
 </div>
 <p>In addition to doing arithmetic, Excel can do other kinds of functions based on the data in your spreadsheet. In this section, we will use an <strong>=IF</strong> function to determine whether a student is passing or failing the class. Then, we will use a <strong>=VLOOKUP</strong> function to determine what grade each student has earned.</p>
-<h2 id="if-function">IF Function</h2>
+<h2 id="h-if-function">IF Function</h2>
 <p>The IF function is one of the most popular functions in Excel. It allows you to make logical comparisons between a value and what you expect. In its simplest form, the IF function says something like:<br>
 If the value in a cell is what you expect (true) – do this. If not – do that.</p>
 <p>The IF function has three arguments:</p>
@@ -52,7 +50,7 @@ If the value in a cell is what you expect (true) – do this. If not – do that
 <li>Click on Q5. When you look in the formula bar, you will see the IF calculation: <strong>=IF(P5&lt;0.7,”Fail”,”Pass”)</strong> (see <strong>Figure 3.11</strong>).</li>
 </ol>
 <figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-11.jpg" target="_blank" rel="noopener noreferrer"><img alt="Formula bar shows IF function (=IF(PS&lt;0.7,&quot;fail&quot;,&quot;pass&quot;), P5:Q5 range selected, results of function with Pass or Fail for each student in column Q." height="350" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-11.jpg" width="387"></a><figcaption>Figure 3.11 IF Function Results</figcaption></figure>
-<h2 id="vlookup-function">VLOOKUP Function</h2>
+<h2 id="h-vlookup-function">VLOOKUP Function</h2>
 <p>You need to use a VLOOKUP function to look up information in a table. Sometimes that table is on a different sheet in your workbook.&nbsp; Sometimes it is in another file entirely.&nbsp; In this case, we need to know what grade each student is getting based on their percentage score. You will find the table that defines the scores and the grades in <strong>A28:B32</strong>.</p>
 <p>There are four pieces of information that you will need in order to build the VLOOKUP syntax. These are the four arguments of a VLOOKUP function:</p>
 <ul>
@@ -93,17 +91,14 @@ If the value in a cell is what you expect (true) – do this. If not – do that
 <li>Use the fill handle to copy the function down through row 24. The results displayed should match <strong>Figure 3.14</strong>.</li>
 </ol>
 <figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-13.jpg" target="_blank" rel="noopener noreferrer"><img alt="VLOOKUP completed dialog box with Function Arguments for Lookup_value, Table_array, Col_index_num, entered." height="300" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-13.jpg" width="591"></a><figcaption>Figure 3.13 VLOOKUP completed dialog box</figcaption></figure>
-<div>
 <figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-14.jpg" target="_blank" rel="noopener noreferrer"><img alt="VLOOKUP complete and worksheet with all values entered." height="417" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-14.jpg" width="414"></a><figcaption>Figure 3.14 VLOOKUP Complete</figcaption></figure>
-</div>
 <p><strong>Note:</strong> What if it didn’t work? What if you get a result different from the one predicted? In this case, either you have made a previous error, resulting in different % scores than this exercise anticipated, or you made a mistake entering your VLOOKUP function.</p>
 <p>To make repairs in the function, make sure that R5 is your active cell. On the Formula bar, press the Insert Function button (see <strong>Figure 3.15</strong>). That will reopen the dialog box so you can make your repairs. Did you forget to make the cell references for the Table_array absolute? Did you use the wrong cell for the Lookup_value? Press OK when you are done and recopy the corrected function.</p>
 <figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-15.jpg" target="_blank" rel="noopener noreferrer"><img alt="Insert Function button &quot;fx&quot; can be used to reopen VLOOKUP dialog box." height="268" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-15.jpg" width="644"></a><figcaption>Figure 3.15 Insert Function</figcaption></figure>
-<h2 id="error-messages">Error Messages</h2>
+<h2 id="h-error-messages">Error Messages</h2>
 <p>Sometimes Excel notices that you have made errors in your calculations before you do. In those cases Excel alerts you with some slightly mysterious error messages. A list of common error messages can be found in <strong>Table 3.1 </strong>below.</p>
 <p>Table 3.1 – Common Error Messages</p>
 <div class="table-wrap"><table>
-
 <tbody>
 <tr>
 <th scope="col">Message</th>
@@ -152,7 +147,7 @@ function uses the right argument and is spelled correctly.</td>
 </table></div>
 <p><em>This table was copied from the internet. Look here for additional information.</em><br>
 <em> <a href="http://www.dummies.com/software/microsoft-office/excel/how-to-detect-and-correct-formula-errors-in-excel-2016/" target="_blank" rel="noopener noreferrer">http://www.dummies.com/software/microsoft-office/excel/how-to-detect-and-correct-formula-errors-in-excel-2016/</a></em></p>
-<h2 id="date-functions">Date Functions</h2>
+<h2 id="h-date-functions">Date Functions</h2>
 <p>Very often dates and times are an important part of Excel data. Numbers that are correct today may not be accurate tomorrow. So, it is frequently useful to include dates and times on your spreadsheets.</p>
 <p>These dates and times fall into two categories – ones that:</p>
 <ul>
@@ -184,7 +179,6 @@ Click the list arrow next to “Date” and choose&nbsp;<strong>“Long Date” 
 </ol>
 <figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-3-17.jpg" target="_blank" rel="noopener noreferrer"><img alt="Number Format Launcher button option open." height="271" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure-3-17.jpg" width="521"></a><figcaption>Figure 3.17 Number Format Launcher</figcaption></figure>
 <div class="box box-challenge"><p class="box-title">Keyboard Shortcuts</p>
-
 <p>Sometimes you want the date or the time to show up in your spreadsheet, but you don’t want it to change. You can simply type in the date or time. Or, you can use shortcut keys.</p>
 <ul>
 <li>CTRL ; (semi colon) will bring you the current date<br>
@@ -195,9 +189,7 @@ Click the list arrow next to “Date” and choose&nbsp;<strong>“Long Date” 
 <img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users</strong>: SHIFT COMMAND :</li>
 </ul>
 </div>
-
 <div class="box box-keypoints"><p class="box-title">Key Takeaways</p>
-
 <ul>
 <li>Functions don’t always have to be about arithmetic. Excel provides functions that will help you perform logical evaluations, look things up, and work with dates and times.</li>
 <li>Excel displays error messages when your formulas and functions are not constructed properly.</li>
@@ -205,4 +197,4 @@ Click the list arrow next to “Date” and choose&nbsp;<strong>“Long Date” 
 </div>
 <details class="attrib"><summary>Attribution</summary>
 <p><a href="https://openoregon.pressbooks.pub/beginningexcel19/chapter/3-2-logical-and-lookup-functions/" target="_blank" rel="noopener noreferrer">3.2 Logical and Lookup Functions</a> by Noreen Brown and Mary Schatz, and Art Schneider, <a href="https://www.pcc.edu/" target="_blank" rel="noopener noreferrer">Portland Community College</a>, is licensed under <a href="http://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></p>
-</details></div>
+</details>

@@ -4,20 +4,18 @@
 </blockquote>
 <p>This lesson was taught as part of the <a href="https://youtube.com/playlist?list=PLmsFUfdnGr3yCutmcVg6eAUEfsGiFXgcx" target="_blank" rel="noopener noreferrer">IoT for Beginners Project 2 - Digital Agriculture series</a> from the <a href="https://developer.microsoft.com/reactor/?WT.mc_id=academic-17441-jabenn" target="_blank" rel="noopener noreferrer">Microsoft Reactor</a>.</p>
 <p><a href="https://youtu.be/ZzpTu3x4c6M" target="_blank" rel="noopener noreferrer"><img alt="Soil moisture sensors and digital agriculture" loading="lazy" src="https://img.youtube.com/vi/ZzpTu3x4c6M/0.jpg"></a></p>
-
-
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p>In the last lesson we looked at measuring an ambient property and using it to predict plant growth. Temperature can be controlled, but it is expensive to do so, requiring controlled environments. The easiest ambient property to control for plants is water - something that is controlled everyday from large-scale irrigation systems to young kids with watering cans watering their gardens.</p>
 <p><img alt="A child watering a garden" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/child-watering-garden.jpg"></p>
 <p>In this lesson you will learn about measuring soil moisture, and in the next lesson you will learn how to control an automated watering system. This lesson introduces a third sensor, you've already used a light sensor, a temperature sensor, so in this lesson you will also learn more about how sensors and actuators communicate with IoT devices to understand more about how a soil moisture sensor can send data to an IoT device.</p>
 <p>In this lesson we'll cover:</p>
 <ul>
-<li><a href="#soil-moisture" rel="noopener noreferrer">Soil moisture</a></li>
-<li><a href="#how-sensors-communicate-with-iot-devices" rel="noopener noreferrer">How sensors communicate with IoT devices</a></li>
-<li><a href="#measure-the-moisture-levels-in-soil" rel="noopener noreferrer">Measure the moisture levels in soil</a></li>
-<li><a href="#sensor-calibration" rel="noopener noreferrer">Sensor calibration</a></li>
+<li><a href="#h-soil-moisture" rel="noopener noreferrer">Soil moisture</a></li>
+<li><a href="#h-how-sensors-communicate-with-iot-devices" rel="noopener noreferrer">How sensors communicate with IoT devices</a></li>
+<li><a href="#h-measure-the-moisture-levels-in-soil" rel="noopener noreferrer">Measure the moisture levels in soil</a></li>
+<li><a href="#h-sensor-calibration" rel="noopener noreferrer">Sensor calibration</a></li>
 </ul>
-<h2 id="soil-moisture">Soil moisture</h2>
+<h2 id="h-soil-moisture">Soil moisture</h2>
 <p>Plants require water to grow. They absorb water throughout the entire plant, with the majority being absorbed by the root system. Water is used by the plant for three things:</p>
 <ul>
 <li><a href="https://wikipedia.org/wiki/Photosynthesis" target="_blank" rel="noopener noreferrer">Photosynthesis</a> - plants creates a chemical reaction with water, carbon dioxide and light to produce carbohydrates and oxygen.</li>
@@ -28,7 +26,7 @@
 <p>✅ Do some research: how much water is lost through transpiration?</p>
 <p>The root system provides water from moisture in the soil where the plant grows. Too little water in the soil and the plant cannot absorb enough to grow, too much water and roots cannot absorb enough oxygen needed to function. This leads to roots dying and the plant unable to get enough nutrients to survive.</p>
 <p>For a farmer to get the best plant growth, the soil needs to be not too wet and not too dry. IoT devices can help with this by measuring soil moisture, allowing a farmer to only water when needed.</p>
-<h3 id="ways-to-measure-soil-moisture">Ways to measure soil moisture</h3>
+<h3 id="h-ways-to-measure-soil-moisture">Ways to measure soil moisture</h3>
 <p>There are a range of different types of sensor you can use to measure soil moisture:</p>
 <ul>
 <li>
@@ -44,7 +42,7 @@
 </li>
 </ul>
 <p>These are both analog sensors, returning a voltage to indicate soil moisture. So how does this voltage get to your code? Before going any further with these sensors, let's look at how sensors and actuators communicate with IoT devices.</p>
-<h2 id="how-sensors-communicate-with-iot-devices">How sensors communicate with IoT devices</h2>
+<h2 id="h-how-sensors-communicate-with-iot-devices">How sensors communicate with IoT devices</h2>
 <p>So far in these lessons you've learned about a number of sensors and actuators, and these have been communicating with your IoT dev kit if you've been doing the physical hardware labs. But how does this communication work? How does a resistance measurement from a soil moisture sensor become a number you can use from code?</p>
 <p>To communicate with most sensors and actuators you need some hardware, and a communication protocol - that is a well defined way for data to be sent and received. Take for example a capacitive soil moisture sensor:</p>
 <ul>
@@ -55,7 +53,7 @@
 <li>At what point does the number start? Is <code>00001101</code> 25, or are the first 5 bits the end of the previous value?</li>
 </ul>
 <p>The hardware provides the physical connectivity over which the data is sent, the different communication protocols ensure that the data is sent or received in the correct way so it can be interpreted.</p>
-<h3 id="general-purpose-input-output-gpio-pins">General Purpose Input Output (GPIO) pins</h3>
+<h3 id="h-general-purpose-input-output-gpio-pins">General Purpose Input Output (GPIO) pins</h3>
 <p>GPIO is a set of pins you can use to connect hardware to your IoT device, and are often available on IoT developer kits such as the Raspberry Pi or Wio Terminal. You can use the various communication protocols covered in this section over the GPIO pins. Some GPIO pins provide a voltage, usually 3.3V or 5V, some pins are ground, and others can be programmatically set to either send a voltage (output), or receive a voltage (input).</p>
 <blockquote>
 <p>💁 An electrical circuit needs to connect a voltage to ground via whatever circuitry you are using. You can think of voltage as the positive (+ve) terminal of a battery and ground as the negative (-ve) terminal.</p>
@@ -76,7 +74,7 @@
 <p>💁 if you are using a Raspberry Pi for these labs, the Grove Base Hat has hardware to convert analog sensor signals to digital to send over GPIO.</p>
 </blockquote>
 <p>✅ If you have an IoT device with GPIO pins, locate these pins and find a diagram indicating which pins are voltage, ground or programmable.</p>
-<h3 id="analog-pins">Analog pins</h3>
+<h3 id="h-analog-pins">Analog pins</h3>
 <p>Some devices, such as Arduino devices, provide analog pins. These are the same as GPIO pins, but instead of only supporting a digital signal, they have an ADC to convert voltage ranges to numerical values. Usually the ADC has a 10-bit resolution, meaning it converts voltages to a value of 0-1,023.</p>
 <p>For example, on a 3.3V board, if the sensor returns 3.3V, the value returned would be 1,023. If the voltage returned was 1.65v, the value returned will be 511.</p>
 <p><img alt="A soil moisture sensor sent 3.3V and returning 1.65v, or a reading of 511" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/analog-sensor-voltage.png"></p>
@@ -84,7 +82,7 @@
 <p>💁 Back in nightlight - lesson 3, the light sensor returned a value from 0-1,023. If you are using a Wio Terminal, the sensor was connected to an analog pin. If you are using a Raspberry Pi, then the sensor was connected to an analog pin on the base hat that has an integrated ADC to communicate over the GPIO pins. The virtual device was set to send a value from 0-1,023 to simulate an analog pin.</p>
 </blockquote>
 <p>Soil moisture sensors rely on voltages, so will use analog pins and give values from 0-1,023.</p>
-<h3 id="inter-integrated-circuit-i-2-c">Inter Integrated Circuit  (I<sup>2</sup>C)</h3>
+<h3 id="h-inter-integrated-circuit-i-2-c">Inter Integrated Circuit  (I<sup>2</sup>C)</h3>
 <p>I<sup>2</sup>C, pronounced <em>I-squared-C</em>, is a multi-controller, multi-peripheral protocol, with any connected device able to act as a controller or peripheral communicating over the I<sup>2</sup>C bus (the name for a communication system that transfers data). Data is sent as addressed packets, with each packet containing the address of the connected device it is intended for.</p>
 <blockquote>
 <p>💁 This model used to be referred to as master/slave, but this terminology is being dropped due to its association with slavery. The <a href="https://www.oshwa.org/a-resolution-to-redefine-spi-signal-names/" target="_blank" rel="noopener noreferrer">Open Source Hardware Association has adopted controller/peripheral</a>, but you may still see references to the old terminology.</p>
@@ -128,7 +126,7 @@
 <blockquote>
 <p>💁 If you are using a Raspberry Pi with a Grove Base hat as your IoT hardware, you will be able to see a number of I<sup>2</sup>C sockets on the board you can use to communicate with I<sup>2</sup>C sensors. Analog Grove sensors also use I<sup>2</sup>C with an ADC to send analog values as digital data, so the light sensor you used simulated an analog pin, with the value sent over I<sup>2</sup>C as the Raspberry Pi only supports digital pins.</p>
 </blockquote>
-<h3 id="universal-asynchronous-receiver-transmitter-uart">Universal asynchronous receiver-transmitter (UART)</h3>
+<h3 id="h-universal-asynchronous-receiver-transmitter-uart">Universal asynchronous receiver-transmitter (UART)</h3>
 <p>UART involves physical circuitry that allows two devices to communicate. Each device has 2 communication pins - transmit (Tx) and receive (Rx), with the Tx pin of the first device connected to the Rx pin of the second, and with the Tx pin of the second device connected to the Rx pin of the first. This allows data to be sent in both directions.</p>
 <ul>
 <li>Device 1 transmits data from its Tx pin, which is received by device 2 on it's Rx pin</li>
@@ -145,7 +143,7 @@
 <blockquote>
 <p>💁 If you are using a Raspberry Pi with a Grove Base hat as your IoT hardware, you will be able to see a UART socket on the board you can use to communicate with sensors that use the UART protocol.</p>
 </blockquote>
-<h3 id="serial-peripheral-interface-spi">Serial Peripheral Interface (SPI)</h3>
+<h3 id="h-serial-peripheral-interface-spi">Serial Peripheral Interface (SPI)</h3>
 <p>SPI is designed for communicating over short distances, such as on a microcontroller to talk to a storage device such as flash memory. It is based on a controller/peripheral model with a single controller (usually the processor of the IoT device) interacting with multiple peripherals. The controller controls everything by selecting a peripheral and sending or requesting data.</p>
 <blockquote>
 <p>💁 Like I<sup>2</sup>C, the terms controller and peripheral are recent changes, so you may see the older terms still used.</p>
@@ -187,7 +185,7 @@
 <p>SPI is <em>full-duplex</em>, meaning the controller can send and receive data at the same time from the same peripheral using the COPI and CIPO wires. SPI uses a clock signal on the SCLK wire to keep the devices in sync, so unlike sending directly over UART it doesn't need start and stop bits.</p>
 <p>There are no defined speed limits for SPI, with implementations often able to transmit multiple megabytes of data per second.</p>
 <p>IoT developer kits often support SPI over some of the GPIO pins. For example, on a Raspberry Pi you can use GPIO pins 19, 21, 23, 24 and 26 for SPI.</p>
-<h3 id="wireless">Wireless</h3>
+<h3 id="h-wireless">Wireless</h3>
 <p>Some sensors can communicate over standard wireless protocols, such as Bluetooth (mainly Bluetooth Low Energy, or BLE), LoRaWAN (a <strong>Lo</strong>ng <strong>Ra</strong>nge low power networking protocol), or WiFi. These allow for remote sensors not physically connected to an IoT device.</p>
 <p>One such example is in commercial soil moisture sensors. These will measure soil moisture in a field, then send the data over LoRaWan to a hub device, which will process the data or send it over the Internet. This allows the sensor to be away from the IoT device that manages the data, reducing power consumption and the need for large WiFi networks or long cables.</p>
 <p>BLE is popular for advanced sensors such as fitness trackers work on the wrist. These combine multiple sensors and send the sensor data to an IoT device in the form of your phone via BLE.</p>
@@ -196,16 +194,16 @@
 <blockquote>
 <p>🐝 The name Zigbee refers to the waggle dance of honey bees after their return to the beehive.</p>
 </blockquote>
-<h2 id="measure-the-moisture-levels-in-soil">Measure the moisture levels in soil</h2>
+<h2 id="h-measure-the-moisture-levels-in-soil">Measure the moisture levels in soil</h2>
 <p>You can measure the moisture level in soil using a soil moisture sensor, an IoT device, and a house plant or nearby patch of soil.</p>
-<h3 id="task-measure-soil-moisture">Task - measure soil moisture</h3>
+<h3 id="h-task-measure-soil-moisture">Task - measure soil moisture</h3>
 <p>Work through the relevant guide to measure soil moisture using your IoT device:</p>
 <ul>
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/2-farm/lessons/2-detect-soil-moisture/wio-terminal-soil-moisture.md" target="_blank" rel="noopener noreferrer">Arduino - Wio Terminal</a></li>
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/2-farm/lessons/2-detect-soil-moisture/pi-soil-moisture.md" target="_blank" rel="noopener noreferrer">Single-board computer - Raspberry Pi</a></li>
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/2-farm/lessons/2-detect-soil-moisture/virtual-device-soil-moisture.md" target="_blank" rel="noopener noreferrer">Single-board computer - Virtual device</a></li>
 </ul>
-<h2 id="sensor-calibration">Sensor calibration</h2>
+<h2 id="h-sensor-calibration">Sensor calibration</h2>
 <p>Sensors rely on measuring electrical properties such as resistance or capacitance.</p>
 <blockquote>
 <p>🎓 Resistance, measured in ohms (Ω) is how much opposition there is to the electric current travelling through something. When a voltage is applied to a material, the amount of current that passes through it is dependant on the resistance of the material. You can read more on the <a href="https://wikipedia.org/wiki/Electrical_resistance_and_conductance" target="_blank" rel="noopener noreferrer">electrical resistance page on Wikipedia</a>.</p>
@@ -218,7 +216,7 @@
 <blockquote>
 <p>💁 The formula to calculate resistance from temperature is called the <a href="https://wikipedia.org/wiki/Steinhart%E2%80%93Hart_equation" target="_blank" rel="noopener noreferrer">Steinhart–Hart equation</a>.</p>
 </blockquote>
-<h3 id="soil-moisture-sensor-calibration">Soil moisture sensor calibration</h3>
+<h3 id="h-soil-moisture-sensor-calibration">Soil moisture sensor calibration</h3>
 <p>Soil moisture is measured using gravimetric or volumetric water content.</p>
 <ul>
 <li>Gravimetric is the weight of water in a unit weight of soil measured, as the number of kilograms of water per kilogram of dry soil</li>
@@ -235,11 +233,9 @@
 <p>The graph above shows a voltage reading from a soil moisture sensor, and by following that to the line on the graph, the actual soil moisture can be calculated.</p>
 <p>This approach means the farmer only needs to get a few lab measurements for a field, then they can use IoT devices to measure soil moisture - drastically speeding up the time to take measurements.</p>
 <hr>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>Resistive and capacitive soil moisture sensors have a number of differences. What are these differences, and which type (if any) is the best for a farmer to use? Does this answer change between developing and developed countries?</p>
-
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>Read up on the hardware and protocols used by sensors and actuators:</p>
 <ul>
 <li><a href="https://wikipedia.org/wiki/General-purpose_input/output" target="_blank" rel="noopener noreferrer">GPIO Wikipedia page</a></li>

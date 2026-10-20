@@ -15,12 +15,7 @@
    "lessons": [
     "software_dev-01",
     "software_dev-02",
-    "software_dev-03"
-   ]
-  },
-  {
-   "title": "JavaScript basics",
-   "lessons": [
+    "software_dev-03",
     "software_dev-04",
     "software_dev-05",
     "software_dev-06",
@@ -28,23 +23,32 @@
    ]
   },
   {
-   "title": "HTML, CSS and the DOM",
+   "title": "JavaScript basics",
    "lessons": [
     "software_dev-08",
     "software_dev-09",
-    "software_dev-10"
+    "software_dev-10",
+    "software_dev-11"
+   ]
+  },
+  {
+   "title": "HTML, CSS and the DOM",
+   "lessons": [
+    "software_dev-12",
+    "software_dev-13",
+    "software_dev-14"
    ]
   },
   {
    "title": "Version control with Git",
    "lessons": [
-    "software_dev-11",
-    "software_dev-12",
-    "software_dev-13",
-    "software_dev-14",
     "software_dev-15",
     "software_dev-16",
-    "software_dev-17"
+    "software_dev-17",
+    "software_dev-18",
+    "software_dev-19",
+    "software_dev-20",
+    "software_dev-21"
    ]
   }
  ],
@@ -52,435 +56,550 @@
   {
    "id": "software_dev-01",
    "title": "Introduction to Programming Languages and Modern Developer Tools",
-   "words": 6582,
-   "minutes": 33,
+   "words": 2244,
+   "minutes": 12,
    "source": "ms-web",
    "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/78085398be0dea7abaaf5eda914817f46f6ddbbc/1-getting-started-lessons/1-intro-to-programming-languages/README.md",
    "toc": [
     {
-     "id": "let-s-see-what-you-already-know",
+     "id": "h-let-s-see-what-you-already-know",
      "text": "Let's See What You Already Know!",
      "level": 2
     },
     {
-     "id": "the-adventure-we-re-about-to-go-on-together",
+     "id": "h-the-adventure-we-re-about-to-go-on-together",
      "text": "The Adventure We're About to Go On Together",
      "level": 2
     },
     {
-     "id": "so-what-exactly-is-programming",
+     "id": "h-so-what-exactly-is-programming",
      "text": "So What Exactly Is Programming?",
      "level": 2
     },
     {
-     "id": "check-in-time-how-are-you-feeling",
+     "id": "h-check-in-time-how-are-you-feeling",
      "text": "🧠 Check-in Time: How Are You Feeling?",
      "level": 3
     },
     {
-     "id": "programming-languages-are-like-different-flavors-of-magic",
+     "id": "h-programming-languages-are-like-different-flavors-of-magic",
      "text": "Programming Languages Are Like Different Flavors of Magic",
      "level": 2
     },
     {
-     "id": "popular-programming-languages-and-their-uses",
+     "id": "h-popular-programming-languages-and-their-uses",
      "text": "Popular Programming Languages and Their Uses",
      "level": 3
     },
     {
-     "id": "high-level-vs-low-level-languages",
+     "id": "h-high-level-vs-low-level-languages",
      "text": "High-Level vs. Low-Level Languages",
      "level": 3
     },
     {
-     "id": "let-me-show-you-why-high-level-languages-are-so-much-friendl",
+     "id": "h-let-me-show-you-why-high-level-languages-are-so-much-friendl",
      "text": "Let Me Show You Why High-Level Languages Are So Much Friendlier",
-     "level": 3
-    },
-    {
-     "id": "the-building-blocks-that-make-the-magic-happen",
-     "text": "The Building Blocks That Make the Magic Happen",
-     "level": 2
-    },
-    {
-     "id": "statements-the-step-by-step-instructions",
-     "text": "Statements: The Step-by-Step Instructions",
-     "level": 3
-    },
-    {
-     "id": "variables-your-program-s-memory-system",
-     "text": "Variables: Your Program's Memory System",
-     "level": 3
-    },
-    {
-     "id": "control-flow-teaching-your-program-to-think",
-     "text": "Control Flow: Teaching Your Program to Think",
-     "level": 3
-    },
-    {
-     "id": "concept-check-building-blocks-mastery",
-     "text": "🎯 Concept Check: Building Blocks Mastery",
-     "level": 3
-    },
-    {
-     "id": "tools-of-the-trade",
-     "text": "Tools of the Trade",
-     "level": 2
-    },
-    {
-     "id": "code-editors-and-ides-your-new-digital-best-friends",
-     "text": "Code Editors and IDEs: Your New Digital Best Friends",
-     "level": 3
-    },
-    {
-     "id": "web-browsers-your-secret-development-laboratory",
-     "text": "Web Browsers: Your Secret Development Laboratory",
-     "level": 3
-    },
-    {
-     "id": "command-line-tools-your-gateway-to-developer-superpowers",
-     "text": "Command Line Tools: Your Gateway to Developer Superpowers",
-     "level": 3
-    },
-    {
-     "id": "documentation-your-always-available-learning-mentor",
-     "text": "Documentation: Your Always-Available Learning Mentor",
-     "level": 3
-    },
-    {
-     "id": "tool-mastery-check-what-resonates-with-you",
-     "text": "🔧 Tool Mastery Check: What Resonates With You?",
-     "level": 3
-    },
-    {
-     "id": "github-copilot-agent-challenge",
-     "text": "GitHub Copilot Agent Challenge 🚀",
-     "level": 2
-    },
-    {
-     "id": "challenge",
-     "text": "🚀 Challenge",
-     "level": 2
-    },
-    {
-     "id": "let-s-celebrate-what-you-ve-discovered",
-     "text": "Let's Celebrate What You've Discovered!",
-     "level": 2
-    },
-    {
-     "id": "review-self-study",
-     "text": "Review & Self Study",
-     "level": 2
-    },
-    {
-     "id": "your-programming-journey-timeline",
-     "text": "🚀 Your Programming Journey Timeline",
-     "level": 2
-    },
-    {
-     "id": "what-you-can-do-in-the-next-5-minutes",
-     "text": "⚡ What You Can Do in the Next 5 Minutes",
-     "level": 3
-    },
-    {
-     "id": "what-you-can-accomplish-this-hour",
-     "text": "⏰ What You Can Accomplish This Hour",
-     "level": 3
-    },
-    {
-     "id": "your-week-long-adventure",
-     "text": "📅 Your Week-Long Adventure",
-     "level": 3
-    },
-    {
-     "id": "your-month-long-transformation",
-     "text": "🗓️ Your Month-Long Transformation",
-     "level": 3
-    },
-    {
-     "id": "final-reflection-check-in",
-     "text": "🎯 Final Reflection Check-in",
      "level": 3
     }
    ]
   },
   {
    "id": "software_dev-02",
-   "title": "Introduction to GitHub",
-   "words": 5676,
-   "minutes": 29,
+   "title": "The Building Blocks That Make the Magic Happen",
+   "words": 3209,
+   "minutes": 17,
    "source": "ms-web",
-   "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/78085398be0dea7abaaf5eda914817f46f6ddbbc/1-getting-started-lessons/2-github-basics/README.md",
+   "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/78085398be0dea7abaaf5eda914817f46f6ddbbc/1-getting-started-lessons/1-intro-to-programming-languages/README.md",
    "toc": [
     {
-     "id": "introduction",
-     "text": "Introduction",
+     "id": "h-statements-the-step-by-step-instructions",
+     "text": "Statements: The Step-by-Step Instructions",
+     "level": 3
+    },
+    {
+     "id": "h-variables-your-program-s-memory-system",
+     "text": "Variables: Your Program's Memory System",
+     "level": 3
+    },
+    {
+     "id": "h-control-flow-teaching-your-program-to-think",
+     "text": "Control Flow: Teaching Your Program to Think",
+     "level": 3
+    },
+    {
+     "id": "h-concept-check-building-blocks-mastery",
+     "text": "🎯 Concept Check: Building Blocks Mastery",
+     "level": 3
+    },
+    {
+     "id": "h-tools-of-the-trade",
+     "text": "Tools of the Trade",
      "level": 2
     },
     {
-     "id": "prerequisites",
-     "text": "Prerequisites",
+     "id": "h-code-editors-and-ides-your-new-digital-best-friends",
+     "text": "Code Editors and IDEs: Your New Digital Best Friends",
      "level": 3
     },
     {
-     "id": "preparation",
-     "text": "Preparation",
+     "id": "h-web-browsers-your-secret-development-laboratory",
+     "text": "Web Browsers: Your Secret Development Laboratory",
      "level": 3
     },
     {
-     "id": "keeping-your-code-safe",
-     "text": "Keeping Your Code Safe",
+     "id": "h-command-line-tools-your-gateway-to-developer-superpowers",
+     "text": "Command Line Tools: Your Gateway to Developer Superpowers",
      "level": 3
     },
     {
-     "id": "managing-your-code-like-a-pro",
-     "text": "Managing Your Code Like a Pro",
-     "level": 2
-    },
-    {
-     "id": "task-create-your-first-repository",
-     "text": "Task: Create Your First Repository!",
+     "id": "h-documentation-your-always-available-learning-mentor",
+     "text": "Documentation: Your Always-Available Learning Mentor",
      "level": 3
     },
     {
-     "id": "first-repository-check-in-how-did-that-feel",
-     "text": "🧠 First Repository Check-in: How Did That Feel?",
+     "id": "h-tool-mastery-check-what-resonates-with-you",
+     "text": "🔧 Tool Mastery Check: What Resonates With You?",
      "level": 3
     },
     {
-     "id": "working-with-others-the-fun-part",
-     "text": "Working with Others (The Fun Part!)",
-     "level": 2
-    },
-    {
-     "id": "task-merge-some-code",
-     "text": "Task: Merge some code",
-     "level": 3
-    },
-    {
-     "id": "collaboration-skills-check-ready-to-work-with-others",
-     "text": "🤝 Collaboration Skills Check: Ready to Work with Others?",
-     "level": 3
-    },
-    {
-     "id": "contributing-to-open-source-your-chance-to-make-an-impact",
-     "text": "Contributing to Open Source (Your Chance to Make an Impact!)",
-     "level": 2
-    },
-    {
-     "id": "a-few-more-interesting-things-about-github",
-     "text": "A few more interesting things about GitHub",
-     "level": 3
-    },
-    {
-     "id": "challenge",
-     "text": "🚀 Challenge",
-     "level": 2
-    },
-    {
-     "id": "review-keep-learning",
-     "text": "Review & Keep Learning",
-     "level": 2
-    },
-    {
-     "id": "github-copilot-agent-challenge",
+     "id": "h-github-copilot-agent-challenge",
      "text": "GitHub Copilot Agent Challenge 🚀",
      "level": 2
-    },
-    {
-     "id": "your-github-mastery-timeline",
-     "text": "🚀 Your GitHub Mastery Timeline",
-     "level": 2
-    },
-    {
-     "id": "what-you-can-do-in-the-next-5-minutes",
-     "text": "⚡ What You Can Do in the Next 5 Minutes",
-     "level": 3
-    },
-    {
-     "id": "what-you-can-accomplish-this-hour",
-     "text": "🎯 What You Can Accomplish This Hour",
-     "level": 3
-    },
-    {
-     "id": "your-week-long-github-adventure",
-     "text": "📅 Your Week-Long GitHub Adventure",
-     "level": 3
-    },
-    {
-     "id": "your-month-long-transformation",
-     "text": "🌟 Your Month-Long Transformation",
-     "level": 3
-    },
-    {
-     "id": "final-github-mastery-check-in",
-     "text": "🎓 Final GitHub Mastery Check-in",
-     "level": 3
     }
    ]
   },
   {
    "id": "software_dev-03",
-   "title": "Creating Accessible Webpages",
-   "words": 5443,
-   "minutes": 28,
+   "title": "Introduction to Programming Languages and Modern Developer Tools · Challenge",
+   "words": 1119,
+   "minutes": 6,
    "source": "ms-web",
-   "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/78085398be0dea7abaaf5eda914817f46f6ddbbc/1-getting-started-lessons/3-accessibility/README.md",
+   "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/78085398be0dea7abaaf5eda914817f46f6ddbbc/1-getting-started-lessons/1-intro-to-programming-languages/README.md",
    "toc": [
     {
-     "id": "understanding-assistive-technologies",
-     "text": "Understanding Assistive Technologies",
+     "id": "h-let-s-celebrate-what-you-ve-discovered",
+     "text": "Let's Celebrate What You've Discovered!",
      "level": 2
     },
     {
-     "id": "screen-readers",
-     "text": "Screen readers",
-     "level": 3
-    },
-    {
-     "id": "building-your-testing-workflow",
-     "text": "Building your testing workflow",
-     "level": 3
-    },
-    {
-     "id": "zoom-and-magnification-tools",
-     "text": "Zoom and magnification tools",
-     "level": 3
-    },
-    {
-     "id": "modern-accessibility-testing-tools",
-     "text": "Modern Accessibility Testing Tools",
+     "id": "h-review-self-study",
+     "text": "Review & Self Study",
      "level": 2
     },
     {
-     "id": "color-contrast-testing",
-     "text": "Color contrast testing",
-     "level": 3
-    },
-    {
-     "id": "comprehensive-accessibility-auditing",
-     "text": "Comprehensive accessibility auditing",
-     "level": 3
-    },
-    {
-     "id": "testing-skills-check-ready-to-find-issues",
-     "text": "🧠 Testing Skills Check: Ready to Find Issues?",
-     "level": 3
-    },
-    {
-     "id": "building-accessibility-from-the-ground-up",
-     "text": "Building Accessibility from the Ground Up",
+     "id": "h-your-programming-journey-timeline",
+     "text": "🚀 Your Programming Journey Timeline",
      "level": 2
     },
     {
-     "id": "the-pour-principles-your-accessibility-foundation",
-     "text": "The POUR principles: Your accessibility foundation",
+     "id": "h-what-you-can-do-in-the-next-5-minutes",
+     "text": "⚡ What You Can Do in the Next 5 Minutes",
      "level": 3
     },
     {
-     "id": "pour-principles-check-making-it-stick",
-     "text": "🎯 POUR Principles Check: Making It Stick",
+     "id": "h-what-you-can-accomplish-this-hour",
+     "text": "⏰ What You Can Accomplish This Hour",
      "level": 3
     },
     {
-     "id": "creating-accessible-visual-design",
-     "text": "Creating Accessible Visual Design",
-     "level": 2
-    },
-    {
-     "id": "color-and-visual-accessibility-strategies",
-     "text": "Color and visual accessibility strategies",
+     "id": "h-your-week-long-adventure",
+     "text": "📅 Your Week-Long Adventure",
      "level": 3
     },
     {
-     "id": "focus-indicators-and-interaction-design",
-     "text": "Focus indicators and interaction design",
+     "id": "h-your-month-long-transformation",
+     "text": "🗓️ Your Month-Long Transformation",
      "level": 3
     },
     {
-     "id": "semantic-html-the-foundation-of-accessibility",
-     "text": "Semantic HTML: The foundation of accessibility",
-     "level": 3
-    },
-    {
-     "id": "semantic-html-mastery-check-building-strong-foundations",
-     "text": "🏗️ Semantic HTML Mastery Check: Building Strong Foundations",
-     "level": 3
-    },
-    {
-     "id": "heading-hierarchy-creating-a-logical-content-outline",
-     "text": "Heading hierarchy: Creating a logical content outline",
-     "level": 3
-    },
-    {
-     "id": "advanced-visual-accessibility-techniques",
-     "text": "Advanced visual accessibility techniques",
-     "level": 3
-    },
-    {
-     "id": "crafting-meaningful-link-text",
-     "text": "Crafting Meaningful Link Text",
-     "level": 2
-    },
-    {
-     "id": "understanding-link-navigation-patterns",
-     "text": "Understanding link navigation patterns",
-     "level": 3
-    },
-    {
-     "id": "common-link-text-mistakes-to-avoid",
-     "text": "Common link text mistakes to avoid",
-     "level": 3
-    },
-    {
-     "id": "writing-excellent-link-text",
-     "text": "Writing excellent link text",
-     "level": 3
-    },
-    {
-     "id": "advanced-link-accessibility-patterns",
-     "text": "Advanced link accessibility patterns",
-     "level": 3
-    },
-    {
-     "id": "aria-supercharging-html-accessibility",
-     "text": "ARIA: Supercharging HTML Accessibility",
-     "level": 2
-    },
-    {
-     "id": "strategic-aria-implementation",
-     "text": "Strategic ARIA implementation",
-     "level": 3
-    },
-    {
-     "id": "essential-aria-patterns-for-modern-web-apps",
-     "text": "Essential ARIA patterns for modern web apps",
-     "level": 3
-    },
-    {
-     "id": "aria-implementation-best-practices",
-     "text": "ARIA implementation best practices",
-     "level": 3
-    },
-    {
-     "id": "aria-skills-check-ready-for-complex-interactions",
-     "text": "🎭 ARIA Skills Check: Ready for Complex Interactions?",
-     "level": 3
-    },
-    {
-     "id": "making-images-and-media-accessible",
-     "text": "Making Images and Media Accessible",
-     "level": 2
-    },
-    {
-     "id": "strategic-image-accessibility",
-     "text": "Strategic image accessibility",
+     "id": "h-final-reflection-check-in",
+     "text": "🎯 Final Reflection Check-in",
      "level": 3
     }
    ]
   },
   {
    "id": "software_dev-04",
+   "title": "Introduction to GitHub",
+   "words": 2536,
+   "minutes": 13,
+   "source": "ms-web",
+   "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/78085398be0dea7abaaf5eda914817f46f6ddbbc/1-getting-started-lessons/2-github-basics/README.md",
+   "toc": [
+    {
+     "id": "h-introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "h-prerequisites",
+     "text": "Prerequisites",
+     "level": 3
+    },
+    {
+     "id": "h-preparation",
+     "text": "Preparation",
+     "level": 3
+    },
+    {
+     "id": "h-keeping-your-code-safe",
+     "text": "Keeping Your Code Safe",
+     "level": 3
+    },
+    {
+     "id": "h-managing-your-code-like-a-pro",
+     "text": "Managing Your Code Like a Pro",
+     "level": 2
+    },
+    {
+     "id": "h-task-create-your-first-repository",
+     "text": "Task: Create Your First Repository!",
+     "level": 3
+    },
+    {
+     "id": "h-first-repository-check-in-how-did-that-feel",
+     "text": "🧠 First Repository Check-in: How Did That Feel?",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "software_dev-05",
+   "title": "Working with Others (The Fun Part!)",
+   "words": 3134,
+   "minutes": 16,
+   "source": "ms-web",
+   "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/78085398be0dea7abaaf5eda914817f46f6ddbbc/1-getting-started-lessons/2-github-basics/README.md",
+   "toc": [
+    {
+     "id": "h-task-merge-some-code",
+     "text": "Task: Merge some code",
+     "level": 3
+    },
+    {
+     "id": "h-collaboration-skills-check-ready-to-work-with-others",
+     "text": "🤝 Collaboration Skills Check: Ready to Work with Others?",
+     "level": 3
+    },
+    {
+     "id": "h-contributing-to-open-source-your-chance-to-make-an-impact",
+     "text": "Contributing to Open Source (Your Chance to Make an Impact!)",
+     "level": 2
+    },
+    {
+     "id": "h-a-few-more-interesting-things-about-github",
+     "text": "A few more interesting things about GitHub",
+     "level": 3
+    },
+    {
+     "id": "h-challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "h-review-keep-learning",
+     "text": "Review & Keep Learning",
+     "level": 2
+    },
+    {
+     "id": "h-github-copilot-agent-challenge",
+     "text": "GitHub Copilot Agent Challenge 🚀",
+     "level": 2
+    },
+    {
+     "id": "h-your-github-mastery-timeline",
+     "text": "🚀 Your GitHub Mastery Timeline",
+     "level": 2
+    },
+    {
+     "id": "h-what-you-can-do-in-the-next-5-minutes",
+     "text": "⚡ What You Can Do in the Next 5 Minutes",
+     "level": 3
+    },
+    {
+     "id": "h-what-you-can-accomplish-this-hour",
+     "text": "🎯 What You Can Accomplish This Hour",
+     "level": 3
+    },
+    {
+     "id": "h-your-week-long-github-adventure",
+     "text": "📅 Your Week-Long GitHub Adventure",
+     "level": 3
+    },
+    {
+     "id": "h-your-month-long-transformation",
+     "text": "🌟 Your Month-Long Transformation",
+     "level": 3
+    },
+    {
+     "id": "h-final-github-mastery-check-in",
+     "text": "🎓 Final GitHub Mastery Check-in",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "software_dev-06",
+   "title": "Creating Accessible Webpages",
+   "words": 2864,
+   "minutes": 15,
+   "source": "ms-web",
+   "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/78085398be0dea7abaaf5eda914817f46f6ddbbc/1-getting-started-lessons/3-accessibility/README.md",
+   "toc": [
+    {
+     "id": "h-understanding-assistive-technologies",
+     "text": "Understanding Assistive Technologies",
+     "level": 2
+    },
+    {
+     "id": "h-screen-readers",
+     "text": "Screen readers",
+     "level": 3
+    },
+    {
+     "id": "h-building-your-testing-workflow",
+     "text": "Building your testing workflow",
+     "level": 3
+    },
+    {
+     "id": "h-zoom-and-magnification-tools",
+     "text": "Zoom and magnification tools",
+     "level": 3
+    },
+    {
+     "id": "h-modern-accessibility-testing-tools",
+     "text": "Modern Accessibility Testing Tools",
+     "level": 2
+    },
+    {
+     "id": "h-color-contrast-testing",
+     "text": "Color contrast testing",
+     "level": 3
+    },
+    {
+     "id": "h-comprehensive-accessibility-auditing",
+     "text": "Comprehensive accessibility auditing",
+     "level": 3
+    },
+    {
+     "id": "h-testing-skills-check-ready-to-find-issues",
+     "text": "🧠 Testing Skills Check: Ready to Find Issues?",
+     "level": 3
+    },
+    {
+     "id": "h-building-accessibility-from-the-ground-up",
+     "text": "Building Accessibility from the Ground Up",
+     "level": 2
+    },
+    {
+     "id": "h-the-pour-principles-your-accessibility-foundation",
+     "text": "The POUR principles: Your accessibility foundation",
+     "level": 3
+    },
+    {
+     "id": "h-pour-principles-check-making-it-stick",
+     "text": "🎯 POUR Principles Check: Making It Stick",
+     "level": 3
+    },
+    {
+     "id": "h-creating-accessible-visual-design",
+     "text": "Creating Accessible Visual Design",
+     "level": 2
+    },
+    {
+     "id": "h-color-and-visual-accessibility-strategies",
+     "text": "Color and visual accessibility strategies",
+     "level": 3
+    },
+    {
+     "id": "h-focus-indicators-and-interaction-design",
+     "text": "Focus indicators and interaction design",
+     "level": 3
+    },
+    {
+     "id": "h-semantic-html-the-foundation-of-accessibility",
+     "text": "Semantic HTML: The foundation of accessibility",
+     "level": 3
+    },
+    {
+     "id": "h-semantic-html-mastery-check-building-strong-foundations",
+     "text": "🏗️ Semantic HTML Mastery Check: Building Strong Foundations",
+     "level": 3
+    },
+    {
+     "id": "h-heading-hierarchy-creating-a-logical-content-outline",
+     "text": "Heading hierarchy: Creating a logical content outline",
+     "level": 3
+    },
+    {
+     "id": "h-advanced-visual-accessibility-techniques",
+     "text": "Advanced visual accessibility techniques",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "software_dev-07",
+   "title": "Crafting Meaningful Link Text",
+   "words": 2575,
+   "minutes": 13,
+   "source": "ms-web",
+   "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/78085398be0dea7abaaf5eda914817f46f6ddbbc/1-getting-started-lessons/3-accessibility/README.md",
+   "toc": [
+    {
+     "id": "h-understanding-link-navigation-patterns",
+     "text": "Understanding link navigation patterns",
+     "level": 3
+    },
+    {
+     "id": "h-common-link-text-mistakes-to-avoid",
+     "text": "Common link text mistakes to avoid",
+     "level": 3
+    },
+    {
+     "id": "h-writing-excellent-link-text",
+     "text": "Writing excellent link text",
+     "level": 3
+    },
+    {
+     "id": "h-advanced-link-accessibility-patterns",
+     "text": "Advanced link accessibility patterns",
+     "level": 3
+    },
+    {
+     "id": "h-aria-supercharging-html-accessibility",
+     "text": "ARIA: Supercharging HTML Accessibility",
+     "level": 2
+    },
+    {
+     "id": "h-strategic-aria-implementation",
+     "text": "Strategic ARIA implementation",
+     "level": 3
+    },
+    {
+     "id": "h-essential-aria-patterns-for-modern-web-apps",
+     "text": "Essential ARIA patterns for modern web apps",
+     "level": 3
+    },
+    {
+     "id": "h-aria-implementation-best-practices",
+     "text": "ARIA implementation best practices",
+     "level": 3
+    },
+    {
+     "id": "h-aria-skills-check-ready-for-complex-interactions",
+     "text": "🎭 ARIA Skills Check: Ready for Complex Interactions?",
+     "level": 3
+    },
+    {
+     "id": "h-making-images-and-media-accessible",
+     "text": "Making Images and Media Accessible",
+     "level": 2
+    },
+    {
+     "id": "h-strategic-image-accessibility",
+     "text": "Strategic image accessibility",
+     "level": 3
+    },
+    {
+     "id": "h-video-and-audio-accessibility",
+     "text": "Video and audio accessibility",
+     "level": 3
+    },
+    {
+     "id": "h-modern-image-techniques",
+     "text": "Modern image techniques",
+     "level": 3
+    },
+    {
+     "id": "h-keyboard-navigation-and-focus-management",
+     "text": "Keyboard navigation and focus management",
+     "level": 2
+    },
+    {
+     "id": "h-essential-keyboard-navigation-patterns",
+     "text": "Essential keyboard navigation patterns",
+     "level": 3
+    },
+    {
+     "id": "h-focus-management-best-practices",
+     "text": "Focus management best practices",
+     "level": 3
+    },
+    {
+     "id": "h-focus-trapping-in-modals",
+     "text": "Focus trapping in modals",
+     "level": 3
+    },
+    {
+     "id": "h-form-accessibility",
+     "text": "Form accessibility",
+     "level": 2
+    },
+    {
+     "id": "h-label-and-form-control-association",
+     "text": "Label and form control association",
+     "level": 3
+    },
+    {
+     "id": "h-error-handling-and-validation",
+     "text": "Error handling and validation",
+     "level": 3
+    },
+    {
+     "id": "h-fieldsets-and-grouping",
+     "text": "Fieldsets and grouping",
+     "level": 3
+    },
+    {
+     "id": "h-your-accessibility-journey-key-takeaways",
+     "text": "Your Accessibility Journey: Key Takeaways",
+     "level": 2
+    },
+    {
+     "id": "h-additional-resources",
+     "text": "Additional Resources",
+     "level": 2
+    },
+    {
+     "id": "h-github-copilot-agent-challenge",
+     "text": "GitHub Copilot Agent Challenge 🚀",
+     "level": 2
+    },
+    {
+     "id": "h-challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "h-review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    },
+    {
+     "id": "h-your-accessibility-mastery-timeline",
+     "text": "🚀 Your Accessibility Mastery Timeline",
+     "level": 2
+    },
+    {
+     "id": "h-what-you-can-do-in-the-next-5-minutes",
+     "text": "⚡ What You Can Do in the Next 5 Minutes",
+     "level": 3
+    },
+    {
+     "id": "h-what-you-can-accomplish-this-hour",
+     "text": "🎯 What You Can Accomplish This Hour",
+     "level": 3
+    },
+    {
+     "id": "h-your-week-long-accessibility-journey",
+     "text": "📅 Your Week-Long Accessibility Journey",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "software_dev-08",
    "title": "JavaScript Basics: Data Types",
    "words": 2858,
    "minutes": 15,
@@ -488,124 +607,124 @@
    "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/78085398be0dea7abaaf5eda914817f46f6ddbbc/2-js-basics/1-data-types/README.md",
    "toc": [
     {
-     "id": "variables",
+     "id": "h-variables",
      "text": "Variables",
      "level": 2
     },
     {
-     "id": "task-working-with-variables",
+     "id": "h-task-working-with-variables",
      "text": "Task - working with variables",
      "level": 3
     },
     {
-     "id": "variables-mastery-check-getting-comfortable",
+     "id": "h-variables-mastery-check-getting-comfortable",
      "text": "🧠 Variables Mastery Check: Getting Comfortable",
      "level": 3
     },
     {
-     "id": "constants",
+     "id": "h-constants",
      "text": "Constants",
      "level": 2
     },
     {
-     "id": "data-types",
+     "id": "h-data-types",
      "text": "Data Types",
      "level": 2
     },
     {
-     "id": "numbers",
+     "id": "h-numbers",
      "text": "Numbers",
      "level": 3
     },
     {
-     "id": "arithmetic-operators",
+     "id": "h-arithmetic-operators",
      "text": "Arithmetic Operators",
      "level": 3
     },
     {
-     "id": "math-skills-check-calculating-with-confidence",
+     "id": "h-math-skills-check-calculating-with-confidence",
      "text": "🧮 Math Skills Check: Calculating with Confidence",
      "level": 3
     },
     {
-     "id": "strings",
+     "id": "h-strings",
      "text": "Strings",
      "level": 3
     },
     {
-     "id": "formatting-strings",
+     "id": "h-formatting-strings",
      "text": "Formatting Strings",
      "level": 3
     },
     {
-     "id": "string-mastery-check-text-manipulation-confidence",
+     "id": "h-string-mastery-check-text-manipulation-confidence",
      "text": "🔤 String Mastery Check: Text Manipulation Confidence",
      "level": 3
     },
     {
-     "id": "booleans",
+     "id": "h-booleans",
      "text": "Booleans",
      "level": 3
     },
     {
-     "id": "boolean-logic-check-decision-making-skills",
+     "id": "h-boolean-logic-check-decision-making-skills",
      "text": "🎯 Boolean Logic Check: Decision Making Skills",
      "level": 3
     },
     {
-     "id": "your-data-types-toolkit-summary",
+     "id": "h-your-data-types-toolkit-summary",
      "text": "📊 Your Data Types Toolkit Summary",
      "level": 2
     },
     {
-     "id": "github-copilot-agent-challenge",
+     "id": "h-github-copilot-agent-challenge",
      "text": "GitHub Copilot Agent Challenge 🚀",
      "level": 2
     },
     {
-     "id": "challenge",
+     "id": "h-challenge",
      "text": "🚀 Challenge",
      "level": 2
     },
     {
-     "id": "review-self-study",
+     "id": "h-review-self-study",
      "text": "Review & Self Study",
      "level": 2
     },
     {
-     "id": "your-javascript-data-types-mastery-timeline",
+     "id": "h-your-javascript-data-types-mastery-timeline",
      "text": "🚀 Your JavaScript Data Types Mastery Timeline",
      "level": 2
     },
     {
-     "id": "what-you-can-do-in-the-next-5-minutes",
+     "id": "h-what-you-can-do-in-the-next-5-minutes",
      "text": "⚡ What You Can Do in the Next 5 Minutes",
      "level": 3
     },
     {
-     "id": "what-you-can-accomplish-this-hour",
+     "id": "h-what-you-can-accomplish-this-hour",
      "text": "🎯 What You Can Accomplish This Hour",
      "level": 3
     },
     {
-     "id": "your-week-long-javascript-foundation",
+     "id": "h-your-week-long-javascript-foundation",
      "text": "📅 Your Week-Long JavaScript Foundation",
      "level": 3
     },
     {
-     "id": "your-month-long-transformation",
+     "id": "h-your-month-long-transformation",
      "text": "🌟 Your Month-Long Transformation",
      "level": 3
     },
     {
-     "id": "final-data-types-mastery-check-in",
+     "id": "h-final-data-types-mastery-check-in",
      "text": "🧠 Final Data Types Mastery Check-in",
      "level": 3
     }
    ]
   },
   {
-   "id": "software_dev-05",
+   "id": "software_dev-09",
    "title": "JavaScript Basics: Methods and Functions",
    "words": 2202,
    "minutes": 12,
@@ -613,129 +732,129 @@
    "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/78085398be0dea7abaaf5eda914817f46f6ddbbc/2-js-basics/2-functions-methods/README.md",
    "toc": [
     {
-     "id": "functions",
+     "id": "h-functions",
      "text": "Functions",
      "level": 2
     },
     {
-     "id": "creating-and-calling-a-function",
+     "id": "h-creating-and-calling-a-function",
      "text": "Creating and calling a function",
      "level": 2
     },
     {
-     "id": "function-fundamentals-check-building-your-first-functions",
+     "id": "h-function-fundamentals-check-building-your-first-functions",
      "text": "🧠 Function Fundamentals Check: Building Your First Functions",
      "level": 3
     },
     {
-     "id": "function-best-practices",
+     "id": "h-function-best-practices",
      "text": "Function best practices",
      "level": 3
     },
     {
-     "id": "passing-information-to-a-function",
+     "id": "h-passing-information-to-a-function",
      "text": "Passing information to a function",
      "level": 2
     },
     {
-     "id": "default-values",
+     "id": "h-default-values",
      "text": "Default values",
      "level": 2
     },
     {
-     "id": "parameters-mastery-check-making-functions-flexible",
+     "id": "h-parameters-mastery-check-making-functions-flexible",
      "text": "🎛️ Parameters Mastery Check: Making Functions Flexible",
      "level": 3
     },
     {
-     "id": "return-values",
+     "id": "h-return-values",
      "text": "Return values",
      "level": 2
     },
     {
-     "id": "return-values-check-getting-results-back",
+     "id": "h-return-values-check-getting-results-back",
      "text": "🔄 Return Values Check: Getting Results Back",
      "level": 3
     },
     {
-     "id": "functions-as-parameters-for-functions",
+     "id": "h-functions-as-parameters-for-functions",
      "text": "Functions as parameters for functions",
      "level": 2
     },
     {
-     "id": "anonymous-functions",
+     "id": "h-anonymous-functions",
      "text": "Anonymous functions",
      "level": 3
     },
     {
-     "id": "fat-arrow-functions",
+     "id": "h-fat-arrow-functions",
      "text": "Fat arrow functions",
      "level": 3
     },
     {
-     "id": "when-to-use-each-strategy",
+     "id": "h-when-to-use-each-strategy",
      "text": "When to use each strategy",
      "level": 3
     },
     {
-     "id": "function-styles-mastery-check-choosing-the-right-syntax",
+     "id": "h-function-styles-mastery-check-choosing-the-right-syntax",
      "text": "🎨 Function Styles Mastery Check: Choosing the Right Syntax",
      "level": 3
     },
     {
-     "id": "challenge",
+     "id": "h-challenge",
      "text": "🚀 Challenge",
      "level": 2
     },
     {
-     "id": "github-copilot-agent-challenge",
+     "id": "h-github-copilot-agent-challenge",
      "text": "GitHub Copilot Agent Challenge 🚀",
      "level": 2
     },
     {
-     "id": "review-self-study",
+     "id": "h-review-self-study",
      "text": "Review & Self Study",
      "level": 2
     },
     {
-     "id": "your-javascript-functions-toolkit-summary",
+     "id": "h-your-javascript-functions-toolkit-summary",
      "text": "🧰 Your JavaScript Functions Toolkit Summary",
      "level": 2
     },
     {
-     "id": "your-javascript-functions-mastery-timeline",
+     "id": "h-your-javascript-functions-mastery-timeline",
      "text": "🚀 Your JavaScript Functions Mastery Timeline",
      "level": 2
     },
     {
-     "id": "what-you-can-do-in-the-next-5-minutes",
+     "id": "h-what-you-can-do-in-the-next-5-minutes",
      "text": "⚡ What You Can Do in the Next 5 Minutes",
      "level": 3
     },
     {
-     "id": "what-you-can-accomplish-this-hour",
+     "id": "h-what-you-can-accomplish-this-hour",
      "text": "🎯 What You Can Accomplish This Hour",
      "level": 3
     },
     {
-     "id": "your-week-long-function-mastery",
+     "id": "h-your-week-long-function-mastery",
      "text": "📅 Your Week-Long Function Mastery",
      "level": 3
     },
     {
-     "id": "your-month-long-transformation",
+     "id": "h-your-month-long-transformation",
      "text": "🌟 Your Month-Long Transformation",
      "level": 3
     },
     {
-     "id": "final-functions-champion-check-in",
+     "id": "h-final-functions-champion-check-in",
      "text": "🏆 Final Functions Champion Check-in",
      "level": 3
     }
    ]
   },
   {
-   "id": "software_dev-06",
+   "id": "software_dev-10",
    "title": "JavaScript Basics: Making Decisions",
    "words": 2201,
    "minutes": 12,
@@ -743,124 +862,124 @@
    "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/78085398be0dea7abaaf5eda914817f46f6ddbbc/2-js-basics/3-making-decisions/README.md",
    "toc": [
     {
-     "id": "a-brief-recap-on-booleans",
+     "id": "h-a-brief-recap-on-booleans",
      "text": "A Brief Recap on Booleans",
      "level": 2
     },
     {
-     "id": "comparison-operators-and-booleans",
+     "id": "h-comparison-operators-and-booleans",
      "text": "Comparison Operators and Booleans",
      "level": 2
     },
     {
-     "id": "comparison-mastery-check-understanding-boolean-logic",
+     "id": "h-comparison-mastery-check-understanding-boolean-logic",
      "text": "🧠 Comparison Mastery Check: Understanding Boolean Logic",
      "level": 3
     },
     {
-     "id": "if-statement",
+     "id": "h-if-statement",
      "text": "If Statement",
      "level": 2
     },
     {
-     "id": "if-else-statement",
+     "id": "h-if-else-statement",
      "text": "If..Else Statement",
      "level": 2
     },
     {
-     "id": "if-else-logic-check-branching-paths",
+     "id": "h-if-else-logic-check-branching-paths",
      "text": "🎯 If-Else Logic Check: Branching Paths",
      "level": 3
     },
     {
-     "id": "switch-statement",
+     "id": "h-switch-statement",
      "text": "Switch Statement",
      "level": 2
     },
     {
-     "id": "switch-statement-mastery-multiple-options",
+     "id": "h-switch-statement-mastery-multiple-options",
      "text": "🔄 Switch Statement Mastery: Multiple Options",
      "level": 3
     },
     {
-     "id": "logical-operators-and-booleans",
+     "id": "h-logical-operators-and-booleans",
      "text": "Logical Operators and Booleans",
      "level": 2
     },
     {
-     "id": "conditions-and-decisions-with-logical-operators",
+     "id": "h-conditions-and-decisions-with-logical-operators",
      "text": "Conditions and Decisions with Logical Operators",
      "level": 2
     },
     {
-     "id": "logical-operators-check-combining-conditions",
+     "id": "h-logical-operators-check-combining-conditions",
      "text": "🧮 Logical Operators Check: Combining Conditions",
      "level": 3
     },
     {
-     "id": "negation-operator",
+     "id": "h-negation-operator",
      "text": "Negation Operator",
      "level": 3
     },
     {
-     "id": "ternary-expressions",
+     "id": "h-ternary-expressions",
      "text": "Ternary Expressions",
      "level": 3
     },
     {
-     "id": "challenge",
+     "id": "h-challenge",
      "text": "🚀 Challenge",
      "level": 2
     },
     {
-     "id": "github-copilot-agent-challenge",
+     "id": "h-github-copilot-agent-challenge",
      "text": "GitHub Copilot Agent Challenge 🚀",
      "level": 2
     },
     {
-     "id": "review-self-study",
+     "id": "h-review-self-study",
      "text": "Review & Self Study",
      "level": 2
     },
     {
-     "id": "your-decision-making-toolkit-summary",
+     "id": "h-your-decision-making-toolkit-summary",
      "text": "🧠 Your Decision-Making Toolkit Summary",
      "level": 2
     },
     {
-     "id": "your-javascript-decision-making-mastery-timeline",
+     "id": "h-your-javascript-decision-making-mastery-timeline",
      "text": "🚀 Your JavaScript Decision-Making Mastery Timeline",
      "level": 2
     },
     {
-     "id": "what-you-can-do-in-the-next-5-minutes",
+     "id": "h-what-you-can-do-in-the-next-5-minutes",
      "text": "⚡ What You Can Do in the Next 5 Minutes",
      "level": 3
     },
     {
-     "id": "what-you-can-accomplish-this-hour",
+     "id": "h-what-you-can-accomplish-this-hour",
      "text": "🎯 What You Can Accomplish This Hour",
      "level": 3
     },
     {
-     "id": "your-week-long-logic-mastery",
+     "id": "h-your-week-long-logic-mastery",
      "text": "📅 Your Week-Long Logic Mastery",
      "level": 3
     },
     {
-     "id": "your-month-long-transformation",
+     "id": "h-your-month-long-transformation",
      "text": "🌟 Your Month-Long Transformation",
      "level": 3
     },
     {
-     "id": "final-decision-making-champion-check-in",
+     "id": "h-final-decision-making-champion-check-in",
      "text": "🏆 Final Decision-Making Champion Check-in",
      "level": 3
     }
    ]
   },
   {
-   "id": "software_dev-07",
+   "id": "software_dev-11",
    "title": "JavaScript Basics: Arrays and Loops",
    "words": 2100,
    "minutes": 11,
@@ -868,124 +987,124 @@
    "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/78085398be0dea7abaaf5eda914817f46f6ddbbc/2-js-basics/4-arrays-loops/README.md",
    "toc": [
     {
-     "id": "arrays",
+     "id": "h-arrays",
      "text": "Arrays",
      "level": 2
     },
     {
-     "id": "creating-arrays",
+     "id": "h-creating-arrays",
      "text": "Creating Arrays",
      "level": 3
     },
     {
-     "id": "array-indexing",
+     "id": "h-array-indexing",
      "text": "Array Indexing",
      "level": 3
     },
     {
-     "id": "array-length-and-common-methods",
+     "id": "h-array-length-and-common-methods",
      "text": "Array Length and Common Methods",
      "level": 3
     },
     {
-     "id": "array-fundamentals-check-organizing-your-data",
+     "id": "h-array-fundamentals-check-organizing-your-data",
      "text": "🧠 Array Fundamentals Check: Organizing Your Data",
      "level": 3
     },
     {
-     "id": "loops",
+     "id": "h-loops",
      "text": "Loops",
      "level": 2
     },
     {
-     "id": "for-loop",
+     "id": "h-for-loop",
      "text": "For Loop",
      "level": 3
     },
     {
-     "id": "for-loop-mastery-check-controlled-repetition",
+     "id": "h-for-loop-mastery-check-controlled-repetition",
      "text": "🗓️ For Loop Mastery Check: Controlled Repetition",
      "level": 3
     },
     {
-     "id": "while-loop",
+     "id": "h-while-loop",
      "text": "While Loop",
      "level": 3
     },
     {
-     "id": "while-loop-wisdom-check-condition-based-repetition",
+     "id": "h-while-loop-wisdom-check-condition-based-repetition",
      "text": "♾️ While Loop Wisdom Check: Condition-Based Repetition",
      "level": 3
     },
     {
-     "id": "modern-loop-alternatives",
+     "id": "h-modern-loop-alternatives",
      "text": "Modern Loop Alternatives",
      "level": 3
     },
     {
-     "id": "modern-loop-syntax-check-embracing-es6",
+     "id": "h-modern-loop-syntax-check-embracing-es6",
      "text": "🎨 Modern Loop Syntax Check: Embracing ES6+",
      "level": 3
     },
     {
-     "id": "loops-and-arrays",
+     "id": "h-loops-and-arrays",
      "text": "Loops and Arrays",
      "level": 2
     },
     {
-     "id": "github-copilot-agent-challenge",
+     "id": "h-github-copilot-agent-challenge",
      "text": "GitHub Copilot Agent Challenge 🚀",
      "level": 2
     },
     {
-     "id": "challenge",
+     "id": "h-challenge",
      "text": "🚀 Challenge",
      "level": 2
     },
     {
-     "id": "review-self-study",
+     "id": "h-review-self-study",
      "text": "Review & Self Study",
      "level": 2
     },
     {
-     "id": "your-arrays-loops-toolkit-summary",
+     "id": "h-your-arrays-loops-toolkit-summary",
      "text": "📊 Your Arrays & Loops Toolkit Summary",
      "level": 2
     },
     {
-     "id": "your-arrays-loops-mastery-timeline",
+     "id": "h-your-arrays-loops-mastery-timeline",
      "text": "🚀 Your Arrays & Loops Mastery Timeline",
      "level": 2
     },
     {
-     "id": "what-you-can-do-in-the-next-5-minutes",
+     "id": "h-what-you-can-do-in-the-next-5-minutes",
      "text": "⚡ What You Can Do in the Next 5 Minutes",
      "level": 3
     },
     {
-     "id": "what-you-can-accomplish-this-hour",
+     "id": "h-what-you-can-accomplish-this-hour",
      "text": "🎯 What You Can Accomplish This Hour",
      "level": 3
     },
     {
-     "id": "your-week-long-data-processing-journey",
+     "id": "h-your-week-long-data-processing-journey",
      "text": "📅 Your Week-Long Data Processing Journey",
      "level": 3
     },
     {
-     "id": "your-month-long-transformation",
+     "id": "h-your-month-long-transformation",
      "text": "🌟 Your Month-Long Transformation",
      "level": 3
     },
     {
-     "id": "final-data-processing-champion-check-in",
+     "id": "h-final-data-processing-champion-check-in",
      "text": "🏆 Final Data Processing Champion Check-in",
      "level": 3
     }
    ]
   },
   {
-   "id": "software_dev-08",
+   "id": "software_dev-12",
    "title": "Terrarium Project Part 1: Introduction to HTML",
    "words": 2684,
    "minutes": 14,
@@ -993,144 +1112,144 @@
    "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/78085398be0dea7abaaf5eda914817f46f6ddbbc/3-terrarium/1-intro-to-html/README.md",
    "toc": [
     {
-     "id": "setting-up-your-project",
+     "id": "h-setting-up-your-project",
      "text": "Setting Up Your Project",
      "level": 2
     },
     {
-     "id": "task-create-your-project-structure",
+     "id": "h-task-create-your-project-structure",
      "text": "Task: Create Your Project Structure",
      "level": 3
     },
     {
-     "id": "understanding-html-document-structure",
+     "id": "h-understanding-html-document-structure",
      "text": "Understanding HTML Document Structure",
      "level": 2
     },
     {
-     "id": "the-doctype-declaration-and-root-element",
+     "id": "h-the-doctype-declaration-and-root-element",
      "text": "The DOCTYPE Declaration and Root Element",
      "level": 3
     },
     {
-     "id": "pedagogical-check-in",
+     "id": "h-pedagogical-check-in",
      "text": "🔄 Pedagogical Check-in",
      "level": 3
     },
     {
-     "id": "adding-essential-document-metadata",
+     "id": "h-adding-essential-document-metadata",
      "text": "Adding Essential Document Metadata",
      "level": 2
     },
     {
-     "id": "task-add-the-document-head",
+     "id": "h-task-add-the-document-head",
      "text": "Task: Add the Document Head",
      "level": 3
     },
     {
-     "id": "building-the-document-body",
+     "id": "h-building-the-document-body",
      "text": "Building the Document Body",
      "level": 2
     },
     {
-     "id": "understanding-html-tag-structure",
+     "id": "h-understanding-html-tag-structure",
      "text": "Understanding HTML Tag Structure",
      "level": 3
     },
     {
-     "id": "task-add-the-body-element",
+     "id": "h-task-add-the-body-element",
      "text": "Task: Add the Body Element",
      "level": 3
     },
     {
-     "id": "working-with-images-and-layout-containers",
+     "id": "h-working-with-images-and-layout-containers",
      "text": "Working with Images and Layout Containers",
      "level": 3
     },
     {
-     "id": "task-create-the-plant-display-layout",
+     "id": "h-task-create-the-plant-display-layout",
      "text": "Task: Create the Plant Display Layout",
      "level": 3
     },
     {
-     "id": "pedagogical-check-in-x",
+     "id": "h-pedagogical-check-in-x",
      "text": "🔄 Pedagogical Check-in",
      "level": 3
     },
     {
-     "id": "using-semantic-html-for-accessibility",
+     "id": "h-using-semantic-html-for-accessibility",
      "text": "Using Semantic HTML for Accessibility",
      "level": 2
     },
     {
-     "id": "adding-a-semantic-page-title",
+     "id": "h-adding-a-semantic-page-title",
      "text": "Adding a Semantic Page Title",
      "level": 3
     },
     {
-     "id": "creating-the-terrarium-container",
+     "id": "h-creating-the-terrarium-container",
      "text": "Creating the Terrarium Container",
      "level": 2
     },
     {
-     "id": "task-add-the-terrarium-structure",
+     "id": "h-task-add-the-terrarium-structure",
      "text": "Task: Add the Terrarium Structure",
      "level": 3
     },
     {
-     "id": "pedagogical-check-in-x-x",
+     "id": "h-pedagogical-check-in-x-x",
      "text": "🔄 Pedagogical Check-in",
      "level": 3
     },
     {
-     "id": "github-copilot-agent-challenge",
+     "id": "h-github-copilot-agent-challenge",
      "text": "GitHub Copilot Agent Challenge",
      "level": 2
     },
     {
-     "id": "explore-html-history-challenge",
+     "id": "h-explore-html-history-challenge",
      "text": "Explore HTML History Challenge",
      "level": 2
     },
     {
-     "id": "review-self-study",
+     "id": "h-review-self-study",
      "text": "Review & Self Study",
      "level": 2
     },
     {
-     "id": "what-you-can-do-in-the-next-5-minutes",
+     "id": "h-what-you-can-do-in-the-next-5-minutes",
      "text": "⚡ What You Can Do in the Next 5 Minutes",
      "level": 3
     },
     {
-     "id": "what-you-can-accomplish-this-hour",
+     "id": "h-what-you-can-accomplish-this-hour",
      "text": "🎯 What You Can Accomplish This Hour",
      "level": 3
     },
     {
-     "id": "your-week-long-html-journey",
+     "id": "h-your-week-long-html-journey",
      "text": "📅 Your Week-Long HTML Journey",
      "level": 3
     },
     {
-     "id": "your-month-long-web-foundation",
+     "id": "h-your-month-long-web-foundation",
      "text": "🌟 Your Month-Long Web Foundation",
      "level": 3
     },
     {
-     "id": "your-html-mastery-timeline",
+     "id": "h-your-html-mastery-timeline",
      "text": "🎯 Your HTML Mastery Timeline",
      "level": 2
     },
     {
-     "id": "your-html-toolkit-summary",
+     "id": "h-your-html-toolkit-summary",
      "text": "🛠️ Your HTML Toolkit Summary",
      "level": 3
     }
    ]
   },
   {
-   "id": "software_dev-09",
+   "id": "software_dev-13",
    "title": "Terrarium Project Part 2: Introduction to CSS",
    "words": 3007,
    "minutes": 16,
@@ -1138,159 +1257,159 @@
    "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/78085398be0dea7abaaf5eda914817f46f6ddbbc/3-terrarium/2-intro-to-css/README.md",
    "toc": [
     {
-     "id": "getting-started-with-css",
+     "id": "h-getting-started-with-css",
      "text": "Getting Started with CSS",
      "level": 2
     },
     {
-     "id": "prerequisite",
+     "id": "h-prerequisite",
      "text": "Prerequisite",
      "level": 3
     },
     {
-     "id": "setting-up-your-css-file",
+     "id": "h-setting-up-your-css-file",
      "text": "Setting Up Your CSS File",
      "level": 3
     },
     {
-     "id": "understanding-the-css-cascade",
+     "id": "h-understanding-the-css-cascade",
      "text": "Understanding the CSS Cascade",
      "level": 2
     },
     {
-     "id": "experimenting-with-cascade-priority",
+     "id": "h-experimenting-with-cascade-priority",
      "text": "Experimenting with Cascade Priority",
      "level": 3
     },
     {
-     "id": "css-inheritance-in-action",
+     "id": "h-css-inheritance-in-action",
      "text": "CSS Inheritance in Action",
      "level": 2
     },
     {
-     "id": "observing-font-inheritance",
+     "id": "h-observing-font-inheritance",
      "text": "Observing Font Inheritance",
      "level": 3
     },
     {
-     "id": "pedagogical-check-in",
+     "id": "h-pedagogical-check-in",
      "text": "🔄 Pedagogical Check-in",
      "level": 3
     },
     {
-     "id": "mastering-css-selectors",
+     "id": "h-mastering-css-selectors",
      "text": "Mastering CSS Selectors",
      "level": 2
     },
     {
-     "id": "element-selectors-tags",
+     "id": "h-element-selectors-tags",
      "text": "Element Selectors (Tags)",
      "level": 3
     },
     {
-     "id": "id-selectors-for-unique-elements",
+     "id": "h-id-selectors-for-unique-elements",
      "text": "ID Selectors for Unique Elements",
      "level": 3
     },
     {
-     "id": "class-selectors-for-reusable-styles",
+     "id": "h-class-selectors-for-reusable-styles",
      "text": "Class Selectors for Reusable Styles",
      "level": 3
     },
     {
-     "id": "understanding-css-positioning",
+     "id": "h-understanding-css-positioning",
      "text": "Understanding CSS Positioning",
      "level": 2
     },
     {
-     "id": "the-five-position-values",
+     "id": "h-the-five-position-values",
      "text": "The Five Position Values",
      "level": 3
     },
     {
-     "id": "positioning-in-our-terrarium",
+     "id": "h-positioning-in-our-terrarium",
      "text": "Positioning in Our Terrarium",
      "level": 3
     },
     {
-     "id": "pedagogical-check-in-x",
+     "id": "h-pedagogical-check-in-x",
      "text": "🔄 Pedagogical Check-in",
      "level": 3
     },
     {
-     "id": "building-the-terrarium-with-css",
+     "id": "h-building-the-terrarium-with-css",
      "text": "Building the Terrarium with CSS",
      "level": 2
     },
     {
-     "id": "creating-the-glass-jar-components",
+     "id": "h-creating-the-glass-jar-components",
      "text": "Creating the Glass Jar Components",
      "level": 3
     },
     {
-     "id": "responsive-design-with-percentages",
+     "id": "h-responsive-design-with-percentages",
      "text": "Responsive Design with Percentages",
      "level": 3
     },
     {
-     "id": "css-units-in-action",
+     "id": "h-css-units-in-action",
      "text": "CSS Units in Action",
      "level": 3
     },
     {
-     "id": "pedagogical-check-in-x-x",
+     "id": "h-pedagogical-check-in-x-x",
      "text": "🔄 Pedagogical Check-in",
      "level": 3
     },
     {
-     "id": "github-copilot-agent-challenge",
+     "id": "h-github-copilot-agent-challenge",
      "text": "GitHub Copilot Agent Challenge 🚀",
      "level": 2
     },
     {
-     "id": "challenge-adding-glass-reflections",
+     "id": "h-challenge-adding-glass-reflections",
      "text": "🚀 Challenge: Adding Glass Reflections",
      "level": 2
     },
     {
-     "id": "expand-your-css-knowledge",
+     "id": "h-expand-your-css-knowledge",
      "text": "Expand Your CSS Knowledge",
      "level": 2
     },
     {
-     "id": "interactive-learning-resources",
+     "id": "h-interactive-learning-resources",
      "text": "Interactive Learning Resources",
      "level": 3
     },
     {
-     "id": "additional-learning",
+     "id": "h-additional-learning",
      "text": "Additional Learning",
      "level": 3
     },
     {
-     "id": "what-you-can-do-in-the-next-5-minutes",
+     "id": "h-what-you-can-do-in-the-next-5-minutes",
      "text": "⚡ What You Can Do in the Next 5 Minutes",
      "level": 3
     },
     {
-     "id": "what-you-can-accomplish-this-hour",
+     "id": "h-what-you-can-accomplish-this-hour",
      "text": "🎯 What You Can Accomplish This Hour",
      "level": 3
     },
     {
-     "id": "your-week-long-css-adventure",
+     "id": "h-your-week-long-css-adventure",
      "text": "📅 Your Week-Long CSS Adventure",
      "level": 3
     },
     {
-     "id": "your-month-long-design-mastery",
+     "id": "h-your-month-long-design-mastery",
      "text": "🌟 Your Month-Long Design Mastery",
      "level": 3
     }
    ]
   },
   {
-   "id": "software_dev-10",
+   "id": "software_dev-14",
    "title": "Terrarium Project Part 3: DOM Manipulation and JavaScript Closures",
    "words": 3363,
    "minutes": 17,
@@ -1298,361 +1417,250 @@
    "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/78085398be0dea7abaaf5eda914817f46f6ddbbc/3-terrarium/3-intro-to-DOM-and-closures/README.md",
    "toc": [
     {
-     "id": "understanding-the-dom-your-gateway-to-interactive-web-pages",
+     "id": "h-understanding-the-dom-your-gateway-to-interactive-web-pages",
      "text": "Understanding the DOM: Your Gateway to Interactive Web Pages",
      "level": 2
     },
     {
-     "id": "javascript-closures-creating-organized-powerful-code",
+     "id": "h-javascript-closures-creating-organized-powerful-code",
      "text": "JavaScript Closures: Creating Organized, Powerful Code",
      "level": 2
     },
     {
-     "id": "before-we-begin-setting-up-for-success",
+     "id": "h-before-we-begin-setting-up-for-success",
      "text": "Before We Begin: Setting Up for Success",
      "level": 2
     },
     {
-     "id": "setting-up-your-javascript-file",
+     "id": "h-setting-up-your-javascript-file",
      "text": "Setting Up Your JavaScript File",
      "level": 2
     },
     {
-     "id": "connecting-javascript-to-your-html-elements",
+     "id": "h-connecting-javascript-to-your-html-elements",
      "text": "Connecting JavaScript to Your HTML Elements",
      "level": 2
     },
     {
-     "id": "enabling-drag-functionality-for-all-plants",
+     "id": "h-enabling-drag-functionality-for-all-plants",
      "text": "Enabling Drag Functionality for All Plants",
      "level": 3
     },
     {
-     "id": "pedagogical-check-in",
+     "id": "h-pedagogical-check-in",
      "text": "🔄 Pedagogical Check-in",
      "level": 3
     },
     {
-     "id": "building-the-drag-element-closure",
+     "id": "h-building-the-drag-element-closure",
      "text": "Building the Drag Element Closure",
      "level": 2
     },
     {
-     "id": "understanding-closures-with-a-simple-example",
+     "id": "h-understanding-closures-with-a-simple-example",
      "text": "Understanding Closures with a Simple Example",
      "level": 3
     },
     {
-     "id": "why-closures-are-perfect-for-drag-functionality",
+     "id": "h-why-closures-are-perfect-for-drag-functionality",
      "text": "Why Closures Are Perfect for Drag Functionality",
      "level": 3
     },
     {
-     "id": "creating-the-dragelement-function",
+     "id": "h-creating-the-dragelement-function",
      "text": "Creating the dragElement Function",
      "level": 3
     },
     {
-     "id": "why-use-pointer-events",
+     "id": "h-why-use-pointer-events",
      "text": "Why Use Pointer Events?",
      "level": 3
     },
     {
-     "id": "pedagogical-check-in-x",
+     "id": "h-pedagogical-check-in-x",
      "text": "🔄 Pedagogical Check-in",
      "level": 3
     },
     {
-     "id": "the-pointerdrag-function-capturing-the-start-of-a-drag",
+     "id": "h-the-pointerdrag-function-capturing-the-start-of-a-drag",
      "text": "The pointerDrag Function: Capturing the Start of a Drag",
      "level": 2
     },
     {
-     "id": "understanding-event-prevention",
+     "id": "h-understanding-event-prevention",
      "text": "Understanding Event Prevention",
      "level": 3
     },
     {
-     "id": "coordinate-tracking-system",
+     "id": "h-coordinate-tracking-system",
      "text": "Coordinate Tracking System",
      "level": 3
     },
     {
-     "id": "setting-up-document-level-event-listeners",
+     "id": "h-setting-up-document-level-event-listeners",
      "text": "Setting Up Document-Level Event Listeners",
      "level": 3
     },
     {
-     "id": "completing-the-drag-system-movement-and-cleanup",
+     "id": "h-completing-the-drag-system-movement-and-cleanup",
      "text": "Completing the Drag System: Movement and Cleanup",
      "level": 2
     },
     {
-     "id": "the-elementdrag-function-tracking-movement",
+     "id": "h-the-elementdrag-function-tracking-movement",
      "text": "The elementDrag Function: Tracking Movement",
      "level": 3
     },
     {
-     "id": "visual-representation-of-the-math",
+     "id": "h-visual-representation-of-the-math",
      "text": "Visual Representation of the Math",
      "level": 3
     },
     {
-     "id": "the-stopelementdrag-function-cleaning-up",
+     "id": "h-the-stopelementdrag-function-cleaning-up",
      "text": "The stopElementDrag Function: Cleaning Up",
      "level": 3
     },
     {
-     "id": "understanding-css-position-properties",
+     "id": "h-understanding-css-position-properties",
      "text": "Understanding CSS Position Properties",
      "level": 3
     },
     {
-     "id": "bringing-it-all-together-your-complete-drag-system",
+     "id": "h-bringing-it-all-together-your-complete-drag-system",
      "text": "Bringing It All Together: Your Complete Drag System",
      "level": 2
     },
     {
-     "id": "testing-your-interactive-terrarium",
+     "id": "h-testing-your-interactive-terrarium",
      "text": "Testing Your Interactive Terrarium",
      "level": 3
     },
     {
-     "id": "pedagogical-check-in-x-x",
+     "id": "h-pedagogical-check-in-x-x",
      "text": "🔄 Pedagogical Check-in",
      "level": 3
     },
     {
-     "id": "github-copilot-agent-challenge",
+     "id": "h-github-copilot-agent-challenge",
      "text": "GitHub Copilot Agent Challenge 🚀",
      "level": 2
     },
     {
-     "id": "additional-challenge-expand-your-skills",
+     "id": "h-additional-challenge-expand-your-skills",
      "text": "🚀 Additional Challenge: Expand Your Skills",
      "level": 2
     },
     {
-     "id": "review-self-study-deepening-your-understanding",
+     "id": "h-review-self-study-deepening-your-understanding",
      "text": "Review & Self Study: Deepening Your Understanding",
      "level": 2
     },
     {
-     "id": "alternative-drag-and-drop-approaches",
+     "id": "h-alternative-drag-and-drop-approaches",
      "text": "Alternative Drag and Drop Approaches",
      "level": 3
     },
     {
-     "id": "advanced-dom-manipulation-topics",
+     "id": "h-advanced-dom-manipulation-topics",
      "text": "Advanced DOM Manipulation Topics",
      "level": 3
     }
    ]
   },
   {
-   "id": "software_dev-11",
+   "id": "software_dev-15",
    "title": "Automated Version Control",
-   "words": 864,
+   "words": 863,
    "minutes": 5,
    "source": "swc-git",
    "url": "https://github.com/swcarpentry/git-novice/blob/78b9c02a074e6712b9b013ef6e8a568a56d8cf37/episodes/01-basics.md",
-   "toc": [
-    {
-     "id": "solution",
-     "text": "Solution",
-     "level": 2
-    }
-   ]
+   "toc": []
   },
   {
-   "id": "software_dev-12",
+   "id": "software_dev-16",
    "title": "Creating a Repository",
-   "words": 749,
+   "words": 748,
    "minutes": 4,
    "source": "swc-git",
    "url": "https://github.com/swcarpentry/git-novice/blob/78b9c02a074e6712b9b013ef6e8a568a56d8cf37/episodes/03-create.md",
-   "toc": [
-    {
-     "id": "solution",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "correcting-git-init-mistakes",
-     "text": "Correcting git init Mistakes",
-     "level": 2
-    },
-    {
-     "id": "solution-use-with-caution",
-     "text": "Solution -- USE WITH CAUTION!",
-     "level": 2
-    },
-    {
-     "id": "background",
-     "text": "Background",
-     "level": 3
-    },
-    {
-     "id": "solution-x",
-     "text": "Solution",
-     "level": 3
-    }
-   ]
+   "toc": []
   },
   {
-   "id": "software_dev-13",
+   "id": "software_dev-17",
    "title": "Tracking Changes",
-   "words": 2592,
+   "words": 2588,
    "minutes": 13,
    "source": "swc-git",
    "url": "https://github.com/swcarpentry/git-novice/blob/78b9c02a074e6712b9b013ef6e8a568a56d8cf37/episodes/04-changes.md",
-   "toc": [
-    {
-     "id": "solution",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x",
-     "text": "Solution",
-     "level": 2
-    }
-   ]
+   "toc": []
   },
   {
-   "id": "software_dev-14",
+   "id": "software_dev-18",
    "title": "Exploring History",
-   "words": 1763,
+   "words": 1759,
    "minutes": 9,
    "source": "swc-git",
    "url": "https://github.com/swcarpentry/git-novice/blob/78b9c02a074e6712b9b013ef6e8a568a56d8cf37/episodes/05-history.md",
-   "toc": [
-    {
-     "id": "solution",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x",
-     "text": "Solution",
-     "level": 2
-    }
-   ]
+   "toc": []
   },
   {
-   "id": "software_dev-15",
+   "id": "software_dev-19",
    "title": "Remotes in GitHub",
-   "words": 2792,
+   "words": 2788,
    "minutes": 14,
    "source": "swc-git",
    "url": "https://github.com/swcarpentry/git-novice/blob/78b9c02a074e6712b9b013ef6e8a568a56d8cf37/episodes/07-github.md",
    "toc": [
     {
-     "id": "1-create-a-remote-repository",
+     "id": "h-1-create-a-remote-repository",
      "text": "1. Create a remote repository",
      "level": 2
     },
     {
-     "id": "2-connect-local-to-remote-repository",
+     "id": "h-2-connect-local-to-remote-repository",
      "text": "2. Connect local to remote repository",
      "level": 2
     },
     {
-     "id": "3-ssh-background-and-setup",
+     "id": "h-3-ssh-background-and-setup",
      "text": "3. SSH Background and Setup",
      "level": 2
     },
     {
-     "id": "3-1-create-an-ssh-key-pair",
+     "id": "h-3-1-create-an-ssh-key-pair",
      "text": "3.1 Create an SSH key pair",
      "level": 3
     },
     {
-     "id": "3-2-copy-the-public-key-to-github",
+     "id": "h-3-2-copy-the-public-key-to-github",
      "text": "3.2 Copy the public key to GitHub",
      "level": 3
     },
     {
-     "id": "4-push-local-changes-to-a-remote",
+     "id": "h-4-push-local-changes-to-a-remote",
      "text": "4. Push local changes to a remote",
-     "level": 2
-    },
-    {
-     "id": "solution",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x-x-x",
-     "text": "Solution",
      "level": 2
     }
    ]
   },
   {
-   "id": "software_dev-16",
+   "id": "software_dev-20",
    "title": "Collaborating",
-   "words": 1126,
+   "words": 1125,
    "minutes": 6,
    "source": "swc-git",
    "url": "https://github.com/swcarpentry/git-novice/blob/78b9c02a074e6712b9b013ef6e8a568a56d8cf37/episodes/08-collab.md",
-   "toc": [
-    {
-     "id": "solution",
-     "text": "Solution",
-     "level": 2
-    }
-   ]
+   "toc": []
   },
   {
-   "id": "software_dev-17",
+   "id": "software_dev-21",
    "title": "Conflicts",
-   "words": 1450,
+   "words": 1448,
    "minutes": 8,
    "source": "swc-git",
    "url": "https://github.com/swcarpentry/git-novice/blob/78b9c02a074e6712b9b013ef6e8a568a56d8cf37/episodes/09-conflict.md",
-   "toc": [
-    {
-     "id": "solution",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "solution-x",
-     "text": "Solution",
-     "level": 2
-    }
-   ]
+   "toc": []
   }
  ],
  "quiz": {
@@ -1666,7 +1674,7 @@
     ],
     "answer": 1,
     "explain": "",
-    "lesson": "software_dev-01",
+    "lesson": "software_dev-03",
     "origin": "bank:web:2",
     "source": "ms-web"
    },
@@ -1679,7 +1687,7 @@
     ],
     "answer": 1,
     "explain": "",
-    "lesson": "software_dev-02",
+    "lesson": "software_dev-05",
     "origin": "bank:web:4",
     "source": "ms-web"
    },
@@ -1692,7 +1700,7 @@
     ],
     "answer": 2,
     "explain": "",
-    "lesson": "software_dev-03",
+    "lesson": "software_dev-07",
     "origin": "bank:web:6",
     "source": "ms-web"
    },
@@ -1705,7 +1713,7 @@
     ],
     "answer": 0,
     "explain": "",
-    "lesson": "software_dev-04",
+    "lesson": "software_dev-08",
     "origin": "bank:web:8",
     "source": "ms-web"
    },
@@ -1718,7 +1726,7 @@
     ],
     "answer": 1,
     "explain": "",
-    "lesson": "software_dev-05",
+    "lesson": "software_dev-09",
     "origin": "bank:web:10",
     "source": "ms-web"
    },
@@ -1731,7 +1739,7 @@
     ],
     "answer": 0,
     "explain": "",
-    "lesson": "software_dev-06",
+    "lesson": "software_dev-10",
     "origin": "bank:web:12",
     "source": "ms-web"
    },
@@ -1744,7 +1752,7 @@
     ],
     "answer": 2,
     "explain": "",
-    "lesson": "software_dev-07",
+    "lesson": "software_dev-11",
     "origin": "bank:web:14",
     "source": "ms-web"
    },
@@ -1757,7 +1765,7 @@
     ],
     "answer": 2,
     "explain": "",
-    "lesson": "software_dev-08",
+    "lesson": "software_dev-12",
     "origin": "bank:web:16",
     "source": "ms-web"
    },
@@ -1770,7 +1778,7 @@
     ],
     "answer": 2,
     "explain": "",
-    "lesson": "software_dev-09",
+    "lesson": "software_dev-13",
     "origin": "bank:web:18",
     "source": "ms-web"
    },
@@ -1783,7 +1791,7 @@
     ],
     "answer": 0,
     "explain": "",
-    "lesson": "software_dev-10",
+    "lesson": "software_dev-14",
     "origin": "bank:web:20",
     "source": "ms-web"
    }
@@ -1791,7 +1799,7 @@
   "pass_mark": 7,
   "missing": false
  },
- "minutes": 246,
+ "minutes": 248,
  "sources": [
   {
    "id": "ms-web",

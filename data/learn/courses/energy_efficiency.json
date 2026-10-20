@@ -31,53 +31,58 @@
    "lessons": [
     "energy_efficiency-07",
     "energy_efficiency-08",
-    "energy_efficiency-09"
+    "energy_efficiency-09",
+    "energy_efficiency-10",
+    "energy_efficiency-11",
+    "energy_efficiency-12",
+    "energy_efficiency-13",
+    "energy_efficiency-14"
    ]
   },
   {
    "title": "Saving energy in practice",
    "lessons": [
-    "energy_efficiency-10",
-    "energy_efficiency-11"
+    "energy_efficiency-15",
+    "energy_efficiency-16"
    ]
   }
  ],
  "lessons": [
   {
    "id": "energy_efficiency-01",
-   "title": "U.S. Energy Information Administration - EIA - Independent Statistics and Analysis",
+   "title": "Energy units and calculators",
    "words": 534,
    "minutes": 3,
    "source": "eia",
    "url": "https://www.eia.gov/energyexplained/units-and-calculators/",
    "toc": [
     {
-     "id": "understanding-energy-units",
+     "id": "h-understanding-energy-units",
      "text": "Understanding energy units",
      "level": 2
     },
     {
-     "id": "units-for-comparing-energy",
+     "id": "h-units-for-comparing-energy",
      "text": "Units for comparing energy",
      "level": 2
     },
     {
-     "id": "sample-btu-conversion-factors-1",
+     "id": "h-sample-btu-conversion-factors-1",
      "text": "Sample Btu conversion factors 1",
      "level": 2
     },
     {
-     "id": "examples-of-converting-energy-sources-in-different-physical-",
+     "id": "h-examples-of-converting-energy-sources-in-different-physical-",
      "text": "Examples of converting energy sources in different physical units to Btu",
      "level": 2
     },
     {
-     "id": "example-1",
+     "id": "h-example-1",
      "text": "Example 1:",
      "level": 3
     },
     {
-     "id": "example-2",
+     "id": "h-example-2",
      "text": "Example 2:",
      "level": 3
     }
@@ -85,29 +90,29 @@
   },
   {
    "id": "energy_efficiency-02",
-   "title": "U.S. Energy Information Administration - EIA - Independent Statistics and Analysis",
+   "title": "Energy efficiency and conservation",
    "words": 803,
    "minutes": 5,
    "source": "eia",
    "url": "https://www.eia.gov/energyexplained/use-of-energy/efficiency-and-conservation.php",
    "toc": [
     {
-     "id": "energy-efficiency-and-conservation",
+     "id": "h-energy-efficiency-and-conservation",
      "text": "Energy efficiency and conservation",
      "level": 2
     },
     {
-     "id": "utility-energy-efficiency-and-conservation-programs",
+     "id": "h-utility-energy-efficiency-and-conservation-programs",
      "text": "Utility energy efficiency and conservation programs",
      "level": 2
     },
     {
-     "id": "state-energy-efficiency-and-conservation-programs",
+     "id": "h-state-energy-efficiency-and-conservation-programs",
      "text": "State energy efficiency and conservation programs",
      "level": 2
     },
     {
-     "id": "federal-energy-efficiency-and-energy-conservation-programs",
+     "id": "h-federal-energy-efficiency-and-energy-conservation-programs",
      "text": "Federal energy efficiency and energy conservation programs",
      "level": 2
     }
@@ -115,19 +120,19 @@
   },
   {
    "id": "energy_efficiency-03",
-   "title": "U.S. Energy Information Administration - EIA - Independent Statistics and Analysis",
+   "title": "Electricity explained",
    "words": 312,
    "minutes": 3,
    "source": "eia",
    "url": "https://www.eia.gov/energyexplained/electricity/",
    "toc": [
     {
-     "id": "electricity-is-a-secondary-energy-source",
+     "id": "h-electricity-is-a-secondary-energy-source",
      "text": "Electricity is a secondary energy source",
      "level": 2
     },
     {
-     "id": "electricity-use-has-dramatically-changed-daily-life",
+     "id": "h-electricity-use-has-dramatically-changed-daily-life",
      "text": "Electricity use has dramatically changed daily life",
      "level": 2
     }
@@ -135,29 +140,29 @@
   },
   {
    "id": "energy_efficiency-04",
-   "title": "U.S. Energy Information Administration - EIA - Independent Statistics and Analysis",
+   "title": "Energy use in homes",
    "words": 754,
    "minutes": 4,
    "source": "eia",
    "url": "https://www.eia.gov/energyexplained/use-of-energy/homes.php",
    "toc": [
     {
-     "id": "more-than-half-of-energy-use-in-homes-is-for-heating-and-air",
+     "id": "h-more-than-half-of-energy-use-in-homes-is-for-heating-and-air",
      "text": "More than half of energy use in homes is for heating and air conditioning",
      "level": 2
     },
     {
-     "id": "many-factors-affect-the-amount-of-energy-a-household-uses",
+     "id": "h-many-factors-affect-the-amount-of-energy-a-household-uses",
      "text": "Many factors affect the amount of energy a household uses",
      "level": 2
     },
     {
-     "id": "electricity-and-natural-gas-are-the-most-used-energy-sources",
+     "id": "h-electricity-and-natural-gas-are-the-most-used-energy-sources",
      "text": "Electricity and natural gas are the most-used energy sources in homes",
      "level": 2
     },
     {
-     "id": "energy-use-per-household-has-declined",
+     "id": "h-energy-use-per-household-has-declined",
      "text": "Energy use per household has declined",
      "level": 2
     }
@@ -165,24 +170,24 @@
   },
   {
    "id": "energy_efficiency-05",
-   "title": "U.S. Energy Information Administration - EIA - Independent Statistics and Analysis",
+   "title": "Energy use in commercial buildings",
    "words": 570,
    "minutes": 3,
    "source": "eia",
    "url": "https://www.eia.gov/energyexplained/use-of-energy/commercial-buildings.php",
    "toc": [
     {
-     "id": "space-heating-is-the-largest-single-energy-end-use-in-u-s-co",
+     "id": "h-space-heating-is-the-largest-single-energy-end-use-in-u-s-co",
      "text": "Space heating is the largest single energy end use in U.S. commercial buildings",
      "level": 2
     },
     {
-     "id": "electricity-and-natural-gas-were-the-main-energy-sources-in-",
+     "id": "h-electricity-and-natural-gas-were-the-main-energy-sources-in-",
      "text": "Electricity and natural gas were the main energy sources in U.S. commercial buildings in 2018",
      "level": 2
     },
     {
-     "id": "commercial-buildings-in-the-u-s-south-census-region-have-the",
+     "id": "h-commercial-buildings-in-the-u-s-south-census-region-have-the",
      "text": "Commercial buildings in the U.S. South Census Region have the most floorspace and use the most energy than other regions",
      "level": 2
     }
@@ -190,24 +195,24 @@
   },
   {
    "id": "energy_efficiency-06",
-   "title": "U.S. Energy Information Administration - EIA - Independent Statistics and Analysis",
+   "title": "Energy use in industry",
    "words": 806,
    "minutes": 5,
    "source": "eia",
    "url": "https://www.eia.gov/energyexplained/use-of-energy/industry.php",
    "toc": [
     {
-     "id": "energy-sources-used-in-the-industry-sector",
+     "id": "h-energy-sources-used-in-the-industry-sector",
      "text": "Energy sources used in the industry sector",
      "level": 2
     },
     {
-     "id": "energy-use-by-type-of-industry",
+     "id": "h-energy-use-by-type-of-industry",
      "text": "Energy use by type of industry",
      "level": 2
     },
     {
-     "id": "manufacturing-energy-consumption",
+     "id": "h-manufacturing-energy-consumption",
      "text": "Manufacturing energy consumption",
      "level": 2
     }
@@ -222,72 +227,72 @@
    "url": "https://www.gov.uk/guidance/energy-savings-opportunity-scheme-esos",
    "toc": [
     {
-     "id": "esos-latest-updates",
+     "id": "h-esos-latest-updates",
      "text": "ESOS latest updates",
      "level": 2
     },
     {
-     "id": "phase-4-changes",
+     "id": "h-phase-4-changes",
      "text": "Phase 4 changes",
      "level": 3
     },
     {
-     "id": "net-zero-assessments",
+     "id": "h-net-zero-assessments",
      "text": "Net zero assessments",
      "level": 3
     },
     {
-     "id": "reminder-phase-3-requirements",
+     "id": "h-reminder-phase-3-requirements",
      "text": "Reminder: Phase 3 requirements",
      "level": 3
     },
     {
-     "id": "find-out-if-you-qualify-for-esos-phase-4",
+     "id": "h-find-out-if-you-qualify-for-esos-phase-4",
      "text": "Find out if you qualify for ESOS phase 4",
      "level": 2
     },
     {
-     "id": "large-undertakings",
+     "id": "h-large-undertakings",
      "text": "Large undertakings",
      "level": 3
     },
     {
-     "id": "if-you-do-not-qualify-for-esos-phase-4",
+     "id": "h-if-you-do-not-qualify-for-esos-phase-4",
      "text": "If you do not qualify for ESOS phase 4",
      "level": 3
     },
     {
-     "id": "esos-regulation-and-penalties",
+     "id": "h-esos-regulation-and-penalties",
      "text": "ESOS regulation and penalties",
      "level": 2
     },
     {
-     "id": "complete-an-esos-assessment",
+     "id": "h-complete-an-esos-assessment",
      "text": "Complete an ESOS assessment",
      "level": 2
     },
     {
-     "id": "summary-of-the-steps-required-to-complete-an-esos-assessment",
+     "id": "h-summary-of-the-steps-required-to-complete-an-esos-assessment",
      "text": "Summary of the steps required to complete an ESOS assessment",
      "level": 3
     },
     {
-     "id": "approved-registers-for-esos-lead-assessors",
+     "id": "h-approved-registers-for-esos-lead-assessors",
      "text": "Approved registers for ESOS lead assessors",
      "level": 2
     },
     {
-     "id": "published-data",
+     "id": "h-published-data",
      "text": "Published data",
      "level": 2
     },
     {
-     "id": "uk-regulators",
+     "id": "h-uk-regulators",
      "text": "UK regulators",
      "level": 2
     },
     {
-     "id": "contact-details",
+     "id": "h-contact-details",
      "text": "Contact details",
      "level": 2
     }
@@ -295,326 +300,346 @@
   },
   {
    "id": "energy_efficiency-08",
-   "title": "How to comply with the Energy Savings Opportunity Scheme (ESOS) phase 4",
-   "words": 32701,
-   "minutes": 164,
+   "title": "Steps in an energy assessment",
+   "words": 3064,
+   "minutes": 16,
    "source": "govuk",
    "url": "https://www.gov.uk/government/publications/comply-with-the-energy-savings-opportunity-scheme-esos-phase-4/how-to-comply-with-the-energy-savings-opportunity-scheme-esos-phase-4",
    "toc": [
     {
-     "id": "about-this-guidance",
-     "text": "About this guidance",
-     "level": 2
-    },
-    {
-     "id": "stages-required-for-completion-of-esos",
-     "text": "Stages required for completion of ESOS",
-     "level": 2
-    },
-    {
-     "id": "1-what-esos-is-and-who-it-applies-to",
-     "text": "1. What ESOS is and who it applies to",
-     "level": 2
-    },
-    {
-     "id": "1-1-who-qualifies-for-esos",
-     "text": "1.1 Who qualifies for ESOS",
-     "level": 3
-    },
-    {
-     "id": "1-2-who-does-not-qualify-for-esos",
-     "text": "1.2 Who does not qualify for ESOS",
-     "level": 3
-    },
-    {
-     "id": "1-3-calculating-whether-you-meet-the-qualification-threshold",
-     "text": "1.3 Calculating whether you meet the qualification thresholds",
-     "level": 3
-    },
-    {
-     "id": "1-4-definition-of-an-employee",
-     "text": "1.4 Definition of an employee",
-     "level": 3
-    },
-    {
-     "id": "1-5-meeting-the-financial-conditions",
-     "text": "1.5 Meeting the financial conditions",
-     "level": 3
-    },
-    {
-     "id": "1-6-organisations-which-are-very-close-to-the-qualification-",
-     "text": "1.6 Organisations which are very close to the qualification thresholds or have recently shrunk or grown",
-     "level": 3
-    },
-    {
-     "id": "2-corporate-groupings-for-qualification-and-participation",
-     "text": "2. Corporate groupings for qualification and participation",
-     "level": 2
-    },
-    {
-     "id": "2-1-examples-of-how-to-identify-the-corporate-groupings-for-",
-     "text": "2.1 Examples of how to identify the corporate groupings for qualification",
-     "level": 3
-    },
-    {
-     "id": "2-2-joint-ventures",
-     "text": "2.2 Joint ventures",
-     "level": 3
-    },
-    {
-     "id": "2-3-franchises",
-     "text": "2.3 Franchises",
-     "level": 3
-    },
-    {
-     "id": "2-4-trusts",
-     "text": "2.4 Trusts",
-     "level": 3
-    },
-    {
-     "id": "2-5-private-equity-firms-and-private-finance-initiatives-pfi",
-     "text": "2.5 Private equity firms and private finance initiatives ( PFI )",
-     "level": 3
-    },
-    {
-     "id": "2-6-disaggregation-of-undertakings-from-the-highest-uk-paren",
-     "text": "2.6 Disaggregation of undertakings from the highest UK parent group",
-     "level": 3
-    },
-    {
-     "id": "2-7-aggregation-of-highest-uk-parent-groups",
-     "text": "2.7 Aggregation of highest UK parent groups",
-     "level": 3
-    },
-    {
-     "id": "2-8-changes-to-groups-of-undertakings",
-     "text": "2.8 Changes to groups of undertakings",
-     "level": 3
-    },
-    {
-     "id": "3-deadlines",
-     "text": "3. Deadlines",
-     "level": 2
-    },
-    {
-     "id": "3-1-compliance-periods-and-compliance-dates",
-     "text": "3.1 Compliance periods and compliance dates",
-     "level": 3
-    },
-    {
-     "id": "3-2-organisational-status-changes-after-the-qualification-da",
-     "text": "3.2 Organisational status changes after the qualification date",
-     "level": 3
-    },
-    {
-     "id": "4-steps-for-carrying-out-an-esos-assessment",
+     "id": "h-4-steps-for-carrying-out-an-esos-assessment",
      "text": "4. Steps for carrying out an ESOS assessment",
      "level": 2
     },
     {
-     "id": "4-1-measuring-your-total-energy-consumption",
+     "id": "h-4-1-measuring-your-total-energy-consumption",
      "text": "4.1 Measuring your total energy consumption",
      "level": 3
     },
     {
-     "id": "4-2-how-energy-is-defined",
+     "id": "h-4-2-how-energy-is-defined",
      "text": "4.2 How energy is defined",
      "level": 3
     },
     {
-     "id": "4-3-what-energy-supplies-to-include-in-your-total-energy-con",
+     "id": "h-4-3-what-energy-supplies-to-include-in-your-total-energy-con",
      "text": "4.3 What energy supplies to include in your total energy consumption calculation",
      "level": 3
     },
     {
-     "id": "4-4-reference-period",
+     "id": "h-4-4-reference-period",
      "text": "4.4 Reference period",
      "level": 3
     },
     {
-     "id": "4-5-using-verifiable-data",
+     "id": "h-4-5-using-verifiable-data",
      "text": "4.5 Using verifiable data",
      "level": 3
     },
     {
-     "id": "4-6-how-to-estimate",
+     "id": "h-4-6-how-to-estimate",
      "text": "4.6 How to estimate",
      "level": 3
     },
     {
-     "id": "4-7-zero-energy-supplies",
+     "id": "h-4-7-zero-energy-supplies",
      "text": "4.7 Zero energy supplies",
      "level": 3
-    },
-    {
-     "id": "5-identifying-areas-of-significant-energy-consumption",
-     "text": "5. Identifying areas of significant energy consumption",
-     "level": 2
     }
    ]
   },
   {
    "id": "energy_efficiency-09",
-   "title": "Appendix C: Advice for complying with ESOS",
-   "words": 7254,
-   "minutes": 37,
+   "title": "Finding significant energy consumption",
+   "words": 2316,
+   "minutes": 12,
    "source": "govuk",
-   "url": "https://www.gov.uk/government/publications/comply-with-the-energy-savings-opportunity-scheme-esos-phase-4/appendix-c-advice-for-complying-with-esos",
+   "url": "https://www.gov.uk/government/publications/comply-with-the-energy-savings-opportunity-scheme-esos-phase-4/how-to-comply-with-the-energy-savings-opportunity-scheme-esos-phase-4",
    "toc": [
     {
-     "id": "c1-introduction",
-     "text": "C1. Introduction",
+     "id": "h-5-identifying-areas-of-significant-energy-consumption",
+     "text": "5. Identifying areas of significant energy consumption",
      "level": 2
     },
     {
-     "id": "c2-identifying-areas-of-significant-energy-consumption",
-     "text": "C2. Identifying areas of significant energy consumption",
+     "id": "h-6-calculating-energy-intensity-ratios",
+     "text": "6. Calculating energy intensity ratios",
      "level": 2
     },
     {
-     "id": "c2-1-worked-example-of-identifying-areas-of-significant-ener",
-     "text": "C2.1 Worked example of identifying areas of significant energy consumption",
-     "level": 3
-    },
-    {
-     "id": "c3-choosing-compliance-routes",
-     "text": "C3. Choosing compliance routes",
+     "id": "h-6-1-calculating-your-total-and-significant-energy-consumptio",
+     "text": "6.1 Calculating your total and significant energy consumption in kWh",
      "level": 2
     },
     {
-     "id": "esos-energy-audits",
-     "text": "ESOS energy audits",
-     "level": 3
-    },
-    {
-     "id": "iso-50001",
-     "text": "ISO 50001",
-     "level": 3
-    },
-    {
-     "id": "c3-1-additional-information-on-iso-50001",
-     "text": "C3.1 Additional information on ISO 50001",
-     "level": 3
-    },
-    {
-     "id": "c4-additional-guidance-on-conducting-energy-audits",
-     "text": "C4. Additional guidance on conducting energy audits",
+     "id": "h-6-2-calculating-energy-subtotals-for-buildings-transport-ind",
+     "text": "6.2 Calculating energy subtotals for buildings, transport, industrial processes and other energy uses",
      "level": 2
     },
     {
-     "id": "c4-1-benefits-of-energy-audits",
-     "text": "C4.1 Benefits of energy audits",
-     "level": 3
-    },
-    {
-     "id": "c4-2-measuring-energy-consumption",
-     "text": "C4.2 Measuring energy consumption",
-     "level": 3
-    },
-    {
-     "id": "c4-3-validating-data",
-     "text": "C4.3 Validating data",
-     "level": 3
-    },
-    {
-     "id": "c4-4-choosing-an-auditing-methodology",
-     "text": "C4.4 Choosing an auditing methodology",
-     "level": 3
-    },
-    {
-     "id": "c4-5-using-voluntary-energy-management-and-energy-auditing-s",
-     "text": "C4.5 Using voluntary energy management and energy auditing schemes to support ESOS compliance",
-     "level": 3
-    },
-    {
-     "id": "c4-6-how-to-make-an-energy-audit-timetable",
-     "text": "C4.6 How to make an energy audit timetable",
-     "level": 3
-    },
-    {
-     "id": "c5-how-to-find-energy-saving-opportunities",
-     "text": "C5. How to find energy saving opportunities",
+     "id": "h-6-3-using-estimates-when-calculating-energy-subtotals",
+     "text": "6.3 Using estimates when calculating energy subtotals",
      "level": 2
     },
     {
-     "id": "c5-1-examine-your-data",
-     "text": "C5.1 Examine your data",
-     "level": 3
-    },
-    {
-     "id": "c5-2-engage-with-your-energy-users",
-     "text": "C5.2 Engage with your energy users",
-     "level": 3
-    },
-    {
-     "id": "c5-3-examples-of-common-energy-saving-opportunities",
-     "text": "C5.3 Examples of common energy saving opportunities",
-     "level": 3
-    },
-    {
-     "id": "c6-measuring-the-benefits-of-energy-saving-opportunities",
-     "text": "C6. Measuring the benefits of energy saving opportunities",
-     "level": 2
-    },
-    {
-     "id": "c6-1-using-a-life-cycle-cost-analysis-lcca-or-simple-payback",
-     "text": "C6.1 Using a life-cycle cost analysis ( LCCA ) or simple payback period ( SPP )",
-     "level": 3
-    },
-    {
-     "id": "c6-2-advantages-and-disadvantages-of-lccas",
-     "text": "C6.2 Advantages and disadvantages of LCCAs",
-     "level": 3
-    },
-    {
-     "id": "c6-3-example-lcca",
-     "text": "C6.3 Example LCCA",
-     "level": 3
-    },
-    {
-     "id": "c6-4-advantages-and-disadvantages-of-spps",
-     "text": "C6.4 Advantages and disadvantages of SPPs",
-     "level": 3
-    },
-    {
-     "id": "c7-implementing-energy-efficiency-opportunities",
-     "text": "C7. Implementing energy efficiency opportunities",
-     "level": 2
-    },
-    {
-     "id": "c7-1-board-level-engagement",
-     "text": "C7.1 Board level engagement",
-     "level": 3
-    },
-    {
-     "id": "c7-2-presenting-findings-and-recommendations-effectively",
-     "text": "C7.2 Presenting findings and recommendations effectively",
-     "level": 3
-    },
-    {
-     "id": "c7-3-overcoming-potential-barriers-to-implementation",
-     "text": "C7.3 Overcoming potential barriers to implementation",
-     "level": 3
-    },
-    {
-     "id": "c7-4-government-support-for-implementing-energy-saving-oppor",
-     "text": "C7.4 Government support for implementing energy saving opportunities",
-     "level": 3
-    },
-    {
-     "id": "c7-5-energy-performance-contracting",
-     "text": "C7.5 Energy performance contracting",
-     "level": 3
-    },
-    {
-     "id": "c8-recording-energy-usage-in-freight-transport",
-     "text": "C8. Recording energy usage in freight transport",
+     "id": "h-6-4-which-energy-intensity-ratios-to-calculate",
+     "text": "6.4 Which energy intensity ratios to calculate",
      "level": 2
     }
    ]
   },
   {
    "id": "energy_efficiency-10",
+   "title": "Calculating energy intensity ratios",
+   "words": 3445,
+   "minutes": 18,
+   "source": "govuk",
+   "url": "https://www.gov.uk/government/publications/comply-with-the-energy-savings-opportunity-scheme-esos-phase-4/how-to-comply-with-the-energy-savings-opportunity-scheme-esos-phase-4",
+   "toc": [
+    {
+     "id": "h-6-5-how-to-calculate-energy-intensity-ratios",
+     "text": "6.5 How to calculate energy intensity ratios",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "energy_efficiency-11",
+   "title": "Carrying out an energy audit",
+   "words": 3532,
+   "minutes": 18,
+   "source": "govuk",
+   "url": "https://www.gov.uk/government/publications/comply-with-the-energy-savings-opportunity-scheme-esos-phase-4/how-to-comply-with-the-energy-savings-opportunity-scheme-esos-phase-4",
+   "toc": [
+    {
+     "id": "h-6-6-estimates-for-indicators-of-activity",
+     "text": "6.6 Estimates for indicators of activity",
+     "level": 2
+    },
+    {
+     "id": "h-8-carrying-out-an-esos-energy-audit",
+     "text": "8. Carrying out an ESOS energy audit",
+     "level": 2
+    },
+    {
+     "id": "h-8-1-auditing-areas-of-significant-energy-consumption-or-tota",
+     "text": "8.1 Auditing areas of significant energy consumption or total energy consumption",
+     "level": 3
+    },
+    {
+     "id": "h-8-2-minimum-energy-audit-requirements",
+     "text": "8.2 Minimum energy audit requirements",
+     "level": 3
+    },
+    {
+     "id": "h-8-3-energy-consumption-data",
+     "text": "8.3 Energy consumption data",
+     "level": 3
+    },
+    {
+     "id": "h-8-4-site-visits",
+     "text": "8.4 Site visits",
+     "level": 3
+    },
+    {
+     "id": "h-8-5-analysis-of-energy-consumption-and-energy-consumption-pr",
+     "text": "8.5 Analysis of energy consumption and energy consumption profiles",
+     "level": 3
+    },
+    {
+     "id": "h-8-6-identifying-energy-saving-opportunities",
+     "text": "8.6 Identifying energy saving opportunities",
+     "level": 3
+    },
+    {
+     "id": "h-8-7-categorising-energy-savings-opportunities",
+     "text": "8.7 Categorising energy savings opportunities",
+     "level": 3
+    },
+    {
+     "id": "h-8-8-identifying-costs-and-benefits",
+     "text": "8.8 Identifying costs and benefits",
+     "level": 3
+    },
+    {
+     "id": "h-8-9-information-relevant-to-implementing-energy-savings-oppo",
+     "text": "8.9 Information relevant to implementing energy savings opportunities",
+     "level": 3
+    },
+    {
+     "id": "h-8-10-recommending-a-programme-for-implementation",
+     "text": "8.10 Recommending a programme for implementation",
+     "level": 3
+    },
+    {
+     "id": "h-8-11-iso-14001-2015",
+     "text": "8.11 ISO 14001 :2015",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "energy_efficiency-12",
+   "title": "Writing the energy action plan",
+   "words": 3460,
+   "minutes": 18,
+   "source": "govuk",
+   "url": "https://www.gov.uk/government/publications/comply-with-the-energy-savings-opportunity-scheme-esos-phase-4/how-to-comply-with-the-energy-savings-opportunity-scheme-esos-phase-4",
+   "toc": [
+    {
+     "id": "h-13-esos-action-plan",
+     "text": "13. ESOS action plan",
+     "level": 2
+    },
+    {
+     "id": "h-13-1-action-plan-and-annual-progress-update-timings",
+     "text": "13.1 Action plan and annual progress update timings",
+     "level": 3
+    },
+    {
+     "id": "h-13-2-who-needs-to-submit-an-action-plan",
+     "text": "13.2 Who needs to submit an action plan",
+     "level": 3
+    },
+    {
+     "id": "h-13-3-completing-the-action-plan",
+     "text": "13.3 Completing the action plan",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "energy_efficiency-13",
+   "title": "Conducting energy audits in practice",
+   "words": 2260,
+   "minutes": 12,
+   "source": "govuk",
+   "url": "https://www.gov.uk/government/publications/comply-with-the-energy-savings-opportunity-scheme-esos-phase-4/appendix-c-advice-for-complying-with-esos",
+   "toc": [
+    {
+     "id": "h-c4-additional-guidance-on-conducting-energy-audits",
+     "text": "C4. Additional guidance on conducting energy audits",
+     "level": 2
+    },
+    {
+     "id": "h-c4-1-benefits-of-energy-audits",
+     "text": "C4.1 Benefits of energy audits",
+     "level": 3
+    },
+    {
+     "id": "h-c4-2-measuring-energy-consumption",
+     "text": "C4.2 Measuring energy consumption",
+     "level": 3
+    },
+    {
+     "id": "h-c4-3-validating-data",
+     "text": "C4.3 Validating data",
+     "level": 3
+    },
+    {
+     "id": "h-c4-4-choosing-an-auditing-methodology",
+     "text": "C4.4 Choosing an auditing methodology",
+     "level": 3
+    },
+    {
+     "id": "h-c4-5-using-voluntary-energy-management-and-energy-auditing-s",
+     "text": "C4.5 Using voluntary energy management and energy auditing schemes to support ESOS compliance",
+     "level": 3
+    },
+    {
+     "id": "h-c4-6-how-to-make-an-energy-audit-timetable",
+     "text": "C4.6 How to make an energy audit timetable",
+     "level": 3
+    },
+    {
+     "id": "h-c5-how-to-find-energy-saving-opportunities",
+     "text": "C5. How to find energy saving opportunities",
+     "level": 2
+    },
+    {
+     "id": "h-c5-1-examine-your-data",
+     "text": "C5.1 Examine your data",
+     "level": 3
+    },
+    {
+     "id": "h-c5-2-engage-with-your-energy-users",
+     "text": "C5.2 Engage with your energy users",
+     "level": 3
+    },
+    {
+     "id": "h-c5-3-examples-of-common-energy-saving-opportunities",
+     "text": "C5.3 Examples of common energy saving opportunities",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "energy_efficiency-14",
+   "title": "Finding and valuing energy saving opportunities",
+   "words": 2043,
+   "minutes": 11,
+   "source": "govuk",
+   "url": "https://www.gov.uk/government/publications/comply-with-the-energy-savings-opportunity-scheme-esos-phase-4/appendix-c-advice-for-complying-with-esos",
+   "toc": [
+    {
+     "id": "h-c6-measuring-the-benefits-of-energy-saving-opportunities",
+     "text": "C6. Measuring the benefits of energy saving opportunities",
+     "level": 2
+    },
+    {
+     "id": "h-c6-1-using-a-life-cycle-cost-analysis-lcca-or-simple-payback",
+     "text": "C6.1 Using a life-cycle cost analysis ( LCCA ) or simple payback period ( SPP )",
+     "level": 3
+    },
+    {
+     "id": "h-c6-2-advantages-and-disadvantages-of-lccas",
+     "text": "C6.2 Advantages and disadvantages of LCCAs",
+     "level": 3
+    },
+    {
+     "id": "h-c6-3-example-lcca",
+     "text": "C6.3 Example LCCA",
+     "level": 3
+    },
+    {
+     "id": "h-c6-4-advantages-and-disadvantages-of-spps",
+     "text": "C6.4 Advantages and disadvantages of SPPs",
+     "level": 3
+    },
+    {
+     "id": "h-c7-implementing-energy-efficiency-opportunities",
+     "text": "C7. Implementing energy efficiency opportunities",
+     "level": 2
+    },
+    {
+     "id": "h-c7-1-board-level-engagement",
+     "text": "C7.1 Board level engagement",
+     "level": 3
+    },
+    {
+     "id": "h-c7-2-presenting-findings-and-recommendations-effectively",
+     "text": "C7.2 Presenting findings and recommendations effectively",
+     "level": 3
+    },
+    {
+     "id": "h-c7-3-overcoming-potential-barriers-to-implementation",
+     "text": "C7.3 Overcoming potential barriers to implementation",
+     "level": 3
+    },
+    {
+     "id": "h-c7-4-government-support-for-implementing-energy-saving-oppor",
+     "text": "C7.4 Government support for implementing energy saving opportunities",
+     "level": 3
+    },
+    {
+     "id": "h-c7-5-energy-performance-contracting",
+     "text": "C7.5 Energy performance contracting",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "energy_efficiency-15",
    "title": "Make your technology sustainable",
    "words": 1076,
    "minutes": 6,
@@ -622,39 +647,39 @@
    "url": "https://www.gov.uk/guidance/make-your-technology-sustainable",
    "toc": [
     {
-     "id": "consider-sustainability-from-the-start-of-your-project",
+     "id": "h-consider-sustainability-from-the-start-of-your-project",
      "text": "Consider sustainability from the start of your project",
      "level": 2
     },
     {
-     "id": "government-s-sustainability-objectives",
+     "id": "h-government-s-sustainability-objectives",
      "text": "Government’s sustainability objectives",
      "level": 2
     },
     {
-     "id": "reducing-greenhouse-gas-emissions",
+     "id": "h-reducing-greenhouse-gas-emissions",
      "text": "Reducing greenhouse gas emissions",
      "level": 3
     },
     {
-     "id": "improve-your-management-of-resources-and-waste",
+     "id": "h-improve-your-management-of-resources-and-waste",
      "text": "Improve your management of resources and waste",
      "level": 3
     },
     {
-     "id": "procuring-sustainable-technology-and-digital-services",
+     "id": "h-procuring-sustainable-technology-and-digital-services",
      "text": "Procuring sustainable technology and digital services",
      "level": 3
     },
     {
-     "id": "related-guides",
+     "id": "h-related-guides",
      "text": "Related guides",
      "level": 2
     }
    ]
   },
   {
-   "id": "energy_efficiency-11",
+   "id": "energy_efficiency-16",
    "title": "Non-domestic private rented property: minimum energy efficiency standard - landlord guidance",
    "words": 2738,
    "minutes": 14,
@@ -662,67 +687,67 @@
    "url": "https://www.gov.uk/guidance/non-domestic-private-rented-property-minimum-energy-efficiency-standard-landlord-guidance",
    "toc": [
     {
-     "id": "1-when-you-need-to-take-action-to-improve-your-property-to-e",
+     "id": "h-1-when-you-need-to-take-action-to-improve-your-property-to-e",
      "text": "1. When you need to take action to improve your property to EPC E",
      "level": 2
     },
     {
-     "id": "2-find-out-if-your-property-is-covered-by-the-regulations",
+     "id": "h-2-find-out-if-your-property-is-covered-by-the-regulations",
      "text": "2. Find out if your property is covered by the Regulations",
      "level": 2
     },
     {
-     "id": "3-cost-effective-energy-efficiency-measures",
+     "id": "h-3-cost-effective-energy-efficiency-measures",
      "text": "3. Cost effective energy efficiency measures",
      "level": 2
     },
     {
-     "id": "4-registering-an-exemption",
+     "id": "h-4-registering-an-exemption",
      "text": "4. Registering an exemption",
      "level": 2
     },
     {
-     "id": "exemptions-and-their-requirements",
+     "id": "h-exemptions-and-their-requirements",
      "text": "Exemptions and their requirements",
      "level": 3
     },
     {
-     "id": "how-to-register-an-exemption",
+     "id": "h-how-to-register-an-exemption",
      "text": "How to register an exemption",
      "level": 3
     },
     {
-     "id": "assisted-digital-support-to-register-an-exemption",
+     "id": "h-assisted-digital-support-to-register-an-exemption",
      "text": "Assisted Digital support to register an exemption",
      "level": 3
     },
     {
-     "id": "the-exemptions-register",
+     "id": "h-the-exemptions-register",
      "text": "The exemptions register",
      "level": 3
     },
     {
-     "id": "5-enforcement",
+     "id": "h-5-enforcement",
      "text": "5. Enforcement",
      "level": 2
     },
     {
-     "id": "non-compliance-with-the-regulations",
+     "id": "h-non-compliance-with-the-regulations",
      "text": "Non-compliance with the Regulations",
      "level": 3
     },
     {
-     "id": "compliance-notices",
+     "id": "h-compliance-notices",
      "text": "Compliance notices",
      "level": 3
     },
     {
-     "id": "6-more-detail",
+     "id": "h-6-more-detail",
      "text": "6. More detail",
      "level": 2
     },
     {
-     "id": "7-related-content",
+     "id": "h-7-related-content",
      "text": "7. Related content",
      "level": 2
     }
@@ -730,11 +755,180 @@
   }
  ],
  "quiz": {
-  "questions": [],
-  "pass_mark": 0,
-  "missing": true
+  "questions": [
+   {
+    "q": "In the United States, which is the most common unit for comparing energy sources or fuels?",
+    "options": [
+     "Kilowatthour",
+     "British thermal unit (Btu)",
+     "Barrel",
+     "Short ton"
+    ],
+    "answer": 1,
+    "explain": "Converting fuels to a common unit lets you compare them directly.",
+    "lesson": "energy_efficiency-01",
+    "evidence": "In the United States, Btu is the most common unit for comparing energy sources or fuels.",
+    "origin": "authored"
+   },
+   {
+    "q": "Which of these is energy conservation rather than energy efficiency?",
+    "options": [
+     "Installing energy-efficient lights",
+     "Buying a more efficient boiler",
+     "Insulating a building",
+     "Turning lights off when they are not needed"
+    ],
+    "answer": 3,
+    "explain": "Efficiency does the same job with less energy; conservation avoids using energy at all.",
+    "lesson": "energy_efficiency-02",
+    "evidence": "installing energy-efficient lights is an efficiency measure, and turning lights off when not needed, either manually or with timers or motion sensor switches, is conservation.",
+    "origin": "authored"
+   },
+   {
+    "q": "Why is electricity called a secondary energy source?",
+    "options": [
+     "It is produced by converting primary sources such as coal, gas, nuclear, solar and wind",
+     "It is less important than oil",
+     "It is always produced second, after heat",
+     "It can only be stored in batteries"
+    ],
+    "answer": 0,
+    "explain": "The losses of that conversion are part of why saving electricity matters.",
+    "lesson": "energy_efficiency-03",
+    "evidence": "The electricity we use is a secondary energy source because it is produced by converting primary sources of energy such as coal, natural gas, nuclear energy, solar energy, and wind energy into electrical power.",
+    "origin": "authored"
+   },
+   {
+    "q": "Which home energy uses continue all year round?",
+    "options": [
+     "Space heating and air conditioning",
+     "Swimming-pool heating only",
+     "Water heating, lighting and refrigeration",
+     "Garden lighting only"
+    ],
+    "answer": 2,
+    "explain": "Heating and cooling are seasonal; these uses are constant.",
+    "lesson": "energy_efficiency-04",
+    "evidence": "Water heating, lighting, and refrigeration are year-round home energy uses.",
+    "origin": "authored"
+   },
+   {
+    "q": "What is manufacturing, as an energy-using industrial activity?",
+    "options": [
+     "Extracting coal, oil and gas",
+     "The physical, mechanical or chemical transformation of materials into new products",
+     "Growing crops",
+     "Building roads and houses"
+    ],
+    "answer": 1,
+    "explain": "Industry also includes agriculture, mining and construction.",
+    "lesson": "energy_efficiency-06",
+    "evidence": "Manufacturing is the physical, mechanical, or chemical transformation of materials or substances into new products.",
+    "origin": "authored"
+   },
+   {
+    "q": "What is the UK Energy Savings Opportunity Scheme (ESOS)?",
+    "options": [
+     "A grant for home insulation",
+     "A voluntary green label for products",
+     "A tax on electricity bills",
+     "A mandatory energy assessment scheme for UK organisations that meet the qualification criteria"
+    ],
+    "answer": 3,
+    "explain": "Qualifying organisations must assess their energy use and report opportunities.",
+    "lesson": "energy_efficiency-07",
+    "evidence": "is a mandatory energy assessment scheme for organisations in the UK that meet the qualification criteria.",
+    "origin": "authored"
+   },
+   {
+    "q": "What is an ESOS assessment designed to identify?",
+    "options": [
+     "Tailored, cost-effective measures to save energy and achieve carbon and cost savings",
+     "Which staff use the most electricity",
+     "The cheapest energy supplier",
+     "Buildings to sell"
+    ],
+    "answer": 0,
+    "explain": "The audit points to savings that make business sense.",
+    "lesson": "energy_efficiency-07",
+    "evidence": "The ESOS assessment is designed to identify tailored and cost-effective measures that allow participating businesses to save energy and achieve carbon and cost savings.",
+    "origin": "authored"
+   },
+   {
+    "q": "What is 'de minimis' energy consumption under ESOS?",
+    "options": [
+     "Energy used outside working hours",
+     "Energy from renewable sources",
+     "The maximum 5% of total energy consumption that may be excluded from audits",
+     "The smallest site in the organisation"
+    ],
+    "answer": 2,
+    "explain": "At least 95% of energy use must be covered by audits or another compliance route.",
+    "lesson": "energy_efficiency-09",
+    "evidence": "The maximum 5% of total energy consumption that may be excluded from any audit or alternative compliance measures is known as your ‘de minimis’ energy consumption.",
+    "origin": "authored"
+   },
+   {
+    "q": "How must an energy intensity ratio be expressed?",
+    "options": [
+     "As a percentage of the energy bill",
+     "In kWh per unit of an activity indicator, for example kWh/m² of floor area",
+     "In pounds per employee",
+     "As the number of energy audits per year"
+    ],
+    "answer": 1,
+    "explain": "Ratios let you compare energy use as an organisation grows or shrinks.",
+    "lesson": "energy_efficiency-10",
+    "evidence": "The units for any energy intensity ratio must be expressed in kWh /x",
+    "origin": "authored"
+   },
+   {
+    "q": "If verifiable data for an indicator is not available, what should you do?",
+    "options": [
+     "Leave the indicator out of the audit",
+     "Copy last year's figure without explanation",
+     "Ask the regulator for an exemption",
+     "Use a reasonable estimate and record the estimation method in your evidence pack"
+    ],
+    "answer": 3,
+    "explain": "Methods include direct comparison, pro-rata extrapolation and benchmarking.",
+    "lesson": "energy_efficiency-11",
+    "evidence": "If verifiable data is not available, you should use a reasonable estimate and keep a record of the method used to estimate the indicator in your evidence pack.",
+    "origin": "authored"
+   },
+   {
+    "q": "If energy data is not in your accounting system, what does the guidance suggest?",
+    "options": [
+     "Nominate a person to record energy use and costs",
+     "Stop monitoring energy until the system is upgraded",
+     "Estimate everything at year end",
+     "Rely on the supplier's marketing data"
+    ],
+    "answer": 0,
+    "explain": "Reliable monitoring is the foundation of any energy audit.",
+    "lesson": "energy_efficiency-13",
+    "evidence": "If the data is not included in your accounting system, nominate a person to record energy use and costs.",
+    "origin": "authored"
+   },
+   {
+    "q": "What should investment, equipment replacement and maintenance decisions consider?",
+    "options": [
+     "Only the purchase price",
+     "Only the energy saved in the first month",
+     "The full cost to the organisation",
+     "Whatever the supplier recommends"
+    ],
+    "answer": 2,
+    "explain": "Life-cycle cost analysis compares options over their whole working life.",
+    "lesson": "energy_efficiency-14",
+    "evidence": "It is helpful to ensure that investment decisions and equipment replacement or maintenance decisions consider the full cost to the organisation.",
+    "origin": "authored"
+   }
+  ],
+  "pass_mark": 9,
+  "missing": false
  },
- "minutes": 257,
+ "minutes": 161,
  "sources": [
   {
    "id": "eia",

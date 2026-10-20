@@ -351,12 +351,10 @@ are averaging it. Aggregation functions will be addressed in more
 detail in <a href="https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/episodes/06-agg.md" target="_blank" rel="noopener noreferrer">the next section</a>.</p>
 <div class="box box-challenge">
 <p class="box-title">Sorting by Known Date</p>
-
 <p>Write a query that sorts the records in <code>Visited</code> by date,
 omitting entries for which the date is not known
 (i.e., is null).</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <pre><code class="language-sql">SELECT * FROM Visited WHERE dated IS NOT NULL ORDER BY dated ASC;
 </code></pre>
 <div class="table-wrap"><table>
@@ -409,13 +407,11 @@ omitting entries for which the date is not known
 </div>
 <div class="box box-challenge">
 <p class="box-title">NULL in a Set</p>
-
 <p>What do you expect the following query to produce?</p>
 <pre><code class="language-sql">SELECT * FROM Visited WHERE dated IN ('1927-02-08', NULL);
 </code></pre>
 <p>What does it actually produce?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <p>You might expect the above query to return rows where dated is either '1927-02-08' or NULL.
 Instead it only returns rows where dated is '1927-02-08', the same as you would get from this
 simpler query:</p>
@@ -430,7 +426,6 @@ not a value and is therefore simply ignored.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Pros and Cons of Sentinels</p>
-
 <p>Some database designers prefer to use
 a <a href="https://github.com/swcarpentry/sql-novice-survey/blob/b55949e9edeecffa554cbc4a36b6dee92a2743f4/learners/reference.md#sentinel-value" target="_blank" rel="noopener noreferrer">sentinel value</a>
 to mark missing data rather than <code>null</code>.

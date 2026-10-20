@@ -1,59 +1,84 @@
-<p><a href="https://learn-video.azurefd.net/vod/player?id=ba44f5f7-9b47-462f-9aa5-13e2b71f4998" target="_blank" rel="noopener noreferrer"><img alt="Watch the video" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Security-101/b0a31ff7ebb9983d24bcdc6a38a4d008e6e89d0c/images/8-1_placeholder.png"></a></p>
-<h2 id="how-does-ai-security-differ-from-traditional-cyber-security">How does AI security differ from traditional cyber security?</h2>
-<p>Securing AI systems presents unique challenges compared to traditional cybersecurity, mainly due to the nature of AI’s learning capabilities and decision-making processes. Here are some key differences:</p>
+<p>This framework provides a set of principles and activities to guide the responsible development, procurement and use of data and artificial intelligence (AI) in the public sector. It helps public servants understand ethical considerations and how to address these in their work.</p>
+<p>Data and AI ethics is about using data and data-driven technologies responsibly, including:</p>
 <ul>
-<li><strong>Data Integrity</strong>: AI systems rely heavily on data for learning. [Ensuring the integrity of this data is crucial, as attackers can manipulate the data to influence AI behavior, a tactic known as data poisoning</li>
-<li><strong>Model Security</strong>: The AI’s decision-making model itself can be a target. [Attackers may attempt to reverse-engineer the model or exploit its weaknesses to make incorrect or harmful decisions</li>
-<li><strong>Adversarial Attacks</strong>: AI systems can be susceptible to adversarial attacks, where slight, often imperceptible alterations to input data can cause the AI to make errors or incorrect predictions</li>
-<li><strong>Infrastructure Security</strong>: While traditional cybersecurity also focuses on protecting infrastructure, AI systems may have additional layers of complexity, such as cloud-based services or specialized hardware, that require specific security measures</li>
-<li><strong>Ethical Considerations</strong>: The use of AI in security brings ethical considerations, such as privacy concerns and the potential for bias in decision-making, which must be addressed in the security strategy</li>
+<li>respecting privacy</li>
+<li>promoting fairness</li>
+<li>protecting individuals, communities and society from harm</li>
 </ul>
-<p>Overall, securing AI systems requires a different approach that considers the unique aspects of AI technology, including the protection of data, models, and the AI’s learning process, while also addressing the ethical implications of AI deployment</p>
-<p>AI security and traditional cybersecurity share many similarities, but they also have some distinct differences due to the unique characteristics and capabilities of artificial intelligence systems. Here's how they differ:</p>
+<p>This includes ensuring that data is collected, shared and used in appropriate, fair, safe, sustainable and transparent ways.</p>
+<p>The framework applies to any project that involves:</p>
 <ul>
-<li>
-<p><strong>Complexity of Threats</strong>: AI systems introduce new layers of complexity to cybersecurity. Traditional cybersecurity primarily deals with threats like malware, phishing attacks, and network intrusions. However, AI systems can be vulnerable to attacks such as adversarial attacks, data poisoning, and model evasion, which specifically target the machine learning algorithms themselves.</p>
+<li>data (collection, sharing or use)</li>
+<li>data-driven technologies</li>
+<li>AI</li>
+<li>automated decision-making and algorithmic tools</li>
+</ul>
+<p>In this guidance, this is what we mean when we refer to ‘data and AI’.</p>
+<h3 id="h-who-this-guidance-is-for">Who this guidance is for</h3>
+<p>The framework is for people who work in government and other public sector organisations. It’s mainly written for people who are designing, building, maintaining, using or updating projects that use data and AI.</p>
+<p>This may include:</p>
+<ul>
+<li>developers</li>
+<li>project managers</li>
+<li>analysts</li>
+<li>statisticians</li>
+<li>policy makers</li>
+<li>commercial or procurement professionals</li>
+</ul>
+<p>We also encourage anyone who works directly or indirectly with data and AI to read this guidance and apply it to their work. This includes operational staff and anyone helping to produce data-informed insight.</p>
+<h3 id="h-how-to-use-this-guidance">How to use this guidance</h3>
+<p>Your team should work through the framework together as you plan, implement and evaluate a project. You should regularly revisit it throughout your project, especially when you make changes to your work or project.</p>
+<p>The framework covers a broad range of use cases and challenges that you might encounter. Some projects may be limited to certain aspects – for example, data collection and processing –&nbsp;while others may cover a full AI development life cycle. This means you might find certain parts of this guidance more or less relevant to your project.</p>
+<h4>Data and AI Ethics Self-Assessment Tool</h4>
+<p>If your team is working on an AI or data-driven technology project, then as well as reading this guidance you should use the <a href="https://www.gov.uk/government/publications/data-ethics-framework" target="_blank" rel="noopener noreferrer">Data and AI Ethics Self-Assessment Tool</a>.</p>
+<p>The tool will help you capture information, and share learnings, challenges and progress with colleagues. We recommend that you maintain it along with your other project documentation to record decision making across the life cycle of a project.</p>
+<h3 id="h-why-this-guidance-is-important">Why this guidance is important</h3>
+<p>Government guidance needs to address the rapidly evolving ethical challenges and risks posed by data and AI technologies. We’ve updated the previous version of this guidance to meet this need.</p>
+<p>The Data and AI Ethics Framework bridges the gap between high-level ethical principles and practical actions. It considers themes such as safety, security and privacy through an ethical lens. It does not replace technical or regulatory guidance in these areas, but instead complements and connects to them.</p>
+<p>It complements existing tools, standards and guidance, including the:</p>
+<ul>
+<li><a href="https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html" target="_blank" rel="noopener noreferrer">AI Playbook for the UK Government</a></li>
+<li><a href="https://www.gov.uk/data-ethics-guidance/the-model-for-responsible-innovation" target="_blank" rel="noopener noreferrer">Model for Responsible Innovation</a></li>
+<li><a href="https://www.gov.uk/government/collections/algorithmic-transparency-recording-standard-hub" target="_blank" rel="noopener noreferrer">Algorithmic Transparency Recording Standard (<abbr title="Algorithmic Transparency Recording Standard">ATRS</abbr>)</a></li>
+</ul>
+<p>This guidance does not replace:</p>
+<ul>
+<li>existing ethics guidance and tools for statisticians and social researchers, such as the UKSA’s <a href="https://uksa.statisticsauthority.gov.uk/the-authority-board/committees/national-statisticians-advisory-committees-and-panels/national-statisticians-data-ethics-advisory-committee/ethics-self-assessment-tool/" target="_blank" rel="noopener noreferrer">Ethics Self-Assessment Tool</a>
 </li>
-<li>
-<p><strong>Attack Surface</strong>: AI systems often have larger attack surfaces compared to traditional systems. This is because they not only rely on software but also on data and models. Attackers can target the training data, manipulate models, or exploit vulnerabilities in the algorithms themselves.</p>
-</li>
-<li>
-<p><strong>Adaptability of Threats</strong>: AI systems can adapt and learn from their environment, which can make them more susceptible to adaptive and evolving threats. Traditional cybersecurity measures may not be sufficient to defend against attacks that constantly evolve based on the behavior of the AI system.</p>
-</li>
-<li>
-<p><strong>Interpretability and Explainability</strong>: Understanding why an AI system made a particular decision is often more challenging compared to traditional software systems. This lack of interpretability and explainability can make it difficult to detect and mitigate attacks  on AI systems effectively.</p>
-</li>
-<li>
-<p><strong>Data Privacy Concerns</strong>: AI systems often rely on large amounts of data, which can introduce privacy risks if not properly handled. Traditional cybersecurity measures may not adequately address these data privacy concerns specific to AI systems.</p>
-</li>
-<li>
-<p><strong>Regulatory Compliance</strong>: The regulatory landscape for AI security is still evolving, with specific regulations and standards emerging to address the unique challenges posed by AI systems. Traditional cybersecurity frameworks may need to be extended or adapted to ensure compliance with these new regulations.</p>
-</li>
-<li>
-<p><strong>Ethical Considerations</strong>: AI security involves not only protecting systems from malicious attacks but also ensuring that AI systems are used in an ethical and responsible manner. This includes considerations such as fairness, transparency, and accountability, which may not be as prominent in traditional cybersecurity.</p>
+<li>bespoke guidance provided by individual departments, devolved administrations or for specific professions</li>
+</ul>
+<h3 id="h-principles">Principles</h3>
+<p>This is an overview of the main principles everyone should follow when working with data and AI in the public sector. The rest of the guidance explores each principle in more detail.</p>
+<h4>Transparency</h4>
+<p>Transparency means that information about your project, actions, processes and data are communicated to relevant parties in an understandable, easily accessible and free way. Transparency includes the concept of explainability, which refers to the ability to understand and communicate how a system makes decisions, including how it arrived at an individual decision.</p>
+<h4>Accountability</h4>
+<p>Accountability means that data and AI projects have appropriate and effective governance, oversight, and routes to challenge decisions in place, where this is necessary. It involves setting clear roles and responsibilities, and being transparent about the system and the processes around it.</p>
+<h4>Fairness</h4>
+<p>Fairness means avoiding unfair biases and impacts, and addressing accessibility barriers, while actively maximising positive impacts. You should assess data representativeness, bias, and the different potential impacts that can result from data use.</p>
+<p>You should mitigate model biases and aim for outputs and decisions generated with the help of automated processes to:</p>
+<ul>
+<li>be non-discriminatory</li>
+<li>be just</li>
+<li>respect dignity</li>
+<li>align with the public interest, human rights and democratic values</li>
+<li>comply with the <a href="https://www.gov.uk/guidance/equality-act-2010-guidance" target="_blank" rel="noopener noreferrer">Equality Act 2010</a> and the <a href="https://www.gov.uk/government/publications/public-sector-equality-duty-guidance-for-public-authorities/public-sector-equality-duty-guidance-for-public-authorities" target="_blank" rel="noopener noreferrer">Public Sector Equality Duty (<abbr title="Public Sector Equality Duty">PSED</abbr>)</a>
 </li>
 </ul>
-<h2 id="how-is-ai-the-same-as-securing-traditional-it-systems">How is AI the same as securing traditional IT systems?</h2>
-<p>Securing AI systems shares several fundamental principles with traditional cybersecurity:</p>
+<h4>Privacy</h4>
+<p>Privacy means that personal data is respected and handled responsibly, ensuring it’s used only for intended purposes with an appropriate legal basis. It also means adhering to UK data protection regulation, including principles of data minimisation, purpose limitation and informed consent.</p>
+<h4>Safety</h4>
+<p>Safety refers to the use of data or development of a system without causing harm to people, organisations, wider social institutions or the environment. Data-driven systems such as AI should be robust, secure and safe at every stage of their life cycle. This means ensuring that they operate properly and reliably, without causing unnecessary safety or security risks.</p>
+<h4>Societal impact</h4>
+<p>Societal impact is about how the development and use of data and data-driven technologies impact wider society. For example, by helping to solve societal challenges and deliver public good.</p>
+<h4>Environmental sustainability</h4>
+<p>Sustainability calls for responsible design and use of data and AI that minimises environmental impact, and supports long-term wellbeing for people and the planet. This means considering biospheric consequences when scoping potential AI and data projects, and building tools and systems that are robust and energy efficient. Biospheric consequences are the effects a project can have not only on the planet’s ecosystems but also its climate and the entire biosphere.</p>
+<h3 id="h-trade-offs">Trade-offs</h3>
+<p>There may be instances where you find that 2 or more of the ethical principles are in tension with one another. For example, using more demographic information may help to identify biases and promote fairness, but this may come at the expense of an individual’s privacy. Here, you might need to consider trade-offs. Ethical trade-offs are inherently complex and you must treat them with care.</p>
+<p>Here are some approaches which can help you establish suitable trade-offs:</p>
 <ul>
-<li><strong>Threat Protection</strong>: Both AI and traditional systems need to be safeguarded against unauthorized access, data modification, and destruction, as well as other common threats.</li>
-<li><strong>Vulnerability Management</strong>: Many vulnerabilities that affect traditional systems, such as software bugs or misconfigurations, can also impact AI systems.</li>
-<li><strong>Data Security</strong>: The protection of processed data is crucial in both domains to prevent data breaches and ensure confidentiality.</li>
-<li><strong>Supply Chain Security</strong>: Both types of systems are susceptible to supply chain attacks, where a compromised component can undermine the security of the entire system.</li>
-</ul>
-<p>These similarities highlight that while AI systems introduce new security challenges, they also require the application of established cybersecurity practices to ensure robust protection. It’s a blend of leveraging traditional security wisdom while adapting to the unique aspects of AI technology.</p>
-<h2 id="further-reading">Further reading</h2>
-<ul>
-<li>
-<p><a href="https://www.oreilly.com/library/view/not-with-a/9781119883982/" target="_blank" rel="noopener noreferrer">Not with a Bug, But with a Sticker [Book] (oreilly.com)</a></p>
-</li>
-<li>
-<p><a href="https://medium.com/@harrietfarlow/intro-to-ai-security-part-1-ai-security-101-b8662a9efe5" target="_blank" rel="noopener noreferrer">Intro to AI Security Part 1: AI Security 101 | by HarrietHacks | Medium</a></p>
-</li>
-<li>
-<p><a href="https://www.microsoft.com/en-us/security/blog/2021/12/09/best-practices-for-ai-security-risk-management/?WT.mc_id=academic-96948-sayoung" target="_blank" rel="noopener noreferrer">Best practices for AI security risk management | Microsoft Security Blog</a></p>
-</li>
-<li>
-<p><a href="https://owasp.org/www-project-ai-security-and-privacy-guide/" target="_blank" rel="noopener noreferrer">OWASP AI Security and Privacy Guide | OWASP Foundation</a></p>
-</li>
+<li>include stakeholder perspectives by engaging with affected communities to understand values and impacts</li>
+<li>consult legal and human rights frameworks to ensure that decisions align with national and international standards</li>
+<li>balance proportionality and necessity</li>
+<li>ensure meaningful and inclusive deliberation</li>
+<li>establish mechanisms to monitor outcomes, and adjust if necessary</li>
 </ul>

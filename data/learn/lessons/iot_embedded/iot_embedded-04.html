@@ -8,9 +8,7 @@
 <blockquote>
 <p>🎥 Click the images above to watch the videos</p>
 </blockquote>
-
-
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p>The <strong>I</strong> in IoT stands for <strong>Internet</strong> - the cloud connectivity and services that enable a lot of the features of IoT devices, from gathering measurements from the sensors connected to the device, to sending messages to control the actuators. IoT devices typically connect to a single cloud IoT service using a standard communication protocol, and that service is connected to the rest of your IoT application, from AI services to make smart decisions around your data, to web apps for control or reporting.</p>
 <blockquote>
 <p>🎓 Data gathered from sensors and sent to the cloud is called telemetry.</p>
@@ -19,21 +17,21 @@
 <p>This lesson introduces some of the communication protocols IoT devices can use to connect to the cloud, and the types of data they might send or receive. You will also get hands-on with them both, adding internet control to your nightlight, moving the LED control logic to 'server' code running locally.</p>
 <p>In this lesson we'll cover:</p>
 <ul>
-<li><a href="#communication-protocols" rel="noopener noreferrer">Communication protocols</a></li>
-<li><a href="#message-queueing-telemetry-transport-mqtt" rel="noopener noreferrer">Message Queueing Telemetry Transport (MQTT)</a></li>
-<li><a href="#telemetry" rel="noopener noreferrer">Telemetry</a></li>
-<li><a href="#commands" rel="noopener noreferrer">Commands</a></li>
+<li><a href="#h-communication-protocols" rel="noopener noreferrer">Communication protocols</a></li>
+<li><a href="#h-message-queueing-telemetry-transport-mqtt" rel="noopener noreferrer">Message Queueing Telemetry Transport (MQTT)</a></li>
+<li><a href="#h-telemetry" rel="noopener noreferrer">Telemetry</a></li>
+<li><a href="#h-commands" rel="noopener noreferrer">Commands</a></li>
 </ul>
-<h2 id="communication-protocols">Communication protocols</h2>
+<h2 id="h-communication-protocols">Communication protocols</h2>
 <p>There are a number of popular communication protocols used by IoT devices to communicate with the Internet. The most popular are based around publish/subscribe messaging via some kind of broker. The IoT devices connect to the broker and publish telemetry and subscribe to commands. The cloud services also connect to the broker and subscribe to all the telemetry messages and publish commands either to specific devices, or to groups of devices.</p>
 <p><img alt="IoT devices connect to a broker and publish telemetry and subscribe to commands. Cloud services connect to the broker and subscribe to all telemetry and send commands to specific devices." loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/pub-sub.png"></p>
 <p>MQTT is the most popular communication protocol for IoT devices and is covered in this lesson. Others protocols include AMQP and HTTP/HTTPS.</p>
-<h2 id="message-queueing-telemetry-transport-mqtt">Message Queueing Telemetry Transport (MQTT)</h2>
+<h2 id="h-message-queueing-telemetry-transport-mqtt">Message Queueing Telemetry Transport (MQTT)</h2>
 <p><a href="http://mqtt.org" target="_blank" rel="noopener noreferrer">MQTT</a> is a lightweight, open standard messaging protocol that can send messages between devices. It was designed in 1999 to monitor oil pipelines, before being released as an open standard 15 years later by IBM.</p>
 <p>MQTT has a single broker and multiple clients. All clients connect to the broker, and the broker routes messages to the relevant clients. Messages are routed using named topics, rather than being sent directly to an individual client. A client can publish to a topic, and any clients that subscribe to that topic will receive the message.</p>
 <p><img alt="IoT device publishing telemetry on the /telemetry topic, and the cloud service subscribing to that topic" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/mqtt.png"></p>
 <p>✅ Do some research. If you have a lot of IoT devices, how can you ensure your MQTT broker can handle all the messages?</p>
-<h3 id="connect-your-iot-device-to-mqtt">Connect your IoT device to MQTT</h3>
+<h3 id="h-connect-your-iot-device-to-mqtt">Connect your IoT device to MQTT</h3>
 <p>The first part of adding Internet control to your nightlight is connecting it to an MQTT broker.</p>
 <h4>Task</h4>
 <p>Connect your device to an MQTT broker.</p>
@@ -50,7 +48,7 @@
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/4-connect-internet/wio-terminal-mqtt.md" target="_blank" rel="noopener noreferrer">Arduino - Wio Terminal</a></li>
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/4-connect-internet/single-board-computer-mqtt.md" target="_blank" rel="noopener noreferrer">Single-board computer - Raspberry Pi/Virtual IoT device</a></li>
 </ul>
-<h3 id="a-deeper-dive-into-mqtt">A deeper dive into MQTT</h3>
+<h3 id="h-a-deeper-dive-into-mqtt">A deeper dive into MQTT</h3>
 <p>Topics can have a hierarchy, and clients can subscribe to different levels of the hierarchy using wildcards. For example, you can send temperature telemetry messages to the <code>/telemetry/temperature</code> topic and humidity messages to the <code>/telemetry/humidity</code> topic, then in your cloud app subscribe to the <code>/telemetry/*</code> topic to receive both the temperature and humidity telemetry messages.</p>
 <p>Messages can be sent with a quality of service (QoS), which determines the guarantee of the message being received.</p>
 <ul>
@@ -68,7 +66,7 @@
 <blockquote>
 <p>💁 MQTT communicates over TCP/IP, the same underlying network protocol as HTTP, but on a different port. You can also use MQTT over websockets to communicate with web apps running in a browser, or in situations where firewalls or other networking rules block standard MQTT connections.</p>
 </blockquote>
-<h2 id="telemetry">Telemetry</h2>
+<h2 id="h-telemetry">Telemetry</h2>
 <p>The word telemetry is derived from Greek roots meaning to measure remotely. Telemetry is the act of gathering data from sensors and sending it to the cloud.</p>
 <blockquote>
 <p>💁 One of the earliest telemetry devices was invented in France in 1874 and sent real-time weather and snow depths from Mont Blanc to Paris. It used physical wires as wireless technologies were not available at the time.</p>
@@ -104,7 +102,7 @@
 </tbody>
 </table></div>
 <p>The cloud service can then use this telemetry data to make decisions around what commands to send to control the heating.</p>
-<h3 id="send-telemetry-from-your-iot-device">Send telemetry from your IoT device</h3>
+<h3 id="h-send-telemetry-from-your-iot-device">Send telemetry from your IoT device</h3>
 <p>The next part in adding Internet control to your nightlight is sending the light level telemetry to the MQTT broker on a telemetry topic.</p>
 <h4>Task - send telemetry from your IoT device</h4>
 <p>Send light level telemetry to the MQTT broker.</p>
@@ -115,7 +113,7 @@
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/4-connect-internet/wio-terminal-telemetry.md" target="_blank" rel="noopener noreferrer">Arduino - Wio Terminal</a></li>
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/4-connect-internet/single-board-computer-telemetry.md" target="_blank" rel="noopener noreferrer">Single-board computer - Raspberry Pi/Virtual IoT device</a></li>
 </ul>
-<h3 id="receive-telemetry-from-the-mqtt-broker">Receive telemetry from the MQTT broker</h3>
+<h3 id="h-receive-telemetry-from-the-mqtt-broker">Receive telemetry from the MQTT broker</h3>
 <p>There's no point in sending telemetry if there's nothing on the other end to listen for it. The light level telemetry needs something listening to it to process the data. This 'server' code is the kind of code you will deploy to a cloud service as part of a larger IoT application, but here you are going to run this code locally on your computer (or on your Pi if you are coding directly on there). The server code consists of a Python app that listens to telemetry messages over MQTT with light levels. Later in this lesson you will make it reply with a command message with instructions to turn the LED on or off.</p>
 <p>✅ Do some research: What happens to MQTT messages if there is no listener?</p>
 <h4>Install Python and VS Code</h4>
@@ -293,25 +291,25 @@ Message received: {'light': 400}
 <blockquote>
 <p>💁 You can find this code in the <a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/4-connect-internet/code-server/server" target="_blank" rel="noopener noreferrer">code-server/server</a> folder.</p>
 </blockquote>
-<h3 id="how-often-should-telemetry-be-sent">How often should telemetry be sent?</h3>
+<h3 id="h-how-often-should-telemetry-be-sent">How often should telemetry be sent?</h3>
 <p>One important consideration with telemetry is how often to measure and send the data? The answer is - it depends. If you measure often you can respond faster to changes in measurements, but you use more power, more bandwidth, generate more data and need more cloud resources to process. You need to measure often enough, but not too often.</p>
 <p>For a thermostat, measuring every few minutes is probably more than enough as temperatures don't change that often. If you only measure once a day then you could end up heating your house for nighttime temperatures in the middle of a sunny day, whereas if you measure every second you will have thousands of unnecessarily duplicated temperature measurements that will eat into the users' Internet speed and bandwidth (a problem for people with limited bandwidth plans), use more power which can be a problem for battery powered devices like remote sensors, and increase the cost of the providers cloud computing resources processing and storing them.</p>
 <p>If you are monitoring data around a piece of machinery in a factory that if it fails could cause catastrophic damage and millions of dollars in lost revenue, then measuring multiple times a second might be necessary. It's better to waste bandwidth than miss telemetry that indicates that a machine needs to be stopped and fixed before it breaks.</p>
 <blockquote>
 <p>💁 In this situation, you might consider having an edge device to process the telemetry first to reduce reliance on the Internet.</p>
 </blockquote>
-<h3 id="loss-of-connectivity">Loss of connectivity</h3>
+<h3 id="h-loss-of-connectivity">Loss of connectivity</h3>
 <p>Internet connections can be unreliable, with outages common. What should an IoT device do under these circumstances - should it lose the data, or should it store it until connectivity is restored? Again, the answer is it depends.</p>
 <p>For a thermostat the data can probably be lost as soon as a new temperature measurement has been taken. The heating system doesn't care that 20 minutes ago it was 20.5°C if the temperature is now 19°C, it's the temperature now that determines if the heating should be on or off.</p>
 <p>For machinery you might want to keep the data, especially if it is used to look for trends. There are machine learning models that can detect anomalies in streams of data by looking over data from defined period of time (such as the last hour) and spotting anomalous data. This is often used for predictive maintenance, looking for indications that something might break soon so you can repair or replace it before that happens. You might want every bit of telemetry for a machine sent so it can be processed for anomaly detection, so once the IoT device can reconnect it will send all the telemetry generated during the Internet outage.</p>
 <p>IoT device designers should also consider if the IoT device can be used during an Internet outage or loss of signal caused by location. A smart thermostat should be able to make some limited decisions to control heating if it can't send telemetry to the cloud due to an outage.</p>
 <p><a href="https://twitter.com/internetofshit/status/1315736960082808832" target="_blank" rel="noopener noreferrer"><img alt="This ferrari got bricked because someone tried to upgrade it underground where there's no cell reception" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/bricked-car.png"></a></p>
 <p>For MQTT to handle a loss of connectivity, the device and server code will need to be responsible for ensuring message delivery if it is needed, for example by requiring that all messages sent are replied to by additional messages on a reply topic, and if not they are queued manually to be replayed later.</p>
-<h2 id="commands">Commands</h2>
+<h2 id="h-commands">Commands</h2>
 <p>Commands are messages sent by the cloud to a device, instructing it to do something. Most of the time this involves giving some kind of output via an actuator, but it can be an instruction for the device itself, such as to reboot, or gather extra telemetry and return it as a response to the command.</p>
 <p><img alt="An Internet connected thermostat receiving a command to turn on the heating" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/commands.png"></p>
 <p>A thermostat could receive a command from the cloud to turn the heating on. Based on the telemetry data from all the sensors, if the cloud service has decided that the heating should be on, so it sends the relevant command.</p>
-<h3 id="send-commands-to-the-mqtt-broker">Send commands to the MQTT broker</h3>
+<h3 id="h-send-commands-to-the-mqtt-broker">Send commands to the MQTT broker</h3>
 <p>The next step for our Internet controlled nightlight is for the server code to send a command back to the IoT device to control the light based on the light levels it senses.</p>
 <ol>
 <li>
@@ -350,7 +348,7 @@ Sending message: {'led_on': False}
 <blockquote>
 <p>💁 You can find this code in the <a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/4-connect-internet/code-commands/server" target="_blank" rel="noopener noreferrer">code-commands/server</a> folder.</p>
 </blockquote>
-<h3 id="handle-commands-on-the-iot-device">Handle commands on the IoT device</h3>
+<h3 id="h-handle-commands-on-the-iot-device">Handle commands on the IoT device</h3>
 <p>Now that commands are being sent from the server, you can now add code to the IoT device to handle them and control the LED.</p>
 <p>Follow the relevant step below to listen to commands from the MQTT broker:</p>
 <ul>
@@ -358,18 +356,16 @@ Sending message: {'led_on': False}
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/1-getting-started/lessons/4-connect-internet/single-board-computer-commands.md" target="_blank" rel="noopener noreferrer">Single-board computer - Raspberry Pi/Virtual IoT device</a></li>
 </ul>
 <p>Once this code is written and running, experiment with changing light levels. Watch the output from the server and device, and watch the LED as you change light levels.</p>
-<h3 id="loss-of-connectivity-x">Loss of connectivity</h3>
+<h3 id="h-loss-of-connectivity-x">Loss of connectivity</h3>
 <p>What should a cloud service do if it needs to send a command to an IoT device that is offline? Again, the answer is it depends.</p>
 <p>If the latest command overrides an earlier one then the earlier ones can probably be ignored. If a cloud service sends a command to turn the heating on, then sends a command to turn it off, then the on command can be ignored and not resent.</p>
 <p>If the commands need to be processed in sequence, such as move a robot arm up, then close a grabber then they need to be sent in order once connectivity is restored.</p>
 <p>✅ How could the device or server code ensure commands are always sent and handled in order over MQTT if needed?</p>
 <hr>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>The challenge in the last three lessons was to list as many IoT devices as you can that are in your home, school or workplace and decide if they are built around microcontrollers or single-board computers, or even a mixture of both, and think about what sensors and actuators they are using.</p>
 <p>For these devices, think about what messages they might be sending or receiving. What telemetry do they send? What messages or commands might they receive? Do you think they are secure?</p>
-
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>Read more on MQTT on the <a href="https://wikipedia.org/wiki/MQTT" target="_blank" rel="noopener noreferrer">MQTT Wikipedia page</a>.</p>
 <p>Try running an MQTT broker yourself using <a href="https://www.mosquitto.org" target="_blank" rel="noopener noreferrer">Mosquitto</a> and connect to it from your IoT device and server code.</p>
 <blockquote>

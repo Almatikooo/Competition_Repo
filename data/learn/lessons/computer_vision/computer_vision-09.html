@@ -5,24 +5,21 @@
 <p>This video gives an overview of Object Detection the Azure Custom Vision service, a service that will be covered in this lesson.</p>
 <p><a href="https://www.youtube.com/watch?v=wtTYSyBUpFc" target="_blank" rel="noopener noreferrer"><img alt="Custom Vision 2 - Object Detection Made Easy | The Xamarin Show" loading="lazy" src="https://img.youtube.com/vi/wtTYSyBUpFc/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
-
-
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p>In the previous project, you used AI to train an image classifier - a model that can tell if an image contains something, such as ripe fruit or unripe fruit. Another type of AI model that can be used with images is object detection. These models don't classify an image by tags, instead they are trained to recognize objects, and can find them in images, not only detecting that the image is present, but detecting where in the image it is. This allows you to count objects in images.</p>
 <p>In this lesson you will learn about object detection, including how it can be used in retail. You will also learn how to train an object detector in the cloud.</p>
 <p>In this lesson we'll cover:</p>
 <ul>
-<li><a href="#object-detection" rel="noopener noreferrer">Object detection</a></li>
-<li><a href="#use-object-detection-in-retail" rel="noopener noreferrer">Use object detection in retail</a></li>
-<li><a href="#train-an-object-detector" rel="noopener noreferrer">Train an object detector</a></li>
-<li><a href="#test-your-object-detector" rel="noopener noreferrer">Test your object detector</a></li>
-<li><a href="#retrain-your-object-detector" rel="noopener noreferrer">Retrain your object detector</a></li>
+<li><a href="#h-object-detection" rel="noopener noreferrer">Object detection</a></li>
+<li><a href="#h-use-object-detection-in-retail" rel="noopener noreferrer">Use object detection in retail</a></li>
+<li><a href="#h-train-an-object-detector" rel="noopener noreferrer">Train an object detector</a></li>
+<li><a href="#h-test-your-object-detector" rel="noopener noreferrer">Test your object detector</a></li>
+<li><a href="#h-retrain-your-object-detector" rel="noopener noreferrer">Retrain your object detector</a></li>
 </ul>
-<h2 id="object-detection">Object detection</h2>
+<h2 id="h-object-detection">Object detection</h2>
 <p>Object detection involves detecting objects in images using AI. Unlike the image classifier you trained in the last project, object detection is not about predicting the best tag for an image as a whole, but for finding one or more objects in an image.</p>
-<h3 id="object-detection-vs-image-classification">Object detection vs image classification</h3>
+<h3 id="h-object-detection-vs-image-classification">Object detection vs image classification</h3>
 <p>Image classification is about classifying an image as a whole - what are the probabilities that the whole image matches each tag. You get back probabilities for every tag used to train the model.</p>
 <p><img alt="Image classification of cashew nuts and tomato paste" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/image-classifier-cashews-tomato.png"></p>
 <p>In the example above, two images are classified using a model trained to classify tubs of cashew nuts or cans of tomato paste. The first image is a tub of cashew nuts, and has two results from the image classifier:</p>
@@ -72,7 +69,7 @@
 <p><img alt="Object detection of cashew nuts and tomato paste" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/object-detector-cashews-tomato.png"></p>
 <p>The image above contains both a tub of cashew nuts and three cans of tomato paste. The object detector detected the cashew nuts, returning the bounding box that contains the cashew nuts with the percentage chance that the bounding box contains the object, in this case 97.6%. The object detector has also detected three cans of tomato paste, and provides three separate bounding boxes, one for each detected can, and each one has a percentage probability that the bounding box contains a can of tomato paste.</p>
 <p>✅ Think of some different scenarios you might want to use image-based AI models for. Which ones would need classification, and which would need object detection?</p>
-<h3 id="how-object-detection-works">How object detection works</h3>
+<h3 id="h-how-object-detection-works">How object detection works</h3>
 <p>Object detection uses complex ML models. These models work by diving the image up into multiple cells, then checks if the center of the bounding box is the center of an image that matches one of the images used to train the model. You can think of this as kind of like running an image classifier over different parts of the image to look for matches.</p>
 <blockquote>
 <p>💁 This is a drastic over-simplification. There are many techniques for object detection, and you can read more about them on the <a href="https://wikipedia.org/wiki/Object_detection" target="_blank" rel="noopener noreferrer">Object detection page on Wikipedia</a>.</p>
@@ -80,7 +77,7 @@
 <p>There are a number of different models that can do object detection. One particularly famous model is <a href="https://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener noreferrer">YOLO (You only look once)</a>, which is incredibly fast and can detect 20 different class of objects, such as people, dogs, bottles and cars.</p>
 <p>✅ Read up on the YOLO model at <a href="https://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener noreferrer">pjreddie.com/darknet/yolo/</a></p>
 <p>Object detection models can be re-trained using transfer learning to detect custom objects.</p>
-<h2 id="use-object-detection-in-retail">Use object detection in retail</h2>
+<h2 id="h-use-object-detection-in-retail">Use object detection in retail</h2>
 <p>Object detection has multiple uses in retail. Some include:</p>
 <ul>
 <li><strong>Stock checking and counting</strong> - recognizing when stock is low on shelves. If stock is too low, notifications can be sent to staff or robots to re-stock shelves.</li>
@@ -89,9 +86,9 @@
 <li><strong>Hazard detection</strong> - recognizing broken items on floors, or spilled liquids, alerting cleaning crews.</li>
 </ul>
 <p>✅ Do some research: What are some more use cases for object detection in retail?</p>
-<h2 id="train-an-object-detector">Train an object detector</h2>
+<h2 id="h-train-an-object-detector">Train an object detector</h2>
 <p>You can train an object detector using Custom Vision, in a similar way to how you trained an image classifier.</p>
-<h3 id="task-create-an-object-detector">Task - create an object detector</h3>
+<h3 id="h-task-create-an-object-detector">Task - create an object detector</h3>
 <ol>
 <li>
 <p>Create a Resource Group for this project called <code>stock-detector</code></p>
@@ -117,7 +114,7 @@
 </li>
 </ol>
 <p>✅ Take some time to explore the Custom Vision UI for your object detector.</p>
-<h3 id="task-train-your-object-detector">Task - train your object detector</h3>
+<h3 id="h-task-train-your-object-detector">Task - train your object detector</h3>
 <p>To train your model you will need a set of images containing the objects you want to detect.</p>
 <ol>
 <li>
@@ -144,9 +141,9 @@
 </li>
 </ol>
 <p>The object detector will then train. It will take a few minutes for the training to complete.</p>
-<h2 id="test-your-object-detector">Test your object detector</h2>
+<h2 id="h-test-your-object-detector">Test your object detector</h2>
 <p>Once your object detector is trained, you can test it by giving it new images to detect objects in.</p>
-<h3 id="task-test-your-object-detector">Task - test your object detector</h3>
+<h3 id="h-task-test-your-object-detector">Task - test your object detector</h3>
 <ol>
 <li>
 <p>Use the <strong>Quick Test</strong> button to upload testing images and verify the objects are detected. Use the testing images you created earlier, not any of the images you used for training.</p>
@@ -156,7 +153,7 @@
 <p>Try all the testing images you have access to and observe the probabilities.</p>
 </li>
 </ol>
-<h2 id="retrain-your-object-detector">Retrain your object detector</h2>
+<h2 id="h-retrain-your-object-detector">Retrain your object detector</h2>
 <p>When you test your object detector, it may not give the results you expect, the same as with image classifiers in the previous project. You can improve your object detector by retraining it with images it gets wrong.</p>
 <p>Every time you make a prediction using the quick test option, the image and results are stored. You can use these images to retrain your model.</p>
 <ol>
@@ -171,12 +168,10 @@
 </li>
 </ol>
 <hr>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>What would happen if you used the object detector with similar looking items, such as same brand cans of tomato paste and chopped tomatoes?</p>
 <p>If you have any similar looking items, test it out by adding images of them to your object detector.</p>
-
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <ul>
 <li>When you trained your object detector, you would have seen values for <em>Precision</em>, <em>Recall</em>, and <em>mAP</em> that rate the model that was created. Read up on what these values are using <a href="https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector?WT.mc_id=academic-17441-jabenn#evaluate-the-detector" target="_blank" rel="noopener noreferrer">the Evaluate the detector section of the Build an object detector quickstart on the Microsoft docs</a></li>
 <li>Read more about object detection on the <a href="https://wikipedia.org/wiki/Object_detection" target="_blank" rel="noopener noreferrer">Object detection page on Wikipedia</a></li>

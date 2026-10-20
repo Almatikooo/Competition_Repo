@@ -2,20 +2,18 @@
 <blockquote>
 <p>Sketchnote by <a href="https://github.com/nitya" target="_blank" rel="noopener noreferrer">Nitya Narasimhan</a>. Click the image for a larger version.</p>
 </blockquote>
-
-
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p>In the last lesson you learned about image classifiers, and how to train them to detect good and bad fruit. To use this image classifier in an IoT application, you need to be able to capture an image using some kind of camera, and send this image to the cloud to be classified.</p>
 <p>In this lesson you will learn about camera sensors, and how to use them with an IoT device to capture an image. You will also learn how to call the image classifier from your IoT device.</p>
 <p>In this lesson we'll cover:</p>
 <ul>
-<li><a href="#camera-sensors" rel="noopener noreferrer">Camera sensors</a></li>
-<li><a href="#capture-an-image-using-an-iot-device" rel="noopener noreferrer">Capture an image using an IoT device</a></li>
-<li><a href="#publish-your-image-classifier" rel="noopener noreferrer">Publish your image classifier</a></li>
-<li><a href="#classify-images-from-your-iot-device" rel="noopener noreferrer">Classify images from your IoT device</a></li>
+<li><a href="#h-camera-sensors" rel="noopener noreferrer">Camera sensors</a></li>
+<li><a href="#h-capture-an-image-using-an-iot-device" rel="noopener noreferrer">Capture an image using an IoT device</a></li>
+<li><a href="#h-publish-your-image-classifier" rel="noopener noreferrer">Publish your image classifier</a></li>
+<li><a href="#h-classify-images-from-your-iot-device" rel="noopener noreferrer">Classify images from your IoT device</a></li>
 <li><a href="#Improve-the-model" rel="noopener noreferrer">Improve the model</a></li>
 </ul>
-<h2 id="camera-sensors">Camera sensors</h2>
+<h2 id="h-camera-sensors">Camera sensors</h2>
 <p>Camera sensors, as the name suggests, are cameras that you can connect to your IoT device. They can take still images, or capture streaming video. Some will return raw image data, others will compress the image data into an image file such as a JPEG or PNG. Usually the cameras that work with IoT devices are much smaller and lower resolution than what you might be used to, but you can get high resolution cameras that will rival top end phones. You can get all manner of interchangeable lenses, multiple camera setups, infra-red thermal cameras, or UV cameras.</p>
 <p><img alt="The light from a scene passes through a lens and is focused on a CMOS sensor" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/cmos-sensor.png"></p>
 <p>Most camera sensors use image sensors where each pixel is a photodiode. A lens focuses the image onto the image sensor, and thousands or millions of photodiodes detect the light falling on each one, and record that as pixel data.</p>
@@ -27,22 +25,22 @@
 </blockquote>
 <p>Camera sensors are digital sensors, sending image data as digital data, usually with the help of a library that provides the communication. Cameras connect using protocols like SPI to allow them to send large quantities of data - images are substantially larger than single numbers from a sensor such as a temperature sensor.</p>
 <p>✅ What are the limitations around image size with IoT devices? Think about the constraints especially on microcontroller hardware.</p>
-<h2 id="capture-an-image-using-an-iot-device">Capture an image using an IoT device</h2>
+<h2 id="h-capture-an-image-using-an-iot-device">Capture an image using an IoT device</h2>
 <p>You can use your IoT device to capture and image to be classified.</p>
-<h3 id="task-capture-an-image-using-an-iot-device">Task - capture an image using an IoT device</h3>
+<h3 id="h-task-capture-an-image-using-an-iot-device">Task - capture an image using an IoT device</h3>
 <p>Work through the relevant guide to capture an image using your IoT device:</p>
 <ul>
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/4-manufacturing/lessons/2-check-fruit-from-device/wio-terminal-camera.md" target="_blank" rel="noopener noreferrer">Arduino - Wio Terminal</a></li>
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/4-manufacturing/lessons/2-check-fruit-from-device/pi-camera.md" target="_blank" rel="noopener noreferrer">Single-board computer - Raspberry Pi</a></li>
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/4-manufacturing/lessons/2-check-fruit-from-device/virtual-device-camera.md" target="_blank" rel="noopener noreferrer">Single-board computer - Virtual device</a></li>
 </ul>
-<h2 id="publish-your-image-classifier">Publish your image classifier</h2>
+<h2 id="h-publish-your-image-classifier">Publish your image classifier</h2>
 <p>You trained your image classifier in the last lesson. Before you can use it from your IoT device, you need to publish the model.</p>
-<h3 id="model-iterations">Model iterations</h3>
+<h3 id="h-model-iterations">Model iterations</h3>
 <p>When your model was training in the last lesson, you may notice that the <strong>Performance</strong> tab shows iterations on the side. When you first trained the model you would have seen <em>Iteration 1</em> in training. When you improved the model using the prediction images, you would have seen <em>Iteration 2</em> in training.</p>
 <p>Every time you train the model, you get a new iteration. This is a way to keep track of the different versions of your model trained on different data sets. When you do a <strong>Quick Test</strong>, there is a drop-down you can use to select the iteration, so you can compare the results across multiple iterations.</p>
 <p>When you are happy with an iteration, you can publish it to make it available to be used from external applications. This way you can have a published version that is used by your devices, then work on a new version over multiple iterations, then publish that once you are happy with it.</p>
-<h3 id="task-publish-an-iteration">Task - publish an iteration</h3>
+<h3 id="h-task-publish-an-iteration">Task - publish an iteration</h3>
 <p>Iterations are published from the Custom Vision portal.</p>
 <ol>
 <li>
@@ -71,22 +69,22 @@
 </li>
 </ol>
 <p>✅ When a new iteration is published, it will have a different name. How do you think you would change the iteration an IoT device is using?</p>
-<h2 id="classify-images-from-your-iot-device">Classify images from your IoT device</h2>
+<h2 id="h-classify-images-from-your-iot-device">Classify images from your IoT device</h2>
 <p>You can now use these connection details to call the image classifier from your IoT device.</p>
-<h3 id="task-classify-images-from-your-iot-device">Task - classify images from your IoT device</h3>
+<h3 id="h-task-classify-images-from-your-iot-device">Task - classify images from your IoT device</h3>
 <p>Work through the relevant guide to classify images using your IoT device:</p>
 <ul>
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/4-manufacturing/lessons/2-check-fruit-from-device/wio-terminal-classify-image.md" target="_blank" rel="noopener noreferrer">Arduino - Wio Terminal</a></li>
 <li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/4-manufacturing/lessons/2-check-fruit-from-device/single-board-computer-classify-image.md" target="_blank" rel="noopener noreferrer">Single-board computer - Raspberry Pi/Virtual IoT device</a></li>
 </ul>
-<h2 id="improve-the-model">Improve the model</h2>
+<h2 id="h-improve-the-model">Improve the model</h2>
 <p>You may find that the results you get when using the camera connected to your IoT device don't match what you would expect. The predictions are not always as accurate as using images uploaded from your computer. This is because the model was trained on different data to what is being used for predictions.</p>
 <p>To get the best results for an image classifier, you want to train the model with images that are as similar to the images used for predictions as possible. If you used your phone camera to capture images for training, for example, the image quality, sharpness, and color will be different to a camera connected to an IoT device.</p>
 <p><img alt="2 banana pictures, a low resolution one with poor lighting from an IoT device, and a high resolution one with good lighting from a phone" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/banana-picture-compare.png"></p>
 <p>In the image above, the banana picture on the left was taken using a Raspberry Pi Camera, the one on the right was taken of the same banana in the same location using an iPhone. There is a noticeable difference in quality - the iPhone picture is sharper, with brighter colors and more contrast.</p>
 <p>✅ What else might cause the images captured by your IoT device to have incorrect predictions? Think about the environment an IoT device might be used in, what factors can affect the image being captured?</p>
 <p>To improve the model, you can retrain it using the images captured from the IoT device.</p>
-<h3 id="task-improve-the-model">Task - improve the model</h3>
+<h3 id="h-task-improve-the-model">Task - improve the model</h3>
 <ol>
 <li>
 <p>Classify multiple images of both ripe and unripe fruit using your IoT device.</p>
@@ -111,13 +109,11 @@
 </li>
 </ol>
 <hr>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>How much does image resolution or lighting affect the prediction?</p>
 <p>Try changing the resolution of the images in your device code and see if it makes a difference to the quality of the images. Also try changing lighting.</p>
 <p>If you were to create a production device to sell to farms or factories, how would you ensure it gives consistent results all the time?</p>
-
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>You trained your custom vision model using the portal. This relies on having images available - and in the real world you may not be able to get training data that matches what the camera on your device captures. You can work round this by training directly from your device using the training API, to train a model using images captured from your IoT device.</p>
 <ul>
 <li>Read up on the training API in the <a href="https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/quickstarts/image-classification?WT.mc_id=academic-17441-jabenn&amp;tabs=visual-studio&amp;pivots=programming-language-python" target="_blank" rel="noopener noreferrer">using the Custom Vision SDK quick start</a></li>

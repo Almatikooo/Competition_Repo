@@ -6,7 +6,6 @@
 <p>Classification is a form of <a href="https://wikipedia.org/wiki/Supervised_learning" target="_blank" rel="noopener noreferrer">supervised learning</a> that bears a lot in common with regression techniques. If machine learning is all about predicting values or names to things by using datasets, then classification generally falls into two groups: <em>binary classification</em> and <em>multiclass classification</em>.</p>
 <p><a href="https://youtu.be/eg8DJYwdMyg" target="_blank" rel="noopener noreferrer"><img alt="Introduction to classification" loading="lazy" src="https://img.youtube.com/vi/eg8DJYwdMyg/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
 <p>Remember:</p>
 <ul>
@@ -14,11 +13,10 @@
 <li><strong>Logistic regression</strong> helped you discover "binary categories": at this price point, <em>is this pumpkin orange or not-orange</em>?</li>
 </ul>
 <p>Classification uses various algorithms to determine other ways of determining a data point's label or class. Let's work with this cuisine data to see whether, by observing a group of ingredients, we can determine its cuisine of origin.</p>
-
 <blockquote>
-<h3 id="this-lesson-is-available-in-r"><a href="https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/1-Introduction/solution/R/lesson_10.html" target="_blank" rel="noopener noreferrer">This lesson is available in R!</a></h3>
+<h3 id="h-this-lesson-is-available-in-r"><a href="https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/1-Introduction/solution/R/lesson_10.html" target="_blank" rel="noopener noreferrer">This lesson is available in R!</a></h3>
 </blockquote>
-<h3 id="introduction">Introduction</h3>
+<h3 id="h-introduction">Introduction</h3>
 <p>Classification is one of the fundamental activities of the machine learning researcher and data scientist. From basic classification of a binary value ("is this email spam or not?"), to complex image classification and segmentation using computer vision, it's always useful to be able to sort data into classes and ask questions of it.</p>
 <p>To state the process in a more scientific way, your classification method creates a predictive model that enables you to map the relationship between input variables to output variables.</p>
 <p><img alt="binary vs. multiclass classification" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/1-Introduction/images/binary-multiclass.png"></p>
@@ -30,12 +28,11 @@
 <p>✅ Take a moment to imagine a dataset about cuisines. What would a multiclass model be able to answer? What would a binary model be able to answer? What if you wanted to determine whether a given cuisine was likely to use fenugreek? What if you wanted to see if, given a present of a grocery bag full of star anise, artichokes, cauliflower, and horseradish, you could create a typical Indian dish?</p>
 <p><a href="https://youtu.be/GuTeDbaNoEU" target="_blank" rel="noopener noreferrer"><img alt="Crazy mystery baskets" loading="lazy" src="https://img.youtube.com/vi/GuTeDbaNoEU/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
-<h2 id="hello-classifier">Hello 'classifier'</h2>
+<h2 id="h-hello-classifier">Hello 'classifier'</h2>
 <p>The question we want to ask of this cuisine dataset is actually a <strong>multiclass question</strong>, as we have several potential national cuisines to work with. Given a batch of ingredients, which of these many classes will the data fit?</p>
 <p>Scikit-learn offers several different algorithms to use to classify data, depending on the kind of problem you want to solve. In the next two lessons, you'll learn about several of these algorithms.</p>
-<h2 id="exercise-clean-and-balance-your-data">Exercise - clean and balance your data</h2>
+<h2 id="h-exercise-clean-and-balance-your-data">Exercise - clean and balance your data</h2>
 <p>The first task at hand, before starting this project, is to clean and <strong>balance</strong> your data to get better results. Start with the blank <em>notebook.ipynb</em> file in the root of this folder.</p>
 <p>The first thing to install is <a href="https://imbalanced-learn.org/stable/" target="_blank" rel="noopener noreferrer">imblearn</a>. This is a Scikit-learn package that will allow you to better balance the data (you will learn more about this task in a minute).</p>
 <ol>
@@ -87,7 +84,7 @@ memory usage: 7.2+ MB
 </code></pre>
 </li>
 </ol>
-<h2 id="exercise-learning-about-cuisines">Exercise - learning about cuisines</h2>
+<h2 id="h-exercise-learning-about-cuisines">Exercise - learning about cuisines</h2>
 <p>Now the work starts to become more interesting. Let's discover the distribution of data, per cuisine</p>
 <ol>
 <li>
@@ -120,7 +117,7 @@ korean df: (799, 385)
 </code></pre>
 </li>
 </ol>
-<h2 id="discovering-ingredients">Discovering ingredients</h2>
+<h2 id="h-discovering-ingredients">Discovering ingredients</h2>
 <p>Now you can dig deeper into the data and learn what are the typical ingredients per cuisine. You should clean out recurrent data that creates confusion between cuisines, so let's learn about this problem.</p>
 <ol>
 <li>
@@ -178,7 +175,7 @@ feature_df.head()
 </code></pre>
 </li>
 </ol>
-<h2 id="balance-the-dataset">Balance the dataset</h2>
+<h2 id="h-balance-the-dataset">Balance the dataset</h2>
 <p>Now that you have cleaned the data, use <a href="https://imbalanced-learn.org/dev/references/generated/imblearn.over_sampling.SMOTE.html" target="_blank" rel="noopener noreferrer">SMOTE</a> - "Synthetic Minority Over-sampling Technique" - to balance it.</p>
 <ol>
 <li>
@@ -224,8 +221,7 @@ transformed_df.to_csv("../data/cleaned_cuisines.csv")
 </li>
 </ol>
 <hr>
-<h2 id="challenge">🚀Challenge</h2>
+<h2 id="h-challenge">🚀Challenge</h2>
 <p>This curriculum contains several interesting datasets. Dig through the <code>data</code> folders and see if any contain datasets that would be appropriate for binary or multi-class classification? What questions would you ask of this dataset?</p>
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>Explore SMOTE's API. What use cases is it best used for? What problems does it solve?</p>

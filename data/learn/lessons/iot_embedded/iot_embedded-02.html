@@ -8,26 +8,24 @@
 <blockquote>
 <p>🎥 Click the images above to watch the videos</p>
 </blockquote>
-
-
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p>This lesson dives deeper into some of the concepts covered in the last lesson.</p>
 <p>In this lesson we'll cover:</p>
 <ul>
-<li><a href="#components-of-an-iot-application" rel="noopener noreferrer">Components of an IoT application</a></li>
-<li><a href="#deeper-dive-into-microcontrollers" rel="noopener noreferrer">Deeper dive into microcontrollers</a></li>
-<li><a href="#deeper-dive-into-single-board-computers" rel="noopener noreferrer">Deeper dive into single-board computers</a></li>
+<li><a href="#h-components-of-an-iot-application" rel="noopener noreferrer">Components of an IoT application</a></li>
+<li><a href="#h-deeper-dive-into-microcontrollers" rel="noopener noreferrer">Deeper dive into microcontrollers</a></li>
+<li><a href="#h-deeper-dive-into-single-board-computers" rel="noopener noreferrer">Deeper dive into single-board computers</a></li>
 </ul>
-<h2 id="components-of-an-iot-application">Components of an IoT application</h2>
+<h2 id="h-components-of-an-iot-application">Components of an IoT application</h2>
 <p>The two components of an IoT application are the <em>Internet</em> and the <em>thing</em>. Let's look at these two components in a bit more detail.</p>
-<h3 id="the-thing">The Thing</h3>
+<h3 id="h-the-thing">The Thing</h3>
 <p><img alt="A Raspberry Pi 4" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/raspberry-pi-4.jpg"></p>
 <p>The <strong>Thing</strong> part of IoT refers to a device that can interact with the physical world. These devices are usually small, low-priced computers, running at low speeds and using low power - for example, simple microcontrollers with kilobytes of RAM (as opposed to gigabytes in a PC) running at only a few hundred megahertz (as opposed to gigahertz in a PC), but consuming sometimes so little power they can run for weeks, months or even years on batteries.</p>
 <p>These devices interact with the physical world, either by using sensors to gather data from their surroundings or by controlling outputs or actuators to make physical changes. The typical example of this is a smart thermostat - a device that has a temperature sensor, a means to set a desired temperature such as a dial or touchscreen, and a connection to a heating or cooling system that can be turned on when the temperature detected is outside the desired range. The temperature sensor detects that the room is too cold and an actuator turns the heating on.</p>
 <p><img alt="A diagram showing temperature and a dial as inputs to an IoT device, and control of a heater as an output" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/basic-thermostat.png"></p>
 <p>There are a huge range of different things that can act as IoT devices, from dedicated hardware that senses one thing, to general purpose devices, even your smartphone! A smartphone can use sensors to detect the world around it, and actuators to interact with the world - for example using a GPS sensor to detect your location and a speaker to give you navigation instructions to a destination.</p>
 <p>✅ Think of other systems you have around you that read data from a sensor and use that to make decisions. One example would be the thermostat on an oven. Can you find more?</p>
-<h3 id="the-internet">The Internet</h3>
+<h3 id="h-the-internet">The Internet</h3>
 <p>The <strong>Internet</strong> side of an IoT application consists of applications that the IoT device can connect to send and receive data, as well as other applications that can process the data from the IoT device and help make decisions on what requests to send to the IoT devices actuators.</p>
 <p>One typical setup would be having some kind of cloud service that the IoT device connects to, and this cloud service handles things like security, as well as receiving messages from the IoT device, and sending messages back to the device. This cloud service would then connect to other applications that can process or store sensor data, or use the sensor data with data from other systems to make decisions.</p>
 <p>Devices also don't always connect directly to the Internet themselves via WiFi or wired connections. Some devices use mesh networking to talk to each other over technologies such as Bluetooth, connecting via a hub device that has an Internet connection.</p>
@@ -36,19 +34,19 @@
 <p>An even smarter version could use AI in the cloud with data from other sensors connected to other IoT devices such as occupancy sensors that detect what rooms are in use, as well as data such as weather and even your calendar, to make decisions on how to set the temperature in a smart fashion. For example, it could turn your heating off if it reads from your calendar you are on vacation, or turn off the heating on a room by room basis depending on what rooms you use, learning from the data to be more and more accurate over time.</p>
 <p><img alt="A diagram showing multiple temperature sensors and a dial as inputs to an IoT device, the IoT device with 2 way communication to the cloud, which in turn has 2 way communication to a phone, a calendar and a weather service, and control of a heater as an output from the IoT device" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/smarter-thermostat.png"></p>
 <p>✅ What other data could help make an Internet connected thermostat smarter?</p>
-<h3 id="iot-on-the-edge">IoT on the Edge</h3>
+<h3 id="h-iot-on-the-edge">IoT on the Edge</h3>
 <p>Although the I in IoT stands for Internet, these devices don't have to connect to the Internet. In some cases, devices can connect to 'edge' devices - gateway devices that run on your local network meaning you can process data without making a call over the Internet. This can be faster when you have a lot of data or a slow Internet connection, it allows you to run offline where Internet connectivity is not possible such as on a ship or in a disaster area when responding to a humanitarian crisis, and allows you to keep data private. Some devices will contain processing code created using cloud tools and run this locally to gather and respond to data without using an Internet connection to make a decision.</p>
 <p>One example of this is a smart home device such as an Apple HomePod, Amazon Alexa, or Google Home, which will listen to your voice using AI models trained in the cloud, but running locally on the device. These devices will 'wake up' when a certain word or phrase is spoken, and only then send your speech over the Internet for processing. The device will stop sending speech at an appropriate point such as when it detects a pause in your speech. Everything you say before waking up the device with the wake word, and everything you say after the device has stopped listening will not be sent over the internet to the device provider, and therefore will be private.</p>
 <p>✅ Think of other scenarios where privacy is important so processing of data would be better done on the edge rather than in the cloud. As a hint - think about IoT devices with cameras or other imaging devices on them.</p>
-<h3 id="iot-security">IoT Security</h3>
+<h3 id="h-iot-security">IoT Security</h3>
 <p>With any Internet connection, security is an important consideration. There is an old joke that 'the S in IoT stands for Security' -  there is no 'S' in IoT, implying it is not secure.</p>
 <p>IoT devices connect to a cloud service, and therefore are only as secure as that cloud service - if your cloud service allows any device to connect then malicious data can be sent, or virus attacks can take place. This can have very real world consequences as IoT devices interact and control other devices. For example, the <a href="https://wikipedia.org/wiki/Stuxnet" target="_blank" rel="noopener noreferrer">Stuxnet worm</a> manipulated valves in centrifuges to damage them. Hackers have also taken advantage of <a href="https://www.npr.org/sections/thetwo-way/2018/06/05/617196788/s-c-mom-says-baby-monitor-was-hacked-experts-say-many-devices-are-vulnerable" target="_blank" rel="noopener noreferrer">poor security to access baby monitors</a> and other home surveillance devices.</p>
 <blockquote>
 <p>💁 Sometimes IoT devices and edge devices run on a network completely isolated from the Internet to keep the data private and secure. This is known as <a href="https://wikipedia.org/wiki/Air_gap_(networking)" target="_blank" rel="noopener noreferrer">air-gapping</a>.</p>
 </blockquote>
-<h2 id="deeper-dive-into-microcontrollers">Deeper dive into microcontrollers</h2>
+<h2 id="h-deeper-dive-into-microcontrollers">Deeper dive into microcontrollers</h2>
 <p>In the last lesson, we introduced microcontrollers. Let's now look deeper into them.</p>
-<h3 id="cpu">CPU</h3>
+<h3 id="h-cpu">CPU</h3>
 <p>The CPU is the 'brain' of the microcontroller. It is the processor that runs your code and can send data to and receive data from any connected devices. CPUs can contain one or more cores - essentially one or more CPUs that can work together to run your code.</p>
 <p>CPUs rely on a clock to tick many millions or billions of times a second. Each tick, or cycle, synchronizes the actions that the CPU can take. With each tick, the CPU can execute an instruction from a program, such as to retrieve data from an external device or perform a mathematical calculation. This regular cycle allows for all actions to be completed before the next instruction is processed.</p>
 <p>The faster the clock cycle, the more instructions that can be processed each second, and therefore the faster the CPU. CPU speeds are measured in <a href="https://wikipedia.org/wiki/Hertz" target="_blank" rel="noopener noreferrer">Hertz (Hz)</a>, a standard unit where 1 Hz means one cycle or clock tick per second.</p>
@@ -69,7 +67,7 @@
 <h4>Task</h4>
 <p>Investigate the Wio Terminal.</p>
 <p>If you are using a Wio Terminal for these lessons, try to find the CPU. Find the <em>Hardware Overview</em> section of the <a href="https://www.seeedstudio.com/Wio-Terminal-p-4509.html" target="_blank" rel="noopener noreferrer">Wio Terminal product page</a> for a picture of the internals, and try to find the CPU through the clear plastic window on the back.</p>
-<h3 id="memory">Memory</h3>
+<h3 id="h-memory">Memory</h3>
 <p>Microcontrollers usually have two types of memory - program memory and random-access memory (RAM).</p>
 <p>Program memory is non-volatile, which means whatever is written to it stays when there is no power to the device. This is the memory that stores your program code.</p>
 <p>RAM is the memory used by the program to run, containing variables allocated by your program and data gathered from peripherals. RAM is volatile, when the power goes out the contents are lost, effectively resetting your program.</p>
@@ -84,7 +82,7 @@
 <p><img alt="A comparison between 192KB and 8GB - more than 40,000 times larger" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/ram-comparison.png"></p>
 <p>Program storage is also smaller than a PC. A typical PC might have a 500GB hard drive for program storage, whereas a microcontroller might have only kilobytes or maybe a few megabytes (MB) of storage (1MB is 1,000KB, or 1,000,000 bytes). The Wio terminal has 4MB of program storage.</p>
 <p>✅ Do a little research: How much RAM and storage does the computer you are using to read this have? How does this compare to a microcontroller?</p>
-<h3 id="input-output">Input/Output</h3>
+<h3 id="h-input-output">Input/Output</h3>
 <p>Microcontrollers need input and output (I/O) connections to read data from sensors and send control signals to actuators. They usually contain a number of general-purpose input/output (GPIO) pins. These pins can be configured in software to be input (that is they receive a signal), or output (they send a signal).</p>
 <p>🧠⬅️ Input pins are used to read values from sensors</p>
 <p>🧠➡️ Output pins send instructions to actuators</p>
@@ -92,7 +90,7 @@
 <h4>Task</h4>
 <p>Investigate the Wio Terminal.</p>
 <p>If you are using a Wio Terminal for these lessons, find the GPIO pins. Find the <em>Pinout diagram</em> section of the <a href="https://www.seeedstudio.com/Wio-Terminal-p-4509.html" target="_blank" rel="noopener noreferrer">Wio Terminal product page</a> to learn which pins are which. The Wio Terminal comes with a sticker you can mount on the back with pin numbers, so add this now if you haven't already.</p>
-<h3 id="physical-size">Physical size</h3>
+<h3 id="h-physical-size">Physical size</h3>
 <p>Microcontrollers are typically small in size, with the smallest, a <a href="https://www.edn.com/tiny-arm-cortex-m0-based-mcu-shrinks-package/" target="_blank" rel="noopener noreferrer">Freescale Kinetis KL03 MCU is small enough to fit in the dimple of a golf ball</a>. Just the CPU in a PC can measure 40mm x 40mm, and that's not including the heat sinks and fans needed to ensure the CPU can run for more than a few seconds without overheating, substantially larger than a complete microcontroller. The Wio terminal developer kit with a microcontroller, case, screen and a range of connections and components isn't much bigger than a bare Intel i9 CPU, and substantially smaller than the CPU with a heat sink and fan!</p>
 <div class="table-wrap"><table>
 <thead>
@@ -116,7 +114,7 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="frameworks-and-operating-systems">Frameworks and operating systems</h3>
+<h3 id="h-frameworks-and-operating-systems">Frameworks and operating systems</h3>
 <p>Due to their low speed and memory size, microcontrollers don't run an operating system (OS) in the desktop sense of the word. The operating system that makes your computer run (Windows, Linux or macOS) needs a lot of memory and processing power to run tasks that are completely unnecessary for a microcontroller. Remember that microcontrollers are usually programmed to perform one or more very specific tasks, unlike a general purpose computer like a PC or Mac that needs to support a user interface, play music or movies, provide tools to write documents or code, play games, or browse the Internet.</p>
 <p>To program a microcontroller without an OS you do need some tooling to allow you to build your code in a way that the microcontroller can run, using APIs that can talk to any peripherals. Each microcontroller is different, so manufacturers normally support standard frameworks which allow you to follow a standard 'recipe' to build your code and have it run on any microcontroller that supports that framework.</p>
 <p>You can program microcontrollers using an OS - often referred to as a real-time operating system (RTOS), as these are designed to handle sending data to and from peripherals in real time. These operating systems are very lightweight and provide features such as:</p>
@@ -138,9 +136,9 @@
 <h5>Task</h5>
 <p>Investigate the Wio Terminal.</p>
 <p>If you are using a Wio Terminal for these lessons, re-read the code you wrote in the last lesson. Find the <code>setup</code> and <code>loop</code> function. Monitor the serial output for the loop function being called repeatedly. Try adding code to the <code>setup</code> function to write to the serial port and observe that this code is only called once each time you reboot. Try rebooting your device with the power switch on the side to show this is called each time the device reboots.</p>
-<h2 id="deeper-dive-into-single-board-computers">Deeper dive into single-board computers</h2>
+<h2 id="h-deeper-dive-into-single-board-computers">Deeper dive into single-board computers</h2>
 <p>In the last lesson, we introduced single-board computers. Let's now look deeper into them.</p>
-<h3 id="raspberry-pi">Raspberry Pi</h3>
+<h3 id="h-raspberry-pi">Raspberry Pi</h3>
 <p><img alt="The Raspberry Pi logo" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/raspberry-pi-logo.png"></p>
 <p>The <a href="https://www.raspberrypi.org" target="_blank" rel="noopener noreferrer">Raspberry Pi Foundation</a> is a charity from the UK founded in 2009 to promote the study of computer science, especially at school level. As part of this mission, they developed a single-board computer, called the Raspberry Pi. Raspberry Pis are currently available in 3 variants - a full size version, the smaller Pi Zero, and a compute module that can be built into your final IoT device.</p>
 <p><img alt="A Raspberry Pi 4" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/raspberry-pi-4.jpg"></p>
@@ -161,18 +159,16 @@
 <li>You can find details on the processors used on the <a href="https://www.raspberrypi.org/documentation/hardware/raspberrypi/" target="_blank" rel="noopener noreferrer">Raspberry Pi hardware documentation page</a>. Read up on the processor used in the Pi you are using.</li>
 <li>Locate the GPIO pins. Read more about them on the <a href="https://www.raspberrypi.org/documentation/hardware/raspberrypi/gpio/README.md" target="_blank" rel="noopener noreferrer">Raspberry Pi GPIO documentation</a>. Use the <a href="https://www.raspberrypi.org/documentation/usage/gpio/README.md" target="_blank" rel="noopener noreferrer">GPIO Pin Usage guide</a> to identify the different pins on your Pi.</li>
 </ul>
-<h3 id="programming-single-board-computers">Programming single-board computers</h3>
+<h3 id="h-programming-single-board-computers">Programming single-board computers</h3>
 <p>Single-board computers are full computers, running a full OS. This means there is a wide range of programming languages, frameworks and tools you can use to code them, unlike microcontrollers which rely on support for the board in frameworks like Arduino. Most programming languages have libraries that can access the GPIO pins to send and receive data from sensors and actuators.</p>
 <p>✅ What programming languages are you familiar with? Are they supported on Linux?</p>
 <p>The most common programming language for building IoT applications on a Raspberry Pi is Python. There is a huge ecosystem of hardware designed for the Pi, and nearly all of these include the relevant code needed to use them as Python libraries. Some of these ecosystems are based off 'hats' - so called because they sit on top of the Pi like a hat and connect with a large socket to the 40 GPIO pins. These hats provide additional capabilities, such as screens, sensors, remote controlled cars, or adapters to allow you to plug in sensors with standardized cables</p>
-<h3 id="use-of-single-board-computers-in-professional-iot-deployment">Use of single-board computers in professional IoT deployments</h3>
+<h3 id="h-use-of-single-board-computers-in-professional-iot-deployment">Use of single-board computers in professional IoT deployments</h3>
 <p>Single-board computers are used for professional IoT deployments, not just as developer kits. They can provide a powerful way to control hardware and run complex tasks such as running machine learning models. For example, there is a <a href="https://www.raspberrypi.org/blog/raspberry-pi-compute-module-4/" target="_blank" rel="noopener noreferrer">Raspberry Pi 4 compute module</a> that provides all the power of a Raspberry Pi 4 but in a compact and cheaper form factor without most of the ports, designed to be installed into custom hardware.</p>
 <hr>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>The challenge in the last lesson was to list as many IoT devices as you can that are in your home, school or workplace. For every device in this list, do you think they are built around microcontrollers or single-board computers, or even a mixture of both?</p>
-
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <ul>
 <li>Read the <a href="https://www.arduino.cc/en/Guide/Introduction" target="_blank" rel="noopener noreferrer">Arduino getting started guide</a> to understand more about the Arduino platform.</li>
 <li>Read the <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/" target="_blank" rel="noopener noreferrer">introduction to the Raspberry Pi 4</a> to learn more about Raspberry Pis.</li>

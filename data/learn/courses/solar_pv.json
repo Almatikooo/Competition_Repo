@@ -14,396 +14,410 @@
    "title": "Solar energy basics",
    "lessons": [
     "solar_pv-01",
-    "solar_pv-02",
-    "solar_pv-03"
+    "solar_pv-02"
    ]
   },
   {
    "title": "Photovoltaic technology",
    "lessons": [
+    "solar_pv-03",
     "solar_pv-04",
     "solar_pv-05",
-    "solar_pv-06",
-    "solar_pv-07"
+    "solar_pv-06"
    ]
   },
   {
    "title": "PV systems and the grid",
    "lessons": [
+    "solar_pv-07",
     "solar_pv-08",
-    "solar_pv-09",
-    "solar_pv-10"
+    "solar_pv-09"
    ]
   },
   {
    "title": "Going solar",
    "lessons": [
+    "solar_pv-10",
     "solar_pv-11",
-    "solar_pv-12",
-    "solar_pv-13"
+    "solar_pv-12"
    ]
   }
  ],
  "lessons": [
   {
    "id": "solar_pv-01",
-   "title": "U.S. Energy Information Administration - EIA - Independent Statistics and Analysis",
-   "words": 299,
-   "minutes": 3,
+   "title": "Solar energy explained",
+   "words": 1098,
+   "minutes": 6,
    "source": "eia",
    "url": "https://www.eia.gov/energyexplained/solar/",
    "toc": [
     {
-     "id": "energy-from-the-sun",
+     "id": "h-energy-from-the-sun",
      "text": "Energy from the sun",
      "level": 2
     },
     {
-     "id": "solar-thermal-heat-energy",
+     "id": "h-energy-from-the-sun-x",
+     "text": "Energy from the sun",
+     "level": 3
+    },
+    {
+     "id": "h-solar-thermal-heat-energy",
      "text": "Solar thermal (heat) energy",
-     "level": 2
+     "level": 3
     },
     {
-     "id": "solar-photovoltaic-systems",
+     "id": "h-solar-photovoltaic-systems",
      "text": "Solar photovoltaic systems",
+     "level": 3
+    },
+    {
+     "id": "h-benefits-and-limitations-of-solar-energy",
+     "text": "Benefits and limitations of solar energy",
+     "level": 3
+    },
+    {
+     "id": "h-where-solar-is-found-and-used",
+     "text": "Where solar is found and used",
      "level": 2
     },
     {
-     "id": "benefits-and-limitations-of-solar-energy",
-     "text": "Benefits and limitations of solar energy",
-     "level": 2
+     "id": "h-solar-energy-is-sunshine",
+     "text": "Solar energy is sunshine",
+     "level": 3
+    },
+    {
+     "id": "h-solar-energy-resources-vary-by-location",
+     "text": "Solar energy resources vary by location",
+     "level": 3
+    },
+    {
+     "id": "h-electricity-generation-is-the-top-use-of-solar-energy-in-the",
+     "text": "Electricity generation is the top use of solar energy in the United States",
+     "level": 3
+    },
+    {
+     "id": "h-solar-energy-is-used-throughout-the-world",
+     "text": "Solar energy is used throughout the world",
+     "level": 3
     }
    ]
   },
   {
    "id": "solar_pv-02",
-   "title": "How does solar work?",
-   "words": 964,
-   "minutes": 5,
+   "title": "How solar works and solar radiation",
+   "words": 796,
+   "minutes": 4,
    "source": "doe",
    "url": "https://www.energy.gov/cmei/systems/how-does-solar-work",
    "toc": [
     {
-     "id": "photovoltaics-basics",
+     "id": "h-how-does-solar-work",
+     "text": "How does solar work?",
+     "level": 2
+    },
+    {
+     "id": "h-photovoltaics-basics",
      "text": "Photovoltaics Basics",
-     "level": 2
+     "level": 3
     },
     {
-     "id": "concentrating-solar-thermal-power-basics",
+     "id": "h-concentrating-solar-thermal-power-basics",
      "text": "Concentrating Solar-Thermal Power Basics",
+     "level": 3
+    },
+    {
+     "id": "h-solar-radiation-basics",
+     "text": "Solar Radiation Basics",
      "level": 2
     },
     {
-     "id": "learn-more",
-     "text": "Learn More",
-     "level": 2
+     "id": "h-what-is-solar-radiation",
+     "text": "What Is Solar Radiation?",
+     "level": 3
+    },
+    {
+     "id": "h-how-does-solar-radiation-work",
+     "text": "How Does Solar Radiation Work?",
+     "level": 3
+    },
+    {
+     "id": "h-types-of-solar-radiation",
+     "text": "Types of Solar Radiation",
+     "level": 3
+    },
+    {
+     "id": "h-measuring-solar-radiation",
+     "text": "Measuring Solar Radiation",
+     "level": 3
     }
    ]
   },
   {
    "id": "solar_pv-03",
-   "title": "Solar Radiation Basics",
-   "words": 646,
-   "minutes": 4,
-   "source": "doe",
-   "url": "https://www.energy.gov/cmei/systems/solar-radiation-basics",
-   "toc": [
-    {
-     "id": "what-is-solar-radiation",
-     "text": "What Is Solar Radiation?",
-     "level": 2
-    },
-    {
-     "id": "learn-more",
-     "text": "Learn More",
-     "level": 2
-    },
-    {
-     "id": "how-does-solar-radiation-work",
-     "text": "How Does Solar Radiation Work?",
-     "level": 2
-    },
-    {
-     "id": "types-of-solar-radiation",
-     "text": "Types of Solar Radiation",
-     "level": 2
-    },
-    {
-     "id": "measuring-solar-radiation",
-     "text": "Measuring Solar Radiation",
-     "level": 2
-    }
-   ]
-  },
-  {
-   "id": "solar_pv-04",
-   "title": "U.S. Energy Information Administration - EIA - Independent Statistics and Analysis",
+   "title": "Photovoltaics and electricity",
    "words": 972,
    "minutes": 5,
    "source": "eia",
    "url": "https://www.eia.gov/energyexplained/solar/photovoltaics-and-electricity.php",
    "toc": [
     {
-     "id": "photovoltaic-cells",
+     "id": "h-photovoltaic-cells",
      "text": "Photovoltaic cells",
      "level": 2
     },
     {
-     "id": "the-flow-of-electricity-in-a-solar-cell",
+     "id": "h-the-flow-of-electricity-in-a-solar-cell",
      "text": "The flow of electricity in a solar cell",
      "level": 2
     },
     {
-     "id": "pv-cells-panels-and-arrays",
+     "id": "h-pv-cells-panels-and-arrays",
      "text": "PV cells, panels, and arrays",
      "level": 2
     },
     {
-     "id": "pv-system-efficiency",
+     "id": "h-pv-system-efficiency",
      "text": "PV system efficiency",
      "level": 2
     },
     {
-     "id": "pv-system-applications",
+     "id": "h-pv-system-applications",
      "text": "PV system applications",
      "level": 2
     },
     {
-     "id": "history-of-pv-systems",
+     "id": "h-history-of-pv-systems",
      "text": "History of PV systems",
      "level": 2
     }
    ]
   },
   {
-   "id": "solar_pv-05",
+   "id": "solar_pv-04",
    "title": "PV technology and cells",
-   "words": 1517,
+   "words": 1431,
    "minutes": 8,
    "source": "doe",
    "url": "https://www.energy.gov/cmei/systems/solar-photovoltaic-technology-basics",
    "toc": [
     {
-     "id": "solar-photovoltaic-technology-basics",
+     "id": "h-solar-photovoltaic-technology-basics",
      "text": "Solar Photovoltaic Technology Basics",
      "level": 2
     },
     {
-     "id": "what-is-photovoltaic-technology",
+     "id": "h-what-is-photovoltaic-technology",
      "text": "What Is Photovoltaic Technology?",
      "level": 3
     },
     {
-     "id": "learn-more",
-     "text": "Learn More",
-     "level": 3
-    },
-    {
-     "id": "what-is-a-photovoltaic-system",
+     "id": "h-what-is-a-photovoltaic-system",
      "text": "What Is a Photovoltaic System?",
      "level": 3
     },
     {
-     "id": "photovoltaic-technology-basics",
+     "id": "h-photovoltaic-technology-basics",
      "text": "Photovoltaic Technology Basics",
      "level": 3
     },
     {
-     "id": "solar-photovoltaic-cell-basics",
+     "id": "h-solar-photovoltaic-cell-basics",
      "text": "Solar Photovoltaic Cell Basics",
      "level": 2
     },
     {
-     "id": "what-is-a-solar-photovoltaic-cell",
+     "id": "h-what-is-a-solar-photovoltaic-cell",
      "text": "What Is a Solar Photovoltaic Cell?",
      "level": 3
     },
     {
-     "id": "learn-more",
-     "text": "Learn More",
-     "level": 3
-    },
-    {
-     "id": "how-do-photovoltaic-cells-work",
+     "id": "h-how-do-photovoltaic-cells-work",
      "text": "How Do Photovoltaic Cells Work?",
      "level": 3
     },
     {
-     "id": "types-of-photovoltaic-cells",
+     "id": "h-types-of-photovoltaic-cells",
      "text": "Types of Photovoltaic Cells",
      "level": 3
     }
    ]
   },
   {
-   "id": "solar_pv-06",
+   "id": "solar_pv-05",
    "title": "Solar Photovoltaic Performance and Efficiency Basics",
-   "words": 611,
+   "words": 603,
    "minutes": 4,
    "source": "doe",
    "url": "https://www.energy.gov/cmei/systems/solar-photovoltaic-performance-and-efficiency-basics",
    "toc": [
     {
-     "id": "factors-affecting-conversion-efficiency",
+     "id": "h-factors-affecting-conversion-efficiency",
      "text": "Factors Affecting Conversion Efficiency",
      "level": 2
     },
     {
-     "id": "determining-conversion-efficiency",
+     "id": "h-determining-conversion-efficiency",
      "text": "Determining Conversion Efficiency",
      "level": 2
     },
     {
-     "id": "additional-information",
+     "id": "h-additional-information",
      "text": "Additional Information",
      "level": 2
     }
    ]
   },
   {
-   "id": "solar_pv-07",
+   "id": "solar_pv-06",
    "title": "Solar Photovoltaic Manufacturing Basics",
-   "words": 1174,
+   "words": 1166,
    "minutes": 6,
    "source": "doe",
    "url": "https://www.energy.gov/cmei/systems/solar-photovoltaic-manufacturing-basics",
    "toc": [
     {
-     "id": "pv-module-manufacturing",
+     "id": "h-pv-module-manufacturing",
      "text": "PV Module Manufacturing",
      "level": 2
     },
     {
-     "id": "racking-systems",
+     "id": "h-racking-systems",
      "text": "Racking Systems",
      "level": 2
     },
     {
-     "id": "power-electronics",
+     "id": "h-power-electronics",
      "text": "Power Electronics",
      "level": 2
     }
    ]
   },
   {
-   "id": "solar_pv-08",
+   "id": "solar_pv-07",
    "title": "Solar Photovoltaic System Design Basics",
-   "words": 656,
+   "words": 637,
    "minutes": 4,
    "source": "doe",
    "url": "https://www.energy.gov/cmei/systems/solar-photovoltaic-system-design-basics",
    "toc": []
   },
   {
-   "id": "solar_pv-09",
+   "id": "solar_pv-08",
    "title": "Photovoltaic System Design and Energy Yield",
-   "words": 751,
+   "words": 743,
    "minutes": 4,
    "source": "doe",
    "url": "https://www.energy.gov/cmei/systems/photovoltaic-system-design-and-energy-yield",
    "toc": [
     {
-     "id": "what-is-photovoltaic-system-design-and-energy-yield",
+     "id": "h-what-is-photovoltaic-system-design-and-energy-yield",
      "text": "What is Photovoltaic System Design and Energy Yield?",
      "level": 3
     },
     {
-     "id": "why-is-pv-system-design-and-energy-yield-important",
+     "id": "h-why-is-pv-system-design-and-energy-yield-important",
      "text": "Why is PV System Design and Energy Yield important?",
      "level": 3
     },
     {
-     "id": "seto-research-in-pv-system-design-and-energy-yield",
+     "id": "h-seto-research-in-pv-system-design-and-energy-yield",
      "text": "SETO Research in PV System Design and Energy Yield",
      "level": 3
     },
     {
-     "id": "additional-resources",
+     "id": "h-additional-resources",
      "text": "Additional Resources",
      "level": 3
     }
    ]
   },
   {
-   "id": "solar_pv-10",
+   "id": "solar_pv-09",
    "title": "Solar Integration: Inverters and Grid Services Basics",
-   "words": 1292,
+   "words": 1284,
    "minutes": 7,
    "source": "doe",
    "url": "https://www.energy.gov/cmei/systems/solar-integration-inverters-and-grid-services-basics",
    "toc": [
     {
-     "id": "what-are-inverters",
+     "id": "h-what-are-inverters",
      "text": "What are Inverters?",
      "level": 3
     },
     {
-     "id": "toward-an-inverter-based-grid",
+     "id": "h-toward-an-inverter-based-grid",
      "text": "Toward an Inverter-Based Grid",
      "level": 3
     },
     {
-     "id": "grid-services-and-inverters",
+     "id": "h-grid-services-and-inverters",
      "text": "Grid Services and Inverters",
      "level": 3
     },
     {
-     "id": "types-of-inverters",
+     "id": "h-types-of-inverters",
      "text": "Types of Inverters",
      "level": 3
     },
     {
-     "id": "additional-information",
+     "id": "h-additional-information",
      "text": "Additional Information",
      "level": 3
     }
    ]
   },
   {
-   "id": "solar_pv-11",
+   "id": "solar_pv-10",
    "title": "Homeowner’s Guide to Solar",
-   "words": 3291,
-   "minutes": 17,
+   "words": 2247,
+   "minutes": 12,
    "source": "doe",
    "url": "https://www.energy.gov/cmei/systems/homeowners-guide-solar",
    "toc": [
     {
-     "id": "is-solar-for-me",
+     "id": "h-is-solar-for-me",
      "text": "Is Solar for Me?",
      "level": 2
     },
     {
-     "id": "getting-started",
+     "id": "h-getting-started",
      "text": "Getting Started",
      "level": 2
     },
     {
-     "id": "paying-for-solar",
+     "id": "h-paying-for-solar",
      "text": "Paying for Solar",
      "level": 2
     },
     {
-     "id": "real-estate",
+     "id": "h-real-estate",
      "text": "Real Estate",
      "level": 2
-    },
+    }
+   ]
+  },
+  {
+   "id": "solar_pv-11",
+   "title": "Homeowner’s Guide to Solar · The Basics",
+   "words": 686,
+   "minutes": 4,
+   "source": "doe",
+   "url": "https://www.energy.gov/cmei/systems/homeowners-guide-solar",
+   "toc": [
     {
-     "id": "the-basics",
-     "text": "The Basics",
-     "level": 2
-    },
-    {
-     "id": "learn-more-about-how-to-go-solar",
+     "id": "h-learn-more-about-how-to-go-solar",
      "text": "Learn More About How to Go Solar",
      "level": 2
     },
     {
-     "id": "read-stories-from-solar-homeowners",
+     "id": "h-read-stories-from-solar-homeowners",
      "text": "Read Stories from Solar Homeowners",
      "level": 2
     },
     {
-     "id": "more-on-the-solar-office",
+     "id": "h-more-on-the-solar-office",
      "text": "More on the Solar Office",
      "level": 2
     }
@@ -411,91 +425,197 @@
   },
   {
    "id": "solar_pv-12",
-   "title": "U.S. Energy Information Administration - EIA - Independent Statistics and Analysis",
-   "words": 789,
-   "minutes": 4,
-   "source": "eia",
-   "url": "https://www.eia.gov/energyexplained/solar/where-solar-is-found.php",
-   "toc": [
-    {
-     "id": "solar-energy-is-sunshine",
-     "text": "Solar energy is sunshine",
-     "level": 2
-    },
-    {
-     "id": "solar-energy-resources-vary-by-location",
-     "text": "Solar energy resources vary by location",
-     "level": 2
-    },
-    {
-     "id": "electricity-generation-is-the-top-use-of-solar-energy-in-the",
-     "text": "Electricity generation is the top use of solar energy in the United States",
-     "level": 2
-    },
-    {
-     "id": "solar-energy-is-used-throughout-the-world",
-     "text": "Solar energy is used throughout the world",
-     "level": 2
-    }
-   ]
-  },
-  {
-   "id": "solar_pv-13",
    "title": "End-of-Life Management for Solar Photovoltaics",
-   "words": 1339,
+   "words": 1317,
    "minutes": 7,
    "source": "doe",
    "url": "https://www.energy.gov/cmei/systems/end-life-management-solar-photovoltaics",
    "toc": [
     {
-     "id": "what-is-end-of-life-management-for-photovoltaics",
+     "id": "h-what-is-end-of-life-management-for-photovoltaics",
      "text": "What is End-of-Life Management for Photovoltaics?",
      "level": 2
     },
     {
-     "id": "why-is-pv-end-of-life-management-important",
+     "id": "h-why-is-pv-end-of-life-management-important",
      "text": "Why Is PV End-of-Life Management Important?",
      "level": 2
     },
     {
-     "id": "can-pv-modules-be-recycled",
+     "id": "h-can-pv-modules-be-recycled",
      "text": "Can PV Modules Be Recycled?",
      "level": 2
     },
     {
-     "id": "full-lifecycle-approach-to-pv-end-of-life-management",
+     "id": "h-full-lifecycle-approach-to-pv-end-of-life-management",
      "text": "Full Lifecycle Approach to PV End-of-Life Management",
      "level": 2
     },
     {
-     "id": "research-in-pv-end-of-life-management",
+     "id": "h-research-in-pv-end-of-life-management",
      "text": "Research in PV End-of-Life Management",
      "level": 2
     },
     {
-     "id": "additional-awards",
+     "id": "h-additional-awards",
      "text": "Additional Awards",
      "level": 2
     },
     {
-     "id": "additional-resources",
+     "id": "h-additional-resources",
      "text": "Additional Resources",
-     "level": 2
-    },
-    {
-     "id": "learn-more",
-     "text": "Learn More",
      "level": 2
     }
    ]
   }
  ],
  "quiz": {
-  "questions": [],
-  "pass_mark": 0,
-  "missing": true
+  "questions": [
+   {
+    "q": "How are solar cells scaled up to supply a whole house?",
+    "options": [
+     "One very large cell is used per house",
+     "Cells are wired directly to each appliance",
+     "Cells are grouped into PV panels, and panels are connected in arrays",
+     "Cells are stacked inside the electricity meter"
+    ],
+    "answer": 2,
+    "explain": "Cells → panels (modules) → arrays.",
+    "lesson": "solar_pv-01",
+    "evidence": "PV panels are connected in arrays that can produce electricity for an entire house.",
+    "origin": "authored"
+   },
+   {
+    "q": "When is the intensity of solar radiation at a location greatest?",
+    "options": [
+     "When the sun is at its highest in the sky — solar noon — on clear, cloudless days",
+     "Just after sunrise",
+     "On cloudy days, when light is diffused",
+     "At midnight in summer"
+    ],
+    "answer": 0,
+    "explain": "Sunlight travels through the least atmosphere when the sun is highest.",
+    "lesson": "solar_pv-01",
+    "evidence": "the intensity of solar radiation at any location is greatest when the sun is at its highest apparent position in the sky—at solar noon—on clear, cloudless days.",
+    "origin": "authored"
+   },
+   {
+    "q": "What is solar radiation?",
+    "options": [
+     "Heat stored in solar panels",
+     "Radioactive material used in panels",
+     "Electricity produced by a PV array",
+     "A general term for the electromagnetic radiation emitted by the sun"
+    ],
+    "answer": 3,
+    "explain": "It is also called the solar resource, or simply sunlight.",
+    "lesson": "solar_pv-02",
+    "evidence": "Solar radiation, often called the solar resource or just sunlight, is a general term for the electromagnetic radiation emitted by the sun.",
+    "origin": "authored"
+   },
+   {
+    "q": "What is a photovoltaic (PV) cell?",
+    "options": [
+     "A battery that stores solar heat",
+     "A nonmechanical device that converts sunlight directly into electricity",
+     "A mirror that concentrates sunlight",
+     "A turbine driven by hot air"
+    ],
+    "answer": 1,
+    "explain": "Absorbed sunlight dislodges electrons in a semiconductor, creating a current.",
+    "lesson": "solar_pv-03",
+    "evidence": "is a nonmechanical device that converts sunlight directly into electricity.",
+    "origin": "authored"
+   },
+   {
+    "q": "How is the power output of PV cells boosted?",
+    "options": [
+     "By cooling them with water",
+     "By painting them black",
+     "By connecting them in chains to form modules or panels",
+     "By rotating them quickly"
+    ],
+    "answer": 2,
+    "explain": "Modules can then be combined into arrays of any size.",
+    "lesson": "solar_pv-04",
+    "evidence": "To boost the power output of PV cells, they are connected in chains to form larger units known as modules or panels.",
+    "origin": "authored"
+   },
+   {
+    "q": "What is the conversion efficiency of a PV cell?",
+    "options": [
+     "The percentage of the solar energy shining on it that is converted into usable electricity",
+     "How quickly it can be installed",
+     "The share of its cost paid by subsidies",
+     "Its weight per square metre"
+    ],
+    "answer": 0,
+    "explain": "Improving efficiency helps make PV cost-competitive with conventional sources.",
+    "lesson": "solar_pv-05",
+    "evidence": "The conversion efficiency of a photovoltaic (PV) cell, or solar cell, is the percentage of the solar energy shining on a PV device that is converted into usable electricity.",
+    "origin": "authored"
+   },
+   {
+    "q": "Which mounting method is currently the most common for PV, and why?",
+    "options": [
+     "Floating systems, because water cools panels",
+     "Tracking systems, because they follow the sun",
+     "Building-integrated PV, because it replaces roof tiles",
+     "Rack mounting, because it is robust, versatile and easy to construct and install"
+    ],
+    "answer": 3,
+    "explain": "Modules are only one part of a PV system; mounting, inverters and wiring complete it.",
+    "lesson": "solar_pv-07",
+    "evidence": "Rack mounting is currently the most common method because it is robust, versatile, and easy to construct and install.",
+    "origin": "authored"
+   },
+   {
+    "q": "How does energy yield differ from efficiency?",
+    "options": [
+     "They mean exactly the same thing",
+     "Energy yield is the energy actually harvested in real conditions (heat, dirt, shade); efficiency is measured in the lab",
+     "Efficiency includes shading losses; yield does not",
+     "Energy yield only applies to wind turbines"
+    ],
+    "answer": 1,
+    "explain": "System design aims to maximise annual energy yield, which drives the cost of solar electricity.",
+    "lesson": "solar_pv-08",
+    "evidence": "Energy yield is the amount of energy actually harvested from solar panels, taking into consideration external factors like heat, dirt, and shade, whereas efficiency refers to testing done in lab conditions.",
+    "origin": "authored"
+   },
+   {
+    "q": "Inverters are an example of which class of devices?",
+    "options": [
+     "Batteries",
+     "Transformers that raise voltage only",
+     "Power electronics that regulate the flow of electrical power",
+     "Solar trackers"
+    ],
+    "answer": 2,
+    "explain": "Inverters convert the DC from panels into AC for the grid and can provide grid services.",
+    "lesson": "solar_pv-09",
+    "evidence": "Inverters are just one example of a class of devices called power electronics that regulate the flow of electrical power.",
+    "origin": "authored"
+   },
+   {
+    "q": "What does end-of-life management for photovoltaics refer to?",
+    "options": [
+     "The processes that occur when solar panels and other PV components are retired from operation",
+     "Cleaning panels at the end of each day",
+     "Turning panels off at night",
+     "Insurance for damaged panels"
+    ],
+    "answer": 0,
+    "explain": "Reuse, recycling and disposal of panels, racking and inverters are part of a circular economy for solar.",
+    "lesson": "solar_pv-12",
+    "evidence": "End-of-life management for photovoltaics (PV) refers to the processes that occur when solar panels and other components of a PV system (racking, inverters, etc.) are retired from operation.",
+    "origin": "authored"
+   }
+  ],
+  "pass_mark": 7,
+  "missing": false
  },
- "minutes": 78,
+ "minutes": 71,
  "sources": [
   {
    "id": "doe",

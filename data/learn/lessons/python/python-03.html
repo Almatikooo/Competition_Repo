@@ -13,7 +13,7 @@
 <li>How can I convert one type to another?</li>
 </ul>
 </div>
-<h2 id="every-value-has-a-type">Every value has a type.</h2>
+<h2 id="h-every-value-has-a-type">Every value has a type.</h2>
 <ul>
 <li>Every value in a program has a specific type.</li>
 <li>Integer (<code>int</code>): represents positive or negative whole numbers like 3 or -512.</li>
@@ -25,7 +25,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="use-the-built-in-function-type-to-find-the-type-of-a-value">Use the built-in function <code>type</code> to find the type of a value.</h2>
+<h2 id="h-use-the-built-in-function-type-to-find-the-type-of-a-value">Use the built-in function <code>type</code> to find the type of a value.</h2>
 <ul>
 <li>Use the built-in function <code>type</code> to find out what type a value has.</li>
 <li>Works on variables as well.
@@ -43,7 +43,7 @@ print(type(fitness))
 </code></pre>
 <pre><code class="language-output">&lt;class 'str'&gt;
 </code></pre>
-<h2 id="types-control-what-operations-or-methods-can-be-performed-on">Types control what operations (or methods) can be performed on a given value.</h2>
+<h2 id="h-types-control-what-operations-or-methods-can-be-performed-on">Types control what operations (or methods) can be performed on a given value.</h2>
 <ul>
 <li>A value's type determines what the program can do to it.</li>
 </ul>
@@ -60,7 +60,7 @@ TypeError                                 Traceback (most recent call last)
 
 TypeError: unsupported operand type(s) for -: 'str' and 'str'
 </code></pre>
-<h2 id="you-can-use-the-and-operators-on-strings">You can use the "+" and "*" operators on strings.</h2>
+<h2 id="h-you-can-use-the-and-operators-on-strings">You can use the "+" and "*" operators on strings.</h2>
 <ul>
 <li>"Adding" character strings concatenates them.</li>
 </ul>
@@ -81,7 +81,7 @@ print(separator)
 </code></pre>
 <pre><code class="language-output">==========
 </code></pre>
-<h2 id="strings-have-a-length-but-numbers-don-t">Strings have a length (but numbers don't).</h2>
+<h2 id="h-strings-have-a-length-but-numbers-don-t">Strings have a length (but numbers don't).</h2>
 <ul>
 <li>The built-in function <code>len</code> counts the number of characters in a string.</li>
 </ul>
@@ -101,7 +101,7 @@ TypeError                                 Traceback (most recent call last)
 
 TypeError: object of type 'int' has no len()
 </code></pre>
-<h2 id="must-convert-numbers-to-strings-or-vice-versa-when-operating">Must convert numbers to strings or vice versa when operating on them. {#convert-numbers-and-strings}</h2>
+<h2 id="h-must-convert-numbers-to-strings-or-vice-versa-when-operating">Must convert numbers to strings or vice versa when operating on them. {#convert-numbers-and-strings}</h2>
 <ul>
 <li>Cannot add numbers and strings.</li>
 </ul>
@@ -124,7 +124,7 @@ print(str(1) + '2')
 <pre><code class="language-output">3
 12
 </code></pre>
-<h2 id="can-mix-integers-and-floats-freely-in-operations">Can mix integers and floats freely in operations.</h2>
+<h2 id="h-can-mix-integers-and-floats-freely-in-operations">Can mix integers and floats freely in operations.</h2>
 <ul>
 <li>Integers and floating-point numbers can be mixed in arithmetic.
 <ul>
@@ -138,7 +138,7 @@ print('three squared is', 3.0 ** 2)
 <pre><code class="language-output">half is 0.5
 three squared is 9.0
 </code></pre>
-<h2 id="variables-only-change-value-when-something-is-assigned-to-th">Variables only change value when something is assigned to them.</h2>
+<h2 id="h-variables-only-change-value-when-something-is-assigned-to-th">Variables only change value when something is assigned to them.</h2>
 <ul>
 <li>If we make one cell in a spreadsheet depend on another,
 and update the latter,
@@ -160,11 +160,9 @@ does not automatically change when <code>variable_one</code> changes.</li>
 </ul>
 <div class="box box-challenge">
 <p class="box-title">Fractions</p>
-
 <p>What type of value is 3.4?
 How can you find out?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <p>It is a floating-point number (often abbreviated "float").
 It is possible to find out by using the built-in function <code>type()</code>.</p>
 <pre><code class="language-python">print(type(3.4))
@@ -175,10 +173,8 @@ It is possible to find out by using the built-in function <code>type()</code>.</
 </div>
 <div class="box box-challenge">
 <p class="box-title">Automatic Type Conversion</p>
-
 <p>What type of value is 3.25 + 4?</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <p>It is a float:
 integers are automatically converted to floats as necessary.</p>
 <pre><code class="language-python">result = 3.25 + 4
@@ -190,7 +186,6 @@ print(result, 'is', type(result))
 </div>
 <div class="box box-challenge">
 <p class="box-title">Choose a Type</p>
-
 <p>What type of value (integer, floating point number, or character string)
 would you use to represent each of the following?  Try to come up with more than one good answer for each problem.  For example, in  # 1, when would counting days with a floating point variable make more sense than using an integer?</p>
 <ol>
@@ -202,7 +197,6 @@ would you use to represent each of the following?  Try to come up with more than
 <li>Average population of a city over time.</li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
 <p>The answers to the questions are:</p>
 <ol>
 <li>Integer, since the number of days would lie between 1 and 365.</li>
@@ -216,7 +210,6 @@ would you use to represent each of the following?  Try to come up with more than
 </div>
 <div class="box box-challenge">
 <p class="box-title">Division Types</p>
-
 <p>In Python 3, the <code>//</code> operator performs integer (whole-number) floor division, the <code>/</code> operator performs floating-point
 division, and the <code>%</code> (or <em>modulo</em>) operator calculates and returns the remainder from integer division:</p>
 <pre><code class="language-python">print('5 // 3:', 5 // 3)
@@ -232,7 +225,6 @@ and <code>num_per_survey</code> is the number that can take part in a single sur
 write an expression that calculates the number of surveys needed
 to reach everyone once.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x">Solution</h2>
 <p>We want the minimum number of surveys that reaches everyone once, which is
 the rounded up value of <code>num_subjects/ num_per_survey</code>. This is
 equivalent to performing a floor division with <code>//</code> and adding 1. Before
@@ -250,7 +242,6 @@ print(num_subjects, 'subjects,', num_per_survey, 'per survey:', num_surveys)
 </div>
 <div class="box box-challenge">
 <p class="box-title">Strings to Numbers</p>
-
 <p>Where reasonable, <code>float()</code> will convert a string to a floating point number,
 and <code>int()</code> will convert a floating point number to an integer:</p>
 <pre><code class="language-python">print("string to float:", float("3.4"))
@@ -275,7 +266,6 @@ ValueError: could not convert string to float: 'Hello world!'
 <pre><code class="language-python">print("fractional string to int:", int("3.4"))
 </code></pre>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x">Solution</h2>
 <p>What do you expect this program to do? It would not be so unreasonable to expect the Python 3 <code>int</code> command to
 convert the string "3.4" to 3.4 and an additional type conversion to 3. After all, Python 3 performs a lot of other
 magic - isn't that part of its charm?</p>
@@ -297,7 +287,6 @@ typecasts, you must convert it explicitly in code.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Arithmetic with Different Types</p>
-
 <p>Which of the following will return the floating point number <code>2.0</code>?
 Note: there may be more than one right answer.</p>
 <pre><code class="language-python">first = 1.0
@@ -313,13 +302,11 @@ third = "1.1"
 <li><code>2.0 * second</code></li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x">Solution</h2>
 <p>Answer: 1 and 4</p>
 </details>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Complex Numbers</p>
-
 <p>Python provides complex numbers,
 which are written as <code>1.0+2.0j</code>.
 If <code>val</code> is a complex number,
@@ -338,7 +325,6 @@ print(a_complex_number.imag)
 <li>What do you expect <code>4j</code> to be?  What about <code>4 j</code> or <code>4 + j</code>?</li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x-x-x-x-x">Solution</h2>
 <ol>
 <li>Standard mathematics treatments typically use <code>i</code> to denote an imaginary number. However, from media reports it
 was an early convention established from electrical engineering that now presents a technically expensive area to

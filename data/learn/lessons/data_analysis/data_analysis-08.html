@@ -10,7 +10,6 @@
 </tr>
 </tbody>
 </table></div>
-
 <p>At this point you've probably come to the realization that data science is a process. This process can be broken down into 5 stages:</p>
 <ul>
 <li>Capturing</li>
@@ -24,7 +23,7 @@
 <blockquote>
 <p>Photo by <a href="https://ischoolonline.berkeley.edu/data-science/what-is-data-science/" target="_blank" rel="noopener noreferrer">Berkeley School of Information</a></p>
 </blockquote>
-<h2 id="capturing">Capturing</h2>
+<h2 id="h-capturing">Capturing</h2>
 <p>The first stage of the lifecycle is very important as the next stages are dependent on it. It’s practically two stages combined into one: acquiring the data and defining the purpose and problems that need to be addressed.
 Defining the goals of the project will require deeper context into the problem or question. First, we need to identify and acquire those who need their problem solved. These may be stakeholders in a business or sponsors of the project, who can help identify who or what will benefit from this project as well as what, and why they need it. A well-defined goal should be measurable and quantifiable to define an acceptable result.</p>
 <p>Questions a data scientist may ask:</p>
@@ -46,7 +45,7 @@ Defining the goals of the project will require deeper context into the problem o
 <li>Is the data of acceptable quality for this problem?</li>
 <li>If I discover additional information through this data, should we consider changing or redefining the goals?</li>
 </ul>
-<h2 id="processing">Processing</h2>
+<h2 id="h-processing">Processing</h2>
 <p>The processing stage of the lifecycle focuses on discovering patterns in the data as well as modeling. Some techniques used in the processing stage require statistical methods to uncover the patterns. Typically, this would be a tedious task for a human to do with a large data set and will rely on computers to do the heavy lifting to speed up the process. This stage is also where data science and machine learning will intersect. As you learned in the first lesson, machine learning is the process of building models to understand the data. Models are a representation of the relationship between variables in the data that help predict outcomes.</p>
 <p>Common techniques used in this stage are covered in the ML for Beginners curriculum.  Follow the links to learn more about them:</p>
 <ul>
@@ -54,18 +53,18 @@ Defining the goals of the project will require deeper context into the problem o
 <li><a href="https://github.com/microsoft/ML-For-Beginners/tree/main/5-Clustering" target="_blank" rel="noopener noreferrer">Clustering</a>: Grouping data into similar groups.</li>
 <li><a href="https://github.com/microsoft/ML-For-Beginners/tree/main/2-Regression" target="_blank" rel="noopener noreferrer">Regression</a>: Determine the relationships between variables to predict or forecast values.</li>
 </ul>
-<h2 id="maintaining">Maintaining</h2>
+<h2 id="h-maintaining">Maintaining</h2>
 <p>In the diagram of lifecycle, you may have noticed that maintenance sits between capturing and processing. Maintenance is an ongoing process of managing, storing and securing the data throughout the process of a project and should be taken into consideration throughout the entirety of the project.</p>
-<h3 id="storing-data">Storing Data</h3>
+<h3 id="h-storing-data">Storing Data</h3>
 <p>Considerations of how and where the data is stored can influence the cost of its storage as well as performance of how fast the data can be accessed. Decisions like these are not likely to be made by a data scientist alone but they may find themselves making choices on how to work with the data based on how it’s stored.</p>
 <p>Here’s some aspects of modern data storage systems that can affect these choices:</p>
 <p><strong>On premise vs off premise vs public or private cloud</strong></p>
 <p>On premise refers to hosting managing the data on your own equipment, like owning a server with hard drives that store the data, while off premise relies on equipment that you don’t own, such as a data center. The public cloud is a popular choice for storing data that requires no knowledge of how or where exactly the data is stored, where public refers to a unified underlying infrastructure that is shared by all who use the cloud. Some organizations have strict security policies that require that they have complete access to the equipment where the data is hosted and will rely on a private cloud that provides its own cloud services. You’ll learn more about data in the cloud in <a href="https://github.com/microsoft/Data-Science-For-Beginners/tree/main/5-Data-Science-In-Cloud" target="_blank" rel="noopener noreferrer">later lessons</a>.</p>
 <p><strong>Cold vs hot data</strong></p>
 <p>When training your models, you may require more training data. If you’re content with your model, more data will arrive for a model to serve its purpose. In any case the cost of storing and accessing data will increase as you accumulate more of it. Separating rarely used data, known as cold data from frequently accessed hot data can be a cheaper data storage option through hardware or software services. If cold data needs to be accessed, it may take a little longer to retrieve in comparison to hot data.</p>
-<h3 id="managing-data">Managing Data</h3>
+<h3 id="h-managing-data">Managing Data</h3>
 <p>As you work with data you may discover that some of the data needs to be cleaned using some of the techniques covered in the lesson focused on <a href="https://github.com/microsoft/Data-Science-For-Beginners/tree/main/2-Working-With-Data/08-data-preparation" target="_blank" rel="noopener noreferrer">data preparation</a> to build accurate models.  When new data arrives, it will need some of the same applications to maintain consistency in quality. Some projects will involve use of an automated tool for cleansing, aggregation, and compression before the data is moved to its final location. Azure Data Factory is an example of one of these tools.</p>
-<h3 id="securing-the-data">Securing the Data</h3>
+<h3 id="h-securing-the-data">Securing the Data</h3>
 <p>One of the main goals of securing data is ensuring that those working it are in control of what is collected and in what context it is being used. Keeping data secure involves limiting access to only those who need it, adhering to local laws and regulations, as well as maintaining ethical standards, as covered in the <a href="https://github.com/microsoft/Data-Science-For-Beginners/tree/main/1-Introduction/02-ethics" target="_blank" rel="noopener noreferrer">ethics lesson</a>.</p>
 <p>Here’s some things that a team may do with security in mind:</p>
 <ul>
@@ -74,7 +73,7 @@ Defining the goals of the project will require deeper context into the problem o
 <li>Remove data access from those who have left the project</li>
 <li>Let only certain project members alter the data</li>
 </ul>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>There are many versions of the Data Science Lifecycle, where each step may have different names and number of stages but will contain the same processes mentioned within this lesson.</p>
 <p>Explore the <a href="https://docs.microsoft.com/en-us/azure/architecture/data-science-process/lifecycle" target="_blank" rel="noopener noreferrer">Team Data Science Process lifecycle</a> and the <a href="https://www.datascience-pm.com/crisp-dm-2/" target="_blank" rel="noopener noreferrer">Cross-industry standard process for data mining</a>. Name 3 similarities and differences between the two.</p>
 <div class="table-wrap"><table>
@@ -95,8 +94,7 @@ Defining the goals of the project will require deeper context into the problem o
 </tr>
 </tbody>
 </table></div>
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>Applying the Data Science Lifecycle involves multiple roles and tasks, where some may focus on particular parts of each stage. The Team Data Science Process provides a few resources that explain the types of roles and tasks that someone may have in a project.</p>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/architecture/data-science-process/roles-tasks" target="_blank" rel="noopener noreferrer">Team Data Science Process roles and tasks</a></li>

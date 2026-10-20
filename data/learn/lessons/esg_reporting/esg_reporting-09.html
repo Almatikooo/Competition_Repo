@@ -1,0 +1,172 @@
+<p>Environmental sustainability means thinking about the wider impact of your project on people and the planet, and being mindful about the resources you use every day. It’s important to consider this from the start, as it can influence your choices about tools, suppliers and infrastructure.</p>
+<p>For data and AI projects, acting sustainably means:</p>
+<ul>
+<li>using only the necessary resources</li>
+<li>protecting natural resources and using them responsibly</li>
+<li>designing systems that last and are easy to maintain</li>
+</ul>
+<p>Sustainability also includes social responsibility. This means supporting inclusion, fairness and human rights in how technologies are designed, manufactured, used and disposed of.</p>
+<h3 id="h-what-environmental-sustainability-means-in-practice">What environmental sustainability means in practice</h3>
+<p>Data and AI can support environmental goals, such as predicting weather patterns or monitoring biodiversity levels. However, developing and training AI models, especially large language models (LLMs), requires the use of critical minerals, energy, water and computing resources.</p>
+<p>This means that you should consider environmental impact:</p>
+<ul>
+<li>at every level in your organisation –&nbsp;from analysts to senior decision-makers</li>
+<li>across the entire life cycle of your tool or project –&nbsp;including when it is decommissioned or handed over to another team</li>
+</ul>
+<p>The complex supply chains of data-driven technologies, and the natural resources required to build them, mean they can have a long-lasting impact on people and the planet. For example, the mining of raw materials to build computing chips and other AI infrastructure. This has a significant environmental cost and impact on the health and wellbeing of workers and affected communities.</p>
+<p>Setting clear sustainability objectives and using greener software practices will help make sustainability a core part of your project design.</p>
+<p>You should also consider whether there’s a reasonable trade-off between the benefits of your tool or system and its environmental impact. There may be trade-offs between different ethical principles. For example, the use of a more energy-intensive algorithm that’s also more explainable, or that brings wider benefits and value to the public. Make sure you clearly document when you’ve made decisions about trade-offs, and the governance processes you used.</p>
+<h3 id="h-measuring-monitoring-and-evaluating-environmental-impact">Measuring, monitoring and evaluating environmental impact</h3>
+<p>Sustainability reporting for cloud and wider digital services is an evolving area where research and development is ongoing. This means it may be challenging to identify appropriate metrics, and the reliability of reporting may differ across suppliers. The following tools and methods will provide you with a starting point.</p>
+<p>Before you begin building a tool or system, think about:</p>
+<ul>
+<li>whether AI is the best technology or tool for the task – there may be alternatives that provide as good, or better, results and require less resource-intensive training and development</li>
+<li>project size and complexity – how much data will be processed, the number of end users, bandwidth and latency requirements, prompt efficiency</li>
+<li>software requirements – including model type&nbsp;</li>
+<li>hardware requirements – such as data centre usage or Internet of Things (IoT) devices</li>
+</ul>
+<p>There are various environmental factors that you should monitor and manage across the life cycle of your project.</p>
+<p><strong>Electricity consumption</strong><br>Data centres use large amounts of electricity for running servers and data processing. Some even use fossil fuel-based generators due to a lack of capacity in local grids. Using electricity results in the release of greenhouse gases such as carbon dioxide (CO2), methane and nitrous oxide, which contribute to climate change.</p>
+<p><strong>Water consumption</strong><br>For example, data centres require significant amounts of fresh water for cooling systems and to avoid hardware failure.</p>
+<p><strong>Consumption of raw materials</strong><br>The mining of raw materials, for example to build computing chips and other AI infrastructure, has a significant environmental cost and impact on the health and wellbeing of workers and affected communities.</p>
+<p><strong>E-waste</strong><br>Electronic waste (e-waste) from discarded electrical devices contains rare earth materials such as neodymium; if not disposed of properly, these materials can contaminate soil and water, and release noxious gases into the atmosphere, posing extremely harmful risks to biodiversity, human health and the environment.</p>
+<p>In your project, consider how the following may impact resource consumption:</p>
+<ul>
+<li>
+<p>data set size – large data sets require more energy to store and process, especially when used to train AI systems, and you should also consider the impact of the resolution or bit rate of the data sets</p>
+</li>
+<li>
+<p>data type –&nbsp;generating or handling high-volume text (for example, training LLMs), video or image data is typically more energy-intensive than other data types because it requires more intensive computing, memory and bandwidth workloads</p>
+</li>
+<li>
+<p>data velocity –&nbsp;high-velocity data (such as real-time streaming) increases compute load</p>
+</li>
+<li>
+<p>architecture –&nbsp;using technologies like virtualisation can reduce energy consumption, hardware needs and associated resource demands by allowing data to be accessed and queried without the need for transfer or duplication; adopting modular design can help promote reuse and reduce future resource consumption</p>
+</li>
+<li>
+<p>storage – data storage has an ongoing carbon footprint, primarily in data centres, due to the continuous generation of heat and use of water and electricity to run them; establishing and running data centres also involves biodiversity loss from land clearing, droughts caused by fresh water extraction, e-waste and pollutants</p>
+</li>
+<li>
+<p>model type – multi-purpose, generative architectures typically use more resources than task-specific systems; you should always explore different options, including not using AI at all, before choosing a technical approach</p>
+</li>
+<li>
+<p>model size – LLMs and other generative AI systems generally require more energy and emit more carbon compared to running a single prediction on a trained model</p>
+</li>
+<li>location – try to run algorithms in locations with higher uses of renewable energy to reduce your carbon footprint
+    <ul>
+<li>you can use electricity maps to understand the electricity usage and emissions of different regions</li>
+<li>you should adhere to any relevant data residency rules if selecting a server location based on energy mix</li>
+</ul>
+</li>
+<li>time of day – the source of energy on the grid changes during the day; where it’s viable, you can make carrying out computationally complex processing tasks more environmentally friendly by shifting the time they take place, even by a few hours, to when energy generation is cleaner</li>
+</ul>
+<h4>Selecting metrics</h4>
+<p>You should select appropriate metrics and key performance indicators (KPIs) that can be tracked over time. There are several ways of quantifying environmental impact across the development and deployment phases of a project.</p>
+<p>Common metrics include:</p>
+<ul>
+<li>carbon footprint (CO2-equivalent emissions)</li>
+<li>energy consumption (measured kilowatt-hour or kWh)</li>
+<li>compute efficiency (for example, FLOPs per watt – how many calculations a system can perform for every watt of power it uses)</li>
+<li>water consumption (measured in litres)</li>
+</ul>
+<p>There are some open-source tools that can help to analyse and measure the environmental impact of a data or AI project:</p>
+<ul>
+<li>
+<a href="https://digitaldecarb.org/data-carbon-ladder/" target="_blank" rel="noopener noreferrer">Data Carbon Ladder</a> can provide an estimated data CO2 footprint for your project, highlighting areas to improve to minimise environmental impact&nbsp;–&nbsp;this tool is particularly useful at the project planning stage</li>
+<li>
+<a href="https://codecarbon.io/" target="_blank" rel="noopener noreferrer">CodeCarbon</a> is a software package that integrates into your Python codebase; it estimates the amount of CO2 produced by the cloud or personal computing resources used to execute the code</li>
+<li>
+<a href="https://mlco2.github.io/impact/" target="_blank" rel="noopener noreferrer">ML CO2 Impact</a> is a free machine learning emissions calculator which provides information about the raw carbon emissions produced and the approximate offset carbon emissions of a given project</li>
+<li>
+<a href="https://ojs.aaai.org/index.php/AAAI/article/view/26686" target="_blank" rel="noopener noreferrer">Carburacy</a> is a carbon-aware accuracy measure for evaluating the eco-sustainability of Natural Language Processing (NLP) models</li>
+<li>
+<a href="https://ecologits.ai/latest/" target="_blank" rel="noopener noreferrer">EcoLogits</a> is a tool that can help to track the energy consumption and environmental impacts of using generative AI models through APIs</li>
+</ul>
+<p>It’s important to note that there are often trade-offs when selecting particular metrics over others, and some impacts will be harder to quantify. For example, carbon emissions may be more easily tracked but neglect a tool’s broader impact, like water usage or impact on local communities.</p>
+<h4>Minimising environmental impact</h4>
+<p>There’s no one-size-fits-all approach to minimising your environmental impact, but even small actions can make a big difference. Depending on your project, there are many ways to make a positive change.</p>
+<p>If you’re handling or analysing data, you should:</p>
+<ul>
+<li>
+<p>minimise the data you’re collecting and using&nbsp;–&nbsp;collect only the data necessary to meet the research or project objectives</p>
+</li>
+<li>
+<p>use data compression and aggregation to reduce storage and bandwidth requirements –&nbsp;for example, compressing data before transmission (using formats like GZIP or Parquet) can help to save bandwidth</p>
+</li>
+<li>
+<p>regularly review whether the data you hold to help reduce its volume –&nbsp;consider whether there’s any redundant, obsolete or trivial (ROT) data that can be safely deleted</p>
+</li>
+<li>
+<p>avoid re-running entire pipelines –&nbsp;use incremental workflows which only re-process new or changed data</p>
+</li>
+<li>
+<p>use cloud storage tiers, scaling and right-sizing instances –&nbsp;this can help to optimise data storage allocation by, for example, automatically moving infrequently accessed (‘cold’) data to lower-energy storage</p>
+</li>
+<li>
+<p>use narrow prompts for generative AI tools – shorter or more focused prompts typically result in less processing time and improved accuracy of responses</p>
+</li>
+<li>
+<p>use techniques such as virtualisation to reduce duplication</p>
+</li>
+<li>
+<p>design modular components for potential reuse in future projects</p>
+</li>
+</ul>
+<p>If you’re building AI or algorithmic tools (including using pre-trained models), you should:<br>
+- consider reuse –&nbsp;where you can meet the requirements of your project lawfully and safely, consider reusing existing models or services (for example, open source, or models trained for previous projects) over building and retraining from scratch</p>
+<ul>
+<li>
+<p>explore how you might be able to achieve comparable results using a smaller data set –&nbsp;for model training, evaluate whether a curated subset can achieve similar performance compared to using a full data set</p>
+</li>
+<li>
+<p>use smaller models for specific tasks – this can help to reduce cost and power consumption, making the technology easier to deploy</p>
+</li>
+<li>
+<p>use model optimisation techniques to improve performance, efficiency and accuracy –&nbsp;this might include quantisation (converting input values to smaller output values to reduce compute and memory requirements) or model pruning to remove unused or unnecessary parameters</p>
+</li>
+<li>
+<p>clean up unused resources, such as idle or outdated coding notebooks</p>
+</li>
+<li>
+<p>introduce early stopping rules to stop training when a model’s performance plateaus –&nbsp;this can prevent redundant training cycles</p>
+</li>
+<li>
+<p>find out about the environmental credentials of models –&nbsp;if you’re using open-source models, you can find information on environmental impact on the <a href="https://huggingface.co/open-llm-leaderboard" target="_blank" rel="noopener noreferrer">Hugging Face open LLM Leaderboard</a> or <a href="https://ecologits.ai/latest/" target="_blank" rel="noopener noreferrer">EcoLogits</a>&nbsp;</p>
+<ul>
+<li>if you cannot find information about a particular model, consider whether you could achieve similar results with a more transparent alternative</li>
+</ul>
+</li>
+</ul>
+<p>If you’re using a third party supplier, you should:</p>
+<ul>
+<li>
+<p>include sustainability as a criteria during the supplier selection process&nbsp;–&nbsp;ask about the energy consumption and carbon footprint of the AI models and infrastructure before engaging a service</p>
+</li>
+<li>
+<p>find information about the broader ethical practices of the organisation, such as labour standards and sustainability commitments –&nbsp;be aware of potential greenwashing terms and practices</p>
+</li>
+<li>
+<p>ask suppliers what happens to hardware at the end of life&nbsp;–&nbsp;for example, if hardware is refurbished, donated or responsibly recycled</p>
+</li>
+</ul>
+<p>The <a href="https://www.gov.uk/service-manual" target="_blank" rel="noopener noreferrer">Service Manual</a> also has guidance on how to build more <a href="https://www.gov.uk/service-manual/design/environmentally-sustainable-services" target="_blank" rel="noopener noreferrer">environmentally sustainable digital services</a> in government.</p>
+<h3 id="h-recommended-actions">Recommended actions</h3>
+<p>Your team should:</p>
+<ul>
+<li>
+<p>explore and evaluate alternative solutions –&nbsp;the latest technology or innovation isn’t always best for the job, so explore different options, including simple and low-energy options, before selecting an approach</p>
+</li>
+<li>
+<p>consider reuse of existing models – advocate for the use of open-source models where source code, data and model weights are available for community reuse, rather than using energy to retrain or build similar models</p>
+</li>
+<li>
+<p>select suitable metrics for measuring and assessing environmental impact –&nbsp;this can be a complex task but is vital for ensuring proper stewardship of data and AI projects</p>
+</li>
+<li>
+<p>evaluate the sustainability credentials and practices of third-party providers, including their use of renewable energy</p>
+</li>
+<li>
+<p>raise awareness about the environmental and social impact of digital technologies –&nbsp;share knowledge with colleagues and look for opportunities to bring sustainability into training and discussions</p>
+</li>
+</ul>

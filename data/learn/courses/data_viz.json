@@ -30,7 +30,14 @@
    "lessons": [
     "data_viz-06",
     "data_viz-07",
-    "data_viz-08"
+    "data_viz-08",
+    "data_viz-09",
+    "data_viz-10",
+    "data_viz-11",
+    "data_viz-12",
+    "data_viz-13",
+    "data_viz-14",
+    "data_viz-15"
    ]
   }
  ],
@@ -44,37 +51,37 @@
    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/09-visualization-quantities/README.md",
    "toc": [
     {
-     "id": "observe-wingspan-with-matplotlib",
+     "id": "h-observe-wingspan-with-matplotlib",
      "text": "Observe wingspan with Matplotlib",
      "level": 2
     },
     {
-     "id": "build-a-line-plot-about-bird-wingspan-values",
+     "id": "h-build-a-line-plot-about-bird-wingspan-values",
      "text": "Build a line plot about bird wingspan values",
      "level": 2
     },
     {
-     "id": "filter-your-data",
+     "id": "h-filter-your-data",
      "text": "Filter your data",
      "level": 2
     },
     {
-     "id": "explore-bar-charts",
+     "id": "h-explore-bar-charts",
      "text": "Explore bar charts",
      "level": 2
     },
     {
-     "id": "comparing-data",
+     "id": "h-comparing-data",
      "text": "Comparing data",
      "level": 2
     },
     {
-     "id": "challenge",
+     "id": "h-challenge",
      "text": "🚀 Challenge",
      "level": 2
     },
     {
-     "id": "review-self-study",
+     "id": "h-review-self-study",
      "text": "Review & Self Study",
      "level": 2
     }
@@ -89,32 +96,32 @@
    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/10-visualization-distributions/README.md",
    "toc": [
     {
-     "id": "explore-the-birds-dataset",
+     "id": "h-explore-the-birds-dataset",
      "text": "Explore the birds dataset",
      "level": 2
     },
     {
-     "id": "working-with-histograms",
+     "id": "h-working-with-histograms",
      "text": "Working with histograms",
      "level": 2
     },
     {
-     "id": "explore-the-dataset-for-distributions-using-text-data",
+     "id": "h-explore-the-dataset-for-distributions-using-text-data",
      "text": "Explore the dataset for distributions using text data",
      "level": 2
     },
     {
-     "id": "density-plots",
+     "id": "h-density-plots",
      "text": "Density plots",
      "level": 2
     },
     {
-     "id": "challenge",
+     "id": "h-challenge",
      "text": "🚀 Challenge",
      "level": 2
     },
     {
-     "id": "review-self-study",
+     "id": "h-review-self-study",
      "text": "Review & Self Study",
      "level": 2
     }
@@ -129,32 +136,32 @@
    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/11-visualization-proportions/README.md",
    "toc": [
     {
-     "id": "get-to-know-your-mushrooms",
+     "id": "h-get-to-know-your-mushrooms",
      "text": "Get to know your mushrooms 🍄",
      "level": 2
     },
     {
-     "id": "pie",
+     "id": "h-pie",
      "text": "Pie!",
      "level": 2
     },
     {
-     "id": "donuts",
+     "id": "h-donuts",
      "text": "Donuts!",
      "level": 2
     },
     {
-     "id": "waffles",
+     "id": "h-waffles",
      "text": "Waffles!",
      "level": 2
     },
     {
-     "id": "challenge",
+     "id": "h-challenge",
      "text": "🚀 Challenge",
      "level": 2
     },
     {
-     "id": "review-self-study",
+     "id": "h-review-self-study",
      "text": "Review & Self Study",
      "level": 2
     }
@@ -169,32 +176,32 @@
    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/12-visualization-relationships/README.md",
    "toc": [
     {
-     "id": "scatterplots",
+     "id": "h-scatterplots",
      "text": "Scatterplots",
      "level": 2
     },
     {
-     "id": "line-charts",
+     "id": "h-line-charts",
      "text": "Line charts",
      "level": 2
     },
     {
-     "id": "facet-grids",
+     "id": "h-facet-grids",
      "text": "Facet grids",
      "level": 2
     },
     {
-     "id": "dual-line-plots",
+     "id": "h-dual-line-plots",
      "text": "Dual-line Plots",
      "level": 2
     },
     {
-     "id": "challenge",
+     "id": "h-challenge",
      "text": "🚀 Challenge",
      "level": 2
     },
     {
-     "id": "review-self-study",
+     "id": "h-review-self-study",
      "text": "Review & Self Study",
      "level": 2
     }
@@ -209,42 +216,42 @@
    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/4d2ac427ad6f022e73a75c4f46a28bbb7978ec3f/3-Data-Visualization/13-meaningful-visualizations/README.md",
    "toc": [
     {
-     "id": "choose-the-right-chart-type",
+     "id": "h-choose-the-right-chart-type",
      "text": "Choose the right chart type",
      "level": 2
     },
     {
-     "id": "avoid-deception",
+     "id": "h-avoid-deception",
      "text": "Avoid deception",
      "level": 2
     },
     {
-     "id": "color",
+     "id": "h-color",
      "text": "Color",
      "level": 2
     },
     {
-     "id": "styling-your-charts-for-readability",
+     "id": "h-styling-your-charts-for-readability",
      "text": "Styling your charts for readability",
      "level": 2
     },
     {
-     "id": "animation-and-3d-chart-display",
+     "id": "h-animation-and-3d-chart-display",
      "text": "Animation and 3D chart display",
      "level": 2
     },
     {
-     "id": "project-build-a-chart-to-show-a-network-using-d3-js",
+     "id": "h-project-build-a-chart-to-show-a-network-using-d3-js",
      "text": "Project: Build a chart to show a network using D3.js",
      "level": 2
     },
     {
-     "id": "challenge",
+     "id": "h-challenge",
      "text": "🚀 Challenge",
      "level": 2
     },
     {
-     "id": "review-self-study",
+     "id": "h-review-self-study",
      "text": "Review & Self Study",
      "level": 2
     }
@@ -253,473 +260,628 @@
   {
    "id": "data_viz-06",
    "title": "Data visualisation: charts",
-   "words": 9205,
-   "minutes": 47,
+   "words": 2139,
+   "minutes": 11,
    "source": "analysis-fn",
    "url": "https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/",
    "toc": [
     {
-     "id": "introduction",
-     "text": "Introduction",
-     "level": 2
-    },
-    {
-     "id": "accessibility-legislation",
+     "id": "h-accessibility-legislation",
      "text": "Accessibility legislation",
      "level": 2
     },
     {
-     "id": "consequences-for-inaccessible-content",
+     "id": "h-consequences-for-inaccessible-content",
      "text": "Consequences for inaccessible content",
      "level": 3
     },
     {
-     "id": "section",
+     "id": "h-section",
      "text": "",
      "level": 3
     },
     {
-     "id": "choosing-the-right-chart",
+     "id": "h-choosing-the-right-chart",
      "text": "Choosing the right chart",
      "level": 2
     },
     {
-     "id": "what-is-the-message",
+     "id": "h-what-is-the-message",
      "text": "What is the message?",
      "level": 3
     },
     {
-     "id": "statistical-relationships",
+     "id": "h-statistical-relationships",
      "text": "Statistical relationships",
      "level": 3
     },
     {
-     "id": "publishing-charts",
+     "id": "h-publishing-charts",
      "text": "Publishing charts",
      "level": 2
     },
     {
-     "id": "html-or-image",
+     "id": "h-html-or-image",
      "text": "HTML or image?",
      "level": 3
     },
     {
-     "id": "chart-size",
+     "id": "h-chart-size",
      "text": "Chart size",
      "level": 3
     },
     {
-     "id": "what-to-supply-with-charts",
+     "id": "h-what-to-supply-with-charts",
      "text": "What to supply with charts",
      "level": 2
     },
     {
-     "id": "titles",
+     "id": "h-titles",
      "text": "Titles",
      "level": 3
     },
     {
-     "id": "alternative-text",
+     "id": "h-alternative-text",
      "text": "Alternative text",
      "level": 3
     },
     {
-     "id": "source",
+     "id": "h-source",
      "text": "Source",
      "level": 3
     },
     {
-     "id": "data-download",
+     "id": "h-data-download",
      "text": "Data download",
      "level": 3
     },
     {
-     "id": "chart-footnotes",
+     "id": "h-chart-footnotes",
      "text": "Chart footnotes",
-     "level": 3
-    },
-    {
-     "id": "formatting-charts",
-     "text": "Formatting charts",
-     "level": 2
-    },
-    {
-     "id": "keep-it-simple",
-     "text": "Keep it simple",
-     "level": 3
-    },
-    {
-     "id": "chart-labels",
-     "text": "Chart labels",
-     "level": 3
-    },
-    {
-     "id": "annotations",
-     "text": "Annotations",
-     "level": 3
-    },
-    {
-     "id": "tick-marks",
-     "text": "Tick marks",
-     "level": 3
-    },
-    {
-     "id": "gridlines",
-     "text": "Gridlines",
-     "level": 3
-    },
-    {
-     "id": "line-for-y-axis",
-     "text": "Line for y-axis",
-     "level": 3
-    },
-    {
-     "id": "communicating-quality-and-uncertainty-in-charts",
-     "text": "Communicating quality and uncertainty in charts",
-     "level": 3
-    },
-    {
-     "id": "example-chart",
-     "text": "Example chart",
-     "level": 2
-    },
-    {
-     "id": "bar-charts",
-     "text": "Bar charts",
-     "level": 2
-    },
-    {
-     "id": "using-bar-charts",
-     "text": "Using bar charts",
-     "level": 3
-    },
-    {
-     "id": "formatting-bar-charts",
-     "text": "Formatting bar charts",
-     "level": 3
-    },
-    {
-     "id": "stacked-bar-charts",
-     "text": "Stacked bar charts",
-     "level": 2
-    },
-    {
-     "id": "using-stacked-bar-charts",
-     "text": "Using stacked bar charts",
      "level": 3
     }
    ]
   },
   {
    "id": "data_viz-07",
-   "title": "Data visualisation: colours",
-   "words": 8252,
-   "minutes": 42,
+   "title": "Data visualisation: charts · Formatting charts",
+   "words": 2370,
+   "minutes": 12,
    "source": "analysis-fn",
-   "url": "https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/",
+   "url": "https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/",
    "toc": [
     {
-     "id": "introduction",
-     "text": "Introduction",
+     "id": "h-keep-it-simple",
+     "text": "Keep it simple",
+     "level": 3
+    },
+    {
+     "id": "h-chart-labels",
+     "text": "Chart labels",
+     "level": 3
+    },
+    {
+     "id": "h-annotations",
+     "text": "Annotations",
+     "level": 3
+    },
+    {
+     "id": "h-tick-marks",
+     "text": "Tick marks",
+     "level": 3
+    },
+    {
+     "id": "h-gridlines",
+     "text": "Gridlines",
+     "level": 3
+    },
+    {
+     "id": "h-line-for-y-axis",
+     "text": "Line for y-axis",
+     "level": 3
+    },
+    {
+     "id": "h-communicating-quality-and-uncertainty-in-charts",
+     "text": "Communicating quality and uncertainty in charts",
+     "level": 3
+    },
+    {
+     "id": "h-example-chart",
+     "text": "Example chart",
      "level": 2
     },
     {
-     "id": "accessibility-legislation",
-     "text": "Accessibility legislation",
+     "id": "h-bar-charts",
+     "text": "Bar charts",
      "level": 2
     },
     {
-     "id": "consequences-for-inaccessible-content",
-     "text": "Consequences for inaccessible content",
+     "id": "h-using-bar-charts",
+     "text": "Using bar charts",
      "level": 3
     },
     {
-     "id": "section",
-     "text": "",
-     "level": 3
-    },
-    {
-     "id": "what-to-consider-when-using-colour-in-charts",
-     "text": "What to consider when using colour in charts",
-     "level": 2
-    },
-    {
-     "id": "limit-the-number-of-colours-you-use",
-     "text": "Limit the number of colours you use",
-     "level": 3
-    },
-    {
-     "id": "section-x",
-     "text": "",
-     "level": 3
-    },
-    {
-     "id": "use-colour-consistently",
-     "text": "Use colour consistently",
-     "level": 3
-    },
-    {
-     "id": "section-x-x",
-     "text": "",
-     "level": 3
-    },
-    {
-     "id": "consider-colour-associations",
-     "text": "Consider colour associations",
-     "level": 3
-    },
-    {
-     "id": "use-a-plain-background",
-     "text": "Use a plain background",
-     "level": 3
-    },
-    {
-     "id": "consider-colour-contrast-ratios",
-     "text": "Consider colour contrast ratios",
-     "level": 3
-    },
-    {
-     "id": "consider-low-vision-and-colour-blindness",
-     "text": "Consider low vision and colour blindness",
-     "level": 3
-    },
-    {
-     "id": "consider-your-colours-in-greyscale",
-     "text": "Consider your colours in greyscale",
-     "level": 3
-    },
-    {
-     "id": "do-not-rely-on-colour-alone",
-     "text": "Do not rely on colour alone",
-     "level": 3
-    },
-    {
-     "id": "use-the-svg-format",
-     "text": "Use the SVG format",
-     "level": 3
-    },
-    {
-     "id": "our-colour-palettes",
-     "text": "Our colour palettes",
-     "level": 2
-    },
-    {
-     "id": "categorical-data-colour-palette",
-     "text": "Categorical data colour palette",
-     "level": 2
-    },
-    {
-     "id": "what-is-categorical-data",
-     "text": "What is categorical data?",
-     "level": 3
-    },
-    {
-     "id": "palette-table",
-     "text": "Palette table",
-     "level": 3
-    },
-    {
-     "id": "contrast-ratios",
-     "text": "Contrast ratios",
-     "level": 3
-    },
-    {
-     "id": "information-about-these-colours",
-     "text": "Information about these colours",
-     "level": 3
-    },
-    {
-     "id": "ideally-use-just-the-first-four",
-     "text": "Ideally, use just the first four",
-     "level": 3
-    },
-    {
-     "id": "plain-text-alternative",
-     "text": "Plain text alternative",
-     "level": 3
-    },
-    {
-     "id": "using-the-categorical-colour-palette",
-     "text": "Using the categorical colour palette",
-     "level": 3
-    },
-    {
-     "id": "sequential-data-colour-palette",
-     "text": "Sequential data colour palette",
-     "level": 2
-    },
-    {
-     "id": "what-we-mean-by-sequential-data",
-     "text": "What we mean by sequential data",
-     "level": 3
-    },
-    {
-     "id": "choosing-colours-for-sequential-data",
-     "text": "Choosing colours for sequential data",
-     "level": 3
-    },
-    {
-     "id": "palette-table-x",
-     "text": "Palette table",
-     "level": 3
-    },
-    {
-     "id": "contrast-ratios-x",
-     "text": "Contrast ratios",
+     "id": "h-formatting-bar-charts",
+     "text": "Formatting bar charts",
      "level": 3
     }
    ]
   },
   {
    "id": "data_viz-08",
-   "title": "Data visualisation: tables",
-   "words": 3104,
-   "minutes": 16,
+   "title": "Stacked bar charts",
+   "words": 1444,
+   "minutes": 8,
    "source": "analysis-fn",
-   "url": "https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-tables/",
+   "url": "https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/",
    "toc": [
     {
-     "id": "introduction",
-     "text": "Introduction",
+     "id": "h-using-stacked-bar-charts",
+     "text": "Using stacked bar charts",
+     "level": 3
+    },
+    {
+     "id": "h-formatting-stacked-bar-charts",
+     "text": "Formatting stacked bar charts",
+     "level": 3
+    },
+    {
+     "id": "h-stacked-bar-chart-example",
+     "text": "Stacked bar chart example",
+     "level": 3
+    },
+    {
+     "id": "h-clustered-bar-charts",
+     "text": "Clustered bar charts",
      "level": 2
     },
     {
-     "id": "accessibility-legislation",
+     "id": "h-using-clustered-bar-charts",
+     "text": "Using clustered bar charts",
+     "level": 3
+    },
+    {
+     "id": "h-formatting-clustered-bar-charts",
+     "text": "Formatting clustered bar charts",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "data_viz-09",
+   "title": "Data visualisation: charts · Line charts",
+   "words": 2354,
+   "minutes": 12,
+   "source": "analysis-fn",
+   "url": "https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/",
+   "toc": [
+    {
+     "id": "h-using-line-charts",
+     "text": "Using line charts",
+     "level": 3
+    },
+    {
+     "id": "h-formatting-line-charts",
+     "text": "Formatting line charts",
+     "level": 3
+    },
+    {
+     "id": "h-considerations-for-line-charts",
+     "text": "Considerations for line charts",
+     "level": 3
+    },
+    {
+     "id": "h-line-chart-example",
+     "text": "Line chart example",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "data_viz-10",
+   "title": "Data visualisation: charts · Pie charts",
+   "words": 699,
+   "minutes": 4,
+   "source": "analysis-fn",
+   "url": "https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/",
+   "toc": [
+    {
+     "id": "h-using-pie-charts",
+     "text": "Using pie charts",
+     "level": 3
+    },
+    {
+     "id": "h-formatting-pie-charts",
+     "text": "Formatting pie charts",
+     "level": 3
+    },
+    {
+     "id": "h-other-chart-types",
+     "text": "Other chart types",
+     "level": 2
+    },
+    {
+     "id": "h-testing",
+     "text": "Testing",
+     "level": 2
+    },
+    {
+     "id": "h-ideas-for-testing",
+     "text": "Ideas for testing",
+     "level": 3
+    },
+    {
+     "id": "h-resources",
+     "text": "Resources",
+     "level": 2
+    },
+    {
+     "id": "h-dataconnect22-session-on-making-charts-accessible",
+     "text": "DataConnect22 session on making charts accessible",
+     "level": 3
+    },
+    {
+     "id": "h-using-our-colour-palettes-in-microsoft-r-and-python",
+     "text": "Using our colour palettes in Microsoft, R and Python",
+     "level": 3
+    },
+    {
+     "id": "h-any-questions",
+     "text": "Any questions?",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "data_viz-11",
+   "title": "Data visualisation: colours",
+   "words": 2042,
+   "minutes": 11,
+   "source": "analysis-fn",
+   "url": "https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/",
+   "toc": [
+    {
+     "id": "h-accessibility-legislation",
      "text": "Accessibility legislation",
      "level": 2
     },
     {
-     "id": "consequences-for-inaccessible-content",
+     "id": "h-consequences-for-inaccessible-content",
      "text": "Consequences for inaccessible content",
      "level": 3
     },
     {
-     "id": "section",
+     "id": "h-section",
      "text": "",
      "level": 3
     },
     {
-     "id": "using-tables-in-publications",
+     "id": "h-what-to-consider-when-using-colour-in-charts",
+     "text": "What to consider when using colour in charts",
+     "level": 2
+    },
+    {
+     "id": "h-limit-the-number-of-colours-you-use",
+     "text": "Limit the number of colours you use",
+     "level": 3
+    },
+    {
+     "id": "h-section-x",
+     "text": "",
+     "level": 3
+    },
+    {
+     "id": "h-use-colour-consistently",
+     "text": "Use colour consistently",
+     "level": 3
+    },
+    {
+     "id": "h-section-x-x",
+     "text": "",
+     "level": 3
+    },
+    {
+     "id": "h-consider-colour-associations",
+     "text": "Consider colour associations",
+     "level": 3
+    },
+    {
+     "id": "h-use-a-plain-background",
+     "text": "Use a plain background",
+     "level": 3
+    },
+    {
+     "id": "h-consider-colour-contrast-ratios",
+     "text": "Consider colour contrast ratios",
+     "level": 3
+    },
+    {
+     "id": "h-consider-low-vision-and-colour-blindness",
+     "text": "Consider low vision and colour blindness",
+     "level": 3
+    },
+    {
+     "id": "h-consider-your-colours-in-greyscale",
+     "text": "Consider your colours in greyscale",
+     "level": 3
+    },
+    {
+     "id": "h-do-not-rely-on-colour-alone",
+     "text": "Do not rely on colour alone",
+     "level": 3
+    },
+    {
+     "id": "h-use-the-svg-format",
+     "text": "Use the SVG format",
+     "level": 3
+    },
+    {
+     "id": "h-our-colour-palettes",
+     "text": "Our colour palettes",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "data_viz-12",
+   "title": "Categorical data colour palette",
+   "words": 2617,
+   "minutes": 14,
+   "source": "analysis-fn",
+   "url": "https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/",
+   "toc": [
+    {
+     "id": "h-what-is-categorical-data",
+     "text": "What is categorical data?",
+     "level": 3
+    },
+    {
+     "id": "h-palette-table",
+     "text": "Palette table",
+     "level": 3
+    },
+    {
+     "id": "h-contrast-ratios",
+     "text": "Contrast ratios",
+     "level": 3
+    },
+    {
+     "id": "h-information-about-these-colours",
+     "text": "Information about these colours",
+     "level": 3
+    },
+    {
+     "id": "h-ideally-use-just-the-first-four",
+     "text": "Ideally, use just the first four",
+     "level": 3
+    },
+    {
+     "id": "h-plain-text-alternative",
+     "text": "Plain text alternative",
+     "level": 3
+    },
+    {
+     "id": "h-using-the-categorical-colour-palette",
+     "text": "Using the categorical colour palette",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "data_viz-13",
+   "title": "Sequential data colour palette",
+   "words": 2141,
+   "minutes": 11,
+   "source": "analysis-fn",
+   "url": "https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/",
+   "toc": [
+    {
+     "id": "h-what-we-mean-by-sequential-data",
+     "text": "What we mean by sequential data",
+     "level": 3
+    },
+    {
+     "id": "h-choosing-colours-for-sequential-data",
+     "text": "Choosing colours for sequential data",
+     "level": 3
+    },
+    {
+     "id": "h-palette-table",
+     "text": "Palette table",
+     "level": 3
+    },
+    {
+     "id": "h-contrast-ratios",
+     "text": "Contrast ratios",
+     "level": 3
+    },
+    {
+     "id": "h-information-about-these-colours",
+     "text": "Information about these colours",
+     "level": 3
+    },
+    {
+     "id": "h-using-the-sequential-colour-palette-in-charts",
+     "text": "Using the sequential colour palette in charts",
+     "level": 3
+    },
+    {
+     "id": "h-focus-charts-colour-palette",
+     "text": "Focus charts colour palette",
+     "level": 2
+    },
+    {
+     "id": "h-what-we-mean-by-focus-charts",
+     "text": "What we mean by focus charts",
+     "level": 3
+    },
+    {
+     "id": "h-palette-table-x",
+     "text": "Palette table",
+     "level": 3
+    },
+    {
+     "id": "h-information-about-these-colours-x",
+     "text": "Information about these colours",
+     "level": 3
+    },
+    {
+     "id": "h-using-the-focus-chart-palette",
+     "text": "Using the focus chart palette",
+     "level": 3
+    },
+    {
+     "id": "h-using-our-colour-palettes-in-microsoft-r-and-python",
+     "text": "Using our colour palettes in Microsoft, R and Python",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "data_viz-14",
+   "title": "Data visualisation: tables",
+   "words": 2175,
+   "minutes": 11,
+   "source": "analysis-fn",
+   "url": "https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-tables/",
+   "toc": [
+    {
+     "id": "h-accessibility-legislation",
+     "text": "Accessibility legislation",
+     "level": 2
+    },
+    {
+     "id": "h-consequences-for-inaccessible-content",
+     "text": "Consequences for inaccessible content",
+     "level": 3
+    },
+    {
+     "id": "h-section",
+     "text": "",
+     "level": 3
+    },
+    {
+     "id": "h-using-tables-in-publications",
      "text": "Using tables in publications",
      "level": 2
     },
     {
-     "id": "layout",
+     "id": "h-layout",
      "text": "Layout",
      "level": 2
     },
     {
-     "id": "comparing-numbers",
+     "id": "h-comparing-numbers",
      "text": "Comparing numbers",
      "level": 3
     },
     {
-     "id": "rounding",
+     "id": "h-rounding",
      "text": "Rounding",
      "level": 3
     },
     {
-     "id": "grouping",
+     "id": "h-grouping",
      "text": "Grouping",
      "level": 3
     },
     {
-     "id": "indentation",
+     "id": "h-indentation",
      "text": "Indentation",
      "level": 3
     },
     {
-     "id": "ordering-categories",
+     "id": "h-ordering-categories",
      "text": "Ordering categories",
      "level": 3
     },
     {
-     "id": "ranking-categories",
+     "id": "h-ranking-categories",
      "text": "Ranking categories",
      "level": 3
     },
     {
-     "id": "summary-rows-and-columns",
+     "id": "h-summary-rows-and-columns",
      "text": "Summary rows and columns",
      "level": 3
     },
     {
-     "id": "titles",
+     "id": "h-titles",
      "text": "Titles",
      "level": 3
     },
     {
-     "id": "column-headers-row-labels-and-merged-cells",
+     "id": "h-column-headers-row-labels-and-merged-cells",
      "text": "Column headers, row labels and merged cells",
      "level": 3
     },
     {
-     "id": "footnotes",
+     "id": "h-footnotes",
      "text": "Footnotes",
      "level": 3
     },
     {
-     "id": "source",
+     "id": "h-source",
      "text": "Source",
      "level": 3
     },
     {
-     "id": "fonts",
+     "id": "h-fonts",
      "text": "Fonts",
      "level": 3
     },
     {
-     "id": "shading",
+     "id": "h-shading",
      "text": "Shading",
      "level": 3
     },
     {
-     "id": "gridlines",
+     "id": "h-gridlines",
      "text": "Gridlines",
      "level": 3
     },
     {
-     "id": "symbols-and-shorthand",
+     "id": "h-symbols-and-shorthand",
      "text": "Symbols and shorthand",
      "level": 3
     },
     {
-     "id": "advice-from-government-digital-service",
+     "id": "h-advice-from-government-digital-service",
      "text": "Advice from Government Digital Service",
      "level": 3
-    },
+    }
+   ]
+  },
+  {
+   "id": "data_viz-15",
+   "title": "Data visualisation: tables · Publication",
+   "words": 789,
+   "minutes": 4,
+   "source": "analysis-fn",
+   "url": "https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-tables/",
+   "toc": [
     {
-     "id": "publication",
-     "text": "Publication",
-     "level": 2
-    },
-    {
-     "id": "using-html",
+     "id": "h-using-html",
      "text": "Using HTML",
      "level": 3
     },
     {
-     "id": "using-an-accessible-document-format",
+     "id": "h-using-an-accessible-document-format",
      "text": "Using an accessible document format",
      "level": 3
     },
     {
-     "id": "using-an-accessible-pdf-format",
+     "id": "h-using-an-accessible-pdf-format",
      "text": "Using an accessible PDF format",
      "level": 3
     },
     {
-     "id": "publishing-reference-tables",
+     "id": "h-publishing-reference-tables",
      "text": "Publishing reference tables",
      "level": 3
     },
     {
-     "id": "related-links",
-     "text": "Related links",
-     "level": 2
-    },
-    {
-     "id": "any-questions",
+     "id": "h-any-questions",
      "text": "Any questions?",
      "level": 2
     }
@@ -862,7 +1024,7 @@
   "pass_mark": 7,
   "missing": false
  },
- "minutes": 137,
+ "minutes": 130,
  "sources": [
   {
    "id": "analysis-fn",

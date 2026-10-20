@@ -5,12 +5,12 @@
 <li>Extrapolation</li>
 <li>Outliers and influential points</li>
 </ol>
-<h2 id="linearity">Linearity</h2>
+<h2 id="h-linearity">Linearity</h2>
 <p>Remember, it is always important to plot a scatter diagram first. If the scatter plot indicates that there is a linear relationship between the variables, then it is reasonable to use the methods we are discussing.</p>
-<h2 id="correlation-does-not-imply-causation">Correlation Does Not Imply Causation</h2>
+<h2 id="h-correlation-does-not-imply-causation">Correlation Does Not Imply Causation</h2>
 <p>Even when we do have an apparent linear relationship and find a reasonable value of r, there can always be confounding or lurking variables at work.&nbsp; Be wary of spurious correlations and make sure the connection you are making makes sense!</p>
 <p>There are also often situations where it may not be clear which variable is causing which.&nbsp; Does lack of sleep lead to higher stress levels or does high stress levels lead to lack of sleep?&nbsp; Which came first, the chicken or the egg?&nbsp; Sometimes these may not be answerable, but at least we are able to show an association there.</p>
-<h2 id="extrapolation">Extrapolation</h2>
+<h2 id="h-extrapolation">Extrapolation</h2>
 <p>Remember, it is always important to plot a scatter diagram first. If the scatter plot indicates that there is a linear relationship between the variables, then it is reasonable to use a best fit line to make predictions for <em>y</em> given <em>x</em> within the domain of <em>x</em>-values in the sample data, but not necessarily for <em>x</em>-values outside that domain. The process of predicting inside of the observed <em>x</em> values observed in the data is called interpolation. The process of predicting outside of the observed <em>x</em> values observed in the data is called <a href="#term_495_3423" rel="noopener noreferrer">extrapolation</a>.</p>
 <p>Recall our example from the previous section.&nbsp; You could use the line to predict the final exam score for a student who earned a grade of 73 on the third exam. You should NOT use the line to predict the final exam score for a student who earned a grade of 50 on the third exam, because 50 is not within the domain of the <em>x</em>-values in the sample data, which are between 65 and 75.</p>
 <p>To understand really how unreliable the prediction can be outside of the observed <em>x</em> values observed in the data, make the substitution <em>x</em> = 90 into the equation.</p>
@@ -18,21 +18,15 @@
 <br>
  The final-exam score is predicted to be 261.19. The largest a final-exam score could be is 100. <br>
 </p>
-<div>
-<h2 id="outliers-and-influential-points">Outliers and Influential Points</h2>
-</div>
+<h2 id="h-outliers-and-influential-points">Outliers and Influential Points</h2>
 <p>In some data sets, there are values (observed data points) that may appear to be outliers x or y. <a href="#term_495_3213" rel="noopener noreferrer">Outliers</a> are points that seem to stick out from the rest of the group in a single variable.&nbsp;&nbsp;Besides outliers, a sample may contain one or a few points that are called <a href="#term_495_3424" rel="noopener noreferrer">influential points</a>. Influential points are observed data points that do not follow the trend of the rest of the data. These points may have a big effect on the calculation of the slope of the regression line. To begin to identify an influential point, you can remove it from the data set and see if the slope of the regression line is changed significantly.</p>
 <p>How do we handle these unusual points? Sometimes they should not be included in the analysis of the data. It is possible that an outlier or influential point is a result of erroneous data. Other times it may hold valuable information about the population under study and should remain included in the data. The key is to examine carefully what causes a data point to be an outlier and/or influential point.</p>
-<div>
-<h2 id="identifying-outliers-and-or-influential-points">Identifying Outliers and/or Influential Points</h2>
+<h2 id="h-identifying-outliers-and-or-influential-points">Identifying Outliers and/or Influential Points</h2>
 <p>Computers and many calculators can be used to identify outliers from the data. Computer output for regression analysis will often identify both outliers and influential points so that you can examine them.</p>
 <p>We know how to find outliers in a single variable using fence rules and boxplots. However, we would like some guideline as to how far away a point needs to be in order to be considered an influential point. They also have large “errors”, where the “error” or residual is the vertical distance from the line to the point. As a rough rule of thumb, we can flag any point that is located further than two standard deviations above or below the best-fit line as an outlier. The standard deviation used is the standard deviation of the residuals or errors.</p>
 <p>We can do this visually in the scatter plot by drawing an extra pair of lines that are two standard deviations above and below the best-fit line. Any data points that are outside this extra pair of lines are flagged as potential outliers. Or we can do this numerically by calculating each residual and comparing it to twice the standard deviation. The graphical procedure is shown in the example below, followed by the numerical calculations in the next example. You would generally need to use only one of these methods.</p>
 <div class="box box-keypoints"><p class="box-title">Example</p>
-
-<div>
 <p>Continuing with the example from the previous section, you can determine if there is an outlier or not. If there is an outlier, as an exercise, delete it and fit the remaining data to a new line. For this example, the new line ought to fit the remaining data better. This means the SSE should be smaller and the correlation coefficient ought to be closer to 1 or –1.</p>
-<div>
 <p>Here it is easy to identify the outliers graphically and visually. If we were to measure the vertical distance from any data point to the corresponding point on the line of best fit and that distance were equal to 2<em>s</em> or more, then we would consider the data point to be “too far” from the line of best fit. We need to find and graph the lines that are two standard deviations below and above the regression line. Any points that are outside these two lines are outliers. We will call these lines Y2 and Y3:</p>
 <ul>
 <li><em>ŷ</em> = –173.5 + 4.83<em>x</em> is the line of best fit.</li>
@@ -42,21 +36,12 @@
 <p>Notice Y2 and Y3 have the same slope as the line of best fit.</p>
 <p>If we graph the scatterplot with the best fit line in equation Y1, and the two extra lines as Y2 and Y3, you will find that the only data point that is not between lines Y2 and Y3 is the point <em>x</em> = 65, <em>y</em> = 175. The outlier is the student who had a grade of 65 on the third exam and 175 on the final exam; this point is further than two standard deviations away from the best-fit line.</p>
 <figure><img alt="The same scatter plot of exam scores with a line of best fit.Two yellow dashed lines run parallel to the line of best fit. The dashed lines run above and below the best fit line at equal distances. One data point falls outside the boundary created by the dashed lines—it is an outlier." height="299" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/9.12-1.png" width="473"><figcaption>Figure 9.12: One Method of Identifying Outliers in Scatterplots</figcaption></figure>
-<div></div>
-</div>
-</div>
 </div>
 <div class="box box-callout"><p class="box-title">Your turn!</p>
-
-<div>
 <p>Identify the potential outlier in the scatter plot by drawing two separate lines.&nbsp; Suppose the standard deviation of the residuals or errors (s) is approximately s=8.6.</p>
 <figure><img alt="Scatterplot with dots in an almost perfect line from bottom left corner to top right corner of graph. There is one dot that does not follow this linear pattern." height="241" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/sites/12/2020/12/9.13-1.png" width="376"><figcaption>Figure 9.13: Identify the Outlier</figcaption></figure>
-<div></div>
 </div>
-</div>
-</div>
-<div>
-<h2 id="residuals">Residuals</h2>
+<h2 id="h-residuals">Residuals</h2>
 <p>In the process of numerically identifying outliers and influential points, one of the most important tools we have is called the <a href="#term_495_3427" rel="noopener noreferrer">residual</a><strong>.</strong>&nbsp;&nbsp;It is found by <em>y</em><sub>0</sub> – <em>ŷ</em><sub>0</sub> = <em>ε</em><sub>0</sub> (<em>ε</em> = the Greek letter epsilon) and is called the “error”. It is not an error in the sense of a mistake. The absolute value of a residual measures the vertical distance between the actual value of <em>y</em> and the estimated value of <em>y</em>. In other words, it measures the vertical distance between the actual data point and the predicted point on the line.</p>
 <p>If the observed data point lies above the line, the residual is positive, and the line underestimates the actual data value for <em>y</em>. If the observed data point lies below the line, the residual is negative, and the line overestimates that actual data value for <em>y</em>.</p>
 <p>In the diagram below, <em>y</em>0 – <em>ŷ</em>0 = ε0 is the residual for the point shown. Here the point lies above the line and the residual is positive.</p>
@@ -64,8 +49,6 @@
 <p>Points that fall far from the line are points of high leverage; these points can strongly influence the slope of the least squares line. If one of these high leverage points does appear<br>
 to actually invoke its influence on the slope of the line then we call it an influential point. Usually we can say a point is influential if, had we fitted the line without it, the influential point would have been unusually far from the least squares line.&nbsp; Let’s see how to do this mathematically:</p>
 <div class="box box-keypoints"><p class="box-title">Example</p>
-
-<div>
 <p>For each data point, you can calculate the residuals or errors, <em>y</em>i – <em>ŷ</em>i = <em>ε</em>i for <em>i</em> = 1, 2, 3, …, 11.&nbsp; Each |<em>ε</em>| is a vertical distance.&nbsp; In the following table, the first two columns are the third-exam and final-exam data. The third column shows the predicted <em>ŷ</em> values calculated from the line of best fit: <em>ŷ</em> = –173.5 + 4.83<em>x</em>. The residuals, or errors, have been calculated in the fourth column of the table: observed <em>y</em> value−predicted y value = <em>y</em> − <em>ŷ</em>.</p>
 <div class="table-wrap"><table>
 <caption>Figure 9.15: Calculating Residuals</caption>
@@ -149,12 +132,11 @@ to actually invoke its influence on the slope of the line then we call it an inf
 <p>For this example, there are 11 <em>ε</em> values. If you square each ε and add, you get:</p>
 <p><img alt="{\left({\epsilon }_{1}\right)}^{2}+{\left({\epsilon }_{2}\right)}^{2}+...+{\left({\epsilon }_{11}\right)}^{2}=\stackrel{11}{\underset{i\text{ }=\text{ }1}{\Sigma }}{\epsilon }^{2}" height="37" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-6a8dc98e88ebaea7e736131cd93b7014_l3.png" title="Rendered by QuickLaTeX.com" width="264"></p>
 <p>This is called the Sum of Squared Errors (SSE).</p>
-<div>
-<div></div>
-<div>For our example the calculation is as follows:</div>
-<div></div>
-<div>First, <strong>square each |<em>y</em> – <em>ŷ</em>|</strong></div>
-</div>
+
+
+For our example the calculation is as follows:
+
+First, <strong>square each |<em>y</em> – <em>ŷ</em>|</strong>
 <p>The squares are 35<sup>2</sup>17<sup>2</sup>16<sup>2</sup>6<sup>2</sup>19<sup>2</sup>9<sup>2</sup>3<sup>2</sup>1<sup>2</sup>10<sup>2</sup>9<sup>2</sup>1<sup>2</sup></p>
 <p><strong>Then, add (sum) all the |<em>y</em> – <em>ŷ</em>| squared terms</strong> using the formula</p>
 <p><img alt="\stackrel{11}{\underset{i = 1}{\Sigma }}{\left(|{y}_{i}-{\stackrel{^}{y}}_{i}|\right)}^{2}=\stackrel{11}{\underset{i = 1}{\Sigma }}{\epsilon }_{i}{}^{2}" height="37" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-8bf43e587f226a0e13ee3d515b63e69c_l3.png" title="Rendered by QuickLaTeX.com" width="187"> (Recall that <em>y</em><sub>i</sub> – <em>ŷ</em><sub>i</sub> = <em>ε</em><sub>i</sub>.)</p>
@@ -162,38 +144,26 @@ to actually invoke its influence on the slope of the line then we call it an inf
 <p>= 2440 = <strong>SSE</strong>. The result, <strong>SSE</strong> is the Sum of Squared Errors.</p>
 <p><em>s</em> is the standard deviation of all the <em>y</em> − <em>ŷ</em> = <em>ε</em> values where <em>n</em> = the total number of data points. If each residual is calculated and squared, and the results are added, we get the SSE. The standard deviation of the residuals is calculated from the SSE as:</p>
 <p><img alt="s=\sqrt{\frac{SSE}{n-2}}" height="32" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-b72c67b79eaa38d35df81cddf43fe854_l3.png" title="Rendered by QuickLaTeX.com" width="83"></p>
-<div>
-<div><strong>Note:</strong> We divide by (<em>n</em> – 2) as our df because the regression model involves two estimates.</div>
-<div>
+<strong>Note:</strong> We divide by (<em>n</em> – 2) as our df because the regression model involves two estimates.
+
 <p>For our example:</p>
 <p><img alt="s=\sqrt{\frac{2440}{11-2}}=16.47" height="32" loading="lazy" src="https://pressbooks.lib.vt.edu/app/uploads/quicklatex/quicklatex.com-ae5df740c979688189a92fa82fde617d_l3.png" title="Rendered by QuickLaTeX.com" width="150">.</p>
 <p><strong>Note:</strong> Rather than calculate these&nbsp;ourselves, we can find <em>s</em> using the computer or calculator.</p>
 </div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<h2 id="more-on-influential-points">More on Influential Points</h2>
+<h2 id="h-more-on-influential-points">More on Influential Points</h2>
 <p>If we were to measure the vertical distance from any data point to the corresponding point on the line of best fit and that distance is at least 2<em>s</em>, then we would consider the data point to be “too far” from the line of best fit. We call that point a potential influential point.</p>
 <p>Back to our example, multiply <em>s</em> by 2: <br>
 (2)(16.47) = 32.94 <br>
 32.94 is 2 standard deviations away from the mean of the <em>y</em> – <em>ŷ</em> values.</p>
 <p>So for this example, if any of the |<em>y</em> – <em>ŷ</em>| values are <strong>at least</strong> 32.94, the corresponding (<em>x</em>, <em>y</em>) data point is a potential outlier.</p>
-</div>
-</div>
 <p>We are looking for all data points for which the residual is greater than 2<em>s</em> = 2(16.4) = 32.8 or less than –32.8. Compare these values to the residuals in column four of the table. It appears all the |<em>y</em> – <em>ŷ</em>|’s are less than 31.29 except for the first one which is 35.&nbsp;&nbsp;</p>
-</div>
 <p>35 &gt; 31.29 That is, |<em>y</em> – <em>ŷ</em>| ≥ (2)(s)</p>
 <p>The only such data point is the student who had a grade of 65 on the third exam and 175 on the final exam; the residual for this student is 35.</p>
-<div>
 <p>How does the outlier affect the best fit line? Numerically and graphically, we have identified the point (65, 175) as an outlier. We should re-examine the data for this point to see if there are any problems with the data. If there is an error, we should fix the error if possible, or delete the data. If the data is correct, we would leave it in the data set. For this problem, we will suppose that we examined the data and found that this outlier data was an error. Therefore we will continue on and delete the outlier, so that we can explore how it affects the results, as a learning experience.</p>
 <p>The next step is to compute a new best-fit line using the ten remaining points. The new line of best fit and the correlation coefficient are:</p>
 <p><em>ŷ</em> = –355.19 + 7.39<em>x</em> and <em>r</em> = 0.9121</p>
 <p>The new line with <em>r</em> = 0.9121 is a stronger correlation than the original (<em>r</em> = 0.6631) because <em>r</em> = 0.9121 is closer to one. This means that the new line is a better fit to the ten remaining data values. The line can better predict the final exam score given the third exam score.&nbsp; The point we deleted appeared to be an influential point</p>
 <p>It is often tempting to remove outliers and influential points. Don’t do this without a very good reason. Models that ignore exceptional (and interesting) cases often perform poorly. For instance, if a financial firm ignored the largest market swings – the “outliers” – they would soon go bankrupt by making poorly thought-out investments.</p>
-</div>
-<div>
 <p>When outliers are deleted, the researcher should either record that data was deleted, and why, or the researcher should provide results both with and without the deleted data. If data is erroneous and the correct values are known (e.g., student one actually scored a 70 instead of a 65), then this correction can be made to the data.</p>
 <p>Using this new line of best fit (based on the remaining ten data points in the “exam example” used in previous sections, what would a student who receives a 73 on the third exam expect to receive on the final exam? Is this the same as the prediction made using the original line?</p>
 <ul>
@@ -201,15 +171,7 @@ to actually invoke its influence on the slope of the line then we call it an inf
 <li>The original line predicted <em>ŷ</em> = –173.51 + 4.83(73) = 179.08 so the prediction using the new line with the outlier eliminated differs from the original prediction.</li>
 </ul>
 <div class="box box-callout"><p class="box-title">Your turn!</p>
-
-<div>
-<div>
-<div>
-<div>
 <p>The Consumer Price Index (CPI) measures the average change over time in the prices paid by urban consumers for consumer goods and services. The CPI affects nearly all Americans because of the many ways it is used. One of its biggest uses is as a measure of inflation. By providing information about price changes in the Nation’s economy to government, business, and labor, the CPI helps them to make economic decisions. The President, Congress, and the Federal Reserve Board use the CPI’s trends to formulate monetary and fiscal policies. In the following table, <em>x</em> is the year and <em>y</em> is the CPI.</p>
-</div>
-</div>
-</div>
 <div class="box box-callout"><p class="box-title">Example</p>
 <div class="table-wrap"><table>
 <caption>Figure 9.16: CPI Values</caption>
@@ -266,8 +228,6 @@ to actually invoke its influence on the slope of the line then we call it an inf
 </tr>
 </tbody>
 </table></div>
-<div>
-<div>
 <ol type="a">
 <li>Draw a scatterplot of the data.</li>
 <li>Calculate the least squares line. Write the equation in the form <em>ŷ</em> = <em>a</em> + <em>bx</em>.</li>
@@ -278,21 +238,9 @@ to actually invoke its influence on the slope of the line then we call it an inf
 <li>Comment on the appropriateness of this linear model.&nbsp; Do there appear to be any outliers or influential points?</li>
 </ol>
 </div>
-<div>
-<div>
-<div></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<h3 id="image-references">Image References</h3>
+<h3 id="h-image-references">Image References</h3>
 <p>Figure 9.12: Kindred Grey via Virginia Tech (2020). “Figure 9.12” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_9.12.png . Adaptation of Figure 12.18 from OpenStax Introductory Statistics (2013) (CC BY 4.0). Retrieved from https://openstax.org/books/introductory-statistics/pages/12-6-outliers</p>
 <p>Figure 9.13: Kindred Grey via Virginia Tech (2020). “Figure 9.13” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_9.13.png . Adaptation of Figure 12.19 from OpenStax Introductory Statistics (2013) (CC BY 4.0). Retrieved from https://openstax.org/books/introductory-statistics/pages/12-6-outliers</p>
 <p>Figure 9.14: Kindred Grey via Virginia Tech (2020). “Figure 9.14” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_9.14.png . Adaptation of Figure 12.10 from OpenStax Introductory Statistics (2013) (CC BY 4.0). Retrieved from https://openstax.org/books/introductory-statistics/pages/12-3-the-regression-equation</p>
 <p>Figure 9.17: Kindred Grey via Virginia Tech (2020). “Figure 9.17” CC BY-SA 4.0. Retrieved from https://commons.wikimedia.org/wiki/File:Figure_9.17.png . Adaptation of Figure 12.20 from OpenStax Introductory Statistics (2013) (CC BY 4.0). Retrieved from https://openstax.org/books/introductory-statistics/pages/12-6-outliers</p>
-</div>
-<div></div>

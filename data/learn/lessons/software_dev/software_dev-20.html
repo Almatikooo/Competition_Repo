@@ -1,0 +1,185 @@
+<div class="box box-objectives">
+<p class="box-title">Objectives</p>
+<ul>
+<li>Clone a remote repository.</li>
+<li>Collaborate by pushing to a common repository.</li>
+<li>Describe the basic collaborative workflow.</li>
+</ul>
+</div>
+<div class="box box-questions">
+<p class="box-title">Questions</p>
+<ul>
+<li>How can I use version control to collaborate with other people?</li>
+</ul>
+</div>
+<p>For the next step, get into pairs.  One person will be the "Owner" and the other
+will be the "Collaborator". The goal is that the Collaborator add changes into
+the Owner's repository. We will switch roles at the end, so both persons will
+play Owner and Collaborator.</p>
+<div class="box box-callout">
+<p class="box-title">Practicing By Yourself</p>
+<p>If you're working through this lesson on your own, you can carry on by opening
+a second terminal window.
+This window will represent your partner, working on another computer. You
+won't need to give anyone access on GitHub, because both 'partners' are you.</p>
+</div>
+<p>The Owner needs to give the Collaborator access. In your repository page on GitHub, click the "Settings"
+button on the right, select "Collaborators", click "Add people", and
+then enter your partner's username.</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/swcarpentry/git-novice/78b9c02a074e6712b9b013ef6e8a568a56d8cf37/episodes/fig/github-add-collaborators.png">{alt='A screenshot of the GitHub Collaborators settings page, which is accessed by clicking "Settings" then "Collaborators"'}</p>
+<p>To accept access to the Owner's repo, the Collaborator
+needs to go to <a href="https://github.com/notifications" target="_blank" rel="noopener noreferrer">https://github.com/notifications</a>
+or check for email notification. Once there she can accept access to the Owner's repo.</p>
+<p>Next, the Collaborator needs to download a copy of the Owner's repository to her
+machine. This is called "cloning a repo".</p>
+<p>The Collaborator doesn't want to overwrite her own version of <code>recipes.git</code>, so
+needs to clone the Owner's repository to a different location than her own
+repository with the same name.</p>
+<p>To clone the Owner's repo into her <code>Desktop</code> folder, the Collaborator enters:</p>
+<pre><code class="language-bash">$ git clone git@github.com:alflin/recipes.git ~/Desktop/alflin-recipes
+</code></pre>
+<p>Replace 'alflin' with the Owner's username.</p>
+<p>If you choose to clone without the clone path
+(<code>~/Desktop/alflin-recipes</code>) specified at the end,
+you will clone inside your own recipes folder!
+Make sure to navigate to the <code>Desktop</code> folder first.</p>
+<p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/swcarpentry/git-novice/78b9c02a074e6712b9b013ef6e8a568a56d8cf37/episodes/fig/github-collaboration.svg">{alt='A diagram showing that "git clone" can create a copy of a remote GitHub repository, allowing a second person to create their own local repository that they can make changes to.'}</p>
+<p>The Collaborator can now make a change in her clone of the Owner's repository,
+exactly the same way as we've been doing before:</p>
+<pre><code class="language-bash">$ cd ~/Desktop/alflin-recipes
+$ nano hummus.md
+$ cat hummus.md
+</code></pre>
+<pre><code class="language-output"># Hummus
+## Ingredients
+* chickpeas
+* lemon
+* olive oil
+* salt
+</code></pre>
+<pre><code class="language-bash">$ git add hummus.md
+$ git commit -m "Add ingredients for hummus"
+</code></pre>
+<pre><code class="language-output"> 1 file changed, 6 insertion(+)
+ create mode 100644 hummus.md
+</code></pre>
+<p>Then push the change to the <em>Owner's repository</em> on GitHub:</p>
+<pre><code class="language-bash">$ git push origin main
+</code></pre>
+<pre><code class="language-output">Enumerating objects: 4, done.
+Counting objects: 4, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 306 bytes, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/alflin/recipes.git
+   9272da5..29aba7c  main -&gt; main
+</code></pre>
+<p>Note that we didn't have to create a remote called <code>origin</code>: Git uses this
+name by default when we clone a repository.  (This is why <code>origin</code> was a
+sensible choice earlier when we were setting up remotes by hand.)</p>
+<p>Take a look at the Owner's repository on GitHub again, and you should be
+able to see the new commit made by the Collaborator. You may need to refresh
+your browser to see the new commit.</p>
+<div class="box box-callout">
+<p class="box-title">Some more about remotes</p>
+<p>In this episode and the previous one, our local repository has had
+a single "remote", called <code>origin</code>. A remote is a copy of the repository
+that is hosted somewhere else, that we can push to and pull from, and
+there's no reason that you have to work with only one. For example,
+on some large projects you might have your own copy in your own GitHub
+account (you'd probably call this <code>origin</code>) and also the main "upstream"
+project repository (let's call this <code>upstream</code> for the sake of examples).
+You would pull from <code>upstream</code> from time to
+time to get the latest updates that other people have committed.</p>
+<p>Remember that the name you give to a remote only exists locally. It's
+an alias that you choose - whether <code>origin</code>, or <code>upstream</code>, or <code>alfred</code> -
+and not something intrinstic to the remote repository.</p>
+<p>The <code>git remote</code> family of commands is used to set up and alter the remotes
+associated with a repository. Here are some of the most useful ones:</p>
+<ul>
+<li><code>git remote -v</code> lists all the remotes that are configured (we already used
+this in the last episode)</li>
+<li><code>git remote add [name] [url]</code> is used to add a new remote</li>
+<li><code>git remote remove [name]</code> removes a remote. Note that it doesn't affect the
+remote repository at all - it just removes the link to it from the local repo.</li>
+<li><code>git remote set-url [name] [newurl]</code> changes the URL that is associated
+with the remote. This is useful if it has moved, e.g. to a different GitHub
+account, or from GitHub to a different hosting service. Or, if we made a typo when
+adding it!</li>
+<li><code>git remote rename [oldname] [newname]</code> changes the local alias by which a remote
+is known - its name. For example, one could use this to change <code>upstream</code> to <code>alfred</code>.</li>
+</ul>
+</div>
+<p>To download the Collaborator's changes from GitHub, the Owner now enters:</p>
+<pre><code class="language-bash">$ git pull origin main
+</code></pre>
+<pre><code class="language-output">remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/alflin/recipes
+ * branch            main     -&gt; FETCH_HEAD
+   9272da5..29aba7c  main     -&gt; origin/main
+Updating 9272da5..29aba7c
+Fast-forward
+ hummus.md | 5 +
+ 1 file changed, 5 insertion(+)
+ create mode 100644 hummus.md
+</code></pre>
+<p>Now the three repositories (Owner's local, Collaborator's local, and Owner's on
+GitHub) are back in sync.</p>
+<div class="box box-callout">
+<p class="box-title">A Basic Collaborative Workflow</p>
+<p>In practice, it is good to be sure that you have an updated version of the
+repository you are collaborating on, so you should <code>git pull</code> before making
+our changes. The basic collaborative workflow would be:</p>
+<ul>
+<li>update your local repo with <code>git pull origin main</code>,</li>
+<li>make your changes and stage them with <code>git add</code>,</li>
+<li>commit your changes with <code>git commit -m</code>, and</li>
+<li>upload the changes to GitHub with <code>git push origin main</code></li>
+</ul>
+<p>It is better to make many commits with smaller changes rather than
+of one commit with massive changes: small commits are easier to
+read and review.</p>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Switch Roles and Repeat</p>
+<p>Switch roles and repeat the whole process.</p>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Review Changes</p>
+<p>The Owner pushed commits to the repository without giving any information
+to the Collaborator. How can the Collaborator find out what has changed with
+command line? And on GitHub?</p>
+<details class="solution"><summary>Show solution</summary>
+<p>On the command line, the Collaborator can use <code>git fetch origin main</code>
+to get the remote changes into the local repository, but without merging
+them. Then by running <code>git diff main origin/main</code> the Collaborator
+will see the changes output in the terminal.</p>
+<p>On GitHub, the Collaborator can go to the repository and click on
+"commits" to view the most recent commits pushed to the repository.</p>
+</details>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Comment Changes in GitHub</p>
+<p>The Collaborator has some questions about one line change made by the Owner and
+has some suggestions to propose.</p>
+<p>With GitHub, it is possible to comment on the diff of a commit. Over the line of
+code to comment, a blue comment icon appears to open a comment window.</p>
+<p>The Collaborator posts her comments and suggestions using the GitHub interface.</p>
+</div>
+<div class="box box-challenge">
+<p class="box-title">Version History, Backup, and Version Control</p>
+<p>Some backup software can keep a history of the versions of your files. They also
+allows you to recover specific versions. How is this functionality different from version control?
+What are some of the benefits of using version control, Git and GitHub?</p>
+</div>
+<div class="box box-keypoints">
+<p class="box-title">Key points</p>
+<ul>
+<li><code>git clone</code> copies a remote repository to create a local repository with a remote called <code>origin</code> automatically set up.</li>
+</ul>
+</div>

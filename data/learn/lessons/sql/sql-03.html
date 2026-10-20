@@ -105,7 +105,6 @@ we can ask for all information from the DR-1 site collected before 1930:</p>
 </table></div>
 <div class="box box-callout">
 <p class="box-title">Date Types</p>
-
 <p>Most database managers have a special data type for dates.
 In fact, many have two:
 one for dates,
@@ -483,7 +482,6 @@ to give a second level of filtering:</p>
 not to the entire rows as they are being processed.</p>
 <div class="box box-callout">
 <p class="box-title">Growing Queries</p>
-
 <p>What we have just done is how most people "grow" their SQL queries.
 We started with something simple that did part of what we wanted,
 then added more clauses one by one,
@@ -504,7 +502,6 @@ and use that.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Fix This Query</p>
-
 <p>Suppose we want to select all sites that lie within 48 degrees of the equator.
 Our first query is:</p>
 <pre><code class="language-sql">SELECT * FROM Site WHERE (lat &gt; -48) OR (lat &lt; 48);
@@ -512,7 +509,6 @@ Our first query is:</p>
 <p>Explain why this is wrong,
 and rewrite the query so that it is correct.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <p>Because we used <code>OR</code>, a site on the South Pole for example will still meet
 the second criteria and thus be included. Instead, we want to restrict this
 to sites that meet <em>both</em> criteria:</p>
@@ -522,12 +518,10 @@ to sites that meet <em>both</em> criteria:</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Finding Outliers</p>
-
 <p>Normalized salinity readings are supposed to be between 0.0 and 1.0.
 Write a query that selects all records from <code>Survey</code>
 with salinity values outside this range.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x">Solution</h2>
 <pre><code class="language-sql">SELECT * FROM Survey WHERE quant = 'sal' AND ((reading &gt; 1.0) OR (reading &lt; 0.0));
 </code></pre>
 <div class="table-wrap"><table>
@@ -558,7 +552,6 @@ with salinity values outside this range.</p>
 </div>
 <div class="box box-challenge">
 <p class="box-title">Matching Patterns</p>
-
 <p>Which of these expressions are true?</p>
 <ol>
 <li><code>'a' LIKE 'a'</code></li>
@@ -568,7 +561,6 @@ with salinity values outside this range.</p>
 <li><code>'alpha' LIKE 'a%p%'</code></li>
 </ol>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution-x-x">Solution</h2>
 <ol>
 <li>True because these are the same character.</li>
 <li>True because the wildcard can match <em>zero</em> or more characters.</li>

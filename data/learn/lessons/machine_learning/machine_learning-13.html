@@ -6,7 +6,7 @@
 <li>Inertia</li>
 <li>Variance</li>
 </ul>
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p><a href="https://wikipedia.org/wiki/K-means_clustering" target="_blank" rel="noopener noreferrer">K-Means Clustering</a> is a method derived from the domain of signal processing. It is used to divide and partition groups of data into 'k' clusters using a series of observations. Each observation works to group a given datapoint closest to its nearest 'mean', or the center point of a cluster.</p>
 <p>The clusters can be visualized as <a href="https://wikipedia.org/wiki/Voronoi_diagram" target="_blank" rel="noopener noreferrer">Voronoi diagrams</a>, which include a point (or 'seed') and its corresponding region.</p>
 <p><img alt="voronoi diagram" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/5-Clustering/2-K-Means/images/voronoi.png"></p>
@@ -24,9 +24,9 @@
 </li>
 </ol>
 <p>One drawback of using K-Means includes the fact that you will need to establish 'k', that is the number of centroids. Fortunately the  'elbow method' helps to estimate a good starting value for 'k'. You'll try it in a minute.</p>
-<h2 id="prerequisite">Prerequisite</h2>
+<h2 id="h-prerequisite">Prerequisite</h2>
 <p>You will work in this lesson's <a href="https://github.com/microsoft/ML-For-Beginners/blob/main/5-Clustering/2-K-Means/notebook.ipynb" target="_blank" rel="noopener noreferrer"><em>notebook.ipynb</em></a> file that includes the data import and preliminary cleaning you did in the last lesson.</p>
-<h2 id="exercise-preparation">Exercise - preparation</h2>
+<h2 id="h-exercise-preparation">Exercise - preparation</h2>
 <p>Start by taking another look at the songs data.</p>
 <ol>
 <li>
@@ -116,10 +116,10 @@ score
 </code></pre>
 </li>
 </ol>
-<h2 id="silhouette-score">Silhouette score</h2>
+<h2 id="h-silhouette-score">Silhouette score</h2>
 <p>Look for a silhouette score closer to 1. This score varies from -1 to 1, and if the score is 1, the cluster is dense and well-separated from other clusters. A value near 0 represents overlapping clusters with samples very close to the decision boundary of the neighboring clusters. <a href="https://dzone.com/articles/kmeans-silhouette-score-explained-with-python-exam" target="_blank" rel="noopener noreferrer">(Source)</a></p>
 <p>Our score is <strong>.53</strong>, so right in the middle. This indicates that our data is not particularly well-suited to this type of clustering, but let's continue.</p>
-<h3 id="exercise-build-a-model">Exercise - build a model</h3>
+<h3 id="h-exercise-build-a-model">Exercise - build a model</h3>
 <ol>
 <li>
 <p>Import <code>KMeans</code> and start the clustering process.</p>
@@ -150,7 +150,7 @@ for i in range(1, 11):
 </blockquote>
 </li>
 </ol>
-<h3 id="elbow-method">Elbow method</h3>
+<h3 id="h-elbow-method">Elbow method</h3>
 <p>Previously, you surmised that, because you have targeted 3 song genres, you should choose 3 clusters. But is that the case?</p>
 <ol>
 <li>
@@ -166,7 +166,7 @@ plt.show()
 <p><img alt="elbow method" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/de2d4e12236445198213a0711855e348e7253cd4/5-Clustering/2-K-Means/images/elbow.png"></p>
 </li>
 </ol>
-<h2 id="exercise-display-the-clusters">Exercise - display the clusters</h2>
+<h2 id="h-exercise-display-the-clusters">Exercise - display the clusters</h2>
 <ol>
 <li>
 <p>Try the process again, this time setting three clusters, and display the clusters as a scatterplot:</p>
@@ -200,17 +200,16 @@ print('Accuracy score: {0:0.2f}'. format(correct_labels/float(y.size)))
 </blockquote>
 </li>
 </ol>
-<h2 id="variance">Variance</h2>
+<h2 id="h-variance">Variance</h2>
 <p>Variance is defined as "the average of the squared differences from the Mean" <a href="https://www.mathsisfun.com/data/standard-deviation.html" target="_blank" rel="noopener noreferrer">(Source)</a>. In the context of this clustering problem, it refers to data that the numbers of our dataset tend to diverge a bit too much from the mean.</p>
 <p>✅ This is a great moment to think about all the ways you could correct this issue. Tweak the data a bit more? Use different columns? Use a different algorithm? Hint: Try <a href="https://www.mygreatlearning.com/blog/learning-data-science-with-k-means-clustering/" target="_blank" rel="noopener noreferrer">scaling your data</a> to normalize it and test other columns.</p>
 <blockquote>
 <p>Try this '<a href="https://www.calculatorsoup.com/calculators/statistics/variance-calculator.php" target="_blank" rel="noopener noreferrer">variance calculator</a>' to understand the concept a bit more.</p>
 </blockquote>
 <hr>
-<h2 id="challenge">🚀Challenge</h2>
+<h2 id="h-challenge">🚀Challenge</h2>
 <p>Spend some time with this notebook, tweaking parameters. Can you improve the accuracy of the model by cleaning  the data more (removing outliers, for example)? You can use weights to give more weight to given data samples. What else can you do to create better clusters?</p>
 <p>Hint: Try to scale your data. There's commented code in the notebook that adds standard scaling to make the data columns resemble each other more closely in terms of range. You'll find that while the silhouette score goes down, the 'kink' in the elbow graph smooths out. This is because leaving the data unscaled allows data with less variance to carry more weight. Read a bit more on this problem <a href="https://stats.stackexchange.com/questions/21222/are-mean-normalization-and-feature-scaling-needed-for-k-means-clustering/21226#21226" target="_blank" rel="noopener noreferrer">here</a>.</p>
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>Take a look at a K-Means Simulator <a href="https://user.ceng.metu.edu.tr/~akifakkus/courses/ceng574/k-means/" target="_blank" rel="noopener noreferrer">such as this one</a>. You can use this tool to visualize sample data points and determine its centroids. You can edit the data's randomness, numbers of clusters and numbers of centroids. Does this help you get an idea of how the data can be grouped?</p>
 <p>Also, take a look at <a href="https://stanford.edu/~cpiech/cs221/handouts/kmeans.html" target="_blank" rel="noopener noreferrer">this handout on K-Means</a> from Stanford.</p>

@@ -1,5 +1,3 @@
-<div>
-<div>Last reviewed 2024-08-28 UTC</div>
 <p>This document discusses techniques for implementing and automating continuous
 integration (CI), continuous delivery (CD), and continuous training (CT) for
 machine learning (ML) systems. This document applies primarily to predictive AI
@@ -65,7 +63,7 @@ in ML.</p>
 <li>MLOps maturity levels</li>
 <li>MlOps for generative AI</li>
 </ul>
-<h2 id="devops-versus-mlops">DevOps versus MLOps</h2>
+<h2 id="h-devops-versus-mlops">DevOps versus MLOps</h2>
 <p><a href="https://cloud.google.com/devops/" target="_blank" rel="noopener noreferrer">DevOps</a> 
 is a popular practice in developing and operating large-scale software systems.
 This practice provides benefits such as shortening the development cycles,
@@ -121,7 +119,7 @@ automatically retraining and serving the models.</li>
 </ul>
 <p>The following section discusses the typical steps for training and evaluating
 an ML model to serve as a prediction service.</p>
-<h2 id="data-science-steps-for-ml">Data science steps for ML</h2>
+<h2 id="h-data-science-steps-for-ml">Data science steps for ML</h2>
 <p>In any ML project, after you define the business use case and establish the
 success criteria, the process of delivering an ML model to production involves
 the following steps. These steps can be completed manually or can be completed
@@ -172,14 +170,14 @@ new models given new
 implementations. The following sections describe three levels of MLOps, starting
 from the most common level, which involves no automation, up to automating both
 ML and CI/CD pipelines.</p>
-<h2 id="mlops-level-0-manual-process">MLOps level 0: Manual process</h2>
+<h2 id="h-mlops-level-0-manual-process">MLOps level 0: Manual process</h2>
 <p>Many teams have data scientists and ML researchers who
 can build state-of-the-art models, but their process for building and deploying ML
 models is entirely manual. This is considered the <em>basic</em> level of maturity, or
 level 0. The following diagram shows the workflow of this process.</p>
 <p><img alt="Workflow of manual ML steps for MLOps level 0." loading="lazy" src="https://cloud.google.com/static/architecture/images/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning-2-manual-ml.svg"></p>
 <p><strong>Figure 2</strong>. Manual ML steps to serve the model as a prediction service.</p>
-<h3 id="characteristics">Characteristics</h3>
+<h3 id="h-characteristics">Characteristics</h3>
 <p>The following list highlights the characteristics of the MLOps level 0 process,
 as shown in Figure 2:</p>
 <ul>
@@ -223,7 +221,7 @@ testing, and deployment, including security, regression, and load and canary
 testing. In addition, production deployment of a new version of an ML model
 usually goes through A/B testing or online experiments before the model is
 promoted to serve all the prediction request traffic.</p>
-<h3 id="challenges">Challenges</h3>
+<h3 id="h-challenges">Challenges</h3>
 <p>MLOps level 0 is common in many businesses that are beginning to apply ML to
 their use cases. This manual, data-scientist-driven process might be sufficient
 when models are rarely changed or trained. In practice, models often break when
@@ -254,342 +252,3 @@ and CT are helpful. By deploying an ML training pipeline, you can enable
 CT, and you can set up a CI/CD system to
 rapidly test, build, and deploy new implementations of the ML pipeline. These
 features are discussed in more detail in the next sections.</p>
-<h2 id="mlops-level-1-ml-pipeline-automation">MLOps level 1: ML pipeline automation</h2>
-<p>The goal of level 1 is to perform continuous training of the model by
-automating the ML pipeline; this lets you achieve continuous delivery of model
-prediction service. To automate the process of using new data to retrain models
-in production, you need to introduce automated data and model validation steps
-to the pipeline, as well as pipeline triggers and metadata management.</p>
-<p>The following figure is a schematic representation of an automated ML pipeline
-for CT.</p>
-<p><img alt="Workflow of ML pipeline for CT." loading="lazy" src="https://cloud.google.com/static/architecture/images/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning-3-ml-automation-ct.svg"></p>
-<p><strong>Figure 3</strong>. ML pipeline automation for CT.</p>
-<h3 id="characteristics-x">Characteristics</h3>
-<p>The following list highlights the characteristics of the MLOps level 1 setup,
-as shown in Figure 3:</p>
-<ul>
-<li><p>Rapid experiment: The steps of the ML experiment are
-orchestrated. The transition between steps is automated, which leads to
-rapid iteration of experiments and better readiness to move the whole
-pipeline to production.</p></li>
-<li><p>CT of the model in production: The model is automatically trained
-in production using fresh data based on live
-pipeline triggers, which are discussed in the next section.</p></li>
-<li><p>Experimental-operational symmetry: The pipeline implementation
-that is used in the development or experiment environment is used in the
-preproduction and production environment, which is a key aspect of
-MLOps practice for unifying DevOps.</p></li>
-<li><p>Modularized code for components and pipelines: To construct ML
-pipelines, components need to be reusable, composable, and potentially
-shareable across ML pipelines. Therefore, while the EDA code can still live
-in notebooks, the source code for components must be modularized. In
-addition, components should ideally be containerized to do the following:</p>
-<ul>
-<li>Decouple the execution environment from the custom code runtime.</li>
-<li>Make code reproducible between development and
-production environments.</li>
-<li>Isolate each component in the pipeline. Components can have
-their own version of the runtime environment, and have different
-languages and libraries.</li>
-</ul></li>
-<li><p>Continuous delivery of models: An ML pipeline in production continuously
-delivers prediction services to new models that are trained on new data. The
-model deployment step, which serves the trained and validated model as a
-prediction service for online predictions, is automated.</p></li>
-<li><p>Pipeline deployment: In level 0, you deploy a trained
-model as a prediction service to production. For level 1, you deploy a
-whole training pipeline, which automatically and recurrently runs to serve
-the trained model as the prediction service.</p></li>
-</ul>
-<h3 id="additional-components">Additional components</h3>
-<p>This section discusses the components that you need to add to the architecture
-to enable ML continuous training.</p>
-<h4>Data and model validation</h4>
-<p>When you deploy your ML pipeline to production, one or more of the triggers
-discussed in the
-<a href="#ml_pipeline_triggers" rel="noopener noreferrer">ML pipeline triggers</a> 
-section automatically executes the pipeline. The pipeline expects new, live data
-to produce a new model version that is trained on the new data (as shown in
-Figure 3). Therefore, automated <em>data validation</em> and <em>model validation</em> steps
-are required in the production pipeline to ensure the following expected
-behavior:</p>
-<ul>
-<li><p>Data validation: This step is required before model training to
-decide whether you should retrain the model or stop the execution of the
-pipeline. This decision is automatically made if the following was
-identified by the pipeline.</p>
-<ul>
-<li>Data schema skews: These skews are considered anomalies in
-the input data. Therefore, input data that doesn't comply with the
-expected schema is received by the downstream pipeline steps, including
-the data processing and model training steps. In this case, you should
-stop the pipeline so the data science team can investigate. The
-team might release a fix or an update to the pipeline to handle these
-changes in the schema. Schema skews include receiving unexpected
-features, not receiving all the expected features, or receiving
-features with unexpected values.</li>
-<li>Data values skews: These skews are significant changes in the
-statistical properties of data, which means that data patterns are
-changing, and you need to trigger a retraining of the model to capture
-these changes.</li>
-</ul></li>
-<li><p>Model validation: This step occurs after you successfully train the model
-given the new data. You evaluate and validate the model before it's
-promoted to production. This <em>offline model validation</em> step consists of
-the following.</p>
-<ul>
-<li>Producing evaluation metric values using the trained model on a
-test dataset to assess the model's predictive quality.</li>
-<li>Comparing the evaluation metric values produced by your newly trained
-model to the current model, for example, production model, baseline
-model, or other business-requirement models. You make sure that the new
-model produces better performance than the current model before
-promoting it to production.</li>
-<li>Making sure that the performance of the model is consistent on
-various segments of the data. For example, your newly trained customer
-churn model might produce an overall better predictive accuracy
-compared to the previous model, but the accuracy values per customer
-region might have large variance.</li>
-<li>Making sure that you test your model for deployment, including
-infrastructure compatibility and consistency with the prediction service
-API.</li>
-</ul></li>
-</ul>
-<p>In addition to offline model validation, a newly deployed model
-undergoes <em>online model validation</em>—in a canary deployment or an A/B testing
-setup—before it serves prediction for the online traffic.</p>
-<h4>Feature store</h4>
-<p>An optional additional component for level 1 ML pipeline automation is a
-feature store. A feature store is a centralized repository where you
-standardize the definition, storage, and access of features for training and
-serving. A feature store needs to provide an API for both high-throughput batch
-serving and low-latency real-time serving for the feature values, and to support
-both training and serving workloads.</p>
-<p>The feature store helps data scientists do the following:</p>
-<ul>
-<li>Discover and reuse available feature sets for their entities, instead
-of re-creating the same or similar ones.</li>
-<li>Avoid having similar features that have different definitions by maintaining
-features and their related metadata.</li>
-<li>Serve up-to-date feature values from the feature store.</li>
-<li><p>Avoid training-serving skew by using the feature store as the data
-source for experimentation, continuous training, and online serving. This
-approach makes sure that the features used for training are the same ones
-used during serving:</p>
-<ul>
-<li>For experimentation, data scientists can get an offline extract
-from the feature store to run their experiments.</li>
-<li>For continuous training, the automated ML training pipeline can
-fetch a batch of the up-to-date feature values of the dataset
-that are used for the training task.</li>
-<li>For online prediction, the prediction service can fetch in a batch of
-the feature values related to the requested
-entity, such as customer demographic features, product features, and
-current session aggregation features.</li>
-<li>For online prediction and feature retrieval, the prediction service
-identifies the relevant features for an entity. For example, if the
-entity is a customer, relevant features might include age,
-purchase history, and browsing behavior. The service batches these feature
-values together and retrieves all the needed features for the entity at
-once, rather than individually. This retrieval method helps with
-efficiency, especially when you need to manage multiple entities.</li>
-</ul></li>
-</ul>
-<h4>Metadata management</h4>
-<p>Information about each execution of the ML pipeline is recorded in order to help
-with data and artifacts lineage, reproducibility, and comparisons. It also helps
-you debug errors and anomalies. Each time you execute the pipeline, the ML
-metadata store records the following metadata:</p>
-<ul>
-<li>The pipeline and component versions that were executed.</li>
-<li>The start and end date, time, and how long the pipeline took to complete
-each of the steps.</li>
-<li>The executor of the pipeline.</li>
-<li>The parameter arguments that were passed to the pipeline.</li>
-<li>The pointers to the artifacts produced by each step of the pipeline, such as
-the location of prepared data, validation anomalies, computed statistics,
-and extracted vocabulary from the categorical features. Tracking these
-intermediate outputs helps you resume the pipeline from the most recent
-step if the pipeline stopped due to a failed step, without having to
-re-execute the steps that have already completed.</li>
-<li>A pointer to the previous trained model if you need to roll back to a
-previous model version or if you need to produce evaluation metrics
-for a previous model version when the pipeline is given new test data during
-the model validation step.</li>
-<li>The model evaluation metrics produced during the model evaluation step for
-both the training and the testing sets. These metrics help you compare the
-performance of a newly trained model to the recorded performance of the
-previous model during the model validation step.</li>
-</ul>
-<h4>ML pipeline triggers</h4>
-<p>You can automate the ML production pipelines to retrain the models with new
-data, depending on your use case:</p>
-<ul>
-<li>On demand: Ad hoc manual execution of the pipeline.</li>
-<li>On a schedule: New, labeled data is systematically available for the ML
-system on a daily, weekly, or monthly basis. The retraining frequency also
-depends on how frequently the data patterns change, and how expensive it is
-to retrain your models.</li>
-<li>On availability of new training data: New data isn't
-systematically available for the ML system and instead is available on an
-ad hoc basis when new data is collected and made available in the source
-databases.</li>
-<li>On model performance degradation: The model is retrained when there is
-noticeable performance degradation.</li>
-<li>On significant changes in the data distributions
-(<a href="https://en.wikipedia.org/wiki/Concept_drift" target="_blank" rel="noopener noreferrer"><em>concept drift</em></a>).
-It's hard to assess the complete performance of the online model, but you
-notice significant changes on the data distributions of the features that
-are used to perform the prediction. These changes suggest that your model
-has gone stale, and that needs to be retrained on fresh data.</li>
-</ul>
-<h3 id="challenges-x">Challenges</h3>
-<p>Assuming that new implementations of the pipeline aren't frequently deployed
-and you are managing only a few pipelines, you usually manually test the
-pipeline and its components. In addition, you manually deploy new pipeline
-implementations. You also submit the tested source code for the pipeline to
-the IT team to deploy to the target environment. This setup is suitable when
-you deploy new models based on new data, rather than based on new ML ideas.</p>
-<p>However, you need to try new ML ideas and rapidly deploy new implementations
-of the ML components. If you manage many ML pipelines in production, you need
-a CI/CD setup to automate the build, test, and deployment of ML pipelines.</p>
-<h2 id="mlops-level-2-ci-cd-pipeline-automation">MLOps level 2: CI/CD pipeline automation</h2>
-<p>For a rapid and reliable update of the pipelines in production, you need a
-robust automated CI/CD system. This automated CI/CD system lets your data
-scientists rapidly explore new ideas around feature engineering, model
-architecture, and hyperparameters. They can implement these ideas and
-automatically build, test, and deploy the new pipeline components to the target
-environment.</p>
-<p>The following diagram shows the implementation of the ML pipeline using CI/CD,
-which has the characteristics of the automated ML pipelines setup plus the
-automated CI/CD routines.</p>
-<p><img alt="Workflow of the ML pipeline with CI/CD integration." loading="lazy" src="https://cloud.google.com/static/architecture/images/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning-4-ml-automation-ci-cd.svg"></p>
-<p><strong>Figure 4</strong>. CI/CD and automated ML pipeline.</p>
-<p>This MLOps setup includes the following components:</p>
-<ul>
-<li>Source control</li>
-<li>Test and build services</li>
-<li>Deployment services</li>
-<li>Model registry</li>
-<li>Feature store</li>
-<li>ML metadata store</li>
-<li>ML pipeline orchestrator</li>
-</ul>
-<h3 id="characteristics-x-x">Characteristics</h3>
-<p>The following diagram shows the stages of the ML CI/CD automation pipeline:</p>
-<p><img alt="Characteristics of the CI/CD automated ML pipeline." loading="lazy" src="https://cloud.google.com/static/architecture/images/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning-5-stages.svg"></p>
-<p><strong>Figure 5</strong>. Stages of the CI/CD automated ML pipeline.</p>
-<p>The pipeline consists of the following stages:</p>
-<ol>
-<li><p>Development and experimentation: You iteratively try out new ML
-algorithms and new modeling where the experiment steps are orchestrated.
-The output of this stage is the source code of the ML pipeline steps that
-are then pushed to a source repository.</p></li>
-<li><p>Pipeline continuous integration: You build source code and run various
-tests. The outputs of this stage are pipeline components (packages,
-executables, and artifacts) to be deployed in a later stage.</p></li>
-<li><p>Pipeline continuous delivery: You deploy the artifacts produced by the CI
-stage to the target environment. The output of this stage is a deployed
-pipeline with the new implementation of the model.</p></li>
-<li><p>Automated triggering: The pipeline is automatically executed in production
-based on a schedule or in response to a trigger.
-The output of this stage is a trained model that is pushed to the model
-registry.</p></li>
-<li><p>Model continuous delivery: You serve the trained model as a prediction
-service for the predictions. The output of this stage is a deployed model
-prediction service.</p></li>
-<li><p>Monitoring: You collect statistics on the model performance based on live
-data. The output of this stage is a trigger to execute the pipeline or to
-execute a new experiment cycle.</p></li>
-</ol>
-<p>The data analysis step is still a manual process for data scientists before
-the pipeline starts a new iteration of the experiment. The model analysis step is also a
-manual process.</p>
-<h3 id="continuous-integration">Continuous integration</h3>
-<p>In this setup, the pipeline and its components are built, tested, and
-packaged when new code is committed or pushed to the source code repository.
-Besides building packages, container images, and executables, the CI process can
-include the following tests:</p>
-<ul>
-<li><p>Unit testing your feature engineering logic.</p></li>
-<li><p>Unit testing the different methods implemented in your model. For
-example, you have a function that accepts a categorical data column and
-you encode the function as a
-<a href="https://en.wikipedia.org/wiki/One-hot" target="_blank" rel="noopener noreferrer">one-hot</a> 
-feature.</p></li>
-<li><p>Testing that your model training converges (that is, the loss of your
-model goes down by iterations and
-<a href="https://en.wikipedia.org/wiki/Overfitting" target="_blank" rel="noopener noreferrer">overfits</a> 
-a few sample records).</p></li>
-<li><p>Testing that your model training doesn't produce
-<a href="https://en.wikipedia.org/wiki/NaN" target="_blank" rel="noopener noreferrer">NaN</a> 
-values due to dividing by zero or manipulating small or large values.</p></li>
-<li><p>Testing that each component in the pipeline produces the expected
-artifacts.</p></li>
-<li><p>Testing integration between pipeline components.</p></li>
-</ul>
-<h3 id="continuous-delivery">Continuous delivery</h3>
-<p>In this level, your system continuously delivers new pipeline implementations
-to the target environment that in turn delivers prediction services of the newly
-trained model. For rapid and reliable continuous delivery of pipelines and
-models, you should consider the following:</p>
-<ul>
-<li><p>Verifying the compatibility of the model with the target
-infrastructure before you deploy your model. For example, you need to
-verify that the packages that are required by the model are installed in the
-serving environment, and that the required memory, compute, and accelerator
-resources are available.</p></li>
-<li><p>Testing the prediction service by calling the service API with the expected
-inputs, and making sure that you get the response that you expect. This test
-usually captures problems that might occur when you update the model version
-and it expects a different input.</p></li>
-<li><p>Testing prediction service performance, which involves load testing the
-service to capture metrics such as
-<a href="https://en.wikipedia.org/wiki/Queries_per_second" target="_blank" rel="noopener noreferrer">queries per second (QPS)</a> 
-and model latency.</p></li>
-<li><p>Validating the data either for retraining or batch prediction.</p></li>
-<li><p>Verifying that models meet the predictive performance targets before they
-are deployed.</p></li>
-<li><p>Automated deployment to a test environment, for example, a deployment that
-is triggered by pushing code to the development branch.</p></li>
-<li><p>Semi-automated deployment to a pre-production environment, for example,
-a deployment that is triggered by merging code to the main branch after
-reviewers approve the changes.</p></li>
-<li><p>Manual deployment to a production environment after several successful
-runs of the pipeline on the pre-production environment.</p></li>
-</ul>
-<p>To summarize, implementing ML in a production environment doesn't only mean
-deploying your model as an API for prediction. Rather, it means deploying an ML
-pipeline that can automate the retraining and deployment of new models. Setting
-up a CI/CD system lets you automatically test and deploy new pipeline
-implementations. This system lets you cope with rapid changes in your data and
-business environment. You don't have to immediately move all of your processes
-from one level to another. You can gradually implement these practices to help
-improve the automation of your ML system development and production.</p>
-<h2 id="what-s-next">What's next</h2>
-<ul>
-<li>Learn more about
-<a href="https://cloud.google.com/solutions/machine-learning/architecture-for-mlops-using-tfx-kubeflow-pipelines-and-cloud-build" target="_blank" rel="noopener noreferrer">Architecture for MLOps using TensorFlow Extended, Gemini Enterprise Agent Platform Pipelines, and Cloud Build</a>.</li>
-<li>Learn about the
-<a href="https://cloud.google.com/resources/mlops-whitepaper" target="_blank" rel="noopener noreferrer">Practitioners Guide to Machine Learning Operations (MLOps)</a>.</li>
-<li>Watch the
-<a href="https://www.youtube.com/watch?v=20h_RTHEtZI" target="_blank" rel="noopener noreferrer">MLOps Best Practices on Google Cloud (Cloud Next '19)</a> 
-on YouTube.</li>
-<li>
-
-For an overview of architectural principles and recommendations that are specific to AI
-and ML workloads in Google Cloud, see the
-<a href="https://cloud.google.com/architecture/framework/perspectives/ai-ml" target="_blank" rel="noopener noreferrer">AI and ML perspective</a>
-in the Well-Architected Framework.
-
-</li>
-<li>
-
-For more reference architectures, diagrams, and best practices, explore the
-<a href="https://cloud.google.com/architecture" target="_blank" rel="noopener noreferrer">Cloud Architecture Center</a>.
-
-</li>
-</ul>
-<h2 id="contributors">Contributors</h2><p>Authors:
-        </p><ul><li><a href="https://www.linkedin.com/in/jarek-kazmierczak-1b64166" target="_blank" rel="noopener noreferrer">Jarek Kazmierczak</a> | Solutions Architect</li><li><a href="https://www.linkedin.com/in/khalid-salama-24403144" target="_blank" rel="noopener noreferrer">Khalid Salama</a> | Staff Software Engineer, Machine Learning</li><li><a href="https://www.linkedin.com/in/valentinhuerta/" target="_blank" rel="noopener noreferrer">Valentín Huerta</a> | AI Engineer</li></ul><p>Other contributor: <a href="https://www.linkedin.com/in/sunilkumar88" target="_blank" rel="noopener noreferrer">Sunil Kumar Jang Bahadur</a> | Customer Engineer</p>
-</div>

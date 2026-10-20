@@ -1,17 +1,15 @@
 <p><a href="https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9" target="_blank" rel="noopener noreferrer"><img alt="Agentic RAG" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ai-agents-for-beginners/9923c54bcc2df67e7119945e12cd2d45944da2f6/05-agentic-rag/images/lesson-5-thumbnail.png"></a></p>
 <blockquote>
-
 </blockquote>
-
 <p>This lesson provides a comprehensive overview of Agentic Retrieval-Augmented Generation (Agentic RAG), an emerging AI paradigm where large language models (LLMs) autonomously plan their next steps while pulling information from external sources. Unlike static retrieval-then-read patterns, Agentic RAG involves iterative calls to the LLM, interspersed with tool or function calls and structured outputs. The system evaluates results, refines queries, invokes additional tools if needed, and continues this cycle until a satisfactory solution is achieved.</p>
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p>This lesson will cover</p>
 <ul>
 <li><strong>Understand Agentic RAG:</strong>  Learn about the emerging paradigm in AI where large language models (LLMs) autonomously plan their next steps while pulling information from external data sources.</li>
 <li><strong>Grasp Iterative Maker-Checker Style:</strong> Comprehend the loop of iterative calls to the LLM, interspersed with tool or function calls and structured outputs, designed to improve correctness and handle malformed queries.</li>
 <li><strong>Explore Practical Applications:</strong> Identify scenarios where Agentic RAG shines, such as correctness-first environments, complex database interactions, and extended workflows.</li>
 </ul>
-<h2 id="learning-goals">Learning Goals</h2>
+<h2 id="h-learning-goals">Learning Goals</h2>
 <p>After completing this lesson, you will know how to/understand:</p>
 <ul>
 <li><strong>Understanding Agentic RAG:</strong> Learn about the emerging paradigm in AI where large language models (LLMs) autonomously plan their next steps while pulling information from external data sources.</li>
@@ -24,14 +22,14 @@
 <li><strong>Practical Use Cases and Value:</strong> Identify scenarios where Agentic RAG shines, such as correctness-first environments, complex database interactions, and extended workflows.</li>
 <li><strong>Governance, Transparency, and Trust:</strong> Learn about the importance of governance and transparency, including explainable reasoning, bias control, and human oversight.</li>
 </ul>
-<h2 id="what-is-agentic-rag">What is Agentic RAG?</h2>
+<h2 id="h-what-is-agentic-rag">What is Agentic RAG?</h2>
 <p>Agentic Retrieval-Augmented Generation (Agentic RAG) is an emerging AI paradigm where large language models (LLMs) autonomously plan their next steps while pulling information from external sources. Unlike static retrieval-then-read patterns, Agentic RAG involves iterative calls to the LLM, interspersed with tool or function calls and structured outputs. The system evaluates results, refines queries, invokes additional tools if needed, and continues this cycle until a satisfactory solution is achieved. This iterative “maker-checker” style improves correctness, handles malformed queries, and ensures high-quality results.</p>
 <p>The system actively owns its reasoning process, rewriting failed queries, choosing different retrieval methods, and integrating multiple tools—such as vector search in Azure AI Search, SQL databases, or custom APIs—before finalizing its answer. The distinguishing quality of an agentic system is its ability to own its reasoning process. Traditional RAG implementations rely on pre-defined paths, but an agentic system autonomously determines the sequence of steps based on the quality of the information it finds.</p>
-<h2 id="defining-agentic-retrieval-augmented-generation-agentic-rag">Defining Agentic Retrieval-Augmented Generation (Agentic RAG)</h2>
+<h2 id="h-defining-agentic-retrieval-augmented-generation-agentic-rag">Defining Agentic Retrieval-Augmented Generation (Agentic RAG)</h2>
 <p>Agentic Retrieval-Augmented Generation (Agentic RAG) is an emerging paradigm in AI development where LLMs not only pull information from external data sources but also autonomously plan their next steps. Unlike static retrieval-then-read patterns or carefully scripted prompt sequences, Agentic RAG involves a loop of iterative calls to the LLM, interspersed with tool or function calls and structured outputs. At every turn, the system evaluates the results it has obtained, decides whether to refine its queries, invokes additional tools if needed, and continues this cycle until it achieves a satisfactory solution.</p>
 <p>This iterative “maker-checker” style of operation is designed to improve correctness, handle malformed queries to structured databases (e.g. NL2SQL), and ensure balanced, high-quality results. Rather than relying solely on carefully engineered prompt chains, the system actively owns its reasoning process. It can rewrite queries that fail, choose different retrieval methods, and integrate multiple tools—such as vector search in Azure AI Search, SQL databases, or custom APIs—before finalizing its answer. This removes the need for overly complex orchestration frameworks. Instead, a relatively simple loop of “LLM call → tool use → LLM call → …” can yield sophisticated and well-grounded outputs.</p>
 <p><img alt="Agentic RAG Core Loop" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ai-agents-for-beginners/9923c54bcc2df67e7119945e12cd2d45944da2f6/05-agentic-rag/images/agentic-rag-core-loop.png"></p>
-<h2 id="owning-the-reasoning-process">Owning the Reasoning Process</h2>
+<h2 id="h-owning-the-reasoning-process">Owning the Reasoning Process</h2>
 <p>The distinguishing quality that makes a system “agentic” is its ability to own its reasoning process. Traditional RAG implementations often depend on humans pre-defining a path for the model: a chain-of-thought that outlines what to retrieve and when.
 But when a system is truly agentic, it internally decides how to approach the problem. It’s not just executing a script; it’s autonomously determining the sequence of steps based on the quality of the information it finds.
 For example, if it’s asked to create a product launch strategy, it doesn’t rely solely on a prompt that spells out the entire research and decision-making workflow. Instead, the agentic model independently decides to:</p>
@@ -43,7 +41,7 @@ For example, if it’s asked to create a product launch strategy, it doesn’t r
 <li>Evaluate the strategy for gaps or inconsistencies, prompting another round of retrieval if necessary.
 All of these steps—refining queries, choosing sources, iterating until “happy” with the answer—are decided by the model, not pre-scripted by a human.</li>
 </ol>
-<h2 id="iterative-loops-tool-integration-and-memory">Iterative Loops, Tool Integration, and Memory</h2>
+<h2 id="h-iterative-loops-tool-integration-and-memory">Iterative Loops, Tool Integration, and Memory</h2>
 <p><img alt="Tool Integration Architecture" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ai-agents-for-beginners/9923c54bcc2df67e7119945e12cd2d45944da2f6/05-agentic-rag/images/tool-integration.png"></p>
 <p>An agentic system relies on a looped interaction pattern:</p>
 <ul>
@@ -54,7 +52,7 @@ All of these steps—refining queries, choosing sources, iterating until “happ
 <li><strong>Memory &amp; State:</strong> Because the system maintains state and memory across steps, it can recall previous attempts and their outcomes, avoiding repetitive loops and making more informed decisions as it proceeds.</li>
 </ul>
 <p>Over time, this creates a sense of evolving understanding, enabling the model to navigate complex, multi-step tasks without requiring a human to constantly intervene or reshape the prompt.</p>
-<h2 id="handling-failure-modes-and-self-correction">Handling Failure Modes and Self-Correction</h2>
+<h2 id="h-handling-failure-modes-and-self-correction">Handling Failure Modes and Self-Correction</h2>
 <p>Agentic RAG’s autonomy also involves robust self-correction mechanisms. When the system hits dead ends—such as retrieving irrelevant documents or encountering malformed queries—it can:</p>
 <ul>
 <li><strong>Iterate and Re-Query:</strong> Instead of returning low-value responses, the model attempts new search strategies, rewrites database queries, or looks at alternative data sets.</li>
@@ -63,7 +61,7 @@ All of these steps—refining queries, choosing sources, iterating until “happ
 </ul>
 <p>This iterative and dynamic approach allows the model to improve continuously, ensuring that it’s not just a one-shot system but one that learns from its missteps during a given session.</p>
 <p><img alt="Self Correction Mechanism" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ai-agents-for-beginners/9923c54bcc2df67e7119945e12cd2d45944da2f6/05-agentic-rag/images/self-correction.png"></p>
-<h2 id="boundaries-of-agency">Boundaries of Agency</h2>
+<h2 id="h-boundaries-of-agency">Boundaries of Agency</h2>
 <p>Despite its autonomy within a task, Agentic RAG is not analogous to Artificial General Intelligence. Its “agentic” capabilities are confined to the tools, data sources, and policies provided by human developers. It can’t invent its own tools or step outside the domain boundaries that have been set. Rather, it excels at dynamically orchestrating the resources at hand.
 Key differences from more advanced AI forms include:</p>
 <ol>
@@ -71,14 +69,14 @@ Key differences from more advanced AI forms include:</p>
 <li><strong>Infrastructure-Dependent:</strong> The system’s capabilities hinge on the tools and data integrated by developers. It can’t surpass these boundaries without human intervention.</li>
 <li><strong>Respect for Guardrails:</strong> Ethical guidelines, compliance rules, and business policies remain very important. The agent’s freedom is always constrained by safety measures and oversight mechanisms (hopefully?)</li>
 </ol>
-<h2 id="practical-use-cases-and-value">Practical Use Cases and Value</h2>
+<h2 id="h-practical-use-cases-and-value">Practical Use Cases and Value</h2>
 <p>Agentic RAG shines in scenarios requiring iterative refinement and precision:</p>
 <ol>
 <li><strong>Correctness-First Environments:</strong> In compliance checks, regulatory analysis, or legal research, the agentic model can repeatedly verify facts, consult multiple sources, and rewrite queries until it produces a thoroughly vetted answer.</li>
 <li><strong>Complex Database Interactions:</strong> When dealing with structured data where queries might often fail or need adjustment, the system can autonomously refine its queries using Azure SQL or Microsoft Fabric OneLake, ensuring the final retrieval aligns with the user’s intent.</li>
 <li><strong>Extended Workflows:</strong> Longer-running sessions might evolve as new information surfaces. Agentic RAG can continuously incorporate new data, shifting strategies as it learns more about the problem space.</li>
 </ol>
-<h2 id="governance-transparency-and-trust">Governance, Transparency, and Trust</h2>
+<h2 id="h-governance-transparency-and-trust">Governance, Transparency, and Trust</h2>
 <p>As these systems become more autonomous in their reasoning, governance and transparency are crucial:</p>
 <ul>
 <li><strong>Explainable Reasoning:</strong> The model can provide an audit trail of the queries it made, the sources it consulted, and the reasoning steps it took to reach its conclusion. Tools like Azure AI Content Safety and Azure AI Tracing / GenAIOps can help maintain transparency and mitigate risks.</li>
@@ -87,11 +85,11 @@ Key differences from more advanced AI forms include:</p>
 </ul>
 <p>Having tools that provide a clear record of actions is essential. Without them, debugging a multi-step process can be very difficult. See the following example from Literal AI (company behind Chainlit) for an Agent run:</p>
 <p><img alt="AgentRunExample" loading="lazy" src="https://raw.githubusercontent.com/microsoft/ai-agents-for-beginners/9923c54bcc2df67e7119945e12cd2d45944da2f6/05-agentic-rag/images/AgentRunExample.png"></p>
-<h2 id="conclusion">Conclusion</h2>
+<h2 id="h-conclusion">Conclusion</h2>
 <p>Agentic RAG represents a natural evolution in how AI systems handle complex, data-intensive tasks. By adopting a looped interaction pattern, autonomously selecting tools, and refining queries until achieving a high-quality result, the system moves beyond static prompt-following into a more adaptive, context-aware decision-maker. While still bounded by human-defined infrastructures and ethical guidelines, these agentic capabilities enable richer, more dynamic, and ultimately more useful AI interactions for both enterprises and end-users.</p>
-<h3 id="got-more-questions-about-agentic-rag">Got More Questions about Agentic RAG?</h3>
+<h3 id="h-got-more-questions-about-agentic-rag">Got More Questions about Agentic RAG?</h3>
 <p>Join the <a href="https://discord.com/invite/ATgtXmAS5D" target="_blank" rel="noopener noreferrer">Microsoft Foundry Discord</a> to meet with other learners, attend office hours and get your AI Agents questions answered.</p>
-<h2 id="additional-resources">Additional Resources</h2>
+<h2 id="h-additional-resources">Additional Resources</h2>
 <ul>
 <li><a href="https://learn.microsoft.com/training/modules/use-own-data-azure-openai" target="_blank" rel="noopener noreferrer">Implement Retrieval Augmented Generation (RAG) with Azure OpenAI Service: Learn how to use your own data with the Azure OpenAI Service. This Microsoft Learn module provides a comprehensive guide on implementing RAG</a></li>
 <li><a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank" rel="noopener noreferrer">Evaluation of generative AI applications with Microsoft Foundry: This article covers the evaluation and comparison of models on publicly available datasets, including Agentic AI applications and RAG architectures</a></li>
@@ -103,16 +101,16 @@ Key differences from more advanced AI forms include:</p>
 <li><a href="https://www.youtube.com/watch?v=AOSjiXP1jmQ" target="_blank" rel="noopener noreferrer">How to Build Agentic RAG Systems</a></li>
 <li><a href="https://ignite.microsoft.com/sessions/BRK102?source=sessions" target="_blank" rel="noopener noreferrer">Using Microsoft Foundry Agent Service to scale your AI agents</a></li>
 </ul>
-<h3 id="academic-papers">Academic Papers</h3>
+<h3 id="h-academic-papers">Academic Papers</h3>
 <ul>
 <li><a href="https://arxiv.org/abs/2303.17651" target="_blank" rel="noopener noreferrer">2303.17651 Self-Refine: Iterative Refinement with Self-Feedback</a></li>
 <li><a href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noopener noreferrer">2303.11366 Reflexion: Language Agents with Verbal Reinforcement Learning</a></li>
 <li><a href="https://arxiv.org/abs/2305.11738" target="_blank" rel="noopener noreferrer">2305.11738 CRITIC: Large Language Models Can Self-Correct with Tool-Interactive Critiquing</a></li>
 <li><a href="https://arxiv.org/abs/2501.09136" target="_blank" rel="noopener noreferrer">2501.09136 Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG</a></li>
 </ul>
-<h2 id="smoke-testing-this-agent-optional">Smoke-Testing This Agent (Optional)</h2>
+<h2 id="h-smoke-testing-this-agent-optional">Smoke-Testing This Agent (Optional)</h2>
 <p>After you learn to deploy agents in <a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/16-deploying-scalable-agents/README.md" target="_blank" rel="noopener noreferrer">Lesson 16</a>, you can smoke-test this lesson's <code>TravelRAGAgent</code> — checking that its answers stay grounded in the knowledge base — with <a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/tests/lesson-05-smoke-tests.json" target="_blank" rel="noopener noreferrer"><code>tests/lesson-05-smoke-tests.json</code></a>. See <a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/tests/README.md" target="_blank" rel="noopener noreferrer"><code>tests/README.md</code></a> for how to run it.</p>
-<h2 id="previous-lesson">Previous Lesson</h2>
+<h2 id="h-previous-lesson">Previous Lesson</h2>
 <p><a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/04-tool-use/README.md" target="_blank" rel="noopener noreferrer">Tool Use Design Pattern</a></p>
-<h2 id="next-lesson">Next Lesson</h2>
+<h2 id="h-next-lesson">Next Lesson</h2>
 <p><a href="https://github.com/microsoft/ai-agents-for-beginners/blob/9923c54bcc2df67e7119945e12cd2d45944da2f6/06-building-trustworthy-agents/README.md" target="_blank" rel="noopener noreferrer">Building Trustworthy AI Agents</a></p>

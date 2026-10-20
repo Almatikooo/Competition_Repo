@@ -1,5 +1,4 @@
 <p><a href="https://wikipedia.org/wiki/Computer_vision" target="_blank" rel="noopener noreferrer">Computer Vision</a> is a discipline whose aim is to allow computers to gain high-level understanding of digital images. This is quite a broad definition, because <em>understanding</em> can mean many different things, including finding an object on a picture (<strong>object detection</strong>), understanding what is happening (<strong>event detection</strong>), describing a picture in text, or reconstructing a scene in 3D. There are also special tasks related to human images: age and emotion estimation, face detection and identification, and 3D pose estimation, to name a few.</p>
-
 <p>One of the simplest tasks of computer vision is <strong>image classification</strong>.</p>
 <p>Computer vision is often considered to be a branch of AI. Nowadays, most of computer vision tasks are solved using neural networks. We will learn more about the special type of neural networks used for computer vision, <a href="https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/07-ConvNets/README.md" target="_blank" rel="noopener noreferrer">convolutional neural networks</a>, throughout this section.</p>
 <p>However, before you pass the image to a neural network, in many cases it makes sense to use some algorithmic techniques to enhance the image.</p>
@@ -10,10 +9,10 @@
 <li><strong><a href="https://opencv.org/" target="_blank" rel="noopener noreferrer">OpenCV</a></strong> is a powerful image processing library written in C++, which has become the <em>de facto</em> standard for image processing. It has a convenient Python interface.</li>
 <li><strong><a href="http://dlib.net/" target="_blank" rel="noopener noreferrer">dlib</a></strong> is a C++ library that implements many machine learning algorithms, including some of the Computer Vision algorithms. It also has a Python interface, and can be used for challenging tasks such as face and facial landmark detection.</li>
 </ul>
-<h2 id="opencv">OpenCV</h2>
+<h2 id="h-opencv">OpenCV</h2>
 <p><a href="https://opencv.org/" target="_blank" rel="noopener noreferrer">OpenCV</a> is considered to be the <em>de facto</em> standard for image processing. It contains a lot of useful algorithms, implemented in C++. You can call OpenCV from Python as well.</p>
 <p>A good place to learn OpenCV is <a href="https://learnopencv.com/getting-started-with-opencv/" target="_blank" rel="noopener noreferrer">this Learn OpenCV course</a>. In our curriculum, our goal is not to learn OpenCV, but to show you some examples when it can be used, and how.</p>
-<h3 id="loading-images">Loading Images</h3>
+<h3 id="h-loading-images">Loading Images</h3>
 <p>Images in Python can be conveniently represented by NumPy arrays. For example, grayscale images with the size of 320x200 pixels would be stored in a 200x320 array, and color images of the same dimension would have shape of 200x320x3 (for 3 color channels). To load an image, you can use the following code:</p>
 <pre><code class="language-python">import cv2
 import matplotlib.pyplot as plt
@@ -26,7 +25,7 @@ plt.imshow(im)
 </code></pre>
 <p>The same <code>cvtColor</code> function can be used to perform other color space transformations such as converting an image to grayscale or to the HSV (Hue-Saturation-Value) color space.</p>
 <p>You can also use OpenCV to load video frame-by-frame - an example is given in the exercise <a href="https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/06-IntroCV/OpenCV.ipynb" target="_blank" rel="noopener noreferrer">OpenCV Notebook</a>.</p>
-<h3 id="image-processing">Image Processing</h3>
+<h3 id="h-image-processing">Image Processing</h3>
 <p>Before feeding an image to a neural network, you may want to apply several pre-processing steps. OpenCV can do many things, including:</p>
 <ul>
 <li><strong>Resizing</strong> the image using <code>im = cv2.resize(im, (320,200),interpolation=cv2.INTER_LANCZOS)</code></li>
@@ -41,7 +40,7 @@ plt.imshow(im)
 </li>
 <li>Understanding movement inside the image by using <strong><a href="https://docs.opencv.org/4.5.5/d4/dee/tutorial_optical_flow.html" target="_blank" rel="noopener noreferrer">optical flow</a></strong>.</li>
 </ul>
-<h2 id="examples-of-using-computer-vision">Examples of using Computer Vision</h2>
+<h2 id="h-examples-of-using-computer-vision">Examples of using Computer Vision</h2>
 <p>In our <a href="https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/06-IntroCV/OpenCV.ipynb" target="_blank" rel="noopener noreferrer">OpenCV Notebook</a>, we give some examples of when computer vision can be used to perform specific tasks:</p>
 <ul>
 <li><strong>Pre-processing a photograph of a Braille book</strong>. We focus on how we can use thresholding, feature detection, perspective transformation and NumPy manipulations to separate individual Braille symbols for further classification by a neural network.</li>
@@ -78,12 +77,11 @@ plt.imshow(im)
 <blockquote>
 <p>Image from <a href="https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/06-IntroCV/OpenCV.ipynb" target="_blank" rel="noopener noreferrer">OpenCV.ipynb</a></p>
 </blockquote>
-<h2 id="example-notebooks-opencv-try-opencv-in-action">✍️ Example Notebooks: OpenCV <a href="https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/06-IntroCV/OpenCV.ipynb" target="_blank" rel="noopener noreferrer">try OpenCV in Action</a></h2>
+<h2 id="h-example-notebooks-opencv-try-opencv-in-action">✍️ Example Notebooks: OpenCV <a href="https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/06-IntroCV/OpenCV.ipynb" target="_blank" rel="noopener noreferrer">try OpenCV in Action</a></h2>
 <p>Let's do some experiments with OpenCV by exploring <a href="https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/06-IntroCV/OpenCV.ipynb" target="_blank" rel="noopener noreferrer">OpenCV Notebook</a></p>
-<h2 id="conclusion">Conclusion</h2>
+<h2 id="h-conclusion">Conclusion</h2>
 <p>Sometimes, relatively complex tasks such as movement detection or fingertip detection can be solved purely by computer vision. Thus, it is very helpful to know the basic techniques of computer vision, and what libraries like OpenCV can do.</p>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>Watch <a href="https://docs.microsoft.com/shows/ai-show/ai-show--2021-opencv-ai-competition--grand-prize-winners--cortic-tigers--episode-32?WT.mc_id=academic-77998-cacaste" target="_blank" rel="noopener noreferrer">this video</a> from the AI show to learn about the Cortic Tigers project and how they built a block-based solution to democratize computer vision tasks via a robot. Do some research on other projects like this that help onboard new learners into the field.</p>
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>Read more on optical flow <a href="https://learnopencv.com/optical-flow-in-opencv/" target="_blank" rel="noopener noreferrer">in this great tutorial</a>.</p>

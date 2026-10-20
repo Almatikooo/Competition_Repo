@@ -1,55 +1,109 @@
-<h2 id="attended-and-unattended-scenarios">Attended and unattended scenarios</h2>
-<p>With any of the automation methods you use, the automation is going to be either
-attended or unattended.</p>
-<p><img alt="Unattended and attended." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/unattended-attended.png">
-Diagram showing a person sitting at a computer unaware of the unattended automation running alongside, and another diagram showing several people sitting at computers that each have attended automation running on demand.
-:::image-end:::</p>
-<p><strong>Attended (human-initiated) scenarios</strong>
-In these scenarios, the automation is executed when users are in front of their
-computers. This is suitable when you want to automate tasks and
-processes at an individual level. The automation is often triggered manually
-whenever the user wants to run it. The process might require
-human interaction or decisions between steps.</p>
-<p><strong>Unattended (fully automated) scenarios</strong>
-In these scenarios, a designated computer or a server is set up to run
-the automation on behalf of a user. The whole automation process is run fully by
-Power Automate, and no interaction or decision is made by a human (with the
-exception of
-<a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/modern-approvals.md" target="_blank" rel="noopener noreferrer">approval</a> flows, in
-which the person doing the approving is considered to be technically a "third
-party" to the automation). The automation process can be triggered automatically
-from another system or service, or on a schedule.</p>
-<p>The following table summarizes the two types of automation scenarios.</p>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Attended</th>
-<th>Unattended</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Requires human interaction or decisions</td>
-<td>No human interaction or decisions required</td>
-</tr>
-<tr>
-<td>Manually triggered</td>
-<td>Automatically triggered</td>
-</tr>
-<tr>
-<td>Sign-in isn't required because the automation assumes that the system is already signed in.</td>
-<td>Windows Sign-in is automated with predefined user credentials</td>
-</tr>
-</tbody>
-</table></div>
-<p>You can use a combination of attended and unattended automation in your solution. However, since attended automation requires an active session and unattended automation requires users to be signed out or have a disconnected session, don't mix attended and unattended automation on the same machine or machine group.</p>
-<p>In the expense report example, the approval process can be automated with
-unattended automation. The cash reimbursement process might be better suited to attended
-automation, because Abhay might want to check the details of the bank transaction
-as a final confirmation.</p>
-<p><img alt="Business process that shows a combination of attended and unattended scenarios." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/unattended-attended.png">
-Diagram showing a business process flow with multiple people involved, where emailing approval results and archiving expense reports are unattended automations, and looking up employees' banking details reimbursing cash are attended automations.
-:::image-end:::</p>
+<h2 id="h-process-design">Process design</h2><p>When you design a process automation, the first step is to decide when and what
+to automate. Looking at the business process you currently have, you should
+first identify which part of the process to automate.</p>
+<h3 id="h-identifying-automation-areas">Identifying automation areas</h3>
+<p>The types of benefits you can potentially gain by automation falls into these
+categories:</p>
+<ul>
+<li>
+<p>Consistently apply standardized business rules</p>
+</li>
+<li>
+<p>Reduce manual work on repetitive processes</p>
+</li>
+<li>
+<p>Reduce human error</p>
+</li>
+<li>
+<p>Streamline approvals</p>
+</li>
+<li>
+<p>Gain efficiency in high-volume transactions</p>
+</li>
+<li>
+<p>Efficiently move data between systems (reduce manual data entry)</p>
+</li>
+<li>
+<p>Maximize the use of available resources</p>
+</li>
+<li>
+<p>Increase throughput</p>
+</li>
+</ul>
+<h3 id="h-apply-standardized-business-rules">Apply standardized business rules</h3>
+<p>Business rules are the if/then logic that applies your business policies.
+Automating them ensures that they'll be followed consistently every time.</p>
+<p>In our sample expense reporting scenario, a business rule requires that if
+an expense report amount exceeds $10,000, it needs to also be approved by
+the CFO. By automating the process, Abhay ensures that no high-dollar expense report
+will slip by unnoticed.</p>
+<h3 id="h-automate-repetitive-processes">Automate repetitive processes</h3>
+<p>Automating repetitive processes can help your employees avoid mental and
+physical burnout. Processes that are done the same way every time should be high
+on your list to consider for automation.</p>
+<p>For example, Abhay the accountant must collect expense forms and receipts from
+everyone. The receipts might be a paper receipt from a restaurant or paper
+invoices from vendors. Abhay has to manually scan these papers into a PDF file
+and store it. Abhay also needs to enter what's written on the paper and post
+it in the financial system for every expense report submitted.</p>
+<h3 id="h-reduce-human-error">Reduce human error</h3>
+<p>Tasks like copying and pasting values from one system to another, or keying in
+data from paper forms, are processes where human errors can occur.</p>
+<p>An example case for the expense reporting scenario is where Abhay needs to
+reimburse cash to the employee by looking up the employee banking details, then
+accessing the banking system.</p>
+<p><img alt="Possible areas of business process to automate for reducing human error." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/before-reminder-automation.png"></p>
+<h3 id="h-streamline-approvals">Streamline approvals</h3>
+<p>A different type of error occurs when people forget to perform their tasks. You can set up automation to remind them to work on the task or process that they've been
+assigned.</p>
+<p>For example, Lee has submitted an expense report but Nick hasn't
+responded to the approval request for some time. An automation can be set up to
+remind Nick to make a decision, and even provide a button to respond directly
+from the reminder.</p>
+<p><img alt="Possible areas of business process to automate for streamlining business process." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/after-reminder-automation.png"></p>
+<h3 id="h-gain-efficiency-in-high-volume-processes">Gain efficiency in high-volume processes</h3>
+<p>Another area you may want to automate are high-volume processes.
+High-volume processes are processes that occur very frequently on a daily basis.
+It is closely tied to repetitive processes but is slightly different. You may have a process that can only have a step or two that can be automated.
+However, if a process must be done many times, even small improvements can have large impacts.</p>
+<p>For example, if the expense reporting scenario holds for 1,000 salespeople, each
+minute of improvement would equate to two working days' worth of time
+saved. Analyzing the actual impact can be done by using the <a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/analyze-and-assess.md" target="_blank" rel="noopener noreferrer">analytics features</a>.</p>
+<h3 id="h-automate-data-entry">Automate data entry</h3>
+<p>You might be manually entering data because you have two systems that don't
+talk to each other. In our expense reporting scenario,
+this is where Abhay inputs data into the accounting
+system by reentering values from the submitted expense report.</p>
+<p><img alt="Example scenario to improve efficiency." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/gain-efficiency-sample-scenario.png" title="Example scenario to improve efficiency"></p>
+<h3 id="h-maximize-the-use-of-available-resources">Maximize the use of available resources</h3>
+<p>Additional good automation candidates are those processes that can be run
+independent of human interaction. This type of process isn't as easy to identify, so the best way is to imagine whether there are processes that can be completed outside your normal business
+hours. Such an automation acts as a "multiplier" of your people and fully uses your
+other resources (such as PCs).</p>
+<p>You might also use automation for processes that take too much time compared
+to a human interaction, but is tolerable if done during night time when there's
+no rush for the automation to finish. For example, if a person starts their
+day by processing orders that came in overnight, you might create
+automation that processes the orders as soon as they come in, so that your team can start
+fulfilling the orders first thing in the morning.</p>
+<p><img alt="Diagram showing a person performing a process from 9 AM to 6 PM, and automation performing a related process from 6 PM to 9 AM." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/maximize-use-of-resources.png" title="Diagram showing a person performing a process from 9 AM to 6 PM, and automation performing a related process from 6 PM to 9 AM"></p>
+<h3 id="h-increase-throughput">Increase throughput</h3>
+<p>Similar to maximizing the use of available resources, automation also helps you
+increase the throughput of a particular process. With this type of automation,
+your current process can be performed by humans in parallel with the automation.</p>
+<p>For example, Abhay the accountant may be the only person processing the expense
+reports and their standard work hours may be between 9 AM to 6 PM. By setting up an
+automation, you could also have Power Automate to process the expense reports as well, and therefore have both Abhay and the automation to process it, resulting
+in a higher throughput.</p>
+<p><img alt="Diagram showing a person performing a process from 9 AM to 6 PM in parallel with automation that runs for 24 hours." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/increasing-throughput.png" title="Diagram showing a person performing a process from 9 AM to 6 PM in parallel with automation that runs for 24 hours"></p>
+<h3 id="h-example-scenario">Example scenario</h3>
+<p>When all of the automation areas are applied, the example below shows how an
+expense reporting business process can be covered by Power Automate with improvements to throughput, maximizing the available resources, automating data entries as well as streamlining approvals.</p>
+<p><img alt="Diagram of process after all of the automations are applied." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/process-after-automation-applied.png" title="Diagram of processall of the automations are applied"></p>
 <blockquote>
-<p><a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/separate-flows.md" target="_blank" rel="noopener noreferrer">Next step: Separate flows into smaller automated processes</a></p>
+<p><a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/determine-automation-methods.md" target="_blank" rel="noopener noreferrer">Next step: Determining which automation method to use</a></p>
+</blockquote><h2 id="h-decision-making-flowchart-for-your-design">Decision-making flowchart for your design</h2><p>Based on the design considerations mentioned previously in this section, this flowchart can help you determine how to architect your automation.</p>
+<p><img alt="Decision-making flowchart for your design." loading="lazy" src="https://raw.githubusercontent.com/MicrosoftDocs/power-automate-docs/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/media/decision-making-flow.png"></p>
+<blockquote>
+<p><a href="https://github.com/MicrosoftDocs/power-automate-docs/blob/e7a4c26faaa37ea3432ea7011957f3e72af745c1/articles/guidance/planning/making-phase.md" target="_blank" rel="noopener noreferrer">Next step: Making phase</a></p>
 </blockquote>

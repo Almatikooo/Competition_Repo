@@ -112,7 +112,7 @@ main:focus { outline: none; }
 @media (max-width: 880px) { .hero-grid { grid-template-columns: 1fr; gap: 28px; } }
 .hero h1 { font-size: 52px; font-weight: 300; letter-spacing: -1.5px; }
 @media (max-width: 720px) { .hero h1 { font-size: 36px; } }
-.hero p.lead { font-size: 19px; font-weight: 300; margin-top: 16px; opacity: 0.95; max-width: 560px; }
+.hero p.lead { font-size: 19px; font-weight: 400; margin-top: 16px; color: #fff; max-width: 560px; }
 .hero-card { background: var(--surface); color: var(--ink); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-lift); }
 .hero-card h3 { margin-bottom: 4px; }
 .hero-card .divider { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 13px; margin: 14px 0; }
@@ -337,9 +337,9 @@ a.card.feature:hover { box-shadow: var(--shadow-lift); transform: translateY(-2p
 a.pill.learn { text-decoration: none; }
 a.pill.learn:hover { background: var(--blue); color: #fff; }
 .eyebrow { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
-.lead { font-size: 19px; line-height: 1.55; color: var(--ink-2); }
-.bar { height: 6px; border-radius: 999px; background: var(--line-soft); overflow: hidden; }
-.bar > span { display: block; height: 100%; border-radius: inherit; background: var(--blue); transition: width 0.3s; }
+.lead { font-size: 19px; line-height: 1.55; }
+.pbar { height: 6px; border-radius: 999px; background: var(--line-soft); overflow: hidden; }
+.pbar > span { display: block; height: 100%; border-radius: inherit; background: var(--blue); transition: width 0.3s; }
 .ring { --p: 0; --c: var(--blue); width: 72px; height: 72px; border-radius: 50%; flex: none; display: grid; place-items: center;
   background: conic-gradient(var(--c) calc(var(--p) * 1%), var(--line-soft) 0); }
 .ring > span { width: calc(100% - 14px); height: calc(100% - 14px); border-radius: 50%; background: var(--surface); display: grid; place-items: center; font-weight: 700; font-size: 16px; font-variant-numeric: tabular-nums; }
@@ -406,7 +406,7 @@ a.pill.learn:hover { background: var(--blue); color: #fff; }
 .ccard-meta svg { width: 15px; height: 15px; }
 .ccard-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 12px; border-top: 1px solid var(--line-soft); }
 .ccard-provider { font-size: 12.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.ccard .bar { margin-top: -2px; }
+.ccard .pbar { margin-top: -2px; }
 .empty { text-align: center; padding: 48px 16px; color: var(--muted); }
 
 /* course overview */
@@ -483,7 +483,7 @@ a.pill.learn:hover { background: var(--blue); color: #fff; }
 .pt-back:hover { color: var(--blue); }
 .pt-back svg { width: 18px; height: 18px; flex: none; }
 .pt-progress { flex: 1; display: flex; align-items: center; gap: 12px; min-width: 120px; max-width: 420px; margin-left: auto; }
-.pt-progress .bar { flex: 1; }
+.pt-progress .pbar { flex: 1; }
 .pt-outline-btn { display: none; }
 .player { display: grid; grid-template-columns: 290px minmax(0, 1fr) 230px; gap: 40px; max-width: 1440px; margin: 0 auto; padding: 28px 24px 120px; }
 @media (max-width: 1240px) { .player { grid-template-columns: 270px minmax(0, 1fr); } .player-toc { display: none; } }
@@ -529,48 +529,48 @@ a.pill.learn:hover { background: var(--blue); color: #fff; }
 .pb-status { color: var(--green-text); font-weight: 500; }
 
 /* lesson typography */
-.prose { max-width: 760px; margin: 0 auto; font-size: 18px; line-height: 1.75; color: #262626; overflow-wrap: break-word; }
-@media (max-width: 640px) { .prose { font-size: 17px; line-height: 1.7; } }
-.prose > :first-child { margin-top: 0; }
-.prose h2 { font-size: 27px; font-weight: 500; letter-spacing: -0.4px; line-height: 1.25; margin: 2em 0 0.6em; scroll-margin-top: 140px; }
-.prose h3 { font-size: 21px; font-weight: 500; line-height: 1.3; margin: 1.7em 0 0.5em; scroll-margin-top: 140px; }
-.prose h4, .prose h5, .prose h6 { font-size: 18px; font-weight: 700; margin: 1.5em 0 0.4em; }
-.prose p, .prose ul, .prose ol, .prose dl, .prose figure, .prose blockquote, .prose pre { margin: 0 0 1.05em; }
-.prose ul, .prose ol { padding-left: 1.5em; }
-.prose li { margin: 0.3em 0; }
-.prose li > p { margin: 0 0 0.4em; }
-.prose a { text-underline-offset: 3px; }
-.prose strong, .prose b { font-weight: 700; }
-.prose img { display: block; max-width: 100%; height: auto; margin: 1.4em auto; border-radius: 12px; }
-.prose figure img { margin-bottom: 0.5em; }
-.prose figcaption, .prose .caption { font-size: 14px; color: var(--muted); text-align: center; }
-.prose hr { border: 0; border-top: 1px solid var(--line); margin: 2em 0; }
-.prose blockquote { border-left: 4px solid var(--tint-2); padding: 0.2em 0 0.2em 1.1em; color: var(--ink-2); }
-.prose code, .prose kbd { font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.86em; background: #f1f3f7; border-radius: 6px; padding: 0.12em 0.38em; }
-.prose pre { background: #f6f8fb; border: 1px solid #e3e8f0; border-radius: 12px; padding: 14px 16px; overflow-x: auto; font-size: 14.5px; line-height: 1.6; }
-.prose pre code { background: none; padding: 0; font-size: inherit; border-radius: 0; white-space: pre; }
-.prose pre:has(> code.language-output) { background: #fff; border-style: dashed; }
-.prose pre:has(> code.language-output)::before { content: "Output"; display: block; font: 700 11px/1 "Roboto", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-.prose pre:has(> code.language-error) { background: #fdf3f4; border-color: #f2c6cc; }
-.prose .table-wrap { overflow-x: auto; margin: 1.3em 0; border: 1px solid var(--line-soft); border-radius: 12px; }
-.prose table { border-collapse: collapse; width: 100%; font-size: 15px; line-height: 1.5; }
-.prose th, .prose td { padding: 9px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line-soft); }
-.prose th { background: var(--tint); font-weight: 700; }
-.prose tr:last-child td { border-bottom: 0; }
-.prose .box { --box: var(--blue); position: relative; margin: 1.5em 0; padding: 16px 20px 6px; border-radius: 14px; background: color-mix(in srgb, var(--box) 7%, #fff); border: 1px solid color-mix(in srgb, var(--box) 22%, #fff); border-left: 5px solid var(--box); font-size: 16.5px; }
-.prose .box-title { font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: color-mix(in srgb, var(--box) 75%, #000); margin: 0 0 8px; }
-.prose .box-objectives, .prose .box-questions, .prose .box-prereq { --box: var(--sky); }
-.prose .box-challenge, .prose .box-discussion, .prose .box-important { --box: var(--purple); }
-.prose .box-keypoints, .prose .box-tip, .prose .box-checklist { --box: var(--green); }
-.prose .box-warning, .prose .box-caution { --box: var(--orange); }
-.prose details { margin: 1em 0; }
-.prose details.solution { border: 1px solid var(--line); border-radius: 12px; padding: 10px 16px; background: var(--surface); }
-.prose details.solution > summary { cursor: pointer; font-weight: 700; color: var(--blue); font-size: 15px; }
-.prose details.solution[open] > summary { margin-bottom: 8px; }
-.prose details.attrib { font-size: 13px; line-height: 1.55; color: var(--muted); border-top: 1px solid var(--line-soft); padding-top: 10px; margin-top: 2.2em; }
-.prose details.attrib > summary { cursor: pointer; font-weight: 500; }
-.prose details.attrib p, .prose details.attrib ul { margin-bottom: 0.4em; }
-.prose math { font-size: 1.05em; }
+.lesson-prose { max-width: 760px; margin: 0 auto; font-size: 18px; line-height: 1.75; color: #262626; overflow-wrap: break-word; }
+@media (max-width: 640px) { .lesson-prose { font-size: 17px; line-height: 1.7; } }
+.lesson-prose > :first-child { margin-top: 0; }
+.lesson-prose h2 { font-size: 27px; font-weight: 500; letter-spacing: -0.4px; line-height: 1.25; margin: 2em 0 0.6em; scroll-margin-top: 140px; }
+.lesson-prose h3 { font-size: 21px; font-weight: 500; line-height: 1.3; margin: 1.7em 0 0.5em; scroll-margin-top: 140px; }
+.lesson-prose h4, .lesson-prose h5, .lesson-prose h6 { font-size: 18px; font-weight: 700; margin: 1.5em 0 0.4em; }
+.lesson-prose p, .lesson-prose ul, .lesson-prose ol, .lesson-prose dl, .lesson-prose figure, .lesson-prose blockquote, .lesson-prose pre { margin: 0 0 1.05em; }
+.lesson-prose ul, .lesson-prose ol { padding-left: 1.5em; }
+.lesson-prose li { margin: 0.3em 0; }
+.lesson-prose li > p { margin: 0 0 0.4em; }
+.lesson-prose a { text-underline-offset: 3px; }
+.lesson-prose strong, .lesson-prose b { font-weight: 700; }
+.lesson-prose img { display: block; max-width: 100%; height: auto; margin: 1.4em auto; border-radius: 12px; }
+.lesson-prose figure img { margin-bottom: 0.5em; }
+.lesson-prose figcaption, .lesson-prose .caption { font-size: 14px; color: var(--muted); text-align: center; }
+.lesson-prose hr { border: 0; border-top: 1px solid var(--line); margin: 2em 0; }
+.lesson-prose blockquote { border-left: 4px solid var(--tint-2); padding: 0.2em 0 0.2em 1.1em; color: var(--ink-2); }
+.lesson-prose code, .lesson-prose kbd { font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.86em; background: #f1f3f7; border-radius: 6px; padding: 0.12em 0.38em; }
+.lesson-prose pre { background: #f6f8fb; border: 1px solid #e3e8f0; border-radius: 12px; padding: 14px 16px; overflow-x: auto; font-size: 14.5px; line-height: 1.6; }
+.lesson-prose pre code { background: none; padding: 0; font-size: inherit; border-radius: 0; white-space: pre; }
+.lesson-prose pre:has(> code.language-output) { background: #fff; border-style: dashed; }
+.lesson-prose pre:has(> code.language-output)::before { content: "Output"; display: block; font: 700 11px/1 "Roboto", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.lesson-prose pre:has(> code.language-error) { background: #fdf3f4; border-color: #f2c6cc; }
+.lesson-prose .table-wrap { overflow-x: auto; margin: 1.3em 0; border: 1px solid var(--line-soft); border-radius: 12px; }
+.lesson-prose table { border-collapse: collapse; width: 100%; font-size: 15px; line-height: 1.5; }
+.lesson-prose th, .lesson-prose td { padding: 9px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line-soft); }
+.lesson-prose th { background: var(--tint); font-weight: 700; }
+.lesson-prose tr:last-child td { border-bottom: 0; }
+.lesson-prose .box { --box: var(--blue); position: relative; margin: 1.5em 0; padding: 16px 20px 6px; border-radius: 14px; background: color-mix(in srgb, var(--box) 7%, #fff); border: 1px solid color-mix(in srgb, var(--box) 22%, #fff); border-left: 5px solid var(--box); font-size: 16.5px; }
+.lesson-prose .box-title { font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: color-mix(in srgb, var(--box) 75%, #000); margin: 0 0 8px; }
+.lesson-prose .box-objectives, .lesson-prose .box-questions, .lesson-prose .box-prereq { --box: var(--sky); }
+.lesson-prose .box-challenge, .lesson-prose .box-discussion, .lesson-prose .box-important { --box: var(--purple); }
+.lesson-prose .box-keypoints, .lesson-prose .box-tip, .lesson-prose .box-checklist { --box: var(--green); }
+.lesson-prose .box-warning, .lesson-prose .box-caution { --box: var(--orange); }
+.lesson-prose details { margin: 1em 0; }
+.lesson-prose details.solution { border: 1px solid var(--line); border-radius: 12px; padding: 10px 16px; background: var(--surface); }
+.lesson-prose details.solution > summary { cursor: pointer; font-weight: 700; color: var(--blue); font-size: 15px; }
+.lesson-prose details.solution[open] > summary { margin-bottom: 8px; }
+.lesson-prose details.attrib { font-size: 13px; line-height: 1.55; color: var(--muted); border-top: 1px solid var(--line-soft); padding-top: 10px; margin-top: 2.2em; }
+.lesson-prose details.attrib > summary { cursor: pointer; font-weight: 500; }
+.lesson-prose details.attrib p, .lesson-prose details.attrib ul { margin-bottom: 0.4em; }
+.lesson-prose math { font-size: 1.05em; }
 
 /* final test */
 .test-wrap { max-width: 780px; margin: 0 auto; padding: 28px 24px 80px; }

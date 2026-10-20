@@ -1,52 +1,51 @@
 <p><a href="https://youtu.be/0Y5Luf5sRQA?si=t_xVg0clnAI4oUFZ" target="_blank" rel="noopener noreferrer"><img alt="Building Text Generation Applications" loading="lazy" src="https://raw.githubusercontent.com/microsoft/generative-ai-for-beginners/c35bc1950f9dc56af773d2c362dafce6f76e9a56/06-text-generation-apps/images/06-lesson-banner.png?WT.mc_id=academic-105485-koreyst"></a></p>
 <blockquote>
-
 </blockquote>
 <p>You've seen so far through this curriculum that there are core concepts like prompts and even a whole discipline called "prompt engineering". Many tools you can interact with like ChatGPT, Office 365, Microsoft Power Platform and more, support you using prompts to accomplish something.</p>
 <p>For you to add such an experience to an app, you need to understand concepts like prompts, completions and choose a library to work with. That's exactly what you'll learn in this chapter.</p>
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p>In this chapter, you will:</p>
 <ul>
 <li>Learn about the openai library and its core concepts.</li>
 <li>Build a text generation app using openai.</li>
 <li>Understand how to use concepts like prompt, temperature, and tokens to build a text generation app.</li>
 </ul>
-<h2 id="learning-goals">Learning goals</h2>
+<h2 id="h-learning-goals">Learning goals</h2>
 <p>At the end of this lesson, you'll be able to:</p>
 <ul>
 <li>Explain what a text generation app is.</li>
 <li>Build a text generation app using openai.</li>
 <li>Configure your app to use more or less tokens and also change the temperature, for a varied output.</li>
 </ul>
-<h2 id="what-is-a-text-generation-app">What is a text generation app?</h2>
+<h2 id="h-what-is-a-text-generation-app">What is a text generation app?</h2>
 <p>Normally when you build an app it has some kind of interface like the following:</p>
 <ul>
 <li>Command-based. Console apps are typical apps where you type a command and it carries out a task. For example, <code>git</code> is a command-based app.</li>
 <li>User interface (UI). Some apps have graphical user interfaces (GUIs) where you click buttons, input text, select options and more.</li>
 </ul>
-<h3 id="console-and-ui-apps-are-limited">Console and UI apps are limited</h3>
+<h3 id="h-console-and-ui-apps-are-limited">Console and UI apps are limited</h3>
 <p>Compare it to a command-based app where you type a command:</p>
 <ul>
 <li><strong>It's limited</strong>. You can't just type any command, only the ones that the app supports.</li>
 <li><strong>Language specific</strong>. Some apps support many languages, but by default the app is built for a specific language, even if you can add more language support.</li>
 </ul>
-<h3 id="benefits-of-text-generation-apps">Benefits of text generation apps</h3>
+<h3 id="h-benefits-of-text-generation-apps">Benefits of text generation apps</h3>
 <p>So how is a text generation app different?</p>
 <p>In a text generation app, you have more flexibility, you're not limited to a set of commands or a specific input language. Instead, you can use natural language to interact with the app. Another benefit is that you're already interacting with a data source that has been trained on a vast corpus of information, whereas a traditional app might be limited on what's in a database.</p>
-<h3 id="what-can-i-build-with-a-text-generation-app">What can I build with a text generation app?</h3>
+<h3 id="h-what-can-i-build-with-a-text-generation-app">What can I build with a text generation app?</h3>
 <p>There are many things you can build. For example:</p>
 <ul>
 <li><strong>A chatbot</strong>. A chatbot answering questions about topics, like your company and its products could be a good match.</li>
 <li><strong>Helper</strong>. LLMs are great at things like summarizing text, getting insights from text, producing text like resumes and more.</li>
 <li><strong>Code assistant</strong>. Depending on the language model you use, you can build a code assistant that helps you write code. For example, you can use a product like GitHub Copilot as well as ChatGPT to help you write code.</li>
 </ul>
-<h2 id="how-can-i-get-started">How can I get started?</h2>
+<h2 id="h-how-can-i-get-started">How can I get started?</h2>
 <p>Well, you need to find a way to integrate with an LLM which usually entails the following two approaches:</p>
 <ul>
 <li>Use an API. Here you're constructing web requests with your prompt and get generated text back.</li>
 <li>Use a library. Libraries help encapsulate the API calls and make them easier to use.</li>
 </ul>
-<h2 id="libraries-sdks">Libraries/SDKs</h2>
+<h2 id="h-libraries-sdks">Libraries/SDKs</h2>
 <p>There are a few well known libraries for working with LLMs like:</p>
 <ul>
 <li><strong>openai</strong>, this library makes it easy to connect to your model and send in prompts.</li>
@@ -56,13 +55,13 @@
 <li><strong>Langchain</strong>. Langchain is well known and supports Python.</li>
 <li><strong>Semantic Kernel</strong>. Semantic Kernel is a library by Microsoft supporting the languages C#, Python, and Java.</li>
 </ul>
-<h2 id="first-app-using-openai">First app using openai</h2>
+<h2 id="h-first-app-using-openai">First app using openai</h2>
 <p>Let's see how we can build our first app, what libraries we need, how much is required and so on.</p>
-<h3 id="install-openai">Install openai</h3>
+<h3 id="h-install-openai">Install openai</h3>
 <p>There are many libraries out there for interacting with OpenAI or Azure OpenAI. It's possible to use numerous programming languages as well like C#, Python, JavaScript, Java and more. We've chosen to use the <code>openai</code> Python library, so we'll use <code>pip</code> to install it.</p>
 <pre><code class="language-bash">pip install openai
 </code></pre>
-<h3 id="create-a-resource">Create a resource</h3>
+<h3 id="h-create-a-resource">Create a resource</h3>
 <p>You need to carry out the following steps:</p>
 <ul>
 <li>
@@ -81,7 +80,7 @@
 <p>Have created an Azure OpenAI Service resource. See this guide for how to <a href="https://learn.microsoft.com/azure/ai-foundry/openai/how-to/create-resource?pivots=web-portal?WT.mc_id=academic-105485-koreyst" target="_blank" rel="noopener noreferrer">create a resource</a>.</p>
 </li>
 </ul>
-<h3 id="locate-api-key-and-endpoint">Locate API key and endpoint</h3>
+<h3 id="h-locate-api-key-and-endpoint">Locate API key and endpoint</h3>
 <p>At this point, you need to tell your <code>openai</code> library what API key to use. To find your API key, go to "Keys and Endpoint" section of your Azure OpenAI resource and copy the "Key 1" value.</p>
 <p><img alt="Keys and Endpoint resource blade in Azure Portal" loading="lazy" src="https://learn.microsoft.com/azure/ai-foundry/openai/media/quickstarts/endpoint.png?WT.mc_id=academic-105485-koreyst"></p>
 <p>Now that you have this information copied, let's instruct the libraries to use it.</p>
@@ -92,7 +91,7 @@
 <code>export OPENAI_API_KEY='sk-...'</code></li>
 </ul>
 </div>
-<h3 id="setup-configuration-azure">Setup configuration Azure</h3>
+<h3 id="h-setup-configuration-azure">Setup configuration Azure</h3>
 <p>If you're using Azure OpenAI (now part of Microsoft Foundry), here's how you setup configuration. We use the standard <code>OpenAI</code> client pointed at the Azure OpenAI <code>/openai/v1/</code> endpoint, which works with the Responses API and needs no <code>api_version</code>:</p>
 <pre><code class="language-python">import os
 from openai import OpenAI
@@ -110,7 +109,7 @@ client = OpenAI(
 <div class="box box-note"><p class="box-title">Note</p>
 <p>&gt; <code>os.environ</code> reads environment variables. You can use it to read environment variables like <code>AZURE_OPENAI_API_KEY</code> and <code>AZURE_OPENAI_ENDPOINT</code>. Set these environment variables in your terminal or by using a library like <code>dotenv</code>.</p>
 </div>
-<h2 id="generate-text">Generate text</h2>
+<h2 id="h-generate-text">Generate text</h2>
 <p>The way to generate text is to use the Responses API via the <code>responses.create</code> method. Here's an example:</p>
 <pre><code class="language-python">prompt = "Complete the following: Once upon a time there was a"
 
@@ -122,7 +121,7 @@ response = client.responses.create(
 print(response.output_text)
 </code></pre>
 <p>In the above code, we create a response and pass in the model we want to use and the prompt. Then we print the generated text via <code>response.output_text</code>.</p>
-<h3 id="multi-turn-conversations">Multi-turn conversations</h3>
+<h3 id="h-multi-turn-conversations">Multi-turn conversations</h3>
 <p>The Responses API is well suited for both single-turn text generation and multi-turn chatbots - you provide a list of messages in <code>input</code> to build up a conversation:</p>
 <pre><code class="language-python">from openai import OpenAI
 
@@ -132,7 +131,7 @@ response = client.responses.create(model="gpt-5-mini", input="Hello world", stor
 print(response.output_text)
 </code></pre>
 <p>More on this functionality in an upcoming chapter.</p>
-<h2 id="exercise-your-first-text-generation-app">Exercise - your first text generation app</h2>
+<h2 id="h-exercise-your-first-text-generation-app">Exercise - your first text generation app</h2>
 <p>Now that we learned how to set up and configure openai, it's time to build your first text generation app. To build your app, follow these steps:</p>
 <ol>
 <li>
@@ -178,7 +177,7 @@ Once upon a time there was a very unhappy mermaid.
 </code></pre>
 </li>
 </ol>
-<h2 id="different-types-of-prompts-for-different-things">Different types of prompts, for different things</h2>
+<h2 id="h-different-types-of-prompts-for-different-things">Different types of prompts, for different things</h2>
 <p>Now you've seen how to generate text using a prompt. You even have a program up and running that you can modify and change to generate different types of text.</p>
 <p>Prompts can be used for all sorts of tasks. For example:</p>
 <ul>
@@ -186,7 +185,7 @@ Once upon a time there was a very unhappy mermaid.
 <li><strong>Lookup information</strong>. You can use prompts to look for information like the following example 'What does CORS mean in web development?'.</li>
 <li><strong>Generate code</strong>. You can use prompts to generate code, for example developing a regular expression used to validate emails or why not generate an entire program, like a web app?</li>
 </ul>
-<h2 id="a-more-practical-use-case-a-recipe-generator">A more practical use case: a recipe generator</h2>
+<h2 id="h-a-more-practical-use-case-a-recipe-generator">A more practical use case: a recipe generator</h2>
 <p>Imagine you have ingredients at home and you want to cook something. For that, you need a recipe. A way to find recipes is to use a search engine or you could use an LLM to do so.</p>
 <p>You could write a prompt like so:</p>
 <blockquote>
@@ -327,7 +326,7 @@ Shopping List:
 - Pepper
 </code></pre>
 <p>That's your five recipes, with no garlic mentioned and you also have a shopping list considering what you already have at home.</p>
-<h2 id="exercise-build-a-recipe-generator">Exercise - build a recipe generator</h2>
+<h2 id="h-exercise-build-a-recipe-generator">Exercise - build a recipe generator</h2>
 <p>Now that we have played out a scenario, let's write code to match the demonstrated scenario. To do so, follow these steps:</p>
 <ol>
 <li>
@@ -370,7 +369,7 @@ List of ingredients (for example, chicken, potatoes, and carrots): milk,strawber
 </code></pre>
 </li>
 </ol>
-<h3 id="improve-by-adding-filter-and-shopping-list">Improve by adding filter and shopping list</h3>
+<h3 id="h-improve-by-adding-filter-and-shopping-list">Improve by adding filter and shopping list</h3>
 <p>We now have a working app capable of producing recipes and it's flexible as it relies on inputs from the user, both on the number of recipes but also the ingredients used.</p>
 <p>To further improve it, we want to add the following:</p>
 <ul>
@@ -487,7 +486,7 @@ Shopping list:
 </ol>
 </li>
 </ul>
-<h2 id="improve-your-setup">Improve your setup</h2>
+<h2 id="h-improve-your-setup">Improve your setup</h2>
 <p>What we have so far is code that works, but there are some tweaks we should be doing to improve things further. Some things we should do are:</p>
 <ul>
 <li>
@@ -540,8 +539,8 @@ client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 <p>In short: <code>temperature</code>/<code>top_p</code> are still valid on many models (Llama, Mistral, Phi, and the GPT-4.x family - though GPT-4.x is deprecating), but the direction of travel is prompt engineering + reasoning controls on reasoning models like GPT-5.</p>
 </li>
 </ul>
-<h2 id="solution">Solution</h2>
-<h3 id="study-buddy">Study buddy</h3>
+<h2 id="h-solution">Solution</h2>
+<h3 id="h-study-buddy">Study buddy</h3>
 <p>Below is a starter prompt, see how you can use it and tweak it to your liking.</p>
 <pre><code class="language-text">- "You're an expert on the Python language
 
@@ -552,19 +551,12 @@ client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
     - brief explanation of the lesson:
     - exercise in code with solutions"
 </code></pre>
-<h3 id="history-bot">History bot</h3>
+<h3 id="h-history-bot">History bot</h3>
 <p>Here are some prompts you could be using:</p>
 <pre><code class="language-text">- "You are Abe Lincoln, tell me about yourself in 3 sentences, and respond using grammar and words like Abe would have used"
 - "You are Abe Lincoln, respond using grammar and words like Abe would have used:
 
    Tell me about your greatest accomplishments, in 300 words"
 </code></pre>
-<h2 id="knowledge-check">Knowledge check</h2>
-<p>What does the concept temperature do?</p>
-<ol>
-<li>It controls how random the output is.</li>
-<li>It controls how big the response is.</li>
-<li>It controls how many tokens are used.</li>
-</ol>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>When working on the assignment, try to vary the temperature, try setting it to 0, 0.5, and 1. Remember that 0 is the least varied and 1 is the most. What value works best for your app?</p>

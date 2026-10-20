@@ -1,611 +1,651 @@
-<p><img alt="JavaScript Basics - Making decisions" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Web-Dev-For-Beginners/78085398be0dea7abaaf5eda914817f46f6ddbbc/sketchnotes/webdev101-js-decisions.png"></p>
+<p><img alt="All About Accessibility" loading="lazy" src="https://raw.githubusercontent.com/microsoft/Web-Dev-For-Beginners/78085398be0dea7abaaf5eda914817f46f6ddbbc/sketchnotes/webdev101-a11y.png"></p>
 <blockquote>
 <p>Sketchnote by <a href="https://twitter.com/girlie_mac" target="_blank" rel="noopener noreferrer">Tomomi Imura</a></p>
 </blockquote>
 <pre><code class="language-mermaid">journey
-    title Your JavaScript Decision-Making Adventure
+    title Your Accessibility Learning Adventure
     section Foundation
-      Boolean Values: 5: You
-      Comparison Operators: 4: You
-      Logical Thinking: 5: You
-    section Basic Decisions
-      If Statements: 4: You
-      If-Else Logic: 5: You
-      Switch Statements: 4: You
-    section Advanced Logic
-      Logical Operators: 5: You
-      Complex Conditions: 4: You
-      Ternary Expressions: 5: You
+      Understanding Users: 5: You
+      Testing Tools: 4: You
+      POUR Principles: 5: You
+    section Build Skills
+      Semantic HTML: 4: You
+      Visual Design: 5: You
+      ARIA Techniques: 4: You
+    section Master Practice
+      Keyboard Navigation: 5: You
+      Form Accessibility: 4: You
+      Real-world Testing: 5: You
 </code></pre>
-<p>Have you ever wondered how applications make smart decisions? Like how a navigation system chooses the fastest route, or how a thermostat decides when to turn on the heat? This is the fundamental concept of decision-making in programming.</p>
-<p>Just as Charles Babbage's Analytical Engine was designed to follow different sequences of operations based on conditions, modern JavaScript programs need to make choices based on varying circumstances. This ability to branch and make decisions is what transforms static code into responsive, intelligent applications.</p>
-<p>In this lesson, you'll learn how to implement conditional logic in your programs. We'll explore conditional statements, comparison operators, and logical expressions that allow your code to evaluate situations and respond appropriately.</p>
-
-
-<p>The ability to make decisions and control program flow is a fundamental aspect of programming. This section covers how to control the execution path of your JavaScript programs using Boolean values and conditional logic.</p>
-<p><a href="https://youtube.com/watch?v=SxTp8j-fMMY" target="_blank" rel="noopener noreferrer"><img alt="Making Decisions" loading="lazy" src="https://img.youtube.com/vi/SxTp8j-fMMY/0.jpg"></a></p>
 <blockquote>
-
+<p>The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect.</p>
+<p>- Sir Timothy Berners-Lee, W3C Director and inventor of the World Wide Web</p>
 </blockquote>
-<blockquote>
-<p>You can take this lesson on <a href="https://docs.microsoft.com/learn/modules/web-development-101-if-else/?WT.mc_id=academic-77807-sagibbon" target="_blank" rel="noopener noreferrer">Microsoft Learn</a>!</p>
-</blockquote>
+<p>Here's something that might surprise you: when you build accessible websites, you're not just helping people with disabilities—you're actually making the web better for everyone!</p>
+<p>Ever notice those curb cuts at street corners? They were originally designed for wheelchairs, but now they help people with strollers, delivery workers with dollies, travelers with rolling luggage, and cyclists too. That's exactly how accessible web design works—solutions that help one group often end up benefiting everyone. Pretty cool, right?</p>
+<p>In this lesson, we're going to explore how to create websites that truly work for everyone, no matter how they browse the web. You'll discover practical techniques that are already built into web standards, get hands-on with testing tools, and see how accessibility makes your sites more usable for all users.</p>
+<p>By the end of this lesson, you'll have the confidence to make accessibility a natural part of your development workflow. Ready to explore how thoughtful design choices can open up the web to billions of users? Let's dive in!</p>
 <pre><code class="language-mermaid">mindmap
-  root((Decision Making))
-    Boolean Logic
-      true/false
-      Comparison results
-      Logical expressions
-    Conditional Statements
-      if statements
-        Single condition
-        Code execution
-      if-else
-        Two paths
-        Alternative actions
-      switch
-        Multiple options
-        Clean structure
-    Operators
-      Comparison
-        === !== &lt; &gt; &lt;= &gt;=
-        Value relationships
-      Logical
-        &amp;&amp; || !
-        Combine conditions
-    Advanced Patterns
-      Ternary
-        ? : syntax
-        Inline decisions
-      Complex Logic
-        Nested conditions
-        Multiple criteria
-</code></pre>
-<h2 id="a-brief-recap-on-booleans">A Brief Recap on Booleans</h2>
-<p>Before exploring decision-making, let's revisit Boolean values from our previous lesson. Named after mathematician George Boole, these values represent binary states – either <code>true</code> or <code>false</code>. There's no ambiguity, no middle ground.</p>
-<p>These binary values form the foundation of all computational logic. Every decision your program makes ultimately reduces to a Boolean evaluation.</p>
-<p>Creating Boolean variables is straightforward:</p>
-<pre><code class="language-javascript">let myTrueBool = true;
-let myFalseBool = false;
-</code></pre>
-<p>This creates two variables with explicit Boolean values.</p>
-<p>✅ Booleans are named after the English mathematician, philosopher and logician George Boole (1815–1864).</p>
-<h2 id="comparison-operators-and-booleans">Comparison Operators and Booleans</h2>
-<p>In practice, you'll rarely set Boolean values manually. Instead, you'll generate them by evaluating conditions: "Is this number greater than that one?" or "Are these values equal?"</p>
-<p>Comparison operators enable these evaluations. They compare values and return Boolean results based on the relationship between the operands.</p>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>&lt;</code></td>
-<td><strong>Less than</strong>: Compares two values and returns the <code>true</code> Boolean data type if the value on the left side is less than the right</td>
-<td><code>5 &lt; 6 // true</code></td>
-</tr>
-<tr>
-<td><code>&lt;=</code></td>
-<td><strong>Less than or equal to</strong>: Compares two values and returns the <code>true</code> Boolean data type if the value on the left side is less than or equal to the right</td>
-<td><code>5 &lt;= 6 // true</code></td>
-</tr>
-<tr>
-<td><code>&gt;</code></td>
-<td><strong>Greater than</strong>: Compares two values and returns the <code>true</code> Boolean data type if the value on the left side is larger than the right</td>
-<td><code>5 &gt; 6 // false</code></td>
-</tr>
-<tr>
-<td><code>&gt;=</code></td>
-<td><strong>Greater than or equal to</strong>: Compares two values and returns the <code>true</code> Boolean data type if the value on the left side is larger than or equal to the right</td>
-<td><code>5 &gt;= 6 // false</code></td>
-</tr>
-<tr>
-<td><code>===</code></td>
-<td><strong>Strict equality</strong>: Compares two values and returns the <code>true</code> Boolean data type if values on the right and left are equal AND are the same data type.</td>
-<td><code>5 === 6 // false</code></td>
-</tr>
-<tr>
-<td><code>!==</code></td>
-<td><strong>Inequality</strong>: Compares two values and returns the opposite Boolean value of what a strict equality operator would return</td>
-<td><code>5 !== 6 // true</code></td>
-</tr>
-</tbody>
-</table></div>
-<p>✅ Check your knowledge by writing some comparisons in your browser's console. Does any returned data surprise you?</p>
-<pre><code class="language-mermaid">flowchart LR
-    A["🔢 Values"] --&gt; B["⚖️ Comparison"]
-    B --&gt; C["✅ Boolean Result"]
-    
-    D["5"] --&gt; E["&lt; 6"]
-    E --&gt; F["true"]
-    
-    G["10"] --&gt; H["=== '10'"]
-    H --&gt; I["false"]
-    
-    J["'hello'"] --&gt; K["!== 'world'"]
-    K --&gt; L["true"]
-    
-    M["📋 Operator Types"] --&gt; M1["Equality: === !=="]
-    M --&gt; M2["Relational: &lt; &gt; &lt;= &gt;="]
-    M --&gt; M3["Strict vs Loose"]
-    
-    style A fill:#e3f2fd
-    style C fill:#e8f5e8
-    style M fill:#fff3e0
-</code></pre>
-<h3 id="comparison-mastery-check-understanding-boolean-logic">🧠 <strong>Comparison Mastery Check: Understanding Boolean Logic</strong></h3>
-<p><strong>Test your comparison understanding:</strong></p>
-<ul>
-<li>Why do you think <code>===</code> (strict equality) is generally preferred over <code>==</code> (loose equality)?</li>
-<li>Can you predict what <code>5 === '5'</code> returns? How about <code>5 == '5'</code>?</li>
-<li>What's the difference between <code>!==</code> and <code>!=</code>?</li>
-</ul>
-<pre><code class="language-mermaid">stateDiagram-v2
-    [*] --&gt; Comparison: Two values
-    Comparison --&gt; StrictEqual: === or !==
-    Comparison --&gt; Relational: &lt; &gt; &lt;= &gt;=
-    
-    StrictEqual --&gt; TypeCheck: Check type AND value
-    Relational --&gt; NumberCompare: Convert to numbers
-    
-    TypeCheck --&gt; BooleanResult: true or false
-    NumberCompare --&gt; BooleanResult
-    
-    note right of StrictEqual
-        Preferred approach
-        No type conversion
-    end note
-    
-    note right of Relational
-        Useful for ranges
-        Numerical comparisons
-    end note
+  root((Web Accessibility))
+    Users
+      Screen readers
+      Keyboard navigation
+      Voice control
+      Magnification
+    Technologies
+      HTML semantics
+      ARIA attributes
+      CSS focus indicators
+      Keyboard events
+    Benefits
+      Wider audience
+      Better SEO
+      Legal compliance
+      Universal design
+    Testing
+      Automated tools
+      Manual testing
+      User feedback
+      Real assistive tech
 </code></pre>
 <blockquote>
-<p><strong>Pro tip</strong>: Always use <code>===</code> and <code>!==</code> for equality checks unless you specifically need type conversion. This prevents unexpected behavior!</p>
+<p>You can take this lesson on <a href="https://docs.microsoft.com/learn/modules/web-development-101/accessibility/?WT.mc_id=academic-77807-sagibbon" target="_blank" rel="noopener noreferrer">Microsoft Learn</a>!</p>
 </blockquote>
-<h2 id="if-statement">If Statement</h2>
-<p>The <code>if</code> statement is like asking a question in your code. "If this condition is true, then do this thing." It's probably the most important tool you'll use for making decisions in JavaScript.</p>
-<p>Here's how it works:</p>
-<pre><code class="language-javascript">if (condition) {
-  // Condition is true. Code in this block will run.
-}
-</code></pre>
-<p>The condition goes inside the parentheses, and if it's <code>true</code>, JavaScript runs the code inside the curly braces. If it's <code>false</code>, JavaScript just skips that whole block.</p>
-<p>You'll often use comparison operators to create these conditions. Let's see a practical example:</p>
-<pre><code class="language-javascript">let currentMoney = 1000;
-let laptopPrice = 800;
-
-if (currentMoney &gt;= laptopPrice) {
-  // Condition is true. Code in this block will run.
-  console.log("Getting a new laptop!");
-}
-</code></pre>
-<p>Since <code>1000 &gt;= 800</code> evaluates to <code>true</code>, the code inside the block executes, displaying "Getting a new laptop!" in the console.</p>
-<pre><code class="language-mermaid">flowchart TD
-    A["🚀 Program Start"] --&gt; B{"💰 currentMoney &gt;= laptopPrice?"}
-    B --&gt;|true| C["🎉 'Getting a new laptop!'"]
-    B --&gt;|false| D["⏭️ Skip code block"]
-    C --&gt; E["📋 Continue program"]
-    D --&gt; E
-    
-    F["📊 If Statement Structure"] --&gt; F1["if (condition) {"]
-    F1 --&gt; F2["  // code to run if true"]
-    F2 --&gt; F3["}"]
-    
-    style B fill:#fff3e0
-    style C fill:#e8f5e8
-    style D fill:#ffebee
-    style F fill:#e3f2fd
-</code></pre>
-<h2 id="if-else-statement">If..Else Statement</h2>
-<p>But what if you want your program to do something different when the condition is false? That's where <code>else</code> comes in – it's like having a backup plan.</p>
-<p>The <code>else</code> statement gives you a way to say "if this condition isn't true, do this other thing instead."</p>
-<pre><code class="language-javascript">let currentMoney = 500;
-let laptopPrice = 800;
-
-if (currentMoney &gt;= laptopPrice) {
-  // Condition is true. Code in this block will run.
-  console.log("Getting a new laptop!");
-} else {
-  // Condition is false. Code in this block will run.
-  console.log("Can't afford a new laptop, yet!");
-}
-</code></pre>
-<p>Now since <code>500 &gt;= 800</code> is <code>false</code>, JavaScript skips the first block and runs the <code>else</code> block instead. You'll see "Can't afford a new laptop, yet!" in the console.</p>
-<p>✅ Test your understanding of this code and the following code by running it in a browser console. Change the values of the currentMoney and laptopPrice variables to change the returned <code>console.log()</code>.</p>
-<h3 id="if-else-logic-check-branching-paths">🎯 <strong>If-Else Logic Check: Branching Paths</strong></h3>
-<p><strong>Evaluate your conditional logic understanding:</strong></p>
+<h2 id="h-understanding-assistive-technologies">Understanding Assistive Technologies</h2>
+<p>Before we jump into coding, let's take a moment to understand how people with different abilities actually experience the web. This isn't just theory—understanding these real-world navigation patterns will make you a much better developer!</p>
+<p>Assistive technologies are pretty amazing tools that help people with disabilities interact with websites in ways that might surprise you. Once you get the hang of how these technologies work, creating accessible web experiences becomes way more intuitive. It's like learning to see your code through someone else's eyes.</p>
+<h3 id="h-screen-readers">Screen readers</h3>
+<p><a href="https://en.wikipedia.org/wiki/Screen_reader" target="_blank" rel="noopener noreferrer">Screen readers</a> are pretty sophisticated pieces of technology that convert digital text into speech or braille output. While they're primarily used by people with visual impairments, they're also super helpful for users with learning disabilities like dyslexia.</p>
+<p>I like to think of a screen reader as having a really smart narrator reading a book to you. It reads content aloud in a logical order, announces interactive elements like "button" or "link," and provides keyboard shortcuts for jumping around a page. But here's the thing—screen readers can only work their magic if we build websites with proper structure and meaningful content. That's where you come in as a developer!</p>
+<p><strong>Popular screen readers across platforms:</strong></p>
 <ul>
-<li>What happens if <code>currentMoney</code> exactly equals <code>laptopPrice</code>?</li>
-<li>Can you think of a real-world scenario where if-else logic would be useful?</li>
-<li>How might you extend this to handle multiple price ranges?</li>
+<li><strong>Windows</strong>: <a href="https://www.nvaccess.org/about-nvda/" target="_blank" rel="noopener noreferrer">NVDA</a> (free and most popular), <a href="https://webaim.org/articles/jaws/" target="_blank" rel="noopener noreferrer">JAWS</a>, <a href="https://support.microsoft.com/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1/?WT.mc_id=academic-77807-sagibbon" target="_blank" rel="noopener noreferrer">Narrator</a> (built-in)</li>
+<li><strong>macOS/iOS</strong>: <a href="https://support.apple.com/guide/voiceover/welcome/10" target="_blank" rel="noopener noreferrer">VoiceOver</a> (built-in and very capable)</li>
+<li><strong>Android</strong>: <a href="https://support.google.com/accessibility/android/answer/6283677" target="_blank" rel="noopener noreferrer">TalkBack</a> (built-in)</li>
+<li><strong>Linux</strong>: <a href="https://wiki.gnome.org/Projects/Orca" target="_blank" rel="noopener noreferrer">Orca</a> (free and open-source)</li>
 </ul>
-<pre><code class="language-mermaid">flowchart TD
-    A["🔍 Evaluate Condition"] --&gt; B{"Condition True?"}
-    B --&gt;|Yes| C["📤 Execute IF block"]
-    B --&gt;|No| D["📥 Execute ELSE block"]
-    
-    C --&gt; E["✅ One path taken"]
-    D --&gt; E
-    
-    F["🌐 Real-world Examples"] --&gt; F1["User login status"]
-    F --&gt; F2["Age verification"]
-    F --&gt; F3["Form validation"]
-    F --&gt; F4["Game state changes"]
-    
-    style B fill:#fff3e0
-    style C fill:#e8f5e8
-    style D fill:#e3f2fd
-    style F fill:#f3e5f5
-</code></pre>
+<p><strong>How screen readers navigate web content:</strong></p>
+<p>Screen readers provide multiple navigation methods that make browsing efficient for experienced users:</p>
+<ul>
+<li><strong>Sequential reading</strong>: Reads content from top to bottom, like following a book</li>
+<li><strong>Landmark navigation</strong>: Jump between page sections (header, nav, main, footer)</li>
+<li><strong>Heading navigation</strong>: Skip between headings to understand page structure</li>
+<li><strong>Link lists</strong>: Generate a list of all links for quick access</li>
+<li><strong>Form controls</strong>: Navigate directly between input fields and buttons</li>
+</ul>
 <blockquote>
-<p><strong>Key insight</strong>: If-else ensures exactly one path is taken. This guarantees your program always has a response to any condition!</p>
+<p>💡 <strong>Here's something that blew my mind</strong>: 68% of screen reader users navigate primarily by headings (<a href="https://webaim.org/projects/screenreadersurvey9/#finding" target="_blank" rel="noopener noreferrer">WebAIM Survey</a>). This means your heading structure is like a roadmap for users—when you get it right, you're literally helping people find their way around your content faster!</p>
 </blockquote>
-<h2 id="switch-statement">Switch Statement</h2>
-<p>Sometimes you need to compare one value against multiple options. While you could chain several <code>if..else</code> statements, this approach becomes unwieldy. The <code>switch</code> statement provides a cleaner structure for handling multiple discrete values.</p>
-<p>The concept resembles the mechanical switching systems used in early telephone exchanges – one input value determines which specific path the execution follows.</p>
-<pre><code class="language-javascript">switch (expression) {
-  case x:
-    // code block
-    break;
-  case y:
-    // code block
-    break;
-  default:
-    // code block
-}
-</code></pre>
-<p>Here's how it's structured:</p>
-<ul>
-<li>JavaScript evaluates the expression once</li>
-<li>It looks through each <code>case</code> to find a match</li>
-<li>When it finds a match, it runs that code block</li>
-<li>The <code>break</code> tells JavaScript to stop and exit the switch</li>
-<li>If no cases match, it runs the <code>default</code> block (if you have one)</li>
-</ul>
-<pre><code class="language-javascript">// Program using switch statement for day of week
-let dayNumber = 2;
-let dayName;
-
-switch (dayNumber) {
-  case 1:
-    dayName = "Monday";
-    break;
-  case 2:
-    dayName = "Tuesday";
-    break;
-  case 3:
-    dayName = "Wednesday";
-    break;
-  default:
-    dayName = "Unknown day";
-    break;
-}
-console.log(`Today is ${dayName}`);
-</code></pre>
-<p>In this example, JavaScript sees that <code>dayNumber</code> is <code>2</code>, finds the matching <code>case 2</code>, sets <code>dayName</code> to "Tuesday", and then breaks out of the switch. The result? "Today is Tuesday" gets logged to the console.</p>
+<h3 id="h-building-your-testing-workflow">Building your testing workflow</h3>
+<p>Here's some good news—effective accessibility testing doesn't have to be overwhelming! You'll want to combine automated tools (they're fantastic at catching obvious issues) with some hands-on testing. Here's a systematic approach that I've found catches the most issues without eating up your entire day:</p>
+<p><strong>Essential manual testing workflow:</strong></p>
 <pre><code class="language-mermaid">flowchart TD
-    A["📥 switch(expression)"] --&gt; B["🔍 Evaluate once"]
-    B --&gt; C{"Match case 1?"}
-    C --&gt;|Yes| D["📋 Execute case 1"]
-    C --&gt;|No| E{"Match case 2?"}
-    E --&gt;|Yes| F["📋 Execute case 2"]
-    E --&gt;|No| G{"Match case 3?"}
-    G --&gt;|Yes| H["📋 Execute case 3"]
-    G --&gt;|No| I["📋 Execute default"]
-    
-    D --&gt; J["🛑 break"]
-    F --&gt; K["🛑 break"]
-    H --&gt; L["🛑 break"]
-    
-    J --&gt; M["✅ Exit switch"]
-    K --&gt; M
-    L --&gt; M
-    I --&gt; M
+    A[🚀 Start Testing] --&gt; B{⌨️ Keyboard Navigation}
+    B --&gt; C[Tab through all interactive elements]
+    C --&gt; D{🎧 Screen Reader Testing}
+    D --&gt; E[Test with NVDA/VoiceOver]
+    E --&gt; F{🔍 Zoom Testing}
+    F --&gt; G[Zoom to 200% and test functionality]
+    G --&gt; H{🎨 Color/Contrast Check}
+    H --&gt; I[Verify all text meets contrast ratios]
+    I --&gt; J{👁️ Focus Management}
+    J --&gt; K[Ensure focus indicators are visible]
+    K --&gt; L[✅ Testing Complete]
     
     style A fill:#e3f2fd
+    style L fill:#e8f5e8
     style B fill:#fff3e0
-    style M fill:#e8f5e8
-</code></pre>
-<p>✅ Test your understanding of this code and the following code by running it in a browser console. Change the values of the variable a to change the returned <code>console.log()</code>.</p>
-<h3 id="switch-statement-mastery-multiple-options">🔄 <strong>Switch Statement Mastery: Multiple Options</strong></h3>
-<p><strong>Test your switch understanding:</strong></p>
-<ul>
-<li>What happens if you forget a <code>break</code> statement?</li>
-<li>When would you use <code>switch</code> instead of multiple <code>if-else</code> statements?</li>
-<li>Why is the <code>default</code> case useful even if you think you've covered all possibilities?</li>
-</ul>
-<pre><code class="language-mermaid">pie title "When to Use Each Decision Structure"
-    "Simple if-else" : 40
-    "Complex if-else chains" : 25
-    "Switch statements" : 20
-    "Ternary operators" : 15
-</code></pre>
-<blockquote>
-<p><strong>Best practice</strong>: Use <code>switch</code> when comparing one variable against multiple specific values. Use <code>if-else</code> for range checks or complex conditions!</p>
-</blockquote>
-<h2 id="logical-operators-and-booleans">Logical Operators and Booleans</h2>
-<p>Complex decisions often require evaluating multiple conditions simultaneously. Just as Boolean algebra allows mathematicians to combine logical expressions, programming provides logical operators to connect multiple Boolean conditions.</p>
-<p>These operators enable sophisticated conditional logic by combining simple true/false evaluations.</p>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>&amp;&amp;</code></td>
-<td><strong>Logical AND</strong>: Compares two Boolean expressions. Returns true <strong>only</strong> if both sides are true</td>
-<td><code>(5 &gt; 3) &amp;&amp; (5 &lt; 10) // Both sides are true. Returns true</code></td>
-</tr>
-<tr>
-<td><code>||</code></td>
-<td><strong>Logical OR</strong>: Compares two Boolean expressions. Returns true if at least one side is true</td>
-<td><code>(5 &gt; 10) || (5 &lt; 10) // One side is false, other is true. Returns true</code></td>
-</tr>
-<tr>
-<td><code>!</code></td>
-<td><strong>Logical NOT</strong>: Returns the opposite value of a Boolean expression</td>
-<td><code>!(5 &gt; 10) // 5 is not greater than 10, so "!" makes it true</code></td>
-</tr>
-</tbody>
-</table></div>
-<p>These operators let you combine conditions in useful ways:</p>
-<ul>
-<li>AND (<code>&amp;&amp;</code>) means both conditions must be true</li>
-<li>OR (<code>||</code>) means at least one condition must be true</li>
-<li>NOT (<code>!</code>) flips true to false (and vice versa)</li>
-</ul>
-<pre><code class="language-mermaid">flowchart LR
-    A["🔗 Logical Operators"] --&gt; B["&amp;&amp; AND"]
-    A --&gt; C["|| OR"]
-    A --&gt; D["! NOT"]
-    
-    B --&gt; B1["Both must be true"]
-    B --&gt; B2["true &amp;&amp; true = true"]
-    B --&gt; B3["true &amp;&amp; false = false"]
-    
-    C --&gt; C1["At least one true"]
-    C --&gt; C2["true || false = true"]
-    C --&gt; C3["false || false = false"]
-    
-    D --&gt; D1["Flips the value"]
-    D --&gt; D2["!true = false"]
-    D --&gt; D3["!false = true"]
-    
-    E["🌍 Real Examples"] --&gt; E1["Age &gt;= 18 &amp;&amp; hasLicense"]
-    E --&gt; E2["isWeekend || isHoliday"]
-    E --&gt; E3["!isLoggedIn"]
-    
-    style A fill:#e3f2fd
-    style B fill:#e8f5e8
-    style C fill:#fff3e0
     style D fill:#f3e5f5
-    style E fill:#e0f2f1
+    style F fill:#e0f2f1
+    style H fill:#fce4ec
+    style J fill:#e8eaf6
 </code></pre>
-<h2 id="conditions-and-decisions-with-logical-operators">Conditions and Decisions with Logical Operators</h2>
-<p>Let's see these logical operators in action with a more realistic example:</p>
-<pre><code class="language-javascript">let currentMoney = 600;
-let laptopPrice = 800;
-let laptopDiscountPrice = laptopPrice - (laptopPrice * 0.2); // Laptop price at 20 percent off
-
-if (currentMoney &gt;= laptopPrice || currentMoney &gt;= laptopDiscountPrice) {
-  // Condition is true. Code in this block will run.
-  console.log("Getting a new laptop!");
-} else {
-  // Condition is false. Code in this block will run.
-  console.log("Can't afford a new laptop, yet!");
-}
-</code></pre>
-<p>In this example: we calculate a 20% discount price (640), then evaluate whether our available funds cover either the full price OR the discounted price. Since 600 meets the discounted price threshold of 640, the condition evaluates to true.</p>
-<h3 id="logical-operators-check-combining-conditions">🧮 <strong>Logical Operators Check: Combining Conditions</strong></h3>
-<p><strong>Test your logical operator understanding:</strong></p>
-<ul>
-<li>In the expression <code>A &amp;&amp; B</code>, what happens if A is false? Does B even get evaluated?</li>
-<li>Can you think of a situation where you'd need all three operators (&amp;&amp;, ||, !) together?</li>
-<li>What's the difference between <code>!user.isActive</code> and <code>user.isActive !== true</code>?</li>
-</ul>
-<pre><code class="language-mermaid">stateDiagram-v2
-    [*] --&gt; EvaluateA: A &amp;&amp; B
-    EvaluateA --&gt; CheckB: A is true
-    EvaluateA --&gt; ReturnFalse: A is false
-    CheckB --&gt; ReturnTrue: B is true
-    CheckB --&gt; ReturnFalse: B is false
-    
-    [*] --&gt; EvaluateC: A || B
-    EvaluateC --&gt; ReturnTrue: A is true
-    EvaluateC --&gt; CheckD: A is false
-    CheckD --&gt; ReturnTrue: B is true
-    CheckD --&gt; ReturnFalse: B is false
-    
-    note right of EvaluateA
-        Short-circuit evaluation:
-        If A is false, B is never checked
-    end note
-</code></pre>
-<blockquote>
-<p><strong>Performance tip</strong>: JavaScript uses "short-circuit evaluation" - in <code>A &amp;&amp; B</code>, if A is false, B isn't even evaluated. Use this to your advantage!</p>
-</blockquote>
-<h3 id="negation-operator">Negation Operator</h3>
-<p>Sometimes it's easier to think about when something is NOT true. Like instead of asking "Is the user logged in?", you might want to ask "Is the user NOT logged in?" The exclamation mark (<code>!</code>) operator flips the logic for you.</p>
-<pre><code class="language-javascript">if (!condition) {
-  // runs if condition is false
-} else {
-  // runs if condition is true
-}
-</code></pre>
-<p>The <code>!</code> operator is like saying "the opposite of..." – if something is <code>true</code>, <code>!</code> makes it <code>false</code>, and vice versa.</p>
-<h3 id="ternary-expressions">Ternary Expressions</h3>
-<p>For simple conditional assignments, JavaScript provides the <strong>ternary operator</strong>. This concise syntax allows you to write a conditional expression in a single line, useful when you need to assign one of two values based on a condition.</p>
-<pre><code class="language-javascript">let variable = condition ? returnThisIfTrue : returnThisIfFalse;
-</code></pre>
-<p>It reads like a question: "Is this condition true? If yes, use this value. If no, use that value."</p>
-<p>Below is a more tangible example:</p>
-<pre><code class="language-javascript">let firstNumber = 20;
-let secondNumber = 10;
-let biggestNumber = firstNumber &gt; secondNumber ? firstNumber : secondNumber;
-</code></pre>
-<p>✅ Take a minute to read this code a few times. Do you understand how these operators are working?</p>
-<p>Here's what this line is saying: "Is <code>firstNumber</code> greater than <code>secondNumber</code>? If yes, put <code>firstNumber</code> in <code>biggestNumber</code>. If no, put <code>secondNumber</code> in <code>biggestNumber</code>."</p>
-<p>The ternary operator is just a shorter way to write this traditional <code>if..else</code> statement:</p>
-<pre><code class="language-javascript">let biggestNumber;
-if (firstNumber &gt; secondNumber) {
-  biggestNumber = firstNumber;
-} else {
-  biggestNumber = secondNumber;
-}
-</code></pre>
-<p>Both approaches produce identical results. The ternary operator offers conciseness, while the traditional if-else structure may be more readable for complex conditions.</p>
-<pre><code class="language-mermaid">flowchart LR
-    A["🤔 Ternary Operator"] --&gt; B["condition ?"]
-    B --&gt; C["valueIfTrue :"]
-    C --&gt; D["valueIfFalse"]
-    
-    E["📝 Traditional If-Else"] --&gt; F["if (condition) {"]
-    F --&gt; G["  return valueIfTrue"]
-    G --&gt; H["} else {"]
-    H --&gt; I["  return valueIfFalse"]
-    I --&gt; J["}"]
-    
-    K["⚡ When to Use"] --&gt; K1["Simple assignments"]
-    K --&gt; K2["Short conditions"]
-    K --&gt; K3["Inline decisions"]
-    K --&gt; K4["Return statements"]
-    
-    style A fill:#e3f2fd
-    style E fill:#fff3e0
-    style K fill:#e8f5e8
-</code></pre>
-<hr>
-<h2 id="challenge">🚀 Challenge</h2>
-<p>Create a program that is written first with logical operators, and then rewrite it using a ternary expression. What's your preferred syntax?</p>
-<hr>
-<h2 id="github-copilot-agent-challenge">GitHub Copilot Agent Challenge 🚀</h2>
-<p>Use the Agent mode to complete the following challenge:</p>
-<p><strong>Description:</strong> Create a comprehensive grade calculator that demonstrates multiple decision-making concepts from this lesson, including if-else statements, switch statements, logical operators, and ternary expressions.</p>
-<p><strong>Prompt:</strong> Write a JavaScript program that takes a student's numerical score (0-100) and determines their letter grade using the following criteria:</p>
-<ul>
-<li>A: 90-100</li>
-<li>B: 80-89</li>
-<li>C: 70-79</li>
-<li>D: 60-69</li>
-<li>F: Below 60</li>
-</ul>
-<p>Requirements:</p>
+<p><strong>Step-by-step testing checklist:</strong></p>
 <ol>
-<li>Use an if-else statement to determine the letter grade</li>
-<li>Use logical operators to check if the student passes (grade &gt;= 60) AND has honors (grade &gt;= 90)</li>
-<li>Use a switch statement to provide specific feedback for each letter grade</li>
-<li>Use a ternary operator to determine if the student is eligible for the next course (grade &gt;= 70)</li>
-<li>Include input validation to ensure the score is between 0 and 100</li>
+<li><strong>Keyboard navigation</strong>: Use only Tab, Shift+Tab, Enter, Space, and Arrow keys</li>
+<li><strong>Screen reader testing</strong>: Enable NVDA, VoiceOver, or Narrator and navigate with eyes closed</li>
+<li><strong>Zoom testing</strong>: Test at 200% and 400% zoom levels</li>
+<li><strong>Color contrast verification</strong>: Check all text and UI components</li>
+<li><strong>Focus indicator testing</strong>: Ensure all interactive elements have visible focus states</li>
 </ol>
-<p>Test your program with various scores including edge cases like 59, 60, 89, 90, and invalid inputs.</p>
-<p>Learn more about <a href="https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode" target="_blank" rel="noopener noreferrer">agent mode</a> here.</p>
+<p>✅ <strong>Start with Lighthouse</strong>: Open your browser's DevTools, run a Lighthouse accessibility audit, then use the results to guide your manual testing focus areas.</p>
+<h3 id="h-zoom-and-magnification-tools">Zoom and magnification tools</h3>
+<p>You know how you sometimes pinch to zoom on your phone when text is too small, or squint at your laptop screen in bright sunlight? Many users rely on magnification tools to make content readable every single day. This includes people with low vision, older adults, and anyone who's ever tried to read a website outdoors.</p>
+<p>Modern zoom technologies have evolved beyond just making things bigger. Understanding how these tools work will help you create responsive designs that remain functional and attractive at any magnification level.</p>
+<p><strong>Modern browser zoom capabilities:</strong></p>
+<ul>
+<li><strong>Page zoom</strong>: Scales all content proportionally (text, images, layout) - this is the preferred method</li>
+<li><strong>Text-only zoom</strong>: Increases font size while maintaining original layout</li>
+<li><strong>Pinch-to-zoom</strong>: Mobile gesture support for temporary magnification</li>
+<li><strong>Browser support</strong>: All modern browsers support zoom up to 500% without breaking functionality</li>
+</ul>
+<p><strong>Specialized magnification software:</strong></p>
+<ul>
+<li><strong>Windows</strong>: <a href="https://support.microsoft.com/windows/use-magnifier-to-make-things-on-the-screen-easier-to-see-414948ba-8b1c-d3bd-8615-0e5e32204198" target="_blank" rel="noopener noreferrer">Magnifier</a> (built-in), <a href="https://www.freedomscientific.com/training/zoomtext/getting-started/" target="_blank" rel="noopener noreferrer">ZoomText</a></li>
+<li><strong>macOS/iOS</strong>: <a href="https://www.apple.com/accessibility/mac/vision/" target="_blank" rel="noopener noreferrer">Zoom</a> (built-in with advanced features)</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>Design Consideration</strong>: WCAG requires that content remain functional when zoomed to 200%. At this level, horizontal scrolling should be minimal, and all interactive elements should remain accessible.</p>
+</blockquote>
+<p>✅ <strong>Test your responsive design</strong>: Zoom your browser to 200% and 400%. Does your layout adapt gracefully? Can you still access all functionality without excessive scrolling?</p>
+<h2 id="h-modern-accessibility-testing-tools">Modern Accessibility Testing Tools</h2>
+<p>Now that you understand how people navigate the web with assistive technologies, let's explore the tools that help you build and test accessible websites.</p>
+<p>Think of it like this: automated tools are great at catching obvious issues (like missing alt text), while hands-on testing helps you ensure your site feels good to use in the real world. Together, they give you confidence that your sites work for everyone.</p>
+<h3 id="h-color-contrast-testing">Color contrast testing</h3>
+<p>Here's some good news: color contrast is one of the most common accessibility issues, but it's also one of the easiest to fix. Good contrast benefits everyone—from users with visual impairments to people trying to read their phones at the beach.</p>
+<p><strong>WCAG contrast requirements:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Text Type</th>
+<th>WCAG AA (Minimum)</th>
+<th>WCAG AAA (Enhanced)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Normal text</strong> (under 18pt)</td>
+<td>4.5:1 contrast ratio</td>
+<td>7:1 contrast ratio</td>
+</tr>
+<tr>
+<td><strong>Large text</strong> (18pt+ or 14pt+ bold)</td>
+<td>3:1 contrast ratio</td>
+<td>4.5:1 contrast ratio</td>
+</tr>
+<tr>
+<td><strong>UI components</strong> (buttons, form borders)</td>
+<td>3:1 contrast ratio</td>
+<td>3:1 contrast ratio</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Essential testing tools:</strong></p>
+<ul>
+<li><a href="https://www.tpgi.com/color-contrast-checker/" target="_blank" rel="noopener noreferrer">Colour Contrast Analyser</a> - Desktop app with color picker</li>
+<li><a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">WebAIM Contrast Checker</a> - Web-based with instant feedback</li>
+<li><a href="https://www.getstark.co/" target="_blank" rel="noopener noreferrer">Stark</a> - Design tool plugin for Figma, Sketch, Adobe XD</li>
+<li><a href="https://accessible-colors.com/" target="_blank" rel="noopener noreferrer">Accessible Colors</a> - Find accessible color palettes</li>
+</ul>
+<p>✅ <strong>Build better color palettes</strong>: Start with your brand colors and use contrast checkers to create accessible variations. Document these as your design system's accessible color tokens.</p>
+<h3 id="h-comprehensive-accessibility-auditing">Comprehensive accessibility auditing</h3>
+<p>The most effective accessibility testing combines multiple approaches. No single tool catches everything, so building a testing routine with various methods ensures thorough coverage.</p>
+<p><strong>Browser-based testing (built into DevTools):</strong></p>
+<ul>
+<li><strong>Chrome/Edge</strong>: Lighthouse accessibility audit + Accessibility panel</li>
+<li><strong>Firefox</strong>: Accessibility Inspector with detailed tree view</li>
+<li><strong>Safari</strong>: Audit tab in Web Inspector with VoiceOver simulation</li>
+</ul>
+<p><strong>Professional testing extensions:</strong></p>
+<ul>
+<li><a href="https://www.deque.com/axe/devtools/" target="_blank" rel="noopener noreferrer">axe DevTools</a> - Industry-standard automated testing</li>
+<li><a href="https://wave.webaim.org/extension/" target="_blank" rel="noopener noreferrer">WAVE</a> - Visual feedback with error highlighting</li>
+<li><a href="https://accessibilityinsights.io/" target="_blank" rel="noopener noreferrer">Accessibility Insights</a> - Microsoft's comprehensive testing suite</li>
+</ul>
+<p><strong>Command-line and CI/CD integration:</strong></p>
+<ul>
+<li><a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer">axe-core</a> - JavaScript library for automated testing</li>
+<li><a href="https://pa11y.org/" target="_blank" rel="noopener noreferrer">Pa11y</a> - Command-line accessibility testing tool</li>
+<li><a href="https://github.com/GoogleChrome/lighthouse-ci" target="_blank" rel="noopener noreferrer">Lighthouse CI</a> - Automated accessibility scoring</li>
+</ul>
+<blockquote>
+<p>🎯 <strong>Testing Goal</strong>: Aim for a Lighthouse accessibility score of 95+ as your baseline. Remember, automated tools only catch about 30-40% of accessibility issues—manual testing is still essential!</p>
+</blockquote>
+<h3 id="h-testing-skills-check-ready-to-find-issues">🧠 <strong>Testing Skills Check: Ready to Find Issues?</strong></h3>
+<p><strong>Let's see how you're feeling about accessibility testing:</strong></p>
+<ul>
+<li>Which testing method seems most approachable to you right now?</li>
+<li>Can you imagine using keyboard-only navigation for a full day?</li>
+<li>What's one accessibility barrier you've personally experienced online?</li>
+</ul>
+<pre><code class="language-mermaid">pie title "Accessibility Issues Caught by Different Methods"
+    "Automated Tools" : 35
+    "Manual Testing" : 40
+    "User Feedback" : 25
+</code></pre>
+<blockquote>
+<p><strong>Confidence booster</strong>: Professional accessibility testers use this exact combination of methods. You're learning industry-standard practices!</p>
+</blockquote>
+<h2 id="h-building-accessibility-from-the-ground-up">Building Accessibility from the Ground Up</h2>
+<p>The key to accessibility success is building it into your foundation from day one. I know it's tempting to think "I'll add accessibility later," but that's like trying to add a ramp to a house after it's already built. Possible? Yes. Easy? Not really.</p>
+<p>Think of accessibility like planning a house—it's much easier to include wheelchair accessibility in your initial architectural plans than to retrofit everything later.</p>
+<h3 id="h-the-pour-principles-your-accessibility-foundation">The POUR principles: Your accessibility foundation</h3>
+<p>The Web Content Accessibility Guidelines (WCAG) are built around four fundamental principles that spell out POUR. Don't worry—these aren't stuffy academic concepts! They're actually practical guidelines for making content that works for everyone.</p>
+<p>Once you get the hang of POUR, making accessibility decisions becomes way more intuitive. It's like having a mental checklist that guides your design choices. Let's break it down:</p>
+<pre><code class="language-mermaid">flowchart LR
+    A[🔍 PERCEIVABLE&lt;br/&gt;Can users sense it?] --&gt; B[🎮 OPERABLE&lt;br/&gt;Can users use it?]
+    B --&gt; C[📖 UNDERSTANDABLE&lt;br/&gt;Can users get it?]
+    C --&gt; D[💪 ROBUST&lt;br/&gt;Does it work everywhere?]
+    
+    A1[Alt text&lt;br/&gt;Captions&lt;br/&gt;Contrast] --&gt; A
+    B1[Keyboard access&lt;br/&gt;No seizures&lt;br/&gt;Time limits] --&gt; B
+    C1[Clear language&lt;br/&gt;Predictable&lt;br/&gt;Error help] --&gt; C
+    D1[Valid code&lt;br/&gt;Compatible&lt;br/&gt;Future-proof] --&gt; D
+    
+    style A fill:#e1f5fe
+    style B fill:#e8f5e8
+    style C fill:#fff3e0
+    style D fill:#f3e5f5
+</code></pre>
+<p><strong>🔍 Perceivable</strong>: Information must be presentable in ways users can perceive through their available senses</p>
+<ul>
+<li>Provide text alternatives for non-text content (images, videos, audio)</li>
+<li>Ensure sufficient color contrast for all text and UI components</li>
+<li>Offer captions and transcripts for multimedia content</li>
+<li>Design content that remains functional when resized up to 200%</li>
+<li>Use multiple sensory characteristics (not just color) to convey information</li>
+</ul>
+<p><strong>🎮 Operable</strong>: All interface components must be operable through available input methods</p>
+<ul>
+<li>Make all functionality accessible via keyboard navigation</li>
+<li>Provide users sufficient time to read and interact with content</li>
+<li>Avoid content that causes seizures or vestibular disorders</li>
+<li>Help users navigate efficiently with clear structure and landmarks</li>
+<li>Ensure interactive elements have adequate target sizes (44px minimum)</li>
+</ul>
+<p><strong>📖 Understandable</strong>: Information and UI operation must be clear and comprehensible</p>
+<ul>
+<li>Use clear, simple language appropriate for your audience</li>
+<li>Ensure content appears and operates in predictable, consistent ways</li>
+<li>Provide clear instructions and error messages for user input</li>
+<li>Help users understand and correct mistakes in forms</li>
+<li>Organize content with logical reading order and information hierarchy</li>
+</ul>
+<p><strong>💪 Robust</strong>: Content must work reliably across different technologies and assistive devices</p>
+<ul>
+<li><strong>Use valid, semantic HTML as your foundation</strong></li>
+<li><strong>Ensure compatibility with current and future assistive technologies</strong></li>
+<li><strong>Follow web standards and best practices for markup</strong></li>
+<li><strong>Test across different browsers, devices, and assistive tools</strong></li>
+<li><strong>Structure content so it degrades gracefully when advanced features aren't supported</strong></li>
+</ul>
+<h3 id="h-pour-principles-check-making-it-stick">🎯 <strong>POUR Principles Check: Making It Stick</strong></h3>
+<p><strong>Quick reflection on the foundations:</strong></p>
+<ul>
+<li>Can you think of a website feature that fails each POUR principle?</li>
+<li>Which principle feels most natural to you as a developer?</li>
+<li>How might these principles improve design for everyone, not just disabled users?</li>
+</ul>
+<pre><code class="language-mermaid">quadrantChart
+    title POUR Principles Impact Matrix
+    x-axis Low Effort --&gt; High Effort
+    y-axis Low Impact --&gt; High Impact
+    quadrant-1 Quick Wins
+    quadrant-2 Major Projects
+    quadrant-3 Consider Later
+    quadrant-4 Strategic Focus
+    
+    Alt Text: [0.2, 0.9]
+    Color Contrast: [0.3, 0.8]
+    Semantic HTML: [0.4, 0.9]
+    Keyboard Nav: [0.6, 0.8]
+    ARIA Complex: [0.8, 0.7]
+    Screen Reader Testing: [0.7, 0.6]
+</code></pre>
+<blockquote>
+<p><strong>Remember</strong>: Start with high-impact, low-effort improvements. Semantic HTML and alt text give you the biggest accessibility boost for the least effort!</p>
+</blockquote>
+<h2 id="h-creating-accessible-visual-design">Creating Accessible Visual Design</h2>
+<p>Good visual design and accessibility go hand in hand. When you design with accessibility in mind, you often discover that these constraints lead to cleaner, more elegant solutions that benefit all users.</p>
+<p>Let's explore how to create visually appealing designs that work for everyone, regardless of their visual abilities or the conditions under which they're viewing your content.</p>
+<h3 id="h-color-and-visual-accessibility-strategies">Color and visual accessibility strategies</h3>
+<p>Color is powerful for communication, but it should never be the only way you convey important information. Designing beyond color creates more robust, inclusive experiences that work in more situations.</p>
+<p><strong>Design for color vision differences:</strong></p>
+<p>Approximately 8% of men and 0.5% of women have some form of color vision difference (often called "color blindness"). The most common types are:</p>
+<ul>
+<li><strong>Deuteranopia</strong>: Difficulty distinguishing red and green</li>
+<li><strong>Protanopia</strong>: Red appears more dim</li>
+<li><strong>Tritanopia</strong>: Difficulty with blue and yellow (rare)</li>
+</ul>
+<p><strong>Inclusive color strategies:</strong></p>
+<pre><code class="language-css">/* ❌ Bad: Using only color to indicate status */
+.error { color: red; }
+.success { color: green; }
 
+/* ✅ Good: Color plus icons and context */
+.error {
+  color: #d32f2f;
+  border-left: 4px solid #d32f2f;
+}
+.error::before {
+  content: "⚠️";
+  margin-right: 8px;
+}
 
-<h2 id="review-self-study">Review &amp; Self Study</h2>
-<p>Read more about the many operators available to the user <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators" target="_blank" rel="noopener noreferrer">on MDN</a>.</p>
-<p>Go through Josh Comeau's wonderful <a href="https://joshwcomeau.com/operator-lookup/" target="_blank" rel="noopener noreferrer">operator lookup</a>!</p>
-<h2 id="your-decision-making-toolkit-summary">🧠 <strong>Your Decision-Making Toolkit Summary</strong></h2>
-<pre><code class="language-mermaid">graph TD
-    A["🎯 JavaScript Decisions"] --&gt; B["🔍 Boolean Logic"]
-    A --&gt; C["📊 Conditional Statements"]
-    A --&gt; D["🔗 Logical Operators"]
-    A --&gt; E["⚡ Advanced Patterns"]
+.success {
+  color: #2e7d32;
+  border-left: 4px solid #2e7d32;
+}
+.success::before {
+  content: "✅";
+  margin-right: 8px;
+}
+</code></pre>
+<p><strong>Beyond basic contrast requirements:</strong></p>
+<ul>
+<li>Test your color choices with color blind simulators</li>
+<li>Use patterns, textures, or shapes alongside color coding</li>
+<li>Ensure interactive states remain distinguishable without color</li>
+<li>Consider how your design looks in high contrast mode</li>
+</ul>
+<p>✅ <strong>Test your color accessibility</strong>: Use tools like <a href="https://www.color-blindness.com/coblis-color-blindness-simulator/" target="_blank" rel="noopener noreferrer">Coblis</a> to see how your site appears to users with different types of color vision.</p>
+<h3 id="h-focus-indicators-and-interaction-design">Focus indicators and interaction design</h3>
+<p>Focus indicators are the digital equivalent of a cursor—they show keyboard users where they are on the page. Well-designed focus indicators enhance the experience for everyone by making interactions clear and predictable.</p>
+<p><strong>Modern focus indicator best practices:</strong></p>
+<pre><code class="language-css">/* Enhanced focus styles that work across browsers */
+button:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.25);
+}
+
+/* Remove focus outline for mouse users, preserve for keyboard users */
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Focus-within for complex components */
+.card:focus-within {
+  box-shadow: 0 0 0 3px rgba(74, 144, 164, 0.5);
+  border-color: #4A90A4;
+}
+
+/* Ensure focus indicators meet contrast requirements */
+.custom-focus:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px #000000;
+}
+</code></pre>
+<p><strong>Focus indicator requirements:</strong></p>
+<ul>
+<li><strong>Visibility</strong>: Must have at least 3:1 contrast ratio with surrounding elements</li>
+<li><strong>Width</strong>: Minimum 2px thickness around the entire element</li>
+<li><strong>Persistence</strong>: Should remain visible until focus moves elsewhere</li>
+<li><strong>Distinction</strong>: Must be visually different from other UI states</li>
+</ul>
+<blockquote>
+<p>💡 <strong>Design Tip</strong>: Great focus indicators often use a combination of outline, box-shadow, and color changes to ensure visibility across different backgrounds and contexts.</p>
+</blockquote>
+<p>✅ <strong>Audit focus indicators</strong>: Tab through your website and note which elements have clear focus indicators. Are any difficult to see or missing entirely?</p>
+<h3 id="h-semantic-html-the-foundation-of-accessibility">Semantic HTML: The foundation of accessibility</h3>
+<p>Semantic HTML is like giving assistive technologies a GPS system for your website. When you use the right HTML elements for their intended purpose, you're basically providing screen readers, keyboards, and other tools with a detailed roadmap to help users navigate effectively.</p>
+<p>Here's an analogy that really clicked for me: semantic HTML is the difference between a well-organized library with clear categories and helpful signs versus a warehouse where books are scattered randomly. Both places have the same books, but which one would you rather try to find something in? Exactly!</p>
+<pre><code class="language-mermaid">flowchart TD
+    A[🏠 HTML Document] --&gt; B[📰 header]
+    A --&gt; C[🧭 nav]
+    A --&gt; D[📄 main]
+    A --&gt; E[📋 footer]
     
-    B --&gt; B1["true/false values"]
-    B --&gt; B2["Comparison operators"]
-    B --&gt; B3["Truthiness concepts"]
+    B --&gt; B1[h1: Site Name&lt;br/&gt;Logo &amp; branding]
+    C --&gt; C1[ul: Navigation&lt;br/&gt;Primary links]
+    D --&gt; D1[article: Content&lt;br/&gt;section: Subsections]
+    D --&gt; D2[aside: Sidebar&lt;br/&gt;Related content]
+    E --&gt; E1[nav: Footer links&lt;br/&gt;Copyright info]
     
-    C --&gt; C1["if statements"]
-    C --&gt; C2["if-else chains"]
-    C --&gt; C3["switch statements"]
-    
-    D --&gt; D1["&amp;&amp; (AND)"]
-    D --&gt; D2["|| (OR)"]
-    D --&gt; D3["! (NOT)"]
-    
-    E --&gt; E1["Ternary operator"]
-    E --&gt; E2["Short-circuit evaluation"]
-    E --&gt; E3["Complex conditions"]
-    
-    F["💡 Key Principles"] --&gt; F1["Clear readable conditions"]
-    F --&gt; F2["Consistent comparison style"]
-    F --&gt; F3["Proper operator precedence"]
-    F --&gt; F4["Efficient evaluation order"]
+    D1 --&gt; D1a[h1: Page title&lt;br/&gt;h2: Major sections&lt;br/&gt;h3: Subsections]
     
     style A fill:#e3f2fd
     style B fill:#e8f5e8
     style C fill:#fff3e0
     style D fill:#f3e5f5
     style E fill:#e0f2f1
-    style F fill:#fce4ec
 </code></pre>
-<hr>
-<h2 id="your-javascript-decision-making-mastery-timeline">🚀 Your JavaScript Decision-Making Mastery Timeline</h2>
-<h3 id="what-you-can-do-in-the-next-5-minutes">⚡ <strong>What You Can Do in the Next 5 Minutes</strong></h3>
+<p><strong>Building blocks of accessible page structure:</strong></p>
+<pre><code class="language-html">&lt;!-- Landmark elements provide page navigation structure --&gt;
+&lt;header&gt;
+  &lt;h1&gt;Your Site Name&lt;/h1&gt;
+  &lt;nav aria-label="Main navigation"&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/about"&gt;About&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/services"&gt;Services&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h1&gt;Article Title&lt;/h1&gt;
+      &lt;p&gt;Published on &lt;time datetime="2024-10-14"&gt;October 14, 2024&lt;/time&gt;&lt;/p&gt;
+    &lt;/header&gt;
+    
+    &lt;section&gt;
+      &lt;h2&gt;First Section&lt;/h2&gt;
+      &lt;p&gt;Content that relates to this section...&lt;/p&gt;
+    &lt;/section&gt;
+    
+    &lt;section&gt;
+      &lt;h2&gt;Second Section&lt;/h2&gt;
+      &lt;p&gt;More related content...&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/article&gt;
+  
+  &lt;aside&gt;
+    &lt;h2&gt;Related Links&lt;/h2&gt;
+    &lt;nav aria-label="Related articles"&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="/related-1"&gt;First related article&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="/related-2"&gt;Second related article&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/aside&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+  &lt;p&gt;&amp;copy; 2024 Your Site Name. All rights reserved.&lt;/p&gt;
+  &lt;nav aria-label="Footer links"&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/privacy"&gt;Privacy Policy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/contact"&gt;Contact Us&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/footer&gt;
+</code></pre>
+<p><strong>Why semantic HTML transforms accessibility:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Semantic Element</th>
+<th>Purpose</th>
+<th>Screen Reader Benefit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;header&gt;</code></td>
+<td>Page or section header</td>
+<td>"Banner landmark" - quick navigation to top</td>
+</tr>
+<tr>
+<td><code>&lt;nav&gt;</code></td>
+<td>Navigation links</td>
+<td>"Navigation landmark" - list of nav sections</td>
+</tr>
+<tr>
+<td><code>&lt;main&gt;</code></td>
+<td>Primary page content</td>
+<td>"Main landmark" - skip directly to content</td>
+</tr>
+<tr>
+<td><code>&lt;article&gt;</code></td>
+<td>Self-contained content</td>
+<td>Announces article boundaries</td>
+</tr>
+<tr>
+<td><code>&lt;section&gt;</code></td>
+<td>Themed content groups</td>
+<td>Provides content structure</td>
+</tr>
+<tr>
+<td><code>&lt;aside&gt;</code></td>
+<td>Related sidebar content</td>
+<td>"Complementary landmark"</td>
+</tr>
+<tr>
+<td><code>&lt;footer&gt;</code></td>
+<td>Page or section footer</td>
+<td>"Contentinfo landmark"</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Screen reader superpowers with semantic HTML:</strong></p>
 <ul>
-<li>[ ] Practice comparison operators in your browser console</li>
-<li>[ ] Write a simple if-else statement that checks your age</li>
-<li>[ ] Try the challenge: rewrite an if-else using a ternary operator</li>
-<li>[ ] Test what happens with different "truthy" and "falsy" values</li>
+<li><strong>Landmark navigation</strong>: Jump between major page sections instantly</li>
+<li><strong>Heading outlines</strong>: Generate a table of contents from your heading structure</li>
+<li><strong>Element lists</strong>: Create lists of all links, buttons, or form controls</li>
+<li><strong>Context awareness</strong>: Understand relationships between content sections</li>
 </ul>
-<h3 id="what-you-can-accomplish-this-hour">🎯 <strong>What You Can Accomplish This Hour</strong></h3>
+<blockquote>
+<p>🎯 <strong>Quick Test</strong>: Try navigating your site with a screen reader using landmark shortcuts (D for landmark, H for heading, K for link in NVDA/JAWS). Does the navigation make sense?</p>
+</blockquote>
+<h3 id="h-semantic-html-mastery-check-building-strong-foundations">🏗️ <strong>Semantic HTML Mastery Check: Building Strong Foundations</strong></h3>
+<p><strong>Let's evaluate your semantic understanding:</strong></p>
 <ul>
-<li>[ ] Complete the post-lesson quiz and review any confusing concepts</li>
-<li>[ ] Build the comprehensive grade calculator from the GitHub Copilot challenge</li>
-<li>[ ] Create a simple decision tree for a real-world scenario (like choosing what to wear)</li>
-<li>[ ] Practice combining multiple conditions with logical operators</li>
-<li>[ ] Experiment with switch statements for different use cases</li>
+<li>Can you identify the landmarks on a webpage just by looking at the HTML?</li>
+<li>How would you explain the difference between <code>&lt;section&gt;</code> and <code>&lt;div&gt;</code> to a friend?</li>
+<li>What's the first thing you'd check if a screen reader user reported navigation problems?</li>
 </ul>
-<h3 id="your-week-long-logic-mastery">📅 <strong>Your Week-Long Logic Mastery</strong></h3>
-<ul>
-<li>[ ] Complete the operators assignment with creative examples</li>
-<li>[ ] Build a mini quiz application using various conditional structures</li>
-<li>[ ] Create a form validator that checks multiple input conditions</li>
-<li>[ ] Practice Josh Comeau's <a href="https://joshwcomeau.com/operator-lookup/" target="_blank" rel="noopener noreferrer">operator lookup</a> exercises</li>
-<li>[ ] Refactor existing code to use more appropriate conditional structures</li>
-<li>[ ] Study short-circuit evaluation and performance implications</li>
-</ul>
-<h3 id="your-month-long-transformation">🌟 <strong>Your Month-Long Transformation</strong></h3>
-<ul>
-<li>[ ] Master complex nested conditions and maintain code readability</li>
-<li>[ ] Build an application with sophisticated decision-making logic</li>
-<li>[ ] Contribute to open source by improving conditional logic in existing projects</li>
-<li>[ ] Teach someone else about different conditional structures and when to use each</li>
-<li>[ ] Explore functional programming approaches to conditional logic</li>
-<li>[ ] Create a personal reference guide for conditional best practices</li>
-</ul>
-<h3 id="final-decision-making-champion-check-in">🏆 <strong>Final Decision-Making Champion Check-in</strong></h3>
-<p><strong>Celebrate your logical thinking mastery:</strong></p>
-<ul>
-<li>What's the most complex decision logic you've successfully implemented?</li>
-<li>Which conditional structure feels most natural to you and why?</li>
-<li>How has learning about logical operators changed your problem-solving approach?</li>
-<li>What real-world application would benefit from sophisticated decision-making logic?</li>
-</ul>
-<pre><code class="language-mermaid">journey
-    title Your Logical Thinking Evolution
-    section Today
-      Boolean Confusion: 3: You
-      If-Else Understanding: 4: You
-      Operator Recognition: 5: You
-    section This Week
-      Complex Conditions: 4: You
-      Switch Mastery: 5: You
-      Logical Combinations: 5: You
-    section Next Month
-      Advanced Patterns: 5: You
-      Performance Awareness: 5: You
-      Teaching Others: 5: You
+<pre><code class="language-mermaid">stateDiagram-v2
+    [*] --&gt; UnsementicHTML: div soup
+    UnsementicHTML --&gt; SemanticHTML: Add landmarks
+    SemanticHTML --&gt; AccessibleHTML: Test with AT
+    AccessibleHTML --&gt; [*]: User success!
+    
+    note right of UnsementicHTML
+        Screen readers lost
+        Keyboard nav broken
+    end note
+    
+    note right of AccessibleHTML
+        Clear navigation
+        Efficient browsing
+    end note
 </code></pre>
 <blockquote>
-<p>🧠 <strong>You've mastered the art of digital decision-making!</strong> Every interactive application relies on conditional logic to respond intelligently to user actions and changing conditions. You now understand how to make your programs think, evaluate, and choose appropriate responses. This logical foundation will power every dynamic application you build! 🎉</p>
+<p><strong>Pro insight</strong>: Good semantic HTML solves about 70% of accessibility issues automatically. Master this foundation and you're well on your way!</p>
 </blockquote>
+<p>✅ <strong>Audit your semantic structure</strong>: Use the Accessibility panel in your browser's DevTools to view the accessibility tree and ensure your markup creates a logical structure.</p>
+<h3 id="h-heading-hierarchy-creating-a-logical-content-outline">Heading hierarchy: Creating a logical content outline</h3>
+<p>Headings are absolutely crucial for accessible content—they're like the spine that holds everything together. Screen reader users rely heavily on headings to understand and navigate your content. Think of it as providing a table of contents for your page.</p>
+<p><strong>Here's the golden rule for headings:</strong>
+Never skip levels. Always progress logically from <code>&lt;h1&gt;</code> to <code>&lt;h2&gt;</code> to <code>&lt;h3&gt;</code>, and so on. Remember making outlines in school? It's exactly the same principle—you wouldn't jump from "I. Main Point" straight to "C. Sub-sub-point" without a "A. Sub-point" in between, right?</p>
+<p><strong>Perfect heading structure example:</strong></p>
+<pre><code class="language-html">&lt;!-- ✅ Excellent: Logical, hierarchical progression --&gt;
+&lt;main&gt;
+  &lt;h1&gt;Complete Guide to Web Accessibility&lt;/h1&gt;
+  
+  &lt;section&gt;
+    &lt;h2&gt;Understanding Screen Readers&lt;/h2&gt;
+    &lt;p&gt;Introduction to screen reader technology...&lt;/p&gt;
+    
+    &lt;h3&gt;Popular Screen Reader Software&lt;/h3&gt;
+    &lt;p&gt;NVDA, JAWS, and VoiceOver comparison...&lt;/p&gt;
+    
+    &lt;h3&gt;Testing with Screen Readers&lt;/h3&gt;
+    &lt;p&gt;Step-by-step testing instructions...&lt;/p&gt;
+  &lt;/section&gt;
+  
+  &lt;section&gt;
+    &lt;h2&gt;Color and Contrast Guidelines&lt;/h2&gt;
+    &lt;p&gt;Designing with sufficient contrast...&lt;/p&gt;
+    
+    &lt;h3&gt;WCAG Contrast Requirements&lt;/h3&gt;
+    &lt;p&gt;Understanding the different contrast levels...&lt;/p&gt;
+    
+    &lt;h3&gt;Testing Tools and Techniques&lt;/h3&gt;
+    &lt;p&gt;Tools for verifying contrast ratios...&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/main&gt;
+</code></pre>
+<pre><code class="language-html">&lt;!-- ❌ Problematic: Skipping levels, inconsistent structure --&gt;
+&lt;h1&gt;Page Title&lt;/h1&gt;
+&lt;h3&gt;Subsection&lt;/h3&gt; &lt;!-- Skipped h2 --&gt;
+&lt;h2&gt;This should come before h3&lt;/h2&gt;
+&lt;h1&gt;Another main heading?&lt;/h1&gt; &lt;!-- Multiple h1s --&gt;
+</code></pre>
+<p><strong>Heading best practices:</strong></p>
+<ul>
+<li><strong>One <code>&lt;h1&gt;</code> per page</strong>: Typically your main page title or primary content heading</li>
+<li><strong>Logical progression</strong>: Never skip levels (h1 → h2 → h3, not h1 → h3)</li>
+<li><strong>Descriptive content</strong>: Make headings meaningful when read out of context</li>
+<li><strong>Visual styling with CSS</strong>: Use CSS for appearance, HTML levels for structure</li>
+</ul>
+<p><strong>Screen reader navigation statistics:</strong></p>
+<ul>
+<li>68% of screen reader users navigate by headings (<a href="https://webaim.org/projects/screenreadersurvey9/#finding" target="_blank" rel="noopener noreferrer">WebAIM Survey</a>)</li>
+<li>Users expect to find a logical heading outline</li>
+<li>Headings provide the fastest way to understand page structure</li>
+</ul>
+<blockquote>
+<p>💡 <strong>Pro Tip</strong>: Use browser extensions like "HeadingsMap" to visualize your heading structure. It should read like a well-organized table of contents.</p>
+</blockquote>
+<p>✅ <strong>Test your heading structure</strong>: Use a screen reader's heading navigation (H key in NVDA) to jump through your headings. Does the progression tell the story of your content logically?</p>
+<h3 id="h-advanced-visual-accessibility-techniques">Advanced visual accessibility techniques</h3>
+<p>Beyond the basics of contrast and color, there are sophisticated techniques that help create truly inclusive visual experiences. These methods ensure your content works across different viewing conditions and assistive technologies.</p>
+<p><strong>Essential visual communication strategies:</strong></p>
+<ul>
+<li><strong>Multi-modal feedback</strong>: Combine visual, textual, and sometimes audio cues</li>
+<li><strong>Progressive disclosure</strong>: Present information in digestible chunks</li>
+<li><strong>Consistent interaction patterns</strong>: Use familiar UI conventions</li>
+<li><strong>Responsive typography</strong>: Scale text appropriately across devices</li>
+<li><strong>Loading and error states</strong>: Provide clear feedback for all user actions</li>
+</ul>
+<p><strong>CSS utilities for enhanced accessibility:</strong></p>
+<pre><code class="language-css">/* Screen reader only text - visually hidden but accessible */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip link for keyboard navigation */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000000;
+  color: #ffffff;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: top 0.3s ease;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion: reduce) {
+  .skip-link {
+    transition: none;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .button {
+    border: 2px solid;
+  }
+}
+</code></pre>
+<blockquote>
+<p>🎯 <strong>Accessibility Pattern</strong>: The "skip link" is essential for keyboard users. It should be the first focusable element on your page and jump directly to the main content area.</p>
+</blockquote>
+<p>✅ <strong>Implement skip navigation</strong>: Add skip links to your pages and test them by pressing Tab as soon as the page loads. They should appear and allow you to jump to main content.</p>

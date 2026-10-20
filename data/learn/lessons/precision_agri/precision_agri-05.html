@@ -4,19 +4,17 @@
 </blockquote>
 <p>This lesson was taught as part of the <a href="https://youtube.com/playlist?list=PLmsFUfdnGr3yCutmcVg6eAUEfsGiFXgcx" target="_blank" rel="noopener noreferrer">IoT for Beginners Project 2 - Digital Agriculture series</a> from the <a href="https://developer.microsoft.com/reactor/?WT.mc_id=academic-17441-jabenn" target="_blank" rel="noopener noreferrer">Microsoft Reactor</a>.</p>
 <p><a href="https://youtu.be/VVZDcs5u1_I" target="_blank" rel="noopener noreferrer"><img alt="Control your IoT device with serverless code" loading="lazy" src="https://img.youtube.com/vi/VVZDcs5u1_I/0.jpg"></a></p>
-
-
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p>In the last lesson, you learned how to connect your plant soil moisture monitoring and relay control to a cloud-based IoT service. The next step is to move the server code that controls the timing of the relay to the cloud. In this lesson you will learn how to do this using serverless functions.</p>
 <p>In this lesson we'll cover:</p>
 <ul>
-<li><a href="#what-is-serverless" rel="noopener noreferrer">What is serverless?</a></li>
-<li><a href="#create-a-serverless-application" rel="noopener noreferrer">Create a serverless application</a></li>
-<li><a href="#create-an-iot-hub-event-trigger" rel="noopener noreferrer">Create an IoT Hub event trigger</a></li>
+<li><a href="#h-what-is-serverless" rel="noopener noreferrer">What is serverless?</a></li>
+<li><a href="#h-create-a-serverless-application" rel="noopener noreferrer">Create a serverless application</a></li>
+<li><a href="#h-create-an-iot-hub-event-trigger" rel="noopener noreferrer">Create an IoT Hub event trigger</a></li>
 <li><a href="#send-direct-method-requests-from-serverless-code" rel="noopener noreferrer">Send direct method requests from serverless code</a></li>
 <li><a href="#deploy-your-serverless-code-to-the-cloud" rel="noopener noreferrer">Deploy your serverless code to the cloud</a></li>
 </ul>
-<h2 id="what-is-serverless">What is serverless?</h2>
+<h2 id="h-what-is-serverless">What is serverless?</h2>
 <p>Serverless, or serverless computing, involves creating small blocks of code that are run in the cloud in response to different kinds of events. When the event happens your code is run, and it is passed data about the event. These events can be from many different things, including web requests, messages put on a queue, changes to data in a database, or messages sent to an IoT service by IoT devices.</p>
 <p><img alt="Events being sent from an IoT service to a serverless service, all being processed at the same time by multiple functions being run" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/iot-messages-to-serverless.png"></p>
 <blockquote>
@@ -37,13 +35,12 @@
 <blockquote>
 <p>💁 The serverless model is moving to other cloud services in addition to running code. For example, serverless databases are available in the cloud using a serverless pricing model where you pay per request made against the database, such as a query or insert, usually using pricing based on how much work is done to service the request. For example a single select of one row against a primary key will cost less than a complicated operation joining many tables and returning thousands of rows.</p>
 </blockquote>
-<h2 id="create-a-serverless-application">Create a serverless application</h2>
+<h2 id="h-create-a-serverless-application">Create a serverless application</h2>
 <p>The serverless computing service from Microsoft is called Azure Functions.</p>
 <p><img alt="The Azure Functions logo" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/azure-functions-logo.png"></p>
 <p>The short video below has an overview of Azure Functions</p>
 <p><a href="https://www.youtube.com/watch?v=8-jz5f_JyEQ" target="_blank" rel="noopener noreferrer"><img alt="Azure Functions overview video" loading="lazy" src="https://img.youtube.com/vi/8-jz5f_JyEQ/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
 <p>✅ Take a moment to do some research and read the overview of Azure Functions in the <a href="https://docs.microsoft.com/azure/azure-functions/functions-overview?WT.mc_id=academic-17441-jabenn" target="_blank" rel="noopener noreferrer">Microsoft Azure Functions documentation</a>.</p>
 <p>To write Azure Functions, you start with an Azure Functions app in the language of your choice. Out of the box Azure Functions supports Python, JavaScript, TypeScript, C#, F#, Java, and Powershell. In this lesson you will learn how to write an Azure Functions app in Python.</p>
@@ -51,7 +48,7 @@
 <p>💁 Azure Functions also supports custom handlers so you can write your functions in any language that supports HTTP requests, including older languages such as COBOL.</p>
 </blockquote>
 <p>Functions apps consist of one or more <em>triggers</em> - functions that respond to events. You can have multiple triggers inside one function app, all sharing common configuration. For example, in the configuration file for your Functions app you can have the connection details of your IoT Hub, and all the functions in the app can use this to connect and listen for events.</p>
-<h3 id="task-install-the-azure-functions-tooling">Task - install the Azure Functions tooling</h3>
+<h3 id="h-task-install-the-azure-functions-tooling">Task - install the Azure Functions tooling</h3>
 <blockquote>
 <p>At the time of writing, the Azure Functions code tools are not fully working on Apple Silicon with Python projects. You will need to use am Intel-based Mac, Windows PC, or Linux PC instead.</p>
 </blockquote>
@@ -98,7 +95,7 @@ Azurite Table service is successfully listening at http://127.0.0.1:10002
 </code></pre>
 </li>
 </ol>
-<h3 id="task-create-an-azure-functions-project">Task - create an Azure Functions project</h3>
+<h3 id="h-task-create-an-azure-functions-project">Task - create an Azure Functions project</h3>
 <p>The Azure Functions CLI can be used to create a new Functions app.</p>
 <ol>
 <li>
@@ -215,7 +212,7 @@ VS Code. Initialize for optimal use with VS Code?
 <p>Make sure the Python virtual environment is running in the VS Code terminal. Terminate it and restart it if necessary.</p>
 </li>
 </ol>
-<h2 id="create-an-iot-hub-event-trigger">Create an IoT Hub event trigger</h2>
+<h2 id="h-create-an-iot-hub-event-trigger">Create an IoT Hub event trigger</h2>
 <p>The Functions app is the shell of your serverless code. To respond to IoT hub events, you can add an IoT Hub trigger to this app. This trigger needs to connect to the stream of messages that are sent to the IoT Hub and respond to them. To get this stream of messages, your trigger needs to connect to the IoT Hubs <em>event hub compatible endpoint</em>.</p>
 <p>IoT Hub is based upon another Azure service called Azure Event Hubs. Event Hubs is a service that allows you to send and receive messages, IoT Hub extends this to add features for IoT devices. The way you connect to read messages off the IoT Hub is the same as you would if you were using Event Hubs.</p>
 <p>✅ Do some research: Read the overview of Event Hubs in the <a href="https://docs.microsoft.com/azure/event-hubs/event-hubs-about?WT.mc_id=academic-17441-jabenn" target="_blank" rel="noopener noreferrer">Azure Event Hubs documentation</a>. How do the basic features compare to IoT Hub?</p>
@@ -224,7 +221,7 @@ VS Code. Initialize for optimal use with VS Code?
 <p>💁 The default connection string you get has <strong>iothubowner</strong> permissions, which gives any code that uses it full permissions on the IoT Hub. Ideally you should connect with the lowest level of permissions needed. This will be covered in the next lesson.</p>
 </blockquote>
 <p>Once your trigger has connected, the code inside the function will be called for every message sent to the IoT Hub, regardless of which device sent it. The trigger will be passed the message as a parameter.</p>
-<h3 id="task-get-the-event-hub-compatible-endpoint-connection-string">Task - get the Event Hub compatible endpoint connection string</h3>
+<h3 id="h-task-get-the-event-hub-compatible-endpoint-connection-string">Task - get the Event Hub compatible endpoint connection string</h3>
 <ol>
 <li>
 <p>From the VS Code terminal run the following command to get the connection string for the IoT Hubs Event Hub compatible endpoint:</p>
@@ -241,7 +238,7 @@ VS Code. Initialize for optimal use with VS Code?
 <p>Replace <code>&lt;connection string&gt;</code> with the value from the previous step. You will need to add a comma after the line above to make this valid JSON.</p>
 </li>
 </ol>
-<h3 id="task-create-an-event-trigger">Task - create an event trigger</h3>
+<h3 id="h-task-create-an-event-trigger">Task - create an event trigger</h3>
 <p>You are now ready to create the event trigger.</p>
 <ol>
 <li>
@@ -314,7 +311,7 @@ def main(event: func.EventHubEvent):
 </code></pre>
 </li>
 </ol>
-<h3 id="task-run-the-event-trigger">Task - run the event trigger</h3>
+<h3 id="h-task-run-the-event-trigger">Task - run the event trigger</h3>
 <ol>
 <li>
 <p>Make sure you are not running the IoT Hub event monitor. If this is running at the same time as the functions app, the functions app will not be able to connect and consume events.</p>
@@ -378,188 +375,4 @@ For detailed output, run func with --verbose flag.
 </code></pre>
 <p>Check that you have set the <code>eventHubName</code> in the <code>function.json</code> file to  an empty string.</p>
 </li>
-</ul>
-<h2 id="send-direct-method-requests-from-serverless-code">Send direct method requests from serverless code</h2>
-<p>So far your Functions app is listening to messages from the IoT Hub using the Event Hub compatible end point. You now need to send commands to the IoT device. This is done by using a different connection to the IoT Hub via the <em>Registry Manager</em>. The Registry Manager is a tool that allows you to see what devices are registered with the IoT Hub, and communicate with those devices by sending cloud to device messages, direct method requests or updating the device twin. You can also use it to register, update or delete IoT devices from the IoT Hub.</p>
-<p>To connect to the Registry Manager, you need a connection string.</p>
-<h3 id="task-get-the-registry-manager-connection-string">Task - get the Registry Manager connection string</h3>
-<ol>
-<li>
-<p>To get the connection string, run the following command:</p>
-<pre><code class="language-sh">az iot hub connection-string show --policy-name service \
-                                  --output table \
-                                  --hub-name &lt;hub_name&gt;
-</code></pre>
-<p>Replace <code>&lt;hub_name&gt;</code> with the name you used for your IoT Hub.</p>
-<p>The connection string is requested for the <em>ServiceConnect</em> policy using the <code>--policy-name service</code> parameter. When you request a connection string, you can specify what permissions that connection string will allow. The ServiceConnect policy allows your code to connect and send messages to IoT devices.</p>
-<p>✅ Do some research: Read up on the different policies in the <a href="https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#iot-hub-permissions?WT.mc_id=academic-17441-jabenn" target="_blank" rel="noopener noreferrer">IoT Hub permissions documentation</a></p>
-</li>
-<li>
-<p>In VS Code, open the <code>local.settings.json</code> file. Add the following additional value inside the <code>Values</code> section:</p>
-<pre><code class="language-json">"REGISTRY_MANAGER_CONNECTION_STRING": "&lt;connection string&gt;"
-</code></pre>
-<p>Replace <code>&lt;connection string&gt;</code> with the value from the previous step. You will need to add a comma after the line above to make this valid JSON.</p>
-</li>
-</ol>
-<h3 id="task-send-a-direct-method-request-to-a-device">Task - send a direct method request to a device</h3>
-<ol>
-<li>
-<p>The SDK for the Registry Manager is available via a Pip package. Add the following line to the <code>requirements.txt</code> file to add the dependency on this package:</p>
-<pre><code class="language-sh">azure-iot-hub
-</code></pre>
-</li>
-<li>
-<p>Make sure the VS Code terminal has the virtual environment activated, and run the following command to install the Pip packages:</p>
-<pre><code class="language-sh">pip install -r requirements.txt
-</code></pre>
-</li>
-<li>
-<p>Add the following imports to the <code>__init__.py</code> file:</p>
-<pre><code class="language-python">import json
-import os
-from azure.iot.hub import IoTHubRegistryManager
-from azure.iot.hub.models import CloudToDeviceMethod
-</code></pre>
-<p>This imports some system libraries, as well as the libraries to interact with the Registry Manager and send direct method requests.</p>
-</li>
-<li>
-<p>Remove the code from inside the <code>main</code> method, but keep the method itself.</p>
-</li>
-<li>
-<p>In the <code>main</code> method, add the following code:</p>
-<pre><code class="language-python">body = json.loads(event.get_body().decode('utf-8'))
-device_id = event.iothub_metadata['connection-device-id']
-
-logging.info(f'Received message: {body} from {device_id}')
-</code></pre>
-<p>This code extracts the body of the event which contains the JSON message sent by the IoT device.</p>
-<p>It then gets the device ID from the annotations passed with the message. The body of the event contains the message sent as telemetry, the <code>iothub_metadata</code> dictionary contains properties set by the IoT Hub such as the device ID of the sender, and the time that the message was sent.</p>
-<p>This information is then logged. You will see this logging in the terminal when you run the Function app locally.</p>
-</li>
-<li>
-<p>Below this, add the following code:</p>
-<pre><code class="language-python">soil_moisture = body['soil_moisture']
-
-if soil_moisture &gt; 450:
-    direct_method = CloudToDeviceMethod(method_name='relay_on', payload='{}')
-else:
-    direct_method = CloudToDeviceMethod(method_name='relay_off', payload='{}')
-</code></pre>
-<p>This code gets the soil moisture from the message. It then checks the soil moisture, and depending on the value, creates a helper class for the direct method request for the <code>relay_on</code> or <code>relay_off</code> direct method. The method request doesn't need a payload, so an empty JSON document is sent.</p>
-</li>
-<li>
-<p>Below this add the following code:</p>
-<pre><code class="language-python">logging.info(f'Sending direct method request for {direct_method.method_name} for device {device_id}')
-
-registry_manager_connection_string = os.environ['REGISTRY_MANAGER_CONNECTION_STRING']
-registry_manager = IoTHubRegistryManager(registry_manager_connection_string)
-</code></pre>
-<p>This code loads the <code>REGISTRY_MANAGER_CONNECTION_STRING</code> from the <code>local.settings.json</code> file. The values in this file are made available as environment variables, and these can be read using the <code>os.environ</code> function, a function that returns a dictionary of all the environment variables.</p>
-<blockquote>
-<p>💁 When this code is deployed to the cloud, the values in the <code>local.settings.json</code> file will be set as <em>Application Settings</em>, and these can be read from environment variables.</p>
-</blockquote>
-<p>The code then creates an instance of the Registry Manager helper class using the connection string.</p>
-</li>
-<li>
-<p>Below this add the following code:</p>
-<pre><code class="language-python">registry_manager.invoke_device_method(device_id, direct_method)
-
-logging.info('Direct method request sent!')
-</code></pre>
-<p>This code tells the registry manager to send the direct method request to the device that sent the telemetry.</p>
-<blockquote>
-<p>💁 In the versions of the app you created in earlier lessons using MQTT, the relay control commands were sent to all devices. The code assumed you would only have one device. This version of the code sends the method request to a single device, so would work if you had multiple setups of moisture sensors and relays, sending the right direct method request to the right device.</p>
-</blockquote>
-</li>
-<li>
-<p>Run the Functions app, and make sure your IoT device is sending data. You will see the messages being processed and the direct method requests being sent. Move the soil moisture sensor in and out of the soil to see the values change and the relay turn on and off</p>
-</li>
-</ol>
-<blockquote>
-<p>💁 You can find this code in the <a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/2-farm/lessons/5-migrate-application-to-the-cloud/code/functions" target="_blank" rel="noopener noreferrer">code/functions</a> folder.</p>
-</blockquote>
-<h2 id="deploy-your-serverless-code-to-the-cloud">Deploy your serverless code to the cloud</h2>
-<p>Your code is now working locally, so the next step is to deploy the Functions App to the cloud.</p>
-<h3 id="task-create-the-cloud-resources">Task - create the cloud resources</h3>
-<p>Your Functions app needs to be deployed to a Functions App resource in Azure, living inside the Resource Group you created for your IoT Hub. You will also need a Storage Account created in Azure to replace the emulated one you have running locally.</p>
-<ol>
-<li>
-<p>Run the following command to create a storage account:</p>
-<pre><code class="language-sh">az storage account create --resource-group soil-moisture-sensor \
-                          --sku Standard_LRS \
-                          --name &lt;storage_name&gt; 
-</code></pre>
-<p>Replace <code>&lt;storage_name&gt;</code> with a name for your storage account. This will need to be globally unique as it forms part of the URL used to access the storage account. You can only use lower case letters and numbers for this name, no other characters, and it's limited to 24 characters. Use something like <code>sms</code> and add a unique identifier on the end, like some random words or your name.</p>
-<p>The <code>--sku Standard_LRS</code> selects the pricing tier, selecting the lowest cost general-purpose account. There isn't a free tier of storage, and you pay for what you use. The costs are relatively low, with the most expensive storage at less than US$0.05 per month per gigabyte stored.</p>
-<p>✅ Read up on pricing on the <a href="https://azure.microsoft.com/pricing/details/storage/?WT.mc_id=academic-17441-jabenn" target="_blank" rel="noopener noreferrer">Azure Storage Account pricing page</a></p>
-</li>
-<li>
-<p>Run the following command to create a Function App:</p>
-<pre><code class="language-sh">az functionapp create --resource-group soil-moisture-sensor \
-                      --runtime python \
-                      --functions-version 3 \
-                      --os-type Linux \
-                      --consumption-plan-location &lt;location&gt; \
-                      --storage-account &lt;storage_name&gt; \
-                      --name &lt;functions_app_name&gt;
-</code></pre>
-<p>Replace <code>&lt;location&gt;</code> with the location you used when creating the Resource Group in the previous lesson.</p>
-<p>Replace <code>&lt;storage_name&gt;</code> with the name of the storage account you created in the previous step.</p>
-<p>Replace <code>&lt;functions_app_name&gt;</code> with a unique name for your Functions App. This will need to be globally unique as it forms part of a URL that can be used to access the Functions App. Use something like <code>soil-moisture-sensor-</code> and add a unique identifier on the end, like some random words or your name.</p>
-<p>The <code>--functions-version 3</code> option sets the version of Azure Functions to use. Version 3 is the latest version.</p>
-<p>The <code>--os-type Linux</code> tells the Functions runtime to use Linux as the OS to host these functions. Functions can be hosted on Linux or Windows, depending on the programming language used. Python apps are only supported on Linux.</p>
-</li>
-</ol>
-<h3 id="task-upload-your-application-settings">Task - upload your application settings</h3>
-<p>When you developed your Functions App, you stored some settings in the <code>local.settings.json</code> file for the connection strings for your IoT Hub. These need to be written to Application Settings in your Function App in Azure so that they can be used by your code.</p>
-<blockquote>
-<p>🎓 The <code>local.settings.json</code> file is for local development settings only, and these should not be checked into source code control, such as GitHub. When deployed to the cloud, Application Settings are used. Application Settings are key/value pairs hosted in the cloud and are read from environment variables either in your code or by the runtime when connecting your code to IoT Hub.</p>
-</blockquote>
-<ol>
-<li>
-<p>Run the following command to set the <code>IOT_HUB_CONNECTION_STRING</code> setting in the Functions App Application Settings:</p>
-<pre><code class="language-sh">az functionapp config appsettings set --resource-group soil-moisture-sensor \
-                                      --name &lt;functions_app_name&gt; \
-                                      --settings "IOT_HUB_CONNECTION_STRING=&lt;connection string&gt;"
-</code></pre>
-<p>Replace <code>&lt;functions_app_name&gt;</code> with the name you used for your Functions App.</p>
-<p>Replace <code>&lt;connection string&gt;</code> with the value of <code>IOT_HUB_CONNECTION_STRING</code> from your <code>local.settings.json</code> file.</p>
-</li>
-<li>
-<p>Repeat the step above, but set the value of <code>REGISTRY_MANAGER_CONNECTION_STRING</code> to the corresponding value from your <code>local.settings.json</code> file.</p>
-</li>
-</ol>
-<p>When you run these commands, they will also output a list of all the Application Settings for the function app. You can use this to check that your values are set correctly.</p>
-<blockquote>
-<p>💁 You will see a value already set for <code>AzureWebJobsStorage</code>. In your <code>local.settings.json</code> file, this was set to a value to use the local storage emulator. When you created the Functions App, you pass the storage account as a parameter, and this gets set automatically in this setting.</p>
-</blockquote>
-<h3 id="task-deploy-your-functions-app-to-the-cloud">Task - deploy your Functions App to the cloud</h3>
-<p>Now that the Functions App is ready, your code can be deployed.</p>
-<ol>
-<li>
-<p>Run the following command from the VS Code terminal to publish your Functions App:</p>
-<pre><code class="language-sh">func azure functionapp publish &lt;functions_app_name&gt;
-</code></pre>
-<p>Replace <code>&lt;functions_app_name&gt;</code> with the name you used for your Functions App.</p>
-</li>
-</ol>
-<p>The code will be packaged up and sent to the Functions App, where it will be deployed and started. There will be a lot of console output, ending in confirmation of the deployment and a list of the functions deployed. In this case the list will only contain the trigger.</p>
-<pre><code class="language-output">Deployment successful.
-Remote build succeeded!
-Syncing triggers...
-Functions in soil-moisture-sensor:
-    iot-hub-trigger - [eventHubTrigger]
-</code></pre>
-<p>Make sure your IoT device is running. Change the moisture levels by adjusting the soil moisture, or moving the sensor in and out of the soil. You will see the relay turn on and off as the soil moisture changes.</p>
-<hr>
-<h2 id="challenge">🚀 Challenge</h2>
-<p>In the previous lesson, you managed timing for the relay by unsubscribing from MQTT messages whilst the relay was on, and for a short while after it was turned off. You can't use this method here - you cannot unsubscribe your IoT Hub trigger.</p>
-<p>Think about different ways you could handle this in your Functions App.</p>
-
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
-<ul>
-<li>Read up on serverless computing on the <a href="https://wikipedia.org/wiki/Serverless_computing" target="_blank" rel="noopener noreferrer">Serverless Computing page on Wikipedia</a></li>
-<li>Read about using serverless in Azure including some more examples on the <a href="https://azure.microsoft.com/blog/go-serverless-for-your-iot-needs/?WT.mc_id=academic-17441-jabenn" target="_blank" rel="noopener noreferrer">Go serverless for your IoT needs Azure blog post</a></li>
-<li>Learn more about Azure Functions on the <a href="https://www.youtube.com/c/AzureFunctions" target="_blank" rel="noopener noreferrer">Azure Functions YouTube channel</a></li>
 </ul>

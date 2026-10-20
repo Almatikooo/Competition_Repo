@@ -1,103 +1,135 @@
-<p>Your service’s completion rate is the number of digital transactions that your users complete as a percentage of all digital transactions that your users start.</p>
-<p>This includes transactions where the user receives support from someone to use the digital service (called <a href="https://www.gov.uk/service-manual/helping-people-to-use-your-service/assisted-digital-support-introduction" target="_blank" rel="noopener noreferrer">‘assisted digital support’</a>).</p>
-<h2 id="calculate-completion-rate">Calculate completion rate</h2>
-<p>To calculate your service’s completion rate:</p>
-<ol>
-<li>
-<p>Count the number of completed transactions - the numerator.</p>
-</li>
-<li>
-<p>Divide it by the total number of transactions (including partially completed or failed ones) - the denominator.</p>
-</li>
-<li>
-<p>Show the result as a percentage.</p>
-</li>
-</ol>
-<p>Make sure you count only genuine users. Set up your analytics tools to exclude internal users, test users and web robots from your data.</p>
-<h3 id="what-to-include-as-a-transaction">What to include as a transaction</h3>
-<p>A transaction is an exchange of:</p>
-<ul>
-<li>money</li>
-<li>information</li>
-<li>permission</li>
-<li>goods or services</li>
-</ul>
-<p>Transactions on your service will have clearly defined start and end points. They will also result in a change to a government system - for example, someone’s personal information or the details of an interaction are stored in a register or database.</p>
-<p>The following activities do not have clearly defined start and end points and are not recorded in a government system, so they are not transactions:</p>
-<ul>
-<li>general advice or enquiries</li>
-<li>informal complaints</li>
-<li>visits to websites</li>
-</ul>
-<h3 id="when-a-transaction-is-completed">When a transaction is completed</h3>
-<p>A transaction is completed when someone finishes the task that your digital service provides. For example, when a user:</p>
-<ul>
-<li>submits an application</li>
-<li>makes a payment</li>
-<li>makes a booking</li>
-</ul>
-<p>The service should tell the user that the transaction is complete with a confirmation or ‘thank you’ message.</p>
-<p>A user’s application does not have to be successful for you to consider the transaction complete.</p>
-<p>For example, the Apply for a patent transaction is considered complete when the user has submitted an application, regardless of whether the application is successful.</p>
-<h3 id="when-a-transaction-has-failed">When a transaction has failed</h3>
-<p>A failed transaction is when a user gives up before reaching a defined end page (often called a <a href="https://www.gov.uk/service-manual/design/confirmation-pages" target="_blank" rel="noopener noreferrer">‘confirmation page’</a>). This includes when a user abandons the service from an error page.</p>
-<h2 id="configure-your-service-to-measure-completion-rate">Configure your service to measure completion rate</h2>
-<p>To make it easier to analyse user behaviour, give each step in your service a unique URL. This means you can identify them in your analytics tool.</p>
-<h3 id="measure-from-the-start-of-a-transaction">Measure from the start of a transaction</h3>
-<p>Most services will have a <a href="https://design-system.service.gov.uk/patterns/start-using-a-service/" target="_blank" rel="noopener noreferrer">start page</a> on GOV.UK, which should be the only way to access the service.</p>
-<p>You should usually only consider a transaction to have started when the user continues from your service’s start page.</p>
-<p>Make sure users cannot bypass the start page via links or search engine results.</p>
-<p>Some services do not have a start page. In these cases it helps to understand the whole user journey so that you can identify the exact points at which the user starts the service. This is usually another page on GOV.UK.</p>
-<p>For example, there is no start page if someone wants to book an appointment at a UK consular office. There are links to this service from other pages on GOV.UK, such as the information page on getting married in France. In this case, the page on getting married in France is effectively the start page for booking an appointment at a UK consular office.</p>
-<h3 id="know-when-a-service-ends">Know when a service ends</h3>
-<p>Services often have multiple end points. You must have appropriate end pages at each of them.</p>
-<p>For example, the ‘Check if you can get legal aid’ service has two main end points:</p>
-<ul>
-<li>one for those who are eligible (that tells them what to do next)</li>
-<li>one for those who are not eligible (that suggests other forms of support)</li>
-</ul>
-<p>When a user reaches one of these end pages, you must consider the transaction to have finished.</p>
-<p>You’ll have to list all of your end pages in your <a href="https://www.gov.uk/service-manual/service-assessments/how-service-assessments-work" target="_blank" rel="noopener noreferrer">service assessments</a>.</p>
-<h3 id="count-users-who-save-and-return">Count users who ‘save and return’</h3>
-<p>If your service allows users to save a transaction and finish it later, make sure you can match transaction starts to their subsequent completions.</p>
-<p>For example, in Google Analytics you can use cohort analysis and custom dimensions to track the number of times a user returns to complete a transaction on your service.</p>
-<h3 id="services-with-both-digital-and-non-digital-steps">Services with both digital and non-digital steps</h3>
-<p>For legal reasons, some services require users to carry out steps digitally and non-digitally, for example starting and finishing a transaction online, but sending a paper copy of a form in the middle.</p>
-<p>To measure the 2 parts of the service as a whole is complicated. Users complete the second part of the service much later, which can lead to misleading completion rates. You can resolve this by using cohort analysis and custom dimensions.</p>
-<p>However, if your service does not need to match the 2 digital parts of the user journey, you can treat them as separate transactions and measure completion rates for each.</p>
-<h2 id="count-users-who-are-ineligible-for-a-service">Count users who are ineligible for a service</h2>
-<p>Some services have complex eligibility criteria. It can be helpful to include a series of questions - <a href="https://gds.blog.gov.uk/2012/02/16/smart-answers-are-smart/" target="_blank" rel="noopener noreferrer">a smart answer</a> - to test eligibility.</p>
-<p>If a user continues to use a service after failing an eligibility test, count them as having started the transaction. For example, people can still apply for Carer’s Allowance even if the eligibility test tells them they’re not entitled to it.</p>
-<p>You should not consider users who abandon a service after failing an eligibility test as users who have started a transaction.</p>
-<h2 id="measure-completion-rates-for-assisted-digital-support">Measure completion rates for assisted digital support</h2>
-<p>Some users will need help to use the digital part of a service, and it’s useful to keep a separate measure of how your <a href="https://www.gov.uk/service-manual/helping-people-to-use-your-service/designing-assisted-digital" target="_blank" rel="noopener noreferrer">assisted digital support</a> is performing.</p>
-<p>For completion rates:</p>
-<ul>
-<li>count the number of successful assisted digital transactions</li>
-<li>divide it by the total assisted digital transactions</li>
-<li>express the result as a percentage</li>
-</ul>
-<h2 id="check-completion-rate-through-each-service-phase">Check completion rate through each service phase</h2>
-<h3 id="discovery">Discovery</h3>
-<p>In discovery, explore any data from legacy and offline systems.</p>
+<p>As a service owner, you should know how well your service is working for users. To do this, you’ll need to design metrics that have a clear meaning and collect data that tells you how your service is performing against them.</p>
+<p>You must <a href="https://www.gov.uk/service-manual/measuring-success/data-you-must-publish" target="_blank" rel="noopener noreferrer">collect and publish data for the 4 mandatory key performance indicators (<abbr title="key performance indicators">KPIs</abbr>)</a>. You’ll also need your own <abbr title="key performance indicators">KPIs</abbr> to fully understand whether your service is working for users and to communicate its performance to your organisation.</p>
+<p>Have a performance analyst on your team from the start of discovery and make them part of the process of building your service. Work out your measurements as you build the service, not afterwards.</p>
+<p>You should always combine your metrics with <a href="https://www.gov.uk/service-manual/user-research" target="_blank" rel="noopener noreferrer">user research</a> and iterate your service based on insight from both to make sure it’s always improving.</p>
+<h2 id="h-base-your-metrics-on-a-sound-understanding-of-your-service-s">Base your metrics on a sound understanding of your service’s purpose</h2>
+<p>Well designed, meaningful metrics tell you whether your service is doing what it should. Start designing your metrics by clearly defining the purpose of your service.</p>
 <p>You should consider:</p>
 <ul>
-<li>the data that’s available</li>
-<li>where you can get the data - for example, an existing online service, a digital database that supports an existing offline service, contact centre data, search terms in web analytics</li>
-<li>whether you can calculate completion rates from these to use as a baseline</li>
+<li>the <a href="https://www.gov.uk/service-manual/user-research/start-by-learning-user-needs" target="_blank" rel="noopener noreferrer">user needs your service is designed to meet</a>
+</li>
+<li>any policy outcomes your service is intended to produce, for example a reduction in fraud or costs</li>
 </ul>
-<h3 id="alpha">Alpha</h3>
-<p>In alpha, start work on defining <a href="https://www.gov.uk/service-manual/measuring-success/how-to-set-performance-metrics-for-your-service" target="_blank" rel="noopener noreferrer">performance metrics for your service</a>. Specify the user journeys you’ll measure, including start and end points for them.</p>
-<h3 id="beta">Beta</h3>
-<p>In beta, map all possible user journeys through your service. You will not be able to measure completion rates until your service goes into public beta.</p>
-<h2 id="publish-the-data">Publish the data</h2>
-<p>You must measure your completion rate data every month and <a href="https://www.gov.uk/service-manual/measuring-success/data-you-must-publish" target="_blank" rel="noopener noreferrer">publish the data</a>.</p>
-<h2 id="related-guides">Related guides</h2>
-<p>You may also find these guides useful:</p>
+<p>Aim to sum up why your service exists in a single line. For example:</p>
+<blockquote>
+<blockquote>
+<p>GOV.UK Pay will make it easier and more efficient for government to process payments, saving time and effort for service teams across government.</p>
+</blockquote>
+</blockquote>
+<p>You might find it useful to <a href="https://medium.com/@tomhewitson/using-value-propositions-to-improve-your-product-development-process-a9fc230e6341" target="_blank" rel="noopener noreferrer">write a ‘value proposition statement’</a> with your team to achieve this.</p>
+<h2 id="h-define-goals-or-benefits-for-your-service">Define goals, or ‘benefits’, for your service</h2>
+<p>Derive a small number of ‘benefits’ for your service. A benefit should be a short description of a certain outcome that will contribute to your service fulfilling its purpose. Base your benefits on your understanding of your users’ needs.</p>
+<h3 id="h-example">Example</h3>
+<p>Need: “as a UK citizen abroad, I need quick access to money for healthcare so that I can get medical treatment on time.”</p>
+<p>Service benefit: “Make it easier to get timely medical treatment abroad by speeding up the application process for funding.”</p>
+<h2 id="h-develop-hypotheses-based-on-your-benefits">Develop hypotheses based on your benefits</h2>
+<p>Articulate how something you are going to do will help you achieve one of your service’s benefits and why.</p>
+<p>Use the format:</p>
+<blockquote>
+<blockquote>
+<p>Doing or changing [something]…</p>
+<p>Will lead to [benefit]…</p>
+<p>Because of [assumption, logic or strategy]…</p>
+</blockquote>
+</blockquote>
+<p>Aim to get to the core assumptions about how your service will add value. This will help you make your measurements as relevant as possible.</p>
+<p>For example:</p>
+<blockquote>
+<blockquote>
+<p>If we provide an online form, it will speed up the application process because digital applications are quicker than paper ones.</p>
+</blockquote>
+</blockquote>
+<p>Hypotheses will help you <a href="https://insidegovuk.blog.gov.uk/2017/09/06/making-better-decisions-with-data/" target="_blank" rel="noopener noreferrer">make better decisions with data</a>, because they let you measure the effect of a specific course of action you’ve chosen to follow.</p>
+<h2 id="h-decide-what-to-measure-based-on-your-hypotheses">Decide what to measure based on your hypotheses</h2>
+<p>Your hypotheses should take you to a point where you have a set of things to measure that are easily measurable. At the start of developing your service you do not have to think about specifically how you’ll measure them, but you should have a clear understanding of what each measurement means.</p>
+<p>For example:</p>
+<blockquote>
+<blockquote>
+<p>We will measure how long it takes a user to make an application using the online form we build.</p>
+</blockquote>
+</blockquote>
+<p>As your service evolves, you’ll need to identify which metrics will be the <abbr title="key performance indicators">KPIs</abbr> you share to show how your service is performing. Choose 3 or 4 metrics that would answer the question: ‘is this service working?’</p>
+<p>You’ll still probably need other metrics within your team to understand your service’s performance in more detail.</p>
+<h2 id="h-find-data-sources-for-your-measurements">Find data sources for your measurements</h2>
+<p>After you’ve chosen what to measure, you’ll need to get access to all the data sources you’ll need to make your measurements. Data sources could include:</p>
 <ul>
-<li><a href="https://www.gov.uk/service-manual/measuring-success/measuring-cost-per-transaction" target="_blank" rel="noopener noreferrer">Measuring cost per transaction</a></li>
-<li><a href="https://www.gov.uk/service-manual/measuring-success/measuring-digital-take-up" target="_blank" rel="noopener noreferrer">Measuring digital take-up</a></li>
-<li><a href="https://www.gov.uk/service-manual/measuring-success/measuring-user-satisfaction" target="_blank" rel="noopener noreferrer">Measuring user satisfaction</a></li>
-<li><a href="https://www.gov.uk/service-manual/measuring-success/data-you-must-publish" target="_blank" rel="noopener noreferrer">Data you must publish</a></li>
-<li><a href="https://www.gov.uk/service-manual/measuring-success/choosing-digital-analytics-tools" target="_blank" rel="noopener noreferrer">Choosing digital analytics tools</a></li>
+<li>digital (web) analytics</li>
+<li>user feedback</li>
+<li>site performance</li>
+<li>call centre data</li>
+<li>financial information (for example, how much your hosting costs)</li>
+</ul>
+<p>Digital analytics will tell you how people are interacting with the online parts of your service. You should make sure:</p>
+<ul>
+<li>you <a href="https://www.gov.uk/service-manual/measuring-success/choosing-digital-analytics-tools" target="_blank" rel="noopener noreferrer">choose a digital analytics tool</a> that will give you what your service needs</li>
+<li>your performance analyst is involved in building your service - it’s much easier to implement data collection and solve problems as you build than to go back and do it afterwards</li>
+</ul>
+<p>Do not just use digital analytics. Combining data from a range of sources will give you a richer picture of how your service is performing.</p>
+<p>There are different ways to access each data source and you’ll be able to use different tools to do so. Your performance analyst can help you consider practical questions such as:</p>
+<ul>
+<li>how you’ll gather user feedback - for example, you might need to run a user satisfaction survey or collect data from your call centres</li>
+<li>what software you’ll need to install if you’re going to monitor service uptime and performance</li>
+</ul>
+<h2 id="h-collect-and-analyse-data">Collect and analyse data</h2>
+<p>Once you’ve identified all your data sources, your team’s performance analyst will:</p>
+<ul>
+<li>make sure your data is collected accurately</li>
+<li>check for statistical significance</li>
+<li>test for errors or inconsistencies in the data</li>
+<li>do appropriate analysis</li>
+</ul>
+<p>Analysis needs to be timely and help you take action. Effective analysis should tell you:</p>
+<ul>
+<li>what happened</li>
+<li>why it happened</li>
+<li>what you need to do about it</li>
+</ul>
+<h2 id="h-give-context-to-your-measurements">Give context to your measurements</h2>
+<p>To be useful, metrics need to have context. You should provide context for your metrics by:</p>
+<ul>
+<li>using segments in your analysis</li>
+<li>measuring your service’s performance over time</li>
+<li>comparing your service’s performance with that of similar services</li>
+</ul>
+<h3 id="h-segmenting-data">Segmenting data</h3>
+<p>Make sure you use segments in your analysis. Segments group your users, for example by:</p>
+<ul>
+<li>device type - whether they used a phone or a desktop computer to access your service</li>
+<li>new or repeat user - whether they had used your service before</li>
+</ul>
+<p>Using segments correctly will help you identify and understand trends, because they help you understand how your users are different. For example, new users may behave very differently to returning users, making an overall average of user behaviour inaccurate.</p>
+<h3 id="h-measuring-performance-over-time">Measuring performance over time</h3>
+<p>Establish a ‘baseline’ of how your service performs currently, across all channels. Judge changes to the service’s performance against this.</p>
+<p>If you’re building a new service, you can use the performance of existing or legacy systems to inform your baseline.</p>
+<p>Measure performance continuously as much as possible, rather than taking ‘snapshots’. This will give you a ‘trend line’ against which peaks and dips in performance can be measured, making it easier to see the effects of:</p>
+<ul>
+<li>changes to the service</li>
+<li>communications initiatives</li>
+<li>seasonal variation</li>
+</ul>
+<p>Set targets for what you expect each <abbr title="key performance indicator">KPI</abbr> to be at a specific time in the future if your plans to improve your service are successful. For example, in 6 months’ time you might expect to see a 10% reduction in the time it takes for a user to make an application because of your work to simplify the process.</p>
+<h3 id="h-comparing-performance-with-similar-services">Comparing performance with similar services</h3>
+<p>There are likely to be services similar to yours in terms of:</p>
+<ul>
+<li>number of users</li>
+<li>complexity</li>
+</ul>
+<p>Comparing your service’s performance with other, similar services will let you know whether your service is performing significantly better or worse than expected.</p>
+<p>You can get <a href="https://data.gov.uk/search?filters%5Btopic%5D=Digital+service+performance" target="_blank" rel="noopener noreferrer">performance data for government digital services on data.gov.uk</a>.</p>
+<h2 id="h-using-dashboards-reports-alerts-and-visualisations-to-share-">Using dashboards, reports, alerts and visualisations to share findings</h2>
+<p>Find a way to share findings that suits what you’re trying to do.</p>
+<p>Presenting data visually in a prominent place or message is a good way to maximise the likelihood that the information will be acted upon and improvements made to your service.</p>
+<p>Dashboards are objective-focused and will help inform decisions, often with the help of real-time data. Read about <a href="https://dataingovernment.blog.gov.uk/2017/08/21/building-a-data-dashboard-for-a-service-delivery-team/" target="_blank" rel="noopener noreferrer">building a data dashboard for a service delivery team</a></p>
+<p>Alerts are used to inform the users about a change or an event, often using attention-grabbing delivery mechanisms.</p>
+<p>Reports provide regular, scheduled snapshots of data and tend to require extra context and time to digest.</p>
+<p>You should try to automate the creation of standard reports, for example <a href="https://dataingovernment.blog.gov.uk/2014/02/12/automating-email-alerts-for-trending-content/" target="_blank" rel="noopener noreferrer">automating email alerts for ‘trending’ content</a> so your analyst can spend their time on more valuable work.</p>
+<h2 id="h-monitor-iterate-and-improve">Monitor, iterate and improve</h2>
+<p>Iterate your metrics as your service changes - you’ll need to know different things as your service changes over time.</p>
+<h2 id="h-further-reading">Further reading</h2>
+<p>You might find the following blog posts useful:</p>
+<ul>
+<li><a href="https://dataingovernment.blog.gov.uk/2016/11/02/setting-up-a-performance-framework-for-the-uk-parliament-website/" target="_blank" rel="noopener noreferrer">Setting up a performance framework for the UK Parliament website</a></li>
+<li><a href="https://dwpdigital.blog.gov.uk/2017/11/21/how-we-use-data-and-analytics-to-improve-services/" target="_blank" rel="noopener noreferrer">How we use data and analytics to improve services (DWP Digital blog) </a></li>
+<li><a href="https://hodigital.blog.gov.uk/2017/08/04/what-we-mean-by-service-outcomes-and-measurement/" target="_blank" rel="noopener noreferrer">What we mean by service outcomes and measurement (Home Office Digital blog) </a></li>
+<li><a href="https://www.kaushik.net/avinash/web-metrics-demystified" target="_blank" rel="noopener noreferrer">Web Metrics Demystified</a></li>
 </ul>

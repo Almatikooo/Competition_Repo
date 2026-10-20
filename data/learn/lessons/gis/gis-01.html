@@ -32,7 +32,7 @@ DSM_HARV_df &lt;- as.data.frame(DSM_HARV, xy = TRUE)
 data: rasters and vectors. After briefly introducing these
 data types, this episode focuses on raster data, describing
 some major features and types of raster data.</p>
-<h2 id="data-structures-raster-and-vector">Data Structures: Raster and Vector</h2>
+<h2 id="h-data-structures-raster-and-vector">Data Structures: Raster and Vector</h2>
 <p>The two primary types of geospatial data are raster
 and vector data. Raster data is stored as a grid of values which are rendered on a
 map as pixels. Each pixel value represents an area on the Earth's surface. Vector data structures represent specific features on the
@@ -44,7 +44,7 @@ lesson will focus on how to work with both raster and vector
 data sets, therefore it is essential that we understand the
 basic structures of these types of data, and the types of data
 that they can be used to represent.</p>
-<h2 id="about-raster-data">About Raster Data</h2>
+<h2 id="h-about-raster-data">About Raster Data</h2>
 <p>Raster data is any pixelated (or gridded) data where each pixel is associated
 with a specific geographical location. The value of a pixel can be
 continuous (e.g. elevation) or categorical (e.g. land use). If this sounds
@@ -118,14 +118,12 @@ In this map, the elevation data (a continuous variable) has been divided
 up into categories to yield a categorical raster.</p>
 <div class="box box-challenge">
 <p class="box-title">Advantages and Disadvantages</p>
-
 <p>With your neighbor, brainstorm potential advantages and
 disadvantages of storing data in raster format. Add your
 ideas to the Etherpad. The Instructor will discuss and
 add any points that weren't brought up in the small group
 discussions.</p>
 <details class="solution"><summary>Show solution</summary>
-<h2 id="solution">Solution</h2>
 <p>Raster data has some important advantages:</p>
 <ul>
 <li>representation of continuous surfaces</li>
@@ -142,21 +140,21 @@ implicitly highlight features</li>
 </ul>
 </details>
 </div>
-<h2 id="important-attributes-of-raster-data">Important Attributes of Raster Data</h2>
-<h3 id="extent">Extent</h3>
+<h2 id="h-important-attributes-of-raster-data">Important Attributes of Raster Data</h2>
+<h3 id="h-extent">Extent</h3>
 <p>The spatial extent is the geographic area that the raster data covers.
 The spatial extent of an R spatial object represents the geographic edge or
 location that is the furthest north, south, east and west. In other words, extent
 represents the overall geographic coverage of the spatial object.</p>
 <p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/organization-geospatial/5d96b1cd0bfd358c9a4e044dbfe9f73075656083/episodes/fig/dc-spatial-raster/spatial_extent.png">{alt='Spatial extent image'}</p>
 <p>(Image Source: National Ecological Observatory Network (NEON))</p>
-<h3 id="resolution">Resolution</h3>
+<h3 id="h-resolution">Resolution</h3>
 <p>A resolution of a raster represents the area on the ground that each
 pixel of the raster covers. The image below illustrates the effect
 of changes in resolution.</p>
 <p><img alt="" loading="lazy" src="https://raw.githubusercontent.com/datacarpentry/organization-geospatial/5d96b1cd0bfd358c9a4e044dbfe9f73075656083/episodes/fig/dc-spatial-raster/raster_resolution.png">{alt='Resolution image'}</p>
 <p>(Source: National Ecological Observatory Network (NEON))</p>
-<h2 id="raster-data-format-for-this-workshop">Raster Data Format for this Workshop</h2>
+<h2 id="h-raster-data-format-for-this-workshop">Raster Data Format for this Workshop</h2>
 <p>Raster data can come in many different formats. For this workshop, we will use
 the GeoTIFF format which has the extension <code>.tif</code>. A <code>.tif</code> file stores metadata
 or attributes about the file as embedded <code>tif tags</code>. For instance, your camera
@@ -178,13 +176,12 @@ In that lesson, we will also learn how to use R to extract raster attributes
 from a GeoTIFF file.</p>
 <div class="box box-callout">
 <p class="box-title">More Resources on the .tif format</p>
-
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/GeoTIFF" target="_blank" rel="noopener noreferrer">GeoTIFF on Wikipedia</a></li>
 <li><a href="https://trac.osgeo.org/geotiff/" target="_blank" rel="noopener noreferrer">OSGEO TIFF documentation</a></li>
 </ul>
 </div>
-<h2 id="multi-band-raster-data">Multi-band Raster Data</h2>
+<h2 id="h-multi-band-raster-data">Multi-band Raster Data</h2>
 <p>A raster can contain one or more bands. One type of multi-band raster
 dataset that is familiar to many of us is a color
 image. A basic color image consists of three bands: red, green, and blue.
@@ -232,7 +229,6 @@ resolution, and CRS.</p>
 </code></pre>
 <div class="box box-callout">
 <p class="box-title">Other Types of Multi-band Raster Data</p>
-
 <p>Multi-band raster data might also contain:</p>
 <ol>
 <li><strong>Time series:</strong> the same variable, over the same area, over time.

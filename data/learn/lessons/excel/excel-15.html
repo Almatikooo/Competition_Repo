@@ -1,98 +1,136 @@
-<div>
-<div class="box box-objectives"><p class="box-title">Learning Objectives</p>
-
+<p><strong>&nbsp;</strong>Let’s review another away to turn a range of data into a table.</p>
+<ol>
+<li>Select the <strong>Advanced Filter</strong> sheet, and click cell A10.</li>
+<li>From the Insert tab, choose <strong>Table</strong>.</li>
+<li>The Create Table dialogue box will appear.</li>
+<li>Make sure “My table has headers” is selected so Excel recognizes the column headings.</li>
+<li>Click <strong>OK</strong>. Excel turns our advance search data into a table.</li>
+<li>Sort the table in ascending order (A-Z), by Store, and Employee ID, then Last Name.&nbsp;<strong>Hint: Click the Data tab, Click the Sort button, add levels for the three fields.</strong></li>
+<li>Autofit the column widths and row height to make sure the heading row is visible.</li>
+<li>Save your work.</li>
+</ol>
+<p>Excel turns the information into a table and sorts accordingly:</p>
+<figure><img alt="Advanced Filter Table Solution Screenshot" height="435" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.48_Advanced-Filter-Table.png" width="1121"><figcaption>Figure 5.48 Advanced Filter Table</figcaption></figure>
+<h2 id="h-analyzing-worksheet-data">ANALYZING WORKSHEET DATA</h2>
+<h2 id="h-introduction-to-pivot-tables">INTRODUCTION TO PIVOT TABLES</h2>
+<p>Another way to analyze table information is with PivotTables. A PivotTable is a powerful tool that calculates, summarizes, and analyzes table data to compare, patterns, and trends. PivotTables are inserted directly from a table, linking the table data.&nbsp; Generally speaking, when you pivot on the table data you are reorganizing the table information to reveal different levels of detail that allow you to analyze specific subgroups of information and summarize data quickly and easily without having to change the structure or layout of the original table area.</p>
+<p>When you pull table data into a PivotTable there are four main area fields: Rows, Columns, Values, and Filters.&nbsp; The Rows and Columns fields can interchange quickly to summarize the data in different ways or to run new reports based on the question or criteria being asked. The Value field is data from the table that can be calculated, or that contain values that the PivotTable will summarize. The Values field has multiple settings to choose how you want to calculate the data; SUM, COUNT, AVERAGE, MIN, MAX, and can even show the displayed values as a percentage of the total, column total, grand total, and so on. Lastly, is the Filters area, which restricts the PivotTable to only show the values matching specified criteria.</p>
+<p>Four Primary PivotTable Areas:</p>
+<p><img alt="Screenshot of a graphic that displays the four primary pivot table areas" height="263" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/5.38_Four_Primary_PivotTable_Areas.png" width="505"></p>
+<p>Figure 5.49 Four Primary PivotTable Areas</p>
+<p>In our situation, shown below, we will create a PivotTable to summarize employee data to show Projected Salary Increases, for both Part-Time (PT) and Full -Time (FT) employees for all store locations.</p>
+<figure><img alt="Screenshot showing parts of a pivot table window" height="392" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/5.39_Parts_Of_A_PivotTable.png" width="618"><figcaption>Figure 5.50 Parts Of A PivotTable</figcaption></figure>
+<p>Follow the below steps to explore and build a PivotTable report.</p>
+<ol>
+<li>Click the <strong>EmployeeData</strong> sheet. Click anywhere in the table area.</li>
+<li>From the <strong>Insert</strong> tab, choose <strong>PivotTable</strong>.</li>
+</ol>
+<figure><img alt="Screenshot of the Excel window displaying the Insert tab" height="371" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_5.40_Insert_tab-PivotTable.png" width="321"><figcaption>Figure 5.51 Insert PivotTable</figcaption></figure>
+<p>3.&nbsp; From the Create PivotTable dialogue box, make sure the PivotTable report will be placed in a <strong>New Worksheet</strong>, and click <strong>OK</strong>.</p>
+<figure><img alt="Screenshot of the Create PivotTable dialogue box" height="323" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_5.41_CreatePivotTable_dialogue_box.png" width="338"><figcaption>Figure 5.52 Create PivotTable Dialogue Box</figcaption></figure>
+<p>4. Notice a new sheet (Sheet1) is inserted, at the bottom of the workbook, that contains the PivotTable1 area and fields dialogue box.&nbsp; Rename the default name (Sheet 1) to <strong>StorePT</strong>.</p>
+<figure><img alt="Screenshot of the PivotTable window" height="367" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_5.42_PivotTable_Window.png" width="579"><figcaption>Figure 5.53 PivotTable Window</figcaption></figure>
+<p>5.&nbsp; From the PivotTable pane, drag and drop the <strong>Store</strong> heading to the <strong>Rows</strong> section of PivotTable field area.</p>
+<figure><img alt="Screenshot of the PivotTable Row Selection" height="560" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_5.43_PivotTable_Row_Selection.png" width="452"><figcaption>Figure 5.54 PivotTable Row Selection</figcaption></figure>
+<p>6.&nbsp;From the PivotTable fields list drag and drop the <strong>Projected Salary Increase</strong> heading to the <strong>Values</strong> section.</p>
+<figure><img alt="Screenshot of the PivotTable Value selection" height="394" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_5.44_PivotTable_Value_Selection.png" width="461"><figcaption>Figure 5.55 PivotTable Value Selection</figcaption></figure>
+<p>7.&nbsp; Drag and Drop the <strong>Job Status</strong> heading to the <strong>Columns</strong> field section. Notice the Job Status categories display. In this case, displaying Full-Time (FT) and Part-Time (PT) employees.</p>
+<figure><img alt="Screenshot of the PivotTable Columns Selection" height="344" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_5.45_PivotTable_Columns_Selection.png" width="483"><figcaption>Figure 5.56 PivotTable Columns Selection</figcaption></figure>
+<h2 id="h-formatting-pivot-tables">FORMATTING PIVOT TABLES</h2>
+<p>After creating a PivotTable and adding the fields that you want to analyze, you may want to enhance the report to include slicers, or graphs and or format the data to make it easier to read and scan for details. When clicked in the PivotTable area you will see a contextual tab appear on the ribbon, containing PivotTable Tools and two specific tabs; Analyze and Design. <img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users: there is not a “PivotTable Tools” tab but you will see two tabs named: PivotTable Analyze and Design. They are only visible when you have clicked inside the PivotTable area.</strong></p>
+<p>The Analyze tab contains tools specifically for examining data, for example, the ability to insert Slicers, or PivotCharts. The Design tab contains tools that specifically tie to how the table and data visibly display. For example, when you have a lot of data in your PivotTable, it may help to show banded rows or columns for easy scanning or to highlight important data to make it stand out.</p>
+<p>Follow the below steps to add format the PivotTable, and add a PivotChart.</p>
+<ol>
+<li>Click in the PivotTable. From the PivotTable Tools choose the Design tab.</li>
+<li>In the PivotTable Styles gallery select the Light Blue, Pivot Style Medium Style&nbsp; 2 format.</li>
+</ol>
+<figure><img alt="Screenshot of the PivotTable Styles Gallery" height="318" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Light_Blue_Medium_Style_Pivot_2_001.png" width="327"><figcaption>Figure 5.57 Light_Blue Medium Style Pivot 2</figcaption></figure>
+<p>3.&nbsp; To format the PivotTable numbers, select B5: D9. Click the Home tab. Apply the Currency number format and decrease the decimal place to zero decimals.</p>
+<p><em>(The alternative method to number formatting in a PivotTable is to expand the menu on value field; Sum of Projected Salary Increase. Click the Value Field Settings. Choose Number Format and apply the desired number format option. <img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;Mac Users should click the small circle with an “i” &nbsp;next to “Sum Projected Salary Increase” in the Values section then click the Number button to change the Number Format. <img alt="mac pivotable i button" height="39" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/pivottable_i-button.png" width="114">)</em></p>
+<h2 id="h-now-let-s-create-a-pivotchart">NOW LET’S CREATE A PIVOTCHART !</h2>
+<p>4.&nbsp; Click in the PivotTable. Click the Analyze tab. Choose the PivotChart button on the Ribbon.</p>
+<p>5.&nbsp; From the listed chart types, choose Column.&nbsp; And select the 3D Clustered Column option. Click OK.</p>
+<p><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users:&nbsp;</strong>Only a basic, 2D column chart is available when clicking the&nbsp;<strong>Pivot Chart</strong> button. In order to select a different chart type, such as the 3D clustered column option, you must do the following:</p>
 <ul>
-<li>Entering formulas that reference another sheet.</li>
-<li>Using the SUM function to add up multiple sheets.</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>Click on the 2D chart that was just inserted</li>
+<li>Click the&nbsp;<strong>Design tab</strong> on the Ribbon</li>
+<li>Click the&nbsp;<strong>Change Chart Type&nbsp;</strong>button</li>
+<li>Select the 3D Clustered Column option</li>
 </ul>
-</div>
-<p>The Summary sheet in many multiple sheet workbooks is utilized to present totaled information from the other sheets in the file. This is done to give a quick synopsis of all the other sheets in one convenient location. For this reason, the Summary sheet is usually the first sheet in multiple sheet files. Summary sheets “pull” data from the other sheets using three-dimensional (3-D) cell references. In order to distinguish between A3 in the Summary sheet, A3 in the January sheet, A3 in the February sheet, etc.; a 3-D cell reference includes the sheet name along with the cell reference. The syntax to reference a cell in a different sheet is =SheetName!CellRange. So, the cell reference for A15 in the March sheet would be =March!A15.</p>
-<p>Let’s start working on our summary sheet by trying out some 3-D formulas:</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure><img alt="Screenshot of the Insert Chart dialogue box" height="410" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/5.47_3D_Clustered_Column_Chart.png" width="436"><figcaption>Figure 5.58 3D Clustered_Column Chart</figcaption></figure>
+<p>6.&nbsp; Move the PivotChart under the PivotTable area. Resize accordingly.&nbsp; Save your work.</p>
+<p>Note the formatting changes in the new chart below. The “Job Status” and “Store” buttons are column and row “filters” for the Pivot Chart.</p>
+<p><img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users:&nbsp;</strong>Excel for Mac does not insert these formatting changes within a &nbsp;Pivot Chart. You can add a chart title by clicking the “Add Chart Element” button from the Design tab. It is&nbsp;<strong>not possible</strong> to add the “chart filter” buttons as shown in Figure 5.59. The filters on the pivot table can be used to also filter the columns and rows in the Pivot Chart.</p>
+<figure><img alt="Solution screenshot" height="474" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.59-PivotTable_Solution.png" width="510"><figcaption>Figure 5.59 PivotTable Solution</figcaption></figure>
+<h2 id="h-subtotals">SUBTOTALS</h2>
+<p>Another way to summarize data is by using subtotals. Analyzing a large data range usually includes making calculations on the data. You can summarize the data by applying summary functions such as COUNT, SUM, and AVERAGE to the entire organized range of information. Subtotals, in general, are summary functions applied to parts of an organized data range.</p>
+<p>For example, you can SUM Current Salaries for employees from each Store location. To subtotal the information the data must first be sorted by the Store field. For subtotals, the field that you sort is referred to as the control field. For example, if you choose the Store location as your control field, all of the Seattle, San Diego, Portland, and San Francisco entries will be grouped together within the data range. The SUM function then can be applied to SUM the Current Salary fields for each Store location. Excel calculates and displays the subtotal each time the Store location changes.</p>
+<p>A new row containing a subtotal of that particular location will be inserted, and wherever the field changes a value will display; a subtotal group of records.&nbsp; Excel updates the subtotal automatically when the control field is changed. In theory, when subtotaling, you are adding a calculation row to the set of data.&nbsp; Adding rows that total information in the middle of a table would compromise the integrity of data in the table.&nbsp; The table tools would look at the total as a record, not a calculation. Therefore the Subtotal feature cannot be used in tabling, and can only be applied to a normal range of data. You must convert all tables to a range prior to subtotaling.</p>
+<p>Multiple functions can be applied within the same Subtotal.&nbsp; For example, we will explore how you can SUM Current Salary’s and also provide the AVERAGE Current Salary for each Store location within the same Subtotal. Note Subtotal data can also be filtered.</p>
+<p>The best practice when subtotaling is to follow four rules:</p>
+<figure><img alt="Screenshot of four Subtotal Rules" height="431" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/5.49_Subtotal_Rules-1.png" width="708"><figcaption>Figure 5.60 Subtotal Rules</figcaption></figure>
+<p>Follow the below steps to Subtotal the Employee Data and provide a total Current Salary per Store.</p>
 <ol>
-<li>Click on the <strong>Expenses Summary&nbsp;</strong>sheet <strong>tab</strong> at the bottom of the screen.</li>
-<li>Click on C5 and enter the formula <strong>=January!C5</strong>.&nbsp; Press Enter.<br>
-This will return the amount $700 from cell C5 in the <strong>January </strong>sheet.</li>
-<li>Delete the formula in C5 in the <strong>Expenses Summary </strong>sheet.</li>
-<li>This time, click on C5 and type <strong>=</strong>. Then click on the <strong>January </strong>sheet, and then click on C5.</li>
-<li>Press Enter. This will put the same formula, =January!C5, in cell C5 in the <strong>Expenses Summary </strong>sheet and will return the value $700. This is the&nbsp;<strong>point and click method.&nbsp;</strong>This method reduces the potential for making errors, such as misspellings or typing the wrong amount.</li>
-<li>In cell C6 in the <strong>Expenses Summary</strong> sheet<strong>,</strong> try entering a formula for the Power amount in the <strong>April </strong>sheet. You should get $135 as the Power amount, and the formula should be =April!C6.</li>
-<li>Delete the formulas in cells C5 and C6 in the <strong>Expenses Summary </strong>sheet.</li>
+<li>Select the <strong>Employee Data</strong> sheet. If necessary clear any filters applied to the data by clicking the Data tab and choosing the Clear filter option.</li>
+<li>From the Data tab, choose Sort button. Sort the Store Location, using the preferred Custom List order of Seattle, San Diego, Portland, and San Francisco. If the list we set up previously is not available type the entries in the List entries area. Choose Add, and then OK.</li>
 </ol>
-<p>For the Annual Amounts in C5:C13 in the <strong>Expenses Summary </strong>sheet, we don’t need the amount from a single month’s sheets; instead, we need the sum of all the entries in all the monthly sheets. So, we need to sum three-dimensionally through all twelve month sheets.</p>
-</div>
-<p>Let’s try adding up all the monthly amounts in our Expenses Summary sheet:</p>
+<figure><img alt="Screenshot shows the custom sort, custom list dialogue box" height="434" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_7.9_Custom_Sort_Custom_List_combo_box_subotalsection.png" width="436"><figcaption>Figure 5.61 Custom Sort, Custom List Dialogue Box.</figcaption></figure>
+<p>3.&nbsp; Choose the Table Tools Design tab.&nbsp;<img alt="Excel for Mac icon" height="23" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/mac_logo_cc.png" width="20">&nbsp;<strong>Mac Users: </strong>just click the&nbsp;<strong>“Table” tab.&nbsp;</strong></p>
+<p>Select “<strong>Convert to Range</strong>.” Excel will display a message asking if you really want to convert the table back to a normal range.&nbsp; Choose <strong>Yes.</strong></p>
+<figure><img alt="Screenshot of the Table Tools Design tab" height="222" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/5.50_Convert_To_A_Range.png" width="564"><figcaption>Figure 5.62 Convert To A Range</figcaption></figure>
+<p>4.&nbsp;Click the Data tab, in the Outline group find and select the Subtotal Command. (Notice the heading row no longer has filters buttons. The data looks like a table but is not a table. The table tools are not active, and the information is a normal range.)</p>
+<p>5.&nbsp; In the Subtotal dialogue box, choose the Store field in the “<strong>At each change in</strong>.” For the “<strong>Use Function</strong>,” choose <strong>Sum</strong>, and only check <strong>Current Salary</strong>. Click <strong>OK.</strong></p>
+<figure><img alt="Screenshot of the Subtotal Dialogue Box" height="361" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_8.1_Subtotal_Dialogue_Box.png" width="273"><figcaption>Figure 5.64 Subtotal Dialogue Box</figcaption></figure>
+<p>6. Notice the Current Salary column is totaled, per location. Save your work.</p>
+<figure><img alt="Subtotal Solution Screenshot" height="617" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.65_Subtotal-Solution.png" width="1104"><figcaption>Figure 5.65 Subtotal Solution</figcaption></figure>
+<h2 id="h-subtotal-outline-view">SUBTOTAL OUTLINE VIEW</h2>
+<p>The Outline views, located on the left side panel,&nbsp; show summary statistics. The Outline tool, with levels, allows you to control the expanse of detail displayed in the worksheet. The EmployeeData worksheet has three levels in the outline of its data range:</p>
+<ul>
+<li>Level 1, displays only the grand totals.</li>
+<li>Level 2, displays the total spent at each Store.</li>
+<li>Level 3, displays the total Salary.</li>
+</ul>
+<p>Figure 5.66 above shows the Level 3 Outline, all the employee detail per store location. Clicking the outline buttons located to the left of the row numbers lets you choose how much detail you want to see in the worksheet. (Note that the three level numbers are at the top left side of the worksheet, just below the Name box.)</p>
+<p>You will use the outline buttons to expand and collapse different sections of the data range.</p>
 <ol>
-<li>Click in C5 in the <strong>Expenses Summary </strong>sheet.</li>
-<li>Type <strong>=SUM(</strong>. (Make sure to type the open parentheses!)</li>
-<li>Click on the <strong>January</strong> sheet.</li>
-<li>Hold the SHIFT key down and click on the <strong>December </strong>sheet.</li>
-<li>Click on C5 again and press ENTER. Cell C5 should display the sum amount of $8,400.</li>
-<li>Click on C5 in the <strong>Expenses Summary</strong> sheet. In the formula bar, you should see the following formula: =SUM(January:December!C5). This formula tells Excel to SUM cell C5 in the sheets January through December.</li>
-<li>Let’s try another 3-D SUM together. Click on C6.</li>
-<li>Type <strong>=SUM(</strong>. (Make sure to type the open parentheses!)</li>
-<li>Click on the <strong>January </strong>sheet.</li>
-<li>Hold the SHIFT key down and click on the <strong>December </strong>sheet.</li>
-<li>Click on C6 again and press ENTER. Cell C6 should now display the sum amount of $1,610.</li>
-<li>Click on C6 in the <strong>Expenses Summary </strong>sheet. In the formula bar, you should see the following formula: =SUM(January:December!C6).</li>
+<li>Click level 1. Notice it displays the Grand Total.</li>
+<li>Click level 2. Notice the totals for all store locations are displayed.</li>
 </ol>
-<p>If you feel comfortable with these 3-D formulas, you can copy C6 down through C13 to fill in the rest of the formulas. If you’re not quite comfortable yet, keep practicing the above steps to add 3-D formulas to cells C7:C13. When you’re done, your Expenses Summary sheet should match <strong>Figure 6.7</strong>.</p>
-<figure><a href="https://openoregon.pressbooks.pub/app/uploads/sites/7/2016/10/Figure-6.7-Completed-Expenses-Summary-Formulas.png" target="_blank" rel="noopener noreferrer"><img alt="Expenses Summary sheet" height="351" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-6.7-Completed-Expenses-Summary-Formulas.png" width="318"></a><figcaption>Figure 6.7 Complete Expenses Summary Formulas</figcaption></figure>
-<div class="box box-callout"><p class="box-title">Note</p>
-<details>
-<summary>Figure 6.7 Image Description</summary>
-<p>Completed Expenses Summary formulas. Title: ANNUAL EXPENSES (TO DATE). Two columns: Item (left), and Amount (right). Information displayed in cells: Rent $8400.00. Power $1610. Water $360. Cable/Internet $1080. Cell Phone $1080. Car Insurance $900. Groceries $4175. Miscellaneous $2535. Gym Membership $360.</p>
-</details>
-</div>
-<p>While our 3-D formulas are complete in the Expenses Summary sheet, our summary feels like it is lacking something. Let’s add a visual representation of our summary numbers to the sheet.</p>
+<figure><img alt="Screenshot of the Subtotal Outline Level 2" height="527" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_8.3_Subtotal_Outline_Level_2.png" width="2507"><figcaption>Figure 5.66 Subtotal Outline Level 2</figcaption></figure>
+<h2 id="h-adding-a-subtotal-within-a-subtotal">ADDING A SUBTOTAL WITHIN A SUBTOTAL</h2>
+<p>As mentioned at the beginning of the section, you can use multiple functions within the same subtotal.&nbsp; We will now explore how you can SUM Current Salary’s and also provide the Average Current Salary for each Store location within the same Subtotal.</p>
 <ol>
-<li>Highlight cells B5:C13 in the <strong>Expenses Summary sheet</strong>.</li>
-<li>Click on Pie Chart in the Insert tab in the ribbon and select the 2-D pie.</li>
-<li>Move and resize the pie chart so that it fills cells D3:J15.</li>
-<li>Delete the chart title.</li>
-<li>Move the legend to the right side of the chart. Resize the legend as needed.</li>
-<li>Add percentage data labels to the pie slices. Format the data labels to be bold with white font color. Your complete Expenses Summary sheet should look like <strong>Figure 6.8</strong> below.</li>
-<li>Check the spelling on all of the worksheets and make any necessary changes.</li>
-<li>Save your file. If you’re printing your assignment at this point, print ONLY the Summary sheet in regular and formula view. Close your file.</li>
+<li>Click within the Subtotal data, go to the Outline, click Level 3, to display all the subtotal data.</li>
+<li>From the Data tab, and click Subtotal.</li>
+<li>In the Subtotal dialogue box, select the Store field for the “<strong>At each change in:”</strong> option.</li>
+<li>In the “<strong>Use function:”</strong> section select to display the <strong>Average</strong>.</li>
+<li>Only check the <strong>Current Salary</strong> field in the <strong>“Add subtotal to section:”</strong>. (Note Excel will default check something in this area.&nbsp; Uncheck any other fields.)</li>
+<li>Uncheck <strong>“Replace current subtotals”</strong>; we do not want to replace the current subtotal summing the Current Salary.</li>
+<li>Click OK</li>
 </ol>
-<figure><img alt="Completed Expense Summary sheet" height="592" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_6.8_Completed_Expenses_Summary_Sheet.png" width="1000"><figcaption>Figure 6.8 Completed Expenses Summary Sheet</figcaption></figure>
-<div class="box box-callout"><p class="box-title">Note</p>
-<details>
-<summary>Figure 6.8 Image Description</summary>
-<p>Completed Expense Summary sheet with Annual Expenses totalled on left, and a pie graph with percentages in colors showing data on right. Legend to right of pie chart.</p>
-</details>
-</div>
-<div>
-<div class="box box-callout"><p class="box-title">Skill Refresher</p>
-
-<p><strong>To SUM across sheets:</strong></p>
-<ol>
-<li>Click on the cell where you want the 3-D SUM to appear.</li>
-<li>Type <strong>=SUM(</strong></li>
-<li>Click on the leftmost sheet in the group of sheets you want to sum.</li>
-<li>Hold the SHIFT key down and click on the rightmost sheet in the group of sheets you want to sum.</li>
-<li>Click on the cell in the sheet you’re in that you want to sum.</li>
-<li>Press ENTER.</li>
-</ol>
-</div>
-<div class="box box-callout"><p class="box-title">Skill Refresher</p>
-
-<p><strong>3-D References in Formulas<br>
-</strong></p>
-<p><strong>To reference a cell in another sheet</strong>, use the formula syntax =SheetName!CellAddress.</p>
-<p><strong>To enter a 3-D reference:</strong></p>
-<ol>
-<li>Click on the cell where you want the formula to appear and type =.</li>
-<li>Click on the sheet with the cell you want.</li>
-<li>Click on the cell in the sheet you want and press ENTER.</li>
-</ol>
-</div>
+<figure><img alt="Screenshot of the Subtotal Dialogue Box, Subtotal Within A Subtotal" height="332" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2020/06/Figure_8.4_Subtotal_Dialogue_Box_sub_within_a_sub.png" width="248"><figcaption>Figure 5.67 Subtotal Within A Subtotal</figcaption></figure>
+<p>8.&nbsp; Notice each location is now subtotaled showing the Average and Total Current Salary. Excel has also added 4th level to the Outline, accounting for the Averages.&nbsp; Save your work.</p>
+<figure><img alt="Subtotal Within A Subtotal Solution Screenshot" height="618" loading="lazy" src="https://openoregon.pressbooks.pub/app/uploads/sites/152/2016/10/Figure-5.68_Solution-Subtotal-Within-A-Subtotal.png" width="1109"><figcaption>Figure 5.68 Solution, Subtotal Within A Subtotal</figcaption></figure>
 <div class="box box-keypoints"><p class="box-title">Key Takeaways</p>
-
 <ul>
-<li>3-D references in formulas allow you to use data from one or more sheets on another sheet.</li>
+<li>A table is made up of a data set that is organized into columns and rows representing fields and records, such as employee information.</li>
+<li>You can create a table by clicking formatting the data set as a table, or using the Insert Table feature.</li>
+<li>Excel offers pre-built table styles, and options to choose from to format a table.</li>
+<li>You can add records (rows) and our fields (columns) to a table. You can then sort to reorganize your data.</li>
+<li>Freezing heading keeps your column headings displayed while you scroll through your table data.</li>
+<li>You can use the filter arrows in the table headings to sort by a single column. When sorting by more than one field, use the&nbsp; Custom Sort option.</li>
+<li>Custom List Sorts can be used when a field needs to be sorted in a special way.</li>
+<li>A slicer is a visual filter button (object) used to filter data in an Excel table. Each unique value in the field is a button.</li>
+<li>A PivotTable is an interactive table that summarizes data from a data source such as a data range or an Excel table.</li>
+<li>The Subtotal tool includes summary statistics for each group of records. Excel organizes subtotals using an outline that can be expanded or contracted to view or hide details about the data.</li>
 </ul>
 </div>
-</div>
-<details class="attrib"><summary>Attribution</summary>
-<p><a href="https://openoregon.pressbooks.pub/beginningexcel19/chapter/6-2-formulas-with-3-d-references/" target="_blank" rel="noopener noreferrer">“6.2 Formulas with 3-D References”</a> by Mary Schatz and Diane Shingledecker, <a href="https://www.pcc.edu/" target="_blank" rel="noopener noreferrer">Portland Community College</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></p>
-</details>
+<p><a href="https://openoregon.pressbooks.pub/beginningexcel19/chapter/5-2-intermediate-table-skills/" target="_blank" rel="noopener noreferrer">“5.2 Intermediate Table Skills”</a> by Hallie Puncochar, <a href="https://www.pcc.edu/" target="_blank" rel="noopener noreferrer">Portland Community College</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></p>

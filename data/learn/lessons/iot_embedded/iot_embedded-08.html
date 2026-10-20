@@ -5,25 +5,22 @@
 <p>This video gives an overview of geofences and how to use them in Azure Maps, topics that will be covered in this lesson:</p>
 <p><a href="https://www.youtube.com/watch?v=nsrgYhaYNVY" target="_blank" rel="noopener noreferrer"><img alt="Geofencing with Azure Maps from the Microsoft Developer IoT show" loading="lazy" src="https://img.youtube.com/vi/nsrgYhaYNVY/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
-
-
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p>In the last 3 lessons, you have used IoT to locate the trucks carrying your produce from your farm to a processing hub. You've captured GPS data, sent it to the cloud to store, and visualized it on a map. The next step in increasing the efficiency of your supply chain is to get an alert when a truck is about to arrive at the processing hub, so that the crew needed to unload can be ready with forklifts and other equipment as soon as the vehicle arrives. This way they can unload quickly, and you are not paying for a truck and driver to wait.</p>
 <p>In this lesson you will learn about geofences - defined geospatial regions such as an area within a 2km minute drive of a processing hub, and how to test if GPS coordinates are inside or outside a geofence, so you can see if your GPS sensor has arrived or left an area.</p>
 <p>In this lesson we'll cover:</p>
 <ul>
-<li><a href="#what-are-geofences" rel="noopener noreferrer">What are geofences</a></li>
+<li><a href="#h-what-are-geofences" rel="noopener noreferrer">What are geofences</a></li>
 <li><a href="#defining-a-geofence" rel="noopener noreferrer">Define a geofence</a></li>
 <li><a href="#testing-points-against-a-geofence" rel="noopener noreferrer">Test points against a geofence</a></li>
-<li><a href="#use-geofences-from-serverless-code" rel="noopener noreferrer">Use geofences from serverless code</a></li>
+<li><a href="#h-use-geofences-from-serverless-code" rel="noopener noreferrer">Use geofences from serverless code</a></li>
 </ul>
 <blockquote>
 <p>🗑 This is the last lesson in this project, so after completing this lesson and the assignment, don't forget to clean up your cloud services. You will need the services to complete the assignment, so make sure to complete that first.</p>
 <p>Refer to <a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/clean-up.md" target="_blank" rel="noopener noreferrer">the clean up your project guide</a> if necessary for instructions on how to do this.</p>
 </blockquote>
-<h2 id="what-are-geofences">What are Geofences</h2>
+<h2 id="h-what-are-geofences">What are Geofences</h2>
 <p>A geofence is a virtual perimeter for a real-world geographic region. Geofences can be circles defined as a point and a radius (for example a circle 100m wide around a building), or a polygon covering an area such as a school zone, city limits, or university or office campus.</p>
 <p><img alt="Some geofence examples showing a circular geofence around the Microsoft company store, and a polygon geofence around the Microsoft west campus" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/geofence-examples.png"></p>
 <blockquote>
@@ -38,7 +35,7 @@
 </ul>
 <p>✅ Can you think of other uses for geofences?</p>
 <p>Azure Maps, the service you used in the last lesson to visualize GPS data, allows you to define geofences, then test to see if a point is inside or outside of the geofence.</p>
-<h2 id="define-a-geofence">Define a geofence</h2>
+<h2 id="h-define-a-geofence">Define a geofence</h2>
 <p>Geofences are defined using GeoJSON, the same as the points that were added to the map in the previous lesson. In this case, instead of being a <code>FeatureCollection</code> of <code>Point</code> values, it is a <code>FeatureCollection</code> containing a <code>Polygon</code>.</p>
 <pre><code class="language-json">{
    "type": "FeatureCollection",
@@ -87,7 +84,7 @@
 <p><img alt="A rectangle with coordinates" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/polygon-points.png"></p>
 <p>In the image above, there is a rectangle. The polygon coordinates starts at the top-left at 47,-122, then moves right to 47,-121, then down to 46,-121, then right to 46, -122, then back up to the start point at 47, -122. This gives the polygon 5 points - top-left, top-right, bottom-right, bottom-left, then top-left to close it out.</p>
 <p>✅ Try creating a GeoJSON polygon around your home or school. Use a tool like <a href="https://geojson.io/" target="_blank" rel="noopener noreferrer">GeoJSON.io</a>.</p>
-<h3 id="task-define-a-geofence">Task - define a geofence</h3>
+<h3 id="h-task-define-a-geofence">Task - define a geofence</h3>
 <p>To use a geofence in Azure maps, first it has to be uploaded to your Azure Maps account. Once uploaded, you will get a unique ID that you can use to test a point against the geofence. To upload geofences to Azure Maps, you need to use the maps web API. You can call the Azure Maps web API using a tool called <a href="https://curl.se" target="_blank" rel="noopener noreferrer">curl</a>.</p>
 <blockquote>
 <p>🎓 Curl is a command line tool to make requests against web endpoints</p>
@@ -158,7 +155,7 @@ content-length: 0
 <p>Keep a copy of this UDID as you will need it to test the geofence.</p>
 </li>
 </ol>
-<h2 id="test-points-against-a-geofence">Test points against a geofence</h2>
+<h2 id="h-test-points-against-a-geofence">Test points against a geofence</h2>
 <p>Once the polygon has been uploaded to Azure Maps, you can test a point to see if it is inside or outside the geofence. You do this by making a web API request, passing in the UDID of the geofence, and the latitude and longitude of the point to test.</p>
 <p>When you make this request, you can also pass a value called the <code>searchBuffer</code>. This tells the Maps API how accurate to be when returning results. The reason for this is GPS is not perfectly accurate, and sometimes locations can be out by meters if not more. The default for the search buffer is 50m, but you can set values from 0m to 500m.</p>
 <p>When results are returned from the API call, one of the parts of the result is a <code>distance</code> measured to the closest point on the edge of the geofence, with a positive value if the point is outside the geofence, negative if it is inside the geofence. If this distance is less than the search buffer, the actual distance is returned in meters, otherwise the value is 999 or -999. 999 means that the point is outside the geofence by more than the search buffer, -999 means it is inside the geofence by more than the search buffer.</p>
@@ -175,7 +172,7 @@ content-length: 0
 <p><img alt="A GPS trail showing a vehicle passing the Microsoft campus on the 520, with GPS readings along the road except for one on the campus, inside a geofence" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/geofence-crossing-inaccurate-gps.png"></p>
 <p>In the above image, there is a geofence over part of the Microsoft campus. The red line shows a truck driving along the 520, with circles to show the GPS readings. Most of these are accurate and along the 520, with one inaccurate reading inside the geofence. There is no way that reading can be correct - there are no roads for the truck to suddenly divert from the 520 onto campus, then back onto the 520. The code that checks this geofence will need to take the previous readings into consideration before acting on the results of the geofence test.</p>
 <p>✅ What additional data would you need to check to see if a GPS reading could be considered correct?</p>
-<h3 id="task-test-points-against-a-geofence">Task - test points against a geofence</h3>
+<h3 id="h-task-test-points-against-a-geofence">Task - test points against a geofence</h3>
 <ol>
 <li>
 <p>Start by building the URL for the web API query. The format is:</p>
@@ -228,9 +225,9 @@ content-length: 0
 <p>Repeat this multiple times with locations inside and outside the geofence.</p>
 </li>
 </ol>
-<h2 id="use-geofences-from-serverless-code">Use geofences from serverless code</h2>
+<h2 id="h-use-geofences-from-serverless-code">Use geofences from serverless code</h2>
 <p>You can now add a new trigger to your Functions app to test the IoT Hub GPS event data against the geofence.</p>
-<h3 id="consumer-groups">Consumer groups</h3>
+<h3 id="h-consumer-groups">Consumer groups</h3>
 <p>As you will remember from previous lessons, the IoT Hub will allow you to replay events that have been received by the hub but not processed. But what would happen if multiple triggers connected? How will it know which one has processed which events.</p>
 <p>The answer is it can't! Instead you can define multiple separate connections to read off events, and each one can manage the replay of unread messages. These are called <em>consumer groups</em>. When you connect to the endpoint, you can specify which consumer group you want to connect to. Each component of your application will connect to a different consumer group</p>
 <p><img alt="One IoT Hub with 3 consumer groups distributing the same messages to 3 different functions apps" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/consumer-groups.png"></p>
@@ -242,7 +239,7 @@ content-length: 0
 <blockquote>
 <p>💁 In this lesson, you will use a different function to test the geofence to the one used to store the GPS data. This is to show how to use consumer groups and separate the code to make it easier to read and understand. In a production application there are many ways you might architect this - putting both on one function, using a trigger on the storage account to run a function to check the geofence, or using multiple functions. There is no 'right way', it depends on the rest of your application and your needs.</p>
 </blockquote>
-<h3 id="task-create-a-new-consumer-group">Task - create a new consumer group</h3>
+<h3 id="h-task-create-a-new-consumer-group">Task - create a new consumer group</h3>
 <ol>
 <li>
 <p>Run the following command to create a new consumer group called <code>geofence</code> for your IoT Hub:</p>
@@ -267,7 +264,7 @@ geofence  gps-sensor
 <blockquote>
 <p>💁 When you ran the IoT Hub event monitor in an earlier lesson, it connected to the <code>$Default</code> consumer group. This was why you can't run the event monitor and an event trigger. If you want to run both, then you can use other consumer groups for all your function apps, and keep <code>$Default</code> for the event monitor.</p>
 </blockquote>
-<h3 id="task-create-a-new-iot-hub-trigger">Task - create a new IoT Hub trigger</h3>
+<h3 id="h-task-create-a-new-iot-hub-trigger">Task - create a new IoT Hub trigger</h3>
 <ol>
 <li>
 <p>Add a new IoT Hub event trigger to your <code>gps-trigger</code> function app that you created in an earlier lesson. Call this function <code>geofence-trigger</code>.</p>
@@ -302,7 +299,7 @@ geofence  gps-sensor
 </blockquote>
 </li>
 </ol>
-<h3 id="task-test-the-geofence-from-the-trigger">Task - test the geofence from the trigger</h3>
+<h3 id="h-task-test-the-geofence-from-the-trigger">Task - test the geofence from the trigger</h3>
 <p>Earlier in this lesson you used curl to query a geofence to see if a point was located inside or outside. You can make a similar web request from inside your trigger.</p>
 <ol>
 <li>
@@ -387,12 +384,10 @@ else:
 <p>💁 You can find this code in the <a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/3-transport/lessons/4-geofences/code/functions" target="_blank" rel="noopener noreferrer">code/functions</a> folder.</p>
 </blockquote>
 <hr>
-<h2 id="challenge">🚀 Challenge</h2>
+<h2 id="h-challenge">🚀 Challenge</h2>
 <p>In this lesson you added one geofence using a GeoJSON file with a single polygon. You can upload multiple polygons at the same time, as long as they have different <code>geometryId</code> values in the <code>properties</code> section.</p>
 <p>Try uploading a GeoJSON file with multiple polygons and adjust your code to find which polygon the GPS coordinates are closest to or in.</p>
-
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <ul>
 <li>Read more on geofences and some of their use cases on the <a href="https://en.wikipedia.org/wiki/Geo-fence" target="_blank" rel="noopener noreferrer">Geofencing page on Wikipedia</a>.</li>
 <li>Read more on Azure Maps geofencing API on the <a href="https://docs.microsoft.com/rest/api/maps/spatial/getgeofence?WT.mc_id=academic-17441-jabenn" target="_blank" rel="noopener noreferrer">Microsoft Azure Maps Spatial - Get Geofence documentation</a>.</li>

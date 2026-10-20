@@ -1,10 +1,10 @@
 <p>The management of transactional data by using computer systems is referred to as online transaction processing (OLTP). OLTP systems record business interactions as they occur in the day-to-day operation of the organization, and support querying of this data to make inferences.</p>
-<h2 id="transactional-data">Transactional data</h2>
+<h2 id="h-transactional-data">Transactional data</h2>
 <p>Transactional data is information that tracks the interactions related to an organization's activities. These interactions are typically business transactions, such as payments received from customers, payments made to suppliers, products moving through inventory, orders taken, or services delivered. Transactional events, which represent the transactions themselves, typically contain a time dimension, some numerical values, and references to other data.</p>
 <p>Transactions typically need to be <em>atomic</em> and <em>consistent</em>. Atomicity means that an entire transaction always succeeds or fails as one unit of work, and is never left in a half-completed state. If a transaction can't be completed, the database system must roll back any steps that were already done as part of that transaction. In a traditional relational database management system (RDBMS), this rollback happens automatically when a transaction can't complete. Consistency means that transactions always leave the data in a valid state. These transactions are informal descriptions of atomicity and consistency. There are more formal definitions of these properties, such as <a href="https://en.wikipedia.org/wiki/ACID" target="_blank" rel="noopener noreferrer">atomic, consistent, isolated, and durable (ACID)</a>.</p>
 <p>Transactional databases can support strong consistency for transactions by using various locking strategies, such as pessimistic locking. These strategies help ensure that all data remains consistent within the context of the workload, for all users and processes.</p>
 <p>The most common deployment architecture that uses transactional data is the data store tier in a three-tier architecture. A three-tier architecture typically consists of a presentation tier, business logic tier, and data store tier. A related deployment architecture is the <a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/guide/architecture-styles/n-tier.md" target="_blank" rel="noopener noreferrer">N-tier</a> architecture, which can have multiple middle-tiers handling business logic.</p>
-<h2 id="typical-traits-of-transactional-data">Typical traits of transactional data</h2>
+<h2 id="h-typical-traits-of-transactional-data">Typical traits of transactional data</h2>
 <p>Transactional data tends to have the following traits.</p>
 <div class="table-wrap"><table>
 <thead>
@@ -68,10 +68,10 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="when-to-use-this-solution">When to use this solution</h2>
+<h2 id="h-when-to-use-this-solution">When to use this solution</h2>
 <p>Choose OLTP when you need to efficiently process and store business transactions and immediately make them available to client applications in a consistent way. Use this architecture when any tangible delay in processing has a negative effect on the day-to-day operations of the business.</p>
 <p>OLTP systems are designed to efficiently process and store transactions, and query transactional data. The goal of efficiently processing and storing individual transactions by an OLTP system is partly accomplished through data normalization, which breaks up the data into smaller, less redundant chunks. This step enables the OLTP system to process large numbers of transactions independently. It also avoids extra processes required to maintain data integrity in the presence of redundant data.</p>
-<h2 id="challenges">Challenges</h2>
+<h2 id="h-challenges">Challenges</h2>
 <p>An OLTP system can create a few challenges:</p>
 <ul>
 <li>
@@ -84,7 +84,7 @@
 <p>When you store the history of transactions indefinitely or store too much data in any one table, it can lead to slow query performance, depending on the number of transactions that you store. The common solution is to maintain a relevant window of time (such as the current fiscal year) in the OLTP system and offload historical data to other systems, such as a data mart or <a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/relational-data/data-warehousing.yml" target="_blank" rel="noopener noreferrer">data warehouse</a>.</p>
 </li>
 </ul>
-<h2 id="oltp-in-azure">OLTP in Azure</h2>
+<h2 id="h-oltp-in-azure">OLTP in Azure</h2>
 <p>Applications such as websites hosted in <a href="https://learn.microsoft.com/azure/app-service/overview" target="_blank" rel="noopener noreferrer">App Service Web Apps</a>, REST APIs running in App Service, and mobile or desktop applications typically communicate with the OLTP system by way of a REST API intermediary.</p>
 <p>In practice, most workloads aren't entirely OLTP. They often include an analytical component as well and require real-time reporting, such as running reports against the operational system. This workload is referred to as hybrid transactional and analytical processing (HTAP). For more information, see <a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/relational-data/online-analytical-processing.md" target="_blank" rel="noopener noreferrer">Online analytical processing (OLAP)</a>.</p>
 <p>In Azure, the following data stores meet the core requirements for OLTP and the management of transaction data:</p>
@@ -96,7 +96,7 @@
 <li><a href="https://learn.microsoft.com/azure/postgresql/" target="_blank" rel="noopener noreferrer">Azure Database for PostgreSQL</a></li>
 <li><a href="https://learn.microsoft.com/azure/cosmos-db/" target="_blank" rel="noopener noreferrer">Azure Cosmos DB</a></li>
 </ul>
-<h2 id="key-selection-criteria">Key selection criteria</h2>
+<h2 id="h-key-selection-criteria">Key selection criteria</h2>
 <p>To narrow the choices, start by answering the following questions:</p>
 <ul>
 <li>
@@ -127,7 +127,7 @@
 <p>Does your solution require distributed transactions? If yes, consider elastic transactions within Azure SQL Database and SQL Managed Instance. SQL Managed Instance also supports traditional calls through the Microsoft Distributed Transaction Coordinator (MSDTC).</p>
 </li>
 </ul>
-<h2 id="contributors">Contributors</h2>
+<h2 id="h-contributors">Contributors</h2>
 <p><em>This article is being updated and maintained by Microsoft. It was originally written by the following contributors.</em></p>
 <p>Principal authors:</p>
 <ul>
@@ -135,7 +135,7 @@
 <li><a href="https://www.linkedin.com/in/ambers/" target="_blank" rel="noopener noreferrer">Amber Sitko</a> | Cloud Solutions Architect</li>
 </ul>
 <p><em>To see non-public LinkedIn profiles, sign in to LinkedIn.</em></p>
-<h2 id="next-steps">Next steps</h2>
+<h2 id="h-next-steps">Next steps</h2>
 <ul>
 <li><a href="https://learn.microsoft.com/azure/cosmos-db/transactional-batch" target="_blank" rel="noopener noreferrer">Azure Cosmos DB transactional batch operations</a></li>
 <li><a href="https://learn.microsoft.com/azure/cosmos-db/consistency-levels" target="_blank" rel="noopener noreferrer">Consistency levels in Azure Cosmos DB</a></li>
@@ -143,10 +143,4 @@
 <li><a href="https://learn.microsoft.com/sql/relational-databases/in-memory-oltp/overview-and-usage-scenarios" target="_blank" rel="noopener noreferrer">In-Memory OLTP overview and usage scenarios</a></li>
 <li><a href="https://learn.microsoft.com/azure/azure-sql/database/in-memory-oltp-overview" target="_blank" rel="noopener noreferrer">Optimize performance by using in-memory technologies in Azure SQL Database and Azure SQL Managed Instance</a></li>
 <li><a href="https://learn.microsoft.com/azure/azure-sql/database/elastic-transactions-overview" target="_blank" rel="noopener noreferrer">Distributed transactions across cloud databases</a></li>
-</ul>
-<h2 id="related-resources">Related resources</h2>
-<ul>
-<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/databases/guide/transactional-out-box-cosmos.md" target="_blank" rel="noopener noreferrer">Transactional Outbox pattern with Azure Cosmos DB</a></li>
-<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/data-guide/index.md" target="_blank" rel="noopener noreferrer">Azure Data Architecture Guide</a></li>
-<li><a href="https://github.com/MicrosoftDocs/architecture-center/blob/8efa267fb9acc9ac61617cf83670ef379bd89582/docs/guide/multitenant/service/cosmos-db.md" target="_blank" rel="noopener noreferrer">Multitenancy and Azure Cosmos DB</a></li>
 </ul>

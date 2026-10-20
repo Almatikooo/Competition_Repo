@@ -2,7 +2,7 @@ import { h, radar, divergingBars, miniBar, magnitudeBars, sparkline, heatColor, 
 import { state, store, EMPTY_PROFILE, t, setLang, $, api, skillById, roleById, loc, skillName, skillShort, roleTitle, goalOf,
   hasProfile, dateLabel, monthLabel, setRenderer, go, toast, saveProfile, sdgBadge, costTag, icon,
   ensureRadar, ensureMatches, ensureCourses } from "./core.js";
-import { ensureLearn, viewLearn, viewCourse, viewCertificate, certificatePrintStyle, courseMinutes } from "./learn.js";
+import { ensureLearn, viewLearn, viewCourse, viewLesson, viewTest, viewCertificate, certificatePrintStyle, courseLength } from "./learn.js";
 
 const POPULAR_JOBS = ["accounting_clerk", "admin_assistant", "customer_service_rep", "cashier", "teacher", "graphic_designer"];
 const POPULAR_SKILLS = ["prompt_eng", "data_analysis", "communication", "excel", "project_mgmt", "digital_literacy", "leadership", "python", "customer_service", "teaching_training"];
@@ -438,10 +438,10 @@ function planStep(rid, st, progress) {
   const openOpts = !!state.openOpts[st.skill];
   const res = st.resource;
   const hasMore = st.alternatives.length || st.credential || st.practice;
-  const minutes = courseMinutes(st.skill);
+  const length = courseLength(st.skill);
   const learnHere = cert
     ? h("a", { class: "badge robust", href: `#/certificate/${cert.token}` }, `✓ ${t("certified")}`)
-    : h("a", { class: "btn btn-primary btn-sm", href: `#/learn/${st.skill}` }, icon("book"), minutes ? t("learn_here", { m: minutes }) : t("nav_learn"));
+    : h("a", { class: "btn btn-primary btn-sm", href: `#/learn/${st.skill}` }, icon("book"), length ? t("learn_here", { h: length }) : t("nav_learn"));
   const course = res
     ? h("div", { class: "course" },
         h("div", { style: { flex: "1", minWidth: "200px" } }, h("div", { class: "tiny muted" }, t("then_course")), h("div", { class: "c-title" }, res.title),
@@ -610,7 +610,7 @@ function viewHow() {
     ["2 · Live signals", `${m.signals.hn.posts.toLocaleString()} job posts (HN Who is hiring) + AI-research volume (OpenAlex) + cited WEF baselines.`],
     ["3 · Forecast", "Per skill: job-post momentum + baseline + AI pressure × scenario pace (slower 0.5 / expected 1 / faster 2), with a range."],
     ["4 · Match", "Skills fit (incl. transferable skills) · future demand · your interests and SDGs. Robust = top 5 in every scenario."],
-    ["5 · Learn + certify", `A free micro-course for every skill (3 lessons + quiz), a verifiable Path.AI certificate, and ${m.resources.count} verified external courses.`],
+    ["5 · Learn + certify", `A full, free course for every skill — real chapters from open curricula (MIT, CC BY, OGL, public domain) — with a final test, a verifiable Path.AI certificate, and ${m.resources.count} verified external courses.`],
   ];
   return h("div", {},
     h("section", { class: "page-head" }, h("div", { class: "container" }, h("h1", {}, t("how_title")),
@@ -632,8 +632,8 @@ function viewHow() {
             h("li", {}, "AI-written explanations must cite our sources and may only use numbers from the fact sheet — otherwise we show the verified text."))),
         card("Lessons & certificates",
           h("ul", { class: "small" },
-            h("li", {}, "Each lesson combines a Path.AI note, a practical activity and a reading excerpt from Wikipedia (CC BY-SA 4.0) with full attribution and a link to the exact revision used."),
-            h("li", {}, "Quizzes are graded on the server and every question is answerable from the lessons. Pass mark: 4 of 5."),
+            h("li", {}, "Every course is assembled from openly licensed curricula — Microsoft “for Beginners”, The Carpentries, OpenStax, BCcampus, GOV.UK, NIST, EIA, EPA and others. Lessons keep the original text, re-typeset, with source, licence and a link to the original on every page."),
+            h("li", {}, "Final tests are graded on the server. Questions come from the source curricula's own open quiz banks or quote their answer word-for-word from a lesson (the build fails otherwise). Pass mark: 70%."),
             h("li", {}, "Certificates are signed (HMAC-SHA256) and can be verified by anyone with the link; we keep no database of names. They are not accredited qualifications."))),
         card("AI model disclosure",
           h("p", { class: "small" }, m.llm.online ? `Online: ${m.llm.model} (open weights, served with vLLM).` : `Configured: ${m.llm.model || "Qwen/Qwen3.8-27B-FP8"} on a RunPod GPU — currently offline, so everything runs rule-based.`),
@@ -644,7 +644,7 @@ function viewHow() {
           h("ul", { class: "small" },
             h("li", {}, "HN job posts are global and tech-centric, so we use them only for tech skills; other skills rely on baselines and AI signals (marked low confidence)."),
             h("li", {}, "Research attention is a proxy for AI progress, not a measure of real-world adoption."),
-            h("li", {}, "Lessons are short introductions in English; the external courses in each plan go deeper."),
+            h("li", {}, "Course text is in English (the original language of the open sources); the interface is available in English, Malay and Chinese."),
             h("li", {}, "Next: Malaysian job feeds (e.g. MYFutureJobs / MyMahir), DOSM labour statistics and HRD Corp programme data.")))))));
 }
 
@@ -653,7 +653,7 @@ function parseRoute() {
   const raw = location.hash.slice(1) || "/";
   const [path, qs] = raw.split("?");
   const parts = path.split("/").filter(Boolean);
-  return { name: parts[0] || "home", arg: parts[1], params: new URLSearchParams(qs || "") };
+  return { name: parts[0] || "home", arg: parts[1], sub: parts[2], params: new URLSearchParams(qs || "") };
 }
 
 // Deep links for demos, e.g.  #/results?persona=aisyah&pace=fast&lang=ms&asof=2025-10
@@ -683,13 +683,13 @@ async function render() {
     if (r.name === "teams") await ensureTeam();
     if (r.name === "learn" || r.name === "certificate") await ensureLearn(r);
     const views = { home: viewHome, start: viewStart, results: viewResults, plan: () => viewPlan(r.arg), trends: viewTrends, teams: viewTeams, how: viewHow,
-      learn: () => (r.arg ? viewCourse() : viewLearn()), certificate: () => viewCertificate(r.arg) };
+      learn: () => (!r.arg ? viewLearn() : r.sub === "test" ? viewTest() : r.sub ? viewLesson() : viewCourse()), certificate: () => viewCertificate(r.arg) };
     main.replaceChildren((views[r.name] || viewHome)());
   } catch (e) {
     main.replaceChildren(h("div", { class: "container" }, h("p", { class: "notice", style: { marginTop: "32px" } }, String(e.message || e))));
   }
   main.classList.remove("loading");
-  const routeKey = `${r.name}/${r.arg || ""}`;
+  const routeKey = `${r.name}/${r.arg || ""}/${r.sub || ""}`;
   if (routeKey !== lastRoute) {
     window.scrollTo({ top: 0 });
     main.focus({ preventScroll: true });

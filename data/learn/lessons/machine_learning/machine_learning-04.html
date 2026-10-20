@@ -3,12 +3,10 @@
 <li>Understand the processes underpinning machine learning at a high level.</li>
 <li>Explore base concepts such as 'models', 'predictions', and 'training data'.</li>
 </ul>
-
 <p><a href="https://youtu.be/4NGM0U2ZSHU" target="_blank" rel="noopener noreferrer"><img alt="ML for beginners - Techniques of Machine Learning" loading="lazy" src="https://img.youtube.com/vi/4NGM0U2ZSHU/0.jpg"></a></p>
 <blockquote>
-
 </blockquote>
-<h2 id="introduction">Introduction</h2>
+<h2 id="h-introduction">Introduction</h2>
 <p>On a high level, the craft of creating machine learning (ML) processes is comprised of a number of steps:</p>
 <ol>
 <li><strong>Decide on the question</strong>. Most ML processes start by asking a question that cannot be answered by a simple conditional program or rules-based engine. These questions often revolve around predictions based on a collection of data.</li>
@@ -19,40 +17,40 @@
 <li><strong>Parameter tuning</strong>. Based on the performance of your model, you can redo the process using different parameters, or variables, that control the behavior of the algorithms used to train the model.</li>
 <li><strong>Predict</strong>. Use new inputs to test the accuracy of your model.</li>
 </ol>
-<h2 id="what-question-to-ask">What question to ask</h2>
+<h2 id="h-what-question-to-ask">What question to ask</h2>
 <p>Computers are particularly skilled at discovering hidden patterns in data. This utility is very helpful for researchers who have questions about a given domain that cannot be easily answered by creating a conditionally-based rules engine. Given an actuarial task, for example, a data scientist might be able to construct handcrafted rules around the mortality of smokers vs non-smokers.</p>
 <p>When many other variables are brought into the equation, however, a ML model might prove more efficient to predict future mortality rates based on past health history. A more cheerful example might be making weather predictions for the month of April in a given location based on data that includes latitude, longitude, climate change, proximity to the ocean, patterns of the jet stream, and more.</p>
 <p>✅ This <a href="https://www2.cisl.ucar.edu/sites/default/files/2021-10/0900%20June%2024%20Haupt_0.pdf" target="_blank" rel="noopener noreferrer">slide deck</a> on weather models offers a historical perspective for using ML in weather analysis.</p>
-<h2 id="pre-building-tasks">Pre-building tasks</h2>
+<h2 id="h-pre-building-tasks">Pre-building tasks</h2>
 <p>Before starting to build your model, there are several tasks you need to complete. To test your question and form a hypothesis based on a model's predictions, you need to identify and configure several elements.</p>
-<h3 id="data">Data</h3>
+<h3 id="h-data">Data</h3>
 <p>To be able to answer your question with any kind of certainty, you need a good amount of data of the right type. There are two things you need to do at this point:</p>
 <ul>
 <li><strong>Collect data</strong>. Keeping in mind the previous lesson on fairness in data analysis, collect your data with care. Be aware of the sources of this data, any inherent biases it might have, and document its origin.</li>
 <li><strong>Prepare data</strong>. There are several steps in the data preparation process. You might need to collate data and normalize it if it comes from diverse sources. You can improve the data's quality and quantity through various methods such as converting strings to numbers (as we do in <a href="https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/5-Clustering/1-Visualize/README.md" target="_blank" rel="noopener noreferrer">Clustering</a>). You might also generate new data, based on the original (as we do in <a href="https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/1-Introduction/README.md" target="_blank" rel="noopener noreferrer">Classification</a>). You can clean and edit the data (as we will prior to the <a href="https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/3-Web-App/README.md" target="_blank" rel="noopener noreferrer">Web App</a> lesson). Finally, you might also need to randomize it and shuffle it, depending on your training techniques.</li>
 </ul>
 <p>✅ After collecting and processing your data, take a moment to see if its shape will allow you to address your intended question. It may be that the data will not perform well in your given task, as we discover in our <a href="https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/5-Clustering/1-Visualize/README.md" target="_blank" rel="noopener noreferrer">Clustering</a> lessons!</p>
-<h3 id="features-and-target">Features and Target</h3>
+<h3 id="h-features-and-target">Features and Target</h3>
 <p>A <a href="https://www.datasciencecentral.com/profiles/blogs/an-introduction-to-variable-and-feature-selection" target="_blank" rel="noopener noreferrer">feature</a> is a measurable property of your data. In many datasets it is expressed as a column heading like 'date' 'size' or 'color'. Your feature variable, usually represented as <code>X</code> in code, represents the input variable which will be used to train a model.</p>
 <p>A target is a thing you are trying to predict. Target, usually represented as <code>y</code> in code, represents the answer to the question you are trying to ask of your data: in December, what <strong>color</strong> pumpkins will be cheapest? in San Francisco, what neighborhoods will have the best real estate <strong>price</strong>? Sometimes target is also referred to as a label attribute.</p>
-<h3 id="selecting-your-feature-variable">Selecting your feature variable</h3>
+<h3 id="h-selecting-your-feature-variable">Selecting your feature variable</h3>
 <p>🎓 <strong>Feature Selection and Feature Extraction</strong> How do you know which variable to choose when building a model? You'll probably go through a process of feature selection or feature extraction to choose the right variables for the most performant model. They're not the same thing, however: "Feature extraction creates new features from functions of the original features, whereas feature selection returns a subset of the features." (<a href="https://wikipedia.org/wiki/Feature_selection" target="_blank" rel="noopener noreferrer">source</a>)</p>
-<h3 id="visualize-your-data">Visualize your data</h3>
+<h3 id="h-visualize-your-data">Visualize your data</h3>
 <p>An important aspect of the data scientist's toolkit is the power to visualize data using several excellent libraries such as Seaborn or MatPlotLib. Representing your data visually might allow you to uncover hidden correlations that you can leverage. Your visualizations might also help you to uncover bias or unbalanced data (as we discover in <a href="https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/4-Classification/2-Classifiers-1/README.md" target="_blank" rel="noopener noreferrer">Classification</a>).</p>
-<h3 id="split-your-dataset">Split your dataset</h3>
+<h3 id="h-split-your-dataset">Split your dataset</h3>
 <p>Prior to training, you need to split your dataset into two or more parts of unequal size that still represent the data well.</p>
 <ul>
 <li><strong>Training</strong>. This part of the dataset is fit to your model to train it. This set constitutes the majority of the original dataset.</li>
 <li><strong>Testing</strong>. A test dataset is an independent group of data, often gathered from the original data, that you use to confirm the performance of the built model.</li>
 <li><strong>Validating</strong>. A validation set is a smaller independent group of examples that you use to tune the model's hyperparameters, or architecture, to improve the model. Depending on your data's size and the question you are asking, you might not need to build this third set (as we note in <a href="https://github.com/microsoft/ML-For-Beginners/blob/de2d4e12236445198213a0711855e348e7253cd4/7-TimeSeries/1-Introduction/README.md" target="_blank" rel="noopener noreferrer">Time Series Forecasting</a>).</li>
 </ul>
-<h2 id="building-a-model">Building a model</h2>
+<h2 id="h-building-a-model">Building a model</h2>
 <p>Using your training data, your goal is to build a model, or a statistical representation of your data, using various algorithms to <strong>train</strong> it. Training a model exposes it to data and allows it to make assumptions about perceived patterns it discovers, validates, and accepts or rejects.</p>
-<h3 id="decide-on-a-training-method">Decide on a training method</h3>
+<h3 id="h-decide-on-a-training-method">Decide on a training method</h3>
 <p>Depending on your question and the nature of your data, you will choose a method to train it. Stepping through <a href="https://scikit-learn.org/stable/user_guide.html" target="_blank" rel="noopener noreferrer">Scikit-learn's documentation</a> - which we use in this course - you can explore many ways to train a model. Depending on your experience, you might have to try several different methods to build the best model. You are likely to go through a process whereby data scientists evaluate the performance of a model by feeding it unseen data, checking for accuracy, bias, and other quality-degrading issues, and selecting the most appropriate training method for the task at hand.</p>
-<h3 id="train-a-model">Train a model</h3>
+<h3 id="h-train-a-model">Train a model</h3>
 <p>Armed with your training data, you are ready to 'fit' it to create a model. You will notice that in many ML libraries you will find the code 'model.fit' - it is at this time that you send in your feature variable as an array of values (usually 'X') and a target variable (usually 'y').</p>
-<h3 id="evaluate-the-model">Evaluate the model</h3>
+<h3 id="h-evaluate-the-model">Evaluate the model</h3>
 <p>Once the training process is complete (it can take many iterations, or 'epochs', to train a large model), you will be able to evaluate the model's quality by using test data to gauge its performance. This data is a subset of the original data that the model has not previously analyzed. You can print out a table of metrics about your model's quality.</p>
 <p>🎓 <strong>Model fitting</strong></p>
 <p>In the context of machine learning, model fitting refers to the accuracy of the model's underlying function as it attempts to analyze data with which it is not familiar.</p>
@@ -61,14 +59,13 @@
 <blockquote>
 <p>Infographic by <a href="https://twitter.com/jenlooper" target="_blank" rel="noopener noreferrer">Jen Looper</a></p>
 </blockquote>
-<h2 id="parameter-tuning">Parameter tuning</h2>
+<h2 id="h-parameter-tuning">Parameter tuning</h2>
 <p>Once your initial training is complete, observe the quality of the model and consider improving it by tweaking its 'hyperparameters'. Read more about the process <a href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters?WT.mc_id=academic-77952-leestott" target="_blank" rel="noopener noreferrer">in the documentation</a>.</p>
-<h2 id="prediction">Prediction</h2>
+<h2 id="h-prediction">Prediction</h2>
 <p>This is the moment where you can use completely new data to test your model's accuracy. In an 'applied' ML setting, where you are building web assets to use the model in production, this process might involve gathering user input (a button press, for example) to set a variable and send it to the model for inference, or evaluation.</p>
 <p>In these lessons, you will discover how to use these steps to prepare, build, test, evaluate, and predict - all the gestures of a data scientist and more, as you progress in your journey to become a 'full stack' ML engineer.</p>
 <hr>
-<h2 id="challenge">🚀Challenge</h2>
+<h2 id="h-challenge">🚀Challenge</h2>
 <p>Draw a flow chart reflecting the steps of a ML practitioner. Where do you see yourself right now in the process? Where do you predict you will find difficulty? What seems easy to you?</p>
-
-<h2 id="review-self-study">Review &amp; Self Study</h2>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
 <p>Search online for interviews with data scientists who discuss their daily work. Here is <a href="https://www.youtube.com/watch?v=Z3IjgbbCEfs" target="_blank" rel="noopener noreferrer">one</a>.</p>

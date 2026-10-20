@@ -42,48 +42,43 @@
   {
    "id": "gis-01",
    "title": "Introduction to Raster Data",
-   "words": 1224,
+   "words": 1223,
    "minutes": 7,
    "source": "dc-geo",
    "url": "https://github.com/datacarpentry/organization-geospatial/blob/5d96b1cd0bfd358c9a4e044dbfe9f73075656083/episodes/01-intro-raster-data.Rmd",
    "toc": [
     {
-     "id": "data-structures-raster-and-vector",
+     "id": "h-data-structures-raster-and-vector",
      "text": "Data Structures: Raster and Vector",
      "level": 2
     },
     {
-     "id": "about-raster-data",
+     "id": "h-about-raster-data",
      "text": "About Raster Data",
      "level": 2
     },
     {
-     "id": "solution",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "important-attributes-of-raster-data",
+     "id": "h-important-attributes-of-raster-data",
      "text": "Important Attributes of Raster Data",
      "level": 2
     },
     {
-     "id": "extent",
+     "id": "h-extent",
      "text": "Extent",
      "level": 3
     },
     {
-     "id": "resolution",
+     "id": "h-resolution",
      "text": "Resolution",
      "level": 3
     },
     {
-     "id": "raster-data-format-for-this-workshop",
+     "id": "h-raster-data-format-for-this-workshop",
      "text": "Raster Data Format for this Workshop",
      "level": 2
     },
     {
-     "id": "multi-band-raster-data",
+     "id": "h-multi-band-raster-data",
      "text": "Multi-band Raster Data",
      "level": 2
     }
@@ -92,29 +87,19 @@
   {
    "id": "gis-02",
    "title": "Introduction to Vector Data",
-   "words": 882,
+   "words": 880,
    "minutes": 5,
    "source": "dc-geo",
    "url": "https://github.com/datacarpentry/organization-geospatial/blob/5d96b1cd0bfd358c9a4e044dbfe9f73075656083/episodes/02-intro-vector-data.Rmd",
    "toc": [
     {
-     "id": "about-vector-data",
+     "id": "h-about-vector-data",
      "text": "About Vector Data",
      "level": 2
     },
     {
-     "id": "solution",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "vector-data-format-for-this-workshop",
+     "id": "h-vector-data-format-for-this-workshop",
      "text": "Vector Data Format for this Workshop",
-     "level": 2
-    },
-    {
-     "id": "solution-x",
-     "text": "Solution",
      "level": 2
     }
    ]
@@ -122,43 +107,38 @@
   {
    "id": "gis-03",
    "title": "Coordinate Reference Systems",
-   "words": 1453,
+   "words": 1452,
    "minutes": 8,
    "source": "dc-geo",
    "url": "https://github.com/datacarpentry/organization-geospatial/blob/5d96b1cd0bfd358c9a4e044dbfe9f73075656083/episodes/03-crs.Rmd",
    "toc": [
     {
-     "id": "coordinate-reference-systems",
+     "id": "h-coordinate-reference-systems",
      "text": "Coordinate Reference Systems",
      "level": 2
     },
     {
-     "id": "components-of-a-crs",
+     "id": "h-components-of-a-crs",
      "text": "Components of a CRS",
      "level": 2
     },
     {
-     "id": "which-projection-should-i-use",
+     "id": "h-which-projection-should-i-use",
      "text": "Which projection should I use?",
      "level": 2
     },
     {
-     "id": "describing-coordinate-reference-systems",
+     "id": "h-describing-coordinate-reference-systems",
      "text": "Describing Coordinate Reference Systems",
      "level": 2
     },
     {
-     "id": "solution",
-     "text": "Solution",
-     "level": 2
-    },
-    {
-     "id": "format-interoperability",
+     "id": "h-format-interoperability",
      "text": "Format interoperability",
      "level": 2
     },
     {
-     "id": "metadata",
+     "id": "h-metadata",
      "text": "Metadata",
      "level": 2
     }
@@ -173,32 +153,32 @@
    "url": "https://github.com/datacarpentry/organization-geospatial/blob/5d96b1cd0bfd358c9a4e044dbfe9f73075656083/episodes/04-geo-landscape.Rmd",
    "toc": [
     {
-     "id": "standalone-software-packages",
+     "id": "h-standalone-software-packages",
      "text": "Standalone Software Packages",
      "level": 2
     },
     {
-     "id": "commercial-software",
+     "id": "h-commercial-software",
      "text": "Commercial software",
      "level": 3
     },
     {
-     "id": "open-source-software",
+     "id": "h-open-source-software",
      "text": "Open-source software",
      "level": 3
     },
     {
-     "id": "online-cloud-computing",
+     "id": "h-online-cloud-computing",
      "text": "Online + Cloud computing",
      "level": 3
     },
     {
-     "id": "gui-vs-cli",
+     "id": "h-gui-vs-cli",
      "text": "GUI vs CLI",
      "level": 2
     },
     {
-     "id": "gis-in-programming-languages",
+     "id": "h-gis-in-programming-languages",
      "text": "GIS in programming languages",
      "level": 2
     }
@@ -213,152 +193,152 @@
    "url": "https://www.earthdata.nasa.gov/learn/earth-observation-data-basics",
    "toc": [
     {
-     "id": "remote-sensing",
+     "id": "h-remote-sensing",
      "text": "Remote Sensing",
      "level": 2
     },
     {
-     "id": "get-data",
+     "id": "h-get-data",
      "text": "Get Data",
      "level": 3
     },
     {
-     "id": "remote-sensing-data-basics",
+     "id": "h-remote-sensing-data-basics",
      "text": "Remote Sensing Data Basics",
      "level": 2
     },
     {
-     "id": "orbits",
+     "id": "h-orbits",
      "text": "Orbits",
      "level": 2
     },
     {
-     "id": "resolution",
+     "id": "h-resolution",
      "text": "Resolution",
      "level": 2
     },
     {
-     "id": "the-electromagnetic-spectrum",
+     "id": "h-the-electromagnetic-spectrum",
      "text": "The Electromagnetic Spectrum",
      "level": 2
     },
     {
-     "id": "active-instruments",
+     "id": "h-active-instruments",
      "text": "Active Instruments",
      "level": 2
     },
     {
-     "id": "passive-instruments",
+     "id": "h-passive-instruments",
      "text": "Passive Instruments",
      "level": 2
     },
     {
-     "id": "essential-variables",
+     "id": "h-essential-variables",
      "text": "Essential Variables",
      "level": 2
     },
     {
-     "id": "data-processing-interpretation-and-analysis",
+     "id": "h-data-processing-interpretation-and-analysis",
      "text": "Data Processing, Interpretation, and Analysis",
      "level": 2
     },
     {
-     "id": "field-spectroscopy",
+     "id": "h-field-spectroscopy",
      "text": "Field Spectroscopy",
      "level": 2
     },
     {
-     "id": "understanding-metadata",
+     "id": "h-understanding-metadata",
      "text": "Understanding Metadata",
      "level": 2
     },
     {
-     "id": "parts-of-the-earthdata-dataset-landing-page",
+     "id": "h-parts-of-the-earthdata-dataset-landing-page",
      "text": "Parts of the Earthdata Dataset Landing Page",
      "level": 3
     },
     {
-     "id": "technology",
+     "id": "h-technology",
      "text": "Technology",
      "level": 2
     },
     {
-     "id": "cloud-computing",
+     "id": "h-cloud-computing",
      "text": "Cloud Computing",
      "level": 3
     },
     {
-     "id": "earth-observation-data-and-artificial-intelligence",
+     "id": "h-earth-observation-data-and-artificial-intelligence",
      "text": "Earth Observation Data and Artificial Intelligence",
      "level": 3
     },
     {
-     "id": "synthetic-aperture-radar",
+     "id": "h-synthetic-aperture-radar",
      "text": "Synthetic Aperture Radar",
      "level": 2
     },
     {
-     "id": "synthetic-aperture-radar-sar",
+     "id": "h-synthetic-aperture-radar-sar",
      "text": "Synthetic Aperture Radar (SAR)",
      "level": 2
     },
     {
-     "id": "the-sar-handbook",
+     "id": "h-the-sar-handbook",
      "text": "The SAR Handbook",
      "level": 2
     },
     {
-     "id": "types-of-sar-products",
+     "id": "h-types-of-sar-products",
      "text": "Types of SAR Products",
      "level": 2
     },
     {
-     "id": "sar-image-interpretation",
+     "id": "h-sar-image-interpretation",
      "text": "SAR Image Interpretation",
      "level": 2
     },
     {
-     "id": "join-our-community-of-nasa-data-users",
+     "id": "h-join-our-community-of-nasa-data-users",
      "text": "Join Our Community of NASA Data Users",
      "level": 2
     },
     {
-     "id": "orbits-x",
+     "id": "h-orbits-x",
      "text": "Orbits",
      "level": 2
     },
     {
-     "id": "resolution-x",
+     "id": "h-resolution-x",
      "text": "Resolution",
      "level": 2
     },
     {
-     "id": "the-electromagnetic-spectrum-x",
+     "id": "h-the-electromagnetic-spectrum-x",
      "text": "The Electromagnetic Spectrum",
      "level": 2
     },
     {
-     "id": "active-instruments-x",
+     "id": "h-active-instruments-x",
      "text": "Active Instruments",
      "level": 2
     },
     {
-     "id": "passive-instruments-x",
+     "id": "h-passive-instruments-x",
      "text": "Passive Instruments",
      "level": 2
     },
     {
-     "id": "essential-variables-x",
+     "id": "h-essential-variables-x",
      "text": "Essential Variables",
      "level": 2
     },
     {
-     "id": "data-processing-interpretation-and-analysis-x",
+     "id": "h-data-processing-interpretation-and-analysis-x",
      "text": "Data Processing, Interpretation, and Analysis",
      "level": 2
     },
     {
-     "id": "field-spectroscopy-x",
+     "id": "h-field-spectroscopy-x",
      "text": "Field Spectroscopy",
      "level": 2
     }
@@ -382,32 +362,32 @@
    "url": "https://github.com/programminghistorian/jekyll/blob/ba71ab64b66ac27d2486d76cd1e6506d4fb13339/en/lessons/qgis-layers.md",
    "toc": [
     {
-     "id": "lesson-goals",
+     "id": "h-lesson-goals",
      "text": "Lesson Goals",
      "level": 2
     },
     {
-     "id": "installing-qgis",
+     "id": "h-installing-qgis",
      "text": "Installing QGIS",
      "level": 2
     },
     {
-     "id": "prince-edward-island-data",
+     "id": "h-prince-edward-island-data",
      "text": "Prince Edward Island Data",
      "level": 3
     },
     {
-     "id": "starting-your-gis-project",
+     "id": "h-starting-your-gis-project",
      "text": "Starting Your GIS Project",
      "level": 2
     },
     {
-     "id": "building-a-base-map",
+     "id": "h-building-a-base-map",
      "text": "Building a Base Map",
      "level": 3
     },
     {
-     "id": "opening-vectors",
+     "id": "h-opening-vectors",
      "text": "Opening Vectors",
      "level": 2
     }
@@ -422,12 +402,12 @@
    "url": "https://github.com/programminghistorian/jekyll/blob/ba71ab64b66ac27d2486d76cd1e6506d4fb13339/en/lessons/vector-layers-qgis.md",
    "toc": [
     {
-     "id": "lesson-goals",
+     "id": "h-lesson-goals",
      "text": "Lesson Goals",
      "level": 2
     },
     {
-     "id": "getting-started",
+     "id": "h-getting-started",
      "text": "Getting Started",
      "level": 2
     }
@@ -442,27 +422,27 @@
    "url": "https://github.com/programminghistorian/jekyll/blob/ba71ab64b66ac27d2486d76cd1e6506d4fb13339/en/lessons/georeferencing-qgis.md",
    "toc": [
     {
-     "id": "lesson-goals",
+     "id": "h-lesson-goals",
      "text": "Lesson Goals",
      "level": 2
     },
     {
-     "id": "getting-started",
+     "id": "h-getting-started",
      "text": "Getting Started",
      "level": 2
     },
     {
-     "id": "open-the-necessary-gis-layers",
+     "id": "h-open-the-necessary-gis-layers",
      "text": "Open the Necessary GIS Layers",
      "level": 2
     },
     {
-     "id": "open-the-georeferencer-tool",
+     "id": "h-open-the-georeferencer-tool",
      "text": "Open the Georeferencer Tool",
      "level": 2
     },
     {
-     "id": "georeference",
+     "id": "h-georeference",
      "text": "Georeference!",
      "level": 2
     }
@@ -470,69 +450,69 @@
   },
   {
    "id": "gis-10",
-   "title": "Introduction",
+   "title": "Creating Choropleth Maps with Python and Folium",
    "words": 2790,
    "minutes": 14,
    "source": "ph",
    "url": "https://github.com/programminghistorian/jekyll/blob/ba71ab64b66ac27d2486d76cd1e6506d4fb13339/en/lessons/choropleth-maps-python-folium.md",
    "toc": [
     {
-     "id": "lesson-goals",
+     "id": "h-lesson-goals",
      "text": "Lesson Goals",
      "level": 3
     },
     {
-     "id": "other-programming-historian-lessons",
+     "id": "h-other-programming-historian-lessons",
      "text": "Other Programming Historian lessons",
      "level": 3
     },
     {
-     "id": "lesson-prerequisites",
+     "id": "h-lesson-prerequisites",
      "text": "Lesson Prerequisites",
      "level": 2
     },
     {
-     "id": "python-pandas-and-geopandas",
+     "id": "h-python-pandas-and-geopandas",
      "text": "Python, Pandas, and GeoPandas",
      "level": 3
     },
     {
-     "id": "folium",
+     "id": "h-folium",
      "text": "Folium",
      "level": 3
     },
     {
-     "id": "google-colab",
+     "id": "h-google-colab",
      "text": "Google Colab",
      "level": 3
     },
     {
-     "id": "getting-started",
+     "id": "h-getting-started",
      "text": "Getting Started",
      "level": 2
     },
     {
-     "id": "importing-the-libraries",
+     "id": "h-importing-the-libraries",
      "text": "Importing the Libraries",
      "level": 3
     },
     {
-     "id": "getting-the-fatal-force-data",
+     "id": "h-getting-the-fatal-force-data",
      "text": "Getting the Fatal Force Data",
      "level": 3
     },
     {
-     "id": "inspecting-the-fatal-force-data",
+     "id": "h-inspecting-the-fatal-force-data",
      "text": "Inspecting the Fatal Force Data",
      "level": 3
     },
     {
-     "id": "getting-the-county-geometry-data",
+     "id": "h-getting-the-county-geometry-data",
      "text": "Getting the County Geometry Data",
      "level": 3
     },
     {
-     "id": "matching-the-two-datasets",
+     "id": "h-matching-the-two-datasets",
      "text": "Matching the two Datasets",
      "level": 3
     }
@@ -547,57 +527,57 @@
    "url": "https://github.com/programminghistorian/jekyll/blob/ba71ab64b66ac27d2486d76cd1e6506d4fb13339/en/lessons/choropleth-maps-python-folium.md",
    "toc": [
     {
-     "id": "counting-the-data-by-county",
+     "id": "h-counting-the-data-by-county",
      "text": "Counting the Data by County",
      "level": 3
     },
     {
-     "id": "initializing-a-basic-map",
+     "id": "h-initializing-a-basic-map",
      "text": "Initializing a Basic Map",
      "level": 3
     },
     {
-     "id": "the-problem-of-unevenly-distributed-data",
+     "id": "h-the-problem-of-unevenly-distributed-data",
      "text": "The Problem of Unevenly Distributed Data",
      "level": 2
     },
     {
-     "id": "solution-1-the-fisher-jenks-algorithm",
+     "id": "h-solution-1-the-fisher-jenks-algorithm",
      "text": "Solution 1: The Fisher-Jenks Algorithm",
      "level": 3
     },
     {
-     "id": "solution-2-creating-a-logarithmic-scale",
+     "id": "h-solution-2-creating-a-logarithmic-scale",
      "text": "Solution 2: Creating a Logarithmic Scale",
      "level": 3
     },
     {
-     "id": "normalizing-population-data",
+     "id": "h-normalizing-population-data",
      "text": "Normalizing Population Data",
      "level": 2
     },
     {
-     "id": "getting-county-level-population-data",
+     "id": "h-getting-county-level-population-data",
      "text": "Getting County-level Population Data",
      "level": 3
     },
     {
-     "id": "adding-county-population-data-to-the-map-dataframe",
+     "id": "h-adding-county-population-data-to-the-map-dataframe",
      "text": "Adding County Population Data to the Map DataFrame",
      "level": 3
     },
     {
-     "id": "calculating-the-rate-of-people-killed-per-100k",
+     "id": "h-calculating-the-rate-of-people-killed-per-100k",
      "text": "Calculating the Rate of People Killed (per 100k)",
      "level": 3
     },
     {
-     "id": "recreating-the-map-with-rates-instead-of-raw-counts",
+     "id": "h-recreating-the-map-with-rates-instead-of-raw-counts",
      "text": "Recreating the Map with Rates instead of Raw Counts",
      "level": 3
     },
     {
-     "id": "uneven-distribution-of-normalized-data",
+     "id": "h-uneven-distribution-of-normalized-data",
      "text": "Uneven Distribution of Normalized Data",
      "level": 3
     }
@@ -612,32 +592,32 @@
    "url": "https://github.com/programminghistorian/jekyll/blob/ba71ab64b66ac27d2486d76cd1e6506d4fb13339/en/lessons/choropleth-maps-python-folium.md",
    "toc": [
     {
-     "id": "adding-data-to-the-geojson-property-dictionary",
+     "id": "h-adding-data-to-the-geojson-property-dictionary",
      "text": "Adding Data to the GeoJSON Property Dictionary",
      "level": 3
     },
     {
-     "id": "adding-multiple-data-elements-to-the-information-box",
+     "id": "h-adding-multiple-data-elements-to-the-information-box",
      "text": "Adding Multiple Data Elements to the Information Box",
      "level": 3
     },
     {
-     "id": "saving-your-maps",
+     "id": "h-saving-your-maps",
      "text": "Saving Your Maps",
      "level": 2
     },
     {
-     "id": "conclusion",
+     "id": "h-conclusion",
      "text": "Conclusion",
      "level": 2
     },
     {
-     "id": "acknowledgments",
+     "id": "h-acknowledgments",
      "text": "Acknowledgments",
      "level": 3
     },
     {
-     "id": "footnotes",
+     "id": "h-footnotes",
      "text": "Footnotes",
      "level": 2
     }
@@ -645,9 +625,164 @@
   }
  ],
  "quiz": {
-  "questions": [],
-  "pass_mark": 0,
-  "missing": true
+  "questions": [
+   {
+    "q": "How is raster data stored?",
+    "options": [
+     "As points, lines and polygons",
+     "As a grid of values rendered on a map as pixels",
+     "As a table of addresses",
+     "As a list of map labels"
+    ],
+    "answer": 1,
+    "explain": "Rasters suit continuous surfaces such as elevation or temperature.",
+    "lesson": "gis-01",
+    "evidence": "Raster data is stored as a grid of values which are rendered on a map as pixels.",
+    "origin": "authored"
+   },
+   {
+    "q": "What do vector data structures represent?",
+    "options": [
+     "Satellite images only",
+     "Colour palettes for maps",
+     "Elevation surfaces",
+     "Specific features on the Earth's surface along with their attributes"
+    ],
+    "answer": 3,
+    "explain": "Vectors come as points, lines and polygons.",
+    "lesson": "gis-02",
+    "evidence": "Vector data structures represent specific features on the Earth's surface along with attributes of those features.",
+    "origin": "authored"
+   },
+   {
+    "q": "In vector data, what are vertices?",
+    "options": [
+     "Discrete geometric locations (x, y values) that define the shape of a spatial object",
+     "Pixels with missing values",
+     "The names of map layers",
+     "Colour bands in an image"
+    ],
+    "answer": 0,
+    "explain": "Points have one vertex; lines and polygons have many.",
+    "lesson": "gis-02",
+    "evidence": "Vectors are composed of discrete geometric locations (x, y values) known as vertices that define the shape of the spatial object.",
+    "origin": "authored"
+   },
+   {
+    "q": "Which geospatial datasets are associated with a coordinate reference system (CRS)?",
+    "options": [
+     "Only raster datasets",
+     "Only vector datasets",
+     "All geospatial datasets, raster and vector",
+     "Only datasets from satellites"
+    ],
+    "answer": 2,
+    "explain": "Layers must share (or be reprojected to) the same CRS to line up.",
+    "lesson": "gis-03",
+    "evidence": "All geospatial datasets (raster and vector) are associated with a specific coordinate reference system.",
+    "origin": "authored"
+   },
+   {
+    "q": "What is the relationship between a CRS and an SRS?",
+    "options": [
+     "An SRS is a type of raster",
+     "They are synonyms and are commonly interchanged",
+     "A CRS is only used for oceans",
+     "An SRS replaces latitude and longitude"
+    ],
+    "answer": 1,
+    "explain": "Both describe how coordinates map to places on Earth.",
+    "lesson": "gis-03",
+    "evidence": "CRS (coordinate reference system) and SRS (spatial reference system) are synonyms and are commonly interchanged.",
+    "origin": "authored"
+   },
+   {
+    "q": "NASA EOSDIS data products are processed at levels ranging from…",
+    "options": [
+     "Level A to Level F",
+     "Level 1 to Level 10",
+     "Bronze to Gold",
+     "Level 0 to Level 4"
+    ],
+    "answer": 3,
+    "explain": "Higher levels are more processed — from raw instrument data to model outputs.",
+    "lesson": "gis-06",
+    "evidence": "data products are processed at various levels ranging from Level 0 to Level 4.",
+    "origin": "authored"
+   },
+   {
+    "q": "A shapefile is made of several files. What must you do when moving it on your computer?",
+    "options": [
+     "Always move and keep all the files together",
+     "Move only the .shp file",
+     "Rename each file differently",
+     "Compress each file separately"
+    ],
+    "answer": 0,
+    "explain": "The geometry, attributes, index and projection live in separate files.",
+    "lesson": "gis-07",
+    "evidence": "It is important when moving files on your computer to always move and keep all four files together.",
+    "origin": "authored"
+   },
+   {
+    "q": "How are layers ordered in the QGIS layers panel?",
+    "options": [
+     "Alphabetically",
+     "By file size",
+     "In descending order of visibility — the top layer appears on top in the viewer",
+     "By the date they were created"
+    ],
+    "answer": 2,
+    "explain": "Drag layers to change which ones cover others.",
+    "lesson": "gis-08",
+    "evidence": "These layers are organized in descending order of visibility",
+    "origin": "authored"
+   },
+   {
+    "q": "Who needs georeferencing?",
+    "options": [
+     "Only people making 3-D models",
+     "Anyone who wants to accurately digitise data found on a paper map",
+     "Only satellite operators",
+     "Anyone printing a map"
+    ],
+    "answer": 1,
+    "explain": "Georeferencing stretches a scanned map so it fits real geographic coordinates.",
+    "lesson": "gis-09",
+    "evidence": "Georeferencing is required for anyone who wants to accurately digitize data found on a paper map",
+    "origin": "authored"
+   },
+   {
+    "q": "To make a basic choropleth map of counties with Folium, what do you join your data to?",
+    "options": [
+     "A list of city names",
+     "A satellite image",
+     "A spreadsheet of colours",
+     "Shape files that define county boundaries"
+    ],
+    "answer": 3,
+    "explain": "Each county polygon is then coloured by its data value.",
+    "lesson": "gis-10",
+    "evidence": "This will include joining your data to 'shape files' that define county boundaries, which will allow you to create a basic choropleth map.",
+    "origin": "authored"
+   },
+   {
+    "q": "On a choropleth map, how should you colour areas with missing data?",
+    "options": [
+     "With a colour distinct from the palette, so it is clear data is missing",
+     "With the darkest palette colour",
+     "With the same colour as zero",
+     "Leave them out of the map entirely"
+    ],
+    "answer": 0,
+    "explain": "Otherwise readers may mistake missing data for low values.",
+    "lesson": "gis-11",
+    "evidence": "This color should be distinct from the palette colors, so it is clear that data is missing.",
+    "origin": "authored"
+   }
+  ],
+  "pass_mark": 8,
+  "missing": false
  },
  "minutes": 112,
  "sources": [
