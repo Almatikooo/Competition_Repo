@@ -8,11 +8,13 @@ PY=".venv/bin/python"
 [ -x "$PY" ] || PY="python3"
 IP="$({ ipconfig getifaddr en0 || ipconfig getifaddr en1 || hostname -I | awk '{print $1}'; } 2>/dev/null | head -1 || true)"
 NAME="$(scutil --get LocalHostName 2>/dev/null || hostname -s)"
-echo "Path.AI is being served on your network. Share one of these:"
+echo "Path.AI is being served on your network. Share this address (type it with http://):"
 echo "  http://${IP:-<this-computer-IP>}:${PORT}"
-echo "  http://${NAME}.local:${PORT}"
-echo "Visitors must be on the same Wi-Fi. Press Ctrl+C to stop."
+echo "  (or http://${NAME}.local:${PORT} on iPhones and Macs; Android and Windows often cannot resolve .local names)"
+echo "Visitors must be on the same Wi-Fi. Keep this laptop on its charger with the lid open. Press Ctrl+C to stop."
+# Long keep-alive: phones reuse idle connections, and a short server timeout makes some of those requests fail.
+ARGS=(-m uvicorn app.main:app --host 0.0.0.0 --port "$PORT" --timeout-keep-alive 75)
 if command -v caffeinate >/dev/null 2>&1; then
-  exec caffeinate -is "$PY" -m uvicorn app.main:app --host 0.0.0.0 --port "$PORT"
+  exec caffeinate -is "$PY" "${ARGS[@]}"
 fi
-exec "$PY" -m uvicorn app.main:app --host 0.0.0.0 --port "$PORT"
+exec "$PY" "${ARGS[@]}"

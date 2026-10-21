@@ -134,8 +134,8 @@ This is the last step of the journey. It is linked from the results, the plan, y
   These are links only. Sites without a public API are never scraped.
 
 **Study**
-- **Universities.** 221 countries, from Wikidata (CC0) and the Hipo university list (MIT). Each list is ordered by how many Wikipedia language editions describe the institution. That is a rough, open sign of how widely known it is, **not a ranking**: QS and THE are linked, not copied.
-- **Degree fields.** 28 fields, mapped from the person's direction and field of study. *Find programmes* searches each university's own website for the chosen field.
+- **Universities.** 219 countries, from Wikidata (CC0) and the Hipo university list (MIT). Each list is ordered by how many Wikipedia language editions describe the institution. That is a rough, open sign of how widely known it is, **not a ranking**: QS and THE are linked, not copied.
+- **Degree fields.** 32 fields, mapped from the person's direction and field of study. *Find programmes* searches each university's own website for the chosen field.
 - **How to apply and funding.** Checked links to official admission and scholarship portals for 17 popular destinations:
   - Malaysia: UPU, EMGS, PTPTN;
   - UK, US and Australia: UCAS, Chevening, Common App, Fulbright, Australia Awards;
@@ -145,6 +145,8 @@ This is the last step of the journey. It is linked from the results, the plan, y
 - **Prepare now.** Free Path.AI courses that give a head start in the chosen field.
 
 **Data pipeline.** Rebuild with `python -m scripts.opportunities.jobs` (about 15 minutes, polite and cached) and `python -m scripts.opportunities.universities`. Sources and terms are in `data/opportunities/LICENSE.md`.
+
+**Flags.** Country flags are small SVG images from [flag-icons](https://github.com/lipis/flag-icons) (MIT), kept in `static/flags/`. Windows has no colour flag emoji, so emoji flags would show up there as letters such as "MY".
 
 ![Opportunities: jobs](docs/img/opportunities.png)
 ![Opportunities: universities](docs/img/universities.png)
@@ -184,7 +186,7 @@ This is the last step of the journey. It is linked from the results, the plan, y
 python3 -m venv .venv && source .venv/bin/activate      # Python ≥ 3.11
 pip install -r requirements.txt
 uvicorn app.main:app --reload                            # http://127.0.0.1:8000
-python -m pytest -q                                      # 75 tests
+python -m pytest -q                                      # 76 tests
 python -m app.signals.refresh                            # pull fresh HN + OpenAlex data (optional)
 python scripts/verify_resources.py                       # re-check every course / source URL
 python -m scripts.opportunities.jobs                     # refresh the job snapshot (about 15 min)
@@ -232,7 +234,7 @@ data/
   learn/               courses/*.json (syllabus + question pool) · lessons/<skill>/*.html (sanitised lesson text) · quizzes/*.json (authored questions) · pins.json · LICENSE.md
   opportunities/       jobs.json (dated job snapshot) · universities.json · portals.json · fields.json · sources.json · LICENSE.md
   personas.json        fictional example people + fictional HR team
-static/                vanilla-JS single-page app (no build step): app.js · learn.js · next.js · core.js · charts.js · i18n.js · styles.css · brand/ (logo, icons)
+static/                vanilla-JS single-page app (no build step): app.js · learn.js · next.js · core.js · charts.js · i18n.js · styles.css · brand/ (logo, icons) · flags/ (country flags, MIT)
 scripts/learnkit/      course importer: courses.py (which open material each course uses) · build.py · convert.py · digest.py
 scripts/opportunities/ job and university snapshots: jobs.py · universities.py · places.py (GeoNames) · fetch.py (polite cached GETs)
 scripts/brand_assets.py  rebuilds static/brand/ (vector logo, favicons, link preview) from the master logo

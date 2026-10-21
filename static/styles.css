@@ -709,7 +709,9 @@ a.po-ctest:hover { background: var(--surface); color: var(--blue); }
 .choice .badge { position: absolute; top: -11px; right: 14px; }
 .next-q .q2 { font-size: 24px; margin-top: 34px; }
 .next-q .search { margin-top: 16px; }
-.flag { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; line-height: 1; }
+.flag { display: inline-block; width: 20px; height: 15px; border-radius: 2px; object-fit: cover; flex: none; vertical-align: -3px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12); }
+.country-opt { display: inline-flex; align-items: center; gap: 10px; }
 .chip svg { width: 16px; height: 16px; }
 .seg.nx-mode button { display: inline-flex; align-items: center; gap: 6px; }
 .seg.nx-mode svg { width: 16px; height: 16px; }

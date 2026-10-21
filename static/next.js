@@ -30,7 +30,11 @@ export function countryName(code, lang = state.lang) {
 // English puts "the" before some country names inside a sentence ("Jobs for you in the United Kingdom").
 const THE = new Set(["GB", "US", "NL", "PH", "AE", "CZ", "BS", "GM", "MV", "MH", "SB", "KY", "FO", "FK", "CF", "KM", "DO", "VA", "CD", "CG", "TC", "VG", "VI", "MP", "SC"]);
 const inCountry = (code) => (state.lang === "en" && THE.has(code) ? `the ${countryName(code)}` : countryName(code));
-const flag = (code) => (/^[A-Z]{2}$/.test(code) ? String.fromCodePoint(...[...code].map((ch) => 0x1f1a5 + ch.charCodeAt(0))) : "");
+// Flags are small SVG images (flag-icons, MIT; static/flags): Windows has no colour flag emoji and would show "MY", "SG".
+const flag = (code) => (/^[A-Z]{2}$/.test(code)
+  ? h("img", { class: "flag", src: `/static/flags/${code.toLowerCase()}.svg`, alt: "", width: 20, height: 15, loading: "lazy", decoding: "async",
+    onerror: (e) => e.currentTarget.remove() })
+  : null);
 const fold = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 const hostOf = (url) => { try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return ""; } };
 const isStudent = () => state.origin?.type === "field" || state.wizard.student;
@@ -150,7 +154,7 @@ function countryPicker(mode) {
     const found = countryMatches(mode, query);
     list.replaceChildren(found.length
       ? h("div", { class: "suggest", role: "listbox" }, found.map((c) => h("button", { type: "button", role: "option", onclick: () => pickCountry(c.code) },
-        h("span", {}, h("span", { class: "flag", "aria-hidden": "true" }, flag(c.code)), " ", countryName(c.code)), h("span", { class: "hint" }, hint(c)))))
+        h("span", { class: "country-opt" }, flag(c.code), countryName(c.code)), h("span", { class: "hint" }, hint(c)))))
       : h("p", { class: "small muted", style: { marginTop: "10px" } }, t("nx_no_country", { q: query })));
   };
   fill(state.nextUi.q);
@@ -158,7 +162,7 @@ function countryPicker(mode) {
     autocomplete: "off", oninput: (e) => { state.nextUi.q = e.target.value; fill(e.target.value); },
     onkeydown: (e) => { if (e.key === "Enter") { const first = countryMatches(mode, state.nextUi.q)[0]; if (first) pickCountry(first.code); } } });
   const chip = (code) => h("button", { type: "button", class: `chip ${state.next.country === code ? "on" : ""}`, "aria-pressed": String(state.next.country === code),
-    onclick: () => pickCountry(code) }, code === "REMOTE" ? [icon("globe"), t("nx_remote_any")] : [h("span", { class: "flag", "aria-hidden": "true" }, flag(code)), countryName(code)]);
+    onclick: () => pickCountry(code) }, code === "REMOTE" ? [icon("globe"), t("nx_remote_any")] : [flag(code), countryName(code)]);
   return [
     h("h2", { class: "q2" }, t(mode === "work" ? "nx_q2_work" : "nx_q2_study")),
     h("div", { class: "search" }, icon("search"), input), list,
@@ -193,7 +197,7 @@ function pageHead(title, sub) {
     h("div", { class: "summary-bar" },
       h("div", { class: "seg nx-mode", role: "group", "aria-label": t("nx_q1") }, ["study", "work"].map((m) =>
         h("button", { type: "button", "aria-pressed": String(state.next.mode === m), onclick: () => switchMode(m) }, icon(m === "study" ? "grad" : "briefcase"), t(`nx_${m}`)))),
-      h("span", { class: "based" }, country === "REMOTE" ? icon("globe") : h("span", { class: "flag", "aria-hidden": "true" }, flag(country)), " ", countryName(country), " · ",
+      h("span", { class: "based" }, country === "REMOTE" ? icon("globe") : flag(country), " ", countryName(country), " · ",
         h("a", { href: "#/next", onclick: (e) => { e.preventDefault(); state.nextUi.editing = true; rerender(); } }, t("nx_change"))))));
 }
 

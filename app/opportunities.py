@@ -25,6 +25,7 @@ SOFT = {"communication", "leadership", "analytical_thinking", "creative_thinking
 READY = 70          # fit at which a posting counts as "ready to apply" (the page groups by 70 / 45)
 MIN_FIT = 25
 LEVEL_FILTERS = {"early": {"intern", "entry"}, "mid": {"mid"}, "senior": {"senior"}}
+HISTORICAL = {"DD", "YU", "SU", "CS", "ZR", "TP", "AN", "BU", "YD"}   # former countries still found in old Wikidata records
 
 
 class OppError(ValueError):
@@ -74,7 +75,7 @@ def meta() -> dict:
     for code, entry in d["universities"].items():
         counts.setdefault(code, {"jobs": 0, "remote": 0})["universities"] = entry["total"]
     countries = [{"code": c, "jobs": v["jobs"], "remote": v["remote"] + world, "universities": v.get("universities", 0)}
-                 for c, v in sorted(counts.items()) if len(c) == 2]
+                 for c, v in sorted(counts.items()) if len(c) == 2 and c not in HISTORICAL]
     return {"countries": countries, "remote_world": world,
             "jobs_total": len(d["jobs"]), "jobs_updated": d["jobs_meta"].get("generated"), "jobs_sources": d["jobs_meta"].get("sources") or [],
             "unis_updated": d["unis_meta"].get("generated"), "unis_sources": d["unis_meta"].get("sources") or []}
@@ -216,7 +217,7 @@ def fields_for(roles: list[str], study_field: str | None) -> list[str]:
 
 def study_for(country: str, roles: list[str], study_field: str | None) -> dict:
     d = data()
-    entry = d["universities"].get(country)
+    entry = d["universities"].get(country) if country not in HISTORICAL else None
     if not entry:
         raise OppError("No universities listed for this country yet.")
     portals = d["portals"].get("study", {})

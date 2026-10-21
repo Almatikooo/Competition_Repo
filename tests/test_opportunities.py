@@ -168,6 +168,12 @@ def test_api():
     assert client.post("/api/next/study", json={"country": "REMOTE"}).status_code == 422
 
 
+def test_every_listed_country_has_a_flag_image():
+    codes = {c["code"] for c in client.get("/api/next/meta").json()["countries"]}
+    assert len(codes) > 150 and not codes & opp.HISTORICAL           # no East Germany or Yugoslavia listed twice as "Germany", "Serbia"
+    assert not [c for c in sorted(codes) if not (ROOT / "static/flags" / f"{c.lower()}.svg").is_file()]
+
+
 def test_the_job_skill_prefilter_never_changes_what_is_found():
     from scripts.opportunities.jobs import Matcher, trigger
     assert trigger(r"\bsql\b(?!\s*account)") == "sql"          # text inside a look-ahead is not required

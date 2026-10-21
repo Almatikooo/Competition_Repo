@@ -27,6 +27,7 @@ HIPO = "https://raw.githubusercontent.com/Hipo/university-domains-list/master/wo
 QLEVER = "https://qlever.dev/api/wikidata"
 PER_COUNTRY = 80
 MIN_FROM_WIKIDATA = 15
+HISTORICAL = {"DD", "YU", "SU", "CS", "ZR", "TP", "AN", "BU", "YD"}   # former countries (East Germany, Yugoslavia, ...)
 QUERY = """PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX wikibase: <http://wikiba.se/ontology#>
@@ -96,7 +97,7 @@ def build() -> dict:
         hipo = from_hipo(client)
     countries = {}
     for code in sorted(set(wd) | set(hipo)):
-        if not re.fullmatch(r"[A-Z]{2}", code):
+        if not re.fullmatch(r"[A-Z]{2}", code) or code in HISTORICAL:
             continue
         items = sorted(wd.get(code, []), key=lambda x: (-x["known"], x["name"]))
         seen_names = {x["name"].lower() for x in items}
