@@ -50,3 +50,21 @@ def test_personas_are_synthetic_and_contain_no_contact_details():
     assert not re.search(r"\+?6?01\d[- ]?\d{3,4}[- ]?\d{4}", raw), "no Malaysian phone numbers in demo data"
     for p in data["personas"]:
         assert "synthetic profile" in p["cv_text"]
+
+
+def test_every_un_goal_explainer_is_complete_in_three_languages():
+    sdgs = json.loads((DATA / "catalog/sdgs.json").read_text(encoding="utf-8"))
+    assert [g["goal"] for g in sdgs["goals"]] == list(range(1, 18))
+    for g in sdgs["goals"]:
+        for key in ("name", "statement", "essence"):
+            assert all(g[key].get(lang) for lang in ("en", "ms", "zh")), (g["goal"], key)
+        assert g["url"] == f"https://sdgs.un.org/goals/goal{g['goal']}"
+    for lang in ("ms", "zh"):
+        assert set(sdgs["targets_local"][lang]) == set(sdgs["targets"]), lang
+
+
+def test_new_roles_have_titles_in_three_languages_and_real_skills():
+    for role in catalog.roles.values():
+        assert all(role["title"].get(lang) for lang in ("en", "ms", "zh")), role["id"]
+        assert any(item["w"] >= 0.5 for item in role["skills"]), role["id"]
+        assert role["summary"]

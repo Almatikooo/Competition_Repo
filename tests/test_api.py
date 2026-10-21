@@ -73,3 +73,12 @@ def test_cards_show_the_same_hours_as_the_plan():
     top = res["roles"][0]
     plan = client.post("/api/pathway", json=persona_body(role_id=top["id"])).json()
     assert top["plan_hours"] == plan["total_hours"]
+
+
+def test_meta_carries_what_the_goal_explainer_needs():
+    meta = client.get("/api/meta").json()
+    goal4 = next(g for g in meta["sdg_goals"] if g["goal"] == 4)
+    assert goal4["statement"]["zh"] and goal4["essence"]["ms"] and goal4["url"].endswith("goal4")
+    assert meta["sdg_targets_local"]["zh"]["4.4"] and meta["sdg_targets_local"]["ms"]["8.5"]
+    skills = {s["id"]: s for s in meta["skills"]}
+    assert {"goal": 4, "target": "4.4"}.items() <= skills["digital_literacy"]["sdgs"][0].items()

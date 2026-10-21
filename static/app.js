@@ -698,7 +698,7 @@ function viewHow() {
             h("li", {}, "Certificates are signed (HMAC-SHA256) and can be verified by anyone with the link; we keep no database of names. They are not accredited qualifications."))),
         card("Jobs & universities",
           h("ul", { class: "small" },
-            h("li", {}, "Jobs are a dated snapshot of open postings from public sources: company career pages on Greenhouse, Lever and Ashby, Hacker News “Who is hiring”, Himalayas, Jobicy, Remotive and Arbeitnow. We keep only the title, company, link, place, date and the skills detected — never the description — and you always apply on the employer's own page."),
+            h("li", {}, "Jobs are a dated snapshot of open postings from public sources: company career pages on Greenhouse, Lever and Ashby, Hacker News “Who is hiring”, Himalayas, Jobicy, Remotive, Remote OK and Arbeitnow. We keep only the title, company, link, place, date and the skills detected — never the description — and you always apply on the employer's own page."),
             h("li", {}, "Sites without a public API (JobStreet, LinkedIn, Indeed, SEEK…) are never scraped: we link to a ready-made search there, official public job portals first."),
             h("li", {}, "Universities come from Wikidata (CC0) and the Hipo university list (MIT), ordered by how many Wikipedia language editions describe them — a rough sign of how widely known they are, not a ranking. Admission and scholarship links are curated and checked."))),
         card("AI model disclosure",

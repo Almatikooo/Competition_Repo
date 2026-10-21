@@ -115,7 +115,7 @@ This is the last step of the journey. It is linked from the results, the plan, y
 - **The jobs.** A dated snapshot of **10,956 open postings in 87 countries**. 3,749 of them can be done remotely, 95 of those from anywhere. Only public, documented sources are used:
   - company career pages on Greenhouse, Lever and Ashby (105 employers);
   - Hacker News *Who is hiring?*;
-  - Himalayas, Jobicy, Remotive and Arbeitnow.
+  - Himalayas, Jobicy, Remotive, Remote OK and Arbeitnow.
 
   We keep only each posting's title, company, link, place, date and level, plus the skills our catalogue detects in it. Descriptions are not stored. Every card names its source, and you always apply on the original page. The GeoNames gazetteer (CC BY 4.0) maps each place to a country.
 - **The match.** Scoring is the same explainable method as the role matches. Each posting is recognised as one of the 63 catalogue roles from its title, and blended with the hard skills its text asks for.
@@ -144,7 +144,7 @@ This is the last step of the journey. It is linked from the results, the plan, y
   - and more, plus Erasmus Mundus for EU countries.
 - **Prepare now.** Free Path.AI courses that give a head start in the chosen field.
 
-**Data pipeline.** Rebuild with `python -m scripts.opportunities.jobs` (about 8 minutes, polite and cached) and `python -m scripts.opportunities.universities`. Sources and terms are in `data/opportunities/LICENSE.md`.
+**Data pipeline.** Rebuild with `python -m scripts.opportunities.jobs` (about 15 minutes, polite and cached) and `python -m scripts.opportunities.universities`. Sources and terms are in `data/opportunities/LICENSE.md`.
 
 ![Opportunities: jobs](docs/img/opportunities.png)
 ![Opportunities: universities](docs/img/universities.png)
@@ -184,10 +184,10 @@ This is the last step of the journey. It is linked from the results, the plan, y
 python3 -m venv .venv && source .venv/bin/activate      # Python ≥ 3.11
 pip install -r requirements.txt
 uvicorn app.main:app --reload                            # http://127.0.0.1:8000
-python -m pytest -q                                      # 71 tests
+python -m pytest -q                                      # 74 tests
 python -m app.signals.refresh                            # pull fresh HN + OpenAlex data (optional)
 python scripts/verify_resources.py                       # re-check every course / source URL
-python -m scripts.opportunities.jobs                     # refresh the job snapshot (about 8 min)
+python -m scripts.opportunities.jobs                     # refresh the job snapshot (about 15 min)
 python -m scripts.opportunities.universities             # refresh the university lists
 uv run --with markdown-it-py --with mdit-py-plugins --with nh3 --with beautifulsoup4 --with lxml --with pyyaml python -m scripts.learnkit.build  # rebuild the courses
 ```

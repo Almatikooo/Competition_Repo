@@ -2,11 +2,11 @@
 
 - **Job postings (`jobs.json`).** A dated snapshot built by `scripts/opportunities/jobs.py` from public, documented endpoints only:
   - company job boards through the public posting APIs of Greenhouse, Lever and Ashby (the employers are listed in `sources.json`);
-  - Hacker News *Ask HN: Who is hiring?*, the latest monthly thread, through the Algolia HN Search API;
-  - [Himalayas](https://himalayas.app/), [Jobicy](https://jobicy.com/), [Remotive](https://remotive.com/) and [Arbeitnow](https://www.arbeitnow.com/) through their public job APIs.
+  - Hacker News *Ask HN: Who is hiring?*, the three latest monthly threads, through the Algolia HN Search API;
+  - [Himalayas](https://himalayas.app/), [Jobicy](https://jobicy.com/), [Remotive](https://remotive.com/), [Remote OK](https://remoteok.com/) and [Arbeitnow](https://www.arbeitnow.com/) through their public job APIs.
 
   For each posting only facts are kept: title, company, link, place, date, a level read from the title, and the skill and role ids our catalogue detects. Descriptions are read once to detect skills and are not stored or shown. Every job card names its source and links to the original posting, and applications always happen on the original page. We follow each feed's terms:
-  - Remotive and Jobicy are credited with a link.
+  - Remotive, Jobicy and Remote OK are credited by name with a link, and each Remote OK job links back to its Remote OK page (their API terms).
   - Remotive is queried only a few times a day.
   - Postings are never re-submitted to other job sites or used to collect sign-ups.
   - Raw responses are cached for 20 hours in `data/cache/` (not in git).
@@ -21,7 +21,7 @@
 To refresh:
 
 ```bash
-python -m scripts.opportunities.jobs           # about 8 minutes; polite, cached requests
+python -m scripts.opportunities.jobs           # about 15 minutes; polite, cached requests
 python -m scripts.opportunities.universities
 python -m pytest tests/test_opportunities.py
 ```

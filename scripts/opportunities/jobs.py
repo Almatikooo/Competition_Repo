@@ -110,6 +110,20 @@ JOB_ALIAS_DROP = {"teaching_training": {"training"}, "healthcare_basics": {"medi
 JOB_SKIP = {"lifelong_learning"}
 
 
+def trigger(alias: str) -> str | None:
+    """A piece of plain text that `alias` cannot match without (lower-case), so a fast substring test can skip the
+    regex; None when the alias is too irregular to tell (then the regex always runs)."""
+    alias = alias.lower()
+    alias = re.sub(r"\(\?<?[!=][^)]*\)", "\0", alias)        # look-arounds are not text the match contains
+    alias = alias.replace("(?:", "(")
+    if re.search(r"[|\[\]{}]", alias) or re.search(r"\)[?*]", alias):
+        return None
+    alias = re.sub(r"\\.[?*]|.[?*]", "\0", alias)            # an optional character splits the text
+    pieces = re.split(r"\\[bBdDsSwW]|\\.|[\0^$.+()]", alias)
+    best = max(pieces, key=len, default="")
+    return best if len(best) >= 3 else None
+
+
 class Matcher:
     def __init__(self) -> None:
         catalog = get_catalog()
@@ -118,7 +132,9 @@ class Matcher:
             if sid in JOB_SKIP:
                 continue
             aliases = [a for a in s["aliases"] if a.lower() not in JOB_ALIAS_DROP.get(sid, set())]
-            self.skills[sid] = [re.compile("|".join(f"(?:{alias_regex(a).pattern})" for a in aliases), re.I)]
+            triggers = [trigger(a) for a in aliases]
+            self.skills[sid] = (None if None in triggers else triggers,
+                                [re.compile("|".join(f"(?:{alias_regex(a).pattern})" for a in aliases), re.I)])
         self.titles = {rid: p for rid, p in catalog.hn_role_patterns.items()}
         for rid, pattern in EXTRA_TITLES.items():
             if rid in catalog.roles and rid not in self.titles:
@@ -130,7 +146,9 @@ class Matcher:
 
     def skills_in(self, text: str) -> list[str]:
         text = text[:12000]
-        return [sid for sid, patterns in self.skills.items() if any(p.search(text) for p in patterns)]
+        lower = text.lower()
+        return [sid for sid, (triggers, patterns) in self.skills.items()
+                if (triggers is None or any(t in lower for t in triggers)) and any(p.search(text) for p in patterns)]
 
 
 def record(m: Matcher, *, source, company, title, url, posted, location, text, remote_hint="", kind=None,
