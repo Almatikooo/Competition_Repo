@@ -1,0 +1,99 @@
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_4.html" target="_blank" rel="noopener noreferrer"><img alt="Previous" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/previous.jpg"></a>
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/index.html" target="_blank" rel="noopener noreferrer"><img alt="Contents" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/contents.jpg"></a>
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_6.html" target="_blank" rel="noopener noreferrer"><img alt="Next" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/next.jpg"></a>
+<hr>
+<ul>
+<li><a href="#xtocid91780" rel="noopener noreferrer"><u>Relay construction</u></a></li>
+<li><a href="#xtocid91781" rel="noopener noreferrer"><u>Contactors</u></a></li>
+<li><a href="#xtocid91782" rel="noopener noreferrer"><u>Time-delay relays</u></a></li>
+<li><a href="#xtocid91783" rel="noopener noreferrer"><u>Protective relays</u></a></li>
+<li><a href="#xtocid91784" rel="noopener noreferrer"><u>Solid-state relays</u></a></li></ul>
+<h2 id="h-relay-construction">Relay construction</h2>
+<p>
+An electric current through a conductor will produce a magnetic field at right angles to the direction of electron flow.  If that conductor is wrapped into a coil shape, the magnetic field produced will be oriented along the length of the coil.  The greater the current, the greater the strength of the magnetic field, all other factors being equal:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04040.png"> </p>
+<p>
+Inductors react against changes in current because of the energy stored in this magnetic field.  When we construct a transformer from two inductor coils around a common iron core, we use this field to transfer energy from one coil to the other.  However, there are simpler and more direct uses for electromagnetic fields than the applications we've seen with inductors and transformers.  The magnetic field produced by a coil of current-carrying wire can be used to exert a mechanical force on any magnetic object, just as we can use a permanent magnet to attract magnetic objects, except that this magnet (formed by the coil) can be turned on or off by switching the current on or off through the coil.
+</p>
+<p>
+If we place a magnetic object near such a coil for the purpose of making that object move when we energize the coil with electric current, we have what is called a <i>solenoid</i>.  The movable magnetic object is called an <i>armature</i>, and most armatures can be moved with either direct current (DC) or alternating current (AC) energizing the coil.  The polarity of the magnetic field is irrelevant for the purpose of attracting an iron armature.  Solenoids can be used to electrically open door latches, open or shut valves, move robotic limbs, and even actuate electric switch mechanisms.  However, if a solenoid is used to actuate a set of switch contacts, we have a device so useful it deserves its own name: the <i>relay</i>.
+</p>
+<p>
+Relays are extremely useful when we have a need to control a large amount of current and/or voltage with a small electrical signal.  The relay coil which produces the magnetic field may only consume fractions of a watt of power, while the contacts closed or opened by that magnetic field may be able to conduct hundreds of times that amount of power to a load.  In effect, a relay acts as a binary (on or off) amplifier.
+</p>
+<p>
+Just as with transistors, the relay's ability to control one electrical signal with another finds application in the construction of logic functions.  This topic will be covered in greater detail in another lesson.  For now, the relay's "amplifying" ability will be explored.
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04041.png"> </p>
+<p>
+In the above schematic, the relay's coil is energized by the low-voltage (12 VDC) source, while the single-pole, single-throw (SPST) contact interrupts the high-voltage (480 VAC) circuit.  It is quite likely that the current required to energize the relay coil will be hundreds of times less than the current rating of the contact.  Typical relay coil currents are well below 1 amp, while typical contact ratings for industrial relays are at least 10 amps.
+</p>
+<p>
+One relay coil/armature assembly may be used to actuate more than one set of contacts.  Those contacts may be normally-open, normally-closed, or any combination of the two.  As with switches, the "normal" state of a relay's contacts is that state when the coil is de-energized, just as you would find the relay sitting on a shelf, not connected to any circuit.
+</p>
+<p>
+Relay contacts may be open-air pads of metal alloy, mercury tubes, or even magnetic reeds, just as with other types of switches.  The choice of contacts in a relay depends on the same factors which dictate contact choice in other types of switches.  Open-air contacts are the best for high-current applications, but their tendency to corrode and spark may cause problems in some industrial environments.  Mercury and reed contacts are sparkless and won't corrode, but they tend to be limited in current-carrying capacity.
+</p>
+<p>
+Shown here are three small relays (about two inches in height, each), installed on a panel as part of an electrical control system at a municipal water treatment plant:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/54009.jpg"> </p>
+<p>
+The relay units shown here are called "octal-base," because they plug into matching sockets, the electrical connections secured via eight metal pins on the relay bottom.  The screw terminal connections you see in the photograph where wires connect to the relays are actually part of the socket assembly, into which each relay is plugged.  This type of construction facilitates easy removal and replacement of the relay(s) in the event of failure.
+</p>
+<p>
+Aside from the ability to allow a relatively small electric signal to switch a relatively large electric signal, relays also offer electrical isolation between coil and contact circuits.  This means that the coil circuit and contact circuit(s) are electrically insulated from one another.  One circuit may be DC and the other AC (such as in the example circuit shown earlier), and/or they may be at completely different voltage levels, across the connections or from connections to ground.
+</p>
+<p>
+While relays are essentially binary devices, either being completely on or completely off, there are operating conditions where their state may be indeterminate, just as with semiconductor logic gates.  In order for a relay to positively "pull in" the armature to actuate the contact(s), there must be a certain minimum amount of current through the coil.  This minimum amount is called the <i>pull-in</i> current, and it is analogous to the minimum input voltage that a logic gate requires to guarantee a "high" state (typically 2 Volts for TTL, 3.5 Volts for CMOS).  Once the armature is pulled closer to the coil's center, however, it takes less magnetic field flux (less coil current) to hold it there.  Therefore, the coil current must drop below a value significantly lower than the pull-in current before the armature "drops out" to its spring-loaded position and the contacts resume their normal state.  This current level is called the <i>drop-out</i> current, and it is analogous to the maximum input voltage that a logic gate input will allow to guarantee a "low" state (typically 0.8 Volts for TTL, 1.5 Volts for CMOS).
+</p>
+<p>
+The hysteresis, or difference between pull-in and drop-out currents, results in operation that is similar to a Schmitt trigger logic gate.  Pull-in and drop-out currents (and voltages) vary widely from relay to relay, and are specified by the manufacturer.
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>A <i>solenoid</i> is a device that produces mechanical motion from the energization of an electromagnet coil.  The movable portion of a solenoid is called an <i>armature</i>.</li>
+<li>A <i>relay</i> is a solenoid set up to actuate switch contacts when its coil is energized.</li>
+<li><i>Pull-in</i> current is the minimum amount of coil current needed to actuate a solenoid or relay from its "normal" (de-energized) position.</li>
+<li><i>Drop-out</i> current is the maximum coil current below which an energized relay will return to its "normal" state.</li>
+</ul>
+<h2 id="h-contactors">Contactors</h2>
+<p>
+When a relay is used to switch a large amount of electrical power through its contacts, it is designated by a special name: <i>contactor</i>.  Contactors typically have multiple contacts, and those contacts are usually (but not always) normally-open, so that power to the load is shut off when the coil is de-energized.  Perhaps the most common industrial use for contactors is the control of electric motors.
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04042.png"> </p>
+<p>
+The top three contacts switch the respective phases of the incoming 3-phase AC power, typically at least 480 Volts for motors 1 horsepower or greater.  The lowest contact is an "auxiliary" contact which has a current rating much lower than that of the large motor power contacts, but is actuated by the same armature as the power contacts.  The auxiliary contact is often used in a relay logic circuit, or for some other part of the motor control scheme, typically switching 120 Volt AC power instead of the motor voltage.  One contactor may have several auxiliary contacts, either normally-open or normally-closed, if required.
+</p>
+<p>
+The three "opposed-question-mark" shaped devices in series with each phase going to the motor are called <i>overload heaters</i>.  Each "heater" element is a low-resistance strip of metal intended to heat up as the motor draws current.  If the temperature of any of these heater elements reaches a critical point (equivalent to a moderate overloading of the motor), a normally-closed switch contact (not shown in the diagram) will spring open.  This normally-closed contact is usually connected in series with the relay coil, so that when it opens the relay will automatically de-energize, thereby shutting off power to the motor.  We will see more of this overload protection wiring in the next chapter.  Overload heaters are intended to provide overcurrent protection for large electric motors, unlike circuit breakers and fuses which serve the primary purpose of providing overcurrent protection for power conductors.
+</p>
+<p>
+Overload heater function is often misunderstood.  They are not fuses; that is, it is not their function to burn open and directly break the circuit as a fuse is designed to do.  Rather, overload heaters are designed to thermally mimic the heating characteristic of the particular electric motor to be protected.  All motors have thermal characteristics, including the amount of heat energy generated by resistive dissipation (I<sup>2</sup>R), the thermal transfer characteristics of heat "conducted" to the cooling medium through the metal frame of the motor, the physical mass and specific heat of the materials constituting the motor, etc.  These characteristics are mimicked by the overload heater on a miniature scale: when the motor heats up toward its critical temperature, so will the heater toward <i>its</i> critical temperature, ideally at the same rate and approach curve.  Thus, the overload contact, in sensing heater temperature with a thermo-mechanical mechanism, will sense an analogue of the real motor.  If the overload contact trips due to excessive heater temperature, it will be an indication that the real motor has reached <i>its</i> critical temperature (or, would have done so in a short while).  After tripping, the heaters are supposed to cool down at the same rate and approach curve as the real motor, so that they indicate an accurate proportion of the motor's thermal condition, and will not allow power to be re-applied until the motor is truly ready for start-up again.
+</p>
+<p>
+Shown here is a contactor for a three-phase electric motor, installed on a panel as part of an electrical control system at a municipal water treatment plant:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/54010.jpg"> </p>
+<p>
+Three-phase, 480 volt AC power comes in to the three normally-open contacts at the top of the contactor via screw terminals labeled "L1," "L2," and "L3" (The "L2" terminal is hidden behind a square-shaped "snubber" circuit connected across the contactor's coil terminals).  Power to the motor exits the overload heater assembly at the bottom of this device via screw terminals labeled "T1," "T2," and "T3."
+</p>
+<p>
+The overload heater units themselves are black, square-shaped blocks with the label "W34," indicating a particular thermal response for a certain horsepower and temperature rating of electric motor.  If an electric motor of differing power and/or temperature ratings were to be substituted for the one presently in service, the overload heater units would have to be replaced with units having a thermal response suitable for the new motor.  The motor manufacturer can provide information on the appropriate heater units to use.
+</p>
+<p>
+A white pushbutton located between the "T1" and "T2" line heaters serves as a way to manually re-set the normally-closed switch contact back to its normal state after having been tripped by excessive heater temperature.  Wire connections to the "overload" switch contact may be seen at the lower-right of the photograph, near a label reading "NC" (normally-closed).  On this particular overload unit, a small "window" with the label "Tripped" indicates a tripped condition by means of a colored flag.  In this photograph, there is no "tripped" condition, and the indicator appears clear.
+</p>
+<p>
+As a footnote, heater elements may be used as a crude current shunt resistor for determining whether or not a motor is drawing current when the contactor is closed.  There may be times when you're working on a motor control circuit, where the contactor is located far away from the motor itself.  How do you know if the motor is consuming power when the contactor coil is energized and the armature has been pulled in?  If the motor's windings are burnt open, you could be sending voltage to the motor through the contactor contacts, but still have zero current, and thus no motion from the motor shaft.  If a clamp-on ammeter isn't available to measure line current, you can take your multimeter and measure millivoltage across each heater element: if the current is zero, the voltage across the heater will be zero (unless the heater element itself is open, in which case the voltage across it will be large); if there is current going to the motor through that phase of the contactor, you will read a definite millivoltage across that heater:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04316.png"> </p>
+<p>
+This is an especially useful trick to use for troubleshooting 3-phase AC motors, to see if one phase winding is burnt open or disconnected, which will result in a rapidly destructive condition known as "single-phasing."  If one of the lines carrying power to the motor is open, it will not have any current through it (as indicated by a 0.00 mV reading across its heater), although the other two lines will (as indicated by small amounts of voltage dropped across the respective heaters).
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>A <i>contactor</i> is a large relay, usually used to switch current to an electric motor or other high-power load.</li>
+<li>Large electric motors can be protected from overcurrent damage through the use of <i>overload heaters</i> and <i>overload contacts</i>.  If the series-connected heaters get too hot from excessive current, the normally-closed overload contact will open, de-energizing the contactor sending power to the motor.</li>
+</ul>

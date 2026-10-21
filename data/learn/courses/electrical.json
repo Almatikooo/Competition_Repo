@@ -403,180 +403,664 @@
    "toc": []
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "What distinguishes conductors from insulators?",
-    "options": [
-     "Conductors are always metal; insulators are always plastic",
-     "Conductors have high electron mobility (many free electrons); insulators have low mobility",
-     "Insulators carry more current than conductors",
-     "Conductors store charge; insulators release it"
-    ],
-    "answer": 1,
-    "explain": "Dirty water and concrete conduct too, but far less well than metals.",
-    "lesson": "electrical-02",
-    "evidence": "Materials with high electron mobility (many free electrons) are called conductors",
-    "origin": "authored"
-   },
-   {
-    "q": "Why is voltage always referenced between two points?",
-    "options": [
-     "Because meters have two leads",
-     "Because current flows in two directions",
-     "Because batteries have two ends",
-     "Because voltage is an expression of potential energy between two levels"
-    ],
-    "answer": 3,
-    "explain": "Like a mass that could drop from one height to another, voltage is relative.",
-    "lesson": "electrical-03",
-    "evidence": "Because voltage is an expression of potential energy, representing the possibility or potential for energy release as the electrons move from one \"level\" to another, it is always referenced between two points.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is an open circuit?",
-    "options": [
-     "A break in the continuity of the circuit prevents current throughout",
-     "A circuit with very low resistance",
-     "A circuit connected to ground",
-     "A circuit with the switch closed"
-    ],
-    "answer": 0,
-    "explain": "Reconnecting the break makes it a closed circuit again.",
-    "lesson": "electrical-04",
-    "evidence": "where a break in the continuity of the circuit prevents current throughout",
-    "origin": "authored"
-   },
-   {
-    "q": "Why is a short circuit dangerous?",
-    "options": [
-     "Voltage disappears completely",
-     "The battery reverses polarity",
-     "The current can become very large, releasing energy dramatically, usually as heat",
-     "Resistance increases until the wire melts"
-    ],
-    "answer": 2,
-    "explain": "With almost no resistance, current is limited only by the source.",
-    "lesson": "electrical-04",
-    "evidence": "the magnitude of electric current may be very large in such a short circuit",
-    "origin": "authored"
-   },
-   {
-    "q": "What is electric current?",
-    "options": [
-     "The potential energy between two points",
-     "The continuous movement of free electrons through the conductors of a circuit",
-     "The opposition to the flow of electrons",
-     "The heat produced by a resistor"
-    ],
-    "answer": 1,
-    "explain": "Ohm's law links current (I), voltage (E) and resistance (R).",
-    "lesson": "electrical-06",
-    "evidence": "This continuous movement of free electrons through the conductors of a circuit is called a current",
-    "origin": "authored"
-   },
-   {
-    "q": "What are resistors made for?",
-    "options": [
-     "Storing electrical energy",
-     "Switching circuits on and off",
-     "Converting AC to DC",
-     "Creating a precise quantity of resistance to insert into a circuit"
-    ],
-    "answer": 3,
-    "explain": "Variable resistors add a shaft or lever to adjust the resistance.",
-    "lesson": "electrical-08",
-    "evidence": "Special components called resistors are made for the express purpose of creating a precise quantity of resistance for insertion into a circuit.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is an intentional grounding point in a circuit meant to ensure?",
-    "options": [
-     "That one side of the circuit is safe to come in contact with",
-     "That the circuit uses less power",
-     "That lightning cannot strike",
-     "That fuses are never needed"
-    ],
-    "answer": 0,
-    "explain": "The grounded side is electrically common with the earth.",
-    "lesson": "electrical-13",
-    "evidence": "the presence of an intentional \"grounding\" point in an electric circuit is intended to ensure that one side of it is safe to come in contact with.",
-    "origin": "authored"
-   },
-   {
-    "q": "What determines how much voltage is dangerous?",
-    "options": [
-     "Only the colour of the wires",
-     "Whether the current is AC or DC alone",
-     "How much total resistance is in the circuit to oppose the flow of electrons",
-     "The brand of the power supply"
-    ],
-    "answer": 2,
-    "explain": "Current through the body causes harm, and current depends on voltage and resistance.",
-    "lesson": "electrical-14",
-    "evidence": "Just how much voltage is dangerous depends on how much total resistance is in the circuit to oppose the flow of electrons.",
-    "origin": "authored"
-   },
-   {
-    "q": "Above roughly what voltage is considered potentially dangerous?",
-    "options": [
-     "3 volts",
-     "30 volts",
-     "300 volts",
-     "3,000 volts"
-    ],
-    "answer": 1,
-    "explain": "Even telephone lines (48 V DC, 150 V AC ringing) exceed it.",
-    "lesson": "electrical-16",
-    "evidence": "remember that any voltage over 30 is considered potentially dangerous!",
-    "origin": "authored"
-   },
-   {
-    "q": "Which shock current path through the body is the most dangerous?",
-    "options": [
-     "Foot to foot",
-     "Hand to elbow",
-     "Finger to finger on one hand",
-     "Hand to hand"
-    ],
-    "answer": 3,
-    "explain": "A hand-to-hand path crosses the chest and heart.",
-    "lesson": "electrical-18",
-    "evidence": "Because a hand-to-hand shock current path is the most dangerous",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the defining characteristic of a series circuit?",
-    "options": [
-     "There is only one path for electrons to flow",
-     "All components share the same two common points",
-     "Voltage is equal across every component",
-     "It has no resistors"
-    ],
-    "answer": 0,
-    "explain": "In a parallel circuit, all components connect between the same common points instead.",
-    "lesson": "electrical-20",
-    "evidence": "The defining characteristic of a series circuit is that there is only one path for electrons to flow.",
-    "origin": "authored"
-   },
-   {
-    "q": "In a parallel circuit, what is true about voltage?",
-    "options": [
-     "It divides between the components",
-     "It is zero across each branch",
-     "It is equal across all components",
-     "It increases with each branch added"
-    ],
-    "answer": 2,
-    "explain": "There are only two sets of electrically common points, so every branch sees the same voltage.",
-    "lesson": "electrical-21",
-    "evidence": "The first principle to understand about parallel circuits is that the voltage is equal across all components in the circuit.",
-    "origin": "authored"
-   }
-  ],
-  "pass_mark": 9,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "b4cb164132",
+   "module": 0,
+   "q": "What are the three fundamental particles that make up most atoms?",
+   "options": [
+    "Protons, neutrons and electrons",
+    "Quarks, photons and ions",
+    "Atoms, molecules and compounds",
+    "Protons, photons and positrons"
+   ],
+   "answer": 0,
+   "explain": "Protons and neutrons are tightly bound in the nucleus; electrons can move.",
+   "lesson": "electrical-01",
+   "evidence": "are called protons , neutrons and electrons",
+   "origin": "authored"
+  },
+  {
+   "id": "54126de95c",
+   "module": 0,
+   "q": "What is the elementary charge?",
+   "options": [
+    "The charge of a full battery",
+    "One coulomb",
+    "The charge of a whole atom",
+    "The charge of one electron, the smallest known carrier of charge"
+   ],
+   "answer": 3,
+   "explain": "All electric charge comes in multiples of it.",
+   "lesson": "electrical-01",
+   "evidence": "Being that one electron is the smallest known carrier of electric charge, this last figure of charge for the electron is defined as the elementary charge",
+   "origin": "authored"
+  },
+  {
+   "id": "fea12039b2",
+   "module": 0,
+   "q": "What distinguishes conductors from insulators?",
+   "options": [
+    "Conductors are always metal; insulators are always plastic",
+    "Conductors have high electron mobility (many free electrons); insulators have low mobility",
+    "Insulators carry more current than conductors",
+    "Conductors store charge; insulators release it"
+   ],
+   "answer": 1,
+   "explain": "Dirty water and concrete conduct too, but far less well than metals.",
+   "lesson": "electrical-02",
+   "evidence": "Materials with high electron mobility (many free electrons) are called conductors",
+   "origin": "authored"
+  },
+  {
+   "id": "d5be7af6fa",
+   "module": 0,
+   "q": "Why is voltage always referenced between two points?",
+   "options": [
+    "Because meters have two leads",
+    "Because current flows in two directions",
+    "Because batteries have two ends",
+    "Because voltage is an expression of potential energy between two levels"
+   ],
+   "answer": 3,
+   "explain": "Like a mass that could drop from one height to another, voltage is relative.",
+   "lesson": "electrical-03",
+   "evidence": "Because voltage is an expression of potential energy, representing the possibility or potential for energy release as the electrons move from one \"level\" to another, it is always referenced between two points.",
+   "origin": "authored"
+  },
+  {
+   "id": "34e5dc98d9",
+   "module": 0,
+   "q": "What is an open circuit?",
+   "options": [
+    "A break in the continuity of the circuit prevents current throughout",
+    "A circuit with very low resistance",
+    "A circuit connected to ground",
+    "A circuit with the switch closed"
+   ],
+   "answer": 0,
+   "explain": "Reconnecting the break makes it a closed circuit again.",
+   "lesson": "electrical-04",
+   "evidence": "where a break in the continuity of the circuit prevents current throughout",
+   "origin": "authored"
+  },
+  {
+   "id": "7b8ff50693",
+   "module": 0,
+   "q": "Why is a short circuit dangerous?",
+   "options": [
+    "Voltage disappears completely",
+    "The battery reverses polarity",
+    "The current can become very large, releasing energy dramatically, usually as heat",
+    "Resistance increases until the wire melts"
+   ],
+   "answer": 2,
+   "explain": "With almost no resistance, current is limited only by the source.",
+   "lesson": "electrical-04",
+   "evidence": "the magnitude of electric current may be very large in such a short circuit",
+   "origin": "authored"
+  },
+  {
+   "id": "4e3a58b180",
+   "module": 0,
+   "q": "Who most often uses electron flow notation?",
+   "options": [
+    "Only electricians",
+    "Nobody — it is obsolete",
+    "Introductory textbooks and scientists such as solid-state physicists",
+    "Only power companies"
+   ],
+   "answer": 2,
+   "explain": "Many engineers use conventional flow, from positive to negative, instead.",
+   "lesson": "electrical-05",
+   "evidence": "Electron flow is most often seen in introductory textbooks (this one included) and in the writings of professional scientists, especially solid-state physicists",
+   "origin": "authored"
+  },
+  {
+   "id": "3a67f91bce",
+   "module": 1,
+   "q": "What is electric current?",
+   "options": [
+    "The potential energy between two points",
+    "The continuous movement of free electrons through the conductors of a circuit",
+    "The opposition to the flow of electrons",
+    "The heat produced by a resistor"
+   ],
+   "answer": 1,
+   "explain": "Ohm's law links current (I), voltage (E) and resistance (R).",
+   "lesson": "electrical-06",
+   "evidence": "This continuous movement of free electrons through the conductors of a circuit is called a current",
+   "origin": "authored"
+  },
+  {
+   "id": "091b20232c",
+   "module": 1,
+   "q": "What is power?",
+   "options": [
+    "The total amount of work done",
+    "A measure of how rapidly a standard amount of work is done",
+    "The force pushing electrons",
+    "The opposition to current"
+   ],
+   "answer": 1,
+   "explain": "In electric circuits power is measured in watts.",
+   "lesson": "electrical-07",
+   "evidence": "Power is a measure of how rapidly a standard amount of work is done.",
+   "origin": "authored"
+  },
+  {
+   "id": "5d25aa468a",
+   "module": 1,
+   "q": "Does voltage or current on its own constitute power?",
+   "options": [
+    "No — neither does by itself",
+    "Yes, voltage alone",
+    "Yes, current alone",
+    "Yes, whichever is larger"
+   ],
+   "answer": 0,
+   "explain": "Power depends on both voltage and current together (P = IE).",
+   "lesson": "electrical-07",
+   "evidence": "It must be understood that neither voltage nor current by themselves constitute power.",
+   "origin": "authored"
+  },
+  {
+   "id": "7a0188b232",
+   "module": 1,
+   "q": "What are resistors made for?",
+   "options": [
+    "Storing electrical energy",
+    "Switching circuits on and off",
+    "Converting AC to DC",
+    "Creating a precise quantity of resistance to insert into a circuit"
+   ],
+   "answer": 3,
+   "explain": "Variable resistors add a shaft or lever to adjust the resistance.",
+   "lesson": "electrical-08",
+   "evidence": "Special components called resistors are made for the express purpose of creating a precise quantity of resistance for insertion into a circuit.",
+   "origin": "authored"
+  },
+  {
+   "id": "fb53899515",
+   "module": 1,
+   "q": "How does the resistance of almost all metals behave?",
+   "options": [
+    "It never changes",
+    "It depends only on colour",
+    "It falls to zero in sunlight",
+    "It changes with temperature"
+   ],
+   "answer": 3,
+   "explain": "So the resistance of wires is not perfectly constant.",
+   "lesson": "electrical-09",
+   "evidence": "The phenomenon of resistance changing with variations in temperature is one shared by almost all metals, of which most wires are made.",
+   "origin": "authored"
+  },
+  {
+   "id": "7e8e42d468",
+   "module": 1,
+   "q": "How does varistor breakdown differ from the breakdown of an insulator?",
+   "options": [
+    "It happens only once",
+    "It never conducts at all",
+    "It is repeatable — designed to survive repeated breakdowns",
+    "It only occurs in gases"
+   ],
+   "answer": 2,
+   "explain": "A solid insulator often never recovers after high-voltage breakdown.",
+   "lesson": "electrical-09",
+   "evidence": "Unlike the breakdown of an insulator, varistor breakdown is repeatable: that is, it is designed to withstand repeated breakdowns without failure.",
+   "origin": "authored"
+  },
+  {
+   "id": "49abcffd06",
+   "module": 1,
+   "q": "Why can you lengthen or shorten connecting wires without changing a circuit's function?",
+   "options": [
+    "Longer wires always add useful resistance",
+    "Connecting wires barely affect the circuit, so their length doesn't matter",
+    "Wire length decides the voltage",
+    "Circuits only work with short wires"
+   ],
+   "answer": 1,
+   "explain": "Points joined by wire are electrically common.",
+   "lesson": "electrical-10",
+   "evidence": "shortening or lengthening the wires as desired without appreciably impacting the circuit's function",
+   "origin": "authored"
+  },
+  {
+   "id": "f7b6422d99",
+   "module": 1,
+   "q": "Why are wires joining common points often given the same label?",
+   "options": [
+    "Common points show the same voltage and resistance measurements",
+    "They are always the same colour",
+    "They carry no current",
+    "They must be cut together"
+   ],
+   "answer": 0,
+   "explain": "Same label, same electrical point.",
+   "lesson": "electrical-10",
+   "evidence": "Because common points in a circuit will exhibit the same relative voltage and resistance measurements, wires connecting common points are often labeled with the same designation.",
+   "origin": "authored"
+  },
+  {
+   "id": "64e248dfab",
+   "module": 1,
+   "q": "How does the SPICE program simulate a circuit?",
+   "options": [
+    "From a photo of the circuit",
+    "By measuring a physical circuit",
+    "From a hand-drawn sketch",
+    "From a text listing that describes the circuit"
+   ],
+   "answer": 3,
+   "explain": "It outputs the results of its analysis as text too.",
+   "lesson": "electrical-11",
+   "evidence": "which works by describing a circuit to the computer by means of a listing of text",
+   "origin": "authored"
+  },
+  {
+   "id": "22520e3b35",
+   "module": 2,
+   "q": "In electric shock, what is tetanus?",
+   "options": [
+    "Heart fibrillation",
+    "Skin burns",
+    "Involuntary muscle contraction",
+    "Permanent nerve damage"
+   ],
+   "answer": 2,
+   "explain": "It can stop a victim letting go of a live conductor.",
+   "lesson": "electrical-12",
+   "evidence": "this condition of involuntary muscle contraction is called tetanus",
+   "origin": "authored"
+  },
+  {
+   "id": "a5e76e2fc1",
+   "module": 2,
+   "q": "What is fibrillation?",
+   "options": [
+    "A burn caused by arcing",
+    "When scrambled nerve signals stop the heart beating properly",
+    "Muscles locking in place",
+    "A tingle from static electricity"
+   ],
+   "answer": 1,
+   "explain": "Even currents too low to cause tetanus can cause it.",
+   "lesson": "electrical-12",
+   "evidence": "scramble nerve cell signals enough that the heart cannot beat properly, sending the heart into a condition known as fibrillation",
+   "origin": "authored"
+  },
+  {
+   "id": "830d0c060e",
+   "module": 2,
+   "q": "What is an intentional grounding point in a circuit meant to ensure?",
+   "options": [
+    "That one side of the circuit is safe to come in contact with",
+    "That the circuit uses less power",
+    "That lightning cannot strike",
+    "That fuses are never needed"
+   ],
+   "answer": 0,
+   "explain": "The grounded side is electrically common with the earth.",
+   "lesson": "electrical-13",
+   "evidence": "the presence of an intentional \"grounding\" point in an electric circuit is intended to ensure that one side of it is safe to come in contact with.",
+   "origin": "authored"
+  },
+  {
+   "id": "5d597ec294",
+   "module": 2,
+   "q": "What determines how much voltage is dangerous?",
+   "options": [
+    "Only the colour of the wires",
+    "Whether the current is AC or DC alone",
+    "How much total resistance is in the circuit to oppose the flow of electrons",
+    "The brand of the power supply"
+   ],
+   "answer": 2,
+   "explain": "Current through the body causes harm, and current depends on voltage and resistance.",
+   "lesson": "electrical-14",
+   "evidence": "Just how much voltage is dangerous depends on how much total resistance is in the circuit to oppose the flow of electrons.",
+   "origin": "authored"
+  },
+  {
+   "id": "4a747b523d",
+   "module": 2,
+   "q": "Which of these affects the body's electrical resistance?",
+   "options": [
+    "How hydrated the body is",
+    "Hair colour",
+    "Height",
+    "Eye colour"
+   ],
+   "answer": 0,
+   "explain": "The contact points on the skin also matter.",
+   "lesson": "electrical-14",
+   "evidence": "body hydration is another factor impacting the body's electrical resistance",
+   "origin": "authored"
+  },
+  {
+   "id": "7df12b4e59",
+   "module": 2,
+   "q": "What is a circuit secured with all its energy removed said to be in?",
+   "options": [
+    "Standby mode",
+    "Open circuit mode",
+    "Ground fault state",
+    "A Zero Energy State"
+   ],
+   "answer": 3,
+   "explain": "Even idle voltage has the potential to harm and must be neutralised.",
+   "lesson": "electrical-15",
+   "evidence": "securing a circuit, device, or system in this condition is commonly known as placing it in a Zero Energy State",
+   "origin": "authored"
+  },
+  {
+   "id": "855700911e",
+   "module": 2,
+   "q": "What does locking out a disconnect switch protect against?",
+   "options": [
+    "Power cuts from the grid",
+    "Static electricity build-up",
+    "Someone switching it back on while people are still touching the load",
+    "Lightning strikes"
+   ],
+   "answer": 2,
+   "explain": "This is the purpose of Lock-out/Tag-out.",
+   "lesson": "electrical-15",
+   "evidence": "protection against the possibility of the disconnect switch being closed",
+   "origin": "authored"
+  },
+  {
+   "id": "dd23564ac0",
+   "module": 2,
+   "q": "Above roughly what voltage is considered potentially dangerous?",
+   "options": [
+    "3 volts",
+    "30 volts",
+    "300 volts",
+    "3,000 volts"
+   ],
+   "answer": 1,
+   "explain": "Even telephone lines (48 V DC, 150 V AC ringing) exceed it.",
+   "lesson": "electrical-16",
+   "evidence": "remember that any voltage over 30 is considered potentially dangerous!",
+   "origin": "authored"
+  },
+  {
+   "id": "280dd8e8e5",
+   "module": 2,
+   "q": "What are double-insulated appliances?",
+   "options": [
+    "Appliances with two power cords",
+    "Appliances whose insulating case adds a second layer of insulation",
+    "Appliances that need two outlets",
+    "Appliances with a metal case"
+   ],
+   "answer": 1,
+   "explain": "The case adds protection beyond the conductors' own insulation.",
+   "lesson": "electrical-17",
+   "evidence": "since the insulating case serves as a second layer of insulation above and beyond that of the conductors themselves",
+   "origin": "authored"
+  },
+  {
+   "id": "0a9943b147",
+   "module": 2,
+   "q": "Why must you never cut the third prong off a power plug?",
+   "options": [
+    "It is the safety ground connection",
+    "It carries the main current",
+    "It controls the voltage",
+    "It only holds the plug in place"
+   ],
+   "answer": 0,
+   "explain": "Without it, a fault can make a metal case live.",
+   "lesson": "electrical-17",
+   "evidence": "This is why its so important never to cut the third prong off a power plug",
+   "origin": "authored"
+  },
+  {
+   "id": "935be56eff",
+   "module": 2,
+   "q": "Which shock current path through the body is the most dangerous?",
+   "options": [
+    "Foot to foot",
+    "Hand to elbow",
+    "Finger to finger on one hand",
+    "Hand to hand"
+   ],
+   "answer": 3,
+   "explain": "A hand-to-hand path crosses the chest and heart.",
+   "lesson": "electrical-18",
+   "evidence": "Because a hand-to-hand shock current path is the most dangerous",
+   "origin": "authored"
+  },
+  {
+   "id": "76c7bfed8c",
+   "module": 2,
+   "q": "Why must a meter be connected to two points to measure voltage?",
+   "options": [
+    "Meters need two batteries",
+    "One lead is only for display",
+    "To double the reading",
+    "Voltage is always relative between two points"
+   ],
+   "answer": 3,
+   "explain": "Measuring voltage is a key step in lock-out/tag-out checks.",
+   "lesson": "electrical-18",
+   "evidence": "Being that voltage is always relative between two points, the meter must be firmly connected to two points in a circuit before it will provide a reliable measurement.",
+   "origin": "authored"
+  },
+  {
+   "id": "7a6586dc41",
+   "module": 2,
+   "q": "Why is lockout/tagout needed during servicing and maintenance?",
+   "options": [
+    "To save electricity",
+    "To protect machines from dust",
+    "Unexpected start-up or release of stored energy can injure or kill workers",
+    "To speed up repairs"
+   ],
+   "answer": 2,
+   "explain": "Injuries include electrocution, burns, crushing and amputation.",
+   "lesson": "electrical-19",
+   "evidence": "During the servicing and maintenance of machines and equipment, the unexpected startup or release of stored energy can result in serious injury or death to workers.",
+   "origin": "authored"
+  },
+  {
+   "id": "ac0e490496",
+   "module": 2,
+   "q": "What must employers do about hazardous energy control procedures?",
+   "options": [
+    "Post them online only",
+    "Train each worker to know, understand and follow them",
+    "Let workers decide for themselves",
+    "Use them only for new machines"
+   ],
+   "answer": 1,
+   "explain": "Retraining keeps workers proficient when methods change.",
+   "lesson": "electrical-19",
+   "evidence": "Employers are also required to train each worker to ensure that they know, understand, and are able to follow the applicable provisions of the hazardous energy control procedures",
+   "origin": "authored"
+  },
+  {
+   "id": "f64a85c3cb",
+   "module": 3,
+   "q": "What is the defining characteristic of a series circuit?",
+   "options": [
+    "There is only one path for electrons to flow",
+    "All components share the same two common points",
+    "Voltage is equal across every component",
+    "It has no resistors"
+   ],
+   "answer": 0,
+   "explain": "In a parallel circuit, all components connect between the same common points instead.",
+   "lesson": "electrical-20",
+   "evidence": "The defining characteristic of a series circuit is that there is only one path for electrons to flow.",
+   "origin": "authored"
+  },
+  {
+   "id": "63c27eb9d7",
+   "module": 3,
+   "q": "What is the defining characteristic of a parallel circuit?",
+   "options": [
+    "All components connect between the same set of electrically common points",
+    "There is only one path for electrons",
+    "Components are connected end to end",
+    "It has no common points"
+   ],
+   "answer": 0,
+   "explain": "A purely parallel circuit never has more than two sets of common points.",
+   "lesson": "electrical-20",
+   "evidence": "The defining characteristic of a parallel circuit is that all components are connected between the same set of electrically common points.",
+   "origin": "authored"
+  },
+  {
+   "id": "0c988d6aeb",
+   "module": 3,
+   "q": "In a parallel circuit, what is true about voltage?",
+   "options": [
+    "It divides between the components",
+    "It is zero across each branch",
+    "It is equal across all components",
+    "It increases with each branch added"
+   ],
+   "answer": 2,
+   "explain": "There are only two sets of electrically common points, so every branch sees the same voltage.",
+   "lesson": "electrical-21",
+   "evidence": "The first principle to understand about parallel circuits is that the voltage is equal across all components in the circuit.",
+   "origin": "authored"
+  },
+  {
+   "id": "fe97b2639b",
+   "module": 3,
+   "q": "Which rule applies to the variables in an Ohm's Law equation?",
+   "options": [
+    "They must come from different components",
+    "Voltage must always be the largest",
+    "Resistance can be ignored",
+    "They must all refer to the same two points in the circuit"
+   ],
+   "answer": 3,
+   "explain": "Mixing contexts is a common beginner's mistake.",
+   "lesson": "electrical-22",
+   "evidence": "The variables used in Ohm's Law equations must be common to the same two points in the circuit under consideration.",
+   "origin": "authored"
+  },
+  {
+   "id": "797b0cd188",
+   "module": 3,
+   "q": "How are the holes on a solderless breadboard connected?",
+   "options": [
+    "Every hole is independent",
+    "Every hole connects to every other",
+    "In groups of five",
+    "Only by soldering"
+   ],
+   "answer": 2,
+   "explain": "Metal spring clips under the face join each group.",
+   "lesson": "electrical-23",
+   "evidence": "unlike the holes on a solderless breadboard which are connected together in groups of five",
+   "origin": "authored"
+  },
+  {
+   "id": "6a13c47e99",
+   "module": 3,
+   "q": "In a series circuit, what determines how voltage drops are proportioned?",
+   "options": [
+    "The colour of the resistors",
+    "Only the resistance values",
+    "The length of the wires",
+    "The type of battery"
+   ],
+   "answer": 1,
+   "explain": "That is why the voltage divider formula works.",
+   "lesson": "electrical-24",
+   "evidence": "The proportionality of voltage drops (ratio of one to another) is strictly a function of resistance values.",
+   "origin": "authored"
+  },
+  {
+   "id": "46d3042fc6",
+   "module": 3,
+   "q": "What is a potentiometer?",
+   "options": [
+    "A resistor with a movable element set by a knob or lever",
+    "A meter for measuring power",
+    "A type of battery",
+    "A switch with two positions"
+   ],
+   "answer": 0,
+   "explain": "It is often used as an adjustable voltage divider.",
+   "lesson": "electrical-24",
+   "evidence": "which is a resistor with a movable element positioned by a manual knob or lever",
+   "origin": "authored"
+  },
+  {
+   "id": "b38ea8d01e",
+   "module": 3,
+   "q": "What does Kirchhoff's Voltage Law state?",
+   "options": [
+    "Current into a node equals current out",
+    "Voltage equals current times resistance",
+    "Power equals voltage times current",
+    "The algebraic sum of all voltages in a loop equals zero"
+   ],
+   "answer": 3,
+   "explain": "A loop is any path that returns to its starting point.",
+   "lesson": "electrical-25",
+   "evidence": "The algebraic sum of all voltages in a loop must equal zero",
+   "origin": "authored"
+  },
+  {
+   "id": "f401a0e1e5",
+   "module": 3,
+   "q": "In Kirchhoff's Voltage Law, what does 'algebraic' mean?",
+   "options": [
+    "Using only positive numbers",
+    "Rounding every value",
+    "Accounting for signs (polarities) as well as magnitudes",
+    "Ignoring the battery"
+   ],
+   "answer": 2,
+   "explain": "Voltage rises and drops cancel out around the loop.",
+   "lesson": "electrical-25",
+   "evidence": "I mean accounting for signs (polarities) as well as magnitudes",
+   "origin": "authored"
+  },
+  {
+   "id": "21874114c9",
+   "module": 3,
+   "q": "What does Kirchhoff's Current Law say about a node?",
+   "options": [
+    "All current stops at a node",
+    "The current entering it equals the current leaving it",
+    "Voltage doubles at a node",
+    "Current leaving is always greater"
+   ],
+   "answer": 1,
+   "explain": "Like a pipe fitting with no leaks: what flows in must flow out.",
+   "lesson": "electrical-26",
+   "evidence": "the current entering the node is equal in magnitude to the current exiting the node",
+   "origin": "authored"
+  },
+  {
+   "id": "c1473ee739",
+   "module": 3,
+   "q": "In a parallel circuit, how does total current relate to branch currents?",
+   "options": [
+    "It equals the sum of the branch currents",
+    "It equals the smallest branch current",
+    "It equals the average branch current",
+    "It is unrelated to the branches"
+   ],
+   "answer": 0,
+   "explain": "This follows directly from Kirchhoff's Current Law.",
+   "lesson": "electrical-26",
+   "evidence": "We know that the total current in a parallel circuit must equal the sum of the branch currents",
+   "origin": "authored"
+  }
+ ],
  "minutes": 250,
  "sources": [
   {

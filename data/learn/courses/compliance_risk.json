@@ -1,0 +1,1356 @@
+{
+ "title": "Risk, Compliance & Anti-Money Laundering",
+ "subtitle": "Run an ethical business, manage risk and keep financial crime out — the work of compliance teams.",
+ "level": "Beginner",
+ "outcomes": [
+  "Explain business ethics and how organisations encourage ethical conduct",
+  "Apply risk-management principles to identify, assess and treat risk",
+  "Explain money laundering, due diligence and suspicious-activity reporting",
+  "Work within the legal environment of business"
+ ],
+ "skill": "compliance_risk",
+ "modules": [
+  {
+   "title": "Ethics and responsible business",
+   "lessons": [
+    "compliance_risk-01",
+    "compliance_risk-02",
+    "compliance_risk-03"
+   ]
+  },
+  {
+   "title": "Managing risk",
+   "lessons": [
+    "compliance_risk-04",
+    "compliance_risk-05",
+    "compliance_risk-06",
+    "compliance_risk-07"
+   ]
+  },
+  {
+   "title": "Stopping financial crime",
+   "lessons": [
+    "compliance_risk-08",
+    "compliance_risk-09",
+    "compliance_risk-10"
+   ]
+  },
+  {
+   "title": "The legal environment",
+   "lessons": [
+    "compliance_risk-11",
+    "compliance_risk-12",
+    "compliance_risk-13",
+    "compliance_risk-14"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "compliance_risk-01",
+   "title": "Understanding Business Ethics",
+   "words": 1756,
+   "minutes": 9,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/2-1-understanding-business-ethics",
+   "toc": [
+    {
+     "id": "h-recognizing-unethical-business-activities",
+     "text": "Recognizing Unethical Business Activities",
+     "level": 3
+    },
+    {
+     "id": "h-justice-the-question-of-fairness",
+     "text": "Justice—The Question of Fairness",
+     "level": 3
+    },
+    {
+     "id": "h-utilitarianism-seeking-the-best-for-the-majority",
+     "text": "Utilitarianism—Seeking the Best for the Majority",
+     "level": 3
+    },
+    {
+     "id": "h-following-our-obligations-and-duties",
+     "text": "Following Our Obligations and Duties",
+     "level": 3
+    },
+    {
+     "id": "h-individual-rights",
+     "text": "Individual Rights",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "compliance_risk-02",
+   "title": "How Organizations Influence Ethical Conduct",
+   "words": 1885,
+   "minutes": 10,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/2-2-how-organizations-influence-ethical-conduct",
+   "toc": [
+    {
+     "id": "h-leading-by-example",
+     "text": "Leading by Example",
+     "level": 3
+    },
+    {
+     "id": "h-offering-ethics-training-programs",
+     "text": "Offering Ethics Training Programs",
+     "level": 3
+    },
+    {
+     "id": "h-establishing-a-formal-code-of-ethics",
+     "text": "Establishing a Formal Code of Ethics",
+     "level": 3
+    },
+    {
+     "id": "h-making-the-right-decision",
+     "text": "Making the Right Decision",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "compliance_risk-03",
+   "title": "Managing a Socially Responsible Business",
+   "words": 1362,
+   "minutes": 7,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/2-3-managing-a-socially-responsible-business",
+   "toc": [
+    {
+     "id": "h-understanding-social-responsibility",
+     "text": "Understanding Social Responsibility",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "compliance_risk-04",
+   "title": "Principles of risk management",
+   "words": 2957,
+   "minutes": 15,
+   "source": "govuk",
+   "url": "https://www.gov.uk/government/publications/orange-book/the-orange-book-management-of-risk-principles-and-concepts",
+   "toc": [
+    {
+     "id": "h-1-introduction",
+     "text": "1. Introduction",
+     "level": 2
+    },
+    {
+     "id": "h-1-1-scope",
+     "text": "1.1 Scope",
+     "level": 3
+    },
+    {
+     "id": "h-1-2-purpose",
+     "text": "1.2 Purpose",
+     "level": 3
+    },
+    {
+     "id": "h-1-3-comply-or-explain",
+     "text": "1.3 Comply or Explain",
+     "level": 3
+    },
+    {
+     "id": "h-1-4-structure",
+     "text": "1.4 Structure",
+     "level": 3
+    },
+    {
+     "id": "h-1-5-annexes",
+     "text": "1.5 Annexes",
+     "level": 3
+    },
+    {
+     "id": "h-1-6-supplementary-guides",
+     "text": "1.6 Supplementary ‘Guides’",
+     "level": 3
+    },
+    {
+     "id": "h-2-part-i-risk-management-principles",
+     "text": "2. Part I: Risk Management Principles",
+     "level": 2
+    },
+    {
+     "id": "h-2-1-risk-management-framework",
+     "text": "2.1 Risk Management Framework",
+     "level": 3
+    },
+    {
+     "id": "h-2-2-section-a-governance-and-leadership",
+     "text": "2.2 Section A: Governance and Leadership",
+     "level": 3
+    },
+    {
+     "id": "h-2-3-main-principle",
+     "text": "2.3 Main Principle",
+     "level": 3
+    },
+    {
+     "id": "h-2-4-supporting-principles",
+     "text": "2.4 Supporting Principles",
+     "level": 3
+    },
+    {
+     "id": "h-2-5-civil-service-code-and-a-modern-civil-service",
+     "text": "2.5 Civil Service Code and A Modern Civil Service",
+     "level": 3
+    },
+    {
+     "id": "h-3-section-b-integration",
+     "text": "3. Section B: Integration",
+     "level": 2
+    },
+    {
+     "id": "h-3-1-main-principle",
+     "text": "3.1 Main Principle",
+     "level": 3
+    },
+    {
+     "id": "h-3-2-supporting-principles",
+     "text": "3.2 Supporting Principles",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "compliance_risk-05",
+   "title": "Collaboration, information and the risk process",
+   "words": 2409,
+   "minutes": 13,
+   "source": "govuk",
+   "url": "https://www.gov.uk/government/publications/orange-book/the-orange-book-management-of-risk-principles-and-concepts",
+   "toc": [
+    {
+     "id": "h-4-section-c-collaboration-and-best-information",
+     "text": "4. Section C: Collaboration and Best Information",
+     "level": 2
+    },
+    {
+     "id": "h-4-1-main-principle",
+     "text": "4.1 Main Principle",
+     "level": 3
+    },
+    {
+     "id": "h-4-2-supporting-principles",
+     "text": "4.2 Supporting Principles",
+     "level": 3
+    },
+    {
+     "id": "h-4-3-risk-escalation-consolidation-and-aggregation",
+     "text": "4.3 Risk escalation, consolidation and aggregation",
+     "level": 3
+    },
+    {
+     "id": "h-5-section-d-risk-management-processes",
+     "text": "5. Section D: Risk Management Processes",
+     "level": 2
+    },
+    {
+     "id": "h-5-1-main-principle",
+     "text": "5.1 Main Principle",
+     "level": 3
+    },
+    {
+     "id": "h-5-2-risk-management-processes",
+     "text": "5.2 Risk Management Processes",
+     "level": 3
+    },
+    {
+     "id": "h-5-3-supporting-principles",
+     "text": "5.3 Supporting Principles",
+     "level": 3
+    },
+    {
+     "id": "h-5-4-risk-identification-and-assessment",
+     "text": "5.4 Risk Identification and Assessment",
+     "level": 3
+    },
+    {
+     "id": "h-5-5-risk-treatment",
+     "text": "5.5 Risk treatment",
+     "level": 3
+    },
+    {
+     "id": "h-5-6-risk-monitoring",
+     "text": "5.6 Risk monitoring",
+     "level": 3
+    },
+    {
+     "id": "h-5-7-risk-reporting",
+     "text": "5.7 Risk Reporting",
+     "level": 3
+    },
+    {
+     "id": "h-6-section-e-continual-improvement",
+     "text": "6. Section E: Continual Improvement",
+     "level": 2
+    },
+    {
+     "id": "h-6-1-main-principle",
+     "text": "6.1 Main Principle",
+     "level": 3
+    },
+    {
+     "id": "h-6-2-supporting-principles",
+     "text": "6.2 Supporting Principles",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "compliance_risk-06",
+   "title": "The risk control framework",
+   "words": 1679,
+   "minutes": 9,
+   "source": "govuk",
+   "url": "https://www.gov.uk/government/publications/orange-book/the-orange-book-management-of-risk-principles-and-concepts",
+   "toc": [
+    {
+     "id": "h-7-part-ii-the-risk-control-framework",
+     "text": "7. Part II: The Risk Control Framework",
+     "level": 2
+    },
+    {
+     "id": "h-7-1-existing-accounting-officer-responsibilities-in-relation",
+     "text": "7.1 Existing accounting officer Responsibilities in relation to Risk Control",
+     "level": 3
+    },
+    {
+     "id": "h-7-2-purpose-of-the-risk-control-framework-rcf",
+     "text": "7.2 Purpose of the Risk Control Framework (RCF)",
+     "level": 3
+    },
+    {
+     "id": "h-7-3-how-the-framework-was-developed",
+     "text": "7.3 How the Framework was developed",
+     "level": 3
+    },
+    {
+     "id": "h-7-4-uses-of-the-rcf",
+     "text": "7.4 Uses of the RCF",
+     "level": 3
+    },
+    {
+     "id": "h-8-section-f-structure-of-the-risk-control-framework",
+     "text": "8. Section F: Structure of the Risk Control Framework",
+     "level": 2
+    },
+    {
+     "id": "h-8-1-the-rcf",
+     "text": "8.1 The RCF",
+     "level": 3
+    },
+    {
+     "id": "h-8-2-the-risk-control-framework-four-pillars-underpinned-by-t",
+     "text": "8.2 The Risk Control Framework. Four pillars underpinned by the ‘three lines model’",
+     "level": 3
+    },
+    {
+     "id": "h-8-3-control-hierarchy-pyramid",
+     "text": "8.3 Control Hierarchy Pyramid",
+     "level": 3
+    },
+    {
+     "id": "h-8-4-compatibility-with-part-i-risk-management-principles",
+     "text": "8.4 Compatibility with Part I: Risk Management Principles",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "compliance_risk-07",
+   "title": "The three lines model",
+   "words": 2236,
+   "minutes": 12,
+   "source": "govuk",
+   "url": "https://www.gov.uk/government/publications/orange-book/the-orange-book-management-of-risk-principles-and-concepts",
+   "toc": [
+    {
+     "id": "h-11-annex-2-the-three-lines-model",
+     "text": "11. Annex 2: The Three Lines Model",
+     "level": 2
+    },
+    {
+     "id": "h-11-1-first-line-roles",
+     "text": "11.1 First line Roles",
+     "level": 3
+    },
+    {
+     "id": "h-11-2-second-line-roles",
+     "text": "11.2 Second line Roles",
+     "level": 3
+    },
+    {
+     "id": "h-11-3-third-line-roles",
+     "text": "11.3 Third line roles",
+     "level": 3
+    },
+    {
+     "id": "h-11-4-external-assurance",
+     "text": "11.4 External assurance",
+     "level": 3
+    },
+    {
+     "id": "h-11-5-coordination-cooperation-and-communication",
+     "text": "11.5 Coordination, cooperation and communication",
+     "level": 3
+    },
+    {
+     "id": "h-12-annex-3-questions-to-ask",
+     "text": "12. Annex 3: Questions to Ask",
+     "level": 2
+    },
+    {
+     "id": "h-12-1-governance-and-leadership",
+     "text": "12.1 Governance and Leadership",
+     "level": 3
+    },
+    {
+     "id": "h-12-2-integration",
+     "text": "12.2 Integration",
+     "level": 3
+    },
+    {
+     "id": "h-12-3-collaboration-and-best-information",
+     "text": "12.3 Collaboration and Best Information",
+     "level": 3
+    },
+    {
+     "id": "h-12-4-risk-management-processes",
+     "text": "12.4 Risk Management Processes",
+     "level": 3
+    },
+    {
+     "id": "h-12-5-continual-improvement",
+     "text": "12.5 Continual Improvement",
+     "level": 3
+    },
+    {
+     "id": "h-13-annex-4-example-risk-categories",
+     "text": "13. Annex 4: Example Risk Categories",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "compliance_risk-08",
+   "title": "A short history of anti-money-laundering laws",
+   "words": 788,
+   "minutes": 4,
+   "source": "fincen",
+   "url": "https://www.fincen.gov/history-anti-money-laundering-laws",
+   "toc": [
+    {
+     "id": "h-history-of-anti-money-laundering-laws",
+     "text": "History of Anti-Money Laundering Laws",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "compliance_risk-09",
+   "title": "Money laundering rules: your responsibilities",
+   "words": 1892,
+   "minutes": 10,
+   "source": "govuk",
+   "url": "https://www.gov.uk/guidance/money-laundering-regulations-your-responsibilities",
+   "toc": [
+    {
+     "id": "h-customer-due-diligence-requirements",
+     "text": "Customer due diligence requirements",
+     "level": 2
+    },
+    {
+     "id": "h-what-customer-due-diligence-is",
+     "text": "What customer due diligence is",
+     "level": 3
+    },
+    {
+     "id": "h-when-you-need-to-apply-customer-due-diligence-measures",
+     "text": "When you need to apply customer due diligence measures",
+     "level": 3
+    },
+    {
+     "id": "h-customer-due-diligence-when-you-re-establishing-a-business-r",
+     "text": "Customer due diligence when you’re establishing a business relationship",
+     "level": 3
+    },
+    {
+     "id": "h-the-changing-circumstances-of-your-customers",
+     "text": "The changing circumstances of your customers",
+     "level": 3
+    },
+    {
+     "id": "h-when-to-apply-customer-due-diligence-for-occasional-transact",
+     "text": "When to apply customer due diligence for occasional transactions",
+     "level": 3
+    },
+    {
+     "id": "h-when-to-carry-out-enhanced-due-diligence",
+     "text": "When to carry out enhanced due diligence",
+     "level": 3
+    },
+    {
+     "id": "h-customer-due-diligence-measures-where-your-customer-is-anoth",
+     "text": "Customer due diligence measures where your customer is another Money Service Business",
+     "level": 3
+    },
+    {
+     "id": "h-internal-controls-and-ongoing-monitoring-of-your-business",
+     "text": "Internal controls and ongoing monitoring of your business",
+     "level": 2
+    },
+    {
+     "id": "h-complete-a-policy-statement-for-your-business",
+     "text": "Complete a policy statement for your business",
+     "level": 2
+    },
+    {
+     "id": "h-what-a-policy-statement-should-include",
+     "text": "What a policy statement should include",
+     "level": 3
+    },
+    {
+     "id": "h-record-keeping-requirements",
+     "text": "Record keeping requirements",
+     "level": 2
+    },
+    {
+     "id": "h-more-information-on-how-to-comply",
+     "text": "More information on how to comply",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "compliance_risk-10",
+   "title": "Reporting suspicious activity",
+   "words": 559,
+   "minutes": 3,
+   "source": "govuk",
+   "url": "https://www.gov.uk/guidance/money-laundering-regulations-report-suspicious-activities",
+   "toc": [
+    {
+     "id": "h-suspicious-activity-or-transactions",
+     "text": "Suspicious activity or transactions",
+     "level": 2
+    },
+    {
+     "id": "h-if-your-business-is-registered-for-money-laundering-supervis",
+     "text": "If your business is registered for money laundering supervision",
+     "level": 2
+    },
+    {
+     "id": "h-submitting-a-suspicious-activity-report-to-national-crime-ag",
+     "text": "Submitting a Suspicious Activity Report to National Crime Agency",
+     "level": 3
+    },
+    {
+     "id": "h-if-your-business-is-not-registered-for-money-laundering-supe",
+     "text": "If your business is not registered for money laundering supervision",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "compliance_risk-11",
+   "title": "The legal system and business law",
+   "words": 2563,
+   "minutes": 13,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/a-understanding-the-legal-and-tax-environment",
+   "toc": [
+    {
+     "id": "h-learning-outcomes",
+     "text": "Learning Outcomes",
+     "level": 2
+    },
+    {
+     "id": "h-understanding-the-legal-environment",
+     "text": "Understanding the Legal Environment",
+     "level": 2
+    },
+    {
+     "id": "h-the-main-sources-of-law",
+     "text": "The Main Sources of Law",
+     "level": 3
+    },
+    {
+     "id": "h-the-court-system",
+     "text": "The Court System",
+     "level": 3
+    },
+    {
+     "id": "h-nonjudicial-methods-of-settling-disputes",
+     "text": "Nonjudicial Methods of Settling Disputes",
+     "level": 3
+    },
+    {
+     "id": "h-contract-law",
+     "text": "Contract Law",
+     "level": 2
+    },
+    {
+     "id": "h-contract-requirements",
+     "text": "Contract Requirements",
+     "level": 2
+    },
+    {
+     "id": "h-breach-of-contract",
+     "text": "Breach of Contract",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "compliance_risk-12",
+   "title": "Contracts and warranties",
+   "words": 2257,
+   "minutes": 12,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/a-understanding-the-legal-and-tax-environment",
+   "toc": [
+    {
+     "id": "h-warranties",
+     "text": "Warranties",
+     "level": 2
+    },
+    {
+     "id": "h-patents-copyrights-and-trademarks",
+     "text": "Patents, Copyrights, and Trademarks",
+     "level": 2
+    },
+    {
+     "id": "h-tort-law",
+     "text": "Tort Law",
+     "level": 2
+    },
+    {
+     "id": "h-product-liability-law",
+     "text": "Product-Liability Law",
+     "level": 2
+    },
+    {
+     "id": "h-bankruptcy-law",
+     "text": "Bankruptcy Law",
+     "level": 2
+    },
+    {
+     "id": "h-laws-to-promote-fair-competition",
+     "text": "Laws to Promote Fair Competition",
+     "level": 2
+    },
+    {
+     "id": "h-regulation-of-advertising-and-pricing",
+     "text": "Regulation of Advertising and Pricing",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "compliance_risk-13",
+   "title": "Consumer protection laws",
+   "words": 1739,
+   "minutes": 9,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/a-understanding-the-legal-and-tax-environment",
+   "toc": [
+    {
+     "id": "h-consumer-protection-laws",
+     "text": "Consumer Protection Laws",
+     "level": 2
+    },
+    {
+     "id": "h-deregulation-of-industries",
+     "text": "Deregulation of Industries",
+     "level": 2
+    },
+    {
+     "id": "h-regulation-of-the-internet",
+     "text": "Regulation of the Internet",
+     "level": 2
+    },
+    {
+     "id": "h-understanding-the-tax-environment-of-business",
+     "text": "Understanding the Tax Environment of Business",
+     "level": 2
+    },
+    {
+     "id": "h-income-taxes",
+     "text": "Income Taxes",
+     "level": 3
+    },
+    {
+     "id": "h-other-types-of-taxes",
+     "text": "Other Types of Taxes",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "compliance_risk-14",
+   "title": "Staying compliant and avoiding fraud",
+   "words": 1185,
+   "minutes": 6,
+   "source": "sba",
+   "url": "https://www.sba.gov/business-guide/manage-your-business",
+   "toc": [
+    {
+     "id": "h-protect-yourself-from-fraud",
+     "text": "Protect yourself from fraud",
+     "level": 2
+    },
+    {
+     "id": "h-stay-legally-compliant",
+     "text": "Stay legally compliant",
+     "level": 2
+    },
+    {
+     "id": "h-section",
+     "text": "",
+     "level": 3
+    },
+    {
+     "id": "h-section-x",
+     "text": "",
+     "level": 3
+    },
+    {
+     "id": "h-section-x-x",
+     "text": "",
+     "level": 3
+    },
+    {
+     "id": "h-section-x-x-x",
+     "text": "",
+     "level": 3
+    },
+    {
+     "id": "h-section-x-x-x-x",
+     "text": "",
+     "level": 3
+    },
+    {
+     "id": "h-protect-yourself-from-fraud-x",
+     "text": "Protect yourself from fraud",
+     "level": 2
+    },
+    {
+     "id": "h-section-x-x-x-x-x",
+     "text": "",
+     "level": 3
+    },
+    {
+     "id": "h-section-x-x-x-x-x-x",
+     "text": "",
+     "level": 3
+    }
+   ]
+  }
+ ],
+ "pool": [
+  {
+   "id": "3d2a7aa13e",
+   "module": 0,
+   "q": "What is ethics?",
+   "options": [
+    "A set of moral standards for judging whether something is right or wrong",
+    "A set of tax rules",
+    "A company's marketing plan",
+    "A list of product prices"
+   ],
+   "answer": 0,
+   "explain": "Business ethics starts with recognising an ethical issue.",
+   "lesson": "compliance_risk-01",
+   "evidence": "Ethics is a set of moral standards for judging whether something is right or wrong.",
+   "origin": "authored"
+  },
+  {
+   "id": "4b160ca78d",
+   "module": 0,
+   "q": "What is an ethical issue?",
+   "options": [
+    "Any legal dispute",
+    "A product defect",
+    "A late payment",
+    "A situation where someone must choose between actions that may be ethical or unethical"
+   ],
+   "answer": 3,
+   "explain": "Recognising ethical issues is the first step.",
+   "lesson": "compliance_risk-01",
+   "evidence": "An ethical issue is a situation where someone must choose between a set of actions that may be ethical or unethical.",
+   "origin": "authored"
+  },
+  {
+   "id": "b80e379440",
+   "module": 0,
+   "q": "What is the first step in understanding business ethics?",
+   "options": [
+    "Hiring a lawyer",
+    "Writing a code of ethics",
+    "Learning to recognise an ethical issue",
+    "Raising prices"
+   ],
+   "answer": 2,
+   "explain": "You can only respond to issues you recognise.",
+   "lesson": "compliance_risk-01",
+   "evidence": "The first step in understanding business ethics is learning to recognize an ethical issue.",
+   "origin": "authored"
+  },
+  {
+   "id": "5e5f390e52",
+   "module": 0,
+   "q": "What does a code of ethics give employees?",
+   "options": [
+    "A higher salary",
+    "Knowledge of what the firm expects in their behaviour toward colleagues, customers and suppliers",
+    "A list of their holidays",
+    "Shares in the company"
+   ],
+   "answer": 1,
+   "explain": "Most large companies have written codes of ethics.",
+   "lesson": "compliance_risk-02",
+   "evidence": "In general, a code of ethics provides employees with the knowledge of what their firm expects in terms of their responsibilities and behavior toward fellow employees, customers, and suppliers.",
+   "origin": "authored"
+  },
+  {
+   "id": "473bd70d24",
+   "module": 0,
+   "q": "Why does \"leading by example\" matter for ethics?",
+   "options": [
+    "Employees often follow the examples set by their managers",
+    "Managers are exempt from ethics rules",
+    "Examples replace written policies by law",
+    "It saves money on training"
+   ],
+   "answer": 0,
+   "explain": "Leaders shape ethical culture.",
+   "lesson": "compliance_risk-02",
+   "evidence": "Leading by Example Employees often follow the examples set by their managers.",
+   "origin": "authored"
+  },
+  {
+   "id": "46072823ac",
+   "module": 0,
+   "q": "What is the purpose of ethics training programmes?",
+   "options": [
+    "To teach accounting software",
+    "To replace codes of ethics",
+    "To punish employees",
+    "To build awareness of questionable business activities and practise appropriate responses"
+   ],
+   "answer": 3,
+   "explain": "Many companies have ethics training.",
+   "lesson": "compliance_risk-02",
+   "evidence": "In addition to providing a system to resolve ethical dilemmas, organizations also provide formal training to develop an awareness of questionable business activities and practice appropriate responses.",
+   "origin": "authored"
+  },
+  {
+   "id": "ddc0bc028b",
+   "module": 0,
+   "q": "What is corporate social responsibility (CSR)?",
+   "options": [
+    "A company's duty only to its shareholders",
+    "A tax paid by large firms",
+    "The concern of businesses for the welfare of society as a whole",
+    "A type of insurance"
+   ],
+   "answer": 2,
+   "explain": "Acting ethically is one of four CSR components.",
+   "lesson": "compliance_risk-03",
+   "evidence": "Acting in an ethical manner is one of the four components of the pyramid of corporate social responsibility (CSR) , which is the concern of businesses for the welfare of society as a whole.",
+   "origin": "authored"
+  },
+  {
+   "id": "1f473d7d8a",
+   "module": 0,
+   "q": "Which responsibility forms the foundation of the CSR pyramid?",
+   "options": [
+    "Philanthropic responsibility",
+    "Economic responsibility",
+    "Ethical responsibility",
+    "Legal responsibility"
+   ],
+   "answer": 1,
+   "explain": "Legal, ethical and philanthropic responsibilities build on it.",
+   "lesson": "compliance_risk-03",
+   "evidence": "Exhibit 2.4 portrays economic responsibility as the foundation for the other three responsibilities.",
+   "origin": "authored"
+  },
+  {
+   "id": "5c715195a5",
+   "module": 0,
+   "q": "What is philanthropic responsibility in the CSR pyramid?",
+   "options": [
+    "Being a good corporate citizen",
+    "Making a profit",
+    "Obeying the law",
+    "Paying suppliers on time"
+   ],
+   "answer": 0,
+   "explain": "Economic, legal, ethical and philanthropic responsibilities together.",
+   "lesson": "compliance_risk-03",
+   "evidence": "to do what is right, just, and fair (ethical responsibility); and to be a good corporate citizen (philanthropic responsibility).",
+   "origin": "authored"
+  },
+  {
+   "id": "6e871b8b99",
+   "module": 1,
+   "q": "In successful organisations, what does risk management do?",
+   "options": [
+    "Removes all risk",
+    "Slows every decision down",
+    "Replaces strategy",
+    "Enhances planning and prioritisation, helps achieve objectives and strengthens agility"
+   ],
+   "answer": 3,
+   "explain": "Risk management is part of planning and decision-making.",
+   "lesson": "compliance_risk-04",
+   "evidence": "Introduction In successful organisations, risk management enhances strategic planning and prioritisation, assists in achieving objectives and strengthens the ability to be agile to respond to the challenges faced.",
+   "origin": "authored"
+  },
+  {
+   "id": "6a672e3561",
+   "module": 1,
+   "q": "Where should risk management sit in an organisation, according to the Orange Book?",
+   "options": [
+    "Only in the finance department",
+    "Only after a crisis",
+    "As an essential and integral part of planning and decision-making",
+    "Outside the organisation"
+   ],
+   "answer": 2,
+   "explain": "It is needed to meet objectives and achieve value for money.",
+   "lesson": "compliance_risk-04",
+   "evidence": "If we are serious about meeting objectives successfully, improving service delivery and achieving value for money, risk management must be an essential and integral part of planning and decision‑making.",
+   "origin": "authored"
+  },
+  {
+   "id": "d1c43a8ff2",
+   "module": 1,
+   "q": "How should risk management processes be conducted?",
+   "options": [
+    "Once, by one person",
+    "Systematically, iteratively and collaboratively, drawing on experts and stakeholders",
+    "Only by external consultants",
+    "Secretly, without stakeholders"
+   ],
+   "answer": 1,
+   "explain": "Principle C3 of the Orange Book.",
+   "lesson": "compliance_risk-05",
+   "evidence": "C3 - Risk management processes (see Section D) should be conducted systematically, iteratively and collaboratively, drawing on the knowledge and views of experts and stakeholders.",
+   "origin": "authored"
+  },
+  {
+   "id": "fbc93f6083",
+   "module": 1,
+   "q": "What should management information enable, for managing risk?",
+   "options": [
+    "Transparency and timely escalation of risks based on agreed criteria",
+    "Hiding risks from the board",
+    "Avoiding any reporting",
+    "Escalating every minor issue immediately"
+   ],
+   "answer": 0,
+   "explain": "Informative, transparent information supports good risk management.",
+   "lesson": "compliance_risk-05",
+   "evidence": "Informative and transparent management information should enable departments and arm’s length bodies to promote transparency and understanding in achieving the effective management of risks, including the timely escalation of risks, as necessary, based on agreed criteria.",
+   "origin": "authored"
+  },
+  {
+   "id": "3e89ce6fd9",
+   "module": 1,
+   "q": "What do accounting officers sign each year?",
+   "options": [
+    "Employment contracts for every employee",
+    "Tax returns for citizens",
+    "Product warranties",
+    "Statements acknowledging their responsibilities and assuring the adequacy of internal controls"
+   ],
+   "answer": 3,
+   "explain": "Their control responsibilities safeguard quality and public funds.",
+   "lesson": "compliance_risk-06",
+   "evidence": "Each year accounting officers sign statements acknowledging their responsibilities and providing assurance on the adequacy of internal controls.",
+   "origin": "authored"
+  },
+  {
+   "id": "cd81f95d99",
+   "module": 1,
+   "q": "Does Part II of the Orange Book add new principles?",
+   "options": [
+    "Yes, ten new principles",
+    "Yes, it replaces Part I",
+    "No: it gives more detail on the 'what' and 'why' of controlling risk",
+    "It removes all principles"
+   ],
+   "answer": 2,
+   "explain": "Part II helps the Part I principles be consistently understood.",
+   "lesson": "compliance_risk-06",
+   "evidence": "Part II: The Risk Control Framework Part II does not introduce any additional principles.",
+   "origin": "authored"
+  },
+  {
+   "id": "6bda8657e7",
+   "module": 1,
+   "q": "In the three lines model, what does the first line do?",
+   "options": [
+    "Provides independent audit",
+    "Owns the risks and runs internal controls day to day",
+    "Writes the law",
+    "Sells the products"
+   ],
+   "answer": 1,
+   "explain": "The first line also implements corrective actions.",
+   "lesson": "compliance_risk-07",
+   "evidence": "The first line ‘own’ the risks and are responsible for execution of the organisation’s response to those risks through executing internal controls on a day-to-day basis and for implementing corrective actions to address deficiencies.",
+   "origin": "authored"
+  },
+  {
+   "id": "bdfda591cd",
+   "module": 1,
+   "q": "What role does the second line play?",
+   "options": [
+    "Supports management with expertise, process excellence and monitoring",
+    "Owns all risks alone",
+    "Audits independently of management",
+    "Has no role in risk"
+   ],
+   "answer": 0,
+   "explain": "It works alongside the first line.",
+   "lesson": "compliance_risk-07",
+   "evidence": "The second line should support management by bringing expertise, process excellence, and monitoring alongside the first line to help ensure that risks are effectively managed.",
+   "origin": "authored"
+  },
+  {
+   "id": "97ee1d10f9",
+   "module": 1,
+   "q": "What does an independent internal audit function provide?",
+   "options": [
+    "Day-to-day control of operations",
+    "Sales targets",
+    "Marketing campaigns",
+    "An objective evaluation of how effectively the organisation assesses and manages risk"
+   ],
+   "answer": 3,
+   "explain": "It reviews the first and second lines.",
+   "lesson": "compliance_risk-07",
+   "evidence": "An independent internal audit function [footnote 15] will, through a risk-based approach to its work, provide an objective evaluation of how effectively the organisation assesses and manages its risks, including the design and operation of the “first and second lines of defence”.",
+   "origin": "authored"
+  },
+  {
+   "id": "6041dbf49b",
+   "module": 1,
+   "q": "Who has some responsibility for risk management?",
+   "options": [
+    "Only the board",
+    "Only the internal auditors",
+    "Everyone in an organisation",
+    "Only the IT team"
+   ],
+   "answer": 2,
+   "explain": "The three lines model coordinates these roles.",
+   "lesson": "compliance_risk-07",
+   "evidence": "Annex 2: The Three Lines Model Everyone in an organisation has some responsibility for risk management.",
+   "origin": "authored"
+  },
+  {
+   "id": "9b8a4a8995",
+   "module": 2,
+   "q": "What are the three typical steps of money laundering?",
+   "options": [
+    "Planning, doing and checking",
+    "Placement, layering and integration",
+    "Saving, spending and investing",
+    "Buying, selling and shipping"
+   ],
+   "answer": 1,
+   "explain": "In the end, \"dirty money\" appears \"clean\".",
+   "lesson": "compliance_risk-08",
+   "evidence": "Typically, it involves three steps: placement, layering and integration.",
+   "origin": "authored"
+  },
+  {
+   "id": "86ee77e428",
+   "module": 2,
+   "q": "When was the Bank Secrecy Act (BSA) established?",
+   "options": [
+    "1970",
+    "1870",
+    "2001",
+    "2020"
+   ],
+   "answer": 0,
+   "explain": "It became a key tool against money laundering.",
+   "lesson": "compliance_risk-08",
+   "evidence": "The BSA was established in 1970 and has become one of the most important tools in the fight against money laundering.",
+   "origin": "authored"
+  },
+  {
+   "id": "8e446fff10",
+   "module": 2,
+   "q": "Which crimes can money laundering facilitate?",
+   "options": [
+    "Only tax avoidance",
+    "Only copyright infringement",
+    "Only parking offences",
+    "Drug trafficking and terrorism"
+   ],
+   "answer": 3,
+   "explain": "It can also harm the global economy.",
+   "lesson": "compliance_risk-08",
+   "evidence": "Money laundering can facilitate crimes such as drug trafficking and terrorism, and can adversely impact the global economy.",
+   "origin": "authored"
+  },
+  {
+   "id": "34604e1171",
+   "module": 2,
+   "q": "What is the purpose of customer due diligence?",
+   "options": [
+    "Measuring customer satisfaction",
+    "Setting prices for customers",
+    "Checking that customers are who they say they are",
+    "Collecting customer reviews"
+   ],
+   "answer": 2,
+   "explain": "You must also risk-assess your business.",
+   "lesson": "compliance_risk-09",
+   "evidence": "These include carrying out ‘customer due diligence’ measures to check that your customers are who they say they are, and risk assessing your business .",
+   "origin": "authored"
+  },
+  {
+   "id": "1ea6f12060",
+   "module": 2,
+   "q": "Who is the beneficial owner?",
+   "options": [
+    "The bank that holds the account",
+    "The person behind the customer who owns or controls it, or for whom a transaction is done",
+    "The company's auditor",
+    "The cashier who takes the payment"
+   ],
+   "answer": 1,
+   "explain": "You must identify the beneficial owner in certain situations.",
+   "lesson": "compliance_risk-09",
+   "evidence": "The beneficial owner is usually the person who’s behind the customer and who owns or controls the customer, or it’s the person on whose behalf a transaction or activity is carried out.",
+   "origin": "authored"
+  },
+  {
+   "id": "b294dd207a",
+   "module": 2,
+   "q": "What are linked transactions?",
+   "options": [
+    "Transactions deliberately broken into smaller ones to avoid due diligence checks",
+    "Payments made with a linked bank card",
+    "Transactions between two branches",
+    "Recurring monthly subscriptions"
+   ],
+   "answer": 0,
+   "explain": "Splitting payments below thresholds is a red flag.",
+   "lesson": "compliance_risk-09",
+   "evidence": "Linked transactions are individual transactions of less than 15,000 euros (or 10,000 euros for high value dealers or art market participants) that have been deliberately broken down into separate, smaller transactions to avoid customer due diligence checks.",
+   "origin": "authored"
+  },
+  {
+   "id": "6dc3f9b133",
+   "module": 2,
+   "q": "In a business registered for money laundering supervision, whom must staff report suspicious activity to?",
+   "options": [
+    "The customer involved",
+    "The marketing team",
+    "A newspaper",
+    "The nominated officer"
+   ],
+   "answer": 3,
+   "explain": "The nominated officer decides whether to report to the NCA.",
+   "lesson": "compliance_risk-10",
+   "evidence": "If your business is registered for money laundering supervision Anyone in your business must report any suspicious transaction or activity they become aware of to the nominated officer .",
+   "origin": "authored"
+  },
+  {
+   "id": "c03ab47fcc",
+   "module": 2,
+   "q": "How does the nominated officer report suspicions to the National Crime Agency?",
+   "options": [
+    "By calling the customer",
+    "By posting on social media",
+    "By making a Suspicious Activity Report (SAR)",
+    "By cancelling the account without a record"
+   ],
+   "answer": 2,
+   "explain": "SARs are disclosures to the NCA.",
+   "lesson": "compliance_risk-10",
+   "evidence": "They do this by making a Suspicious Activity Report ( SAR ).",
+   "origin": "authored"
+  },
+  {
+   "id": "c4eb85a4fe",
+   "module": 3,
+   "q": "What is the purpose of law, according to the lesson?",
+   "options": [
+    "To stop all change",
+    "To keep the system stable while allowing orderly change",
+    "To maximise company profits",
+    "To protect only the government"
+   ],
+   "answer": 1,
+   "explain": "The law protects the rights of people and businesses.",
+   "lesson": "compliance_risk-11",
+   "evidence": "The purpose of law is to keep the system stable while allowing orderly change.",
+   "origin": "authored"
+  },
+  {
+   "id": "a200710a47",
+   "module": 3,
+   "q": "What is a contract?",
+   "options": [
+    "An agreement that sets out the relationship between parties regarding a specified action",
+    "A promise that cannot be enforced",
+    "A type of tax",
+    "A company's code of ethics"
+   ],
+   "answer": 0,
+   "explain": "Valid contracts have required elements.",
+   "lesson": "compliance_risk-11",
+   "evidence": "A contract is an agreement that sets forth the relationship between parties regarding the performance of a specified action.",
+   "origin": "authored"
+  },
+  {
+   "id": "fc0601cbfb",
+   "module": 3,
+   "q": "What are express warranties?",
+   "options": [
+    "Warranties that are neither written nor spoken",
+    "Insurance bought by the buyer",
+    "Delivery guarantees from couriers",
+    "Specific statements of fact or promises about a product by the seller"
+   ],
+   "answer": 3,
+   "explain": "Implied warranties are neither written nor oral.",
+   "lesson": "compliance_risk-12",
+   "evidence": "Warranties Express warranties are specific statements of fact or promises about a product by the seller.",
+   "origin": "authored"
+  },
+  {
+   "id": "b5b73ae849",
+   "module": 3,
+   "q": "How do implied warranties differ from express warranties?",
+   "options": [
+    "They are always written in the contract",
+    "They are spoken by the salesperson",
+    "Implied warranties are neither written nor oral",
+    "They only apply to services"
+   ],
+   "answer": 2,
+   "explain": "They arise from the law, not from statements.",
+   "lesson": "compliance_risk-12",
+   "evidence": "Implied warranties are neither written nor oral.",
+   "origin": "authored"
+  },
+  {
+   "id": "c582cab342",
+   "module": 3,
+   "q": "What does consumerism reflect?",
+   "options": [
+    "The amount people spend on holidays",
+    "The struggle for power between buyers and sellers",
+    "A company's growth rate",
+    "Government tax policy"
+   ],
+   "answer": 1,
+   "explain": "Consumer protection laws balance that power.",
+   "lesson": "compliance_risk-13",
+   "evidence": "Consumer Protection Laws Consumerism reflects the struggle for power between buyers and sellers.",
+   "origin": "authored"
+  },
+  {
+   "id": "66d3479422",
+   "module": 3,
+   "q": "What did the Child Protection Act (1966) do?",
+   "options": [
+    "Prohibited the sale of harmful toys",
+    "Created the minimum wage",
+    "Banned advertising to adults",
+    "Required all products to be free"
+   ],
+   "answer": 0,
+   "explain": "It also lets the FDA remove dangerous products.",
+   "lesson": "compliance_risk-13",
+   "evidence": "Child Protection Act (1966) Prohibits sale of harmful toys and gives the FDA the right to remove dangerous products from the marketplace.",
+   "origin": "authored"
+  },
+  {
+   "id": "6734d01892",
+   "module": 3,
+   "q": "How do scammers often target small businesses?",
+   "options": [
+    "By paying their invoices early",
+    "By leaving positive reviews",
+    "By sending official tax refunds",
+    "By pretending to be government officials or offering \"too good to be true\" deals"
+   ],
+   "answer": 3,
+   "explain": "Learn to recognise common scams.",
+   "lesson": "compliance_risk-14",
+   "evidence": "Scammers often target small businesses by pretending to be government officials or offering “too good to be true” financial deals.",
+   "origin": "authored"
+  },
+  {
+   "id": "0bf860fecb",
+   "module": 3,
+   "q": "What is a warning sign of grant or loan fraud?",
+   "options": [
+    "A request to fill in an official form",
+    "A long approval process",
+    "A promise of \"guaranteed\" approval if you pay a fee upfront",
+    "A letter with your business name"
+   ],
+   "answer": 2,
+   "explain": "Real programmes don't guarantee approval for a fee.",
+   "lesson": "compliance_risk-14",
+   "evidence": "Grant & Loan Fraud: Scammers may contact you promising “guaranteed” approval for an SBA loan or grant if you pay a fee upfront.",
+   "origin": "authored"
+  }
+ ],
+ "minutes": 132,
+ "sources": [
+  {
+   "id": "fincen",
+   "name": "FinCEN (U.S. Department of the Treasury)",
+   "url": "https://www.fincen.gov/",
+   "license": "Public domain (U.S. Government work)",
+   "license_url": "https://www.usa.gov/government-copyright",
+   "attribution": "Financial Crimes Enforcement Network — a U.S. Government work, not subject to copyright",
+   "noncommercial": false
+  },
+  {
+   "id": "govuk",
+   "name": "GOV.UK guidance",
+   "url": "https://www.gov.uk/",
+   "license": "Open Government Licence v3.0",
+   "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+   "attribution": "Contains public sector information licensed under the Open Government Licence v3.0",
+   "noncommercial": false
+  },
+  {
+   "id": "ostx-biz",
+   "name": "OpenStax · Introduction to Business (1st ed.)",
+   "url": "https://openstax.org/details/books/introduction-business",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "Lawrence J. Gitman, Carl McDaniel, Amit Shah et al., OpenStax, CC BY 4.0",
+   "noncommercial": false
+  },
+  {
+   "id": "sba",
+   "name": "U.S. Small Business Administration · Business Guide",
+   "url": "https://www.sba.gov/business-guide",
+   "license": "Public domain (U.S. Government work)",
+   "license_url": "https://www.usa.gov/government-copyright",
+   "attribution": "U.S. Small Business Administration — a U.S. Government work, not subject to copyright",
+   "noncommercial": false
+  }
+ ]
+}

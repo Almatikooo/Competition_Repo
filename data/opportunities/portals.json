@@ -1,0 +1,69 @@
+{
+  "_note": "Curated, checked links. Job search URLs take {q} (role title, URL-encoded), {slug} (role title as lower-case-hyphenated) and {country} (English country name). Study links are official admission and scholarship portals for popular destinations; elsewhere the page falls back to each university's own site.",
+  "checked": "2026-10-21",
+  "jobs": {
+    "global": [
+      {"name": "LinkedIn Jobs", "url": "https://www.linkedin.com/jobs/search/?keywords={q}&location={country}"}
+    ],
+    "eures": {"name": "EURES (EU job mobility portal)", "url": "https://europa.eu/eures/portal/jv-se/search", "official": true,
+              "countries": "AT BE BG HR CY CZ DK EE FI FR DE GR HU IE IT LV LT LU MT NL PL PT RO SK SI ES SE NO IS LI CH"},
+    "by_country": {
+      "MY": [{"name": "MYFutureJobs", "url": "https://www.myfuturejobs.gov.my/", "official": true},
+             {"name": "JobStreet Malaysia", "url": "https://my.jobstreet.com/{slug}-jobs"},
+             {"name": "Indeed Malaysia", "url": "https://malaysia.indeed.com/jobs?q={q}"}],
+      "SG": [{"name": "MyCareersFuture", "url": "https://www.mycareersfuture.gov.sg/search?search={q}", "official": true},
+             {"name": "JobStreet Singapore", "url": "https://sg.jobstreet.com/{slug}-jobs"}],
+      "ID": [{"name": "JobStreet Indonesia", "url": "https://id.jobstreet.com/{slug}-jobs"}],
+      "PH": [{"name": "JobStreet Philippines", "url": "https://ph.jobstreet.com/{slug}-jobs"}],
+      "AU": [{"name": "SEEK", "url": "https://www.seek.com.au/{slug}-jobs"}],
+      "NZ": [{"name": "SEEK New Zealand", "url": "https://www.seek.co.nz/{slug}-jobs"}],
+      "GB": [{"name": "Find a job (GOV.UK)", "url": "https://findajob.dwp.gov.uk/search?q={q}", "official": true},
+             {"name": "Indeed UK", "url": "https://uk.indeed.com/jobs?q={q}"}],
+      "US": [{"name": "Indeed", "url": "https://www.indeed.com/jobs?q={q}"},
+             {"name": "USAJOBS (federal jobs)", "url": "https://www.usajobs.gov/", "official": true}],
+      "CA": [{"name": "Job Bank (Government of Canada)", "url": "https://www.jobbank.gc.ca/jobsearch/jobsearch?searchstring={q}", "official": true}],
+      "DE": [{"name": "Jobbörse (Bundesagentur für Arbeit)", "url": "https://www.arbeitsagentur.de/jobsuche/suche?was={q}", "official": true}],
+      "IN": [{"name": "Naukri", "url": "https://www.naukri.com/{slug}-jobs"}],
+      "JP": [{"name": "Hello Work (public employment service)", "url": "https://www.hellowork.mhlw.go.jp/", "official": true}]
+    }
+  },
+  "study": {
+    "global": [
+      {"name": "Times Higher Education rankings", "url": "https://www.timeshighereducation.com/world-university-rankings"},
+      {"name": "QS World University Rankings", "url": "https://www.topuniversities.com/world-university-rankings"}
+    ],
+    "erasmus": {"name": "Erasmus Mundus joint masters (EU scholarships)", "url": "https://erasmus-plus.ec.europa.eu/opportunities/opportunities-for-individuals/students/erasmus-mundus-joint-masters",
+                "countries": "AT BE BG HR CY CZ DK EE FI FR DE GR HU IE IT LV LT LU MT NL PL PT RO SK SI ES SE"},
+    "by_country": {
+      "MY": {"apply": [{"name": "UPU (public universities, Malaysian students)", "url": "https://upu.mohe.gov.my/"},
+                       {"name": "EMGS — Education Malaysia (international students)", "url": "https://educationmalaysia.gov.my/"},
+                       {"name": "StudyMalaysia", "url": "https://www.studymalaysia.com/"}],
+             "funding": [{"name": "PTPTN study loans", "url": "https://www.ptptn.gov.my/"}]},
+      "SG": {"apply": [], "funding": [{"name": "ASEAN Undergraduate Scholarship (MOE)", "url": "https://www.moe.gov.sg/financial-matters/awards-scholarships/asean-scholarships"}]},
+      "GB": {"apply": [{"name": "UCAS", "url": "https://www.ucas.com/"}],
+             "funding": [{"name": "Chevening Scholarships", "url": "https://www.chevening.org/"}, {"name": "Commonwealth Scholarships", "url": "https://cscuk.fcdo.gov.uk/"}]},
+      "US": {"apply": [{"name": "Common App", "url": "https://www.commonapp.org/"}, {"name": "EducationUSA", "url": "https://educationusa.state.gov/"}],
+             "funding": [{"name": "Fulbright Foreign Student Program", "url": "https://foreign.fulbrightonline.org/"}]},
+      "AU": {"apply": [{"name": "Study Australia", "url": "https://www.studyaustralia.gov.au/"}],
+             "funding": [{"name": "Australia Awards", "url": "https://www.australiaawards.gov.au/"}]},
+      "CA": {"apply": [{"name": "EduCanada", "url": "https://www.educanada.ca/"}],
+             "funding": [{"name": "Scholarships (EduCanada)", "url": "https://www.educanada.ca/scholarships-bourses/index.aspx?lang=eng"}]},
+      "DE": {"apply": [{"name": "uni-assist", "url": "https://www.uni-assist.de/en/"}, {"name": "Study in Germany", "url": "https://www.study-in-germany.de/en/"}],
+             "funding": [{"name": "DAAD scholarships", "url": "https://www.daad.de/en/studying-in-germany/scholarships/"}]},
+      "NL": {"apply": [{"name": "Studielink", "url": "https://www.studielink.nl/"}, {"name": "Study in NL", "url": "https://www.studyinnl.org/"}],
+             "funding": [{"name": "NL Scholarship", "url": "https://www.studyinnl.org/finances/nl-scholarship"}]},
+      "IE": {"apply": [{"name": "CAO", "url": "https://www.cao.ie/"}],
+             "funding": [{"name": "Government of Ireland International Education Scholarships", "url": "https://hea.ie/policy/internationalisation/goi-ies/"}]},
+      "NZ": {"apply": [{"name": "Study with New Zealand", "url": "https://www.studywithnewzealand.govt.nz/"}],
+             "funding": [{"name": "Manaaki New Zealand Scholarships", "url": "https://www.nzscholarships.govt.nz/"}]},
+      "JP": {"apply": [{"name": "Study in Japan (JASSO)", "url": "https://www.studyinjapan.go.jp/en/"}],
+             "funding": [{"name": "Scholarships incl. MEXT (Study in Japan)", "url": "https://www.studyinjapan.go.jp/en/planning/scholarships/"}]},
+      "KR": {"apply": [{"name": "Study in Korea", "url": "https://www.studyinkorea.go.kr/"}], "funding": []},
+      "CN": {"apply": [{"name": "Campus China (CSC)", "url": "https://www.campuschina.org/"}], "funding": [{"name": "Chinese Government Scholarship (Campus China)", "url": "https://www.campuschina.org/"}]},
+      "FR": {"apply": [{"name": "Campus France", "url": "https://www.campusfrance.org/en"}], "funding": []},
+      "TR": {"apply": [], "funding": [{"name": "Türkiye Scholarships", "url": "https://www.turkiyeburslari.gov.tr/"}]},
+      "SE": {"apply": [{"name": "Study in Sweden", "url": "https://studyinsweden.se/"}], "funding": []},
+      "FI": {"apply": [{"name": "Study in Finland", "url": "https://www.studyinfinland.fi/"}], "funding": []}
+    }
+  }
+}

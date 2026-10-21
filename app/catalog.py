@@ -44,6 +44,7 @@ class Catalog:
         self.resources_checked: str = resources.get("checked", "")
         self.sdg_goals: dict[int, dict] = {g["goal"]: g for g in sdgs["goals"]}
         self.sdg_targets: dict[str, str] = sdgs["targets"]
+        self.sdg_targets_local: dict[str, dict[str, str]] = sdgs.get("targets_local", {})
         self.capabilities: list[dict] = caps["topics"]
         self.capability_baseline: dict = caps["baseline"]
         self.scenarios: dict[str, dict] = {s["id"]: s for s in caps["scenarios"]}

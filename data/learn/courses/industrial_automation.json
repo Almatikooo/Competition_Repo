@@ -1,0 +1,804 @@
+{
+ "title": "Industrial Automation & PLCs",
+ "subtitle": "Relays, ladder logic and programmable logic controllers — how machines are controlled and kept safe.",
+ "level": "Beginner",
+ "outcomes": [
+  "Explain how relays, contactors and time-delay relays switch machines",
+  "Read and draw ladder logic for control circuits",
+  "Design interlocks, motor controls and fail-safe circuits",
+  "Explain how PLCs, sensors and machine vision automate production"
+ ],
+ "skill": "industrial_automation",
+ "modules": [
+  {
+   "title": "Relays and contactors",
+   "lessons": [
+    "industrial_automation-01",
+    "industrial_automation-02"
+   ]
+  },
+  {
+   "title": "Ladder logic and PLCs",
+   "lessons": [
+    "industrial_automation-03",
+    "industrial_automation-04",
+    "industrial_automation-05",
+    "industrial_automation-06"
+   ]
+  },
+  {
+   "title": "Automated production",
+   "lessons": [
+    "industrial_automation-07",
+    "industrial_automation-08"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "industrial_automation-01",
+   "title": "Electromechanical relays",
+   "words": 2281,
+   "minutes": 12,
+   "source": "lec4",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_5.html",
+   "toc": [
+    {
+     "id": "h-relay-construction",
+     "text": "Relay construction",
+     "level": 2
+    },
+    {
+     "id": "h-contactors",
+     "text": "Contactors",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "industrial_automation-02",
+   "title": "Electromechanical relays · Time-delay relays",
+   "words": 2151,
+   "minutes": 11,
+   "source": "lec4",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_5.html",
+   "toc": [
+    {
+     "id": "h-protective-relays",
+     "text": "Protective relays",
+     "level": 2
+    },
+    {
+     "id": "h-solid-state-relays",
+     "text": "Solid-state relays",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "industrial_automation-03",
+   "title": "Ladder logic",
+   "words": 1701,
+   "minutes": 9,
+   "source": "lec4",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_6.html",
+   "toc": [
+    {
+     "id": "h-ladder-diagrams",
+     "text": "\"Ladder\" diagrams",
+     "level": 2
+    },
+    {
+     "id": "h-digital-logic-functions",
+     "text": "Digital logic functions",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "industrial_automation-04",
+   "title": "Permissive and interlock circuits",
+   "words": 1680,
+   "minutes": 9,
+   "source": "lec4",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_6.html",
+   "toc": [
+    {
+     "id": "h-motor-control-circuits",
+     "text": "Motor control circuits",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "industrial_automation-05",
+   "title": "Ladder logic · Fail-safe design",
+   "words": 1440,
+   "minutes": 8,
+   "source": "lec4",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_6.html",
+   "toc": []
+  },
+  {
+   "id": "industrial_automation-06",
+   "title": "Programmable logic controllers",
+   "words": 2221,
+   "minutes": 12,
+   "source": "lec4",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_6.html",
+   "toc": []
+  },
+  {
+   "id": "industrial_automation-07",
+   "title": "Transforming the Factory Floor with Technology",
+   "words": 1442,
+   "minutes": 8,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/10-7-transforming-the-factory-floor-with-technology",
+   "toc": [
+    {
+     "id": "h-computer-aided-design-and-manufacturing-systems",
+     "text": "Computer-Aided Design and Manufacturing Systems",
+     "level": 3
+    },
+    {
+     "id": "h-robotics",
+     "text": "Robotics",
+     "level": 3
+    },
+    {
+     "id": "h-adaptable-factories-flexible-and-computer-integrated-manufac",
+     "text": "Adaptable Factories: Flexible and Computer-Integrated Manufacturing Systems",
+     "level": 3
+    },
+    {
+     "id": "h-technology-and-automation-at-your-service",
+     "text": "Technology and Automation at Your Service",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "industrial_automation-08",
+   "title": "Trigger fruit quality detection from a sensor",
+   "words": 2561,
+   "minutes": 13,
+   "source": "ms-iot",
+   "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/4-manufacturing/lessons/4-trigger-fruit-detector/README.md",
+   "toc": [
+    {
+     "id": "h-introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "h-architect-complex-iot-applications",
+     "text": "Architect complex IoT applications",
+     "level": 2
+    },
+    {
+     "id": "h-reference-iot-architecture",
+     "text": "Reference IoT architecture",
+     "level": 3
+    },
+    {
+     "id": "h-data-and-security",
+     "text": "Data and security",
+     "level": 3
+    },
+    {
+     "id": "h-design-a-fruit-quality-control-system",
+     "text": "Design a fruit quality control system",
+     "level": 2
+    },
+    {
+     "id": "h-prototyping-your-application",
+     "text": "Prototyping your application",
+     "level": 3
+    },
+    {
+     "id": "h-trigger-fruit-quality-checking-from-a-sensor",
+     "text": "Trigger fruit quality checking from a sensor",
+     "level": 2
+    },
+    {
+     "id": "h-task-trigger-fruit-quality-detection-from-a-distance-sensor",
+     "text": "Task - trigger fruit quality detection from a distance sensor",
+     "level": 3
+    },
+    {
+     "id": "h-data-used-for-a-fruit-quality-detector",
+     "text": "Data used for a fruit quality detector",
+     "level": 2
+    },
+    {
+     "id": "h-using-developer-devices-to-simulate-multiple-iot-devices",
+     "text": "Using developer devices to simulate multiple IoT devices",
+     "level": 2
+    },
+    {
+     "id": "h-simulating-multiple-iot-devices-on-a-raspberry-pi-or-virtual",
+     "text": "Simulating multiple IoT devices on a Raspberry Pi or virtual IoT hardware",
+     "level": 3
+    },
+    {
+     "id": "h-simulating-multiple-devices-on-a-microcontroller",
+     "text": "Simulating multiple devices on a microcontroller",
+     "level": 3
+    },
+    {
+     "id": "h-moving-to-production",
+     "text": "Moving to production",
+     "level": 2
+    },
+    {
+     "id": "h-challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "h-review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  }
+ ],
+ "pool": [
+  {
+   "id": "fa70a2a5b6",
+   "module": 0,
+   "q": "What is a solenoid?",
+   "options": [
+    "A coil that moves a magnetic object when energised with electric current",
+    "A type of battery",
+    "A sensor that measures temperature",
+    "A computer that runs ladder logic"
+   ],
+   "answer": 0,
+   "explain": "The coil's magnetic field can be switched on and off with the current.",
+   "lesson": "industrial_automation-01",
+   "evidence": "If we place a magnetic object near such a coil for the purpose of making that object move when we energize the coil with electric current, we have what is called a solenoid .",
+   "origin": "authored"
+  },
+  {
+   "id": "2854f66754",
+   "module": 0,
+   "q": "What is the movable magnetic object in a solenoid or relay called?",
+   "options": [
+    "The rail",
+    "The rung",
+    "The scan",
+    "The armature"
+   ],
+   "answer": 3,
+   "explain": "Most armatures can be moved with DC or AC coil current.",
+   "lesson": "industrial_automation-01",
+   "evidence": "The movable magnetic object is called an armature , and most armatures can be moved with either direct current (DC) or alternating current (AC) energizing the coil.",
+   "origin": "authored"
+  },
+  {
+   "id": "1e01363e23",
+   "module": 0,
+   "q": "What happens to the magnetic field of a coil as the current through it increases?",
+   "options": [
+    "The field gets weaker",
+    "The field disappears",
+    "The field gets stronger",
+    "The field reverses direction"
+   ],
+   "answer": 2,
+   "explain": "Greater current means a stronger magnetic field, other factors being equal.",
+   "lesson": "industrial_automation-01",
+   "evidence": "The greater the current, the greater the strength of the magnetic field, all other factors being equal",
+   "origin": "authored"
+  },
+  {
+   "id": "00438d1d9e",
+   "module": 0,
+   "q": "Which of these can solenoids be used for?",
+   "options": [
+    "Only measuring voltage",
+    "Opening door latches, opening or shutting valves and actuating switch mechanisms",
+    "Only storing data",
+    "Only producing light"
+   ],
+   "answer": 1,
+   "explain": "A solenoid turns electric current into mechanical movement.",
+   "lesson": "industrial_automation-01",
+   "evidence": "Solenoids can be used to electrically open door latches, open or shut valves, move robotic limbs, and even actuate electric switch mechanisms.",
+   "origin": "authored"
+  },
+  {
+   "id": "cdc44b9b68",
+   "module": 0,
+   "q": "What can time-delay relays delay?",
+   "options": [
+    "Armature motion on coil energisation, de-energisation, or both",
+    "Only the power bill",
+    "The speed of light in the wires",
+    "Nothing: they switch instantly"
+   ],
+   "answer": 0,
+   "explain": "That gives the relay time-delay actuation.",
+   "lesson": "industrial_automation-02",
+   "evidence": "Time-delay relays can be constructed to delay armature motion on coil energization, de-energization, or both.",
+   "origin": "authored"
+  },
+  {
+   "id": "a23edce171",
+   "module": 0,
+   "q": "Besides normally-open or normally-closed, what else must be specified for a time-delay relay contact?",
+   "options": [
+    "Its colour",
+    "Its manufacturer's country",
+    "The number of rungs in the ladder",
+    "Whether the delay operates in the direction of closing or of opening"
+   ],
+   "answer": 3,
+   "explain": "This gives the four basic types of time-delay contacts.",
+   "lesson": "industrial_automation-02",
+   "evidence": "Time-delay relay contacts must be specified not only as either normally-open or normally-closed, but whether the delay operates in the direction of closing or in the direction of opening.",
+   "origin": "authored"
+  },
+  {
+   "id": "973d09dab1",
+   "module": 0,
+   "q": "What is a protective relay for?",
+   "options": [
+    "Protecting a relay from dust",
+    "Storing a PLC program",
+    "Monitoring electrical measurements to trigger a circuit breaker to open in an abnormal condition",
+    "Measuring how long a lamp is on"
+   ],
+   "answer": 2,
+   "explain": "Protective relays monitor current, voltage, frequency and more.",
+   "lesson": "industrial_automation-02",
+   "evidence": "Protective relays A special type of relay is one which monitors the current, voltage, frequency, or any other type of electric power measurement either from a generating source or to a load for the purpose of triggering a circuit breaker to open in the event of an abnormal condition.",
+   "origin": "authored"
+  },
+  {
+   "id": "1259274f7a",
+   "module": 0,
+   "q": "How do protective relays monitor large AC currents?",
+   "options": [
+    "By touching the conductors directly",
+    "Through current transformers (CTs) around the current-carrying conductors",
+    "By measuring the temperature of the room",
+    "Through wireless sensors on the roof"
+   ],
+   "answer": 1,
+   "explain": "CTs step the current down to a 0 to 5 amp range.",
+   "lesson": "industrial_automation-02",
+   "evidence": "Protective relays can monitor large AC currents by means of current transformers (CT's), which encircle the current-carrying conductors exiting a large circuit breaker, transformer, generator, or other device.",
+   "origin": "authored"
+  },
+  {
+   "id": "490de6f4f9",
+   "module": 1,
+   "q": "What are ladder diagrams used for?",
+   "options": [
+    "Documenting industrial control logic systems",
+    "Planning building staircases",
+    "Drawing organisation charts",
+    "Scheduling staff shifts"
+   ],
+   "answer": 0,
+   "explain": "They are specialised schematics for control logic.",
+   "lesson": "industrial_automation-03",
+   "evidence": "Ladder diagrams are specialized schematics commonly used to document industrial control logic systems.",
+   "origin": "authored"
+  },
+  {
+   "id": "b5d951d7a2",
+   "module": 1,
+   "q": "Why are ladder diagrams called \"ladder\" diagrams?",
+   "options": [
+    "They were invented by a firefighter",
+    "They are always drawn on ladders",
+    "They show the career ladder of electricians",
+    "They have two vertical rails (supply power) and horizontal rungs for each control circuit"
+   ],
+   "answer": 3,
+   "explain": "Rails supply power; each rung is a control circuit.",
+   "lesson": "industrial_automation-03",
+   "evidence": "They are called \"ladder\" diagrams because they resemble a ladder, with two vertical rails (supply power) and as many \"rungs\" (horizontal lines) as there are control circuits to represent.",
+   "origin": "authored"
+  },
+  {
+   "id": "df39a905f2",
+   "module": 1,
+   "q": "Where is the load device (lamp, relay coil, solenoid coil) usually drawn on a rung?",
+   "options": [
+    "At the left-hand side",
+    "In the middle of the left rail",
+    "At the right-hand side of the rung",
+    "Outside the diagram"
+   ],
+   "answer": 2,
+   "explain": "Which end of the supply is grounded matters for reliable operation.",
+   "lesson": "industrial_automation-03",
+   "evidence": "In ladder diagrams, the load device (lamp, relay coil, solenoid coil, etc.) is almost always drawn at the right-hand side of the rung.",
+   "origin": "authored"
+  },
+  {
+   "id": "b103699b4c",
+   "module": 1,
+   "q": "What do the L1 and L2 designations in a ladder diagram usually refer to?",
+   "options": [
+    "Lamp 1 and lamp 2",
+    "The two poles of a 120 VAC supply",
+    "Level 1 and level 2 managers",
+    "The first and second rungs"
+   ],
+   "answer": 1,
+   "explain": "They are the two sides of the power supply, unless noted otherwise.",
+   "lesson": "industrial_automation-03",
+   "evidence": "The \"L 1 \" and \"L 2 \" designations refer to the two poles of a 120 VAC supply, unless otherwise noted.",
+   "origin": "authored"
+  },
+  {
+   "id": "d15315314e",
+   "module": 1,
+   "q": "What is a permissive in a control system?",
+   "options": [
+    "A process condition that must be met before equipment is allowed to start",
+    "A permit from the government",
+    "A type of fuse",
+    "A manager's signature"
+   ],
+   "answer": 0,
+   "explain": "Permissive switch contacts are wired in series.",
+   "lesson": "industrial_automation-04",
+   "evidence": "Each process condition is called a permissive , and each permissive switch contact is wired in series, so that if any one of them detects an unsafe condition, the circuit will be opened",
+   "origin": "authored"
+  },
+  {
+   "id": "789b8506ad",
+   "module": 1,
+   "q": "Why are permissive switch contacts wired in series?",
+   "options": [
+    "To make the lamp brighter",
+    "To save wire",
+    "So that all of them must fail before anything happens",
+    "So that if any one detects an unsafe condition, the circuit opens"
+   ],
+   "answer": 3,
+   "explain": "Any single unsafe condition breaks the series string.",
+   "lesson": "industrial_automation-04",
+   "evidence": "If any one of the permissive conditions are not met, the series string of switch contacts will be broken, CR 2 will de-energize, and the red lamp will light.",
+   "origin": "authored"
+  },
+  {
+   "id": "ee044393ec",
+   "module": 1,
+   "q": "In a reversing motor circuit, what would happen if both contactors were energised at once?",
+   "options": [
+    "The motor would run twice as fast",
+    "Nothing would happen",
+    "Phases A and B would be short-circuited together",
+    "The motor would stop smoothly"
+   ],
+   "answer": 2,
+   "explain": "That is why an interlock prevents one contactor while the other is on.",
+   "lesson": "industrial_automation-04",
+   "evidence": "If someone were to do that, phases A and B would be short-circuited together by virtue of the fact that contactor M 1 sends phases A and B straight to the motor and contactor M 2 reverses them",
+   "origin": "authored"
+  },
+  {
+   "id": "023cca2ff9",
+   "module": 1,
+   "q": "What does the normally-closed \"OL\" contact in a motor control circuit protect against?",
+   "options": [
+    "Low fuel pressure",
+    "Thermal overload: if the heaters get too hot it opens and stops either contactor energising",
+    "A door being left open",
+    "A power cut at night"
+   ],
+   "answer": 1,
+   "explain": "OL is the thermal overload contact.",
+   "lesson": "industrial_automation-04",
+   "evidence": "If the heaters get too hot, the contact will change from its normal (closed) state to being open, which will prevent either contactor from energizing.",
+   "origin": "authored"
+  },
+  {
+   "id": "9ee2dc880d",
+   "module": 1,
+   "q": "Which type of failure is statistically most likely in electric circuits?",
+   "options": [
+    "\"Open\" failures such as broken connections or blown fuses",
+    "Short circuits from lightning",
+    "Software bugs",
+    "Failures caused by too much voltage"
+   ],
+   "answer": 0,
+   "explain": "So circuits should be designed to tolerate open failures.",
+   "lesson": "industrial_automation-05",
+   "evidence": "The nature of electric circuits is such that \"open\" failures (open switch contacts, broken wire connections, open relay coils, blown fuses, etc.) are statistically more likely to occur than any other type of failure.",
+   "origin": "authored"
+  },
+  {
+   "id": "c4e6ded58d",
+   "module": 1,
+   "q": "In fail-safe design, why is a false alarm better than a silent failure?",
+   "options": [
+    "False alarms are free",
+    "Silent failures are illegal",
+    "False alarms make the plant faster",
+    "Workers learn the alarm system failed and needs repair, instead of it failing when needed"
+   ],
+   "answer": 3,
+   "explain": "Design the circuit so a wiring failure sounds the alarm.",
+   "lesson": "industrial_automation-05",
+   "evidence": "That way, a failure in the wiring would result in a false alarm, a scenario much more preferable than that of having a switch silently fail and not function when needed.",
+   "origin": "authored"
+  },
+  {
+   "id": "c9512a8d9d",
+   "module": 1,
+   "q": "What is the goal when engineering a circuit with open failures in mind?",
+   "options": [
+    "Ignore the failures",
+    "Use as many fuses as possible",
+    "Make it as tolerant as possible to such a failure",
+    "Avoid using switches"
+   ],
+   "answer": 2,
+   "explain": "Open failures are the most likely, so design for them.",
+   "lesson": "industrial_automation-05",
+   "evidence": "With that in mind, it makes sense to engineer a circuit to be as tolerant as possible to such a failure.",
+   "origin": "authored"
+  },
+  {
+   "id": "23d9ccdb31",
+   "module": 1,
+   "q": "What was the purpose of the PLC (programmable logic controller)?",
+   "options": [
+    "To replace electric motors",
+    "To replace electromechanical relays with a solid-state computer running a stored program",
+    "To store company accounts",
+    "To measure air quality"
+   ],
+   "answer": 1,
+   "explain": "A PLC emulates many interconnected relays.",
+   "lesson": "industrial_automation-06",
+   "evidence": "The purpose of a PLC was to directly replace electromechanical relays as logic elements, substituting instead a solid-state digital computer with a stored program, able to emulate the interconnection of many relays to perform certain logical tasks.",
+   "origin": "authored"
+  },
+  {
+   "id": "54936604c9",
+   "module": 1,
+   "q": "What does a PLC read through its input terminals?",
+   "options": [
+    "\"High\" and \"low\" logical states from sensors and switches",
+    "Customer orders",
+    "Employee timesheets",
+    "Sales figures"
+   ],
+   "answer": 0,
+   "explain": "Outputs then power lights, solenoids and contactors.",
+   "lesson": "industrial_automation-06",
+   "evidence": "A PLC has many \"input\" terminals, through which it interprets \"high\" and \"low\" logical states from sensors and switches.",
+   "origin": "authored"
+  },
+  {
+   "id": "6e59a758d1",
+   "module": 1,
+   "q": "Why was the PLC programming language designed to resemble ladder logic diagrams?",
+   "options": [
+    "Because computers cannot use other languages",
+    "To make PLCs harder to copy",
+    "Because ladder diagrams are faster to run",
+    "So electricians used to ladder schematics would feel comfortable programming it"
+   ],
+   "answer": 3,
+   "explain": "Familiar notation made PLCs easy to program.",
+   "lesson": "industrial_automation-06",
+   "evidence": "In an effort to make PLCs easy to program, their programming language was designed to resemble ladder logic diagrams.",
+   "origin": "authored"
+  },
+  {
+   "id": "3aa6767f26",
+   "module": 1,
+   "q": "Which company released the MODICON in the late 1960s?",
+   "options": [
+    "General Motors",
+    "Motorola",
+    "Bedford Associates",
+    "Bell Telephone Laboratories"
+   ],
+   "answer": 2,
+   "explain": "The device became known generically as a PLC.",
+   "lesson": "industrial_automation-06",
+   "evidence": "In the late 1960's an American company named Bedford Associates released a computing device they called the MODICON .",
+   "origin": "authored"
+  },
+  {
+   "id": "9e42ff908c",
+   "module": 2,
+   "q": "What is computer-aided design (CAD)?",
+   "options": [
+    "Using computers to pay suppliers",
+    "Using computers to design and test new products and modify existing ones",
+    "A robot that assembles cars",
+    "A method for counting inventory"
+   ],
+   "answer": 1,
+   "explain": "CAM uses computers to develop and control production.",
+   "lesson": "industrial_automation-07",
+   "evidence": "In computer-aided design (CAD), computers are used to design and test new products and modify existing ones.",
+   "origin": "authored"
+  },
+  {
+   "id": "5b9383aed5",
+   "module": 2,
+   "q": "What does computer-aided manufacturing (CAM) do?",
+   "options": [
+    "Uses computers to develop and control the production process",
+    "Designs company logos",
+    "Hires production staff",
+    "Calculates import tariffs"
+   ],
+   "answer": 0,
+   "explain": "CAD/CAM links design, testing and manufacturing control.",
+   "lesson": "industrial_automation-07",
+   "evidence": "Computer-aided manufacturing (CAM) uses computers to develop and control the production process.",
+   "origin": "authored"
+  },
+  {
+   "id": "2cba0f5863",
+   "module": 2,
+   "q": "What are robots, as defined in the lesson?",
+   "options": [
+    "Any machine powered by electricity",
+    "Workers who follow a script",
+    "Software that writes emails",
+    "Computer-controlled machines that can perform tasks independently"
+   ],
+   "answer": 3,
+   "explain": "Robotics is the technology of designing, building and operating them.",
+   "lesson": "industrial_automation-07",
+   "evidence": "Robotics Robots are computer-controlled machines that can perform tasks independently.",
+   "origin": "authored"
+  },
+  {
+   "id": "67ed0c54b9",
+   "module": 2,
+   "q": "Who used the first robot, the \"steel-collar worker\", and when?",
+   "options": [
+    "Toyota, in 1990",
+    "Motorola, in 1986",
+    "General Motors, in 1961",
+    "Apple, in 2007"
+   ],
+   "answer": 2,
+   "explain": "Robots can be mobile or fixed in one place.",
+   "lesson": "industrial_automation-07",
+   "evidence": "The first robot, or “steel-collar worker,” was used by General Motors in 1961.",
+   "origin": "authored"
+  },
+  {
+   "id": "a32c0cec86",
+   "module": 2,
+   "q": "How are IoT applications described in the lesson?",
+   "options": [
+    "Websites that sell devices",
+    "Things (devices) sending data that generates insights",
+    "Spreadsheets of sensor prices",
+    "Printers connected to a network"
+   ],
+   "answer": 1,
+   "explain": "IoT services give insights over the devices' data.",
+   "lesson": "industrial_automation-08",
+   "evidence": "IoT applications can be described as things (devices) sending data that generates insights .",
+   "origin": "authored"
+  },
+  {
+   "id": "6233ebec02",
+   "module": 2,
+   "q": "In the fruit quality prototype, what triggers the IoT application?",
+   "options": [
+    "Proximity sensors",
+    "A manager pressing a button daily",
+    "A calendar reminder",
+    "A customer email"
+   ],
+   "answer": 0,
+   "explain": "A sensor detects the fruit and starts the quality check.",
+   "lesson": "industrial_automation-08",
+   "evidence": "You will learn how to architect a fruit quality control system prototype, including about using proximity sensors to trigger the IoT application, and what the architecture of this prototype would be.",
+   "origin": "authored"
+  },
+  {
+   "id": "955784bc22",
+   "module": 2,
+   "q": "What is a reference architecture?",
+   "options": [
+    "A list of approved suppliers",
+    "A building plan for a factory",
+    "The final version of a product",
+    "An example architecture to use as a reference when designing new systems"
+   ],
+   "answer": 3,
+   "explain": "You can substitute your own devices and services.",
+   "lesson": "industrial_automation-08",
+   "evidence": "A reference architecture is an example architecture you can use as a reference when designing new systems.",
+   "origin": "authored"
+  },
+  {
+   "id": "2a0fb1b4cf",
+   "module": 2,
+   "q": "The three components of architecting an IoT application are",
+   "options": [
+    "Things, Insights, Actions",
+    "Things, Internet, Databases",
+    "AI, Blockchain, FizzBuzzers"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "industrial_automation-08",
+   "origin": "bank:iot:36",
+   "source": "ms-iot"
+  },
+  {
+   "id": "fb4d8cb107",
+   "module": 2,
+   "q": "The component that communicates between the things and the components that create insights is:",
+   "options": [
+    "Azure Functions",
+    "IoT Hub",
+    "Azure Maps"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "industrial_automation-08",
+   "origin": "bank:iot:36",
+   "source": "ms-iot"
+  },
+  {
+   "id": "794a7ab826",
+   "module": 2,
+   "q": "How do time of flight proximity sensors work?",
+   "options": [
+    "They send laser beams and time how long till they bounce off an object",
+    "They use sound and measure how long till the sound bounces off an object",
+    "They use very large rulers"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "industrial_automation-08",
+   "origin": "bank:iot:36",
+   "source": "ms-iot"
+  }
+ ],
+ "minutes": 82,
+ "sources": [
+  {
+   "id": "lec4",
+   "name": "Lessons In Electric Circuits, Vol. IV (Digital)",
+   "url": "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/",
+   "license": "Design Science License",
+   "license_url": "https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_A3.html",
+   "attribution": "© Tony R. Kuphaldt, Design Science License",
+   "noncommercial": false
+  },
+  {
+   "id": "ms-iot",
+   "name": "Microsoft · IoT for Beginners",
+   "url": "https://github.com/microsoft/IoT-For-Beginners",
+   "license": "MIT",
+   "license_url": "https://opensource.org/license/mit",
+   "attribution": "© Microsoft Corporation, MIT License",
+   "noncommercial": false
+  },
+  {
+   "id": "ostx-biz",
+   "name": "OpenStax · Introduction to Business (1st ed.)",
+   "url": "https://openstax.org/details/books/introduction-business",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "Lawrence J. Gitman, Carl McDaniel, Amit Shah et al., OpenStax, CC BY 4.0",
+   "noncommercial": false
+  }
+ ]
+}

@@ -888,142 +888,519 @@
    ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "You can analyze trends over time using a:",
-    "options": [
-     "line chart",
-     "bar chart",
-     "pie chart"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "data_viz-01",
-    "origin": "bank:ds:17",
-    "source": "ms-ds"
-   },
-   {
-    "q": "You can compare values using this type of chart:",
-    "options": [
-     "line chart",
-     "bar chart",
-     "both of these"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "data_viz-01",
-    "origin": "bank:ds:17",
-    "source": "ms-ds"
-   },
-   {
-    "q": "Histograms can be used to analyze this type of data:",
-    "options": [
-     "textual",
-     "numeric",
-     "both of the above"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "data_viz-02",
-    "origin": "bank:ds:19",
-    "source": "ms-ds"
-   },
-   {
-    "q": "In a histogram, a 'bin' refers to:",
-    "options": [
-     "a class of data",
-     "a grouping of data",
-     "throwaway data"
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "data_viz-02",
-    "origin": "bank:ds:19",
-    "source": "ms-ds"
-   },
-   {
-    "q": "Use this library to build waffle charts:",
-    "options": [
-     "edwaffle",
-     "pywaffle",
-     "yumwaffle"
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "data_viz-03",
-    "origin": "bank:ds:21",
-    "source": "ms-ds"
-   },
-   {
-    "q": "In a donut chart, build your center circle using this syntax:",
-    "options": [
-     "plt.Oval",
-     "plt.Circle",
-     "plt.Edit"
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "data_viz-03",
-    "origin": "bank:ds:21",
-    "source": "ms-ds"
-   },
-   {
-    "q": "A more accessible way to display distribution is:",
-    "options": [
-     "Using datapoint shape variation",
-     "Using datapoint size variation",
-     "Using either of the above"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "data_viz-04",
-    "origin": "bank:ds:23",
-    "source": "ms-ds"
-   },
-   {
-    "q": "Facet grids help visualize",
-    "options": [
-     "a given facet of your data",
-     "outliers in your data",
-     "progression in your data"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "data_viz-04",
-    "origin": "bank:ds:23",
-    "source": "ms-ds"
-   },
-   {
-    "q": "Ensure that your charts are:",
-    "options": [
-     "accessible",
-     "readable",
-     "both of the above"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "data_viz-05",
-    "origin": "bank:ds:25",
-    "source": "ms-ds"
-   },
-   {
-    "q": "D3 is an excellent charting library for use to create:",
-    "options": [
-     "animated visualizations",
-     "infographics",
-     "deep learning"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "data_viz-05",
-    "origin": "bank:ds:25",
-    "source": "ms-ds"
-   }
-  ],
-  "pass_mark": 7,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "3e046db2f5",
+   "module": 0,
+   "q": "You can analyze trends over time using a:",
+   "options": [
+    "line chart",
+    "bar chart",
+    "pie chart"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_viz-01",
+   "origin": "bank:ds:17",
+   "source": "ms-ds"
+  },
+  {
+   "id": "9ef97d75e3",
+   "module": 0,
+   "q": "You can compare values using this type of chart:",
+   "options": [
+    "line chart",
+    "bar chart",
+    "both of these"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "data_viz-01",
+   "origin": "bank:ds:17",
+   "source": "ms-ds"
+  },
+  {
+   "id": "0788528ea4",
+   "module": 0,
+   "q": "Show how parts relate to a whole using this type of chart:",
+   "options": [
+    "line",
+    "column",
+    "pie"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "data_viz-01",
+   "origin": "bank:ds:17",
+   "source": "ms-ds"
+  },
+  {
+   "id": "1e7c6665f9",
+   "module": 0,
+   "q": "Histograms can be used to analyze this type of data:",
+   "options": [
+    "textual",
+    "numeric",
+    "both of the above"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "data_viz-02",
+   "origin": "bank:ds:19",
+   "source": "ms-ds"
+  },
+  {
+   "id": "1e985b00a8",
+   "module": 0,
+   "q": "In a histogram, a 'bin' refers to:",
+   "options": [
+    "a class of data",
+    "a grouping of data",
+    "throwaway data"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "data_viz-02",
+   "origin": "bank:ds:19",
+   "source": "ms-ds"
+  },
+  {
+   "id": "0baf826d08",
+   "module": 0,
+   "q": "To build a smooth density plot, use this library:",
+   "options": [
+    "Seaborn",
+    "Matplotlib",
+    "PyTorch"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_viz-02",
+   "origin": "bank:ds:19",
+   "source": "ms-ds"
+  },
+  {
+   "id": "73dbfffd2c",
+   "module": 0,
+   "q": "Use this library to build waffle charts:",
+   "options": [
+    "edwaffle",
+    "pywaffle",
+    "yumwaffle"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "data_viz-03",
+   "origin": "bank:ds:21",
+   "source": "ms-ds"
+  },
+  {
+   "id": "011e66388f",
+   "module": 0,
+   "q": "In a donut chart, build your center circle using this syntax:",
+   "options": [
+    "plt.Oval",
+    "plt.Circle",
+    "plt.Edit"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "data_viz-03",
+   "origin": "bank:ds:21",
+   "source": "ms-ds"
+  },
+  {
+   "id": "9881dd83da",
+   "module": 0,
+   "q": "You can edit the colors of your waffle charts",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_viz-03",
+   "origin": "bank:ds:21",
+   "source": "ms-ds"
+  },
+  {
+   "id": "730f5613f0",
+   "module": 0,
+   "q": "A more accessible way to display distribution is:",
+   "options": [
+    "Using datapoint shape variation",
+    "Using datapoint size variation",
+    "Using either of the above"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "data_viz-04",
+   "origin": "bank:ds:23",
+   "source": "ms-ds"
+  },
+  {
+   "id": "8794809a3e",
+   "module": 0,
+   "q": "Facet grids help visualize",
+   "options": [
+    "a given facet of your data",
+    "outliers in your data",
+    "progression in your data"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_viz-04",
+   "origin": "bank:ds:23",
+   "source": "ms-ds"
+  },
+  {
+   "id": "a7995f52e6",
+   "module": 0,
+   "q": "Using Seaborn's `relplot` you can view an aggregation of data around a line chart",
+   "options": [
+    "true",
+    "false"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_viz-04",
+   "origin": "bank:ds:23",
+   "source": "ms-ds"
+  },
+  {
+   "id": "c394ded30d",
+   "module": 1,
+   "q": "What must you do before visualising your data?",
+   "options": [
+    "Make sure it has been cleaned and prepared",
+    "Pick the brightest colours available",
+    "Publish it online first",
+    "Convert it into a pie chart"
+   ],
+   "answer": 0,
+   "explain": "A chart built on messy data misleads no matter how well it is designed.",
+   "lesson": "data_viz-05",
+   "evidence": "Prior to visualizing your data, you need to ensure that it has been cleaned and prepared",
+   "origin": "authored"
+  },
+  {
+   "id": "57f1a9a898",
+   "module": 1,
+   "q": "One deceptive chart in the lesson reversed its X axis. What did that do?",
+   "options": [
+    "It made the data easier to compare",
+    "It hid the chart's title",
+    "It changed the colours of the bars",
+    "It made the chart show the opposite of the truth"
+   ],
+   "answer": 3,
+   "explain": "The eye reads left to right, so a reversed date axis suggests cases fell when they rose.",
+   "lesson": "data_viz-05",
+   "evidence": "This chart reverses the X axis to show the opposite of the truth",
+   "origin": "authored"
+  },
+  {
+   "id": "71b7fd4811",
+   "module": 1,
+   "q": "Why can a pie chart with too many categories be a problem?",
+   "options": [
+    "Pie charts cannot show percentages",
+    "It uses too little ink",
+    "It can be deceptive, even when the intention is good",
+    "Pie charts only work for time series"
+   ],
+   "answer": 2,
+   "explain": "Choosing the wrong type of chart is one of the ways good data gets displayed badly.",
+   "lesson": "data_viz-05",
+   "evidence": "the choice of a bad type of chart, such as a pie chart showing too many categories, can be deceptive",
+   "origin": "authored"
+  },
+  {
+   "id": "e18197ba32",
+   "module": 1,
+   "q": "What does the 'spurious correlations' website illustrate?",
+   "options": [
+    "Margarine causes divorce",
+    "Unrelated things can appear to move together",
+    "Correlation always proves causation",
+    "Charts should never show two series"
+   ],
+   "answer": 1,
+   "explain": "It pairs facts like Maine's divorce rate and margarine consumption to show correlation is not causation.",
+   "lesson": "data_viz-05",
+   "evidence": "correlating things like the divorce rate in Maine and the consumption of margarine",
+   "origin": "authored"
+  },
+  {
+   "id": "a6e5044955",
+   "module": 1,
+   "q": "Ensure that your charts are:",
+   "options": [
+    "accessible",
+    "readable",
+    "both of the above"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "data_viz-05",
+   "origin": "bank:ds:25",
+   "source": "ms-ds"
+  },
+  {
+   "id": "b76e8b8cee",
+   "module": 1,
+   "q": "D3 is an excellent charting library for use to create:",
+   "options": [
+    "animated visualizations",
+    "infographics",
+    "deep learning"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_viz-05",
+   "origin": "bank:ds:25",
+   "source": "ms-ds"
+  },
+  {
+   "id": "4eb34ec6ab",
+   "module": 1,
+   "q": "Ensure the readability of your chart by:",
+   "options": [
+    "adding tags",
+    "editing color",
+    "aligning labels properly"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "data_viz-05",
+   "origin": "bank:ds:25",
+   "source": "ms-ds"
+  },
+  {
+   "id": "4bd2a7292c",
+   "module": 2,
+   "q": "What test does the guidance suggest for whether a chart is the right choice?",
+   "options": [
+    "If you can't write its message in a few sentences, rethink the chart",
+    "If it fits on one slide it is right",
+    "If it uses at least three colours it is right",
+    "If it has a legend it is right"
+   ],
+   "answer": 0,
+   "explain": "Imagine describing the chart over the phone: what would you say?",
+   "lesson": "data_viz-06",
+   "evidence": "If you cannot write down the message your chart is giving in a few sentences, you should think again about the chart you have chosen.",
+   "origin": "authored"
+  },
+  {
+   "id": "6b4bb047a5",
+   "module": 2,
+   "q": "What should a chart's statistical subtitle say?",
+   "options": [
+    "The author's name and the software used",
+    "The main finding in a single word",
+    "The colour palette used",
+    "What the data is, the geography it covers and the time period shown"
+   ],
+   "answer": 3,
+   "explain": "The main title gives the message; the statistical subtitle gives the facts behind it.",
+   "lesson": "data_viz-06",
+   "evidence": "The statistical subtitle should say what the data is, the geography the data relates to and the time period shown.",
+   "origin": "authored"
+  },
+  {
+   "id": "6c9197919d",
+   "module": 2,
+   "q": "Why should values on the y-axis be right aligned?",
+   "options": [
+    "It leaves more room for the legend",
+    "It is needed for vertical text",
+    "Figures line up units over units and tens over tens, so they are easier to read",
+    "It makes the chart look symmetrical"
+   ],
+   "answer": 2,
+   "explain": "Aligned digits let readers compare magnitudes at a glance.",
+   "lesson": "data_viz-07",
+   "evidence": "When numerical values are right aligned they are easier to read as all the figures are aligned to the right place",
+   "origin": "authored"
+  },
+  {
+   "id": "60ab5da650",
+   "module": 2,
+   "q": "How should axis labels be written?",
+   "options": [
+    "Diagonally, to save space",
+    "Always horizontally",
+    "Vertically along the axis",
+    "In coloured italic text"
+   ],
+   "answer": 1,
+   "explain": "Vertical or diagonal text is hard to read; label fewer ticks instead if space is short.",
+   "lesson": "data_viz-07",
+   "evidence": "When labelling axes, always use horizontal text as vertical or diagonal text is hard to read.",
+   "origin": "authored"
+  },
+  {
+   "id": "7152b6a43d",
+   "module": 2,
+   "q": "When are stacked bar charts particularly useful?",
+   "options": [
+    "To compare several part-to-whole relationships in one chart",
+    "To show precise values for many categories over time",
+    "To display a single headline number",
+    "To show how two continuous variables relate"
+   ],
+   "answer": 0,
+   "explain": "With part-to-whole data every bar has the same length, so the segments are easy to compare.",
+   "lesson": "data_viz-08",
+   "evidence": "Stacked bar charts are particularly useful when you want to compare multiple part-to-whole relationships in one chart.",
+   "origin": "authored"
+  },
+  {
+   "id": "299fbc2cd8",
+   "module": 2,
+   "q": "Why does the guidance prefer labelling lines directly instead of using a legend?",
+   "options": [
+    "Legends are banned in official charts",
+    "Direct labels make the lines thicker",
+    "Legends always cover part of the data",
+    "A legend makes users match labels to lines by colour"
+   ],
+   "answer": 3,
+   "explain": "Matching by colour is hard for many users, especially with several lines.",
+   "lesson": "data_viz-09",
+   "evidence": "This is better than using a legend which relies on users matching labels to lines using colour.",
+   "origin": "authored"
+  },
+  {
+   "id": "d35f71feb7",
+   "module": 2,
+   "q": "If you show several small line charts side by side, what is essential?",
+   "options": [
+    "Each chart uses a different colour",
+    "Each chart has its own legend",
+    "All the y-axes have the same scale",
+    "Every x-axis starts at zero"
+   ],
+   "answer": 2,
+   "explain": "Different scales make similar-looking lines mean very different things.",
+   "lesson": "data_viz-09",
+   "evidence": "If you use these, it is essential for all the y-axes to have the same scale to avoid misunderstandings.",
+   "origin": "authored"
+  },
+  {
+   "id": "455433191c",
+   "module": 2,
+   "q": "How should the categories in a pie chart be ordered?",
+   "options": [
+    "Alphabetically, starting at 3 o'clock",
+    "Ranked by size, with the first sector starting at 12 o'clock",
+    "Randomly, so no category dominates",
+    "Smallest first, starting at 6 o'clock"
+   ],
+   "answer": 1,
+   "explain": "Label the sectors directly rather than using a key.",
+   "lesson": "data_viz-10",
+   "evidence": "Rank the categories in a pie chart by size and start the first sector at the 12",
+   "origin": "authored"
+  },
+  {
+   "id": "f1fcf74fd6",
+   "module": 2,
+   "q": "What does the accessibility standard require for all non-text content such as charts?",
+   "options": [
+    "A text alternative that serves the equivalent purpose",
+    "At least three different colours",
+    "A downloadable spreadsheet",
+    "A printed copy on request"
+   ],
+   "answer": 0,
+   "explain": "So every data visualisation needs alternative text that communicates its message.",
+   "lesson": "data_viz-11",
+   "evidence": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose.",
+   "origin": "authored"
+  },
+  {
+   "id": "bde4be7084",
+   "module": 2,
+   "q": "What does the guidance note about people with mild colour blindness?",
+   "options": [
+    "They cannot see blue at all",
+    "They see every colour as grey",
+    "They can read any palette without help",
+    "They may see a colour only if there is enough of it"
+   ],
+   "answer": 3,
+   "explain": "Thin lines or small areas of colour can be invisible to them, so colour should never be the only cue.",
+   "lesson": "data_viz-12",
+   "evidence": "are able to see a colour, but only if there is enough",
+   "origin": "authored"
+  },
+  {
+   "id": "25cf58b45c",
+   "module": 2,
+   "q": "Which colours does the guidance recommend for sequential data?",
+   "options": [
+    "As many contrasting hues as possible",
+    "Red for low values and green for high values",
+    "A single hue, or a small set of closely related hues",
+    "Black and white only"
+   ],
+   "answer": 2,
+   "explain": "Sequential palettes should still be used only when necessary, alongside other cues.",
+   "lesson": "data_viz-13",
+   "evidence": "When you are presenting sequential data, it is best to use a single hue, or small set of closely related hues.",
+   "origin": "authored"
+  },
+  {
+   "id": "b3e52b04cb",
+   "module": 2,
+   "q": "How do demonstration tables differ from reference tables?",
+   "options": [
+    "Demonstration tables are interactive; reference tables are printed",
+    "Demonstration tables back up a point in the text; reference tables supply reusable data",
+    "Demonstration tables are for experts; reference tables for the public",
+    "They are the same thing"
+   ],
+   "answer": 1,
+   "explain": "Keep demonstration tables small and focused; reference tables can be large.",
+   "lesson": "data_viz-14",
+   "evidence": "Demonstration tables are used to reinforce a point made in the text of a publication.",
+   "origin": "authored"
+  },
+  {
+   "id": "4f8d4c32f1",
+   "module": 2,
+   "q": "How should the data columns of a table be formatted?",
+   "options": [
+    "Right aligned, with the same precision within each column",
+    "Centred, with varying decimal places",
+    "Left aligned and rounded to whole numbers",
+    "Every value in bold"
+   ],
+   "answer": 0,
+   "explain": "Consistent precision and alignment make values easy to compare down a column.",
+   "lesson": "data_viz-14",
+   "evidence": "The data columns are right aligned and the same level of precision is used within each column",
+   "origin": "authored"
+  },
+  {
+   "id": "c6f51af1f1",
+   "module": 2,
+   "q": "Why should images of tables never be used in publications?",
+   "options": [
+    "They take too long to print",
+    "They cannot be resized",
+    "They are blocked on mobile phones",
+    "They fail the accessibility criterion on images of text"
+   ],
+   "answer": 3,
+   "explain": "Publish tables as marked-up HTML so screen readers can navigate rows and columns.",
+   "lesson": "data_viz-15",
+   "evidence": "Images of tables should never be used as they fail accessibility success criterion 1.4.5 images of text",
+   "origin": "authored"
+  }
+ ],
  "minutes": 130,
  "sources": [
   {

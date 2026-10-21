@@ -4,6 +4,7 @@ For every course in courses.COURSES this fetches each lesson, converts it to cle
 attaches the final quiz (open quiz-bank questions + our authored, evidence-checked questions) and writes
 data/learn/courses/<skill>.json.
 """
+import hashlib
 import json
 import math
 import posixpath
@@ -23,8 +24,6 @@ OUT_LESSONS = ROOT / "data/learn/lessons"
 QUIZ_DIR = ROOT / "data/learn/quizzes"
 WPM = 200          # reading speed used for lesson durations
 MIN_WORDS = 150    # anything shorter is almost certainly a broken extraction
-PASS_RATIO = 0.7
-MAX_QUESTIONS = 12
 
 
 def first_heading(md: str) -> str | None:
@@ -60,6 +59,8 @@ def render_html(spec: dict) -> dict:
     url = spec["url"]
     raw = ft.get_text(url, browser=spec.get("browser", True))
     main = cv.select_main(raw, tuple(spec.get("select", ("main article", "article", "main", "body"))))
+    if spec.get("latex"):
+        main = cv.tex_to_html(main)
     title = spec.get("title")
     if not title:
         inner = BeautifulSoup(main, "lxml").find("h1")
@@ -74,7 +75,11 @@ def render_html(spec: dict) -> dict:
 
 def render_govuk(spec: dict) -> dict:
     data = ft.govuk(spec["path"])
-    body = data.get("details", {}).get("body", "")
+    details = data.get("details", {})
+    body = details.get("body", "")
+    if not body and details.get("parts"):  # a multi-page GOV.UK guide: its parts become the lesson's sections
+        wanted = spec.get("guide_parts")
+        body = "".join(f'<h2>{p["title"]}</h2>{p["body"]}' for p in details["parts"] if not wanted or p["slug"] in wanted)
     url = "https://www.gov.uk" + spec["path"]
     title = spec.get("title") or data.get("title")
     return {"title": title, "html": cv.clean_html(body, page_url=url, title=title, drop_headings=tuple(spec.get("drop_headings", ()))), "url": url}
@@ -190,10 +195,10 @@ def build_course(skill: str, course: dict) -> dict:
                 ids.append(lid)
                 print(f"   {lid}  {words:5d}w  {title[:72]}")
         modules.append({"title": module["title"], "lessons": ids})
-    quiz = build_quiz(skill, course, lessons)
-    used = sorted({l["source"] for l in lessons} | {q["source"] for q in quiz["questions"] if q.get("source")})
+    pool = build_pool(skill, course, lessons, modules)
+    used = sorted({l["source"] for l in lessons} | {q["source"] for q in pool["questions"] if q.get("source")})
     data = {k: course[k] for k in ("title", "subtitle", "level", "outcomes") if k in course}
-    data.update(skill=skill, modules=modules, lessons=lessons, quiz=quiz, minutes=sum(l["minutes"] for l in lessons),
+    data.update(skill=skill, modules=modules, lessons=lessons, pool=pool["questions"], minutes=sum(l["minutes"] for l in lessons),
                 sources=[{"id": s, **SOURCES[s]} for s in used])
     for lesson in data["lessons"]:
         lesson.pop("_bank", None)
@@ -221,19 +226,34 @@ def authored_questions(skill: str, lessons: list[dict]) -> list[dict]:
     return out
 
 
-def build_quiz(skill: str, course: dict, lessons: list[dict]) -> dict:
-    """Final test: questions from the open quiz banks of the source curricula, plus our evidence-checked questions."""
-    spec = course.get("quiz", {})
+POOL_PER_CHAPTER = 6    # a chapter test draws 5; one spare so a retake can differ
+POOL_PER_COURSE = 30    # the final test draws 25, so retakes differ
+
+
+def question_id(lesson_id: str, text: str) -> str:
+    """Stable across rebuilds, so a test attempt in progress survives a content rebuild."""
+    return hashlib.sha1(f"{lesson_id}|{text}".encode()).hexdigest()[:10]
+
+
+def build_pool(skill: str, course: dict, lessons: list[dict], modules: list[dict]) -> dict:
+    """Every question a course can ask: the open quiz banks of the source curricula plus our evidence-checked questions.
+    Chapter tests draw from the questions of their chapter, the final test from the whole pool."""
     authored = authored_questions(skill, lessons)
-    bank = bank_questions(lessons, per_lesson=spec.get("per_lesson", 2))
-    room = max(0, spec.get("max", MAX_QUESTIONS) - len(authored))
-    if len(bank) > room:  # spread the bank questions evenly across the course
-        step = len(bank) / room if room else 0
-        bank = [bank[int(i * step)] for i in range(room)]
+    bank = bank_questions(lessons, per_lesson=None)
+    module_of = {lid: i for i, m in enumerate(modules) for lid in m["lessons"]}
     order = {l["id"]: i for i, l in enumerate(lessons)}
-    questions = sorted(authored + bank, key=lambda q: order[q["lesson"]])
-    return {"questions": questions, "pass_mark": math.ceil(PASS_RATIO * len(questions)) if questions else 0,
-            "missing": not questions}
+    pool, seen = [], set()
+    for q in sorted(authored + bank, key=lambda q: order[q["lesson"]]):
+        qid = question_id(q["lesson"], q["q"])
+        if qid in seen:
+            continue
+        seen.add(qid)
+        pool.append({"id": qid, "module": module_of[q["lesson"]], **q})
+    per_module = [sum(1 for q in pool if q["module"] == i) for i in range(len(modules))]
+    short = [f"ch{i + 1}: {n}/{POOL_PER_CHAPTER}" for i, n in enumerate(per_module) if n < POOL_PER_CHAPTER]
+    if len(pool) < POOL_PER_COURSE:
+        short.append(f"course: {len(pool)}/{POOL_PER_COURSE}")
+    return {"questions": pool, "per_module": per_module, "short": short}
 
 
 def main(argv: list[str]) -> None:
@@ -248,9 +268,12 @@ def main(argv: list[str]) -> None:
             failures.append((skill, str(exc)))
             print(f"   !! FAILED: {exc}")
             continue
-        q = data["quiz"]
-        print(f"   -> {len(data['lessons'])} lessons, {data['minutes']} min, quiz {len(q['questions'])} q"
-              + (" (MISSING)" if q.get("missing") else ""))
+        per_module = [sum(1 for q in data["pool"] if q["module"] == i) for i in range(len(data["modules"]))]
+        short = [f"ch{i + 1} {n}" for i, n in enumerate(per_module) if n < POOL_PER_CHAPTER]
+        if len(data["pool"]) < POOL_PER_COURSE:
+            short.append(f"course {len(data['pool'])}")
+        print(f"   -> {len(data['lessons'])} lessons, {data['minutes']} min, pool {len(data['pool'])} q {per_module}"
+              + (f"  NEEDS MORE: {', '.join(short)}" if short else ""))
     if failures:
         print("\nFAILURES:")
         for skill, err in failures:

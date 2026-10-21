@@ -724,180 +724,632 @@
    "toc": []
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "What does the book advise when you type numbers into a worksheet?",
-    "options": [
-     "Always type a dollar sign before money values",
-     "Avoid adding formatting symbols such as dollar signs and commas",
-     "Type numbers as text so they line up",
-     "Put each digit in its own cell"
-    ],
-    "answer": 1,
-    "explain": "Type the raw number and apply number formats afterwards, so Excel can calculate with it.",
-    "lesson": "excel-02",
-    "evidence": "it is best to avoid adding any formatting symbols such as dollar signs and commas.",
-    "origin": "authored"
-   },
-   {
-    "q": "When are functions more efficient than formulas?",
-    "options": [
-     "When you apply a mathematical process to a group of cells",
-     "When you only add two numbers",
-     "When the workbook has one sheet",
-     "Never — formulas are always faster"
-    ],
-    "answer": 0,
-    "explain": "=SUM(B2:B50) is quicker and safer than adding fifty cell references by hand.",
-    "lesson": "excel-05",
-    "evidence": "Functions are more efficient than formulas when you are applying a mathematical process to a group of cells.",
-    "origin": "authored"
-   },
-   {
-    "q": "How are a function's arguments written?",
-    "options": [
-     "Before the function name",
-     "Separated by spaces after an equals sign",
-     "Always enclosed in parentheses after the function name",
-     "In a separate dialog box only"
-    ],
-    "answer": 2,
-    "explain": "For example =AVERAGE(C3:C14).",
-    "lesson": "excel-05",
-    "evidence": "After the function name comes the arguments for the function, which are always enclosed in parentheses.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the principal of a loan?",
-    "options": [
-     "The interest rate",
-     "The monthly payment",
-     "The item used to secure the loan",
-     "The amount of money borrowed from the lender"
-    ],
-    "answer": 3,
-    "explain": "The PMT function uses the rate, number of periods and principal to calculate payments.",
-    "lesson": "excel-06",
-    "evidence": "The amount of money that is borrowed from the lender is called the principal of the loan.",
-    "origin": "authored"
-   },
-   {
-    "q": "How should you reference cells when applying a statistical function to a contiguous range?",
-    "options": [
-     "List every cell separated by plus signs",
-     "Use a cell range: two cell locations separated by a colon",
-     "Type the values directly into the function",
-     "Use the row numbers only"
-    ],
-    "answer": 1,
-    "explain": "A range like B2:B20 covers every cell between the two corners.",
-    "lesson": "excel-07",
-    "evidence": "Make sure you use a cell range (two cell locations separated by a colon) when applying a statistical function to a contiguous range of cells.",
-    "origin": "authored"
-   },
-   {
-    "q": "In a VLOOKUP function, what is the Table_array?",
-    "options": [
-     "The range (table) where the lookup values and the values to return are located",
-     "The value you want to find",
-     "The column number to return",
-     "Whether to allow approximate matches"
-    ],
-    "answer": 0,
-    "explain": "The four arguments are Lookup_value, Table_array, Col_index_num and Range_lookup.",
-    "lesson": "excel-08",
-    "evidence": "The Table_array is the range (table) where the lookup values and the values you want returned by the function are located.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the best thing about Conditional Formatting, according to the book?",
-    "options": [
-     "It permanently changes the cell values",
-     "It works only on dates",
-     "It is flexible, applying formatting only when certain conditions are met",
-     "It prints faster"
-    ],
-    "answer": 2,
-    "explain": "Data bars, colour scales and cell rules highlight the values that matter.",
-    "lesson": "excel-09",
-    "evidence": "The best thing about Conditional Formatting is that it is flexible, applying specified formatting only when certain conditions are met.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the primary purpose of a chart?",
-    "options": [
-     "To decorate a worksheet",
-     "To replace the data table",
-     "To hide unusual values",
-     "To present quantitative information to an audience"
-    ],
-    "answer": 3,
-    "explain": "Choose the chart type from the message you want to communicate.",
-    "lesson": "excel-10",
-    "evidence": "the primary purpose of a chart is to present quantitative information to an audience.",
-    "origin": "authored"
-   },
-   {
-    "q": "When is a line chart preferred over a column chart?",
-    "options": [
-     "When showing the percent of a total",
-     "When presenting data over long periods of time",
-     "When comparing two categories only",
-     "When the data contain text"
-    ],
-    "answer": 1,
-    "explain": "Column charts become cluttered beyond about twenty bars; lines show long trends clearly.",
-    "lesson": "excel-11",
-    "evidence": "a line chart is preferred over a column chart when presenting data over long periods of time.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is a PivotTable?",
-    "options": [
-     "A table that rotates its text",
-     "A list of all sheets in a workbook",
-     "A powerful tool that calculates, summarises and analyses table data to compare patterns and trends",
-     "A chart type for showing proportions"
-    ],
-    "answer": 2,
-    "explain": "PivotTables use four areas — Rows, Columns, Values and Filters.",
-    "lesson": "excel-15",
-    "evidence": "A PivotTable is a powerful tool that calculates, summarizes, and analyzes table data to compare, patterns, and trends.",
-    "origin": "authored"
-   },
-   {
-    "q": "What do 3-D references in formulas allow you to do?",
-    "options": [
-     "Use data from one or more sheets on another sheet",
-     "Draw three-dimensional charts",
-     "Reference cells in other workbooks only",
-     "Lock cells so they cannot be edited"
-    ],
-    "answer": 0,
-    "explain": "A Summary sheet often totals the same cell across many monthly sheets.",
-    "lesson": "excel-17",
-    "evidence": "3-D references in formulas allow you to use data from one or more sheets on another sheet.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is an Excel template?",
-    "options": [
-     "A macro that runs automatically",
-     "A backup copy of a workbook",
-     "A list of keyboard shortcuts",
-     "A predefined pattern for a spreadsheet that has already been created for you"
-    ],
-    "answer": 3,
-    "explain": "Templates save the time of designing common files such as budgets or calendars from scratch.",
-    "lesson": "excel-18",
-    "evidence": "A template is a predefined pattern for a spreadsheet that has already been created for you.",
-    "origin": "authored"
-   }
-  ],
-  "pass_mark": 9,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "0097a15de8",
+   "module": 0,
+   "q": "In a range reference such as A1:D10, what do the two cells mean?",
+   "options": [
+    "The top-left and bottom-right corners of the range",
+    "The first and last rows only",
+    "Two separate cells, nothing in between",
+    "The widths of the columns"
+   ],
+   "answer": 0,
+   "explain": "The range includes every cell in the rectangle between them.",
+   "lesson": "excel-01",
+   "evidence": "The first cell is the top left corner of the range, and the second cell is the lower right corner of the range.",
+   "origin": "authored"
+  },
+  {
+   "id": "f794d60459",
+   "module": 0,
+   "q": "Taking a simple view, what is Excel?",
+   "options": [
+    "A word processor for long documents",
+    "A database server",
+    "A presentation tool",
+    "A tool for entering quantitative data into a spreadsheet and applying calculations"
+   ],
+   "answer": 3,
+   "explain": "Those calculations then support decisions.",
+   "lesson": "excel-01",
+   "evidence": "Excel is a tool that allows you to enter quantitative data into an electronic spreadsheet to apply one or many mathematical computations",
+   "origin": "authored"
+  },
+  {
+   "id": "c0b910df06",
+   "module": 0,
+   "q": "What does the book advise when you type numbers into a worksheet?",
+   "options": [
+    "Always type a dollar sign before money values",
+    "Avoid adding formatting symbols such as dollar signs and commas",
+    "Type numbers as text so they line up",
+    "Put each digit in its own cell"
+   ],
+   "answer": 1,
+   "explain": "Type the raw number and apply number formats afterwards, so Excel can calculate with it.",
+   "lesson": "excel-02",
+   "evidence": "it is best to avoid adding any formatting symbols such as dollar signs and commas.",
+   "origin": "authored"
+  },
+  {
+   "id": "ce603ec572",
+   "module": 0,
+   "q": "Why might a cell show symbols instead of the number you typed?",
+   "options": [
+    "The number is negative",
+    "The file is corrupted",
+    "The column is too narrow to fit the entry",
+    "The cell is locked"
+   ],
+   "answer": 2,
+   "explain": "Widen the column to see the value.",
+   "lesson": "excel-02",
+   "evidence": "This is because the column is too narrow to fit the entry you typed.",
+   "origin": "authored"
+  },
+  {
+   "id": "293de15ad9",
+   "module": 0,
+   "q": "Which key lets you edit the contents of the active cell?",
+   "options": [
+    "F1",
+    "F2",
+    "F5",
+    "Esc"
+   ],
+   "answer": 1,
+   "explain": "F2 puts the cursor inside the cell's existing content.",
+   "lesson": "excel-02",
+   "evidence": "Activate the cell that is to be edited and press the F2 key on your keyboard.",
+   "origin": "authored"
+  },
+  {
+   "id": "d54be6fe71",
+   "module": 0,
+   "q": "What does the book insist on after entering numbers into a worksheet?",
+   "options": [
+    "Proofreading it carefully",
+    "Deleting the formulas",
+    "Printing it immediately",
+    "Converting it to text"
+   ],
+   "answer": 0,
+   "explain": "A single mistyped number can change every result that depends on it.",
+   "lesson": "excel-02",
+   "evidence": "It is very important to proofread your worksheet carefully, especially when you have entered numbers.",
+   "origin": "authored"
+  },
+  {
+   "id": "414cecb0b9",
+   "module": 0,
+   "q": "Why is improving a worksheet's visual appearance important?",
+   "options": [
+    "It makes the formulas calculate faster",
+    "It is required to save the file",
+    "It hides mistakes",
+    "It makes the worksheet a more valuable tool for making decisions"
+   ],
+   "answer": 3,
+   "explain": "Clear formatting helps you and colleagues read the data correctly.",
+   "lesson": "excel-03",
+   "evidence": "Enhancing the visual appearance of a worksheet is a critical step in creating a valuable tool for you or your coworkers when making key decisions.",
+   "origin": "authored"
+  },
+  {
+   "id": "77f68359cb",
+   "module": 0,
+   "q": "What is the benefit of the Wrap Text command?",
+   "options": [
+    "It checks spelling",
+    "It merges cells",
+    "It reduces the need to widen columns for multi-word headings",
+    "It converts text to numbers"
+   ],
+   "answer": 2,
+   "explain": "The heading wraps onto several lines within the cell.",
+   "lesson": "excel-03",
+   "evidence": "The benefit of using the Wrap Text command is that it significantly reduces the need to expand the column width to accommodate multiword column headings.",
+   "origin": "authored"
+  },
+  {
+   "id": "cb15edffa6",
+   "module": 0,
+   "q": "In Excel, what is adding custom lines to a worksheet called?",
+   "options": [
+    "Adding gridlines",
+    "Adding borders",
+    "Adding charts",
+    "Adding rules"
+   ],
+   "answer": 1,
+   "explain": "A top border above a total row is a common example.",
+   "lesson": "excel-03",
+   "evidence": "In Excel, adding custom lines to a worksheet is known as adding borders.",
+   "origin": "authored"
+  },
+  {
+   "id": "1e252f0c14",
+   "module": 1,
+   "q": "What happens when numbers in the cells a formula references are changed?",
+   "options": [
+    "Excel automatically recalculates the formula",
+    "The formula stops working",
+    "You must type the formula again",
+    "The cells become locked"
+   ],
+   "answer": 0,
+   "explain": "That is why formulas should reference cells rather than typed numbers.",
+   "lesson": "excel-04",
+   "evidence": "when the numbers in the cells that are referenced are changed, Excel automatically recalculates the formula and produces a new result",
+   "origin": "authored"
+  },
+  {
+   "id": "f8f7884000",
+   "module": 1,
+   "q": "When should a formula use a constant number instead of a cell reference?",
+   "options": [
+    "Always, to save time",
+    "Never",
+    "Only for text",
+    "When the value will not change, like 12 months in a year"
+   ],
+   "answer": 3,
+   "explain": "Values that may change belong in cells.",
+   "lesson": "excel-04",
+   "evidence": "In this formula, a number, or constant, is used instead of a cell reference because it will not change.",
+   "origin": "authored"
+  },
+  {
+   "id": "e28a65c3f0",
+   "module": 1,
+   "q": "When are functions more efficient than formulas?",
+   "options": [
+    "When you apply a mathematical process to a group of cells",
+    "When you only add two numbers",
+    "When the workbook has one sheet",
+    "Never — formulas are always faster"
+   ],
+   "answer": 0,
+   "explain": "=SUM(B2:B50) is quicker and safer than adding fifty cell references by hand.",
+   "lesson": "excel-05",
+   "evidence": "Functions are more efficient than formulas when you are applying a mathematical process to a group of cells.",
+   "origin": "authored"
+  },
+  {
+   "id": "700b5f0a8f",
+   "module": 1,
+   "q": "How are a function's arguments written?",
+   "options": [
+    "Before the function name",
+    "Separated by spaces after an equals sign",
+    "Always enclosed in parentheses after the function name",
+    "In a separate dialog box only"
+   ],
+   "answer": 2,
+   "explain": "For example =AVERAGE(C3:C14).",
+   "lesson": "excel-05",
+   "evidence": "After the function name comes the arguments for the function, which are always enclosed in parentheses.",
+   "origin": "authored"
+  },
+  {
+   "id": "1917f820c0",
+   "module": 1,
+   "q": "What is the principal of a loan?",
+   "options": [
+    "The interest rate",
+    "The monthly payment",
+    "The item used to secure the loan",
+    "The amount of money borrowed from the lender"
+   ],
+   "answer": 3,
+   "explain": "The PMT function uses the rate, number of periods and principal to calculate payments.",
+   "lesson": "excel-06",
+   "evidence": "The amount of money that is borrowed from the lender is called the principal of the loan.",
+   "origin": "authored"
+  },
+  {
+   "id": "b8d5630eef",
+   "module": 1,
+   "q": "Which function calculates monthly loan payments?",
+   "options": [
+    "SUM",
+    "VLOOKUP",
+    "PMT",
+    "COUNT"
+   ],
+   "answer": 2,
+   "explain": "It works for car loans and mortgages alike.",
+   "lesson": "excel-06",
+   "evidence": "Use the PMT function to calculate monthly car loan payments.",
+   "origin": "authored"
+  },
+  {
+   "id": "5d3baad8d3",
+   "module": 1,
+   "q": "What is a loan?",
+   "options": [
+    "A gift of money",
+    "An agreement to borrow money from a lender and repay it over a set period",
+    "A savings account",
+    "A type of tax"
+   ],
+   "answer": 1,
+   "explain": "The amount borrowed is the principal.",
+   "lesson": "excel-06",
+   "evidence": "A loan is a contractual agreement in which money is borrowed from a lender and paid back over a specific period of time.",
+   "origin": "authored"
+  },
+  {
+   "id": "df73ab8e97",
+   "module": 1,
+   "q": "How should you reference cells when applying a statistical function to a contiguous range?",
+   "options": [
+    "List every cell separated by plus signs",
+    "Use a cell range: two cell locations separated by a colon",
+    "Type the values directly into the function",
+    "Use the row numbers only"
+   ],
+   "answer": 1,
+   "explain": "A range like B2:B20 covers every cell between the two corners.",
+   "lesson": "excel-07",
+   "evidence": "Make sure you use a cell range (two cell locations separated by a colon) when applying a statistical function to a contiguous range of cells.",
+   "origin": "authored"
+  },
+  {
+   "id": "536365718f",
+   "module": 1,
+   "q": "In a VLOOKUP function, what is the Table_array?",
+   "options": [
+    "The range (table) where the lookup values and the values to return are located",
+    "The value you want to find",
+    "The column number to return",
+    "Whether to allow approximate matches"
+   ],
+   "answer": 0,
+   "explain": "The four arguments are Lookup_value, Table_array, Col_index_num and Range_lookup.",
+   "lesson": "excel-08",
+   "evidence": "The Table_array is the range (table) where the lookup values and the values you want returned by the function are located.",
+   "origin": "authored"
+  },
+  {
+   "id": "a4d78b6f85",
+   "module": 1,
+   "q": "What is the best thing about Conditional Formatting, according to the book?",
+   "options": [
+    "It permanently changes the cell values",
+    "It works only on dates",
+    "It is flexible, applying formatting only when certain conditions are met",
+    "It prints faster"
+   ],
+   "answer": 2,
+   "explain": "Data bars, colour scales and cell rules highlight the values that matter.",
+   "lesson": "excel-09",
+   "evidence": "The best thing about Conditional Formatting is that it is flexible, applying specified formatting only when certain conditions are met.",
+   "origin": "authored"
+  },
+  {
+   "id": "8f97a33e52",
+   "module": 2,
+   "q": "What is the primary purpose of a chart?",
+   "options": [
+    "To decorate a worksheet",
+    "To replace the data table",
+    "To hide unusual values",
+    "To present quantitative information to an audience"
+   ],
+   "answer": 3,
+   "explain": "Choose the chart type from the message you want to communicate.",
+   "lesson": "excel-10",
+   "evidence": "the primary purpose of a chart is to present quantitative information to an audience.",
+   "origin": "authored"
+  },
+  {
+   "id": "944be07f59",
+   "module": 2,
+   "q": "Before choosing which data to chart, what must you identify?",
+   "options": [
+    "The message or idea you want to communicate",
+    "The largest number in the sheet",
+    "The chart's colours",
+    "Every column in the worksheet"
+   ],
+   "answer": 0,
+   "explain": "Not all data in a worksheet belongs on a chart.",
+   "lesson": "excel-10",
+   "evidence": "To determine what data should be used when creating a chart, you must first identify the message or idea that you want to communicate to an audience.",
+   "origin": "authored"
+  },
+  {
+   "id": "bdf75e456e",
+   "module": 2,
+   "q": "Which chart type shows each part's percent of the total?",
+   "options": [
+    "A line chart",
+    "A column chart",
+    "A scatter chart",
+    "A pie chart"
+   ],
+   "answer": 3,
+   "explain": "Line charts show trends over time; column charts compare values.",
+   "lesson": "excel-10",
+   "evidence": "Learn how to use a pie chart to show the percent of the total for a data set.",
+   "origin": "authored"
+  },
+  {
+   "id": "d4ff6e1bd5",
+   "module": 2,
+   "q": "When is a line chart preferred over a column chart?",
+   "options": [
+    "When showing the percent of a total",
+    "When presenting data over long periods of time",
+    "When comparing two categories only",
+    "When the data contain text"
+   ],
+   "answer": 1,
+   "explain": "Column charts become cluttered beyond about twenty bars; lines show long trends clearly.",
+   "lesson": "excel-11",
+   "evidence": "a line chart is preferred over a column chart when presenting data over long periods of time.",
+   "origin": "authored"
+  },
+  {
+   "id": "ab1cb08f24",
+   "module": 2,
+   "q": "Why are formatting commands applied to a chart?",
+   "options": [
+    "To change the underlying data",
+    "To make the file smaller",
+    "To make the chart easier to read",
+    "To print it in colour"
+   ],
+   "answer": 2,
+   "explain": "The same reason they are applied to a worksheet.",
+   "lesson": "excel-12",
+   "evidence": "Formatting commands are applied to a chart for the same reason they are applied to a worksheet: they make the chart easier to read.",
+   "origin": "authored"
+  },
+  {
+   "id": "5fc5dfad83",
+   "module": 2,
+   "q": "What is a data series?",
+   "options": [
+    "A list of chart types",
+    "An item being displayed graphically on a chart",
+    "A range of fonts",
+    "The chart's title"
+   ],
+   "answer": 1,
+   "explain": "Each series can be formatted separately, for example its colour.",
+   "lesson": "excel-12",
+   "evidence": "A data series is an item that is being displayed graphically on a chart.",
+   "origin": "authored"
+  },
+  {
+   "id": "8f67601443",
+   "module": 2,
+   "q": "What does Excel do automatically when you add new data to a table?",
+   "options": [
+    "It expands the table and applies its formatting, such as banded rows",
+    "It deletes the old data",
+    "It creates a new sheet",
+    "It turns the data into a chart"
+   ],
+   "answer": 0,
+   "explain": "Tables keep their structure as they grow.",
+   "lesson": "excel-13",
+   "evidence": "Excel will also automatically expand the table to accommodate new data entries and allows for automatic formatting, such as recoloring of banded rows or columns.",
+   "origin": "authored"
+  },
+  {
+   "id": "66f7302104",
+   "module": 2,
+   "q": "Why is planning a table's layout vital?",
+   "options": [
+    "For faster printing",
+    "For smaller files",
+    "For brighter colours",
+    "For data integrity"
+   ],
+   "answer": 3,
+   "explain": "A consistent structure keeps records accurate and usable.",
+   "lesson": "excel-13",
+   "evidence": "Structuring and planning table layouts is vital for data integrity.",
+   "origin": "authored"
+  },
+  {
+   "id": "02e4c15154",
+   "module": 2,
+   "q": "Why refer to a table by its name rather than by its range?",
+   "options": [
+    "Ranges cannot be used in formulas",
+    "Names make tables read-only",
+    "It is easier to refer to later, especially in workbooks with many tables",
+    "Names hide the data"
+   ],
+   "answer": 2,
+   "explain": "Table names can also appear automatically as you build formulas.",
+   "lesson": "excel-13",
+   "evidence": "Referring to the table by name rather than by range will make it easier to refer to a table in the future",
+   "origin": "authored"
+  },
+  {
+   "id": "86931f5f65",
+   "module": 2,
+   "q": "What does a table's Total Row let you do?",
+   "options": [
+    "Add a new record",
+    "Choose a summary function, such as Sum, Average or Count, for each column",
+    "Sort the table",
+    "Rename the table"
+   ],
+   "answer": 1,
+   "explain": "It is a quick tool for data analysis.",
+   "lesson": "excel-13",
+   "evidence": "From the total row drop-down, you can select a function, like Average, Count, Count Numbers, Max, Min, Sum, StdDev, Var, and more.",
+   "origin": "authored"
+  },
+  {
+   "id": "8fa70d7a98",
+   "module": 2,
+   "q": "What are the fields you choose to sort by called?",
+   "options": [
+    "Sort keys",
+    "Filters",
+    "Pivots",
+    "Indexes"
+   ],
+   "answer": 0,
+   "explain": "You can sort by several keys in levels.",
+   "lesson": "excel-14",
+   "evidence": "The field or fields you select to sort are called sort keys.",
+   "origin": "authored"
+  },
+  {
+   "id": "57565b22ec",
+   "module": 2,
+   "q": "What happens to rows hidden by a filter?",
+   "options": [
+    "They are deleted permanently",
+    "They move to a new sheet",
+    "They are sorted to the bottom",
+    "They are hidden, not deleted, and reappear when the filter is removed"
+   ],
+   "answer": 3,
+   "explain": "Filtering changes only what you see.",
+   "lesson": "excel-14",
+   "evidence": "The information that does not display is not deleted, it is just hidden",
+   "origin": "authored"
+  },
+  {
+   "id": "be22c07064",
+   "module": 2,
+   "q": "What is a PivotTable?",
+   "options": [
+    "A table that rotates its text",
+    "A list of all sheets in a workbook",
+    "A powerful tool that calculates, summarises and analyses table data to compare patterns and trends",
+    "A chart type for showing proportions"
+   ],
+   "answer": 2,
+   "explain": "PivotTables use four areas — Rows, Columns, Values and Filters.",
+   "lesson": "excel-15",
+   "evidence": "A PivotTable is a powerful tool that calculates, summarizes, and analyzes table data to compare, patterns, and trends.",
+   "origin": "authored"
+  },
+  {
+   "id": "28379fb3a9",
+   "module": 3,
+   "q": "What can you do with the sheets in an Excel file?",
+   "options": [
+    "Only rename them",
+    "Only add new ones",
+    "Move, copy, delete and rename them",
+    "Nothing — sheets are fixed"
+   ],
+   "answer": 2,
+   "explain": "Organising sheets keeps multi-sheet workbooks consistent.",
+   "lesson": "excel-16",
+   "evidence": "You can easily move, copy, delete, and rename sheets in your Excel file.",
+   "origin": "authored"
+  },
+  {
+   "id": "bfbddd9896",
+   "module": 3,
+   "q": "What is the benefit of grouping several sheets?",
+   "options": [
+    "It protects the sheets from editing",
+    "You can enter formulas once and have them appear in all the grouped sheets",
+    "It merges them into one sheet",
+    "It makes the file smaller"
+   ],
+   "answer": 1,
+   "explain": "Remember to ungroup afterwards — every change applies to all grouped sheets.",
+   "lesson": "excel-16",
+   "evidence": "By grouping all the month sheets together, we can enter each of the formulas once and have them appear in all the sheets.",
+   "origin": "authored"
+  },
+  {
+   "id": "6d32ac3d46",
+   "module": 3,
+   "q": "Besides the right-click menu, how can you rename a sheet?",
+   "options": [
+    "Double-click its tab name",
+    "Press F2 in any cell",
+    "Drag the tab to the right",
+    "Save the file with a new name"
+   ],
+   "answer": 0,
+   "explain": "Clear sheet names make workbooks easier to navigate.",
+   "lesson": "excel-16",
+   "evidence": "you can also double-click a sheet tab name to rename it",
+   "origin": "authored"
+  },
+  {
+   "id": "9904ce80d5",
+   "module": 3,
+   "q": "What do 3-D references in formulas allow you to do?",
+   "options": [
+    "Use data from one or more sheets on another sheet",
+    "Draw three-dimensional charts",
+    "Reference cells in other workbooks only",
+    "Lock cells so they cannot be edited"
+   ],
+   "answer": 0,
+   "explain": "A Summary sheet often totals the same cell across many monthly sheets.",
+   "lesson": "excel-17",
+   "evidence": "3-D references in formulas allow you to use data from one or more sheets on another sheet.",
+   "origin": "authored"
+  },
+  {
+   "id": "6c0f6dfff4",
+   "module": 3,
+   "q": "What is the Summary sheet in a multi-sheet workbook for?",
+   "options": [
+    "Storing raw data",
+    "Hiding formulas",
+    "Listing the file's authors",
+    "Presenting totals from the other sheets in one place"
+   ],
+   "answer": 3,
+   "explain": "It gives a quick synopsis of all the other sheets.",
+   "lesson": "excel-17",
+   "evidence": "The Summary sheet in many multiple sheet workbooks is utilized to present totaled information from the other sheets in the file.",
+   "origin": "authored"
+  },
+  {
+   "id": "e0f9848898",
+   "module": 3,
+   "q": "Where is the Summary sheet usually placed?",
+   "options": [
+    "As the last sheet",
+    "In a separate file",
+    "As the first sheet in the file",
+    "Hidden from view"
+   ],
+   "answer": 2,
+   "explain": "Readers see the overview before the detail.",
+   "lesson": "excel-17",
+   "evidence": "the Summary sheet is usually the first sheet in multiple sheet files",
+   "origin": "authored"
+  },
+  {
+   "id": "b1b3d95132",
+   "module": 3,
+   "q": "What is an Excel template?",
+   "options": [
+    "A macro that runs automatically",
+    "A backup copy of a workbook",
+    "A list of keyboard shortcuts",
+    "A predefined pattern for a spreadsheet that has already been created for you"
+   ],
+   "answer": 3,
+   "explain": "Templates save the time of designing common files such as budgets or calendars from scratch.",
+   "lesson": "excel-18",
+   "evidence": "A template is a predefined pattern for a spreadsheet that has already been created for you.",
+   "origin": "authored"
+  }
+ ],
  "minutes": 245,
  "sources": [
   {

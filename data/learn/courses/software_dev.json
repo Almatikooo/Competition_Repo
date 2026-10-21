@@ -1663,142 +1663,593 @@
    "toc": []
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "What language would you most likely use to create a website?",
-    "options": [
-     "Machine Code",
-     "JavaScript",
-     "Bash"
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "software_dev-03",
-    "origin": "bank:web:2",
-    "source": "ms-web"
-   },
-   {
-    "q": "A place to compare and discuss the differences introduced on a branch with reviews, comments, integrated tests, and more is:",
-    "options": [
-     "GitHub",
-     "A Pull Request",
-     "A feature branch"
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "software_dev-05",
-    "origin": "bank:web:4",
-    "source": "ms-web"
-   },
-   {
-    "q": "Color-safe palettes help people with",
-    "options": [
-     "color-blindness",
-     "visual impairments",
-     "both the above"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "software_dev-07",
-    "origin": "bank:web:6",
-    "source": "ms-web"
-   },
-   {
-    "q": "Constants are the same as let and var to declare variables except",
-    "options": [
-     "Constants must be initialized",
-     "Constants can be altered",
-     "Constants can be reassigned"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "software_dev-08",
-    "origin": "bank:web:8",
-    "source": "ms-web"
-   },
-   {
-    "q": "What does a default value do?",
-    "options": [
-     "Sets a correct value",
-     "Gives a starter value for a parameter so your code still behaves if you omit an argument for it",
-     "Has no utility"
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "software_dev-09",
-    "origin": "bank:web:10",
-    "source": "ms-web"
-   },
-   {
-    "q": "What would the following code return: '1' == 1",
-    "options": [
-     "true",
-     "false",
-     "null"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "software_dev-10",
-    "origin": "bank:web:12",
-    "source": "ms-web"
-   },
-   {
-    "q": "What part of a for-loop would you need to modify to increment its iteration by 5?",
-    "options": [
-     "condition",
-     "counter",
-     "iteration-expression"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "software_dev-11",
-    "origin": "bank:web:14",
-    "source": "ms-web"
-   },
-   {
-    "q": "The head of an HTML doc can contain:",
-    "options": [
-     "the title tag",
-     "metadata",
-     "all the above"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "software_dev-12",
-    "origin": "bank:web:16",
-    "source": "ms-web"
-   },
-   {
-    "q": "It's always necessary to include CSS in your app",
-    "options": [
-     "true",
-     "false",
-     "false, but if you want it to look good you probably need CSS"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "software_dev-13",
-    "origin": "bank:web:18",
-    "source": "ms-web"
-   },
-   {
-    "q": "Use JavaScript closures to perform the following:",
-    "options": [
-     "write functions within functions",
-     "enclose the DOM",
-     "close script blocks"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "software_dev-14",
-    "origin": "bank:web:20",
-    "source": "ms-web"
-   }
-  ],
-  "pass_mark": 7,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "dc4f4c4fee",
+   "module": 0,
+   "q": "What language would you most likely use to create a website?",
+   "options": [
+    "Machine Code",
+    "JavaScript",
+    "Bash"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "software_dev-03",
+   "origin": "bank:web:2",
+   "source": "ms-web"
+  },
+  {
+   "id": "4c86d013d1",
+   "module": 0,
+   "q": "What will a developer do to fix buggy code?",
+   "options": [
+    "Syntax highlighting",
+    "Debugging",
+    "Code formatting"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "software_dev-03",
+   "origin": "bank:web:2",
+   "source": "ms-web"
+  },
+  {
+   "id": "d31cebd1a8",
+   "module": 0,
+   "q": "Development environments are unique to each developer",
+   "options": [
+    "true",
+    "false"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "software_dev-03",
+   "origin": "bank:web:2",
+   "source": "ms-web"
+  },
+  {
+   "id": "c5c3bdfd46",
+   "module": 0,
+   "q": "A place to compare and discuss the differences introduced on a branch with reviews, comments, integrated tests, and more is:",
+   "options": [
+    "GitHub",
+    "A Pull Request",
+    "A feature branch"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "software_dev-05",
+   "origin": "bank:web:4",
+   "source": "ms-web"
+  },
+  {
+   "id": "120769d0cb",
+   "module": 0,
+   "q": "How would you get and integrate all the commits from a remote branch?",
+   "options": [
+    "git fetch",
+    "git pull",
+    "git commits -r"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "software_dev-05",
+   "origin": "bank:web:4",
+   "source": "ms-web"
+  },
+  {
+   "id": "19a0b1720e",
+   "module": 0,
+   "q": "How do you switch to a branch?",
+   "options": [
+    "git checkout [branch-name]",
+    "git switch [branch-name]",
+    "git load [branch-name]"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "software_dev-05",
+   "origin": "bank:web:4",
+   "source": "ms-web"
+  },
+  {
+   "id": "dfdcb38a72",
+   "module": 0,
+   "q": "Color-safe palettes help people with",
+   "options": [
+    "color-blindness",
+    "visual impairments",
+    "both the above"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "software_dev-07",
+   "origin": "bank:web:6",
+   "source": "ms-web"
+  },
+  {
+   "id": "31698d5499",
+   "module": 0,
+   "q": "Lighthouse only checks for accessibility problems",
+   "options": [
+    "true",
+    "false"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "software_dev-07",
+   "origin": "bank:web:6",
+   "source": "ms-web"
+  },
+  {
+   "id": "2722db34b9",
+   "module": 0,
+   "q": "Descriptive links are vital for accessible web sites",
+   "options": [
+    "true",
+    "false"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "software_dev-07",
+   "origin": "bank:web:6",
+   "source": "ms-web"
+  },
+  {
+   "id": "3cabd20db7",
+   "module": 1,
+   "q": "Constants are the same as let and var to declare variables except",
+   "options": [
+    "Constants must be initialized",
+    "Constants can be altered",
+    "Constants can be reassigned"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "software_dev-08",
+   "origin": "bank:web:8",
+   "source": "ms-web"
+  },
+  {
+   "id": "75ff74be71",
+   "module": 1,
+   "q": "Numbers and ____ are JavaScript primitives that handle numeric data",
+   "options": [
+    "bigint",
+    "boolean",
+    "star"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "software_dev-08",
+   "origin": "bank:web:8",
+   "source": "ms-web"
+  },
+  {
+   "id": "4b77e47d3f",
+   "module": 1,
+   "q": "Strings can reside between both single and double quotes",
+   "options": [
+    "true",
+    "false"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "software_dev-08",
+   "origin": "bank:web:8",
+   "source": "ms-web"
+  },
+  {
+   "id": "7b5b36a41f",
+   "module": 1,
+   "q": "What does a default value do?",
+   "options": [
+    "Sets a correct value",
+    "Gives a starter value for a parameter so your code still behaves if you omit an argument for it",
+    "Has no utility"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "software_dev-09",
+   "origin": "bank:web:10",
+   "source": "ms-web"
+  },
+  {
+   "id": "b0de73c1a7",
+   "module": 1,
+   "q": "A fat arrow function allows you to",
+   "options": [
+    "Create heavy functions",
+    "Omit the function keyword",
+    "Create an anonymous function"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "software_dev-09",
+   "origin": "bank:web:10",
+   "source": "ms-web"
+  },
+  {
+   "id": "92193de00b",
+   "module": 1,
+   "q": "Arguments must be provided for all parameters in a function",
+   "options": [
+    "true",
+    "false"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "software_dev-09",
+   "origin": "bank:web:10",
+   "source": "ms-web"
+  },
+  {
+   "id": "f5d9d28109",
+   "module": 1,
+   "q": "What would the following code return: '1' == 1",
+   "options": [
+    "true",
+    "false",
+    "null"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "software_dev-10",
+   "origin": "bank:web:12",
+   "source": "ms-web"
+  },
+  {
+   "id": "2330d351c6",
+   "module": 1,
+   "q": "What would the following code return: '1' === 1",
+   "options": [
+    "true",
+    "false",
+    "null"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "software_dev-10",
+   "origin": "bank:web:12",
+   "source": "ms-web"
+  },
+  {
+   "id": "bb6ce9ee0a",
+   "module": 1,
+   "q": "Choose the correct operator to express 'or' logic",
+   "options": [
+    "a | b",
+    "a || b",
+    "a or b"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "software_dev-10",
+   "origin": "bank:web:12",
+   "source": "ms-web"
+  },
+  {
+   "id": "07d10acdb7",
+   "module": 1,
+   "q": "What part of a for-loop would you need to modify to increment its iteration by 5?",
+   "options": [
+    "condition",
+    "counter",
+    "iteration-expression"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "software_dev-11",
+   "origin": "bank:web:14",
+   "source": "ms-web"
+  },
+  {
+   "id": "1ad7a6d8b7",
+   "module": 1,
+   "q": "What's the difference between a while and a for-loop",
+   "options": [
+    "A for-loop has a counter and iteration-expression, where while only has a condition",
+    "A while has a counter and iteration-expression where for-loop only has a condition",
+    "They are the same, just an alias for one another"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "software_dev-11",
+   "origin": "bank:web:14",
+   "source": "ms-web"
+  },
+  {
+   "id": "a9c1193438",
+   "module": 1,
+   "q": "Given the code for (let i=1; i < 5; i++), how many iterations will it perform?",
+   "options": [
+    "5",
+    "4"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "software_dev-11",
+   "origin": "bank:web:14",
+   "source": "ms-web"
+  },
+  {
+   "id": "8cdfb4b17e",
+   "module": 2,
+   "q": "The head of an HTML doc can contain:",
+   "options": [
+    "the title tag",
+    "metadata",
+    "all the above"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "software_dev-12",
+   "origin": "bank:web:16",
+   "source": "ms-web"
+  },
+  {
+   "id": "7c0e0ee96a",
+   "module": 2,
+   "q": "You can't use deprecated tags in your markup",
+   "options": [
+    "true",
+    "false",
+    "false, but they have been deprecated for good reason"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "software_dev-12",
+   "origin": "bank:web:16",
+   "source": "ms-web"
+  },
+  {
+   "id": "0ffe82ef5e",
+   "module": 2,
+   "q": "Spans and Divs are interchangeable",
+   "options": [
+    "true",
+    "false"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "software_dev-12",
+   "origin": "bank:web:16",
+   "source": "ms-web"
+  },
+  {
+   "id": "5706af8373",
+   "module": 2,
+   "q": "It's always necessary to include CSS in your app",
+   "options": [
+    "true",
+    "false",
+    "false, but if you want it to look good you probably need CSS"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "software_dev-13",
+   "origin": "bank:web:18",
+   "source": "ms-web"
+  },
+  {
+   "id": "3fbe7e37be",
+   "module": 2,
+   "q": "Which browser tool can be used to inspect CSS?",
+   "options": [
+    "Elements",
+    "Styles",
+    "Network"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "software_dev-13",
+   "origin": "bank:web:18",
+   "source": "ms-web"
+  },
+  {
+   "id": "325d26d38c",
+   "module": 2,
+   "q": "You can write CSS directly in the head section of your HTML file",
+   "options": [
+    "true",
+    "false"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "software_dev-13",
+   "origin": "bank:web:18",
+   "source": "ms-web"
+  },
+  {
+   "id": "ce48e20927",
+   "module": 2,
+   "q": "Use JavaScript closures to perform the following:",
+   "options": [
+    "write functions within functions",
+    "enclose the DOM",
+    "close script blocks"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "software_dev-14",
+   "origin": "bank:web:20",
+   "source": "ms-web"
+  },
+  {
+   "id": "37d79eec4e",
+   "module": 2,
+   "q": "Fill in the blank: Closures are useful when one or more functions need to access an outer function's...",
+   "options": [
+    "arrays",
+    "scope",
+    "functions"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "software_dev-14",
+   "origin": "bank:web:20",
+   "source": "ms-web"
+  },
+  {
+   "id": "5180b5b245",
+   "module": 2,
+   "q": "The DOM is a model to represent a document on the web",
+   "options": [
+    "true",
+    "false"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "software_dev-14",
+   "origin": "bank:web:20",
+   "source": "ms-web"
+  },
+  {
+   "id": "508e3d842f",
+   "module": 3,
+   "q": "What makes modern version control systems such as Git and Mercurial 'distributed'?",
+   "options": [
+    "They do not need a centralised server to host the repository",
+    "They split each file across several computers",
+    "They only work while connected to the internet",
+    "They email every change to all collaborators"
+   ],
+   "answer": 0,
+   "explain": "Older systems like CVS or Subversion relied on a central server; Git and Mercurial do not.",
+   "lesson": "software_dev-15",
+   "evidence": "meaning that they do not need a centralized server to host the repository",
+   "origin": "authored"
+  },
+  {
+   "id": "6176ed9596",
+   "module": 3,
+   "q": "Why should you avoid creating a Git repository inside another repository?",
+   "options": [
+    "Git cannot track subdirectories at all",
+    "Each subdirectory must have its own .git folder",
+    "The inner repository would delete the outer one's history",
+    "Nested repositories interfere: the outer one tries to version-control the inner one"
+   ],
+   "answer": 3,
+   "explain": "One repository already tracks every file and subdirectory below it, so create each new repository in a separate directory.",
+   "lesson": "software_dev-16",
+   "evidence": "the outer repository will try to version-control the inner repository",
+   "origin": "authored"
+  },
+  {
+   "id": "e9c350ca25",
+   "module": 3,
+   "q": "Why does Git keep a file's history in the special .git directory?",
+   "options": [
+    "So files are published to GitHub automatically",
+    "To compress files so they take less space",
+    "So the filesystem isn't cluttered and old versions can't be edited or deleted by accident",
+    "Because the working directory cannot hold text files"
+   ],
+   "answer": 2,
+   "explain": "Your working files stay clean while every committed version is stored safely inside .git.",
+   "lesson": "software_dev-17",
+   "evidence": "so that our filesystem doesn't become cluttered (and so that we can't accidentally edit or delete an old version)",
+   "origin": "authored"
+  },
+  {
+   "id": "159a00f3d8",
+   "module": 3,
+   "q": "What does the lesson call good practice before saving changes as a commit?",
+   "options": [
+    "Delete the previous commit",
+    "Always review the changes first",
+    "Push to GitHub before committing",
+    "Leave the commit message empty"
+   ],
+   "answer": 1,
+   "explain": "Reviewing (for example with git diff) catches mistakes before they become part of the history.",
+   "lesson": "software_dev-17",
+   "evidence": "It is good practice to always review our changes before saving them.",
+   "origin": "authored"
+  },
+  {
+   "id": "395e03de39",
+   "module": 3,
+   "q": "In Git, what does the identifier HEAD refer to?",
+   "options": [
+    "The most recent commit",
+    "The first commit in the repository",
+    "The remote repository on GitHub",
+    "The file currently open in your editor"
+   ],
+   "answer": 0,
+   "explain": "HEAD~1 then means the commit before the most recent one.",
+   "lesson": "software_dev-18",
+   "evidence": "which refers to the most recent commit",
+   "origin": "authored"
+  },
+  {
+   "id": "22ea528e1c",
+   "module": 3,
+   "q": "By convention, what name is usually given to the main remote repository?",
+   "options": [
+    "upstream",
+    "master",
+    "HEAD",
+    "origin"
+   ],
+   "answer": 3,
+   "explain": "The name only exists locally, but origin is the default used by git and GitHub.",
+   "lesson": "software_dev-19",
+   "evidence": "origin is a convention that is often used by default in git and GitHub",
+   "origin": "authored"
+  },
+  {
+   "id": "888166e6db",
+   "module": 3,
+   "q": "What is SSH, which the lesson uses to connect to GitHub?",
+   "options": [
+    "A Git command that merges branches",
+    "A file format for storing commits",
+    "A cryptographic protocol for secure communication over an insecure network",
+    "GitHub's web page for pull requests"
+   ],
+   "answer": 2,
+   "explain": "SSH uses a key pair: a public key you can share and a private key you keep secret.",
+   "lesson": "software_dev-19",
+   "evidence": "SSH is a cryptographic network protocol that allows secure communication between computers using an otherwise insecure network.",
+   "origin": "authored"
+  },
+  {
+   "id": "e485ed7171",
+   "module": 3,
+   "q": "In a basic collaborative workflow, what should you do before making your own changes?",
+   "options": [
+    "Delete your copy and clone it again",
+    "Run git pull to get the latest version",
+    "Push your old commits first",
+    "Rename the remote repository"
+   ],
+   "answer": 1,
+   "explain": "Working from the latest version reduces conflicts with your collaborators' changes.",
+   "lesson": "software_dev-20",
+   "evidence": "you should git pull before making our changes",
+   "origin": "authored"
+  },
+  {
+   "id": "8bcc284a12",
+   "module": 3,
+   "q": "When do conflicts occur in Git?",
+   "options": [
+    "When two or more people change the same lines of the same file",
+    "Whenever two people edit the same repository",
+    "Whenever a file is renamed",
+    "When a commit message is too long"
+   ],
+   "answer": 0,
+   "explain": "Changes to different lines merge automatically; overlapping changes must be resolved by hand.",
+   "lesson": "software_dev-21",
+   "evidence": "Conflicts occur when two or more people change the same lines of the same file.",
+   "origin": "authored"
+  }
+ ],
  "minutes": 248,
  "sources": [
   {

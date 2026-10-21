@@ -123,7 +123,7 @@ NOISE_HEADING = re.compile(r"(pre[- ]?lecture quiz|post[- ]?lecture quiz|lecture
 DROP_SECTION = re.compile(r"(^assignment\b|translations|multi-language|^feedback$|great work!? continue|^keep learning$|^credits?$|"
                           r"^test yourself$|^knowledge check$|^check your understanding$)", re.I)  # H5P widgets that don't survive import
 NOISE_TEXT = re.compile(r"(pre[- ]?lecture quiz|post[- ]?lecture quiz|this lesson is available in|click the image above|"
-                        r"open (the|this) (notebook|lesson) in|^\s*→\s*go to|share this page|was this page helpful|back to top)", re.I)
+                        r"open (the|this) (notebook|lesson) in|^\s*→\s*go to|share this page|was this page helpful|back to top|^next unit:)", re.I)
 REMOVE_TAGS = ["script", "style", "noscript", "iframe", "form", "button", "input", "select", "textarea", "svg", "canvas", "video", "audio",
                "nav", "header", "footer", "aside", "template", "object", "embed"]
 BOX_ALERT = re.compile(r"^\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*", re.I)
@@ -487,6 +487,38 @@ def headings(html: str) -> list[dict]:
     soup = BeautifulSoup(html, "lxml")
     return [{"id": h.get("id"), "text": h.get_text(" ", strip=True), "level": int(h.name[1])} for h in soup.find_all(["h2", "h3"])
             if h.get("id") and not h.find_parent(["details"]) and not h.find_parent("div", class_="box")]
+
+
+# Simple TeX (as written for MathJax, e.g. \(C_{pk}\) or $$ ... $$) -> readable text with sub/superscripts, for sources
+# whose formulas would otherwise show as raw markup. Covers what statistics handbooks use; it is not a full TeX renderer.
+TEX_WORDS = {"alpha": "α", "beta": "β", "gamma": "γ", "delta": "δ", "Delta": "Δ", "epsilon": "ε", "theta": "θ", "lambda": "λ", "mu": "μ",
+             "nu": "ν", "pi": "π", "rho": "ρ", "sigma": "σ", "Sigma": "Σ", "tau": "τ", "phi": "φ", "chi": "χ", "omega": "ω",
+             "le": "≤", "leq": "≤", "ge": "≥", "geq": "≥", "pm": "±", "times": "×", "cdot": "·", "ne": "≠", "neq": "≠", "approx": "≈",
+             "infty": "∞", "ldots": "…", "cdots": "…", "sum": "Σ", "lt": "<", "gt": ">", "min": "min", "max": "max", "log": "log"}
+
+
+def _tex(expr: str) -> str:
+    s = expr
+    accent = {"hat": "\u0302", "bar": "\u0304", "overline": "\u0304", "tilde": "\u0303"}
+    for _ in range(4):  # innermost groups first
+        s = re.sub(r"\\(?:mbox|text|mathrm|textrm|rm|mathit|bf|mathbf)\s*\{([^{}]*)\}", r"\1", s)
+        s = re.sub(r"\\frac\s*\{([^{}]*)\}\s*\{([^{}]*)\}", r"(\1)/(\2)", s)
+        s = re.sub(r"\\sqrt\s*\{([^{}]*)\}", r"√(\1)", s)
+        s = re.sub(r"\\(hat|bar|overline|tilde)\s*\{([^{}]*)\}", lambda m: m.group(2) + accent[m.group(1)], s)
+        s = re.sub(r"_\{([^{}]*)\}", r"<sub>\1</sub>", s)
+        s = re.sub(r"\^\{([^{}]*)\}", r"<sup>\1</sup>", s)
+    s = re.sub(r"\\(hat|bar|tilde)\s*(\\?[A-Za-z])", lambda m: m.group(2) + accent[m.group(1)], s)
+    s = re.sub(r"_(\\?[A-Za-z0-9])", r"<sub>\1</sub>", s)
+    s = re.sub(r"\^(\\?[A-Za-z0-9])", r"<sup>\1</sup>", s)
+    s = re.sub(r"\\(left|right)\b", "", s)
+    s = re.sub(r"\\([A-Za-z]+)", lambda m: TEX_WORDS.get(m.group(1), m.group(1)), s)
+    s = re.sub(r"\\[,;:! ]", " ", s).replace("{", "").replace("}", "").replace("\\", "")
+    return " ".join(s.split())
+
+
+def tex_to_html(html: str) -> str:
+    html = re.sub(r"\$\$(.+?)\$\$", lambda m: f'<span class="math display">{_tex(m.group(1))}</span>', html, flags=re.S)
+    return re.sub(r"\\\((.+?)\\\)", lambda m: f'<span class="math">{_tex(m.group(1))}</span>', html, flags=re.S)
 
 
 def select_main(html: str, selectors: tuple) -> str:

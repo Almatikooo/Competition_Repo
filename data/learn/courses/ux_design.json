@@ -1226,166 +1226,760 @@
    ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "What should you always start with when designing a service?",
-    "options": [
-     "Learning about the people who will use it",
-     "Choosing the technology stack",
-     "Writing the help pages",
-     "Designing the logo"
-    ],
-    "answer": 0,
-    "explain": "If you don't understand who users are and what they need, you can't build the right thing.",
-    "lesson": "ux_design-01",
-    "evidence": "When designing a government service, always start by learning about the people who will use it.",
-    "origin": "authored"
-   },
-   {
-    "q": "When should you plan user research?",
-    "options": [
-     "Once, before the project starts",
-     "Only after launch",
-     "At the start of each development phase, updating the plan as you learn",
-     "Only when users complain"
-    ],
-    "answer": 2,
-    "explain": "Research objectives change as the team learns more in each phase.",
-    "lesson": "ux_design-02",
-    "evidence": "You should plan user research at the start of each development phase, and regularly update your plan as you learn more about your users.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is contextual research?",
-    "options": [
-     "Reading academic papers about users",
-     "Visiting people in their everyday environment to observe how they do an activity",
-     "Sending a survey by email",
-     "Testing a prototype in a lab"
-    ],
-    "answer": 1,
-    "explain": "Seeing people use their own equipment, with their usual distractions, reveals real needs.",
-    "lesson": "ux_design-04",
-    "evidence": "Contextual research means visiting people in their everyday environment (like their home, work or school) to observe how they do an activity.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is a risk of the 'five whys' method?",
-    "options": [
-     "It takes several weeks",
-     "It only works with experts",
-     "It requires special software",
-     "Repeatedly asking why can make interviewees feel frustrated or defensive"
-    ],
-    "answer": 3,
-    "explain": "Use it carefully and make sure people feel heard.",
-    "lesson": "ux_design-06",
-    "evidence": "Sometimes asking why multiple times can cause the interviewee to feel frustrated or defensive if they don’t feel as if they are being heard.",
-    "origin": "authored"
-   },
-   {
-    "q": "When should a team analyse a research session?",
-    "options": [
-     "As soon as possible after each round, while it is still fresh",
-     "At the end of the project",
-     "Only when a manager asks",
-     "Before the session takes place"
-    ],
-    "answer": 0,
-    "explain": "Analysing together also helps the team agree what to work on next.",
-    "lesson": "ux_design-07",
-    "evidence": "You should do analysis as soon as you can after each round of research, while it is still fresh in people’s minds.",
-    "origin": "authored"
-   },
-   {
-    "q": "Why shouldn't placeholder personas made without research drive design decisions?",
-    "options": [
-     "They are too detailed",
-     "They take too long to write",
-     "They are effectively stereotypes",
-     "They are protected by copyright"
-    ],
-    "answer": 2,
-    "explain": "Personas must come from research to represent real users.",
-    "lesson": "ux_design-09",
-    "evidence": "because they're effectively stereotypes, avoid using them for implementable design decisions.",
-    "origin": "authored"
-   },
-   {
-    "q": "What does an experience map show?",
-    "options": [
-     "The office floor plan",
-     "What users do, think and feel over time, from first needing a service to when they stop using it",
-     "The service's database schema",
-     "A list of features ranked by cost"
-    ],
-    "answer": 1,
-    "explain": "It covers the whole journey, including events and related services outside your own.",
-    "lesson": "ux_design-10",
-    "evidence": "Experience maps provide a visual representation of what users do, think and feel over time, from the point they start needing a service to when they stop using it.",
-    "origin": "authored"
-   },
-   {
-    "q": "Why are code prototypes better for user research than paper sketches?",
-    "options": [
-     "They are cheaper",
-     "They never need changing",
-     "They can be used in production",
-     "They are more realistic"
-    ],
-    "answer": 3,
-    "explain": "You must prototype and test designs before committing to build anything.",
-    "lesson": "ux_design-13",
-    "evidence": "Code prototypes are better for user research because they’re more realistic.",
-    "origin": "authored"
-   },
-   {
-    "q": "What should headings in a user interface do?",
-    "options": [
-     "Repeat the first sentence of the text",
-     "Be written in capital letters",
-     "Describe the purpose of the text that follows, without being part of it",
-     "Include the service's brand name"
-    ],
-    "answer": 2,
-    "explain": "Clear headings help people scan and find what they need.",
-    "lesson": "ux_design-14",
-    "evidence": "Headings should describe the purpose of the text that follows - they should not be part of the text.",
-    "origin": "authored"
-   },
-   {
-    "q": "In moderated usability testing, why ask participants to 'think aloud'?",
-    "options": [
-     "It helps you understand what they are doing, thinking and feeling",
-     "It makes the session faster",
-     "It is required for recording consent",
-     "It stops them asking questions"
-    ],
-    "answer": 0,
-    "explain": "Hearing their reasoning shows why they struggle, not just where.",
-    "lesson": "ux_design-15",
-    "evidence": "Asking them to ‘think aloud’ as they move through the service helps you understand what they are doing, thinking and feeling.",
-    "origin": "authored"
-   },
-   {
-    "q": "How is accessibility different from assisted digital support?",
-    "options": [
-     "They are the same thing",
-     "Assisted digital support means helping people use the online parts of a service",
-     "Accessibility only applies to printed letters",
-     "Assisted digital support is only for blind users"
-    ],
-    "answer": 1,
-    "explain": "Accessibility means the service itself can be used by as many people as possible.",
-    "lesson": "ux_design-18",
-    "evidence": "Accessibility is different from assisted digital support , which means helping people to use the online parts of your service.",
-    "origin": "authored"
-   }
-  ],
-  "pass_mark": 8,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "f0da5f3c0e",
+   "module": 0,
+   "q": "What should you always start with when designing a service?",
+   "options": [
+    "Learning about the people who will use it",
+    "Choosing the technology stack",
+    "Writing the help pages",
+    "Designing the logo"
+   ],
+   "answer": 0,
+   "explain": "If you don't understand who users are and what they need, you can't build the right thing.",
+   "lesson": "ux_design-01",
+   "evidence": "When designing a government service, always start by learning about the people who will use it.",
+   "origin": "authored"
+  },
+  {
+   "id": "5230989840",
+   "module": 0,
+   "q": "When should you plan user research?",
+   "options": [
+    "Once, before the project starts",
+    "Only after launch",
+    "At the start of each development phase, updating the plan as you learn",
+    "Only when users complain"
+   ],
+   "answer": 2,
+   "explain": "Research objectives change as the team learns more in each phase.",
+   "lesson": "ux_design-02",
+   "evidence": "You should plan user research at the start of each development phase, and regularly update your plan as you learn more about your users.",
+   "origin": "authored"
+  },
+  {
+   "id": "b8e2cbe4fa",
+   "module": 0,
+   "q": "How should research questions change after the discovery phase?",
+   "options": [
+    "They should become broader",
+    "They should stop changing",
+    "Research should end after discovery",
+    "They should become more specific, focusing on particular user groups and parts of the service"
+   ],
+   "answer": 3,
+   "explain": "Discovery questions are broad and evolve quickly.",
+   "lesson": "ux_design-02",
+   "evidence": "They should become more specific in later development phases",
+   "origin": "authored"
+  },
+  {
+   "id": "724616c65a",
+   "module": 0,
+   "q": "What helps a team focus its user research on what matters most?",
+   "options": [
+    "Interviewing as many people as possible",
+    "Copying another team's plan",
+    "Testing only finished features",
+    "Knowing the questions to answer and the assumptions to test"
+   ],
+   "answer": 3,
+   "explain": "Clear objectives keep research useful.",
+   "lesson": "ux_design-02",
+   "evidence": "Knowing the questions you need to answer and the assumptions you need to test will help you focus on the most important things your team needs to know.",
+   "origin": "authored"
+  },
+  {
+   "id": "30b11d8d62",
+   "module": 0,
+   "q": "How long can in-depth interviews take?",
+   "options": [
+    "About 5 minutes",
+    "A full working day",
+    "Between 30 minutes and 2 hours",
+    "Exactly 10 minutes"
+   ],
+   "answer": 2,
+   "explain": "Length depends on the subject's complexity and the number of questions.",
+   "lesson": "ux_design-03",
+   "evidence": "Interviews can take between 30 minutes and 2 hours",
+   "origin": "authored"
+  },
+  {
+   "id": "32dd2dcba1",
+   "module": 0,
+   "q": "When might you interview people in pairs or small groups?",
+   "options": [
+    "Always, to save time",
+    "When they use a service together, like family members or colleagues",
+    "Never",
+    "Only when they disagree"
+   ],
+   "answer": 1,
+   "explain": "Interviews are normally one user at a time.",
+   "lesson": "ux_design-03",
+   "evidence": "You can also speak to people in pairs or small groups if they use a service together",
+   "origin": "authored"
+  },
+  {
+   "id": "114c6875b6",
+   "module": 0,
+   "q": "What is contextual research?",
+   "options": [
+    "Reading academic papers about users",
+    "Visiting people in their everyday environment to observe how they do an activity",
+    "Sending a survey by email",
+    "Testing a prototype in a lab"
+   ],
+   "answer": 1,
+   "explain": "Seeing people use their own equipment, with their usual distractions, reveals real needs.",
+   "lesson": "ux_design-04",
+   "evidence": "Contextual research means visiting people in their everyday environment (like their home, work or school) to observe how they do an activity.",
+   "origin": "authored"
+  },
+  {
+   "id": "835a281970",
+   "module": 0,
+   "q": "Why watch someone complete a task in their own surroundings?",
+   "options": [
+    "You see their own equipment and usual distractions, which reveals what they need",
+    "It is cheaper than any other method",
+    "It removes the need for analysis",
+    "People behave identically everywhere"
+   ],
+   "answer": 0,
+   "explain": "Lab settings hide real-world context.",
+   "lesson": "ux_design-04",
+   "evidence": "Watching someone complete a task in familiar surroundings with their own equipment (and usual distractions) can help you understand what they need from your service.",
+   "origin": "authored"
+  },
+  {
+   "id": "4b6e615f4a",
+   "module": 0,
+   "q": "Which quality do you need on a contextual research visit?",
+   "options": [
+    "A fixed script you never change",
+    "A large film crew",
+    "Silence throughout",
+    "Adaptability — you never know exactly what you'll find"
+   ],
+   "answer": 3,
+   "explain": "Plan carefully, but expect surprises.",
+   "lesson": "ux_design-04",
+   "evidence": "need to be adaptable as you never know exactly what you",
+   "origin": "authored"
+  },
+  {
+   "id": "9634b80dc4",
+   "module": 1,
+   "q": "Why be comfortable with silences in a user interview?",
+   "options": [
+    "Silences end the interview sooner",
+    "Silences show you are bored",
+    "Silences let the participant elaborate",
+    "Silences are required by law"
+   ],
+   "answer": 2,
+   "explain": "Resist the urge to fill every pause.",
+   "lesson": "ux_design-05",
+   "evidence": "Be comfortable with silences, which allow the participant to elaborate.",
+   "origin": "authored"
+  },
+  {
+   "id": "1f52cce4e1",
+   "module": 1,
+   "q": "Which questions should you ask a lot in interviews?",
+   "options": [
+    "Yes/no questions only",
+    "'Why is that?' and 'How do you do that?'",
+    "Questions that suggest the answer",
+    "Questions about your own product's features"
+   ],
+   "answer": 1,
+   "explain": "Open questions uncover reasons and real behaviour.",
+   "lesson": "ux_design-05",
+   "evidence": "Ask lots of \"why is that\" and \"how do you do that\" questions",
+   "origin": "authored"
+  },
+  {
+   "id": "f43caa739a",
+   "module": 1,
+   "q": "What should you consider before interviewing a participant?",
+   "options": [
+    "How the interview could harm them, and adjust your questions",
+    "How quickly you can finish",
+    "How to sell them your product",
+    "Nothing — just start"
+   ],
+   "answer": 0,
+   "explain": "Research ethics protect participants.",
+   "lesson": "ux_design-05",
+   "evidence": "Consider how the interview could harm the participant, and adjust your questions to avoid those hazards.",
+   "origin": "authored"
+  },
+  {
+   "id": "eddf267007",
+   "module": 1,
+   "q": "What should you prepare for a stakeholder or user interview?",
+   "options": [
+    "A word-for-word script",
+    "A sales pitch",
+    "Nothing at all",
+    "A guide of topics plus some specific back-up questions"
+   ],
+   "answer": 3,
+   "explain": "Topics keep the conversation open; back-ups help if it stalls.",
+   "lesson": "ux_design-05",
+   "evidence": "Create a guide for yourself of some topics you'd like to ask about, and some specific questions as a back up.",
+   "origin": "authored"
+  },
+  {
+   "id": "16ec717cd5",
+   "module": 1,
+   "q": "What is a risk of the 'five whys' method?",
+   "options": [
+    "It takes several weeks",
+    "It only works with experts",
+    "It requires special software",
+    "Repeatedly asking why can make interviewees feel frustrated or defensive"
+   ],
+   "answer": 3,
+   "explain": "Use it carefully and make sure people feel heard.",
+   "lesson": "ux_design-06",
+   "evidence": "Sometimes asking why multiple times can cause the interviewee to feel frustrated or defensive if they don’t feel as if they are being heard.",
+   "origin": "authored"
+  },
+  {
+   "id": "3ed0a17792",
+   "module": 1,
+   "q": "How do you set up the board for a hopes and fears session?",
+   "options": [
+    "One column per participant",
+    "A timeline of the project",
+    "Two columns labelled 'Hopes' and 'Fears'",
+    "A list of budget items"
+   ],
+   "answer": 2,
+   "explain": "Participants add sticky notes to each column.",
+   "lesson": "ux_design-06",
+   "evidence": "create two columns labeled “Hopes” and “Fears” on a white board or large sticky pad",
+   "origin": "authored"
+  },
+  {
+   "id": "c905fb4c23",
+   "module": 1,
+   "q": "Why do participants group their sticky notes as they add them?",
+   "options": [
+    "To hide duplicates",
+    "To show emerging themes",
+    "To rank people",
+    "To save wall space"
+   ],
+   "answer": 1,
+   "explain": "Themes make the group's hopes and fears visible.",
+   "lesson": "ux_design-06",
+   "evidence": "Have participants group their sticky notes as they add them to the board to illustrate emerging themes.",
+   "origin": "authored"
+  },
+  {
+   "id": "dcf73db6f7",
+   "module": 2,
+   "q": "When should a team analyse a research session?",
+   "options": [
+    "As soon as possible after each round, while it is still fresh",
+    "At the end of the project",
+    "Only when a manager asks",
+    "Before the session takes place"
+   ],
+   "answer": 0,
+   "explain": "Analysing together also helps the team agree what to work on next.",
+   "lesson": "ux_design-07",
+   "evidence": "You should do analysis as soon as you can after each round of research, while it is still fresh in people’s minds.",
+   "origin": "authored"
+  },
+  {
+   "id": "94f9473bf2",
+   "module": 2,
+   "q": "When analysing research, what should each sticky note contain?",
+   "options": [
+    "One observation — exactly what was seen or heard, not an interpretation",
+    "The analyst's conclusions",
+    "Several observations at once",
+    "Only positive feedback"
+   ],
+   "answer": 0,
+   "explain": "Separating observation from interpretation avoids bias.",
+   "lesson": "ux_design-07",
+   "evidence": "use a single note for each observation and write exactly what they saw or heard",
+   "origin": "authored"
+  },
+  {
+   "id": "0711cca37b",
+   "module": 2,
+   "q": "Why involve lots of people in analysing research?",
+   "options": [
+    "It makes analysis slower on purpose",
+    "It replaces doing research",
+    "It is required for funding",
+    "It helps the team make better decisions"
+   ],
+   "answer": 3,
+   "explain": "The group can also agree what to work on next.",
+   "lesson": "ux_design-07",
+   "evidence": "Involving lots of people helps your team make better decisions.",
+   "origin": "authored"
+  },
+  {
+   "id": "1541bce657",
+   "module": 2,
+   "q": "In affinity mapping, what do you do with the sticky notes?",
+   "options": [
+    "Throw away duplicates immediately",
+    "Sort them alphabetically",
+    "Move them into related groups",
+    "Keep them in the order collected"
+   ],
+   "answer": 2,
+   "explain": "Groups then get titles or catch phrases.",
+   "lesson": "ux_design-08",
+   "evidence": "Move the sticky notes into related groups.",
+   "origin": "authored"
+  },
+  {
+   "id": "4d25367e3e",
+   "module": 2,
+   "q": "In the KJ method, how do participants cluster similar answers?",
+   "options": [
+    "After a long debate",
+    "Without discussion",
+    "By voting first",
+    "The facilitator does it alone"
+   ],
+   "answer": 1,
+   "explain": "Silent clustering avoids the loudest voice dominating.",
+   "lesson": "ux_design-08",
+   "evidence": "Have participants cluster similar answers without discussion.",
+   "origin": "authored"
+  },
+  {
+   "id": "ffd25f7a9e",
+   "module": 2,
+   "q": "How does a KJ session end?",
+   "options": [
+    "Each person ranks their three most important clusters",
+    "The facilitator picks the winner",
+    "Everyone leaves without deciding",
+    "Clusters are deleted"
+   ],
+   "answer": 0,
+   "explain": "Rankings reveal the group's shared priorities.",
+   "lesson": "ux_design-08",
+   "evidence": "Reiterate the question and have each person rank their three most important clusters.",
+   "origin": "authored"
+  },
+  {
+   "id": "2bfa238479",
+   "module": 2,
+   "q": "Why shouldn't placeholder personas made without research drive design decisions?",
+   "options": [
+    "They are too detailed",
+    "They take too long to write",
+    "They are effectively stereotypes",
+    "They are protected by copyright"
+   ],
+   "answer": 2,
+   "explain": "Personas must come from research to represent real users.",
+   "lesson": "ux_design-09",
+   "evidence": "because they're effectively stereotypes, avoid using them for implementable design decisions.",
+   "origin": "authored"
+  },
+  {
+   "id": "84a0dca211",
+   "module": 2,
+   "q": "When adding a photo to a persona, what should you avoid?",
+   "options": [
+    "Any photo at all",
+    "A photo of a real person",
+    "A photo that matches the description",
+    "A photo of someone you interviewed who might be recognised"
+   ],
+   "answer": 3,
+   "explain": "Protect your research participants' privacy.",
+   "lesson": "ux_design-09",
+   "evidence": "ideally not an image of someone you've actually interviewed and who may be recognized",
+   "origin": "authored"
+  },
+  {
+   "id": "9afb9b01fc",
+   "module": 2,
+   "q": "What should research-based personas be built from?",
+   "options": [
+    "The team's assumptions",
+    "Marketing slogans",
+    "Research from activities like contextual inquiry and stakeholder interviews",
+    "Random stock photos"
+   ],
+   "answer": 2,
+   "explain": "Placeholder personas without research are effectively stereotypes.",
+   "lesson": "ux_design-09",
+   "evidence": "Gather research from earlier activities like contextual inquiry or stakeholder interviews in a way that's easy to review.",
+   "origin": "authored"
+  },
+  {
+   "id": "d660dd68dc",
+   "module": 2,
+   "q": "What does an experience map show?",
+   "options": [
+    "The office floor plan",
+    "What users do, think and feel over time, from first needing a service to when they stop using it",
+    "The service's database schema",
+    "A list of features ranked by cost"
+   ],
+   "answer": 1,
+   "explain": "It covers the whole journey, including events and related services outside your own.",
+   "lesson": "ux_design-10",
+   "evidence": "Experience maps provide a visual representation of what users do, think and feel over time, from the point they start needing a service to when they stop using it.",
+   "origin": "authored"
+  },
+  {
+   "id": "e87467f25f",
+   "module": 2,
+   "q": "What do you need before creating an experience map?",
+   "options": [
+    "A finished service",
+    "The captured experiences of several users",
+    "A single user's opinion",
+    "A marketing plan"
+   ],
+   "answer": 1,
+   "explain": "Talking to a range of users reveals the whole journey.",
+   "lesson": "ux_design-10",
+   "evidence": "You need to capture the experience of several users before you create an experience map.",
+   "origin": "authored"
+  },
+  {
+   "id": "f2e7678499",
+   "module": 2,
+   "q": "Once you have a draft experience map, what should you do with it?",
+   "options": [
+    "Move it into your team area and live with it",
+    "File it away",
+    "Delete it after the meeting",
+    "Send it only to managers"
+   ],
+   "answer": 0,
+   "explain": "A visible map keeps the user's journey in everyone's mind.",
+   "lesson": "ux_design-10",
+   "evidence": "created a draft map, move it to your team area",
+   "origin": "authored"
+  },
+  {
+   "id": "303c727d5f",
+   "module": 3,
+   "q": "What does a task flow diagram typically look like?",
+   "options": [
+    "A pie chart of users",
+    "A list of colours",
+    "A photo of the user",
+    "A flow chart of task and decision boxes with arrows showing dependencies"
+   ],
+   "answer": 3,
+   "explain": "It shows every step and decision on the way to a goal.",
+   "lesson": "ux_design-11",
+   "evidence": "the basic look is a flow chart of boxes for tasks and decision points and arrows showing directionality and dependencies among tasks",
+   "origin": "authored"
+  },
+  {
+   "id": "8e961a0bbe",
+   "module": 3,
+   "q": "Why make the flow of tasks explicit in a diagram?",
+   "options": [
+    "To replace user research",
+    "To impress stakeholders",
+    "So you can check your understanding by walking through it with users",
+    "To avoid talking to users"
+   ],
+   "answer": 2,
+   "explain": "Users can spot steps you missed or got wrong.",
+   "lesson": "ux_design-11",
+   "evidence": "so that you can check your understanding by walking through the diagram with users",
+   "origin": "authored"
+  },
+  {
+   "id": "4c21f52761",
+   "module": 3,
+   "q": "How many participants should a design studio include?",
+   "options": [
+    "Exactly two",
+    "Between six and 12",
+    "At least fifty",
+    "Only the lead designer"
+   ],
+   "answer": 1,
+   "explain": "Mix stakeholders, users and team members.",
+   "lesson": "ux_design-12",
+   "evidence": "Invite between six and 12 participants",
+   "origin": "authored"
+  },
+  {
+   "id": "658fd7669c",
+   "module": 3,
+   "q": "What do groups create at the end of a design studio?",
+   "options": [
+    "A design combining the best parts of each member's ideas",
+    "A list of rejected ideas only",
+    "A budget",
+    "A final production build"
+   ],
+   "answer": 0,
+   "explain": "Critique in small groups comes first.",
+   "lesson": "ux_design-12",
+   "evidence": "Ask the groups to create a design that combines the best aspects of members' individual contributions.",
+   "origin": "authored"
+  },
+  {
+   "id": "6501fec018",
+   "module": 3,
+   "q": "Why are code prototypes better for user research than paper sketches?",
+   "options": [
+    "They are cheaper",
+    "They never need changing",
+    "They can be used in production",
+    "They are more realistic"
+   ],
+   "answer": 3,
+   "explain": "You must prototype and test designs before committing to build anything.",
+   "lesson": "ux_design-13",
+   "evidence": "Code prototypes are better for user research because they’re more realistic.",
+   "origin": "authored"
+  },
+  {
+   "id": "51afa65c80",
+   "module": 3,
+   "q": "What should headings in a user interface do?",
+   "options": [
+    "Repeat the first sentence of the text",
+    "Be written in capital letters",
+    "Describe the purpose of the text that follows, without being part of it",
+    "Include the service's brand name"
+   ],
+   "answer": 2,
+   "explain": "Clear headings help people scan and find what they need.",
+   "lesson": "ux_design-14",
+   "evidence": "Headings should describe the purpose of the text that follows - they should not be part of the text.",
+   "origin": "authored"
+  },
+  {
+   "id": "e267700df9",
+   "module": 3,
+   "q": "How do people tend to read on the internet?",
+   "options": [
+    "They read every word carefully",
+    "They print every page",
+    "They only read the footer",
+    "They scan rather than read"
+   ],
+   "answer": 3,
+   "explain": "So think about alternatives before adding more words.",
+   "lesson": "ux_design-14",
+   "evidence": "On the internet people tend to scan rather than read",
+   "origin": "authored"
+  },
+  {
+   "id": "e3699d681c",
+   "module": 3,
+   "q": "When should you add help text to a form?",
+   "options": [
+    "On every question by default",
+    "Never",
+    "Only if user research shows it is needed",
+    "Only on the last page"
+   ],
+   "answer": 2,
+   "explain": "Start with simple questions first.",
+   "lesson": "ux_design-14",
+   "evidence": "only add help text if user research shows that you need it",
+   "origin": "authored"
+  },
+  {
+   "id": "62e19f8850",
+   "module": 3,
+   "q": "How should a service establish whether a user is eligible?",
+   "options": [
+    "Show a long list of conditions",
+    "Ask questions, rather than listing conditions on the start page",
+    "Ask users to read the law",
+    "Let everyone apply and refuse later"
+   ],
+   "answer": 1,
+   "explain": "Questions spare users from reading rules that don't apply to them.",
+   "lesson": "ux_design-14",
+   "evidence": "ask questions to establish eligibility rather than putting a long list of eligibility conditions on the start page",
+   "origin": "authored"
+  },
+  {
+   "id": "9c129b8926",
+   "module": 4,
+   "q": "In moderated usability testing, why ask participants to 'think aloud'?",
+   "options": [
+    "It helps you understand what they are doing, thinking and feeling",
+    "It makes the session faster",
+    "It is required for recording consent",
+    "It stops them asking questions"
+   ],
+   "answer": 0,
+   "explain": "Hearing their reasoning shows why they struggle, not just where.",
+   "lesson": "ux_design-15",
+   "evidence": "Asking them to ‘think aloud’ as they move through the service helps you understand what they are doing, thinking and feeling.",
+   "origin": "authored"
+  },
+  {
+   "id": "32141c13bb",
+   "module": 4,
+   "q": "When is moderated usability testing most useful?",
+   "options": [
+    "In alpha, beta and live, to test prototypes or the built service",
+    "Only after the service closes",
+    "Only before any research",
+    "Never in government"
+   ],
+   "answer": 0,
+   "explain": "It can also reveal problems with an existing service in discovery.",
+   "lesson": "ux_design-15",
+   "evidence": "is most useful in the alpha, beta and live phases",
+   "origin": "authored"
+  },
+  {
+   "id": "f4ad15f33e",
+   "module": 4,
+   "q": "How long do usability test sessions usually take?",
+   "options": [
+    "About 5 minutes",
+    "A whole day",
+    "Exactly 2 hours",
+    "Between 30 and 60 minutes"
+   ],
+   "answer": 3,
+   "explain": "It depends on the number and complexity of tasks.",
+   "lesson": "ux_design-15",
+   "evidence": "Usability test sessions usually take between 30 and 60 minutes",
+   "origin": "authored"
+  },
+  {
+   "id": "b6727419db",
+   "module": 4,
+   "q": "How should observers contribute during a usability test?",
+   "options": [
+    "Interrupt the participant with questions",
+    "Help the participant finish tasks",
+    "Add to a rolling issues log and pass questions to the moderator",
+    "Leave the room"
+   ],
+   "answer": 2,
+   "explain": "Observers shouldn't interrupt from the participant's point of view.",
+   "lesson": "ux_design-16",
+   "evidence": "Observers should contribute to a rolling issues log and relay any in-session questions to the moderator",
+   "origin": "authored"
+  },
+  {
+   "id": "24e3e8afd2",
+   "module": 4,
+   "q": "What can you put in front of users in a usability test?",
+   "options": [
+    "Only the finished service",
+    "A sketch, a prototype or even a competitor's product",
+    "Only written documents",
+    "Nothing until launch"
+   ],
+   "answer": 1,
+   "explain": "Testing early and cheaply finds problems sooner.",
+   "lesson": "ux_design-16",
+   "evidence": "Choose something, such as a sketch, prototype",
+   "origin": "authored"
+  },
+  {
+   "id": "4c37d7e756",
+   "module": 4,
+   "q": "Who should carry out a heuristic evaluation?",
+   "options": [
+    "Three to five people familiar with evaluation methods",
+    "One senior manager",
+    "Every user of the service",
+    "Only the developers who built it"
+   ],
+   "answer": 0,
+   "explain": "They need not be designers, but should know usability best practice.",
+   "lesson": "ux_design-17",
+   "evidence": "Recruit a group of three to five people familiar with evaluation methods.",
+   "origin": "authored"
+  },
+  {
+   "id": "cf18f2cefc",
+   "module": 4,
+   "q": "Which of these is one of Nielsen's usability heuristics?",
+   "options": [
+    "Use as much jargon as possible",
+    "Hide system status from users",
+    "Make every page look different",
+    "The system should speak the user's language"
+   ],
+   "answer": 3,
+   "explain": "Familiar words and concepts beat system-oriented terms.",
+   "lesson": "ux_design-17",
+   "evidence": "The system should speak the user's language, with words, phrases and concepts familiar to the user, rather than system-oriented terms.",
+   "origin": "authored"
+  },
+  {
+   "id": "6714bd333a",
+   "module": 4,
+   "q": "How is accessibility different from assisted digital support?",
+   "options": [
+    "They are the same thing",
+    "Assisted digital support means helping people use the online parts of a service",
+    "Accessibility only applies to printed letters",
+    "Assisted digital support is only for blind users"
+   ],
+   "answer": 1,
+   "explain": "Accessibility means the service itself can be used by as many people as possible.",
+   "lesson": "ux_design-18",
+   "evidence": "Accessibility is different from assisted digital support , which means helping people to use the online parts of your service.",
+   "origin": "authored"
+  },
+  {
+   "id": "9301ed97ac",
+   "module": 4,
+   "q": "Whose job is accessibility?",
+   "options": [
+    "Only the designer's",
+    "Only the tester's",
+    "The whole team's",
+    "Only the accessibility auditor's"
+   ],
+   "answer": 2,
+   "explain": "Everyone should know how to avoid making things inaccessible.",
+   "lesson": "ux_design-18",
+   "evidence": "Accessibility is not the responsibility of one person.",
+   "origin": "authored"
+  },
+  {
+   "id": "425838b494",
+   "module": 4,
+   "q": "When should you start thinking about accessibility?",
+   "options": [
+    "Just before launch",
+    "From the start",
+    "After complaints",
+    "Only for public websites"
+   ],
+   "answer": 1,
+   "explain": "Retrofitting accessibility is harder and more expensive.",
+   "lesson": "ux_design-18",
+   "evidence": "Think about accessibility from the start",
+   "origin": "authored"
+  }
+ ],
  "minutes": 85,
  "sources": [
   {

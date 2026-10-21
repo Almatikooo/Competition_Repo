@@ -1,0 +1,178 @@
+<p><img alt="A sketchnote overview of this lesson" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/sketchnotes/lesson-18.jpg"></p>
+<blockquote>
+<p>Sketchnote by <a href="https://github.com/nitya" target="_blank" rel="noopener noreferrer">Nitya Narasimhan</a>. Click the image for a larger version.</p>
+</blockquote>
+<h2 id="h-introduction">Introduction</h2>
+<p>An IoT application is not just a single device capturing data and sending it to the cloud, it is more often than not multiple devices all working together to capture data from the physical world using sensors, make decisions based off that data, and interacting back with the physical world via actuators or visualizations.</p>
+<p>In this lesson you will learn more about architecting complex IoT applications, incorporating multiple sensors, multiple cloud services to analyze and store data, and showing a response via an actuator. You will learn how to architect a fruit quality control system prototype, including about using proximity sensors to trigger the IoT application, and what the architecture of this prototype would be.</p>
+<p>In this lesson we'll cover:</p>
+<ul>
+<li><a href="#h-architect-complex-iot-applications" rel="noopener noreferrer">Architect complex IoT applications</a></li>
+<li><a href="#h-design-a-fruit-quality-control-system" rel="noopener noreferrer">Design a fruit quality control system</a></li>
+<li><a href="#h-trigger-fruit-quality-checking-from-a-sensor" rel="noopener noreferrer">Trigger fruit quality checking from a sensor</a></li>
+<li><a href="#h-data-used-for-a-fruit-quality-detector" rel="noopener noreferrer">Data used for a fruit quality detector</a></li>
+<li><a href="#h-using-developer-devices-to-simulate-multiple-iot-devices" rel="noopener noreferrer">Using developer devices to simulate multiple IoT devices</a></li>
+<li><a href="#h-moving-to-production" rel="noopener noreferrer">Moving to production</a></li>
+</ul>
+<blockquote>
+<p>🗑 This is the last lesson in this project, so after completing this lesson and the assignment, don't forget to clean up your cloud services. You will need the services to complete the assignment, so make sure to complete that first.</p>
+<p>Refer to <a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/clean-up.md" target="_blank" rel="noopener noreferrer">the clean up your project guide</a> if necessary for instructions on how to do this.</p>
+</blockquote>
+<h2 id="h-architect-complex-iot-applications">Architect complex IoT applications</h2>
+<p>IoT applications are made up of many components. This includes a variety of things, and a variety of internet services.</p>
+<p>IoT applications can be described as <em>things</em> (devices) sending data that generates <em>insights</em>. These <em>insights</em> generate <em>actions</em> to improve a business or process. An example is an engine (the thing) sending temperature data. This data is used to evaluate whether the engine is performing as expected (the insight). The insight is used to proactively prioritize the maintenance schedule for the engine (the action).</p>
+<ul>
+<li>Different things gather different pieces of data.</li>
+<li>IoT services give insights over that data, sometimes augmenting it with data from additional sources.</li>
+<li>These insights drive actions, including controlling actuators in devices, or visualizing data.</li>
+</ul>
+<h3 id="h-reference-iot-architecture">Reference IoT architecture</h3>
+<p><img alt="A reference iot architecture" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/iot-reference-architecture.png"></p>
+<p>The diagram above shows a reference IoT architecture.</p>
+<blockquote>
+<p>🎓 A <em>reference architecture</em> is an example architecture you can use as a reference when designing new systems. In this case, if you were building a new IoT system you can follow the reference architecture, substituting your own devices and services where appropriate.</p>
+</blockquote>
+<ul>
+<li><strong>Things</strong> are devices that gather data from sensors, maybe interacting with edge services to interpret that data, such as image classifiers to interpret image data. The data from the devices is sent to an IoT service.</li>
+<li><strong>Insights</strong> come from serverless applications, or from analytics run on stored data.</li>
+<li><strong>Actions</strong> can be commands sent to devices, or visualization of data allowing humans to make decisions.</li>
+</ul>
+<p><img alt="A reference iot architecture" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/iot-reference-architecture-azure.png"></p>
+<p>The diagram above shows some of the components and services covered so far in these lessons and how the link together in a reference IoT architecture.</p>
+<ul>
+<li><strong>Things</strong> - you've written device code to capture data from sensors, and analyse images using Custom Vision running both in the cloud and on an edge device. This data was sent to IoT Hub.</li>
+<li><strong>Insights</strong> - you've used Azure Functions to respond to messages sent to an IoT Hub, and stored data for later analysis in Azure Storage.</li>
+<li><strong>Actions</strong> - you've controlled actuators based on decisions made in the cloud and commands sent to the devices, and you've visualized data using Azure Maps.</li>
+</ul>
+<p>✅ Think about other IoT devices you have used, such as smart home appliances. What are the things, insights and actions involved in that device and it's software?</p>
+<p>This pattern can be scaled out as large or small as you need, adding more devices and more services.</p>
+<h3 id="h-data-and-security">Data and security</h3>
+<p>As you define the architecture of your system, you need to constantly consider data and security.</p>
+<ul>
+<li>What data does your device send and receive?</li>
+<li>How should that data be secured and protected?</li>
+<li>How should access to the device and cloud service be controlled?</li>
+</ul>
+<p>✅ Think about the data security of any IoT devices you own. How much of that data is personal and should be kept private, both in transit or when stored? What data should not be stored?</p>
+<h2 id="h-design-a-fruit-quality-control-system">Design a fruit quality control system</h2>
+<p>Let's now take this idea of things, insights, and actions and apply it to our fruit quality detector to design a larger end-to-end application.</p>
+<p>Imagine you have been given the task of building a fruit quality detector to be used in a processing plant. Fruit travels on a conveyer belt system where currently employees spend time checking the fruit by hand and removing any unripe fruit as it arrives. To reduce costs, the plant owner wants an automated system.</p>
+<p>✅ One of the trends with the rise of IoT (and technology in general) is that manual jobs are being replaced by machines. Do some research: How many jobs are estimated to be lost to IoT? How many new jobs will be created building IoT devices?</p>
+<p>You need to build a system where fruit is detected as it arrives on the conveyer belt, it is then photographed and checked using an AI model running on the edge. The results are then sent to the cloud to be stored, and if the fruit is unripe a notification is given so the unripe fruit can be removed.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Things</strong></td>
+<td>Detector for fruit arriving on the conveyor belt<br>Camera to photograph and classify the fruit<br>Edge device running the classifier<br>Device to notify of unripe fruit</td>
+</tr>
+<tr>
+<td><strong>Insights</strong></td>
+<td>Decide to check the ripeness of the fruit<br>Store the results of the ripeness classification<br>Determine if there is a need to alert about unripe fruit</td>
+</tr>
+<tr>
+<td><strong>Actions</strong></td>
+<td>Send a command to a device to photograph the fruit and check it with an image classifier<br>Send a command to a device to alert that the fruit is unripe</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="h-prototyping-your-application">Prototyping your application</h3>
+<p><img alt="A reference iot architecture for fruit quality checking" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/iot-reference-architecture-fruit-quality.png"></p>
+<p>The diagram above shows a reference architecture for this prototype application.</p>
+<ul>
+<li>An IoT device with a proximity sensor detects the arrival of fruit. This sends a message to the cloud to say fruit has been detected.</li>
+<li>A serverless application in the cloud sends a command to another device to take a photograph and classify the image.</li>
+<li>An IoT device with a camera takes a picture and sends it to an image classifier running on the edge. The results are then sent to the cloud.</li>
+<li>A serverless application in the cloud stores this information to be analyzed later to see what percentage of fruit is unripe. If the fruit is unripe it sends a command to another iot device to alert factory workers there is unripe fruit via an LED.</li>
+</ul>
+<blockquote>
+<p>💁 This entire IoT application could be implemented as a single device, with all the logic to start the image classification and control the LED built in. It could use an IoT Hub just to track the number of unripe fruits detected and configure the device. In this lesson it is expanded to demonstrate the concepts for large scale IoT applications.</p>
+</blockquote>
+<p>For the prototype, you will implement all of this on a single device. If you are using a microcontroller then you will use a separate edge device to run the image classifier. You have already learned most of the things you will need to be able to build this.</p>
+<h2 id="h-trigger-fruit-quality-checking-from-a-sensor">Trigger fruit quality checking from a sensor</h2>
+<p>The IoT device needs some kind of trigger to indicate when fruit is ready to be classified. One trigger for this would be to measure when the fruit is at the right location on the conveyor belt by measuring the distance to a sensor.</p>
+<p><img alt="Proximity sensors send laser beams to objects like bananas and time how long till the beam is bounced back" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/proximity-sensor.png"></p>
+<p>Proximity sensors can be used to measure the distance from the sensor to an object. They usually transmit a beam of electromagnetic radiation such as a laser beam or infra-red light, then detect the radiation bouncing off an object. The time between the laser beam being sent and the signal bouncing back can be used to calculate the distance to the sensor.</p>
+<blockquote>
+<p>💁 You have probably used proximity sensors without even knowing about it. Most smartphone will turn the screen off when you hold them to your ear to stop you accidentally ending a call with your earlobe, and this works using a proximity sensor, detecting an object close to the screen during a call and disabling the touch capabilities until the phone is a certain distance away.</p>
+</blockquote>
+<h3 id="h-task-trigger-fruit-quality-detection-from-a-distance-sensor">Task - trigger fruit quality detection from a distance sensor</h3>
+<p>Work through the relevant guide to use a proximity sensor to detect an object using your IoT device:</p>
+<ul>
+<li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/4-manufacturing/lessons/4-trigger-fruit-detector/wio-terminal-proximity.md" target="_blank" rel="noopener noreferrer">Arduino - Wio Terminal</a></li>
+<li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/4-manufacturing/lessons/4-trigger-fruit-detector/pi-proximity.md" target="_blank" rel="noopener noreferrer">Single-board computer - Raspberry Pi</a></li>
+<li><a href="https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/4-manufacturing/lessons/4-trigger-fruit-detector/virtual-device-proximity.md" target="_blank" rel="noopener noreferrer">Single-board computer - Virtual device</a></li>
+</ul>
+<h2 id="h-data-used-for-a-fruit-quality-detector">Data used for a fruit quality detector</h2>
+<p>The prototype fruit detector has multiple components communicating with each other.</p>
+<p><img alt="The components communicating with each other" loading="lazy" src="https://raw.githubusercontent.com/microsoft/IoT-For-Beginners/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/images/fruit-quality-detector-message-flow.png"></p>
+<ul>
+<li>A proximity sensor measuring the distance to a piece of fruit and sending this to IoT Hub</li>
+<li>The command to control the camera coming from IoT Hub to the camera device</li>
+<li>The results of the image classification being sent to IoT Hub</li>
+<li>The command to control an LED to alert when the fruit is unripe being sent from IoT Hub to the device with the LED</li>
+</ul>
+<p>It is good to define the structure of these messages up front, before you build out the application.</p>
+<blockquote>
+<p>💁 Pretty much every experienced developer has at some point in their career spent hours, days or even weeks chasing down bugs caused by differences in the data being sent compared to what is expected.</p>
+</blockquote>
+<p>For example - if you are sending temperature information, how would you define the JSON? You could have a field called <code>temperature</code>, or you could use the common abbreviation <code>temp</code>.</p>
+<pre><code class="language-json">{
+    "temperature": 20.7
+}
+</code></pre>
+<p>compared to:</p>
+<pre><code class="language-json">{
+    "temp": 20.7
+}
+</code></pre>
+<p>You also have to consider units - is the temperature in °C or °F? If you are measuring temperature using a consumer device and they change the display units, you need to make sure the units sent to the cloud remain consistent.</p>
+<p>✅ Do some research: How did unit problems cause the $125 million Mars Climate Orbiter to crash?</p>
+<p>Think about the data being sent for the fruit quality detector. How would you define each message? Where would you analyze the data and make decisions about what data to send?</p>
+<p>For example - triggering the image classification using the proximity sensor. The IoT device measures the distance, but where is the decision made? Does the device decide that the fruit is close enough and sends a message to tell the IoT Hub to trigger the classification? Or does it send proximity measurements and let the IoT Hub decide?</p>
+<p>The answer to questions like this is - it depends. Each use case is different, which is why as an IoT developer you need to understand the system you are building, how it is used, and the data being detected.</p>
+<ul>
+<li>If the decision is made by the IoT Hub, you need to send multiple distance measurements.</li>
+<li>If you send too many messages, it increases the cost of the IoT Hub, and the amount of bandwidth needed by your IoT devices (especially in a factory with millions of devices). It can also slow down your device.</li>
+<li>If you make the decision on the device, you will need to provide a way to configure the device to fine tune the machine.</li>
+</ul>
+<h2 id="h-using-developer-devices-to-simulate-multiple-iot-devices">Using developer devices to simulate multiple IoT devices</h2>
+<p>To build your prototype, you will need your IoT dev kit to act like multiple devices, sending telemetry and responding to commands.</p>
+<h3 id="h-simulating-multiple-iot-devices-on-a-raspberry-pi-or-virtual">Simulating multiple IoT devices on a Raspberry Pi or virtual IoT hardware</h3>
+<p>When using a single board computer like a Raspberry Pi, you are able to run multiple applications at once. This means you can simulate multiple IoT devices by creating multiple applications, one per 'IoT device'. For example, you can implement each device as a separate Python file and run them in different terminal sessions.</p>
+<blockquote>
+<p>💁 Be aware that some hardware won't work when being accessed by multiple applications running simultaneously.</p>
+</blockquote>
+<h3 id="h-simulating-multiple-devices-on-a-microcontroller">Simulating multiple devices on a microcontroller</h3>
+<p>Microcontrollers are more complicated to simulate multiple devices. Unlike single board computers you cannot run multiple applications at once, you have to include all the logic for all the separate IoT devices in a single application.</p>
+<p>Some suggestions to make this process easier are:</p>
+<ul>
+<li>Create one or more classes per IoT device - for example classes called <code>DistanceSensor</code>, <code>ClassifierCamera</code>, <code>LEDController</code>. Each one can have it's own <code>setup</code> and <code>loop</code> methods called by the main <code>setup</code> and <code>loop</code> functions.</li>
+<li>Handle commands in a single place, and direct them to the relevant device class as required.</li>
+<li>In the main <code>loop</code> function, you will need to consider the timing for each different device. For example, if you have one device class that needs to process every 10 seconds, and another that needs to process every 1 second, then in your main <code>loop</code> function use a 1 second delay. Every <code>loop</code> call triggers the relevant code for the device that needs to process every second, and use a counter to count each loop, processing the other device when the counter reaches 10 (resetting the counter afterwards).</li>
+</ul>
+<h2 id="h-moving-to-production">Moving to production</h2>
+<p>The prototype will form the basis of a final production system. Some of the differences when you move to production would be:</p>
+<ul>
+<li>Ruggedized components - using hardware designed to withstand the noise, heat, vibration and stress of a factory.</li>
+<li>Using internal communications - some of the components would communicate directly avoiding the hop to the cloud, only sending data to the cloud to be stored. How this is done depends on the factory setup, with either direct communications, or by running part of the IoT service on the edge using a gateway device.</li>
+<li>Configuration options - each factory and use case is different, so the hardware would need to be configurable. For example, the proximity sensor may need to detect different fruit at different distances. Rather than hard code the distance to trigger the classification, you would want this to be configurable via the could, for example using a device twin</li>
+<li>Automated fruit removal - instead of an LED to alert that fruit is unripe, automated devices would remove it.</li>
+</ul>
+<p>✅ Do some research: In what other ways would production devices differ from developer kits?</p>
+<hr>
+<h2 id="h-challenge">🚀 Challenge</h2>
+<p>In this lesson you have learned some of the concepts you need to know on how to architect an IoT system. Think back to the previous projects. How would do they fit into the reference architecture shown above?</p>
+<p>Pick one of the projects so far and think of the design of a more complicated solution bringing together multiple capabilities beyond what was covered in the projects. Draw the architecture and think of all the devices and services you would need.</p>
+<p>For example - a vehicle tracking device that combines GPS with sensors to monitor things like temperatures in a refrigerated truck, the engine on and off times, and the identity of the driver. What are the devices involved, the services involved, the data being transmitted and the security and privacy considerations?</p>
+<h2 id="h-review-self-study">Review &amp; Self Study</h2>
+<ul>
+<li>Read more about IoT architecture on the <a href="https://docs.microsoft.com/azure/architecture/reference-architectures/iot?WT.mc_id=academic-17441-jabenn" target="_blank" rel="noopener noreferrer">Azure IoT reference architecture documentation on Microsoft docs</a></li>
+<li>Read more about device twins in the <a href="https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins?WT.mc_id=academic-17441-jabenn" target="_blank" rel="noopener noreferrer">understand and use device twins in IoT Hub documentation on Microsoft docs</a></li>
+<li>Read about OPC-UA, a machine to machine communication protocol used in industrial automation on the <a href="https://wikipedia.org/wiki/OPC_Unified_Architecture" target="_blank" rel="noopener noreferrer">OPC-UA page on Wikipedia</a></li>
+</ul>

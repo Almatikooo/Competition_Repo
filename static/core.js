@@ -19,9 +19,12 @@ export const state = {
   pathway: null, pathwayKey: "", openOpts: {}, progress: store.get("progress", {}),
   radar: null, radarKey: "", radarView: "radar", skillDetail: null, team: null, teamKey: "", busy: false,
   // Learn
-  courses: null, course: null, lesson: null, outlineOpen: false, quiz: { sid: null, data: null, answers: [], idx: 0, result: null, name: "", busy: false },
+  courses: null, course: null, lesson: null, outlineOpen: false, quiz: { key: null, part: null, data: null, answers: [], idx: 0, result: null, error: null, locked: false, name: "", busy: false },
   learned: store.get("learned", {}), certs: store.get("certs", {}), learnFilter: { cat: "all", q: "" },
   certView: null, certViewToken: null,
+  // Opportunities
+  next: store.get("next", { mode: null, country: null }), nextMeta: null, nextJobs: null, nextJobsKey: "", nextStudy: null, nextStudyKey: "",
+  nextUi: { editing: false, q: "", tab: "local", level: "any", role: "all", field: null, allFields: false, uniQ: "", uniShown: 20 },
 };
 
 let table = makeT(state.lang);
@@ -88,9 +91,63 @@ export function saveProfile() {
   state.explanations = {};
 }
 
-export function sdgBadge(goal, small = true, title) {
+// ---------------------------------------------------------------- UN goals
+// Every goal badge is a button: it opens what the goal means, its official wording, the targets Path.AI links to
+// and the jobs and skills that contribute. `ctx` ({ role } or { skill }) adds how that role or skill contributes.
+// Contrast of white and of ink text on a goal colour (WCAG relative luminance).
+function contrasts(hex) {
+  const lin = (c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
+  const [r, g, b] = [1, 3, 5].map((i) => lin(parseInt(hex.slice(i, i + 2), 16) / 255));
+  const L = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  return { white: 1.05 / (L + 0.05), ink: (L + 0.05) / 0.0629 };
+}
+// Badges keep the UN's white numerals unless they would be hard to read (yellow, light orange, light blue, light green).
+const badgeInk = (hex) => (contrasts(hex).white < 2.5 ? "#1e1e1e" : "#fff");
+const headInk = (hex) => { const c = contrasts(hex); return c.white >= c.ink ? "#fff" : "#1e1e1e"; };
+
+export function sdgBadge(goal, small = true, title, ctx = null) {
   const g = goalOf(goal);
-  return h("span", { class: `sdg-badge ${small ? "sm" : ""}`, style: { background: g.color }, title: title || `SDG ${goal}: ${loc(g.name)}` }, String(goal));
+  return h("button", { type: "button", class: `sdg-badge ${small ? "sm" : ""}`, style: { background: g.color, color: badgeInk(g.color) }, title: title || `SDG ${goal}: ${loc(g.name)}`,
+    "aria-label": t("sdg_open", { n: goal, name: loc(g.name) }), "aria-haspopup": "dialog",
+    onclick: (e) => { e.preventDefault(); e.stopPropagation(); openGoal(goal, ctx, e.currentTarget); } }, String(goal));
+}
+
+const targetOrder = (id) => { const [a, b] = id.split("."); return Number(a) * 1000 + (/^\d+$/.test(b) ? Number(b) : 500 + b.charCodeAt(0)); };
+
+export function openGoal(goal, ctx = null, opener = null) {
+  const g = goalOf(goal);
+  const targetText = (id) => state.meta.sdg_targets_local?.[state.lang]?.[id] || state.meta.sdg_targets[id] || "";
+  const roles = state.meta.roles.filter((r) => r.sdgs.some((x) => x.goal === goal))
+    .sort((a, b) => (a.kind === "target" ? 0 : 1) - (b.kind === "target" ? 0 : 1) || loc(a.title).localeCompare(loc(b.title)));
+  const skills = state.meta.skills.filter((x) => x.sdgs?.some((l) => l.goal === goal));
+  const targets = [...new Set([...roles, ...skills].flatMap((x) => x.sdgs).filter((l) => l.goal === goal).map((l) => l.target))]
+    .sort((a, b) => targetOrder(a) - targetOrder(b));
+  const own = ctx?.role ? { title: roleTitle(ctx.role), links: roleById()[ctx.role]?.sdgs || [] }
+    : ctx?.skill ? { title: skillName(ctx.skill), links: skillById()[ctx.skill]?.sdgs || [] } : null;
+  const ownLinks = own ? own.links.filter((l) => l.goal === goal) : [];
+  const capped = (items, render, max = 14) => [items.slice(0, max).map(render), items.length > max ? h("span", { class: "chip static" }, t("sdg_more", { n: items.length - max })) : null];
+  let dlg;
+  const close = () => dlg.close();
+  dlg = h("dialog", { class: "sdg-dialog", "aria-labelledby": "sdg-dlg-title", onclick: (e) => { if (e.target === dlg) close(); },
+    onclose: () => { dlg.remove(); if (opener?.isConnected) opener.focus(); } },
+  h("div", { class: "sdg-dlg" },
+    h("div", { class: "sdg-dlg-head", style: { "--goal": g.color, "--goal-ink": headInk(g.color) } },
+      h("span", { class: "sdg-dlg-num" }, String(goal)),
+      h("div", { class: "sdg-dlg-titles" }, h("div", { class: "sdg-dlg-kicker" }, t("sdg_kicker", { n: goal })), h("h2", { id: "sdg-dlg-title" }, loc(g.name))),
+      h("button", { type: "button", class: "sdg-dlg-close", "aria-label": t("close"), onclick: close }, "✕")),
+    h("div", { class: "sdg-dlg-body" },
+      h("p", { class: "sdg-essence" }, loc(g.essence)),
+      ownLinks.length ? h("div", { class: "sdg-own", style: { "--goal": g.color } }, h("h3", {}, t("sdg_here", { what: own.title })),
+        ownLinks.map((l) => h("p", {}, h("b", {}, `${l.target} `), l.why))) : null,
+      h("div", { class: "sdg-official" }, h("div", { class: "k" }, t("sdg_official")), h("p", {}, loc(g.statement))),
+      targets.length ? [h("h3", {}, t("sdg_targets")), h("ul", { class: "sdg-targets" }, targets.map((id) => h("li", {}, h("b", {}, id), h("span", {}, targetText(id)))))] : null,
+      roles.length ? [h("h3", {}, t("sdg_jobs")), h("div", { class: "chips" }, capped(roles, (r) => (r.kind === "target"
+        ? h("a", { class: "chip", href: `#/plan/${r.id}`, onclick: close }, loc(r.title)) : h("span", { class: "chip static" }, loc(r.title)))))] : null,
+      skills.length ? [h("h3", {}, t("sdg_skills")), h("div", { class: "chips" }, capped(skills, (x) =>
+        h("a", { class: "chip", href: `#/learn/${x.id}`, onclick: close }, skillShort(x.id))))] : null,
+      h("p", { class: "sdg-more" }, h("a", { href: g.url, target: "_blank", rel: "noopener" }, `${t("sdg_un")} ↗`)))));
+  document.body.append(dlg);
+  dlg.showModal();
 }
 
 export function costTag(cost) {

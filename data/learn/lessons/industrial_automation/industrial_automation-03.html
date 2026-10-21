@@ -1,0 +1,135 @@
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_5.html" target="_blank" rel="noopener noreferrer"><img alt="Previous" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/previous.jpg"></a>
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/index.html" target="_blank" rel="noopener noreferrer"><img alt="Contents" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/contents.jpg"></a>
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_7.html" target="_blank" rel="noopener noreferrer"><img alt="Next" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/next.jpg"></a>
+<hr>
+<ul>
+<li><a href="#xtocid91870" rel="noopener noreferrer"><u>"Ladder" diagrams</u></a></li>
+<li><a href="#xtocid91871" rel="noopener noreferrer"><u>Digital logic functions</u></a></li>
+<li><a href="#xtocid91872" rel="noopener noreferrer"><u>Permissive and interlock circuits</u></a></li>
+<li><a href="#xtocid91873" rel="noopener noreferrer"><u>Motor control circuits</u></a></li>
+<li><a href="#xtocid91874" rel="noopener noreferrer"><u>Fail-safe design</u></a></li>
+<li><a href="#xtocid91875" rel="noopener noreferrer"><u>Programmable logic controllers</u></a></li>
+<li><a href="#xtocid91876" rel="noopener noreferrer"><u>Contributors</u></a></li></ul>
+<h2 id="h-ladder-diagrams">"Ladder" diagrams</h2>
+<p>
+Ladder diagrams are specialized schematics commonly used to document industrial control logic systems.  They are called "ladder" diagrams because they resemble a ladder, with two vertical rails (supply power) and as many "rungs" (horizontal lines) as there are control circuits to represent.  If we wanted to draw a simple ladder diagram showing a lamp that is controlled by a hand switch, it would look like this:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04002.png"> </p>
+<p>
+The "L<sub>1</sub>" and "L<sub>2</sub>" designations refer to the two poles of a 120 VAC supply, unless otherwise noted.  L<sub>1</sub> is the "hot" conductor, and L<sub>2</sub> is the grounded ("neutral") conductor.  These designations have nothing to do with inductors, just to make things confusing.  The actual transformer or generator supplying power to this circuit is omitted for simplicity.  In reality, the circuit looks something like this:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04003.png"> </p>
+<p>
+Typically in industrial relay logic circuits, but not always, the operating voltage for the switch contacts and relay coils will be 120 volts AC.  Lower voltage AC and even DC systems are sometimes built and documented according to "ladder" diagrams:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04004.png"> </p>
+<p>
+So long as the switch contacts and relay coils are all adequately rated, it really doesn't matter what level of voltage is chosen for the system to operate with.
+</p>
+<p>
+Note the number "1" on the wire between the switch and the lamp.  In the real world, that wire would be labeled with that number, using heat-shrink or adhesive tags, wherever it was convenient to identify.  Wires leading to the switch would be labeled "L<sub>1</sub>" and "1," respectively.  Wires leading to the lamp would be labeled "1" and "L<sub>2</sub>," respectively.  These wire numbers make assembly and maintenance very easy.  Each conductor has its own unique wire number for the control system that its used in.  Wire numbers do not change at any junction or node, even if wire size, color, or length changes going into or out of a connection point.  Of course, it is preferable to maintain consistent wire colors, but this is not always practical.  What matters is that any one, electrically continuous point in a control circuit possesses the same wire number.  Take this circuit section, for example, with wire #25 as a single, electrically continuous point threading to many different devices:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04005.png"> </p>
+<p>
+In ladder diagrams, the load device (lamp, relay coil, solenoid coil, etc.) is almost always drawn at the right-hand side of the rung.  While it doesn't matter electrically where the relay coil is located within the rung, it <i>does</i> matter which end of the ladder's power supply is grounded, for reliable operation.
+</p>
+<p>
+Take for instance this circuit:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04006.png"> </p>
+<p>
+Here, the lamp (load) is located on the right-hand side of the rung, and so is the ground connection for the power source.  This is no accident or coincidence; rather, it is a purposeful element of good design practice.  Suppose that wire #1 were to accidently come in contact with ground, the insulation of that wire having been rubbed off so that the bare conductor came in contact with grounded, metal conduit.  Our circuit would now function like this:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04007.png"> </p>
+<p>
+With both sides of the lamp connected to ground, the lamp will be "shorted out" and unable to receive power to light up.  If the switch were to close, there would be a short-circuit, immediately blowing the fuse.
+</p>
+<p>
+However, consider what would happen to the circuit with the same fault (wire #1 coming in contact with ground), except this time we'll swap the positions of switch and fuse (L<sub>2</sub> is still grounded):
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04008.png"> </p>
+<p>
+This time the accidental grounding of wire #1 will force power to the lamp while the switch will have no effect.  It is much safer to have a system that blows a fuse in the event of a ground fault than to have a system that uncontrollably energizes lamps, relays, or solenoids in the event of the same fault.  For this reason, the load(s) must always be located nearest the grounded power conductor in the ladder diagram.
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Ladder diagrams (sometimes called "ladder logic") are a type of electrical notation and symbology frequently used to illustrate how electromechanical switches and relays are interconnected.</li>
+<li>The two vertical lines are called "rails" and attach to opposite poles of a power supply, usually 120 volts AC.  L<sub>1</sub> designates the "hot" AC wire and L<sub>2</sub> the "neutral" (grounded) conductor.</li>
+<li>Horizontal lines in a ladder diagram are called "rungs," each one representing a unique parallel circuit branch between the poles of the power supply.</li>
+<li>Typically, wires in control systems are marked with numbers and/or letters for identification.  The rule is, all permanently connected (electrically common) points must bear the same label.</li>
+</ul>
+<h2 id="h-digital-logic-functions">Digital logic functions</h2>
+<p>
+We can construct simply logic functions for our hypothetical lamp circuit, using multiple contacts, and document these circuits quite easily and understandably with additional rungs to our original "ladder."  If we use standard binary notation for the status of the switches and lamp (0 for unactuated or de-energized; 1 for actuated or energized), a truth table can be made to show how the logic works:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04009.png"> </p>
+<p>
+Now, the lamp will come on if either contact A or contact B is actuated, because all it takes for the lamp to be energized is to have at least one path for current from wire L<sub>1</sub> to wire 1.  What we have is a simple OR logic function, implemented with nothing more than contacts and a lamp.
+</p>
+<p>
+We can mimic the AND logic function by wiring the two contacts in series instead of parallel:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04010.png"> </p>
+<p>
+Now, the lamp energizes only if contact A <i>and</i> contact B are simultaneously actuated.  A path exists for current from wire L<sub>1</sub> to the lamp (wire 2) if and only if <i>both</i> switch contacts are closed.
+</p>
+<p>
+The logical inversion, or NOT, function can be performed on a contact input simply by using a normally-closed contact instead of a normally-open contact:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04011.png"> </p>
+<p>
+Now, the lamp energizes if the contact is <i>not</i> actuated, and de-energizes when the contact <i>is</i> actuated.  
+</p>
+<p>
+If we take our OR function and invert each "input" through the use of normally-closed contacts, we will end up with a NAND function.  In a special branch of mathematics known as <i>Boolean algebra</i>, this effect of gate function identity changing with the inversion of input signals is described by <i>DeMorgan's Theorem</i>, a subject to be explored in more detail in a later chapter.
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04012.png"> </p>
+<p>
+The lamp will be energized if <i>either</i> contact is unactuated.  It will go out only if <i>both</i> contacts are actuated simultaneously.
+</p>
+<p>
+Likewise, if we take our AND function and invert each "input" through the use of normally-closed contacts, we will end up with a NOR function:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04013.png"> </p>
+<p>
+A pattern quickly reveals itself when ladder circuits are compared with their logic gate counterparts:
+</p>
+<ul>
+<li>Parallel contacts are equivalent to an OR gate.</li>
+<li>Series contacts are equivalent to an AND gate.</li>
+<li>Normally-closed contacts are equivalent to a NOT gate (inverter).</li>
+</ul>
+<p>
+We can build combinational logic functions by grouping contacts in series-parallel arrangements, as well.  In the following example, we have an Exclusive-OR function built from a combination of AND, OR, and inverter (NOT) gates:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04014.png"> </p>
+<p>
+The top rung (NC contact A in series with NO contact B) is the equivalent of the top NOT/AND gate combination.  The bottom rung (NO contact A in series with NC contact B) is the equivalent of the bottom NOT/AND gate combination.  The parallel connection between the two rungs at wire number 2 forms the equivalent of the OR gate, in allowing either rung 1 <i>or</i> rung 2 to energize the lamp.
+</p>
+<p>
+To make the Exclusive-OR function, we had to use two contacts per input: one for direct input and the other for "inverted" input.  The two "A" contacts are physically actuated by the same mechanism, as are the two "B" contacts.  The common association between contacts is denoted by the label of the contact.  There is no limit to how many contacts per switch can be represented in a ladder diagram, as each new contact on any switch or relay (either normally-open or normally-closed) used in the diagram is simply marked with the same label.
+</p>
+<p>
+Sometimes, multiple contacts on a single switch (or relay) are designated by a compound labels, such as "A-1" and "A-2" instead of two "A" labels.  This may be especially useful if you want to specifically designate which set of contacts on each switch or relay is being used for which part of a circuit.  For simplicity's sake, I'll refrain from such elaborate labeling in this lesson.  If you see a common label for multiple contacts, you know those contacts are all actuated by the same mechanism.
+</p>
+<p>
+If we wish to invert the <i>output</i> of any switch-generated logic function, we must use a relay with a normally-closed contact.  For instance, if we want to energize a load based on the inverse, or NOT, of a normally-open contact, we could do this:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04055.png"> </p>
+<p>
+We will call the relay, "control relay 1," or CR<sub>1</sub>.  When the coil of CR<sub>1</sub> (symbolized with the pair of parentheses on the first rung) is energized, the contact on the second rung <i>opens</i>, thus de-energizing the lamp.  From switch A to the coil of CR<sub>1</sub>, the logic function is noninverted.  The normally-closed contact actuated by relay coil CR<sub>1</sub> provides a logical inverter function to drive the lamp opposite that of the switch's actuation status.
+</p>
+<p>
+Applying this inversion strategy to one of our inverted-input functions created earlier, such as the OR-to-NAND, we can invert the output with a relay to create a noninverted function:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04056.png"> </p>
+<p>
+From the switches to the coil of CR<sub>1</sub>, the logical function is that of a NAND gate.  CR<sub>1</sub>'s normally-closed contact provides one final inversion to turn the NAND function into an AND function.
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Parallel contacts are logically equivalent to an OR gate.</li>
+<li>Series contacts are logically equivalent to an AND gate.</li>
+<li>Normally closed (N.C.) contacts are logically equivalent to a NOT gate.</li>
+<li>A relay must be used to invert the <i>output</i> of a logic gate function, while simple normally-closed switch contacts are sufficient to represent inverted gate <i>inputs</i>.</li>
+</ul>

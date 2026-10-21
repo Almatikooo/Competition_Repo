@@ -1,0 +1,920 @@
+{
+ "title": "Supply Chain & Logistics",
+ "subtitle": "How goods are planned, made, moved and traded — and how to make the chain faster and leaner.",
+ "level": "Beginner",
+ "outcomes": [
+  "Explain operations management and how supply chains create value",
+  "Plan resources with MRP, ERP and scheduling tools",
+  "Choose distribution channels and manage logistics",
+  "Understand global trade, its barriers and how firms go international"
+ ],
+ "skill": "supply_chain",
+ "modules": [
+  {
+   "title": "Operations and supply chains",
+   "lessons": [
+    "supply_chain-01",
+    "supply_chain-02"
+   ]
+  },
+  {
+   "title": "Planning and control",
+   "lessons": [
+    "supply_chain-03",
+    "supply_chain-04",
+    "supply_chain-05"
+   ]
+  },
+  {
+   "title": "Getting products to customers",
+   "lessons": [
+    "supply_chain-06",
+    "supply_chain-07",
+    "supply_chain-08"
+   ]
+  },
+  {
+   "title": "Trading across borders",
+   "lessons": [
+    "supply_chain-09",
+    "supply_chain-10",
+    "supply_chain-11"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "supply_chain-01",
+   "title": "Production and Operations Management—An Overview",
+   "words": 863,
+   "minutes": 5,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/10-1-production-and-operations-management-an-overview",
+   "toc": [
+    {
+     "id": "h-gearing-up-production-planning",
+     "text": "Gearing Up: Production Planning",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "supply_chain-02",
+   "title": "Location, Location, Location: Where Do We Make It?",
+   "words": 1436,
+   "minutes": 8,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/10-3-location-location-location-where-do-we-make-it",
+   "toc": [
+    {
+     "id": "h-availability-of-production-inputs",
+     "text": "Availability of Production Inputs",
+     "level": 3
+    },
+    {
+     "id": "h-marketing-factors",
+     "text": "Marketing Factors",
+     "level": 3
+    },
+    {
+     "id": "h-manufacturing-environment",
+     "text": "Manufacturing Environment",
+     "level": 3
+    },
+    {
+     "id": "h-local-incentives",
+     "text": "Local Incentives",
+     "level": 3
+    },
+    {
+     "id": "h-international-location-considerations",
+     "text": "International Location Considerations",
+     "level": 3
+    },
+    {
+     "id": "h-designing-the-facility",
+     "text": "Designing the Facility",
+     "level": 3
+    },
+    {
+     "id": "h-process-layout-all-welders-stand-here",
+     "text": "Process Layout: All Welders Stand Here",
+     "level": 3
+    },
+    {
+     "id": "h-product-layout-moving-down-the-line",
+     "text": "Product Layout: Moving Down the Line",
+     "level": 3
+    },
+    {
+     "id": "h-fixed-position-layout-staying-put",
+     "text": "Fixed-Position Layout: Staying Put",
+     "level": 3
+    },
+    {
+     "id": "h-cellular-manufacturing-a-start-to-finish-focus",
+     "text": "Cellular Manufacturing: A Start-to-Finish Focus",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "supply_chain-03",
+   "title": "Pulling It Together: Resource Planning",
+   "words": 2739,
+   "minutes": 14,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/10-4-pulling-it-together-resource-planning",
+   "toc": [
+    {
+     "id": "h-make-or-buy",
+     "text": "Make or Buy?",
+     "level": 3
+    },
+    {
+     "id": "h-inventory-management-not-just-parts",
+     "text": "Inventory Management: Not Just Parts",
+     "level": 3
+    },
+    {
+     "id": "h-computerized-resource-planning",
+     "text": "Computerized Resource Planning",
+     "level": 3
+    },
+    {
+     "id": "h-keeping-the-goods-flowing-supply-chain-management",
+     "text": "Keeping the Goods Flowing: Supply-Chain Management",
+     "level": 3
+    },
+    {
+     "id": "h-strategies-for-supply-chain-management",
+     "text": "Strategies for Supply-Chain Management",
+     "level": 3
+    },
+    {
+     "id": "h-e-procurement-electronic-data-interchange-and-blockchain",
+     "text": "E-Procurement, Electronic Data Interchange, and Blockchain",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "supply_chain-04",
+   "title": "Production and Operations Control",
+   "words": 1093,
+   "minutes": 6,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/10-5-production-and-operations-control",
+   "toc": [
+    {
+     "id": "h-routing-where-to-next",
+     "text": "Routing: Where to Next?",
+     "level": 3
+    },
+    {
+     "id": "h-scheduling-when-do-we-do-it",
+     "text": "Scheduling: When Do We Do It?",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "supply_chain-05",
+   "title": "Trends in Production and Operations Management",
+   "words": 1332,
+   "minutes": 7,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/10-8-trends-in-production-and-operations-management",
+   "toc": [
+    {
+     "id": "h-looming-workforce-crisis-threatens-u-s-competitiveness",
+     "text": "Looming Workforce Crisis Threatens U.S. Competitiveness",
+     "level": 3
+    },
+    {
+     "id": "h-american-innovation-leadership-at-risk",
+     "text": "American Innovation Leadership at Risk",
+     "level": 3
+    },
+    {
+     "id": "h-business-process-management-bpm-the-next-big-thing",
+     "text": "Business Process Management (BPM)—The Next Big Thing?",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "supply_chain-06",
+   "title": "The Nature and Functions of Distribution (Place)",
+   "words": 1387,
+   "minutes": 7,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/12-1-the-nature-and-functions-of-distribution-place",
+   "toc": [
+    {
+     "id": "h-marketing-intermediaries-in-the-distribution-channel",
+     "text": "Marketing Intermediaries in the Distribution Channel",
+     "level": 3
+    },
+    {
+     "id": "h-the-functions-of-distribution-channels",
+     "text": "The Functions of Distribution Channels",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "supply_chain-07",
+   "title": "Wholesaling",
+   "words": 450,
+   "minutes": 3,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/12-2-wholesaling",
+   "toc": [
+    {
+     "id": "h-types-of-wholesaler-intermediaries",
+     "text": "Types of Wholesaler Intermediaries",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "supply_chain-08",
+   "title": "Using Supply Chain Management to Increase Efficiency and Customer Satisfaction",
+   "words": 521,
+   "minutes": 3,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/12-4-using-supply-chain-management-to-increase-efficiency-and-customer-satisfaction",
+   "toc": []
+  },
+  {
+   "id": "supply_chain-09",
+   "title": "Why Nations Trade",
+   "words": 1034,
+   "minutes": 6,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/3-2-why-nations-trade",
+   "toc": [
+    {
+     "id": "h-absolute-advantage",
+     "text": "Absolute Advantage",
+     "level": 3
+    },
+    {
+     "id": "h-comparative-advantage",
+     "text": "Comparative Advantage",
+     "level": 3
+    },
+    {
+     "id": "h-the-fear-of-trade-and-globalization",
+     "text": "The Fear of Trade and Globalization",
+     "level": 3
+    },
+    {
+     "id": "h-benefits-of-globalization",
+     "text": "Benefits of Globalization",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "supply_chain-10",
+   "title": "Barriers to Trade",
+   "words": 927,
+   "minutes": 5,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/3-3-barriers-to-trade",
+   "toc": [
+    {
+     "id": "h-natural-barriers",
+     "text": "Natural Barriers",
+     "level": 3
+    },
+    {
+     "id": "h-tariff-barriers",
+     "text": "Tariff Barriers",
+     "level": 3
+    },
+    {
+     "id": "h-nontariff-barriers",
+     "text": "Nontariff Barriers",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "supply_chain-11",
+   "title": "Participating in the Global Marketplace",
+   "words": 2577,
+   "minutes": 13,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/3-6-participating-in-the-global-marketplace",
+   "toc": [
+    {
+     "id": "h-exporting",
+     "text": "Exporting",
+     "level": 3
+    },
+    {
+     "id": "h-licensing-and-franchising",
+     "text": "Licensing and Franchising",
+     "level": 3
+    },
+    {
+     "id": "h-contract-manufacturing",
+     "text": "Contract Manufacturing",
+     "level": 3
+    },
+    {
+     "id": "h-joint-ventures",
+     "text": "Joint Ventures",
+     "level": 3
+    },
+    {
+     "id": "h-direct-foreign-investment",
+     "text": "Direct Foreign Investment",
+     "level": 3
+    },
+    {
+     "id": "h-countertrade",
+     "text": "Countertrade",
+     "level": 3
+    }
+   ]
+  }
+ ],
+ "pool": [
+  {
+   "id": "a19c614b83",
+   "module": 0,
+   "q": "What does production do, in operations-management terms?",
+   "options": [
+    "Turns inputs such as raw materials, people and capital into products and services",
+    "Sets the price of products after they are made",
+    "Advertises products to customers",
+    "Collects payments from customers"
+   ],
+   "answer": 0,
+   "explain": "Production converts inputs into outputs; managing that conversion is operations management.",
+   "lesson": "supply_chain-01",
+   "evidence": "Production turns inputs, such as natural resources, raw materials, human resources, and capital, into outputs, which are products and services.",
+   "origin": "authored"
+  },
+  {
+   "id": "c930d51534",
+   "module": 0,
+   "q": "What is the role of operations management?",
+   "options": [
+    "Managing the company's investments",
+    "Hiring the sales team",
+    "Writing the company's marketing plan",
+    "Managing the process that converts inputs into products and services"
+   ],
+   "answer": 3,
+   "explain": "Operations management manages the conversion process.",
+   "lesson": "supply_chain-01",
+   "evidence": "Managing this conversion process is the role of operations management.",
+   "origin": "authored"
+  },
+  {
+   "id": "5918efd7c7",
+   "module": 0,
+   "q": "Why did many U.S. industries lose customers to foreign competitors in the 1980s?",
+   "options": [
+    "Their products were too cheap",
+    "They exported too much",
+    "Their production systems could not provide the quality customers demanded",
+    "They had too many service staff"
+   ],
+   "answer": 2,
+   "explain": "Quality gaps cost them customers, which is why quality is now central to operations management.",
+   "lesson": "supply_chain-01",
+   "evidence": "In the 1980s, many U.S. industries, such as automotive, steel, and electronics, lost customers to foreign competitors because their production systems could not provide the quality customers demanded.",
+   "origin": "authored"
+  },
+  {
+   "id": "5e6f843e85",
+   "module": 0,
+   "q": "Why is choosing where to put a factory or service office an important early decision?",
+   "options": [
+    "Location has no effect on costs",
+    "Moving a facility once production begins is difficult and costly",
+    "Facilities can be moved for free at any time",
+    "Only marketing decides location"
+   ],
+   "answer": 1,
+   "explain": "Mistakes at this stage are expensive.",
+   "lesson": "supply_chain-02",
+   "evidence": "Mistakes made at this stage can be expensive, because moving a factory or service facility once production begins is difficult and costly.",
+   "origin": "authored"
+  },
+  {
+   "id": "4b867a0e80",
+   "module": 0,
+   "q": "How large can shipping costs for raw materials and finished goods be for a manufacturer?",
+   "options": [
+    "As much as 25 percent of total cost",
+    "Never more than 1 percent",
+    "Always exactly half of total cost",
+    "Shipping is free for manufacturers"
+   ],
+   "answer": 0,
+   "explain": "That is why low-cost locations can make a major contribution to success.",
+   "lesson": "supply_chain-02",
+   "evidence": "The cost of shipping raw materials and finished goods can be as much as 25 percent of a manufacturer’s total cost",
+   "origin": "authored"
+  },
+  {
+   "id": "31f608e888",
+   "module": 0,
+   "q": "What is an advantage of locating a factory or service centre close to customers?",
+   "options": [
+    "It always raises shipping costs",
+    "Customers stop caring about service",
+    "It removes the need for staff",
+    "The firm can often offer better service at a lower cost"
+   ],
+   "answer": 3,
+   "explain": "Proximity to customers is a marketing factor in location decisions.",
+   "lesson": "supply_chain-02",
+   "evidence": "When a factory or service center is close to customers, the firm can often offer better service at a lower cost.",
+   "origin": "authored"
+  },
+  {
+   "id": "b5a7ce9b70",
+   "module": 1,
+   "q": "What is a bill of material?",
+   "options": [
+    "An invoice sent to customers",
+    "A list of employees on a shift",
+    "A list of the items, and how many of each, needed to make a product",
+    "A tax form for imported goods"
+   ],
+   "answer": 2,
+   "explain": "It is drawn up after forecasting the quantity of finished goods.",
+   "lesson": "supply_chain-03",
+   "evidence": "A bill of material is then drawn up that lists the items and the number of each required to make the product.",
+   "origin": "authored"
+  },
+  {
+   "id": "72cbc6ded7",
+   "module": 1,
+   "q": "What is purchasing, or procurement?",
+   "options": [
+    "Selling finished goods to retailers",
+    "Buying production inputs from various sources",
+    "Advertising to buyers",
+    "Storing finished goods"
+   ],
+   "answer": 1,
+   "explain": "Purchasing is the process of buying production inputs.",
+   "lesson": "supply_chain-03",
+   "evidence": "Purchasing, or procurement, is the process of buying production inputs from various sources.",
+   "origin": "authored"
+  },
+  {
+   "id": "83ac94bfab",
+   "module": 1,
+   "q": "What is it called when items are bought from an outside source instead of being made internally?",
+   "options": [
+    "Outsourcing",
+    "Insourcing",
+    "Dumping",
+    "Routing"
+   ],
+   "answer": 0,
+   "explain": "Buying from outside instead of making internally is outsourcing.",
+   "lesson": "supply_chain-03",
+   "evidence": "When items are purchased from an outside source instead of being made internally, it is called outsourcing.",
+   "origin": "authored"
+  },
+  {
+   "id": "588869e4b4",
+   "module": 1,
+   "q": "What is a perpetual inventory?",
+   "options": [
+    "Stock that never runs out",
+    "Inventory counted once every five years",
+    "Goods kept forever in a warehouse",
+    "A continuously updated list of inventory levels, orders, sales and receipts"
+   ],
+   "answer": 3,
+   "explain": "Most companies keep a perpetual inventory for all major items.",
+   "lesson": "supply_chain-03",
+   "evidence": "Most companies keep a perpetual inventory, a continuously updated list of inventory levels, orders, sales, and receipts, for all major items.",
+   "origin": "authored"
+  },
+  {
+   "id": "430e952d8a",
+   "module": 1,
+   "q": "What does materials requirement planning (MRP) use a master schedule for?",
+   "options": [
+    "To set employees' salaries",
+    "To design the company logo",
+    "To get materials, labour and equipment to the right places in the right amounts at the right times",
+    "To calculate import tariffs"
+   ],
+   "answer": 2,
+   "explain": "MRP coordinates production resources with a master schedule.",
+   "lesson": "supply_chain-03",
+   "evidence": "MRP uses a master schedule to ensure that the materials, labor, and equipment needed for production are at the right places in the right amounts at the right times.",
+   "origin": "authored"
+  },
+  {
+   "id": "f5e838b2d5",
+   "module": 1,
+   "q": "What is production control?",
+   "options": [
+    "Controlling the price of products",
+    "Coordinating materials, equipment and people to achieve production and operating efficiencies",
+    "Approving advertising campaigns",
+    "Managing shareholder meetings"
+   ],
+   "answer": 1,
+   "explain": "Routing and scheduling are its key aspects.",
+   "lesson": "supply_chain-04",
+   "evidence": "The coordination of materials, equipment, and human resources to achieve production and operating efficiencies is called production control .",
+   "origin": "authored"
+  },
+  {
+   "id": "a8125d7253",
+   "module": 1,
+   "q": "What is the first step in production control?",
+   "options": [
+    "Routing",
+    "Scheduling",
+    "Invoicing",
+    "Advertising"
+   ],
+   "answer": 0,
+   "explain": "Routing comes first, and scheduling is closely related to it.",
+   "lesson": "supply_chain-04",
+   "evidence": "Routing is the first step in production control.",
+   "origin": "authored"
+  },
+  {
+   "id": "65ae7c9180",
+   "module": 1,
+   "q": "What can value-stream mapping help identify?",
+   "options": [
+    "Which employees should be promoted",
+    "How much tax a product attracts",
+    "Which colours customers like",
+    "Where bottlenecks may occur in the production process"
+   ],
+   "answer": 3,
+   "explain": "It maps the flow from suppliers through the factory to customers.",
+   "lesson": "supply_chain-04",
+   "evidence": "Value-stream mapping can help identify where bottlenecks may occur in the production process and is a valuable tool for visualizing how to improve production routing.",
+   "origin": "authored"
+  },
+  {
+   "id": "46df785eec",
+   "module": 1,
+   "q": "What does scheduling involve?",
+   "options": [
+    "Choosing a factory location",
+    "Setting the selling price",
+    "Specifying and controlling the time required for each step in the production process",
+    "Recruiting new staff"
+   ],
+   "answer": 2,
+   "explain": "Scheduling is closely related to routing.",
+   "lesson": "supply_chain-04",
+   "evidence": "Scheduling involves specifying and controlling the time required for each step in the production process.",
+   "origin": "authored"
+  },
+  {
+   "id": "1ea28963ba",
+   "module": 1,
+   "q": "What adds to anxiety about the future of U.S. production, according to the lesson?",
+   "options": [
+    "A lack of any exports",
+    "Rapid changes in technology and intense global competition",
+    "Falling demand for all products",
+    "The end of manufacturing jobs in 2017"
+   ],
+   "answer": 1,
+   "explain": "Technology and global competition, particularly from Asia, are the trends discussed.",
+   "lesson": "supply_chain-05",
+   "evidence": "Yet rapid changes in technology and intense global competition—particularly from Asia—create anxiety about the future.",
+   "origin": "authored"
+  },
+  {
+   "id": "adb96e41ae",
+   "module": 1,
+   "q": "Whom do U.S. workers now compete with, besides one another?",
+   "options": [
+    "Workers in less-developed countries with lower wages and growing access to modern technology",
+    "Only robots in the same factory",
+    "No one: competition has ended",
+    "Only workers in the same city"
+   ],
+   "answer": 0,
+   "explain": "A more integrated global economy changes who competes for work.",
+   "lesson": "supply_chain-05",
+   "evidence": "U.S. workers no longer compete simply against one another but also against workers in less-developed countries with lower wages and increasing access to modern technology and production techniques.",
+   "origin": "authored"
+  },
+  {
+   "id": "9b438c8eed",
+   "module": 2,
+   "q": "What is a supply chain?",
+   "options": [
+    "The chain of command in a company",
+    "A list of a firm's shareholders",
+    "A type of retail store",
+    "The system through which an organisation acquires raw material, produces products and delivers them to customers"
+   ],
+   "answer": 3,
+   "explain": "Logistics is part of the larger set of supply-chain activities.",
+   "lesson": "supply_chain-06",
+   "evidence": "A supply chain is the system through which an organization acquires raw material, produces products, and delivers the products and services to its customers.",
+   "origin": "authored"
+  },
+  {
+   "id": "b92ee9a4de",
+   "module": 2,
+   "q": "How does supply chain management make logistics more efficient?",
+   "options": [
+    "By keeping as much inventory as possible",
+    "By removing all intermediaries by law",
+    "By minimising inventory and moving goods efficiently from producers to the ultimate users",
+    "By raising prices"
+   ],
+   "answer": 2,
+   "explain": "Efficiency comes from lean inventory and efficient movement.",
+   "lesson": "supply_chain-06",
+   "evidence": "Supply chain management helps increase the efficiency of logistics service by minimizing inventory and moving goods efficiently from producers to the ultimate users.",
+   "origin": "authored"
+  },
+  {
+   "id": "aef8ba8750",
+   "module": 2,
+   "q": "What is a distribution channel?",
+   "options": [
+    "A television advertising channel",
+    "The series of marketing entities products pass through on their way from producers to end users",
+    "A company's internal email system",
+    "The route a truck driver takes"
+   ],
+   "answer": 1,
+   "explain": "Distribution channels are made up of marketing intermediaries.",
+   "lesson": "supply_chain-06",
+   "evidence": "On their way from producers to end users and consumers, products pass through a series of marketing entities known as a distribution channel.",
+   "origin": "authored"
+  },
+  {
+   "id": "23667542f0",
+   "module": 2,
+   "q": "What do agents and brokers do in a distribution channel?",
+   "options": [
+    "They are go-betweens whose job is to make deals",
+    "They manufacture the goods",
+    "They are the final consumers",
+    "They set government trade policy"
+   ],
+   "answer": 0,
+   "explain": "Agents and brokers are usually hired on commission.",
+   "lesson": "supply_chain-06",
+   "evidence": "Agents and brokers are go-betweens whose job is to make deals.",
+   "origin": "authored"
+  },
+  {
+   "id": "1f9f20f588",
+   "module": 2,
+   "q": "What do wholesalers do?",
+   "options": [
+    "Sell only directly to final consumers",
+    "Manufacture raw materials",
+    "Regulate imports",
+    "Buy finished products from manufacturers and sell them to retailers"
+   ],
+   "answer": 3,
+   "explain": "Wholesalers also sell to institutions such as schools and hospitals.",
+   "lesson": "supply_chain-07",
+   "evidence": "Wholesalers are channel members that buy finished products from manufacturers and sell them to retailers.",
+   "origin": "authored"
+  },
+  {
+   "id": "a4624c6ff0",
+   "module": 2,
+   "q": "What is the key difference between merchant wholesalers and agents or brokers?",
+   "options": [
+    "Agents own the product; merchant wholesalers never do",
+    "There is no difference",
+    "Merchant wholesalers take title to (own) the product; agents and brokers only facilitate the sale",
+    "Merchant wholesalers only sell services"
+   ],
+   "answer": 2,
+   "explain": "Ownership (title) is the dividing line.",
+   "lesson": "supply_chain-07",
+   "evidence": "Merchant wholesalers take title to the product (ownership rights); agents and brokers simply facilitate the sale of a product from producer to end user.",
+   "origin": "authored"
+  },
+  {
+   "id": "1ff5e124ff",
+   "module": 2,
+   "q": "What share of all wholesaling establishments do merchant wholesalers make up?",
+   "options": [
+    "5 percent",
+    "80 percent",
+    "25 percent",
+    "100 percent"
+   ],
+   "answer": 1,
+   "explain": "They conduct slightly less than 60 percent of wholesale sales.",
+   "lesson": "supply_chain-07",
+   "evidence": "Merchant wholesalers make up 80 percent of all wholesaling establishments and conduct slightly less than 60 percent of all wholesale sales.",
+   "origin": "authored"
+  },
+  {
+   "id": "9994047116",
+   "module": 2,
+   "q": "What is the goal of supply-chain management?",
+   "options": [
+    "A satisfied customer, by coordinating all supply-chain members into a seamless process",
+    "The lowest possible number of suppliers",
+    "Selling the most standardised product",
+    "Avoiding any contact with customers"
+   ],
+   "answer": 0,
+   "explain": "Supply-chain management is completely customer driven.",
+   "lesson": "supply_chain-08",
+   "evidence": "The goal of supply-chain management is to create a satisfied customer by coordinating all of the activities of the supply-chain members into a seamless process.",
+   "origin": "authored"
+  },
+  {
+   "id": "cb91cd2e74",
+   "module": 2,
+   "q": "In the mass-production era, how did products move to consumers?",
+   "options": [
+    "Customers designed every product themselves",
+    "Products were made only after an order",
+    "Retailers produced the goods",
+    "Standardised products were \"pushed\" through the supply channel"
+   ],
+   "answer": 3,
+   "explain": "Today supply chains respond to customer demand instead.",
+   "lesson": "supply_chain-08",
+   "evidence": "In the mass-production era, manufacturers produced standardized products that were “pushed” through the supply channel to the consumer.",
+   "origin": "authored"
+  },
+  {
+   "id": "c906683430",
+   "module": 2,
+   "q": "What is the dual role of supply-chain management today?",
+   "options": [
+    "Advertising and accounting",
+    "Hiring and firing",
+    "Communicating customer demand back to suppliers and moving goods on time and cost-effectively",
+    "Setting tariffs and quotas"
+   ],
+   "answer": 2,
+   "explain": "It is both an information flow and a physical flow.",
+   "lesson": "supply_chain-08",
+   "evidence": "Today, supply-chain management plays a dual role: first, as a communicator of customer demand that extends from the point of sale all the way back to the supplier, and second, as a physical flow process that engineers the timely and cost-effective movement of goods through the entire supply pipeline.",
+   "origin": "authored"
+  },
+  {
+   "id": "940b467791",
+   "module": 3,
+   "q": "When does a country have an absolute advantage in a product?",
+   "options": [
+    "When it imports more than it exports",
+    "When it can produce and sell it at a lower cost than any other country, or is the only one that can",
+    "When it has the largest population",
+    "When it bans imports of that product"
+   ],
+   "answer": 1,
+   "explain": "Absolute advantage is about lowest cost or sole supply.",
+   "lesson": "supply_chain-09",
+   "evidence": "Absolute Advantage A country has an absolute advantage when it can produce and sell a product at a lower cost than any other country or when it is the only country that can provide a product.",
+   "origin": "authored"
+  },
+  {
+   "id": "8525731b96",
+   "module": 3,
+   "q": "What does the principle of comparative advantage say countries should do?",
+   "options": [
+    "Specialise in what they can produce most readily and cheaply, and trade for the rest",
+    "Produce everything they need themselves",
+    "Stop all imports",
+    "Only trade with neighbouring countries"
+   ],
+   "answer": 0,
+   "explain": "Even a country with an absolute advantage in two goods should specialise and trade.",
+   "lesson": "supply_chain-09",
+   "evidence": "The reason is the principle of comparative advantage, which says that each country should specialize in the products that it can produce most readily and cheaply and trade those products for goods that foreign countries can produce most readily and cheaply.",
+   "origin": "authored"
+  },
+  {
+   "id": "ba2dae5e83",
+   "module": 3,
+   "q": "What is free trade?",
+   "options": [
+    "Trade with no prices at all",
+    "Trade only between governments",
+    "A tax on imported goods",
+    "Letting people and businesses buy and sell where they please without restrictions"
+   ],
+   "answer": 3,
+   "explain": "Free trade means no government restrictions on what citizens trade.",
+   "lesson": "supply_chain-09",
+   "evidence": "Free trade is the policy of permitting the people and businesses of a country to buy and sell where they please without restrictions.",
+   "origin": "authored"
+  },
+  {
+   "id": "56ef0a935f",
+   "module": 3,
+   "q": "What is a tariff?",
+   "options": [
+    "A limit on the number of imports",
+    "A ban on exports",
+    "A tax imposed by a nation on imported goods",
+    "A subsidy for exporters"
+   ],
+   "answer": 2,
+   "explain": "Any tariff makes imported goods more costly.",
+   "lesson": "supply_chain-10",
+   "evidence": "Tariff Barriers A tariff is a tax imposed by a nation on imported goods.",
+   "origin": "authored"
+  },
+  {
+   "id": "5dba271b46",
+   "module": 3,
+   "q": "What is an import quota?",
+   "options": [
+    "A tax on imported goods",
+    "A limit on the quantity of a certain good that can be imported",
+    "A complete ban on trade",
+    "A subsidy paid to importers"
+   ],
+   "answer": 1,
+   "explain": "Quotas are a type of nontariff barrier.",
+   "lesson": "supply_chain-10",
+   "evidence": "One type of nontariff barrier is the import quota, or limits on the quantity of a certain good that can be imported.",
+   "origin": "authored"
+  },
+  {
+   "id": "d1614d0f30",
+   "module": 3,
+   "q": "What is an embargo?",
+   "options": [
+    "A complete ban against importing or exporting a product",
+    "A small tax on exports",
+    "A trade agreement between two countries",
+    "A type of shipping container"
+   ],
+   "answer": 0,
+   "explain": "Embargoes are often set up for defence purposes.",
+   "lesson": "supply_chain-10",
+   "evidence": "A complete ban against importing or exporting a product is an embargo.",
+   "origin": "authored"
+  },
+  {
+   "id": "90418bd3f4",
+   "module": 3,
+   "q": "What is usually the least complicated and least risky way to enter the global market?",
+   "options": [
+    "Building a factory abroad",
+    "Forming a joint venture",
+    "Buying a foreign company",
+    "Exporting domestically produced products to buyers in another country"
+   ],
+   "answer": 3,
+   "explain": "Small companies typically enter the global marketplace by exporting.",
+   "lesson": "supply_chain-11",
+   "evidence": "Exporting When a company decides to enter the global market, usually the least complicated and least risky alternative is exporting, or selling domestically produced products to buyers in another country.",
+   "origin": "authored"
+  },
+  {
+   "id": "20ff65a4cb",
+   "module": 3,
+   "q": "In international licensing, what does the licensor do?",
+   "options": [
+    "Buys all the licensee's products",
+    "Lends money to the licensee",
+    "Lets another firm use its manufacturing process, trademark, patent or other proprietary knowledge",
+    "Pays the licensee to stop competing"
+   ],
+   "answer": 2,
+   "explain": "Licensing lets a firm go global with relatively little risk.",
+   "lesson": "supply_chain-11",
+   "evidence": "Licensing is the legal process whereby a firm (the licensor ) agrees to let another firm (the licensee ) use a manufacturing process, trademark, patent, trade secret, or other proprietary knowledge.",
+   "origin": "authored"
+  }
+ ],
+ "minutes": 77,
+ "sources": [
+  {
+   "id": "ostx-biz",
+   "name": "OpenStax · Introduction to Business (1st ed.)",
+   "url": "https://openstax.org/details/books/introduction-business",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "Lawrence J. Gitman, Carl McDaniel, Amit Shah et al., OpenStax, CC BY 4.0",
+   "noncommercial": false
+  }
+ ]
+}

@@ -390,180 +390,616 @@
    ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "What are the four key functions of management?",
-    "options": [
-     "Hiring, firing, paying and promoting",
-     "Selling, marketing, producing and shipping",
-     "Planning, organising, leading and controlling",
-     "Budgeting, auditing, reporting and investing"
-    ],
-    "answer": 2,
-    "explain": "These functions are carried out by managers at every level.",
-    "lesson": "leadership-01",
-    "evidence": "This process is based in four key functional areas of the organization: planning, organizing, leading, and controlling.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the difference between efficiency and effectiveness?",
-    "options": [
-     "Efficiency uses the fewest resources to get work done; effectiveness produces the desired result",
-     "They mean the same thing",
-     "Efficiency is about people; effectiveness is about machines",
-     "Effectiveness always costs more"
-    ],
-    "answer": 0,
-    "explain": "Good managers need both.",
-    "lesson": "leadership-01",
-    "evidence": "Efficiency is using the least possible amount of resources to get work done, whereas effectiveness is the ability to produce a desired result.",
-    "origin": "authored"
-   },
-   {
-    "q": "What are the four basic types of planning?",
-    "options": [
-     "Daily, weekly, monthly and yearly",
-     "Personal, team, department and company",
-     "Financial, marketing, HR and IT",
-     "Strategic, tactical, operational and contingency"
-    ],
-    "answer": 3,
-    "explain": "They differ in time horizon and level of detail.",
-    "lesson": "leadership-02",
-    "evidence": "There are four basic types of planning: strategic, tactical, operational, and contingency.",
-    "origin": "authored"
-   },
-   {
-    "q": "In management, what is a role?",
-    "options": [
-     "A job title on a business card",
-     "A set of behavioural expectations or activities a person is expected to perform",
-     "A salary band",
-     "A department"
-    ],
-    "answer": 1,
-    "explain": "Managers play interpersonal, informational and decisional roles.",
-    "lesson": "leadership-03",
-    "evidence": "A role is a set of behavioral expectations, or a set of activities that a person is expected to perform.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is leadership?",
-    "options": [
-     "The process of guiding and motivating others toward the achievement of organisational goals",
-     "Having the highest salary",
-     "Owning shares in the company",
-     "Writing company policies"
-    ],
-    "answer": 0,
-    "explain": "Leadership is the third key management function.",
-    "lesson": "leadership-04",
-    "evidence": "is the process of guiding and motivating others toward the achievement of organizational goals.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the ability to influence others to behave in a particular way called?",
-    "options": [
-     "Authority",
-     "Charisma",
-     "Power",
-     "Delegation"
-    ],
-    "answer": 2,
-    "explain": "Leaders draw on different sources of power, from expertise to position.",
-    "lesson": "leadership-04",
-    "evidence": "This ability to influence others to behave in a particular way is called power.",
-    "origin": "authored"
-   },
-   {
-    "q": "In a crisis, what should managers always do?",
-    "options": [
-     "Wait until the crisis passes",
-     "Tell the truth about the situation and put the best people on the job to correct the problem",
-     "Avoid talking to the media",
-     "Blame external factors"
-    ],
-    "answer": 1,
-    "explain": "Honesty and fast, capable action minimise negative outcomes.",
-    "lesson": "leadership-05",
-    "evidence": "Managers should always tell the truth about the situation and then put the best people on the job to correct the problem.",
-    "origin": "authored"
-   },
-   {
-    "q": "How is a 'need' best defined in motivation theory?",
-    "options": [
-     "Anything a person wants to buy",
-     "A reward given by a manager",
-     "A company objective",
-     "The gap between what is and what is required"
-    ],
-    "answer": 3,
-    "explain": "A want, by contrast, is the gap between what is and what is desired.",
-    "lesson": "leadership-06",
-    "evidence": "A need is best defined as the gap between what is and what is required",
-    "origin": "authored"
-   },
-   {
-    "q": "According to Maslow's hierarchy, what are the most basic human needs?",
-    "options": [
-     "Physiological needs — food, shelter and clothing",
-     "Esteem needs",
-     "Social needs",
-     "Self-actualisation needs"
-    ],
-    "answer": 0,
-    "explain": "Once a need is satisfied, a higher-level need becomes more motivating.",
-    "lesson": "leadership-07",
-    "evidence": "the most basic human needs are physiological needs, that is, the needs for food, shelter, and clothing.",
-    "origin": "authored"
-   },
-   {
-    "q": "In the workplace, what does 'equity' refer to?",
-    "options": [
-     "Owning shares in the company",
-     "Equal salaries for everyone",
-     "Employees' perceived fairness of how they are treated and the rewards they earn",
-     "The value of company assets"
-    ],
-    "answer": 2,
-    "explain": "People compare their inputs and rewards with others'.",
-    "lesson": "leadership-08",
-    "evidence": "in the workplace it refers to employees’ perceived fairness of the way they are treated and the rewards they earn.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is job rotation?",
-    "options": [
-     "Changing working hours every week",
-     "Shifting workers from one job to another — also called cross-training",
-     "Rotating managers between companies",
-     "Giving employees a sabbatical"
-    ],
-    "answer": 1,
-    "explain": "It builds skills but raises training costs and briefly lowers productivity.",
-    "lesson": "leadership-09",
-    "evidence": "Also called cross-training, job rotation is the shifting of workers from one job to another.",
-    "origin": "authored"
-   },
-   {
-    "q": "When does a group become a team?",
-    "options": [
-     "When it has more than ten members",
-     "When it has a manager",
-     "When it meets every day",
-     "When the common goals are clear and attention is paid to both interpersonal and task functions"
-    ],
-    "answer": 3,
-    "explain": "A team charter and communication guidelines help.",
-    "lesson": "leadership-12",
-    "evidence": "Groups become Teams if the common goals are clear and attention is paid to both interpersonal and task functions.",
-    "origin": "authored"
-   }
-  ],
-  "pass_mark": 9,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "956f659a79",
+   "module": 0,
+   "q": "What are the four key functions of management?",
+   "options": [
+    "Hiring, firing, paying and promoting",
+    "Selling, marketing, producing and shipping",
+    "Planning, organising, leading and controlling",
+    "Budgeting, auditing, reporting and investing"
+   ],
+   "answer": 2,
+   "explain": "These functions are carried out by managers at every level.",
+   "lesson": "leadership-01",
+   "evidence": "This process is based in four key functional areas of the organization: planning, organizing, leading, and controlling.",
+   "origin": "authored"
+  },
+  {
+   "id": "c8efa56374",
+   "module": 0,
+   "q": "What is the difference between efficiency and effectiveness?",
+   "options": [
+    "Efficiency uses the fewest resources to get work done; effectiveness produces the desired result",
+    "They mean the same thing",
+    "Efficiency is about people; effectiveness is about machines",
+    "Effectiveness always costs more"
+   ],
+   "answer": 0,
+   "explain": "Good managers need both.",
+   "lesson": "leadership-01",
+   "evidence": "Efficiency is using the least possible amount of resources to get work done, whereas effectiveness is the ability to produce a desired result.",
+   "origin": "authored"
+  },
+  {
+   "id": "20e3f5b484",
+   "module": 0,
+   "q": "What are the four basic types of planning?",
+   "options": [
+    "Daily, weekly, monthly and yearly",
+    "Personal, team, department and company",
+    "Financial, marketing, HR and IT",
+    "Strategic, tactical, operational and contingency"
+   ],
+   "answer": 3,
+   "explain": "They differ in time horizon and level of detail.",
+   "lesson": "leadership-02",
+   "evidence": "There are four basic types of planning: strategic, tactical, operational, and contingency.",
+   "origin": "authored"
+  },
+  {
+   "id": "fb23f6c1af",
+   "module": 0,
+   "q": "What is planning, as a management function?",
+   "options": [
+    "Deciding what must be done to reach objectives, when and how, and who will do it",
+    "Measuring results after the work is done",
+    "Hiring and training staff",
+    "Motivating employees"
+   ],
+   "answer": 0,
+   "explain": "Planning is the first of the four management functions.",
+   "lesson": "leadership-02",
+   "evidence": "planning is deciding what needs to be done to achieve organizational objectives, identifying when and how it will be done, and determining who should do it",
+   "origin": "authored"
+  },
+  {
+   "id": "a27b5da2aa",
+   "module": 0,
+   "q": "What is critical to successful strategic planning?",
+   "options": [
+    "Ignoring competitors",
+    "Focusing only on this week's tasks",
+    "Avoiding any forecasts",
+    "Evaluating external factors such as economic, technological and social issues"
+   ],
+   "answer": 3,
+   "explain": "Strategic plans are broad and long term.",
+   "lesson": "leadership-02",
+   "evidence": "An evaluation of external environmental factors such as economic, technological, and social issues is critical to successful strategic planning.",
+   "origin": "authored"
+  },
+  {
+   "id": "d7a4d15eda",
+   "module": 0,
+   "q": "Planning to spend a few hours in the library this weekend is which kind of plan?",
+   "options": [
+    "Strategic",
+    "Contingency",
+    "Operational — specific and short term",
+    "Long-range"
+   ],
+   "answer": 2,
+   "explain": "Planning to attend graduate school would be strategic.",
+   "lesson": "leadership-02",
+   "evidence": "Some plans are much more specific and short term (more operational in nature), such as planning to spend a few hours in the library this weekend.",
+   "origin": "authored"
+  },
+  {
+   "id": "f80dabfc85",
+   "module": 0,
+   "q": "In management, what is a role?",
+   "options": [
+    "A job title on a business card",
+    "A set of behavioural expectations or activities a person is expected to perform",
+    "A salary band",
+    "A department"
+   ],
+   "answer": 1,
+   "explain": "Managers play interpersonal, informational and decisional roles.",
+   "lesson": "leadership-03",
+   "evidence": "A role is a set of behavioral expectations, or a set of activities that a person is expected to perform.",
+   "origin": "authored"
+  },
+  {
+   "id": "5495ecd07a",
+   "module": 1,
+   "q": "What is leadership?",
+   "options": [
+    "The process of guiding and motivating others toward the achievement of organisational goals",
+    "Having the highest salary",
+    "Owning shares in the company",
+    "Writing company policies"
+   ],
+   "answer": 0,
+   "explain": "Leadership is the third key management function.",
+   "lesson": "leadership-04",
+   "evidence": "is the process of guiding and motivating others toward the achievement of organizational goals.",
+   "origin": "authored"
+  },
+  {
+   "id": "742ec0916b",
+   "module": 1,
+   "q": "What is the ability to influence others to behave in a particular way called?",
+   "options": [
+    "Authority",
+    "Charisma",
+    "Power",
+    "Delegation"
+   ],
+   "answer": 2,
+   "explain": "Leaders draw on different sources of power, from expertise to position.",
+   "lesson": "leadership-04",
+   "evidence": "This ability to influence others to behave in a particular way is called power.",
+   "origin": "authored"
+  },
+  {
+   "id": "93d99a2c1a",
+   "module": 1,
+   "q": "How do autocratic leaders lead?",
+   "options": [
+    "By requiring everyone to agree",
+    "Directively, allowing very little input from subordinates",
+    "By leaving employees alone",
+    "By putting every decision to a vote"
+   ],
+   "answer": 1,
+   "explain": "Treated fairly, employees may still see them as decisive.",
+   "lesson": "leadership-04",
+   "evidence": "Autocratic leaders are directive leaders, allowing for very little input from subordinates.",
+   "origin": "authored"
+  },
+  {
+   "id": "be1efb7b0e",
+   "module": 1,
+   "q": "What do consensual leaders require?",
+   "options": [
+    "That all parties agree to the final decision after discussion",
+    "That the leader decides alone",
+    "That employees work without guidance",
+    "That only experts vote"
+   ],
+   "answer": 0,
+   "explain": "Consensual is one of the three types of participative leadership.",
+   "lesson": "leadership-04",
+   "evidence": "Consensual leaders encourage discussion about issues and then require that all parties involved agree to the final decision.",
+   "origin": "authored"
+  },
+  {
+   "id": "74a45f1abf",
+   "module": 1,
+   "q": "When can free-rein (laissez-faire) leadership frustrate employees?",
+   "options": [
+    "When the leader gives too many orders",
+    "When goals are very clear",
+    "When employees are highly skilled",
+    "When it comes with unclear expectations and no feedback"
+   ],
+   "answer": 3,
+   "explain": "Free rein works best with clear expectations and capable staff.",
+   "lesson": "leadership-04",
+   "evidence": "If free-rein leadership is accompanied by unclear expectations and lack of feedback from the manager, the experience can be frustrating for an employee.",
+   "origin": "authored"
+  },
+  {
+   "id": "b22200d99a",
+   "module": 1,
+   "q": "In a crisis, what should managers always do?",
+   "options": [
+    "Wait until the crisis passes",
+    "Tell the truth about the situation and put the best people on the job to correct the problem",
+    "Avoid talking to the media",
+    "Blame external factors"
+   ],
+   "answer": 1,
+   "explain": "Honesty and fast, capable action minimise negative outcomes.",
+   "lesson": "leadership-05",
+   "evidence": "Managers should always tell the truth about the situation and then put the best people on the job to correct the problem.",
+   "origin": "authored"
+  },
+  {
+   "id": "ff83fab5b2",
+   "module": 1,
+   "q": "Which are four important trends in management today, according to the chapter?",
+   "options": [
+    "Longer meetings, more paperwork, fewer staff and less travel",
+    "Lower pay, fewer holidays, more rules and less training",
+    "Crisis management, outside directors, information technology and global skills",
+    "Printing, filing, faxing and mailing"
+   ],
+   "answer": 2,
+   "explain": "Each trend changes what managers need to know.",
+   "lesson": "leadership-05",
+   "evidence": "Four important trends in management today are crisis management, outside directors, the growing use of information technology, and the increasing need for global management skills.",
+   "origin": "authored"
+  },
+  {
+   "id": "fc179b0849",
+   "module": 1,
+   "q": "What should managers do after a crisis is resolved?",
+   "options": [
+    "Forget it as quickly as possible",
+    "Learn from the experience to avoid the same problem in future",
+    "Blame the team publicly",
+    "Hide what happened"
+   ],
+   "answer": 1,
+   "explain": "Telling the truth and putting the best people on the problem also matter.",
+   "lesson": "leadership-05",
+   "evidence": "managers must learn from the experience to avoid the same problem in the future",
+   "origin": "authored"
+  },
+  {
+   "id": "af03ce52c6",
+   "module": 2,
+   "q": "How is a 'need' best defined in motivation theory?",
+   "options": [
+    "Anything a person wants to buy",
+    "A reward given by a manager",
+    "A company objective",
+    "The gap between what is and what is required"
+   ],
+   "answer": 3,
+   "explain": "A want, by contrast, is the gap between what is and what is desired.",
+   "lesson": "leadership-06",
+   "evidence": "A need is best defined as the gap between what is and what is required",
+   "origin": "authored"
+  },
+  {
+   "id": "23ce5ad6b3",
+   "module": 2,
+   "q": "According to Maslow's hierarchy, what are the most basic human needs?",
+   "options": [
+    "Physiological needs — food, shelter and clothing",
+    "Esteem needs",
+    "Social needs",
+    "Self-actualisation needs"
+   ],
+   "answer": 0,
+   "explain": "Once a need is satisfied, a higher-level need becomes more motivating.",
+   "lesson": "leadership-07",
+   "evidence": "the most basic human needs are physiological needs, that is, the needs for food, shelter, and clothing.",
+   "origin": "authored"
+  },
+  {
+   "id": "eb70d328d1",
+   "module": 2,
+   "q": "According to Maslow, what happens once a need is satisfied?",
+   "options": [
+    "It matters less, and a higher-level need becomes more motivating",
+    "It becomes the strongest motivator",
+    "All needs disappear",
+    "The person stops working"
+   ],
+   "answer": 0,
+   "explain": "This is why motivation changes as people's situations change.",
+   "lesson": "leadership-07",
+   "evidence": "Once a need is satisfied, its importance to the individual diminishes, and a higher-level need is more likely to motivate the person.",
+   "origin": "authored"
+  },
+  {
+   "id": "333b5af67a",
+   "module": 2,
+   "q": "What are esteem needs in Maslow's hierarchy?",
+   "options": [
+    "Needs for food and shelter",
+    "Needs for safety and security",
+    "Needs for friendship and belonging",
+    "Needs for others' respect and a sense of accomplishment"
+   ],
+   "answer": 3,
+   "explain": "They sit at the fourth level of the hierarchy.",
+   "lesson": "leadership-07",
+   "evidence": "esteem needs, which are needs for the respect of others and for a sense of accomplishment and achievement",
+   "origin": "authored"
+  },
+  {
+   "id": "a01ae17aa0",
+   "module": 2,
+   "q": "What view of human nature underlies McGregor's Theory X?",
+   "options": [
+    "An optimistic one — people seek responsibility",
+    "A neutral one — people only want money",
+    "A pessimistic one — the average person dislikes work and avoids it",
+    "A view that work is a form of play"
+   ],
+   "answer": 2,
+   "explain": "Theory Y takes the opposite, optimistic view.",
+   "lesson": "leadership-07",
+   "evidence": "The Theory X management style is based on a pessimistic view of human nature",
+   "origin": "authored"
+  },
+  {
+   "id": "c18f6552bc",
+   "module": 2,
+   "q": "In the workplace, what does 'equity' refer to?",
+   "options": [
+    "Owning shares in the company",
+    "Equal salaries for everyone",
+    "Employees' perceived fairness of how they are treated and the rewards they earn",
+    "The value of company assets"
+   ],
+   "answer": 2,
+   "explain": "People compare their inputs and rewards with others'.",
+   "lesson": "leadership-08",
+   "evidence": "in the workplace it refers to employees’ perceived fairness of the way they are treated and the rewards they earn.",
+   "origin": "authored"
+  },
+  {
+   "id": "22afc5959d",
+   "module": 2,
+   "q": "What does expectancy theory focus on?",
+   "options": [
+    "Fair treatment compared with others",
+    "The link between motivation and behaviour",
+    "Physical working conditions",
+    "The pay scale alone"
+   ],
+   "answer": 1,
+   "explain": "It is one of the best-supported theories of motivation.",
+   "lesson": "leadership-08",
+   "evidence": "expectancy theory, which focuses on the link between motivation and behavior",
+   "origin": "authored"
+  },
+  {
+   "id": "d3f2eba6da",
+   "module": 2,
+   "q": "Why is feedback so important in goal-setting theory?",
+   "options": [
+    "It shows the gap between actual performance and the goal",
+    "It replaces the need for goals",
+    "It sets the employee's salary",
+    "It is only needed after failure"
+   ],
+   "answer": 0,
+   "explain": "Specific, challenging goals plus feedback improve performance.",
+   "lesson": "leadership-08",
+   "evidence": "Feedback is particularly important because it helps the individual identify the gap between the real (the actual performance) and the ideal (the desired outcome defined by the goal).",
+   "origin": "authored"
+  },
+  {
+   "id": "851a97f235",
+   "module": 2,
+   "q": "What is job rotation?",
+   "options": [
+    "Changing working hours every week",
+    "Shifting workers from one job to another — also called cross-training",
+    "Rotating managers between companies",
+    "Giving employees a sabbatical"
+   ],
+   "answer": 1,
+   "explain": "It builds skills but raises training costs and briefly lowers productivity.",
+   "lesson": "leadership-09",
+   "evidence": "Also called cross-training, job rotation is the shifting of workers from one job to another.",
+   "origin": "authored"
+  },
+  {
+   "id": "7e00bddfb8",
+   "module": 2,
+   "q": "What is job enlargement?",
+   "options": [
+    "Moving workers between different jobs",
+    "Adding more responsibility and control",
+    "Cutting working hours",
+    "Increasing the number and variety of tasks a person performs"
+   ],
+   "answer": 3,
+   "explain": "It is a horizontal expansion of the job.",
+   "lesson": "leadership-09",
+   "evidence": "The horizontal expansion of a job, increasing the number and variety of tasks that a person performs, is called job enlargement.",
+   "origin": "authored"
+  },
+  {
+   "id": "c1cf032390",
+   "module": 2,
+   "q": "What is a potential drawback of job enlargement?",
+   "options": [
+    "Jobs become too boring",
+    "Training costs disappear",
+    "Employees may feel they work harder with no extra responsibility or pay",
+    "Employees get too much authority"
+   ],
+   "answer": 2,
+   "explain": "Job enrichment, which adds responsibility, can avoid this.",
+   "lesson": "leadership-09",
+   "evidence": "employees may perceive that they are being asked to work harder and do more with no change in their level of responsibility or compensation",
+   "origin": "authored"
+  },
+  {
+   "id": "7b33a5a41a",
+   "module": 2,
+   "q": "What are the drawbacks of job rotation?",
+   "options": [
+    "Less flexibility in scheduling",
+    "Higher training costs and lower productivity while people get up to speed",
+    "Workers learn fewer skills",
+    "It cannot cover for absent staff"
+   ],
+   "answer": 1,
+   "explain": "Its benefits include flexibility and cover for absences.",
+   "lesson": "leadership-09",
+   "evidence": "Drawbacks of job rotation include an increase in training costs and decreased productivity",
+   "origin": "authored"
+  },
+  {
+   "id": "96e9131f60",
+   "module": 2,
+   "q": "Why train employees properly in new technologies?",
+   "options": [
+    "They become more productive and less resistant to job change",
+    "It lets the company cut all salaries",
+    "It removes the need for managers",
+    "It makes jobs less interesting"
+   ],
+   "answer": 0,
+   "explain": "Training builds confidence with new tools.",
+   "lesson": "leadership-10",
+   "evidence": "Employees who are properly trained in new technologies are more productive and less resistant to job change.",
+   "origin": "authored"
+  },
+  {
+   "id": "28eef2ba69",
+   "module": 2,
+   "q": "Why can an employee stock ownership plan (ESOP) be an attractive exit strategy?",
+   "options": [
+    "It closes the company quickly",
+    "It sells the company to a competitor",
+    "It stops paying employees",
+    "Employees paid in stock can gradually become the company's owners"
+   ],
+   "answer": 3,
+   "explain": "It offers owners a smooth transition.",
+   "lesson": "leadership-10",
+   "evidence": "Because ESOP employees are compensated with stock, over time they can become the owners of the company, an attractive exit strategy for current owners seeking a smooth transition.",
+   "origin": "authored"
+  },
+  {
+   "id": "26ed102963",
+   "module": 2,
+   "q": "Which tool do some companies use to help employees achieve work-life balance?",
+   "options": [
+    "Longer shifts",
+    "Unpaid overtime",
+    "The sabbatical",
+    "Removing holidays"
+   ],
+   "answer": 2,
+   "explain": "Less stressed employees focus better and are more productive.",
+   "lesson": "leadership-10",
+   "evidence": "One tool companies are using to help their employees achieve work-life balance is the sabbatical.",
+   "origin": "authored"
+  },
+  {
+   "id": "92d16f82d1",
+   "module": 3,
+   "q": "What is human resource management?",
+   "options": [
+    "Managing the company's finances",
+    "Hiring, developing, motivating and evaluating employees to achieve goals",
+    "Selling products to customers",
+    "Maintaining equipment"
+   ],
+   "answer": 1,
+   "explain": "HR systems aim to make employees a source of competitive advantage.",
+   "lesson": "leadership-11",
+   "evidence": "Human resource (HR) management is the process of hiring, developing, motivating, and evaluating employees to achieve organizational goals.",
+   "origin": "authored"
+  },
+  {
+   "id": "7eb366534c",
+   "module": 3,
+   "q": "Why is the human resource management process sequential?",
+   "options": [
+    "Employees can't be trained and paid until they are selected and placed",
+    "Laws require a fixed order of paperwork",
+    "Payroll must run first",
+    "Training always comes before hiring"
+   ],
+   "answer": 0,
+   "explain": "Planning and job design come before recruitment and selection.",
+   "lesson": "leadership-11",
+   "evidence": "The process is sequential because employees can’t be trained and paid until selected and placed in jobs",
+   "origin": "authored"
+  },
+  {
+   "id": "522a6213ef",
+   "module": 3,
+   "q": "When does a group become a team?",
+   "options": [
+    "When it has more than ten members",
+    "When it has a manager",
+    "When it meets every day",
+    "When the common goals are clear and attention is paid to both interpersonal and task functions"
+   ],
+   "answer": 3,
+   "explain": "A team charter and communication guidelines help.",
+   "lesson": "leadership-12",
+   "evidence": "Groups become Teams if the common goals are clear and attention is paid to both interpersonal and task functions.",
+   "origin": "authored"
+  },
+  {
+   "id": "50785cff95",
+   "module": 3,
+   "q": "Which skills must team members have and use?",
+   "options": [
+    "Only technical skills",
+    "Only presentation skills",
+    "Only the leader's skills",
+    "Leadership, decision-making, trust-building, communication and conflict management"
+   ],
+   "answer": 3,
+   "explain": "Groups become teams when goals are clear and both task and people matter.",
+   "lesson": "leadership-12",
+   "evidence": "the needed leadership, decision-making, trust-building, communication, and conflict-management skills",
+   "origin": "authored"
+  },
+  {
+   "id": "1abee6c1b2",
+   "module": 3,
+   "q": "What should each team set up for good communication?",
+   "options": [
+    "A single rule written by management",
+    "No rules at all",
+    "Its own communication guidelines and a team charter",
+    "A weekly report to HR only"
+   ],
+   "answer": 2,
+   "explain": "Members negotiate what matters most for clear communication.",
+   "lesson": "leadership-12",
+   "evidence": "Each Team must set up their own guidelines for good communication and a Team Charter.",
+   "origin": "authored"
+  },
+  {
+   "id": "08eaea6e6f",
+   "module": 3,
+   "q": "What kind of team does building and running a digital service need?",
+   "options": [
+    "A single developer",
+    "A multidisciplinary team with a range of skills",
+    "Only designers",
+    "Only managers"
+   ],
+   "answer": 1,
+   "explain": "The team must also work with others across the organisation.",
+   "lesson": "leadership-13",
+   "evidence": "your delivery team needs to be multidisciplinary and have a range of skills",
+   "origin": "authored"
+  },
+  {
+   "id": "3774f87b5a",
+   "module": 3,
+   "q": "What is a digital service usually part of?",
+   "options": [
+    "A wider change to how an organisation operates",
+    "A one-off marketing campaign",
+    "An IT department's hobby",
+    "A website redesign only"
+   ],
+   "answer": 0,
+   "explain": "For example, contact-centre changes when a new policy starts.",
+   "lesson": "leadership-13",
+   "evidence": "A digital service is usually part of a wider change to how an organisation operates",
+   "origin": "authored"
+  },
+  {
+   "id": "0dc76b18db",
+   "module": 3,
+   "q": "Does a service team need the same skills in every development phase?",
+   "options": [
+    "Yes, the team never changes",
+    "Only in the live phase",
+    "Skills don't matter",
+    "No — different phases need different skills"
+   ],
+   "answer": 3,
+   "explain": "Plan the resources each phase requires, including for secure practices.",
+   "lesson": "leadership-13",
+   "evidence": "need different skills during the different development phases",
+   "origin": "authored"
+  }
+ ],
  "minutes": 125,
  "sources": [
   {

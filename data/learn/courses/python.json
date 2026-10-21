@@ -748,152 +748,696 @@
    ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "In a Jupyter notebook, what determines which variables exist?",
-    "options": [
-     "The order in which the cells appear on the page",
-     "The file name of the notebook",
-     "The order in which the cells are executed",
-     "Only the last cell in the notebook"
-    ],
-    "answer": 2,
-    "explain": "Python remembers everything that has been run, in the order it was run — which can differ from the page order.",
-    "lesson": "python-02",
-    "evidence": "it is the order of execution of cells that is important in a Jupyter notebook, not the order in which they appear.",
-    "origin": "authored"
-   },
-   {
-    "q": "What does Python 3 do when an integer meets a float in arithmetic?",
-    "options": [
-     "It automatically converts the integer to a float as needed",
-     "It raises a type error",
-     "It rounds the float to an integer",
-     "It converts both to strings"
-    ],
-    "answer": 0,
-    "explain": "That is why 1 / 2.0 gives 0.5.",
-    "lesson": "python-03",
-    "evidence": "Python 3 automatically converts integers to floats as needed.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is a library in Python?",
-    "options": [
-     "A list of every function name in Python",
-     "A folder of data files",
-     "A website with Python tutorials",
-     "A collection of files (modules) that contain functions for use by other programs"
-    ],
-    "answer": 3,
-    "explain": "Libraries let you reuse well-tested code instead of writing everything yourself.",
-    "lesson": "python-05",
-    "evidence": "A library is a collection of files (called modules ) that contains functions for use by other programs.",
-    "origin": "authored"
-   },
-   {
-    "q": "Which alias is commonly used for the Pandas library in code?",
-    "options": [
-     "np",
-     "plt",
-     "pd",
-     "pn"
-    ],
-    "answer": 2,
-    "explain": "import pandas as pd is the community convention.",
-    "lesson": "python-06",
-    "evidence": "The alias pd is commonly used to refer to the Pandas library in code.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is matplotlib?",
-    "options": [
-     "A library for reading CSV files",
-     "The most widely used scientific plotting library in Python",
-     "A built-in function for printing tables",
-     "A Jupyter keyboard shortcut"
-    ],
-    "answer": 1,
-    "explain": "It draws time series, scatter plots and many other charts.",
-    "lesson": "python-08",
-    "evidence": "matplotlib is the most widely used scientific plotting library in Python.",
-    "origin": "authored"
-   },
-   {
-    "q": "What does a list do?",
-    "options": [
-     "Stores exactly one value",
-     "Sorts values automatically",
-     "Connects to a database",
-     "Stores many values in a single structure"
-    ],
-    "answer": 3,
-    "explain": "Lists avoid having hundreds of separate variables like pressure_001, pressure_002…",
-    "lesson": "python-09",
-    "evidence": "A list stores many values in a single structure.",
-    "origin": "authored"
-   },
-   {
-    "q": "How must the first line and the body of a for loop be written?",
-    "options": [
-     "The first line must end with a colon, and the body must be indented",
-     "The body must be in brackets",
-     "The first line must end with a semicolon",
-     "The loop must be written on a single line"
-    ],
-    "answer": 0,
-    "explain": "Python uses the colon and indentation to know which statements belong to the loop.",
-    "lesson": "python-10",
-    "evidence": "The first line of the for loop must end with a colon, and the body must be indented.",
-    "origin": "authored"
-   },
-   {
-    "q": "In Unix, what does 'globbing' mean?",
-    "options": [
-     "Combining two lists",
-     "Deleting a set of files",
-     "Matching a set of files with a pattern",
-     "Counting the lines in a file"
-    ],
-    "answer": 2,
-    "explain": "Patterns like data/*.csv let a loop process many files.",
-    "lesson": "python-12",
-    "evidence": "In Unix, the term \"globbing\" means \"matching a set of files with a pattern\".",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the scope of a variable?",
-    "options": [
-     "Its data type",
-     "The part of a program that can 'see' that variable",
-     "The number of times it changes",
-     "Its memory address"
-    ],
-    "answer": 1,
-    "explain": "Variables created inside a function are local to it; global variables are visible everywhere.",
-    "lesson": "python-14",
-    "evidence": "The scope of a variable is the part of a program that can 'see' that variable.",
-    "origin": "authored"
-   },
-   {
-    "q": "Why does coding style matter, according to the lesson?",
-    "options": [
-     "Python refuses to run badly formatted code",
-     "It makes programs run faster",
-     "It is required to use pandas",
-     "Code is read much more often than it is written"
-    ],
-    "answer": 3,
-    "explain": "Readable code (for example following PEP 8) is easier to share, review and fix.",
-    "lesson": "python-15",
-    "evidence": "Code is read much more often than it is written",
-    "origin": "authored"
-   }
-  ],
-  "pass_mark": 7,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "1dd8978038",
+   "module": 0,
+   "q": "What can the cells of a Jupyter notebook contain?",
+   "options": [
+    "Code, text or images",
+    "Only Python code",
+    "Only numbers",
+    "Only images"
+   ],
+   "answer": 0,
+   "explain": "Mixing code and explanation is what makes notebooks useful.",
+   "lesson": "python-01",
+   "evidence": "Each notebook contains one or more cells that contain code, text, or images.",
+   "origin": "authored"
+  },
+  {
+   "id": "669cd809aa",
+   "module": 0,
+   "q": "How does Command mode differ from Edit mode in a notebook?",
+   "options": [
+    "They are the same mode",
+    "Command mode edits notebook-level features; Edit mode changes a cell's content",
+    "Edit mode runs the whole notebook",
+    "Command mode only works offline"
+   ],
+   "answer": 1,
+   "explain": "Press Esc to leave Edit mode.",
+   "lesson": "python-01",
+   "evidence": "Command mode allows you to edit notebook-level features, and Edit mode changes the content of cells.",
+   "origin": "authored"
+  },
+  {
+   "id": "c945b2ff3c",
+   "module": 0,
+   "q": "How do you turn the current cell into a Markdown cell?",
+   "options": [
+    "Press Ctrl+S",
+    "Type 'markdown' in the cell",
+    "Enter Command mode (Esc) and press M",
+    "Restart the kernel"
+   ],
+   "answer": 2,
+   "explain": "Markdown cells hold formatted text.",
+   "lesson": "python-01",
+   "evidence": "Turn the current cell into a Markdown cell by entering the Command mode",
+   "origin": "authored"
+  },
+  {
+   "id": "b99f9fc6fc",
+   "module": 0,
+   "q": "A cell contains several calculations. What does Python show as the cell's output?",
+   "options": [
+    "The result of the first calculation",
+    "The result of the last calculation",
+    "Every result",
+    "Nothing"
+   ],
+   "answer": 1,
+   "explain": "Use print to show other values.",
+   "lesson": "python-01",
+   "evidence": "Python returns the output of the last calculation.",
+   "origin": "authored"
+  },
+  {
+   "id": "928ca11479",
+   "module": 0,
+   "q": "Can a notebook's code be run from the command line?",
+   "options": [
+    "Yes, once it is exported as a Python script",
+    "No, never",
+    "Only on Windows",
+    "Only if it has no Markdown"
+   ],
+   "answer": 0,
+   "explain": "Scripts use the .py extension.",
+   "lesson": "python-01",
+   "evidence": "Notebooks can be exported as Python scripts that can be run from the command line.",
+   "origin": "authored"
+  },
+  {
+   "id": "264e72e4d1",
+   "module": 0,
+   "q": "What do other Jupyter kernels let you do?",
+   "options": [
+    "Make Python run faster",
+    "Print notebooks",
+    "Connect to the internet",
+    "Run code in other languages, such as R or Julia, in JupyterLab"
+   ],
+   "answer": 3,
+   "explain": "The kernel is what executes the code.",
+   "lesson": "python-01",
+   "evidence": "Using other Jupyter kernels for other programming languages would let us write and execute code in other programming languages in the same JupyterLab interface",
+   "origin": "authored"
+  },
+  {
+   "id": "ce495abb4c",
+   "module": 0,
+   "q": "In a Jupyter notebook, what determines which variables exist?",
+   "options": [
+    "The order in which the cells appear on the page",
+    "The file name of the notebook",
+    "The order in which the cells are executed",
+    "Only the last cell in the notebook"
+   ],
+   "answer": 2,
+   "explain": "Python remembers everything that has been run, in the order it was run — which can differ from the page order.",
+   "lesson": "python-02",
+   "evidence": "it is the order of execution of cells that is important in a Jupyter notebook, not the order in which they appear.",
+   "origin": "authored"
+  },
+  {
+   "id": "421140cb07",
+   "module": 0,
+   "q": "What must happen before a variable can be used?",
+   "options": [
+    "It must be printed",
+    "It must be deleted",
+    "It must be created by assigning it a value",
+    "It must be imported"
+   ],
+   "answer": 2,
+   "explain": "Using it first gives a NameError.",
+   "lesson": "python-02",
+   "evidence": "Variables must be created before they are used.",
+   "origin": "authored"
+  },
+  {
+   "id": "24ebd74ce4",
+   "module": 0,
+   "q": "How does print separate the items you pass to it?",
+   "options": [
+    "With a comma",
+    "With a single space, automatically",
+    "With a new line",
+    "It doesn't separate them"
+   ],
+   "answer": 1,
+   "explain": "For example: Ahmed is 42 years old.",
+   "lesson": "python-02",
+   "evidence": "print automatically puts a single space between items to separate them",
+   "origin": "authored"
+  },
+  {
+   "id": "3bf9c79ea4",
+   "module": 0,
+   "q": "When you treat a string like a list, what are its elements?",
+   "options": [
+    "Its individual characters",
+    "Its words",
+    "Its lines",
+    "Its bytes in hexadecimal"
+   ],
+   "answer": 0,
+   "explain": "So indexing a string gives one character.",
+   "lesson": "python-02",
+   "evidence": "Whenever we treat a string as if it were a list, the string's elements are its individual characters.",
+   "origin": "authored"
+  },
+  {
+   "id": "0a3e83f07e",
+   "module": 0,
+   "q": "What does Python 3 do when an integer meets a float in arithmetic?",
+   "options": [
+    "It automatically converts the integer to a float as needed",
+    "It raises a type error",
+    "It rounds the float to an integer",
+    "It converts both to strings"
+   ],
+   "answer": 0,
+   "explain": "That is why 1 / 2.0 gives 0.5.",
+   "lesson": "python-03",
+   "evidence": "Python 3 automatically converts integers to floats as needed.",
+   "origin": "authored"
+  },
+  {
+   "id": "3c1a1ab42e",
+   "module": 0,
+   "q": "What does the lesson warn about copying and pasting someone else's code?",
+   "options": [
+    "It is always safe",
+    "It is illegal",
+    "It makes code faster",
+    "It's risky unless you understand exactly what it does"
+   ],
+   "answer": 3,
+   "explain": "Asking a more experienced colleague is another good option.",
+   "lesson": "python-04",
+   "evidence": "copying and pasting code written by somebody else is risky unless you understand exactly what it is doing",
+   "origin": "authored"
+  },
+  {
+   "id": "9da9a158b6",
+   "module": 0,
+   "q": "Which are commonly used built-in functions?",
+   "options": [
+    "select, where and join",
+    "fetch, push and pull",
+    "max, min and round",
+    "sum.csv, read.txt and plot.png"
+   ],
+   "answer": 2,
+   "explain": "Built-ins are available without importing anything.",
+   "lesson": "python-04",
+   "evidence": "Commonly-used built-in functions include max , min , and round",
+   "origin": "authored"
+  },
+  {
+   "id": "b74fa2e5a7",
+   "module": 0,
+   "q": "Why did max and min raise TypeErrors in the exercise?",
+   "options": [
+    "Python doesn't have max or min",
+    "The correct number of parameters wasn't supplied",
+    "The values were too large",
+    "The notebook was not saved"
+   ],
+   "answer": 1,
+   "explain": "Functions expect particular kinds and numbers of arguments.",
+   "lesson": "python-04",
+   "evidence": "max and min return TypeErrors in this case because the correct number of parameters was not supplied",
+   "origin": "authored"
+  },
+  {
+   "id": "4b98d41863",
+   "module": 0,
+   "q": "If you use AI tools to help write code, what do you still need?",
+   "options": [
+    "The skills to judge whether the answers are right and fix errors",
+    "Nothing — the AI is always right",
+    "A faster computer",
+    "A paid licence only"
+   ],
+   "answer": 0,
+   "explain": "Understanding comes before trusting generated code.",
+   "lesson": "python-04",
+   "evidence": "You need the knowledge and skills to be able to understand these responses, to judge whether or not they are accurate, and to fix any errors in the code it offers you.",
+   "origin": "authored"
+  },
+  {
+   "id": "8bb90fac4d",
+   "module": 1,
+   "q": "What is a library in Python?",
+   "options": [
+    "A list of every function name in Python",
+    "A folder of data files",
+    "A website with Python tutorials",
+    "A collection of files (modules) that contain functions for use by other programs"
+   ],
+   "answer": 3,
+   "explain": "Libraries let you reuse well-tested code instead of writing everything yourself.",
+   "lesson": "python-05",
+   "evidence": "A library is a collection of files (called modules ) that contains functions for use by other programs.",
+   "origin": "authored"
+  },
+  {
+   "id": "f53978e51a",
+   "module": 1,
+   "q": "Are the words 'library' and 'module' interchangeable?",
+   "options": [
+    "No, never",
+    "Only in Java",
+    "Only for the math library",
+    "They are often used interchangeably, since many libraries are a single module"
+   ],
+   "answer": 3,
+   "explain": "Strictly, a library is a collection of modules.",
+   "lesson": "python-05",
+   "evidence": "the terms are often used interchangeably, especially since many libraries only consist of a single module",
+   "origin": "authored"
+  },
+  {
+   "id": "f5a39962cc",
+   "module": 1,
+   "q": "Which alias is commonly used for the Pandas library in code?",
+   "options": [
+    "np",
+    "plt",
+    "pd",
+    "pn"
+   ],
+   "answer": 2,
+   "explain": "import pandas as pd is the community convention.",
+   "lesson": "python-06",
+   "evidence": "The alias pd is commonly used to refer to the Pandas library in code.",
+   "origin": "authored"
+  },
+  {
+   "id": "ff3c397f1f",
+   "module": 1,
+   "q": "What is Pandas widely used for?",
+   "options": [
+    "Drawing 3-D games",
+    "Sending email",
+    "Statistics, especially on tabular data",
+    "Editing photos"
+   ],
+   "answer": 2,
+   "explain": "It is usually imported with the alias pd.",
+   "lesson": "python-06",
+   "evidence": "Pandas is a widely-used Python library for statistics, particularly on tabular data.",
+   "origin": "authored"
+  },
+  {
+   "id": "1d0adee88d",
+   "module": 1,
+   "q": "Which library is Pandas built on top of?",
+   "options": [
+    "matplotlib",
+    "NumPy",
+    "Django",
+    "Flask"
+   ],
+   "answer": 1,
+   "explain": "So most NumPy array methods also work on Pandas objects.",
+   "lesson": "python-07",
+   "evidence": "Pandas is built on top of the Numpy library",
+   "origin": "authored"
+  },
+  {
+   "id": "37846a3130",
+   "module": 1,
+   "q": "What makes Pandas so attractive for data work?",
+   "options": [
+    "Powerful access to records, handling of missing values and relational operations",
+    "It only works with images",
+    "It replaces Python",
+    "It needs no data"
+   ],
+   "answer": 0,
+   "explain": "It brings database-like operations to Python.",
+   "lesson": "python-07",
+   "evidence": "What makes Pandas so attractive is the powerful interface to access individual records of the table, proper handling of missing values, and relational-databases operations between DataFrames.",
+   "origin": "authored"
+  },
+  {
+   "id": "de1fc61874",
+   "module": 1,
+   "q": "How does a numerical slice (iloc[0:2]) differ from a named slice (loc['a':'b'])?",
+   "options": [
+    "They give exactly the same output",
+    "Named slices omit the first element",
+    "Numerical slices include both ends",
+    "The numerical slice omits the final index; the named slice includes the final element"
+   ],
+   "answer": 3,
+   "explain": "A common source of off-by-one surprises.",
+   "lesson": "python-07",
+   "evidence": "a numerical slice, 0:2, omits the final index (i.e. index 2) in the range provided, while a named slice, 'gdpPercap_1952':'gdpPercap_1962', includes the final element",
+   "origin": "authored"
+  },
+  {
+   "id": "615de807a9",
+   "module": 1,
+   "q": "When selecting from a DataFrame, what does : on its own mean?",
+   "options": [
+    "No rows",
+    "The first row only",
+    "All columns or all rows",
+    "An error"
+   ],
+   "answer": 2,
+   "explain": "For example, data.loc['Denmark', :] selects a whole row.",
+   "lesson": "python-07",
+   "evidence": "Use : on its own to mean all columns or all rows.",
+   "origin": "authored"
+  },
+  {
+   "id": "3a2cdcb1b9",
+   "module": 1,
+   "q": "What is matplotlib?",
+   "options": [
+    "A library for reading CSV files",
+    "The most widely used scientific plotting library in Python",
+    "A built-in function for printing tables",
+    "A Jupyter keyboard shortcut"
+   ],
+   "answer": 1,
+   "explain": "It draws time series, scatter plots and many other charts.",
+   "lesson": "python-08",
+   "evidence": "matplotlib is the most widely used scientific plotting library in Python.",
+   "origin": "authored"
+  },
+  {
+   "id": "f0c39ef453",
+   "module": 1,
+   "q": "In matplotlib, what does the format string 'g--' produce?",
+   "options": [
+    "A grey solid line",
+    "A green dashed line",
+    "Green dots",
+    "A gradient fill"
+   ],
+   "answer": 1,
+   "explain": "'b-' would be a blue solid line.",
+   "lesson": "python-08",
+   "evidence": "b- is a blue line, g-- is a green dashed line",
+   "origin": "authored"
+  },
+  {
+   "id": "6ebac0d801",
+   "module": 1,
+   "q": "Which plot shows the relationship between two data sets?",
+   "options": [
+    "A scatter plot",
+    "A time series plot of one variable",
+    "A pie chart",
+    "A table"
+   ],
+   "answer": 0,
+   "explain": "Time series plots show one variable over time.",
+   "lesson": "python-08",
+   "evidence": "Create a scatter plot showing relationship between two data sets.",
+   "origin": "authored"
+  },
+  {
+   "id": "9befc23986",
+   "module": 2,
+   "q": "What does a list do?",
+   "options": [
+    "Stores exactly one value",
+    "Sorts values automatically",
+    "Connects to a database",
+    "Stores many values in a single structure"
+   ],
+   "answer": 3,
+   "explain": "Lists avoid having hundreds of separate variables like pressure_001, pressure_002…",
+   "lesson": "python-09",
+   "evidence": "A list stores many values in a single structure.",
+   "origin": "authored"
+  },
+  {
+   "id": "7097adedea",
+   "module": 2,
+   "q": "What does it mean that Python lists are mutable?",
+   "options": [
+    "They can never change",
+    "They are always sorted",
+    "They can only hold numbers",
+    "They can be modified in place"
+   ],
+   "answer": 3,
+   "explain": "Strings, by contrast, are immutable.",
+   "lesson": "python-09",
+   "evidence": "In contrast, lists are mutable : they can be modified in place.",
+   "origin": "authored"
+  },
+  {
+   "id": "aac950fec9",
+   "module": 2,
+   "q": "How does extend differ from append?",
+   "options": [
+    "extend deletes items",
+    "append sorts the list",
+    "extend combines two lists",
+    "They are identical"
+   ],
+   "answer": 2,
+   "explain": "append adds a single item to the end.",
+   "lesson": "python-09",
+   "evidence": "extend is similar to append , but it allows you to combine two lists",
+   "origin": "authored"
+  },
+  {
+   "id": "80e33c35c2",
+   "module": 2,
+   "q": "How must the first line and the body of a for loop be written?",
+   "options": [
+    "The first line must end with a colon, and the body must be indented",
+    "The body must be in brackets",
+    "The first line must end with a semicolon",
+    "The loop must be written on a single line"
+   ],
+   "answer": 0,
+   "explain": "Python uses the colon and indentation to know which statements belong to the loop.",
+   "lesson": "python-10",
+   "evidence": "The first line of the for loop must end with a colon, and the body must be indented.",
+   "origin": "authored"
+  },
+  {
+   "id": "b11ff4d080",
+   "module": 2,
+   "q": "What changes on each iteration of a for loop?",
+   "options": [
+    "The list's length",
+    "The loop variable",
+    "The loop's first line",
+    "Nothing"
+   ],
+   "answer": 1,
+   "explain": "It takes the next value from the collection each time.",
+   "lesson": "python-10",
+   "evidence": "The loop variable, number , is what changes for each iteration of the loop.",
+   "origin": "authored"
+  },
+  {
+   "id": "b7541a0ab7",
+   "module": 2,
+   "q": "Which loop pattern aggregates values, such as a running total?",
+   "options": [
+    "The accumulator pattern",
+    "The decorator pattern",
+    "The singleton pattern",
+    "The observer pattern"
+   ],
+   "answer": 0,
+   "explain": "Start a variable at zero and add to it in each iteration.",
+   "lesson": "python-10",
+   "evidence": "Write for loops that use the Accumulator pattern to aggregate values.",
+   "origin": "authored"
+  },
+  {
+   "id": "b43e1af735",
+   "module": 2,
+   "q": "What does an if statement do?",
+   "options": [
+    "Repeats code a fixed number of times",
+    "Defines a new function",
+    "Imports a library",
+    "Controls whether a block of code is executed"
+   ],
+   "answer": 3,
+   "explain": "It is properly called a conditional statement.",
+   "lesson": "python-11",
+   "evidence": "An if statement (more properly called a conditional statement) controls whether some block of code is executed or not.",
+   "origin": "authored"
+  },
+  {
+   "id": "8176ed1ef1",
+   "module": 2,
+   "q": "When should you use parentheses in a condition?",
+   "options": [
+    "Never",
+    "Only for strings",
+    "Whenever there is possible ambiguity",
+    "Only in loops"
+   ],
+   "answer": 2,
+   "explain": "Just like in arithmetic, parentheses make intent clear.",
+   "lesson": "python-11",
+   "evidence": "you can and should use parentheses whenever there is possible ambiguity",
+   "origin": "authored"
+  },
+  {
+   "id": "8fe9b635be",
+   "module": 2,
+   "q": "In Unix, what does 'globbing' mean?",
+   "options": [
+    "Combining two lists",
+    "Deleting a set of files",
+    "Matching a set of files with a pattern",
+    "Counting the lines in a file"
+   ],
+   "answer": 2,
+   "explain": "Patterns like data/*.csv let a loop process many files.",
+   "lesson": "python-12",
+   "evidence": "In Unix, the term \"globbing\" means \"matching a set of files with a pattern\".",
+   "origin": "authored"
+  },
+  {
+   "id": "3ba3dde1e6",
+   "module": 3,
+   "q": "Why break a program down into functions?",
+   "options": [
+    "To make it run in parallel automatically",
+    "To make it easier to understand",
+    "Because Python requires it",
+    "To use more memory"
+   ],
+   "answer": 1,
+   "explain": "Functions encapsulate complexity as a single 'thing'.",
+   "lesson": "python-13",
+   "evidence": "Break programs down into functions to make them easier to understand.",
+   "origin": "authored"
+  },
+  {
+   "id": "0ddabbce66",
+   "module": 3,
+   "q": "How are the arguments in a function call matched up?",
+   "options": [
+    "To the function's defined parameters",
+    "Randomly",
+    "Alphabetically",
+    "By their data type only"
+   ],
+   "answer": 0,
+   "explain": "Parameters receive the values passed in the call.",
+   "lesson": "python-13",
+   "evidence": "Arguments in a function call are matched to its defined parameters.",
+   "origin": "authored"
+  },
+  {
+   "id": "e0347de693",
+   "module": 3,
+   "q": "When are functions most useful?",
+   "options": [
+    "When they have no parameters",
+    "When they are very long",
+    "When they are used once",
+    "When they can operate on different data"
+   ],
+   "answer": 3,
+   "explain": "Parameters let one function serve many inputs.",
+   "lesson": "python-13",
+   "evidence": "Functions are most useful when they can operate on different data.",
+   "origin": "authored"
+  },
+  {
+   "id": "de928b4843",
+   "module": 3,
+   "q": "What does encapsulating complexity in a function let us do?",
+   "options": [
+    "Hide errors",
+    "Avoid testing",
+    "Treat it as a single 'thing'",
+    "Skip naming variables"
+   ],
+   "answer": 2,
+   "explain": "You can use the function without thinking about its insides.",
+   "lesson": "python-13",
+   "evidence": "Encapsulate complexity so that we can treat it as a single",
+   "origin": "authored"
+  },
+  {
+   "id": "2c1f58bd59",
+   "module": 3,
+   "q": "Which keyword begins a function definition in Python?",
+   "options": [
+    "func",
+    "def",
+    "function",
+    "define"
+   ],
+   "answer": 1,
+   "explain": "It is followed by the name, parameters and an indented block.",
+   "lesson": "python-13",
+   "evidence": "Begin the definition of a new function with def",
+   "origin": "authored"
+  },
+  {
+   "id": "e74a1d78db",
+   "module": 3,
+   "q": "How does a function give a value back to its caller?",
+   "options": [
+    "With return",
+    "With print",
+    "With yield only",
+    "It cannot"
+   ],
+   "answer": 0,
+   "explain": "print only displays a value; return hands it back.",
+   "lesson": "python-13",
+   "evidence": "Functions may return a result to their caller using return",
+   "origin": "authored"
+  },
+  {
+   "id": "ec884b2eda",
+   "module": 3,
+   "q": "What is the scope of a variable?",
+   "options": [
+    "Its data type",
+    "The part of a program that can 'see' that variable",
+    "The number of times it changes",
+    "Its memory address"
+   ],
+   "answer": 1,
+   "explain": "Variables created inside a function are local to it; global variables are visible everywhere.",
+   "lesson": "python-14",
+   "evidence": "The scope of a variable is the part of a program that can 'see' that variable.",
+   "origin": "authored"
+  },
+  {
+   "id": "ed0db662f5",
+   "module": 3,
+   "q": "Why does coding style matter, according to the lesson?",
+   "options": [
+    "Python refuses to run badly formatted code",
+    "It makes programs run faster",
+    "It is required to use pandas",
+    "Code is read much more often than it is written"
+   ],
+   "answer": 3,
+   "explain": "Readable code (for example following PEP 8) is easier to share, review and fix.",
+   "lesson": "python-15",
+   "evidence": "Code is read much more often than it is written",
+   "origin": "authored"
+  }
+ ],
  "minutes": 101,
  "sources": [
   {

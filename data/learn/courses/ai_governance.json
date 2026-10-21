@@ -812,178 +812,578 @@
    ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "What does the lesson suggest as a good way to measure the potential harm of a generative AI application?",
-    "options": [
-     "Measuring how fast the model answers",
-     "Counting how many users sign up",
-     "Testing a diverse set of prompts that users are most likely to use",
-     "Asking the model whether it is harmful"
-    ],
-    "answer": 2,
-    "explain": "Builders should keep a wide, diverse user base in mind and test the prompts real users will send.",
-    "lesson": "ai_governance-01",
-    "evidence": "testing a diverse set of prompts users are most likely going to use is a good way to measure potential harm.",
-    "origin": "authored"
-   },
-   {
-    "q": "Unfairness in a model can be caused by",
-    "options": [
-     "over reliance on historical data",
-     "under reliance on historical data",
-     "too closely aligning to historical data"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "ai_governance-02",
-    "origin": "bank:ml:6",
-    "source": "ms-ml"
-   },
-   {
-    "q": "What is ethics based on, according to the data ethics lesson?",
-    "options": [
-     "Widely accepted norms of what is right versus wrong, not laws",
-     "The laws of each country only",
-     "The terms of service of software products",
-     "Personal preferences of developers"
-    ],
-    "answer": 0,
-    "explain": "Laws set minimum requirements; ethics is about shared norms, which organisations operationalise through an ethics culture.",
-    "lesson": "ai_governance-03",
-    "evidence": "Ethics is based not on laws but on widely accepted norms of what is \"right vs. wrong\".",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the main difference between ethics and applied ethics?",
-    "options": [
-     "Applied ethics is a specific type of ethics",
-     "Applied ethics is not a real term",
-     "Applied ethics is the process of finding and correcting ethical issues"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "ai_governance-03",
-    "origin": "bank:ds:3",
-    "source": "ms-ds"
-   },
-   {
-    "q": "When does selection bias occur?",
-    "options": [
-     "When a model is too large",
-     "When labels are written by experts",
-     "When features are scaled",
-     "When a dataset's examples are chosen in a way that does not reflect their real-world distribution"
-    ],
-    "answer": 3,
-    "explain": "If the sample is unrepresentative, the model learns a distorted picture of the world.",
-    "lesson": "ai_governance-04",
-    "evidence": "Selection bias occurs if a dataset's examples are chosen in a way that is not reflective of their real-world distribution.",
-    "origin": "authored"
-   },
-   {
-    "q": "How does the NIST AI RMF describe risk tolerance?",
-    "options": [
-     "A fixed threshold set by NIST for all AI systems",
-     "Highly contextual and specific to the application and use case",
-     "Irrelevant once a system is deployed",
-     "The same for every organisation in a sector"
-    ],
-    "answer": 1,
-    "explain": "What level of risk is acceptable depends on context, so the framework does not prescribe one.",
-    "lesson": "ai_governance-05",
-    "evidence": "Risk tolerance and the level of risk that is acceptable to organizations or society are highly contextual and application and use-case specific.",
-    "origin": "authored"
-   },
-   {
-    "q": "Which trustworthiness characteristic does the NIST AI RMF show as the base for all the others?",
-    "options": [
-     "Privacy-enhanced",
-     "Explainable and interpretable",
-     "Valid and reliable",
-     "Fair, with harmful bias managed"
-    ],
-    "answer": 2,
-    "explain": "A system that is not valid and reliable cannot be trustworthy in any other respect.",
-    "lesson": "ai_governance-06",
-    "evidence": "Valid & Reliable is a necessary condition of trustworthiness and is shown as the base for other trustworthiness characteristics.",
-    "origin": "authored"
-   },
-   {
-    "q": "Under 'Govern 2' of the AI RMF Core, what must be in place?",
-    "options": [
-     "A budget for buying AI tools",
-     "A public list of all training data",
-     "A ban on third-party models",
-     "Accountability structures so the right teams and people are empowered, responsible and trained to map, measure and manage AI risks"
-    ],
-    "answer": 3,
-    "explain": "Governance is about clear roles and responsibilities for managing AI risk.",
-    "lesson": "ai_governance-07",
-    "evidence": "Govern 2: Accountability structures are in place so that the appropriate teams and individuals are empowered, responsible, and trained for mapping, measuring, and managing AI risks.",
-    "origin": "authored"
-   },
-   {
-    "q": "Which is a way AI risks differ from traditional software risks?",
-    "options": [
-     "Training data may become detached from its intended context or outdated relative to the deployment context",
-     "AI systems never need testing",
-     "AI systems cannot be attacked",
-     "AI systems always explain their decisions"
-    ],
-    "answer": 0,
-    "explain": "Data-driven behaviour can drift as the world changes, which traditional code does not.",
-    "lesson": "ai_governance-09",
-    "evidence": "Datasets used to train AI systems may become detached from their original and intended context or may become stale or outdated relative to deployment context.",
-    "origin": "authored"
-   },
-   {
-    "q": "Why should you take particular care with algorithms used where there are known historical inequalities?",
-    "options": [
-     "Because such algorithms run more slowly",
-     "Because the available training data is likely to encode the same biases",
-     "Because the law forbids them",
-     "Because their results cannot be explained"
-    ],
-    "answer": 1,
-    "explain": "Historical data reflects historical unfairness, which a model will learn unless you correct for it.",
-    "lesson": "ai_governance-13",
-    "evidence": "as the available training data is likely to encode these same biases.",
-    "origin": "authored"
-   },
-   {
-    "q": "Which privacy principle does the Data and AI Ethics Framework recommend upholding?",
-    "options": [
-     "Collect as much data as possible in case it is useful later",
-     "Only tell users about data use if they ask",
-     "Nobody should be surprised about how their data is being used",
-     "Personal data can be used freely inside government"
-    ],
-    "answer": 2,
-    "explain": "Explain what you collect, why, how it is used and how long it is kept.",
-    "lesson": "ai_governance-14",
-    "evidence": "A good principle to uphold is that nobody should be surprised about how their data is being used.",
-    "origin": "authored"
-   },
-   {
-    "q": "What does responsible AI refer to?",
-    "options": [
-     "Using AI only for research",
-     "AI that has passed a government licence exam",
-     "AI systems that cannot make mistakes",
-     "Developing and using AI in a way that is ethical, transparent and aligned with societal values"
-    ],
-    "answer": 3,
-    "explain": "It covers fairness, privacy, robustness, transparency and accountability across the AI lifecycle.",
-    "lesson": "ai_governance-19",
-    "evidence": "Responsible AI refers to the development and use of artificial intelligence in a way that is ethical, transparent, and aligns with societal values.",
-    "origin": "authored"
-   }
-  ],
-  "pass_mark": 9,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "8f4349fdef",
+   "module": 0,
+   "q": "What does the lesson suggest as a good way to measure the potential harm of a generative AI application?",
+   "options": [
+    "Measuring how fast the model answers",
+    "Counting how many users sign up",
+    "Testing a diverse set of prompts that users are most likely to use",
+    "Asking the model whether it is harmful"
+   ],
+   "answer": 2,
+   "explain": "Builders should keep a wide, diverse user base in mind and test the prompts real users will send.",
+   "lesson": "ai_governance-01",
+   "evidence": "testing a diverse set of prompts users are most likely going to use is a good way to measure potential harm.",
+   "origin": "authored"
+  },
+  {
+   "id": "50dcd39693",
+   "module": 0,
+   "q": "Unfairness in a model can be caused by",
+   "options": [
+    "over reliance on historical data",
+    "under reliance on historical data",
+    "too closely aligning to historical data"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "ai_governance-02",
+   "origin": "bank:ml:6",
+   "source": "ms-ml"
+  },
+  {
+   "id": "9c2fcc0c11",
+   "module": 0,
+   "q": "To mitigate unfairness, you can",
+   "options": [
+    "identify harms and affected groups",
+    "define fairness metrics",
+    "both the above"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "ai_governance-02",
+   "origin": "bank:ml:6",
+   "source": "ms-ml"
+  },
+  {
+   "id": "0a9abf33db",
+   "module": 0,
+   "q": "Fairlearn is a package that can",
+   "options": [
+    "compare multiple models by using fairness and performance metrics",
+    "choose the best model for your needs",
+    "help you decide what is fair and what is not"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "ai_governance-02",
+   "origin": "bank:ml:6",
+   "source": "ms-ml"
+  },
+  {
+   "id": "bb7ef512eb",
+   "module": 0,
+   "q": "What is ethics based on, according to the data ethics lesson?",
+   "options": [
+    "Widely accepted norms of what is right versus wrong, not laws",
+    "The laws of each country only",
+    "The terms of service of software products",
+    "Personal preferences of developers"
+   ],
+   "answer": 0,
+   "explain": "Laws set minimum requirements; ethics is about shared norms, which organisations operationalise through an ethics culture.",
+   "lesson": "ai_governance-03",
+   "evidence": "Ethics is based not on laws but on widely accepted norms of what is \"right vs. wrong\".",
+   "origin": "authored"
+  },
+  {
+   "id": "adea789740",
+   "module": 0,
+   "q": "What is the main difference between ethics and applied ethics?",
+   "options": [
+    "Applied ethics is a specific type of ethics",
+    "Applied ethics is not a real term",
+    "Applied ethics is the process of finding and correcting ethical issues"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "ai_governance-03",
+   "origin": "bank:ds:3",
+   "source": "ms-ds"
+  },
+  {
+   "id": "4aea622cc3",
+   "module": 0,
+   "q": "What is the difference between ethics regulation vs ethics principles",
+   "options": [
+    "Ethics regulation focuses on regular ethics",
+    "There is no difference",
+    "Ethics principles do not relate to a particular law, while regulations do"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "ai_governance-03",
+   "origin": "bank:ds:3",
+   "source": "ms-ds"
+  },
+  {
+   "id": "ba5a99aa54",
+   "module": 0,
+   "q": "Which of these are real ethical principles and practices that can be applied?",
+   "options": [
+    "Collection bias",
+    "Compliance with ethics regulations",
+    "both of the above"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "ai_governance-03",
+   "origin": "bank:ds:3",
+   "source": "ms-ds"
+  },
+  {
+   "id": "43480e8af1",
+   "module": 1,
+   "q": "When does selection bias occur?",
+   "options": [
+    "When a model is too large",
+    "When labels are written by experts",
+    "When features are scaled",
+    "When a dataset's examples are chosen in a way that does not reflect their real-world distribution"
+   ],
+   "answer": 3,
+   "explain": "If the sample is unrepresentative, the model learns a distorted picture of the world.",
+   "lesson": "ai_governance-04",
+   "evidence": "Selection bias occurs if a dataset's examples are chosen in a way that is not reflective of their real-world distribution.",
+   "origin": "authored"
+  },
+  {
+   "id": "eafc869da0",
+   "module": 1,
+   "q": "A sentiment model trained mostly on reviews from people who loved or hated a book struggles with subtle reviews. Which bias explains this?",
+   "options": [
+    "Reporting bias",
+    "In-group bias",
+    "Automation bias",
+    "Experimenter's bias"
+   ],
+   "answer": 0,
+   "explain": "People mostly write reviews when they feel strongly, so the data doesn't reflect how often moderate opinions occur.",
+   "lesson": "ai_governance-04",
+   "evidence": "Reporting bias occurs when the frequency of events, properties, and/or outcomes captured in a dataset does not accurately reflect their real-world frequency.",
+   "origin": "authored"
+  },
+  {
+   "id": "ea68d6db8e",
+   "module": 1,
+   "q": "A surveyor uses the first 200 consumers who answered an email instead of a random sample. Which bias is this?",
+   "options": [
+    "Coverage bias",
+    "Sampling bias",
+    "Reporting bias",
+    "Out-group homogeneity bias"
+   ],
+   "answer": 1,
+   "explain": "Early responders may be more enthusiastic than average buyers; proper randomisation avoids this.",
+   "lesson": "ai_governance-04",
+   "evidence": "Sampling bias occurs if proper randomization is not used during data collection.",
+   "origin": "authored"
+  },
+  {
+   "id": "e8706e8f49",
+   "module": 1,
+   "q": "What is coverage bias?",
+   "options": [
+    "Training a model until it confirms your hypothesis",
+    "Favouring automated results over human ones",
+    "Data that is not selected in a representative way",
+    "Stereotyping members of other groups"
+   ],
+   "answer": 2,
+   "explain": "Coverage bias is a kind of selection bias: some parts of the population are missing from the data.",
+   "lesson": "ai_governance-04",
+   "evidence": "Coverage bias occurs if data is not selected in a representative fashion.",
+   "origin": "authored"
+  },
+  {
+   "id": "f00771f336",
+   "module": 1,
+   "q": "What is automation bias?",
+   "options": [
+    "Automating data collection without consent",
+    "Favouring results from automated systems regardless of their error rates",
+    "Preferring people from your own group",
+    "Collecting data without randomisation"
+   ],
+   "answer": 1,
+   "explain": "People tend to trust a machine's output even when a human method is more accurate.",
+   "lesson": "ai_governance-04",
+   "evidence": "Automation bias is a tendency to favor results generated by automated systems over those generated by non-automated systems, irrespective of the error rates of each.",
+   "origin": "authored"
+  },
+  {
+   "id": "6662548140",
+   "module": 1,
+   "q": "A model builder keeps training until the model produces the result they expected. Which bias is this?",
+   "options": [
+    "Experimenter's bias",
+    "Coverage bias",
+    "Reporting bias",
+    "Group attribution bias"
+   ],
+   "answer": 0,
+   "explain": "Stopping only when results match the original hypothesis bakes that belief into the model.",
+   "lesson": "ai_governance-04",
+   "evidence": "Experimenter's bias occurs when a model builder keeps training a model until it produces a result that aligns with their original hypothesis.",
+   "origin": "authored"
+  },
+  {
+   "id": "9839f47c85",
+   "module": 1,
+   "q": "What is out-group homogeneity bias?",
+   "options": [
+    "Preferring members of your own group",
+    "Generalising one person's traits to their whole group",
+    "Ignoring rare events in the data",
+    "Seeing members of groups you don't belong to as more alike than they are"
+   ],
+   "answer": 3,
+   "explain": "It stereotypes individuals of other groups and treats their characteristics as uniform.",
+   "lesson": "ai_governance-04",
+   "evidence": "or to see their characteristics as more uniform",
+   "origin": "authored"
+  },
+  {
+   "id": "7ca5bd478e",
+   "module": 2,
+   "q": "How does the NIST AI RMF describe risk tolerance?",
+   "options": [
+    "A fixed threshold set by NIST for all AI systems",
+    "Highly contextual and specific to the application and use case",
+    "Irrelevant once a system is deployed",
+    "The same for every organisation in a sector"
+   ],
+   "answer": 1,
+   "explain": "What level of risk is acceptable depends on context, so the framework does not prescribe one.",
+   "lesson": "ai_governance-05",
+   "evidence": "Risk tolerance and the level of risk that is acceptable to organizations or society are highly contextual and application and use-case specific.",
+   "origin": "authored"
+  },
+  {
+   "id": "411d65bb8e",
+   "module": 2,
+   "q": "Which trustworthiness characteristic does the NIST AI RMF show as the base for all the others?",
+   "options": [
+    "Privacy-enhanced",
+    "Explainable and interpretable",
+    "Valid and reliable",
+    "Fair, with harmful bias managed"
+   ],
+   "answer": 2,
+   "explain": "A system that is not valid and reliable cannot be trustworthy in any other respect.",
+   "lesson": "ai_governance-06",
+   "evidence": "Valid & Reliable is a necessary condition of trustworthiness and is shown as the base for other trustworthiness characteristics.",
+   "origin": "authored"
+  },
+  {
+   "id": "5706a07ef4",
+   "module": 2,
+   "q": "According to the NIST AI RMF, how strong is a system's trustworthiness?",
+   "options": [
+    "As strong as its strongest characteristic",
+    "Fixed once the system is certified",
+    "Only as strong as its weakest characteristic",
+    "Determined by accuracy alone"
+   ],
+   "answer": 2,
+   "explain": "Trustworthiness is a social concept on a spectrum; trade-offs between characteristics must be justified.",
+   "lesson": "ai_governance-06",
+   "evidence": "is only as strong as its weakest characteristics",
+   "origin": "authored"
+  },
+  {
+   "id": "4a845bd2c9",
+   "module": 2,
+   "q": "Why is 'Accountable & Transparent' drawn as a vertical box in the NIST trustworthiness diagram?",
+   "options": [
+    "It is the least important characteristic",
+    "It relates to all the other characteristics",
+    "It applies only to AI vendors",
+    "It is optional for low-risk systems"
+   ],
+   "answer": 1,
+   "explain": "Valid & Reliable forms the base; accountability and transparency cut across everything else.",
+   "lesson": "ai_governance-06",
+   "evidence": "Accountable & Transparent is shown as a vertical box because it relates to all other characteristics.",
+   "origin": "authored"
+  },
+  {
+   "id": "5d4b31d9bd",
+   "module": 2,
+   "q": "Under 'Govern 2' of the AI RMF Core, what must be in place?",
+   "options": [
+    "A budget for buying AI tools",
+    "A public list of all training data",
+    "A ban on third-party models",
+    "Accountability structures so the right teams and people are empowered, responsible and trained to map, measure and manage AI risks"
+   ],
+   "answer": 3,
+   "explain": "Governance is about clear roles and responsibilities for managing AI risk.",
+   "lesson": "ai_governance-07",
+   "evidence": "Govern 2: Accountability structures are in place so that the appropriate teams and individuals are empowered, responsible, and trained for mapping, measuring, and managing AI risks.",
+   "origin": "authored"
+  },
+  {
+   "id": "aa5d195d4d",
+   "module": 2,
+   "q": "In the AI RMF, what are 'negative residual risks'?",
+   "options": [
+    "The sum of all unmitigated risks",
+    "Risks that have been fully removed",
+    "Risks accepted by a regulator",
+    "Risks found only after deployment"
+   ],
+   "answer": 0,
+   "explain": "Manage 1.4 asks for them to be documented for downstream acquirers and end users.",
+   "lesson": "ai_governance-08",
+   "evidence": "Negative residual risks (defined as the sum of all unmitigated risks)",
+   "origin": "authored"
+  },
+  {
+   "id": "811c975ca0",
+   "module": 2,
+   "q": "Which is a way AI risks differ from traditional software risks?",
+   "options": [
+    "Training data may become detached from its intended context or outdated relative to the deployment context",
+    "AI systems never need testing",
+    "AI systems cannot be attacked",
+    "AI systems always explain their decisions"
+   ],
+   "answer": 0,
+   "explain": "Data-driven behaviour can drift as the world changes, which traditional code does not.",
+   "lesson": "ai_governance-09",
+   "evidence": "Datasets used to train AI systems may become detached from their original and intended context or may become stale or outdated relative to deployment context.",
+   "origin": "authored"
+  },
+  {
+   "id": "563c269d32",
+   "module": 3,
+   "q": "How should a team use the Data and AI Ethics Framework during a project?",
+   "options": [
+    "Read it once at the start",
+    "Use it only after deployment",
+    "Complete it as a one-off checklist",
+    "Revisit it regularly, especially when the work changes"
+   ],
+   "answer": 3,
+   "explain": "It is meant to guide decisions across the whole life cycle, alongside the self-assessment tool.",
+   "lesson": "ai_governance-10",
+   "evidence": "You should regularly revisit it throughout your project, especially when you make changes to your work or project.",
+   "origin": "authored"
+  },
+  {
+   "id": "a2b2ce32d3",
+   "module": 3,
+   "q": "What is 'process transparency' in the Data and AI Ethics Framework?",
+   "options": [
+    "Publishing the model's source code",
+    "Making all the training data open",
+    "Information about the design, development and deployment decisions behind the AI",
+    "Showing users the model's accuracy score"
+   ],
+   "answer": 2,
+   "explain": "Technical transparency covers code and data; process transparency covers how and why decisions were made.",
+   "lesson": "ai_governance-11",
+   "evidence": "Process transparency This is information about the design, development and deployment decisions and practices behind your AI solutions",
+   "origin": "authored"
+  },
+  {
+   "id": "deca0dd52a",
+   "module": 3,
+   "q": "What does accountability mean when a data or AI system harms someone?",
+   "options": [
+    "The user has to accept the risk",
+    "The harm can be raised and fixed",
+    "The system is switched off permanently",
+    "Nobody is responsible because the AI decided"
+   ],
+   "answer": 1,
+   "explain": "Accountability also means clear roles and responsibilities at every stage of the project.",
+   "lesson": "ai_governance-12",
+   "evidence": "if something goes wrong and a system or process harms someone, this can be raised and fixed",
+   "origin": "authored"
+  },
+  {
+   "id": "02324c8754",
+   "module": 3,
+   "q": "Why should you take particular care with algorithms used where there are known historical inequalities?",
+   "options": [
+    "Because such algorithms run more slowly",
+    "Because the available training data is likely to encode the same biases",
+    "Because the law forbids them",
+    "Because their results cannot be explained"
+   ],
+   "answer": 1,
+   "explain": "Historical data reflects historical unfairness, which a model will learn unless you correct for it.",
+   "lesson": "ai_governance-13",
+   "evidence": "as the available training data is likely to encode these same biases.",
+   "origin": "authored"
+  },
+  {
+   "id": "2bff9d56f2",
+   "module": 3,
+   "q": "Which privacy principle does the Data and AI Ethics Framework recommend upholding?",
+   "options": [
+    "Collect as much data as possible in case it is useful later",
+    "Only tell users about data use if they ask",
+    "Nobody should be surprised about how their data is being used",
+    "Personal data can be used freely inside government"
+   ],
+   "answer": 2,
+   "explain": "Explain what you collect, why, how it is used and how long it is kept.",
+   "lesson": "ai_governance-14",
+   "evidence": "A good principle to uphold is that nobody should be surprised about how their data is being used.",
+   "origin": "authored"
+  },
+  {
+   "id": "7542a72ba8",
+   "module": 3,
+   "q": "Why should environmental sustainability be considered from the very start of a project?",
+   "options": [
+    "It can shape your choices of tools, suppliers and infrastructure",
+    "It is only checked by auditors at the end",
+    "It only matters for hardware projects",
+    "It is a legal formality with no design impact"
+   ],
+   "answer": 0,
+   "explain": "Early choices about compute and suppliers fix much of a project's environmental footprint.",
+   "lesson": "ai_governance-15",
+   "evidence": "as it can influence your choices about tools, suppliers and infrastructure",
+   "origin": "authored"
+  },
+  {
+   "id": "24a09a2e15",
+   "module": 3,
+   "q": "What does 'societal impact' refer to in the framework?",
+   "options": [
+    "The media coverage a project receives",
+    "The number of people who use a system",
+    "The cost savings from automation",
+    "The effects data and AI can have on individuals, communities, social structures and economies"
+   ],
+   "answer": 3,
+   "explain": "Understanding it requires knowing the social and technical context a system is used in.",
+   "lesson": "ai_governance-16",
+   "evidence": "Societal impact refers to the effects that data and AI can have on individuals, communities, social structures and economies.",
+   "origin": "authored"
+  },
+  {
+   "id": "9def7dc23d",
+   "module": 3,
+   "q": "In the context of data-driven technologies, which themes does 'safety' cover?",
+   "options": [
+    "Speed, cost, popularity and scale",
+    "Colour, layout, fonts and branding",
+    "Accuracy, security, reliability and robustness",
+    "Profit, growth, market share and reach"
+   ],
+   "answer": 2,
+   "explain": "Safety matters most in high-risk areas such as healthcare, policing and justice.",
+   "lesson": "ai_governance-17",
+   "evidence": "safety refers to themes such as accuracy, security, reliability and robustness",
+   "origin": "authored"
+  },
+  {
+   "id": "4413b29b38",
+   "module": 4,
+   "q": "Why do AI systems often have larger attack surfaces than traditional systems?",
+   "options": [
+    "They always run on public clouds",
+    "They rely on data and models as well as software",
+    "They open more network ports",
+    "They are usually written in Python"
+   ],
+   "answer": 1,
+   "explain": "Training data, models and algorithms are all new targets for attackers.",
+   "lesson": "ai_governance-18",
+   "evidence": "This is because they not only rely on software but also on data and models.",
+   "origin": "authored"
+  },
+  {
+   "id": "2006db7dbc",
+   "module": 4,
+   "q": "Which threat is specific to AI systems rather than traditional cybersecurity?",
+   "options": [
+    "Targeting the training data to manipulate the model",
+    "Phishing emails",
+    "Malware on laptops",
+    "Network intrusions"
+   ],
+   "answer": 0,
+   "explain": "Traditional cybersecurity mainly deals with malware, phishing and network intrusions.",
+   "lesson": "ai_governance-18",
+   "evidence": "Attackers can target the training data, manipulate models, or exploit vulnerabilities in the algorithms themselves.",
+   "origin": "authored"
+  },
+  {
+   "id": "07a24108e9",
+   "module": 4,
+   "q": "Why does limited interpretability make AI systems harder to secure?",
+   "options": [
+    "AI systems never record their decisions",
+    "Humans cannot read AI source code",
+    "AI models are always open source",
+    "It is harder to understand why the system made a particular decision"
+   ],
+   "answer": 3,
+   "explain": "If you cannot explain a decision, it is harder to tell a manipulated output from a normal one.",
+   "lesson": "ai_governance-18",
+   "evidence": "Understanding why an AI system made a particular decision is often more challenging compared to traditional software systems.",
+   "origin": "authored"
+  },
+  {
+   "id": "d7ce0d425d",
+   "module": 4,
+   "q": "What does responsible AI refer to?",
+   "options": [
+    "Using AI only for research",
+    "AI that has passed a government licence exam",
+    "AI systems that cannot make mistakes",
+    "Developing and using AI in a way that is ethical, transparent and aligned with societal values"
+   ],
+   "answer": 3,
+   "explain": "It covers fairness, privacy, robustness, transparency and accountability across the AI lifecycle.",
+   "lesson": "ai_governance-19",
+   "evidence": "Responsible AI refers to the development and use of artificial intelligence in a way that is ethical, transparent, and aligns with societal values.",
+   "origin": "authored"
+  },
+  {
+   "id": "bed62078e1",
+   "module": 4,
+   "q": "How do privacy and data protection link responsible AI and AI security?",
+   "options": [
+    "Responsible AI forbids security testing",
+    "Privacy only matters for marketing teams",
+    "Respecting privacy and securing personal data is part of responsible AI",
+    "Security teams decide what counts as ethical"
+   ],
+   "answer": 2,
+   "explain": "Ethical considerations such as privacy directly affect how an AI system must be secured.",
+   "lesson": "ai_governance-19",
+   "evidence": "Ensuring that AI systems respect user privacy and secure personal data is a key aspect of responsible AI.",
+   "origin": "authored"
+  },
+  {
+   "id": "7df98506a2",
+   "module": 4,
+   "q": "Which principle is core to both responsible AI and AI security?",
+   "options": [
+    "Maximising model size",
+    "Robustness against manipulation and attacks",
+    "Keeping every model secret",
+    "Training only on open data"
+   ],
+   "answer": 1,
+   "explain": "This includes defending against adversarial attacks and protecting the integrity of decisions.",
+   "lesson": "ai_governance-19",
+   "evidence": "AI systems must be robust against manipulation and attacks, which is a core principle of both responsible AI and AI security.",
+   "origin": "authored"
+  }
+ ],
  "minutes": 195,
  "sources": [
   {

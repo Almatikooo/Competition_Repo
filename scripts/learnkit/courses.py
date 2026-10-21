@@ -999,3 +999,224 @@ COURSES = {
         ],
     },
 }
+
+
+# ================================================================== Business & industry courses (added October 2026)
+# Only openly licensed material: OpenStax Introduction to Business (CC BY 4.0), U.S. Government works (SBA, EPA, NIST, FinCEN),
+# GOV.UK (OGL), Google for Developers (CC BY 4.0), Technical Writing Essentials (CC BY 4.0), Lessons In Electric Circuits (DSL) and
+# Microsoft IoT for Beginners (MIT). OpenStax's newer business titles are CC BY-NC-SA and are deliberately not used.
+SOURCES.update({
+    "sba": pd("U.S. Small Business Administration · Business Guide", "https://www.sba.gov/business-guide", "U.S. Small Business Administration"),
+    "nist-sema": pd("NIST/SEMATECH e-Handbook of Statistical Methods", "https://www.itl.nist.gov/div898/handbook/", "National Institute of Standards and Technology"),
+    "fincen": pd("FinCEN (U.S. Department of the Treasury)", "https://www.fincen.gov/", "Financial Crimes Enforcement Network"),
+    "lec4": src("Lessons In Electric Circuits, Vol. IV (Digital)", "https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/", "Design Science License", DSL,
+                "© Tony R. Kuphaldt, Design Science License"),
+    "google-tw": src("Google for Developers · Technical Writing One", "https://developers.google.com/tech-writing/one", "CC BY 4.0", CC_BY, "© Google, CC BY 4.0"),
+    "google-style": src("Google developer documentation style guide", "https://developers.google.com/style", "CC BY 4.0", CC_BY, "© Google, CC BY 4.0"),
+    "twe": src("Technical Writing Essentials", "https://ua.pressbooks.pub/technicalwritingessentials/", "CC BY 4.0", CC_BY,
+               "Suzan Last, University of Victoria, CC BY 4.0"),
+})
+
+TWE = "ua.pressbooks.pub/technicalwritingessentials"
+SBA_PLAN = "https://www.sba.gov/business-guide/plan-your-business"
+SBA_MANAGE = "https://www.sba.gov/business-guide/manage-your-business"
+
+
+def sba(page, section, title, **kw):
+    """One section of an SBA business-guide page (each page holds several guides under h2 headings)."""
+    return html(page, ("main",), source="sba", title=title, split=split(3200, pick=[rf"^{section}"]), **kw)
+
+
+def lean(slug, title, **kw):
+    return html(f"https://www.epa.gov/sustainability/lean-thinking-and-methods-{slug}", ("article",), source="epa", title=title,
+                drop_headings=(r"^Explore Lean Thinking", r"^On this page"), **kw)
+
+
+def spc(path, title, **kw):
+    # the handbook's pages are 1990s tables: drop the image-map navigation, the breadcrumb and the numbered title cells
+    return html(f"https://www.itl.nist.gov/div898/handbook/pmc/{path}", ("body",), source="nist-sema", title=title, latex=True,
+                drop=('font[size="-1"]', "map", "img[usemap]", "h2"), **kw)
+
+
+def lec4(chapter, title, **kw):
+    return html(f"https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_{chapter}.html", ("body",), source="lec4", title=title,
+                drop_headings=(r"^Lessons In Electric Circuits", r"^Chapter \d+$", r"^Contributors$"), **kw)
+
+
+GOOGLE_CHROME = ("devsite-key-takeaways-panel", "devsite-actions", ".devsite-page-bookmark-tooltip")  # AI page summaries and bookmark buttons
+
+
+def gtw(slug, title, **kw):
+    return html(f"https://developers.google.com/tech-writing/one/{slug}", GOOGLE_SEL, source="google-tw", title=title, drop=GOOGLE_CHROME, **kw)
+
+
+def gstyle(slug, title, **kw):
+    return html(f"https://developers.google.com/style/{slug}", GOOGLE_SEL, source="google-style", title=title, drop=GOOGLE_CHROME, **kw)
+
+
+COURSES.update({
+    "supply_chain": {
+        "title": "Supply Chain & Logistics", "subtitle": "How goods are planned, made, moved and traded — and how to make the chain faster and leaner.",
+        "level": "Beginner", "source": "ostx-biz",
+        "outcomes": ["Explain operations management and how supply chains create value", "Plan resources with MRP, ERP and scheduling tools",
+                     "Choose distribution channels and manage logistics", "Understand global trade, its barriers and how firms go international"],
+        "modules": [
+            mod("Operations and supply chains", biz("10-1-production-and-operations-management-an-overview"),
+                biz("10-3-location-location-location-where-do-we-make-it")),
+            mod("Planning and control", biz("10-4-pulling-it-together-resource-planning"), biz("10-5-production-and-operations-control"),
+                biz("10-8-trends-in-production-and-operations-management")),
+            mod("Getting products to customers", biz("12-1-the-nature-and-functions-of-distribution-place"), biz("12-2-wholesaling"),
+                biz("12-4-using-supply-chain-management-to-increase-efficiency-and-customer-satisfaction")),
+            mod("Trading across borders", biz("3-2-why-nations-trade"), biz("3-3-barriers-to-trade"), biz("3-6-participating-in-the-global-marketplace")),
+        ],
+    },
+    "lean_quality": {
+        "title": "Lean, Quality & Six Sigma", "subtitle": "Cut waste, improve processes and keep quality under control with lean tools and statistics.",
+        "level": "Beginner", "source": "epa",
+        "outcomes": ["Explain lean thinking, the wastes it removes and total quality management", "Run kaizen events and organise workplaces with 5S",
+                     "Use just-in-time, kanban and total productive maintenance", "Monitor a process with control charts and Six Sigma"],
+        "modules": [
+            mod("Quality and lean thinking", biz("10-2-the-production-process-how-do-we-make-it", source="ostx-biz"),
+                biz("10-6-looking-for-a-better-way-improving-production-and-operations", source="ostx-biz")),
+            mod("Lean tools", lean("kaizen", "Kaizen"), lean("5s", "5S: sort, set in order, shine, standardise, sustain"),
+                lean("jitkanban", "Just-in-time and kanban"), lean("tpm", "Total productive maintenance")),
+            mod("Six Sigma and process control", lean("six-sigma", "Six Sigma"),
+                stitch("Statistical process control", spc("section1/pmc11.htm", "How statistical quality control began"),
+                       spc("section1/pmc12.htm", "Process control techniques"), spc("section1/pmc13.htm", "What process control is"),
+                       spc("section1/pmc14.htm", "When a process is out of control"),
+                       spc("section1/pmc15.htm", "When a process is in control but unacceptable"), source="nist-sema"),
+                spc("section3/pmc31.htm", "What are control charts?"),
+                stitch("Charts for measurements and for counts", spc("section3/pmc32.htm", "Variables control charts"),
+                       spc("section3/pmc33.htm", "Attributes control charts"), source="nist-sema"),
+                spc("section1/pmc16.htm", "Process capability")),
+        ],
+    },
+    "industrial_automation": {
+        "title": "Industrial Automation & PLCs", "subtitle": "Relays, ladder logic and programmable logic controllers — how machines are controlled and kept safe.",
+        "level": "Beginner", "source": "lec4",
+        "outcomes": ["Explain how relays, contactors and time-delay relays switch machines", "Read and draw ladder logic for control circuits",
+                     "Design interlocks, motor controls and fail-safe circuits", "Explain how PLCs, sensors and machine vision automate production"],
+        "modules": [
+            mod("Relays and contactors", lec4(5, "Electromechanical relays", split=split(1800))),
+            mod("Ladder logic and PLCs", lec4(6, "Ladder logic", split=split(1800))),
+            mod("Automated production", biz("10-7-transforming-the-factory-floor-with-technology", source="ostx-biz"),
+                gh(IOT, "4-manufacturing/lessons/4-trigger-fruit-detector/README.md", source="ms-iot")),
+        ],
+    },
+    "content_writing": {
+        "title": "Writing for Work & the Web", "subtitle": "Plan, write and structure clear content — from emails, proposals and instructions to web pages and docs.",
+        "level": "Beginner", "source": "twe",
+        "outcomes": ["Plan any document around its reader and purpose", "Write clear, concise words and sentences",
+                     "Structure content with headings, lists, tables and paragraphs", "Write emails, proposals and instructions, accessibly and for a global audience"],
+        "modules": [
+            mod("Writing for your reader", pb(TWE, "readercentred", title="Reader-centred writing"),
+                pb(TWE, "problemsolving", title="A problem-solving approach to writing"), pb(TWE, "understandingrhetoricalsituation")),
+            mod("Clear words and sentences", gtw("words", "Choosing words"), gtw("active-voice", "Active voice"),
+                stitch("Clear, short sentences", gtw("clear-sentences", "Clear sentences"), gtw("short-sentences", "Short sentences"), source="google-tw")),
+            mod("Structure people can scan", pb(TWE, "headings"), gtw("lists-and-tables", "Lists and tables"), gtw("paragraphs", "Paragraphs")),
+            mod("Everyday business documents", pb(TWE, "correspondence", split=split(1800)), pb(TWE, "proposals"), pb(TWE, "writinginstructions")),
+            mod("Writing for everyone", gstyle("tone", "Voice and tone"), gstyle("accessibility", "Writing accessible content"),
+                gstyle("translation", "Writing for a global audience")),
+        ],
+    },
+    "sales": {
+        "title": "Sales & Customer Relationships", "subtitle": "Find customers, run a sales conversation, price with confidence and sell fairly.",
+        "level": "Beginner", "source": "ostx-biz",
+        "outcomes": ["Follow the personal-selling process from prospecting to follow-up", "Use sales promotion and retail channels",
+                     "Choose pricing strategies that fit your product", "Market and sell within advertising and consumer law"],
+        "modules": [
+            mod("The sales process", biz("12-7-the-importance-of-personal-selling"), biz("12-8-sales-promotion")),
+            mod("Value, price and channels", biz("11-9-pricing-strategies-and-future-trends"), biz("12-3-the-competitive-world-of-retailing")),
+            mod("Selling as a small business", sba(SBA_MANAGE, "Marketing and sales", "Marketing and sales for a small business")),
+            mod("Selling fairly and online", govuk("/marketing-advertising-law", source="govuk", title="Marketing and advertising: the law"),
+                govuk("/online-and-distance-selling-for-businesses", source="govuk", title="Selling online and at a distance"),
+                govuk("/accepting-returns-and-giving-refunds", source="govuk", title="Returns and refunds")),
+        ],
+    },
+    "hr_people": {
+        "title": "HR & Recruitment Essentials", "subtitle": "Recruit fairly, develop and reward people, and handle employee relations within the law.",
+        "level": "Beginner", "source": "ostx-biz",
+        "outcomes": ["Plan recruitment and run a fair selection process", "Train, appraise and reward employees",
+                     "Handle labour relations, grievances and conflict", "Work within employment law and current HR trends"],
+        "modules": [
+            mod("Finding the right people", biz("8-2-employee-recruitment"), biz("8-3-employee-selection"),
+                sba(SBA_MANAGE, "Hire and manage employees", "Hiring and managing employees in a small business")),
+            mod("Developing and rewarding people", biz("8-4-employee-training-and-development"), biz("8-5-performance-planning-and-evaluation"),
+                biz("8-6-employee-compensation-and-benefits")),
+            mod("Employee relations", biz("8-7-the-labor-relations-process"), biz("8-8-managing-grievances-and-conflicts")),
+            mod("HR and the law", biz("8-9-legal-environment-of-human-resources-and-labor-relations"),
+                biz("8-10-trends-in-human-resource-management-and-labor-relations")),
+        ],
+    },
+    "compliance_risk": {
+        "title": "Risk, Compliance & Anti-Money Laundering", "subtitle": "Run an ethical business, manage risk and keep financial crime out — the work of compliance teams.",
+        "level": "Beginner", "source": "govuk",
+        "outcomes": ["Explain business ethics and how organisations encourage ethical conduct", "Apply risk-management principles to identify, assess and treat risk",
+                     "Explain money laundering, due diligence and suspicious-activity reporting", "Work within the legal environment of business"],
+        "modules": [
+            mod("Ethics and responsible business", biz("2-1-understanding-business-ethics", source="ostx-biz"),
+                biz("2-2-how-organizations-influence-ethical-conduct", source="ostx-biz"), biz("2-3-managing-a-socially-responsible-business", source="ostx-biz")),
+            mod("Managing risk", govuk("/government/publications/orange-book/the-orange-book-management-of-risk-principles-and-concepts",
+                                       title="The Orange Book: managing risk",
+                                       split=split(2200, take=[0, 1, 2, 4], titles=["Principles of risk management", "Collaboration, information and the risk process",
+                                                                                     "The risk control framework", "Assurance", "The three lines model"]))),
+            mod("Stopping financial crime", html("https://www.fincen.gov/history-anti-money-laundering-laws", ("#main-content",), source="fincen",
+                                                 title="A short history of anti-money-laundering laws"),
+                govuk("/guidance/money-laundering-regulations-your-responsibilities", title="Money laundering rules: your responsibilities"),
+                govuk("/guidance/money-laundering-regulations-report-suspicious-activities", title="Reporting suspicious activity")),
+            mod("The legal environment", biz("a-understanding-the-legal-and-tax-environment", source="ostx-biz", title="The legal and tax environment",
+                                             split=split(2000, take=[0, 1, 2], titles=["The legal system and business law", "Contracts and warranties",
+                                                                                         "Consumer protection laws"])),
+                html(SBA_MANAGE, ("main",), source="sba", title="Staying compliant and avoiding fraud",
+                     split=split(3600, pick=[r"^Stay legally compliant", r"^Protect yourself from fraud"]))),
+        ],
+    },
+    "product_mgmt": {
+        "title": "Product Management", "subtitle": "Decide what to build: understand users, test ideas, launch and keep improving products that create value.",
+        "level": "Beginner", "source": "govuk-sm",
+        "outcomes": ["Explain what a product is and how products create value", "Understand user needs and test ideas in discovery and alpha",
+                     "Take a product through beta to live and keep improving it", "Work as a product manager in a multidisciplinary team"],
+        "modules": [
+            mod("Products and value", biz("11-6-what-is-a-product", source="ostx-biz"), biz("11-7-creating-products-that-deliver-value", source="ostx-biz"),
+                biz("11-8-the-product-life-cycle", source="ostx-biz")),
+            mod("Understand the problem", stitch("Understand users and solve a whole problem", sm("service-standard/point-1-understand-user-needs"),
+                                                 sm("service-standard/point-2-solve-a-whole-problem"), source="govuk-sm"),
+                sm("agile-delivery/how-the-discovery-phase-works")),
+            mod("Test, build and launch", sm("agile-delivery/how-the-alpha-phase-works"), sm("agile-delivery/how-the-beta-phase-works"),
+                sm("agile-delivery/how-the-live-phase-works")),
+            mod("The product team", sm("the-team/what-each-role-does-in-service-team"),
+                biz("11-10-trends-in-developing-products-and-pricing", source="ostx-biz")),
+        ],
+    },
+    "entrepreneurship": {
+        "title": "Starting & Running a Small Business", "subtitle": "Turn an idea into a business: research the market, plan, fund, launch and grow it.",
+        "level": "Beginner", "source": "ostx-biz",
+        "outcomes": ["Explain what entrepreneurs do and the traits that help them succeed", "Research a market and write a business plan",
+                     "Estimate startup costs, choose a legal form and find funding", "Manage, market and grow a small business"],
+        "modules": [
+            mod("The entrepreneur", biz("5-1-entrepreneurship-today"), biz("5-2-characteristics-of-successful-entrepreneurs"),
+                biz("5-6-small-business-large-impact")),
+            mod("From idea to plan", sba(SBA_PLAN, "Market research and competitive analysis", "Market research and competitive analysis"),
+                sba(SBA_PLAN, "Write your business plan", "Writing your business plan"), biz("5-4-ready-set-start-your-own-business")),
+            mod("Money and structure", sba(SBA_PLAN, "Calculate your startup costs", "Calculating your startup costs"),
+                sba(SBA_PLAN, "Fund your business", "Funding your business"),
+                stitch("Choosing a form of business", biz("4-1-going-it-alone-sole-proprietorships"), biz("4-2-partnerships-sharing-the-load"),
+                       source="ostx-biz")),
+            mod("Running and growing", biz("5-5-managing-a-small-business"), sba(SBA_MANAGE, "Manage your finances", "Managing your finances"),
+                sba(SBA_MANAGE, "AI for small business", "Using AI in a small business"),
+                biz("5-8-trends-in-entrepreneurship-and-small-business-ownership")),
+        ],
+    },
+})
+
+# ================================================================== Extra chapters for the shortest courses (added October 2026)
+# Appended at the end so that existing lesson ids (and learners' progress) stay the same.
+COURSES["process_automation"]["modules"].append(
+    mod("AI agents in automation", gh(AGENTS, "06-building-trustworthy-agents/README.md", source="ms-agents"),
+        gh(AGENTS, "07-planning-design/README.md", source="ms-agents"), gh(AGENTS, "08-multi-agent/README.md", source="ms-agents")))
+COURSES["computer_vision"]["modules"].append(
+    mod("Generating and checking images", gh(AI, "lessons/4-ComputerVision/10-GANs/README.md", quiz=210),
+        gh(IOT, "5-retail/lessons/2-check-stock-device/README.md", source="ms-iot")))
+COURSES["solar_pv"]["modules"].append(
+    mod("Solar heat and storage", doe("concentrating-solar-thermal-power-basics"), doe("solar-thermal-power-and-industrial-processes-basics"),
+        doe("thermal-storage-system-concentrating-solar-thermal-power-basics")))

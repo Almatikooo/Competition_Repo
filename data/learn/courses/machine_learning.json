@@ -1192,168 +1192,684 @@
    ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "Machine learning algorithms are meant to simulate",
-    "options": [
-     "intelligent machines",
-     "the human brain",
-     "orangutans"
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "machine_learning-01",
-    "origin": "bank:ml:2",
-    "source": "ms-ml"
-   },
-   {
-    "q": "What's an example of a 'scruffy' AI system?",
-    "options": [
-     "ELIZA",
-     "HACKML",
-     "SSYSTEM"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "machine_learning-02",
-    "origin": "bank:ml:4",
-    "source": "ms-ml"
-   },
-   {
-    "q": "Unfairness in a model can be caused by",
-    "options": [
-     "over reliance on historical data",
-     "under reliance on historical data",
-     "too closely aligning to historical data"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "machine_learning-03",
-    "origin": "bank:ml:6",
-    "source": "ms-ml"
-   },
-   {
-    "q": "You should visualize your data because",
-    "options": [
-     "you can discover outliers",
-     "you can discover potential cause for bias",
-     "both of these"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "machine_learning-04",
-    "origin": "bank:ml:8",
-    "source": "ms-ml"
-   },
-   {
-    "q": "If your Machine Learning model's training accuracy is 95 % and the testing accuracy is 30 %, then what type of condition it is called?",
-    "options": [
-     "Overfitting",
-     "Underfitting",
-     "Double Fitting"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "machine_learning-05",
-    "origin": "bank:ml:10",
-    "source": "ms-ml"
-   },
-   {
-    "q": "Which of these code snippets is correct based on this lesson, if you want to check for the presence of missing values in your dataset? Suppose the dataset is stored in a variable named 'dataset' which is a Pandas DataFrame object.",
-    "options": [
-     "dataset.isnull().sum()",
-     "findMissing(dataset)",
-     "sum(null(dataset))"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "machine_learning-06",
-    "origin": "bank:ml:12",
-    "source": "ms-ml"
-   },
-   {
-    "q": "Seaborn is a type of",
-    "options": [
-     "data visualization library",
-     "mapping library",
-     "mathematical library"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "machine_learning-08",
-    "origin": "bank:ml:16",
-    "source": "ms-ml"
-   },
-   {
-    "q": "What is a multiclass question?",
-    "options": [
-     "the task of classifying data points into multiple classes",
-     "the task of classifying data points into one of several classes",
-     "the task of cleaning data points in multiple ways"
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "machine_learning-09",
-    "origin": "bank:ml:20",
-    "source": "ms-ml"
-   },
-   {
-    "q": "What is a 'solver'?",
-    "options": [
-     "the person who double-checks your work",
-     "the algorithm to use in the optimization problem",
-     "a machine learning technique"
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "machine_learning-10",
-    "origin": "bank:ml:22",
-    "source": "ms-ml"
-   },
-   {
-    "q": "Support-Vector classifiers can be used for",
-    "options": [
-     "classification",
-     "regression",
-     "both of these"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "machine_learning-11",
-    "origin": "bank:ml:24",
-    "source": "ms-ml"
-   },
-   {
-    "q": "Euclidean geometry is arranged along",
-    "options": [
-     "planes",
-     "curves",
-     "spheres"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "machine_learning-12",
-    "origin": "bank:ml:28",
-    "source": "ms-ml"
-   },
-   {
-    "q": "A Voronoi diagram shows:",
-    "options": [
-     "a cluster's variance",
-     "a cluster's seed and its region",
-     "a cluster's inertia"
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "machine_learning-13",
-    "origin": "bank:ml:30",
-    "source": "ms-ml"
-   }
-  ],
-  "pass_mark": 9,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "2413784417",
+   "module": 0,
+   "q": "Machine learning algorithms are meant to simulate",
+   "options": [
+    "intelligent machines",
+    "the human brain",
+    "orangutans"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "machine_learning-01",
+   "origin": "bank:ml:2",
+   "source": "ms-ml"
+  },
+  {
+   "id": "0726bf0924",
+   "module": 0,
+   "q": "What is an example of a classical ML technique?",
+   "options": [
+    "natural language processing",
+    "deep learning",
+    "Neural Networks"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-01",
+   "origin": "bank:ml:2",
+   "source": "ms-ml"
+  },
+  {
+   "id": "c4b2c92267",
+   "module": 0,
+   "q": "Why should everyone learn the basics of ML?",
+   "options": [
+    "learning ML is fun and accessible to everyone",
+    "ML strategies are being used in many industries and domains",
+    "both of the above"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "machine_learning-01",
+   "origin": "bank:ml:2",
+   "source": "ms-ml"
+  },
+  {
+   "id": "217af6643b",
+   "module": 0,
+   "q": "What's an example of a 'scruffy' AI system?",
+   "options": [
+    "ELIZA",
+    "HACKML",
+    "SSYSTEM"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-02",
+   "origin": "bank:ml:4",
+   "source": "ms-ml"
+  },
+  {
+   "id": "bb29b6e925",
+   "module": 0,
+   "q": "What is an example of a technology that was developed during 'The Golden Years'?",
+   "options": [
+    "Blocks world",
+    "Jibo",
+    "Robot dogs"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-02",
+   "origin": "bank:ml:4",
+   "source": "ms-ml"
+  },
+  {
+   "id": "38e8334ec3",
+   "module": 0,
+   "q": "Which event was foundational in the creation and expansion of the field of artificial intelligence?",
+   "options": [
+    "Turing Test",
+    "Dartmouth Summer Research Project",
+    "AI Winter"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "machine_learning-02",
+   "origin": "bank:ml:4",
+   "source": "ms-ml"
+  },
+  {
+   "id": "2ed79c3746",
+   "module": 0,
+   "q": "Unfairness in a model can be caused by",
+   "options": [
+    "over reliance on historical data",
+    "under reliance on historical data",
+    "too closely aligning to historical data"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-03",
+   "origin": "bank:ml:6",
+   "source": "ms-ml"
+  },
+  {
+   "id": "d7af3ae9d9",
+   "module": 0,
+   "q": "To mitigate unfairness, you can",
+   "options": [
+    "identify harms and affected groups",
+    "define fairness metrics",
+    "both the above"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "machine_learning-03",
+   "origin": "bank:ml:6",
+   "source": "ms-ml"
+  },
+  {
+   "id": "3598790263",
+   "module": 0,
+   "q": "Fairlearn is a package that can",
+   "options": [
+    "compare multiple models by using fairness and performance metrics",
+    "choose the best model for your needs",
+    "help you decide what is fair and what is not"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-03",
+   "origin": "bank:ml:6",
+   "source": "ms-ml"
+  },
+  {
+   "id": "6fa44be3d8",
+   "module": 0,
+   "q": "You should visualize your data because",
+   "options": [
+    "you can discover outliers",
+    "you can discover potential cause for bias",
+    "both of these"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "machine_learning-04",
+   "origin": "bank:ml:8",
+   "source": "ms-ml"
+  },
+  {
+   "id": "1e874345cf",
+   "module": 0,
+   "q": "Split your data into:",
+   "options": [
+    "training and turing sets",
+    "training and test sets",
+    "validation and evaluation sets"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "machine_learning-04",
+   "origin": "bank:ml:8",
+   "source": "ms-ml"
+  },
+  {
+   "id": "0e0638893b",
+   "module": 0,
+   "q": "A common command to start the training process in various ML libraries is:",
+   "options": [
+    "model.travel",
+    "model.train",
+    "model.fit"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "machine_learning-04",
+   "origin": "bank:ml:8",
+   "source": "ms-ml"
+  },
+  {
+   "id": "1d8b59f7f2",
+   "module": 1,
+   "q": "If your Machine Learning model's training accuracy is 95 % and the testing accuracy is 30 %, then what type of condition it is called?",
+   "options": [
+    "Overfitting",
+    "Underfitting",
+    "Double Fitting"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-05",
+   "origin": "bank:ml:10",
+   "source": "ms-ml"
+  },
+  {
+   "id": "a5e024c07b",
+   "module": 1,
+   "q": "The process of identifying significant features from a set of features is called:",
+   "options": [
+    "Feature Extraction",
+    "Feature Dimensionality Reduction",
+    "Feature Selection"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "machine_learning-05",
+   "origin": "bank:ml:10",
+   "source": "ms-ml"
+  },
+  {
+   "id": "41dcfe5107",
+   "module": 1,
+   "q": "The process of splitting a dataset into a certain ratio of training and testing dataset using Scikit Learn's 'train_test_split()' method/function is called:",
+   "options": [
+    "Cross-Validation",
+    "Hold-Out Validation",
+    "Leave one out Validation"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "machine_learning-05",
+   "origin": "bank:ml:10",
+   "source": "ms-ml"
+  },
+  {
+   "id": "de64beb03e",
+   "module": 1,
+   "q": "Which of these code snippets is correct based on this lesson, if you want to check for the presence of missing values in your dataset? Suppose the dataset is stored in a variable named 'dataset' which is a Pandas DataFrame object.",
+   "options": [
+    "dataset.isnull().sum()",
+    "findMissing(dataset)",
+    "sum(null(dataset))"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-06",
+   "origin": "bank:ml:12",
+   "source": "ms-ml"
+  },
+  {
+   "id": "d72c57b339",
+   "module": 1,
+   "q": "Which of these plotting methods is useful when you would like to understand the spread of different groups of datapoints from your dataset?",
+   "options": [
+    "Scatter Plot",
+    "Line Plot",
+    "Bar Plot"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "machine_learning-06",
+   "origin": "bank:ml:12",
+   "source": "ms-ml"
+  },
+  {
+   "id": "43f2e053c5",
+   "module": 1,
+   "q": "What can Data Visualization NOT tell you?",
+   "options": [
+    "Relationships among datapoints",
+    "The source from where the dataset is collected",
+    "Finding the presence of outliers in the dataset"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "machine_learning-06",
+   "origin": "bank:ml:12",
+   "source": "ms-ml"
+  },
+  {
+   "id": "b840c8bb43",
+   "module": 1,
+   "q": "If your data is nonlinear, try a ___ type of Regression",
+   "options": [
+    "linear",
+    "spherical",
+    "polynomial"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "machine_learning-07",
+   "origin": "bank:ml:14",
+   "source": "ms-ml"
+  },
+  {
+   "id": "df9d573de3",
+   "module": 1,
+   "q": "These are all types of Regression methods",
+   "options": [
+    "Falsestep, Ridge, Lasso and Elasticnet",
+    "Stepwise, Ridge, Lasso and Elasticnet",
+    "Stepwise, Ridge, Lariat and Elasticnet"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "machine_learning-07",
+   "origin": "bank:ml:14",
+   "source": "ms-ml"
+  },
+  {
+   "id": "7f2f8c829d",
+   "module": 1,
+   "q": "Least-Squares Regression means that all the datapoints surrounding the regression line are:",
+   "options": [
+    "squared and then subtracted",
+    "multiplied",
+    "squared and then added up"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "machine_learning-07",
+   "origin": "bank:ml:14",
+   "source": "ms-ml"
+  },
+  {
+   "id": "9e044caebb",
+   "module": 1,
+   "q": "Seaborn is a type of",
+   "options": [
+    "data visualization library",
+    "mapping library",
+    "mathematical library"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-08",
+   "origin": "bank:ml:16",
+   "source": "ms-ml"
+  },
+  {
+   "id": "fb680449e7",
+   "module": 1,
+   "q": "A confusion matrix is also known as a:",
+   "options": [
+    "error matrix",
+    "truth matrix",
+    "accuracy matrix"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-08",
+   "origin": "bank:ml:16",
+   "source": "ms-ml"
+  },
+  {
+   "id": "9b65248484",
+   "module": 1,
+   "q": "A good model will have:",
+   "options": [
+    "a large number of false positives and true negatives in its confusion matrix",
+    "a large number of true positives and true negatives in its confusion matrix",
+    "a large number of true positives and false negatives in its confusion matrix"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "machine_learning-08",
+   "origin": "bank:ml:16",
+   "source": "ms-ml"
+  },
+  {
+   "id": "bb6790c48e",
+   "module": 2,
+   "q": "What is a multiclass question?",
+   "options": [
+    "the task of classifying data points into multiple classes",
+    "the task of classifying data points into one of several classes",
+    "the task of cleaning data points in multiple ways"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "machine_learning-09",
+   "origin": "bank:ml:20",
+   "source": "ms-ml"
+  },
+  {
+   "id": "8713bef4dc",
+   "module": 2,
+   "q": "What's the best reason to balance your data?",
+   "options": [
+    "Imbalanced data looks bad in visualizations",
+    "Balancing your data yields better results because an ML model won't skew towards one class",
+    "Balancing your data gives you more data points"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "machine_learning-09",
+   "origin": "bank:ml:20",
+   "source": "ms-ml"
+  },
+  {
+   "id": "95639bced7",
+   "module": 2,
+   "q": "It's important to clean out recurrent or unhelpful data to help your classifiers solve your problem.",
+   "options": [
+    "true",
+    "false"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-09",
+   "origin": "bank:ml:20",
+   "source": "ms-ml"
+  },
+  {
+   "id": "399dcf043b",
+   "module": 2,
+   "q": "What is a 'solver'?",
+   "options": [
+    "the person who double-checks your work",
+    "the algorithm to use in the optimization problem",
+    "a machine learning technique"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "machine_learning-10",
+   "origin": "bank:ml:22",
+   "source": "ms-ml"
+  },
+  {
+   "id": "f76c9453aa",
+   "module": 2,
+   "q": "Which classifier did we use in this lesson?",
+   "options": [
+    "Logistic Regression",
+    "Decision Trees",
+    "One-vs-All Multiclass"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-10",
+   "origin": "bank:ml:22",
+   "source": "ms-ml"
+  },
+  {
+   "id": "c61ef63ba1",
+   "module": 2,
+   "q": "How do you know if the classification algorithm is working as expected?",
+   "options": [
+    "By checking the accuracy of its predictions",
+    "By checking it against other algorithms",
+    "By looking at historical data for how good this algorithm is at solving similar problems"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-10",
+   "origin": "bank:ml:22",
+   "source": "ms-ml"
+  },
+  {
+   "id": "a582b12556",
+   "module": 2,
+   "q": "Support-Vector classifiers can be used for",
+   "options": [
+    "classification",
+    "regression",
+    "both of these"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "machine_learning-11",
+   "origin": "bank:ml:24",
+   "source": "ms-ml"
+  },
+  {
+   "id": "3cefba38eb",
+   "module": 2,
+   "q": "Random Forest is a ___ type of classifier",
+   "options": [
+    "Ensemble",
+    "Dissemble",
+    "Assemble"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-11",
+   "origin": "bank:ml:24",
+   "source": "ms-ml"
+  },
+  {
+   "id": "fcc8e54d15",
+   "module": 2,
+   "q": "Adaboost is known for:",
+   "options": [
+    "focusing on the weights of incorrectly classified items",
+    "focusing on outliers",
+    "focusing on incorrect data"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-11",
+   "origin": "bank:ml:24",
+   "source": "ms-ml"
+  },
+  {
+   "id": "2b50837107",
+   "module": 3,
+   "q": "Euclidean geometry is arranged along",
+   "options": [
+    "planes",
+    "curves",
+    "spheres"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-12",
+   "origin": "bank:ml:28",
+   "source": "ms-ml"
+  },
+  {
+   "id": "2e19e7ab70",
+   "module": 3,
+   "q": "The density of your clustering data is related to its",
+   "options": [
+    "noise",
+    "depth",
+    "validity"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-12",
+   "origin": "bank:ml:28",
+   "source": "ms-ml"
+  },
+  {
+   "id": "f52f2b08e8",
+   "module": 3,
+   "q": "The best-known clustering algorithm is",
+   "options": [
+    "k-means",
+    "k-middle",
+    "k-mart"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-12",
+   "origin": "bank:ml:28",
+   "source": "ms-ml"
+  },
+  {
+   "id": "3708115b30",
+   "module": 3,
+   "q": "A Voronoi diagram shows:",
+   "options": [
+    "a cluster's variance",
+    "a cluster's seed and its region",
+    "a cluster's inertia"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "machine_learning-13",
+   "origin": "bank:ml:30",
+   "source": "ms-ml"
+  },
+  {
+   "id": "8a75124833",
+   "module": 3,
+   "q": "Inertia is",
+   "options": [
+    "a measure of how internally coherent clusters are",
+    "a measure of how much clusters move",
+    "a measure of cluster quality"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-13",
+   "origin": "bank:ml:30",
+   "source": "ms-ml"
+  },
+  {
+   "id": "65071cf85c",
+   "module": 3,
+   "q": "Using K-Means, you must first determine the value of 'k'",
+   "options": [
+    "true",
+    "false"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-13",
+   "origin": "bank:ml:30",
+   "source": "ms-ml"
+  },
+  {
+   "id": "6178190767",
+   "module": 4,
+   "q": "In wealth management, what is linear regression useful for?",
+   "options": [
+    "Understanding how a fund performs relative to a benchmark",
+    "Grouping customers into marketing segments",
+    "Detecting gender bias in written text",
+    "Predicting which clothes will sell next season"
+   ],
+   "answer": 0,
+   "explain": "Regression relates a fund's returns to a benchmark; multiple regression can add further risk factors.",
+   "lesson": "machine_learning-14",
+   "evidence": "Linear regression is a valuable tool for understanding how a fund performs relative to some benchmark.",
+   "origin": "authored"
+  },
+  {
+   "id": "dc6e31b90f",
+   "module": 4,
+   "q": "How did one company use machine learning to manage hospital readmissions?",
+   "options": [
+    "It used a genetic algorithm to design new wards",
+    "It translated patient records with NLP",
+    "It ran linear regression on drug prices",
+    "It clustered readmissions to find groups that may share a common cause"
+   ],
+   "answer": 3,
+   "explain": "Clustering groups similar readmissions so analysts can look for a shared cause.",
+   "lesson": "machine_learning-14",
+   "evidence": "discover groups of readmissions that may share a common cause",
+   "origin": "authored"
+  },
+  {
+   "id": "be6a0ac78b",
+   "module": 4,
+   "q": "In the clinical-trials study, which algorithm produced a classifier that distinguishes between groups of drugs?",
+   "options": [
+    "K-means clustering",
+    "Linear regression",
+    "Random forest",
+    "A genetic algorithm"
+   ],
+   "answer": 2,
+   "explain": "The researchers used a random forest classifier to predict the odds of clinical-trial outcomes.",
+   "lesson": "machine_learning-14",
+   "evidence": "they were able to use random forest to produce a classifier that is able to distinguish between groups of drugs",
+   "origin": "authored"
+  },
+  {
+   "id": "0bfe451c77",
+   "module": 4,
+   "q": "Which ML technique can be used to detect credit card fraud?",
+   "options": [
+    "Regression",
+    "Clustering",
+    "NLP"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "machine_learning-14",
+   "origin": "bank:ml:50",
+   "source": "ms-ml"
+  },
+  {
+   "id": "e6e9cd058d",
+   "module": 4,
+   "q": "Which ML technique is exemplified in forest management?",
+   "options": [
+    "Reinforcement Learning",
+    "Time Series",
+    "NLP"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "machine_learning-14",
+   "origin": "bank:ml:50",
+   "source": "ms-ml"
+  },
+  {
+   "id": "0433a5795c",
+   "module": 4,
+   "q": "What's an example of an ML application in the Health Care industry?",
+   "options": [
+    "Predicting student behavior using regression",
+    "Managing clinical trials using classifiers",
+    "Motion sensing of animals using classifiers"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "machine_learning-14",
+   "origin": "bank:ml:50",
+   "source": "ms-ml"
+  }
+ ],
  "minutes": 123,
  "sources": [
   {

@@ -736,165 +736,470 @@
    ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "IoT devices need to be connected to the Internet at all time",
-    "options": [
-     "True",
-     "False"
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "iot_embedded-01",
-    "origin": "bank:iot:2",
-    "source": "ms-iot"
-   },
-   {
-    "q": "IoT devices are always secure",
-    "options": [
-     "True",
-     "False"
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "iot_embedded-01",
-    "origin": "bank:iot:2",
-    "source": "ms-iot"
-   },
-   {
-    "q": "The three steps in a CPU instruction cycle are:",
-    "options": [
-     "Decode, Execute, Fetch",
-     "Fetch, Decode, Execute",
-     "Stop, Collaborate, Listen"
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "iot_embedded-02",
-    "origin": "bank:iot:4",
-    "source": "ms-iot"
-   },
-   {
-    "q": "Digital sensors send data as:",
-    "options": [
-     "Voltage ranges",
-     "High and low voltages only",
-     "Emails"
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "iot_embedded-03",
-    "origin": "bank:iot:6",
-    "source": "ms-iot"
-   },
-   {
-    "q": "What digital signal is sent when a button is pressed?",
-    "options": [
-     "0",
-     "1"
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "iot_embedded-03",
-    "origin": "bank:iot:6",
-    "source": "ms-iot"
-   },
-   {
-    "q": "Data gathered from sensors and sent to the cloud is called:",
-    "options": [
-     "Telemetry",
-     "Commands",
-     "Measurements"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "iot_embedded-04",
-    "origin": "bank:iot:8",
-    "source": "ms-iot"
-   },
-   {
-    "q": "GPS data is sent from sensors using:",
-    "options": [
-     "Latitude and Longitude coordinates",
-     "Addresses",
-     "NMEA sentences"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "iot_embedded-05",
-    "origin": "bank:iot:22",
-    "source": "ms-iot"
-   },
-   {
-    "q": "To get a good GPS fix you need to receive signals from at least how many satellites",
-    "options": [
-     "1",
-     "2",
-     "3"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "iot_embedded-05",
-    "origin": "bank:iot:22",
-    "source": "ms-iot"
-   },
-   {
-    "q": "IoT data that needs to be processed immediately is on which path:",
-    "options": [
-     "Hot",
-     "Warm",
-     "Cold"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "iot_embedded-06",
-    "origin": "bank:iot:24",
-    "source": "ms-iot"
-   },
-   {
-    "q": "The service to draw maps on a web page is called:",
-    "options": [
-     "Azure Maps",
-     "Azure Atlas",
-     "Azure World VIsualizer"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "iot_embedded-07",
-    "origin": "bank:iot:26",
-    "source": "ms-iot"
-   },
-   {
-    "q": "Azure maps plots data using:",
-    "options": [
-     "GeoJSON",
-     "Lists of latitude and longitude",
-     "Lists of addresses"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "iot_embedded-07",
-    "origin": "bank:iot:26",
-    "source": "ms-iot"
-   },
-   {
-    "q": "To have multiple services pull data from an IoT Hub, you need to create multiple:",
-    "options": [
-     "Consumer groups",
-     "Pipes",
-     "IoT Hubs"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "iot_embedded-08",
-    "origin": "bank:iot:28",
-    "source": "ms-iot"
-   }
-  ],
-  "pass_mark": 9,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "e583c122b4",
+   "module": 0,
+   "q": "IoT devices need to be connected to the Internet at all time",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "iot_embedded-01",
+   "origin": "bank:iot:2",
+   "source": "ms-iot"
+  },
+  {
+   "id": "9dbead0290",
+   "module": 0,
+   "q": "IoT devices are always secure",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "iot_embedded-01",
+   "origin": "bank:iot:2",
+   "source": "ms-iot"
+  },
+  {
+   "id": "1770c1b0ad",
+   "module": 0,
+   "q": "AI can be run on low powered IoT devices",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "iot_embedded-01",
+   "origin": "bank:iot:2",
+   "source": "ms-iot"
+  },
+  {
+   "id": "35ffced6d3",
+   "module": 0,
+   "q": "What does the old joke 'the S in IoT stands for Security' imply?",
+   "options": [
+    "IoT devices are often not secure",
+    "IoT always uses secure sockets",
+    "Security is the main selling point of IoT",
+    "IoT devices never connect to the internet"
+   ],
+   "answer": 0,
+   "explain": "There is no 'S' in IoT — any internet-connected device needs security designed in.",
+   "lesson": "iot_embedded-02",
+   "evidence": "there is no 'S' in IoT, implying it is not secure",
+   "origin": "authored"
+  },
+  {
+   "id": "9865c6d0e4",
+   "module": 0,
+   "q": "A microcontroller's program memory is non-volatile. What does that mean?",
+   "options": [
+    "It is erased every time the device restarts",
+    "It can only be written once in the factory",
+    "It is stored in the cloud rather than on the chip",
+    "What is written to it stays when the device has no power"
+   ],
+   "answer": 3,
+   "explain": "Program memory keeps your code; data memory (RAM) is cleared when power is lost.",
+   "lesson": "iot_embedded-02",
+   "evidence": "Program memory is non-volatile, which means whatever is written to it stays when there is no power to the device.",
+   "origin": "authored"
+  },
+  {
+   "id": "2ca9575452",
+   "module": 0,
+   "q": "Which two functions make up the code of an Arduino sketch?",
+   "options": [
+    "main and exit",
+    "start and stop",
+    "setup and loop",
+    "init and run"
+   ],
+   "answer": 2,
+   "explain": "setup runs once when the board starts; loop then runs over and over.",
+   "lesson": "iot_embedded-02",
+   "evidence": "C/C++ code with 2 functions - setup and loop",
+   "origin": "authored"
+  },
+  {
+   "id": "64b991e34b",
+   "module": 0,
+   "q": "The three steps in a CPU instruction cycle are:",
+   "options": [
+    "Decode, Execute, Fetch",
+    "Fetch, Decode, Execute",
+    "Stop, Collaborate, Listen"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "iot_embedded-02",
+   "origin": "bank:iot:4",
+   "source": "ms-iot"
+  },
+  {
+   "id": "4469f983d4",
+   "module": 0,
+   "q": "What operating system do Raspberry Pis run?",
+   "options": [
+    "They don't run an OS",
+    "Windows 95",
+    "Raspberry Pi OS"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "iot_embedded-02",
+   "origin": "bank:iot:4",
+   "source": "ms-iot"
+  },
+  {
+   "id": "e7e068b87e",
+   "module": 0,
+   "q": "IoT devices typically run faster and have more memory than the average desktop or laptop computer",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "iot_embedded-02",
+   "origin": "bank:iot:4",
+   "source": "ms-iot"
+  },
+  {
+   "id": "a8166d4055",
+   "module": 0,
+   "q": "Digital sensors send data as:",
+   "options": [
+    "Voltage ranges",
+    "High and low voltages only",
+    "Emails"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "iot_embedded-03",
+   "origin": "bank:iot:6",
+   "source": "ms-iot"
+  },
+  {
+   "id": "f125904fb7",
+   "module": 0,
+   "q": "What digital signal is sent when a button is pressed?",
+   "options": [
+    "0",
+    "1"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "iot_embedded-03",
+   "origin": "bank:iot:6",
+   "source": "ms-iot"
+  },
+  {
+   "id": "aadf6e2068",
+   "module": 0,
+   "q": "You can control analog actuators from a digital device using pulse-width modulation",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "iot_embedded-03",
+   "origin": "bank:iot:6",
+   "source": "ms-iot"
+  },
+  {
+   "id": "8104e99793",
+   "module": 0,
+   "q": "How are MQTT messages routed to clients?",
+   "options": [
+    "Directly to each client's IP address",
+    "Through named topics, not directly to an individual client",
+    "By email to each subscriber",
+    "In arrival order through a message queue"
+   ],
+   "answer": 1,
+   "explain": "Clients publish to and subscribe to topics on a broker, which forwards the messages.",
+   "lesson": "iot_embedded-04",
+   "evidence": "Messages are routed using named topics, rather than being sent directly to an individual client.",
+   "origin": "authored"
+  },
+  {
+   "id": "ec3d499ae1",
+   "module": 0,
+   "q": "With MQTT's 'at least once' delivery, what does the sender do?",
+   "options": [
+    "Retries the message until an acknowledgement is received",
+    "Sends it once and never retries",
+    "Sends it to every topic at the same time",
+    "Holds it until the receiver asks for it"
+   ],
+   "answer": 0,
+   "explain": "This acknowledged delivery can deliver a message more than once, but never loses it.",
+   "lesson": "iot_embedded-04",
+   "evidence": "the message is re-tried by the sender multiple times until acknowledgement is received",
+   "origin": "authored"
+  },
+  {
+   "id": "e81472d5d6",
+   "module": 0,
+   "q": "Data gathered from sensors and sent to the cloud is called:",
+   "options": [
+    "Telemetry",
+    "Commands",
+    "Measurements"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "iot_embedded-04",
+   "origin": "bank:iot:8",
+   "source": "ms-iot"
+  },
+  {
+   "id": "c5c6b816ff",
+   "module": 0,
+   "q": "What should happen to a command if the IoT device is offline:",
+   "options": [
+    "It should always be resent when the device is back online",
+    "It should never be resent when the device is back online",
+    "It depends on the command, the device and the requirements of the IoT app"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "iot_embedded-04",
+   "origin": "bank:iot:8",
+   "source": "ms-iot"
+  },
+  {
+   "id": "5ded96a629",
+   "module": 0,
+   "q": "MQTT, or Message Queueing Telemetry Transport, has message queues:",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "iot_embedded-04",
+   "origin": "bank:iot:8",
+   "source": "ms-iot"
+  },
+  {
+   "id": "83619108bd",
+   "module": 1,
+   "q": "GPS data is sent from sensors using:",
+   "options": [
+    "Latitude and Longitude coordinates",
+    "Addresses",
+    "NMEA sentences"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "iot_embedded-05",
+   "origin": "bank:iot:22",
+   "source": "ms-iot"
+  },
+  {
+   "id": "39a8554c39",
+   "module": 1,
+   "q": "To get a good GPS fix you need to receive signals from at least how many satellites",
+   "options": [
+    "1",
+    "2",
+    "3"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "iot_embedded-05",
+   "origin": "bank:iot:22",
+   "source": "ms-iot"
+  },
+  {
+   "id": "acf5eb930a",
+   "module": 1,
+   "q": "GPS sensors send data over:",
+   "options": [
+    "SPI",
+    "UART",
+    "Email"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "iot_embedded-05",
+   "origin": "bank:iot:22",
+   "source": "ms-iot"
+  },
+  {
+   "id": "59f3aa0c37",
+   "module": 1,
+   "q": "Why are NoSQL databases also known as document databases?",
+   "options": [
+    "They can only store PDF files",
+    "They need SQL documents to define their tables",
+    "They print reports as documents",
+    "They can store unstructured data such as documents"
+   ],
+   "answer": 3,
+   "explain": "They lack the rigid table structure of SQL databases, so each record can have a different shape.",
+   "lesson": "iot_embedded-06",
+   "evidence": "They are also known as document databases as they can store unstructured data such as documents.",
+   "origin": "authored"
+  },
+  {
+   "id": "57ed6ebc54",
+   "module": 1,
+   "q": "IoT data that needs to be processed immediately is on which path:",
+   "options": [
+    "Hot",
+    "Warm",
+    "Cold"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "iot_embedded-06",
+   "origin": "bank:iot:24",
+   "source": "ms-iot"
+  },
+  {
+   "id": "f50cc6660b",
+   "module": 1,
+   "q": "Azure storage has the following storage types:",
+   "options": [
+    "Boxes, tubs, bins",
+    "Blob, table, queue and file",
+    "Hot, warm, cold"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "iot_embedded-06",
+   "origin": "bank:iot:24",
+   "source": "ms-iot"
+  },
+  {
+   "id": "e519e6147f",
+   "module": 1,
+   "q": "Azure Functions can be bound to database to write return values to the database",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "iot_embedded-06",
+   "origin": "bank:iot:24",
+   "source": "ms-iot"
+  },
+  {
+   "id": "8498c91e3e",
+   "module": 1,
+   "q": "The service to draw maps on a web page is called:",
+   "options": [
+    "Azure Maps",
+    "Azure Atlas",
+    "Azure World VIsualizer"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "iot_embedded-07",
+   "origin": "bank:iot:26",
+   "source": "ms-iot"
+  },
+  {
+   "id": "79d8768cd3",
+   "module": 1,
+   "q": "Azure maps plots data using:",
+   "options": [
+    "GeoJSON",
+    "Lists of latitude and longitude",
+    "Lists of addresses"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "iot_embedded-07",
+   "origin": "bank:iot:26",
+   "source": "ms-iot"
+  },
+  {
+   "id": "e0cc0e3223",
+   "module": 1,
+   "q": "Blobs can be retrieved via a URL",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "iot_embedded-07",
+   "origin": "bank:iot:26",
+   "source": "ms-iot"
+  },
+  {
+   "id": "314ace60a3",
+   "module": 1,
+   "q": "What is a geofence?",
+   "options": [
+    "A physical fence fitted with GPS sensors",
+    "A firewall that blocks devices by country",
+    "A virtual perimeter for a real-world geographic region",
+    "A map layer that hides private roads"
+   ],
+   "answer": 2,
+   "explain": "A device's GPS position can be tested against it to see whether it is inside or outside.",
+   "lesson": "iot_embedded-08",
+   "evidence": "A geofence is a virtual perimeter for a real-world geographic region.",
+   "origin": "authored"
+  },
+  {
+   "id": "621c03dddb",
+   "module": 1,
+   "q": "To have multiple services pull data from an IoT Hub, you need to create multiple:",
+   "options": [
+    "Consumer groups",
+    "Pipes",
+    "IoT Hubs"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "iot_embedded-08",
+   "origin": "bank:iot:28",
+   "source": "ms-iot"
+  },
+  {
+   "id": "eef687cf85",
+   "module": 1,
+   "q": "The default search buffer for a geofence call is:",
+   "options": [
+    "5m",
+    "50m",
+    "500m"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "iot_embedded-08",
+   "origin": "bank:iot:28",
+   "source": "ms-iot"
+  },
+  {
+   "id": "656ba24522",
+   "module": 1,
+   "q": "Points inside the geofence have a distance:",
+   "options": [
+    "Less than 0 (a negative value)",
+    "Greater than 0 (a positive value)"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "iot_embedded-08",
+   "origin": "bank:iot:28",
+   "source": "ms-iot"
+  }
+ ],
  "minutes": 132,
  "sources": [
   {

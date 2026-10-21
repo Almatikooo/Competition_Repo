@@ -1,0 +1,609 @@
+<br>
+<div class="table-wrap"><table>
+<tbody><tr>
+<td colspan="2">
+<br>
+<div class="table-wrap"><table>
+<tbody><tr>
+<td>
+</td>
+<td>
+</td>
+</tr>
+</tbody></table></div>
+</td>
+</tr>
+<tr>
+<td>
+<i>
+</i>
+</td>
+<td>
+
+Process capability compares the output of an <i>in-control</i> process
+to the specification limits by using <i>capability indices</i>.  The
+comparison is made by forming the ratio of the spread between the
+process specifications (the specification "width") to the spread of
+the process values, as measured by 6 process standard deviation units
+(the process "width").
+<p>
+<b>Process Capability Indices</b>
+</p></td>
+</tr>
+<tr>
+<td>
+<i>A process capability index uses both the process variability and
+the process specifications to determine whether the process is
+"capable"</i>
+</td>
+<td>
+We are often required to compare the output of a stable process with
+the process specifications and make a statement about how well the process
+meets specification.&nbsp; To do this we compare the natural variability
+of a stable process with the process specification limits.&nbsp;
+<p>
+
+A process where almost all the measurements fall inside the
+specification limits is a <u>capable</u> process.
+This can be represented pictorially
+by the plot below:
+</p><p>
+<img alt="Diagram demonstrating a capable process" height="300" loading="lazy" src="https://www.itl.nist.gov/div898/handbook/pmc/section1/gifs/cpi1.gif" width="311">
+<br>
+<br>
+</p><p>
+There are several statistics that can be used to measure the capability
+of a process:&nbsp; C<sub>p</sub>, C<sub>pk</sub>, and C<sub>pm</sub>.
+
+</p><p>
+Most capability indices estimates are valid only if the sample size
+used is "large enough".  Large enough is generally thought to be about
+50 independent data values.&nbsp;
+</p><p>
+The C<sub>p</sub>, C<sub>pk</sub>, and C<sub>pm</sub>
+
+statistics assume that the population of data values is normally distributed. 
+Assuming a two-sided specification, if μ
+
+and σ
+
+are the mean and standard deviation, respectively, of the normal data and
+USL, LSL, and T are the upper and lower 
+specification limits and the
+target value,  respectively, then the population capability indices are 
+defined as follows.
+</p></td>
+</tr>
+<tr>
+<td>
+<i>Definitions of various process capability indices</i>
+</td>
+<td>
+C<sub>p</sub> = (USL - LSL)/(6σ)
+
+
+<p>
+C<sub>pk</sub> = min[ (USL - μ)/(3σ), (μ - LSL)/(3σ)]
+
+</p><p>
+C<sub>pm</sub> = (USL - LSL)/(6√(σ<sup>2</sup> + (μ - T)<sup>2</sup>))
+
+</p></td>
+</tr>
+<tr>
+<td>
+<i>Sample estimates of capability indices</i>
+</td>
+<td>
+<i><u>Sample estimators</u></i> for these indices are given below.
+(Estimators are indicated with a "hat" over them).
+
+<p>
+Ĉ<sub>p</sub> = (USL - LSL)/(6s)
+
+</p><p>
+Ĉ<sub>pk</sub> = min[ (USL - x̄)/(3s), (x̄ - LSL)/(3s)]
+
+</p><p>
+Ĉ<sub>pm</sub> = (USL - LSL)/(6√(s<sup>2</sup> + (x̄ - T)<sup>2</sup>))
+
+</p><p>
+The estimator for C<sub>pk</sub>
+
+can also be expressed as C<sub>pk</sub> = C<sub>p</sub>(1-k),
+
+where k
+
+is a scaled distance between the midpoint of the specification range, m,
+
+and the process mean, μ.
+
+</p><p>
+Denote the midpoint of the specification range by m = (USL + LSL)/2.
+
+The distance between the process mean, μ,
+
+and the optimum, which is m,
+
+is μ - m,
+
+where m ≤ μ ≤ LSL.
+
+The scaled distance is
+
+k = (|m - μ|)/((USL - LSL)/2), 0 ≤ k ≤ 1 .
+
+(The absolute sign takes care of the case when
+LSL ≤ μ ≤ m).
+
+To determine the estimated value, k̂,
+
+we estimate μ
+
+by x̄.
+
+Note that x̄ ≤ USL.
+
+</p><p>
+The estimator for the C<sub>p</sub>
+
+index, adjusted by the k
+
+factor, is
+
+Ĉ<sub>pk</sub> = Ĉ<sub>p</sub>(1 - k̂) .
+
+
+Since 0 ≤ k ≤ 1,
+
+it follows that Ĉ<sub>pk</sub> ≤ Ĉ<sub>p</sub>.
+
+</p></td>
+</tr>
+<tr>
+<td>
+<i>
+Plot showing C<sub>p</sub>
+
+for varying process widths
+</i>
+</td>
+<td>
+
+To get an idea of the value of the C<sub>p</sub>
+
+statistic for varying process widths, consider the following plot.
+
+
+<img alt="4 plots showing the value of Cp for varying process widths" loading="lazy" src="https://www.itl.nist.gov/div898/handbook/pmc/section1/gifs/plotcp_r.gif">
+<p>
+This can be expressed numerically by the table below:
+
+</p></td>
+</tr>
+<tr>
+<td>
+<i>Translating capability into "rejects"</i>
+</td>
+<td>
+<div class="table-wrap"><table>
+<tbody><tr>
+<td>
+USL - LSL
+
+</td>
+<td>
+6 σ
+
+</td>
+<td>
+8 σ
+
+</td>
+<td>
+10 σ
+
+</td>
+<td>
+12 σ
+
+</td>
+</tr>
+<tr>
+<td>
+C<sub>p</sub>
+</td>
+<td>
+         1.00
+      </td>
+<td>
+         1.33
+      </td>
+<td>
+         1.66
+      </td>
+<td>
+         2.00
+      </td>
+</tr>
+<tr>
+<td>
+         Rejects
+      </td>
+<td>
+         0.27 %
+      </td>
+<td>
+         64 ppm
+      </td>
+<td>
+         0.6 ppm
+      </td>
+<td>
+         2 ppb
+      </td>
+</tr>
+<tr>
+<td>
+         % of spec used
+      </td>
+<td>
+         100
+      </td>
+<td>
+         75
+      </td>
+<td>
+         60
+      </td>
+<td>
+         50
+      </td>
+</tr>
+</tbody></table></div>
+<p>
+where ppm = parts per million and ppb = parts per billion. Note that
+the reject figures are based on the assumption that the distribution is
+centered at μ.
+
+</p><p>
+We have discussed the situation with two spec. limits, the USL and LSL.
+This is known as the <i>bilateral </i>or two-sided case. There are many
+cases where only the lower or upper specifications are used. Using one
+spec limit is called <i>unilateral </i>or one-sided. The corresponding
+capability indices are
+</p></td>
+</tr>
+<tr>
+<td>
+<i>One-sided specifications and the corresponding capability indices</i>
+</td>
+<td>
+
+C<sub>pu</sub> = (allowable upper spread)/(actual upper spread) = (USL - μ)/(3σ)
+
+
+and
+
+C<sub>pl</sub> = (allowable lower spread)/(actual lower spread) = (μ - LSL)/(3σ) ,
+
+
+where μ
+
+and σ
+
+are the process mean and standard deviation, respectively.
+<p>
+Estimators of C<sub>pu</sub> and C<sub>pl</sub>
+
+are obtained by replacing μ
+
+and σ
+
+by x̄ and s,
+
+respectively. The following relationship holds
+
+C<sub>p</sub> = (C<sub>pu</sub> + C<sub>pl</sub>)/(2) .
+
+This can be represented pictorially by
+
+</p>
+<img alt="Graph demonstrating upper actual and allowable upper spread" height="300" loading="lazy" src="https://www.itl.nist.gov/div898/handbook/pmc/section1/gifs/cpi3.gif" width="317">
+<p>
+Note that we also can write:
+</p><p>
+C<sub>pk</sub> = min(C<sub>pl</sub>, C<sub>pu</sub>) .
+
+</p></td>
+</tr>
+<tr>
+<td>
+<i>
+</i>
+</td>
+<td>
+<b>Confidence Limits For Capability Indices</b>
+</td>
+</tr>
+<tr>
+<td>
+<i>Confidence intervals for indices</i>
+</td>
+<td>
+Assuming normally distributed process data, the distribution of the
+sample Ĉ<sub>p</sub>
+
+follows from a Chi-square distribution and Ĉ<sub>pu</sub>
+
+and Ĉ<sub>pl</sub>
+
+have distributions related to the non-central <i>t</i> distribution.
+Fortunately, approximate confidence limits related to the normal
+distribution have been derived.  Various approximations to the
+distribution of Ĉ<sub>pk</sub>
+
+have been proposed, including those given by
+Bissell (1990), and we will use a normal approximation.
+<p>
+The resulting formulas for 100(1-α) % confidence limits are given below.
+
+</p><p>
+
+
+Confidence Limits for C<sub>p</sub> are
+
+PrĈ<sub>p</sub>(L<sub>1</sub>) ≤ C<sub>p</sub> ≤ Ĉ<sub>p</sub>(L<sub>2</sub>) = 1 - α ,
+
+where
+
+begineqnarray L<sub>1</sub> &amp; = &amp; √((χ<sup>2</sup><sub>α/2, ν</sub>)/(ν)) , &amp; &amp; L<sub>2</sub> &amp; = &amp; √((χ<sup>2</sup><sub>1-α/2, ν</sub>)/(ν)) , endeqnarray
+
+
+and ν = degrees of freedom.
+
+
+
+</p></td>
+</tr>
+<tr>
+<td>
+<i>
+Confidence Intervals for C<sub>pu</sub> and C<sub>pl</sub>
+</i>
+</td>
+<td>
+
+Approximate 100(1-α) %
+
+confidence limits for C<sub>pu</sub>
+
+with sample size n
+
+are:
+
+C<sub>pu</sub>(lower) = Ĉ<sub>pu</sub> - z<sub>1-β</sub>√((1)/(9n) + (Ĉ<sub>pu</sub><sup>2</sup>)/(2(n-1)))
+
+and
+
+
+<p>
+C<sub>pu</sub>(upper) = Ĉ<sub>pu</sub> + z<sub>1-α</sub>√((1)/(9n) + (Ĉ<sub>pu</sub><sup>2</sup>)/(2(n-1))) ,
+
+
+with z
+
+denoting the percent point function of the standard normal
+distribution.  If β
+
+is not known, set it to α.
+
+</p><p>
+Limits for C<sub>pl</sub>
+
+are obtained by replacing Ĉ<sub>pu</sub>
+
+by Ĉ<sub>pl</sub>.
+
+</p></td>
+</tr>
+<tr>
+<td>
+<i>
+Confidence Interval for C<sub>pk</sub>
+</i>
+</td>
+<td>
+<a href="https://www.itl.nist.gov/div898/handbook/pmc/section7/pmc7.htm#Zhang1990" target="_blank" rel="noopener noreferrer">Zhang et al. (1990)</a>
+derived the exact variance for the estimator of C<sub>pk</sub>
+
+as well as an approximation for large n.
+
+The reference paper is Zhang, Stenback and Wardrop (1990),
+"Interval Estimation of the process capability index," <i>Communications
+in Statistics: Theory and Methods</i>, 19(21), 4455-4470.
+<p>
+The variance is obtained as follows.
+</p><p>
+Let
+
+</p><ul>
+c = √(n)[μ - (USL + LSL)/2]σ
+
+d = (USL - LSL)/σ
+
+Phi(-c) = int<sub>-inf</sub><sup>-c</sup>(1)/(√(2π))exp-5z<sup>2</sup>dz .
+
+</ul>
+Then
+<ul>
+Var(Ĉ<sub>pk</sub>)
+
+= (d<sup>2</sup>/36)(n-1)(n-3)
+
+-(d/9√(n))(n-1)(n-3)√(2π)exp(-c<sup>2</sup>/2) + c[1 - 2Phi(-c)]
+
++[(1/9)(n-1)/(n(n-3))](1+c<sup>2</sup>)
+
+-[(n-1)/(72n)](Gamma((n-2)/2))/(Gamma((n-1)/2))<sup>2</sup>
+
+*d√(n) - 2√(2π)exp(-c<sup>2</sup>/2) - 2c[1 - 2Phi(-c)]<sup>2</sup> .
+
+</ul>
+
+Their approximation is given by:
+
+<ul>
+Var(Ĉ<sub>pk</sub>) = (n-1)/(n-3) - 0.5(Gamma((n-2)/2))/(Gamma((n-1)/2))<sup>2</sup> ,
+
+</ul>
+where
+<ul>
+n ≥ 25, 0.75 ≤ C<sub>pk</sub> ≤ 4, |c| ≤ 100, and d ≤ 24 .
+
+</ul>
+The following approximation is commonly used in practice
+
+C<sub>pk</sub> = Ĉ<sub>pk</sub> ± z<sub>1-α/2</sub>√((1)/(9n) + (Ĉ<sub>pk</sub><sup>2</sup>)/(2(n-1))) .
+
+It is important to note that the sample size should be at least 25 before
+these approximations are valid. In general, however, we need
+n ≥ 100
+
+for capability studies.  Another point to observe is that
+variations are not negligible due to the randomness of capability
+indices.
+
+</td>
+</tr>
+<tr>
+<td>
+<i>
+</i>
+</td>
+<td>
+<b>Capability Index Example</b>
+</td>
+</tr>
+<tr>
+<td>
+<i>An example</i>
+</td>
+<td>
+For a certain process the USL = 20 and the LSL = 8.  The observed
+process average, x̄ ≥ 16,
+
+and the standard deviation, s = 2.
+ 
+From this we obtain
+
+Ĉ<sub>p</sub> = (USL - LSL)/(6s) = (20 - 8)/(6(2)) = 1.0 .
+
+This means that the process is capable as long as it is located
+at the midpoint, m = (USL + LSL)/2 = 14.
+
+<p>
+But it doesn't, since x̄ ≥ 16.
+
+The k̂
+
+factor is found by
+
+k̂ = (|m - x̄|)/((USL - LSL)/2) = (2)/(6) = 0.3333
+
+and
+
+Ĉ<sub>pk</sub> = Ĉ<sub>p</sub>(1-k̂) = 0.6667 .
+
+We would like to have Ĉ<sub>pk</sub>
+
+at least 1.0, so this is not a good process.  If possible, reduce the variability
+or/and center the process.  We can compute the Ĉ<sub>pu</sub>
+
+and Ĉ<sub>pl</sub> using
+
+Ĉ<sub>pu</sub> = (USL - x̄)/(3s) = (20 - 16)/(3(2)) = 0.6667
+
+and
+
+Ĉ<sub>pl</sub> = (x̄ - LSL)/(3s) = (16 - 8)/(3(2)) = 1.3333 .
+
+From this we see that the Ĉ<sub>pu</sub>,
+
+which is the smallest of the above indices, is 0.6667.  
+Note that the formula Ĉ<sub>pk</sub> = Ĉ<sub>p</sub>(1 - k̂)
+
+is the algebraic equivalent of the min(Ĉ<sub>pu</sub>, Ĉ<sub>pl</sub>)
+
+
+definition.
+
+
+</p></td>
+</tr>
+<tr>
+<td>
+<i>
+</i>
+</td>
+<td>
+<b>What happens if the process is not approximately normally
+distributed?</b>
+</td>
+</tr>
+<tr>
+<td>
+<i>What you can do with non-normal data</i>
+</td>
+<td>
+The indices that we considered thus far are based on normality of the
+process distribution. This poses a problem when the process distribution
+is not normal.  Without going into the specifics, we can list some
+remedies.
+<ol>
+<li>Transform the data so that they become approximately normal. A
+       popular transformation is the
+       <a href="https://www.itl.nist.gov/div898/handbook/pmc/section5/pmc52.htm#Box-Cox" target="_blank" rel="noopener noreferrer">Box-Cox
+       transformation</a>
+</li><li>Use or develop another set of indices, that apply to nonnormal
+       distributions.  Non-parameteric versions
+       (<a href="https://www.itl.nist.gov/div898/handbook/pmc/section7/pmc7.htm#Pearn" target="_blank" rel="noopener noreferrer">Pearn, Tai, Hsiao, and Ao
+       (2014)</a> and
+       <a href="https://www.itl.nist.gov/div898/handbook/pmc/section7/pmc7.htm#Chen" target="_blank" rel="noopener noreferrer">Chen and Ding (2001)</a>)
+       of the C<sub>p</sub>, C<sub>pk</sub>, and C<sub>pm</sub> capability indices
+       are denoted by C<sub>np</sub>, C<sub>npk</sub>, and C<sub>npm</sub>.
+       Estimators for these non-parameteric capability indices are
+       calculated by
+       <ul>
+Ĉ<sub>np</sub> = (USL - LSL)/(p(0.99865) - p(0.00135))
+<p>
+Ĉ<sub>npk</sub> = (min[ USL - median, median - LSL ] )/((p(0.99865) - p(0.00135))/2 )
+</p><p>
+Ĉ<sub>npm</sub> = (USL - LSL)/(6 √(( (p(0.99865) - p(0.00135))/(6) ) <sup>2</sup> + (median - T)<sup>2</sup>))
+</p></ul>
+<p>
+       where p(0.99855) is the 99.865th percentile of the data
+       and p(0.00135) is the 0.135th percentile of the data.
+       The use of these percentiles is justified to mimic the
+       coverage of ±3 standard deviations for the normal distribution.
+       Note that some sources may use 99% coverage.  For example, the
+       C<sub>npk</sub> statistic may be given as
+       </p><ul>
+Ĉ<sub>npk</sub> = min[(USL - median)/(p(0.995) - median), (median - LSL)/(median - p(0.005)) ]
+</ul>
+<p>
+       where p(0.995) is the 99.5th percentile of the data
+       and p(0.005) is the 0.5th percentile of the data.
+       </p><p>
+       For additional information on nonnormal distributions, see
+       <a href="https://www.itl.nist.gov/div898/handbook/pmc/section7/pmc7.htm#Kotz, S and" target="_blank" rel="noopener noreferrer">Johnson and Kotz
+       (1993)</a>.
+   
+</p></li></ol>
+<p>
+There is, of course, much more that can be said about the case of
+nonnormal data. However, if a Box-Cox transformation can be successfully
+performed, one is encouraged to use it.
+</p></td>
+</tr>
+</tbody></table></div>

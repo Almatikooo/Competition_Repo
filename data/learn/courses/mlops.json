@@ -617,178 +617,645 @@
    ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "In the lesson's web app, what happens when the form is posted to the /predict route?",
-    "options": [
-     "The model is retrained on the submitted values",
-     "The form values are gathered, converted to a numpy array and sent to the model, which returns a prediction",
-     "The values are stored in a spreadsheet for a data scientist to review",
-     "The page reloads without contacting the model"
-    ],
-    "answer": 1,
-    "explain": "The Flask route turns form input into the array shape the model expects and returns its prediction.",
-    "lesson": "mlops-01",
-    "evidence": "The form variables are gathered and converted to a numpy array.",
-    "origin": "authored"
-   },
-   {
-    "q": "What are the tools we can use to host a pre-trained model on the web using Python?",
-    "options": [
-     "Flask",
-     "TensorFlow.js",
-     "onnx.js"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "mlops-01",
-    "origin": "bank:ml:18",
-    "source": "ms-ml"
-   },
-   {
-    "q": "What does SaaS stand for?",
-    "options": [
-     "System as a Service",
-     "Software as a Service",
-     "Security as a Service"
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "mlops-01",
-    "origin": "bank:ml:18",
-    "source": "ms-ml"
-   },
-   {
-    "q": "What is the generative AI application lifecycle?",
-    "options": [
-     "A licence for using large language models",
-     "A list of approved AI vendors",
-     "A benchmark for comparing models",
-     "A framework that guides you through developing, deploying and maintaining a generative AI application"
-    ],
-    "answer": 3,
-    "explain": "It structures goals, measurement, challenges and solutions across the life of an AI application.",
-    "lesson": "mlops-02",
-    "evidence": "The generative AI lifecycle is a framework that guides you through the stages of developing, deploying, and maintaining a generative AI application.",
-    "origin": "authored"
-   },
-   {
-    "q": "What does static (offline) training mean?",
-    "options": [
-     "You train the model continuously or at least frequently",
-     "You train the model only once",
-     "You train a separate model for each user",
-     "You train the model on the production server"
-    ],
-    "answer": 1,
-    "explain": "Static training is simpler but the model can go stale; dynamic training keeps learning from fresh data.",
-    "lesson": "mlops-03",
-    "evidence": "Static training (also called offline training ) means that you train a model only once.",
-    "origin": "authored"
-   },
-   {
-    "q": "What does dynamic (online) inference mean?",
-    "options": [
-     "The model only makes predictions on demand, for example when a client requests one",
-     "All predictions are computed in advance and cached",
-     "The model is retrained before every prediction",
-     "Predictions are made by people, not the model"
-    ],
-    "answer": 0,
-    "explain": "Dynamic inference handles diverse, real-time requests; static inference precomputes and caches predictions.",
-    "lesson": "mlops-04",
-    "evidence": "Dynamic inference (also called online inference or real-time inference) means that the model only makes predictions on demand, for example, when a client requests a prediction.",
-    "origin": "authored"
-   },
-   {
-    "q": "How can you make sure a model is compatible with its serving infrastructure before release?",
-    "options": [
-     "Deploy it straight to production and watch the logs",
-     "Retrain it with more data",
-     "Stage the model in a sandboxed server environment to avoid dependency conflicts",
-     "Convert it to a spreadsheet formula"
-    ],
-    "answer": 2,
-    "explain": "A sandboxed staging environment surfaces dependency conflicts without affecting users.",
-    "lesson": "mlops-05",
-    "evidence": "Ensure model-infrastructure compatibility by staging the model in a sandboxed server environment to avoid dependency conflicts.",
-    "origin": "authored"
-   },
-   {
-    "q": "How should a production ML pipeline monitor its raw input data?",
-    "options": [
-     "Only check the data once, when the model is first trained",
-     "Trust the data if the model's accuracy is high",
-     "Ask users to report bad data",
-     "Continuously check it against expected values by writing rules the data must satisfy"
-    ],
-    "answer": 3,
-    "explain": "A data schema with rules (for example ratings must be 1–5) catches broken inputs early.",
-    "lesson": "mlops-06",
-    "evidence": "To monitor your data, you should continuously check it against expected statistical values by writing rules that the data must satisfy.",
-    "origin": "authored"
-   },
-   {
-    "q": "In MLOps model validation, when is a model considered adequate for deployment?",
-    "options": [
-     "When it trains without errors",
-     "When its predictive performance is better than a certain baseline",
-     "When it is larger than the previous model",
-     "When a data scientist has run it in a notebook"
-    ],
-    "answer": 1,
-    "explain": "Validation compares the candidate model against a baseline before it can replace the current one.",
-    "lesson": "mlops-07",
-    "evidence": "Model validation: The model is confirmed to be adequate for deployment—that its predictive performance is better than a certain baseline.",
-    "origin": "authored"
-   },
-   {
-    "q": "What are 'data values skews', and what do they call for?",
-    "options": [
-     "Significant changes in the statistical properties of data — a trigger to retrain the model",
-     "Typos in column names — a trigger to rename features",
-     "Slow queries — a trigger to add servers",
-     "Missing labels — a trigger to delete the data"
-    ],
-    "answer": 0,
-    "explain": "When data patterns change, the model must be retrained to capture them.",
-    "lesson": "mlops-08",
-    "evidence": "Data values skews: These skews are significant changes in the statistical properties of data, which means that data patterns are changing, and you need to trigger a retraining of the model to capture these changes.",
-    "origin": "authored"
-   },
-   {
-    "q": "According to the Rules of Machine Learning, what must you trust before doing imaginative machine learning?",
-    "options": [
-     "Your feature engineering",
-     "Your most complex model",
-     "Your pipeline",
-     "Your users' feedback"
-    ],
-    "answer": 2,
-    "explain": "Start with simple, testable infrastructure; otherwise it is hard to tell what is going wrong.",
-    "lesson": "mlops-11",
-    "evidence": "it will be hard to figure out what is happening if you don’t first trust your pipeline.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the best way to deal with training-serving skew?",
-    "options": [
-     "Train on much more data",
-     "Use a bigger model",
-     "Stop serving the model",
-     "Explicitly monitor it so system and data changes don't introduce skew unnoticed"
-    ],
-    "answer": 3,
-    "explain": "Skew between training and serving data creeps in silently unless you measure it.",
-    "lesson": "mlops-14",
-    "evidence": "The best solution is to explicitly monitor it so that system and data changes don’t introduce skew unnoticed.",
-    "origin": "authored"
-   }
-  ],
-  "pass_mark": 9,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "e2026bf204",
+   "module": 0,
+   "q": "In the lesson's web app, what happens when the form is posted to the /predict route?",
+   "options": [
+    "The model is retrained on the submitted values",
+    "The form values are gathered, converted to a numpy array and sent to the model, which returns a prediction",
+    "The values are stored in a spreadsheet for a data scientist to review",
+    "The page reloads without contacting the model"
+   ],
+   "answer": 1,
+   "explain": "The Flask route turns form input into the array shape the model expects and returns its prediction.",
+   "lesson": "mlops-01",
+   "evidence": "The form variables are gathered and converted to a numpy array.",
+   "origin": "authored"
+  },
+  {
+   "id": "c1c9172cec",
+   "module": 0,
+   "q": "What are the tools we can use to host a pre-trained model on the web using Python?",
+   "options": [
+    "Flask",
+    "TensorFlow.js",
+    "onnx.js"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "mlops-01",
+   "origin": "bank:ml:18",
+   "source": "ms-ml"
+  },
+  {
+   "id": "012d94133e",
+   "module": 0,
+   "q": "What does SaaS stand for?",
+   "options": [
+    "System as a Service",
+    "Software as a Service",
+    "Security as a Service"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "mlops-01",
+   "origin": "bank:ml:18",
+   "source": "ms-ml"
+  },
+  {
+   "id": "adc5e71ee1",
+   "module": 0,
+   "q": "What does Scikit-learn's LabelEncoder library do?",
+   "options": [
+    "Encodes data alphabetically",
+    "Encodes data numerically",
+    "Encodes data serially"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "mlops-01",
+   "origin": "bank:ml:18",
+   "source": "ms-ml"
+  },
+  {
+   "id": "14b038be22",
+   "module": 0,
+   "q": "What is the generative AI application lifecycle?",
+   "options": [
+    "A licence for using large language models",
+    "A list of approved AI vendors",
+    "A benchmark for comparing models",
+    "A framework that guides you through developing, deploying and maintaining a generative AI application"
+   ],
+   "answer": 3,
+   "explain": "It structures goals, measurement, challenges and solutions across the life of an AI application.",
+   "lesson": "mlops-02",
+   "evidence": "The generative AI lifecycle is a framework that guides you through the stages of developing, deploying, and maintaining a generative AI application.",
+   "origin": "authored"
+  },
+  {
+   "id": "4239388ad3",
+   "module": 0,
+   "q": "Besides goals and performance, what does the generative AI lifecycle help you align your application with?",
+   "options": [
+    "The ethical and legal standards of your domain and stakeholders",
+    "The colour scheme of your website",
+    "Your competitors' pricing",
+    "The latest social media trends"
+   ],
+   "answer": 0,
+   "explain": "Following the lifecycle keeps the app delivering value responsibly.",
+   "lesson": "mlops-02",
+   "evidence": "It also helps you to align your application with the ethical and legal standards of your domain and your stakeholders.",
+   "origin": "authored"
+  },
+  {
+   "id": "167bcb2fc8",
+   "module": 0,
+   "q": "Compared with classic MLOps, whom does LLMOps focus on?",
+   "options": [
+    "Only hardware engineers",
+    "Only data labellers",
+    "App developers who integrate models offered as a service",
+    "Only end users"
+   ],
+   "answer": 2,
+   "explain": "Integration with Models-as-a-Service is a key point.",
+   "lesson": "mlops-02",
+   "evidence": "in LLMOps, we are more focused on the App Developers, using integrations as a key point",
+   "origin": "authored"
+  },
+  {
+   "id": "bb9419746f",
+   "module": 1,
+   "q": "What does static (offline) training mean?",
+   "options": [
+    "You train the model continuously or at least frequently",
+    "You train the model only once",
+    "You train a separate model for each user",
+    "You train the model on the production server"
+   ],
+   "answer": 1,
+   "explain": "Static training is simpler but the model can go stale; dynamic training keeps learning from fresh data.",
+   "lesson": "mlops-03",
+   "evidence": "Static training (also called offline training ) means that you train a model only once.",
+   "origin": "authored"
+  },
+  {
+   "id": "1747e6d86e",
+   "module": 1,
+   "q": "What does dynamic (online) inference mean?",
+   "options": [
+    "The model only makes predictions on demand, for example when a client requests one",
+    "All predictions are computed in advance and cached",
+    "The model is retrained before every prediction",
+    "Predictions are made by people, not the model"
+   ],
+   "answer": 0,
+   "explain": "Dynamic inference handles diverse, real-time requests; static inference precomputes and caches predictions.",
+   "lesson": "mlops-04",
+   "evidence": "Dynamic inference (also called online inference or real-time inference) means that the model only makes predictions on demand, for example, when a client requests a prediction.",
+   "origin": "authored"
+  },
+  {
+   "id": "4bd78cc874",
+   "module": 1,
+   "q": "How can you make sure a model is compatible with its serving infrastructure before release?",
+   "options": [
+    "Deploy it straight to production and watch the logs",
+    "Retrain it with more data",
+    "Stage the model in a sandboxed server environment to avoid dependency conflicts",
+    "Convert it to a spreadsheet formula"
+   ],
+   "answer": 2,
+   "explain": "A sandboxed staging environment surfaces dependency conflicts without affecting users.",
+   "lesson": "mlops-05",
+   "evidence": "Ensure model-infrastructure compatibility by staging the model in a sandboxed server environment to avoid dependency conflicts.",
+   "origin": "authored"
+  },
+  {
+   "id": "f57f17b4fa",
+   "module": 1,
+   "q": "How should a production ML pipeline monitor its raw input data?",
+   "options": [
+    "Only check the data once, when the model is first trained",
+    "Trust the data if the model's accuracy is high",
+    "Ask users to report bad data",
+    "Continuously check it against expected values by writing rules the data must satisfy"
+   ],
+   "answer": 3,
+   "explain": "A data schema with rules (for example ratings must be 1–5) catches broken inputs early.",
+   "lesson": "mlops-06",
+   "evidence": "To monitor your data, you should continuously check it against expected statistical values by writing rules that the data must satisfy.",
+   "origin": "authored"
+  },
+  {
+   "id": "f55a4f0823",
+   "module": 1,
+   "q": "Why must feature-engineered data be checked separately from raw input data?",
+   "options": [
+    "Raw data never has errors",
+    "Features are always correct",
+    "It can be very different from the raw data",
+    "Checks are only allowed once"
+   ],
+   "answer": 2,
+   "explain": "Problems can appear during feature engineering itself.",
+   "lesson": "mlops-06",
+   "evidence": "Because feature engineered data can be very different from raw input data, you must check feature engineered data separately from your checks on raw input data.",
+   "origin": "authored"
+  },
+  {
+   "id": "3057b6421b",
+   "module": 1,
+   "q": "What are data slices?",
+   "options": [
+    "Pieces of a model's code",
+    "Subsets of the data, such as one region, whose performance you track separately",
+    "Backups of the training set",
+    "Random noise added to data"
+   ],
+   "answer": 1,
+   "explain": "Good average performance can hide poor performance on a slice.",
+   "lesson": "mlops-06",
+   "evidence": "are called data slices",
+   "origin": "authored"
+  },
+  {
+   "id": "9ad5f9b858",
+   "module": 1,
+   "q": "Which of these is an example of a data validation rule?",
+   "options": [
+    "User-submitted ratings are always between 1 and 5",
+    "The model must be trained on a GPU",
+    "Logs are deleted every day",
+    "Features are named in English"
+   ],
+   "answer": 0,
+   "explain": "Rules check data against expected values continuously.",
+   "lesson": "mlops-06",
+   "evidence": "Ensure that user-submitted ratings are always in the range 1 to 5.",
+   "origin": "authored"
+  },
+  {
+   "id": "9277aa7ce0",
+   "module": 2,
+   "q": "In MLOps model validation, when is a model considered adequate for deployment?",
+   "options": [
+    "When it trains without errors",
+    "When its predictive performance is better than a certain baseline",
+    "When it is larger than the previous model",
+    "When a data scientist has run it in a notebook"
+   ],
+   "answer": 1,
+   "explain": "Validation compares the candidate model against a baseline before it can replace the current one.",
+   "lesson": "mlops-07",
+   "evidence": "Model validation: The model is confirmed to be adequate for deployment—that its predictive performance is better than a certain baseline.",
+   "origin": "authored"
+  },
+  {
+   "id": "00fa15ba35",
+   "module": 2,
+   "q": "How does continuous integration (CI) differ for ML systems?",
+   "options": [
+    "It only tests code style",
+    "It is not used in ML",
+    "It only runs once a year",
+    "It also tests and validates data, schemas and models, not just code"
+   ],
+   "answer": 3,
+   "explain": "ML systems can break when the data changes, even if the code doesn't.",
+   "lesson": "mlops-07",
+   "evidence": "CI is no longer only about testing and validating code and components, but also testing and validating data, data schemas, and models.",
+   "origin": "authored"
+  },
+  {
+   "id": "7c8ee31e5e",
+   "module": 2,
+   "q": "How does continuous delivery (CD) differ for ML systems?",
+   "options": [
+    "It only copies a single file",
+    "It is done by hand each time",
+    "It deploys a training pipeline that automatically deploys a prediction service",
+    "It deploys the dataset to users"
+   ],
+   "answer": 2,
+   "explain": "The pipeline itself becomes the product being delivered.",
+   "lesson": "mlops-07",
+   "evidence": "CD is no longer about a single software package or a service, but a system (an ML training pipeline) that should automatically deploy another service (model prediction service).",
+   "origin": "authored"
+  },
+  {
+   "id": "56a4f108e7",
+   "module": 2,
+   "q": "What are 'data values skews', and what do they call for?",
+   "options": [
+    "Significant changes in the statistical properties of data — a trigger to retrain the model",
+    "Typos in column names — a trigger to rename features",
+    "Slow queries — a trigger to add servers",
+    "Missing labels — a trigger to delete the data"
+   ],
+   "answer": 0,
+   "explain": "When data patterns change, the model must be retrained to capture them.",
+   "lesson": "mlops-08",
+   "evidence": "Data values skews: These skews are significant changes in the statistical properties of data, which means that data patterns are changing, and you need to trigger a retraining of the model to capture these changes.",
+   "origin": "authored"
+  },
+  {
+   "id": "880009772c",
+   "module": 2,
+   "q": "What does continuous training (CT) mean at MLOps level 1?",
+   "options": [
+    "Data scientists retrain it by hand every year",
+    "The model is retrained automatically in production on fresh data, triggered by the pipeline",
+    "The model is never retrained",
+    "Users train the model themselves"
+   ],
+   "answer": 1,
+   "explain": "Triggers can be schedules, new data or performance drops.",
+   "lesson": "mlops-08",
+   "evidence": "The model is automatically trained in production using fresh data based on live pipeline triggers",
+   "origin": "authored"
+  },
+  {
+   "id": "e5c2ecda6b",
+   "module": 2,
+   "q": "What is experimental-operational symmetry?",
+   "options": [
+    "Using the same pipeline in development, preproduction and production",
+    "Running two models side by side",
+    "Training on half the data",
+    "Copying code between teams"
+   ],
+   "answer": 0,
+   "explain": "It is key to unifying MLOps with DevOps.",
+   "lesson": "mlops-08",
+   "evidence": "The pipeline implementation that is used in the development or experiment environment is used in the preproduction and production environment",
+   "origin": "authored"
+  },
+  {
+   "id": "e8d615aacc",
+   "module": 2,
+   "q": "What does a feature store help data scientists do?",
+   "options": [
+    "Store trained models only",
+    "Label images automatically",
+    "Sell features to customers",
+    "Discover and reuse feature sets instead of re-creating them"
+   ],
+   "answer": 3,
+   "explain": "It also keeps features consistent between training and serving.",
+   "lesson": "mlops-08",
+   "evidence": "Discover and reuse available feature sets for their entities, instead of re-creating the same or similar ones.",
+   "origin": "authored"
+  },
+  {
+   "id": "ffc644ae15",
+   "module": 2,
+   "q": "At MLOps level 2, how is the pipeline executed in production?",
+   "options": [
+    "Only when a manager approves by email",
+    "Never — only in development",
+    "Automatically, on a schedule or in response to a trigger",
+    "Manually every morning"
+   ],
+   "answer": 2,
+   "explain": "Full CI/CD automation lets teams update pipelines rapidly.",
+   "lesson": "mlops-09",
+   "evidence": "The pipeline is automatically executed in production based on a schedule or in response to a trigger.",
+   "origin": "authored"
+  },
+  {
+   "id": "a6faf23fe0",
+   "module": 2,
+   "q": "Where is the trained model pushed after automated training?",
+   "options": [
+    "To the source code repository",
+    "To the model registry",
+    "To users' devices directly",
+    "To a spreadsheet"
+   ],
+   "answer": 1,
+   "explain": "The registry tracks model versions ready for deployment.",
+   "lesson": "mlops-09",
+   "evidence": "The output of this stage is a trained model that is pushed to the model registry.",
+   "origin": "authored"
+  },
+  {
+   "id": "337433bfb6",
+   "module": 3,
+   "q": "According to the Rules of Machine Learning, what must you trust before doing imaginative machine learning?",
+   "options": [
+    "Your feature engineering",
+    "Your most complex model",
+    "Your pipeline",
+    "Your users' feedback"
+   ],
+   "answer": 2,
+   "explain": "Start with simple, testable infrastructure; otherwise it is hard to tell what is going wrong.",
+   "lesson": "mlops-11",
+   "evidence": "it will be hard to figure out what is happening if you don’t first trust your pipeline.",
+   "origin": "authored"
+  },
+  {
+   "id": "0c8c223728",
+   "module": 3,
+   "q": "Why encapsulate the learning parts of an ML system?",
+   "options": [
+    "So you can test everything around them",
+    "To hide the model from users",
+    "To make training faster",
+    "To avoid writing documentation"
+   ],
+   "answer": 0,
+   "explain": "Testable infrastructure builds trust in the pipeline.",
+   "lesson": "mlops-11",
+   "evidence": "Make sure that the infrastructure is testable, and that the learning parts of the system are encapsulated so that you can test everything around it.",
+   "origin": "authored"
+  },
+  {
+   "id": "339773bbf7",
+   "module": 3,
+   "q": "A pipeline drops older posts. Why can that data be useless for some models?",
+   "options": [
+    "Older posts are always spam",
+    "The data becomes encrypted",
+    "Newer posts have no labels",
+    "The negative examples are gone, so you can't model why posts weren't seen"
+   ],
+   "answer": 3,
+   "explain": "Understand what your pipeline filters out.",
+   "lesson": "mlops-11",
+   "evidence": "this data is useless if we want to model why a particular post was not seen by the user, because all the negative examples have been dropped",
+   "origin": "authored"
+  },
+  {
+   "id": "62f10aa420",
+   "module": 3,
+   "q": "In the first phase of an ML system's life, what are the important issues?",
+   "options": [
+    "Tuning hyperparameters to perfection",
+    "Designing a logo",
+    "Getting training data in, instrumenting metrics and building serving infrastructure",
+    "Writing a research paper"
+   ],
+   "answer": 2,
+   "explain": "Fancy modelling comes later.",
+   "lesson": "mlops-12",
+   "evidence": "In the first phase of the lifecycle of a machine learning system, the important issues are to get the training data into the learning system, get any metrics of interest instrumented, and create a serving infrastructure.",
+   "origin": "authored"
+  },
+  {
+   "id": "59b689d113",
+   "module": 3,
+   "q": "Should you expect your current model to be the last one you launch?",
+   "options": [
+    "Yes, models are launched once",
+    "No — expect to keep launching, and avoid complexity that slows future launches",
+    "Yes, if it is accurate",
+    "Only for small teams"
+   ],
+   "answer": 1,
+   "explain": "New features, regularisation and objectives all lead to new launches.",
+   "lesson": "mlops-12",
+   "evidence": "expect that the model you are working on now will be the last one that you will launch",
+   "origin": "authored"
+  },
+  {
+   "id": "1326c29004",
+   "module": 3,
+   "q": "What is 'fishfooding'?",
+   "options": [
+    "Using a prototype within your own team",
+    "Using a prototype across the whole company",
+    "Releasing a model to all users",
+    "Testing on synthetic data only"
+   ],
+   "answer": 0,
+   "explain": "Dogfooding means using it within your company.",
+   "lesson": "mlops-13",
+   "evidence": "fishfooding (using a prototype within your team) and dogfooding (using a prototype within your company)",
+   "origin": "authored"
+  },
+  {
+   "id": "9aaa062364",
+   "module": 3,
+   "q": "Why might an all-male team design a 35-year-old female user persona?",
+   "options": [
+    "To replace usability testing",
+    "Because personas are required by law",
+    "To train the model on one user",
+    "To look at results from a perspective unlike the team's own"
+   ],
+   "answer": 3,
+   "explain": "Your team is not a representative sample of users.",
+   "lesson": "mlops-13",
+   "evidence": "if your team is all male, it might help to design a 35-year-old female user persona",
+   "origin": "authored"
+  },
+  {
+   "id": "5d32418ce3",
+   "module": 3,
+   "q": "What is the best way to deal with training-serving skew?",
+   "options": [
+    "Train on much more data",
+    "Use a bigger model",
+    "Stop serving the model",
+    "Explicitly monitor it so system and data changes don't introduce skew unnoticed"
+   ],
+   "answer": 3,
+   "explain": "Skew between training and serving data creeps in silently unless you measure it.",
+   "lesson": "mlops-14",
+   "evidence": "The best solution is to explicitly monitor it so that system and data changes don’t introduce skew unnoticed.",
+   "origin": "authored"
+  },
+  {
+   "id": "af25c88d35",
+   "module": 3,
+   "q": "What does Alice realise about launch decisions?",
+   "options": [
+    "They depend only on accuracy",
+    "They are made by the model itself",
+    "They depend on many criteria, only some of which ML can optimise directly",
+    "They never involve people"
+   ],
+   "answer": 2,
+   "explain": "There are no 'hit points' showing a product's health.",
+   "lesson": "mlops-15",
+   "evidence": "launch decisions depend on multiple criteria, only some of which can be directly optimized using ML",
+   "origin": "authored"
+  },
+  {
+   "id": "b6ad1f02e5",
+   "module": 3,
+   "q": "If product goals aren't covered by the existing algorithmic objective, what should you do?",
+   "options": [
+    "Ignore the product goals",
+    "Change either the objective or the product goals",
+    "Add more data only",
+    "Stop measuring"
+   ],
+   "answer": 1,
+   "explain": "Objective and goals must line up.",
+   "lesson": "mlops-15",
+   "evidence": "if the product goals are not covered by the existing algorithmic objective, you need to change either your objective or your product goals",
+   "origin": "authored"
+  },
+  {
+   "id": "f86bc06fbe",
+   "module": 4,
+   "q": "What is a container image?",
+   "options": [
+    "The template from which container instances are created",
+    "A running copy of a container",
+    "A screenshot of a container",
+    "A virtual machine's hard disk"
+   ],
+   "answer": 0,
+   "explain": "One image can start many containers.",
+   "lesson": "mlops-16",
+   "evidence": "a container image is the template from which particular instances of containers will be created",
+   "origin": "authored"
+  },
+  {
+   "id": "de4dcfe7fc",
+   "module": 4,
+   "q": "After the hello-world container finishes running, what remains?",
+   "options": [
+    "Nothing at all",
+    "A running server",
+    "A copy of your files",
+    "The container image, with nothing actively running"
+   ],
+   "answer": 3,
+   "explain": "Containers are transient; images are long-lived.",
+   "lesson": "mlops-16",
+   "evidence": "The container image is still there, but nothing is actively running.",
+   "origin": "authored"
+  },
+  {
+   "id": "ac5915f4cb",
+   "module": 4,
+   "q": "What does the hello container do by default?",
+   "options": [
+    "Starts a web server",
+    "Deletes other containers",
+    "Runs a default action: printing a message",
+    "Downloads more images"
+   ],
+   "answer": 2,
+   "explain": "Images can define a default command to run.",
+   "lesson": "mlops-16",
+   "evidence": "The hello container is set up to run an action by default",
+   "origin": "authored"
+  },
+  {
+   "id": "aefe3ab233",
+   "module": 4,
+   "q": "What is a Dockerfile?",
+   "options": [
+    "A running container",
+    "A plain text file of keywords and commands used to build a container image",
+    "A compressed archive of images",
+    "A Docker account setting"
+   ],
+   "answer": 1,
+   "explain": "It is a reproducible recipe for an image.",
+   "lesson": "mlops-17",
+   "evidence": "A Dockerfile is a plain text file with keywords and commands that can be used to create a new container image.",
+   "origin": "authored"
+  },
+  {
+   "id": "1a6f6aca30",
+   "module": 4,
+   "q": "Are changes made inside an interactive container saved to a new image by default?",
+   "options": [
+    "No",
+    "Yes, always",
+    "Only if you install R",
+    "Only on Linux"
+   ],
+   "answer": 0,
+   "explain": "Exiting the container discards them unless you snapshot it.",
+   "lesson": "mlops-17",
+   "evidence": "Once we exit, these changes are not saved to a new container image by default.",
+   "origin": "authored"
+  },
+  {
+   "id": "45dea7ce59",
+   "module": 4,
+   "q": "Why is snapshotting an interactive container a poor way to build images?",
+   "options": [
+    "It is illegal",
+    "It makes images too small",
+    "It only works on Windows",
+    "It isn't easily reproducible"
+   ],
+   "answer": 3,
+   "explain": "A Dockerfile records every step so anyone can rebuild the image.",
+   "lesson": "mlops-17",
+   "evidence": "building container images this way is not easily reproducible",
+   "origin": "authored"
+  },
+  {
+   "id": "2095947786",
+   "module": 4,
+   "q": "How do a Dockerfile and a Containerfile differ?",
+   "options": [
+    "Containerfiles use a different language",
+    "Dockerfiles only work with Docker",
+    "Only in the file name — Podman can use both",
+    "Containerfiles cannot install software"
+   ],
+   "answer": 2,
+   "explain": "The keywords and commands are the same.",
+   "lesson": "mlops-17",
+   "evidence": "The two are essentially identical, differing only in the file name used, and Podman is capable of using both.",
+   "origin": "authored"
+  }
+ ],
  "minutes": 131,
  "sources": [
   {

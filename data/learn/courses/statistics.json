@@ -1122,180 +1122,680 @@
    ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "What is descriptive statistics?",
-    "options": [
-     "Drawing conclusions about a population from a sample",
-     "Organising, summarising and presenting data",
-     "Designing controlled experiments",
-     "Predicting future values with a model"
-    ],
-    "answer": 1,
-    "explain": "Inferential statistics then uses samples to draw conclusions about populations.",
-    "lesson": "statistics-01",
-    "evidence": "Organizing, summarizing, and presenting data is called descriptive statistics",
-    "origin": "authored"
-   },
-   {
-    "q": "Data that are the result of counting are called…",
-    "options": [
-     "qualitative data",
-     "quantitative continuous data",
-     "quantitative discrete data",
-     "categorical data"
-    ],
-    "answer": 2,
-    "explain": "Counts are discrete; measurements that can take any value on an interval are continuous.",
-    "lesson": "statistics-02",
-    "evidence": "All data that are the result of counting are called quantitative discrete data.",
-    "origin": "authored"
-   },
-   {
-    "q": "When studying the effect one variable may have on another, what is the first variable called?",
-    "options": [
-     "The explanatory variable",
-     "The response variable",
-     "The confounding variable",
-     "The control variable"
-    ],
-    "answer": 0,
-    "explain": "The explanatory variable may explain changes in the response variable.",
-    "lesson": "statistics-03",
-    "evidence": "we call the first variable the explanatory variable and the second the response variable",
-    "origin": "authored"
-   },
-   {
-    "q": "Which two graphs are used to display categorical data?",
-    "options": [
-     "Histograms and box plots",
-     "Scatter plots and line graphs",
-     "Stem plots and dot plots",
-     "Pie charts and bar graphs"
-    ],
-    "answer": 3,
-    "explain": "Categories are shown as wedges (pie) or bars proportional to their counts or percentages.",
-    "lesson": "statistics-07",
-    "evidence": "Two graphs that are used to display categorical data are pie charts and bar graphs.",
-    "origin": "authored"
-   },
-   {
-    "q": "Why is the median often a better measure of centre than the mean when there are outliers?",
-    "options": [
-     "It is always larger than the mean",
-     "It is more robust — not affected by the exact values of the outliers",
-     "It uses every data value",
-     "It is easier to calculate by hand"
-    ],
-    "answer": 1,
-    "explain": "One extreme value can pull the mean a long way but barely moves the median.",
-    "lesson": "statistics-09",
-    "evidence": "The median is generally a better measure of the center when there are extreme values or outliers because it is more robust",
-    "origin": "authored"
-   },
-   {
-    "q": "When is the standard deviation small?",
-    "options": [
-     "When there are many outliers",
-     "When the sample is large",
-     "When the data are all concentrated close to the mean",
-     "When the data are skewed to the right"
-    ],
-    "answer": 2,
-    "explain": "Standard deviation measures how far values typically fall from the mean.",
-    "lesson": "statistics-10",
-    "evidence": "The standard deviation is small when the data are all concentrated close to the mean, exhibiting little variation or spread.",
-    "origin": "authored"
-   },
-   {
-    "q": "In a binomial experiment, how many outcomes are possible on each trial?",
-    "options": [
-     "Exactly two, called success and failure",
-     "Any whole number",
-     "Three: success, failure and unknown",
-     "As many as the number of trials"
-    ],
-    "answer": 0,
-    "explain": "A binomial setting also needs a fixed number of independent trials with the same probability of success.",
-    "lesson": "statistics-14",
-    "evidence": "There are only two possible outcomes, called “success” and “failure,” for each trial.",
-    "origin": "authored"
-   },
-   {
-    "q": "As the sample size grows, what happens to the spread of the sample means?",
-    "options": [
-     "It grows larger",
-     "It stays exactly the same",
-     "It becomes skewed",
-     "It gets smaller"
-    ],
-    "answer": 3,
-    "explain": "This is the Central Limit Theorem at work: averages of larger samples vary less.",
-    "lesson": "statistics-17",
-    "evidence": "The spread of the sample means (the standard deviation of the sample means) gets smaller.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is a confidence interval?",
-    "options": [
-     "The single best guess for a parameter",
-     "An estimate that is an interval of numbers rather than just one number",
-     "The probability that the hypothesis is true",
-     "The range of the sample data"
-    ],
-    "answer": 1,
-    "explain": "The interval is random; the population parameter it tries to capture is fixed.",
-    "lesson": "statistics-18",
-    "evidence": "A confidence interval is another type of estimate but, instead of being just one number, it is an interval of numbers.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is a Type I error?",
-    "options": [
-     "Not rejecting H0 when H0 is false",
-     "Using the wrong test statistic",
-     "Rejecting H0 when H0 is actually true",
-     "Taking a sample that is too small"
-    ],
-    "answer": 2,
-    "explain": "A Type II error is the opposite: failing to reject a false H0.",
-    "lesson": "statistics-20",
-    "evidence": "The decision is to reject H 0 when H 0 is true (incorrect decision known as a Type I error ).",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the process of fitting the best-fit line called?",
-    "options": [
-     "Linear regression",
-     "Standardising",
-     "Sampling",
-     "Hypothesis testing"
-    ],
-    "answer": 0,
-    "explain": "Regression finds the line that best predicts y from x.",
-    "lesson": "statistics-23",
-    "evidence": "This process of fitting the best-fit line is called linear regression",
-    "origin": "authored"
-   },
-   {
-    "q": "Why shouldn't you use a regression line to predict y for an x value far outside the sample's range?",
-    "options": [
-     "Because regression lines only work for negative slopes",
-     "Because the correlation would become exactly 1",
-     "Because the line has no y-intercept there",
-     "Because that x value is outside the domain of the x-values in the sample data"
-    ],
-    "answer": 3,
-    "explain": "Predicting beyond the observed range (extrapolation) assumes the pattern continues, which may not be true.",
-    "lesson": "statistics-24",
-    "evidence": "because 50 is not within the domain of the x -values in the sample data",
-    "origin": "authored"
-   }
-  ],
-  "pass_mark": 9,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "3a81ee03d9",
+   "module": 0,
+   "q": "What is descriptive statistics?",
+   "options": [
+    "Drawing conclusions about a population from a sample",
+    "Organising, summarising and presenting data",
+    "Designing controlled experiments",
+    "Predicting future values with a model"
+   ],
+   "answer": 1,
+   "explain": "Inferential statistics then uses samples to draw conclusions about populations.",
+   "lesson": "statistics-01",
+   "evidence": "Organizing, summarizing, and presenting data is called descriptive statistics",
+   "origin": "authored"
+  },
+  {
+   "id": "f366fad7c8",
+   "module": 0,
+   "q": "Data that are the result of counting are called…",
+   "options": [
+    "qualitative data",
+    "quantitative continuous data",
+    "quantitative discrete data",
+    "categorical data"
+   ],
+   "answer": 2,
+   "explain": "Counts are discrete; measurements that can take any value on an interval are continuous.",
+   "lesson": "statistics-02",
+   "evidence": "All data that are the result of counting are called quantitative discrete data.",
+   "origin": "authored"
+  },
+  {
+   "id": "a92909894c",
+   "module": 0,
+   "q": "When studying the effect one variable may have on another, what is the first variable called?",
+   "options": [
+    "The explanatory variable",
+    "The response variable",
+    "The confounding variable",
+    "The control variable"
+   ],
+   "answer": 0,
+   "explain": "The explanatory variable may explain changes in the response variable.",
+   "lesson": "statistics-03",
+   "evidence": "we call the first variable the explanatory variable and the second the response variable",
+   "origin": "authored"
+  },
+  {
+   "id": "99171547d1",
+   "module": 0,
+   "q": "Why are treatments assigned to subjects at random in an experiment?",
+   "options": [
+    "To spread potential lurking variables equally among the groups",
+    "To make the experiment faster",
+    "To guarantee a positive result",
+    "To avoid needing a control group"
+   ],
+   "answer": 0,
+   "explain": "Randomisation is what lets experiments suggest cause and effect.",
+   "lesson": "statistics-04",
+   "evidence": "When subjects are assigned treatments randomly, all of the potential lurking variables are spread equally among the groups.",
+   "origin": "authored"
+  },
+  {
+   "id": "676e85b258",
+   "module": 0,
+   "q": "How should a researcher design an experiment comparing groups?",
+   "options": [
+    "So each group gets several treatments",
+    "So the groups differ in as many ways as possible",
+    "So only volunteers who expect results take part",
+    "So the only difference between the groups is the planned treatment"
+   ],
+   "answer": 3,
+   "explain": "Any other difference could explain the outcome instead.",
+   "lesson": "statistics-04",
+   "evidence": "The researcher must design their experiment in such a way that there is only one difference between groups being compared: the planned treatments.",
+   "origin": "authored"
+  },
+  {
+   "id": "245c3f3fb8",
+   "module": 0,
+   "q": "What should a sample have in common with its population?",
+   "options": [
+    "Exactly the same size",
+    "Only the most extreme members",
+    "The same characteristics as the population it represents",
+    "Nothing in particular"
+   ],
+   "answer": 2,
+   "explain": "A representative sample lets us generalise to the population.",
+   "lesson": "statistics-05",
+   "evidence": "we typically use a sample of the population which should have the same characteristics as the population it is representing",
+   "origin": "authored"
+  },
+  {
+   "id": "49a31a0f97",
+   "module": 0,
+   "q": "Why is systematic sampling often chosen?",
+   "options": [
+    "It always removes bias",
+    "It is a simple method",
+    "It needs no list of the population",
+    "It gives the largest sample"
+   ],
+   "answer": 1,
+   "explain": "It picks every kth member from an ordered list.",
+   "lesson": "statistics-05",
+   "evidence": "Systematic sampling is frequently chosen because it is a simple method.",
+   "origin": "authored"
+  },
+  {
+   "id": "c176250936",
+   "module": 0,
+   "q": "With a large population, how does sampling without replacement compare with sampling with replacement?",
+   "options": [
+    "They are approximately the same",
+    "Without replacement is always biased",
+    "With replacement is impossible",
+    "They give opposite results"
+   ],
+   "answer": 0,
+   "explain": "The chance of picking someone twice is very low.",
+   "lesson": "statistics-05",
+   "evidence": "sampling without replacement is approximately the same as sampling with replacement because the chance of picking the same individual more than once with replacement is very low",
+   "origin": "authored"
+  },
+  {
+   "id": "9b8308b579",
+   "module": 1,
+   "q": "Why can a graph be more effective than a mass of numbers?",
+   "options": [
+    "Graphs are always more precise",
+    "Graphs remove outliers",
+    "Graphs replace the need for data",
+    "You can see where data cluster and where there are few values"
+   ],
+   "answer": 3,
+   "explain": "Graphs reveal the distribution's shape at a glance.",
+   "lesson": "statistics-06",
+   "evidence": "A graph can be a more effective way of presenting data than a mass of numbers because we can see where data clusters and where there are only a few data values.",
+   "origin": "authored"
+  },
+  {
+   "id": "dcfca651db",
+   "module": 1,
+   "q": "Which two graphs are used to display categorical data?",
+   "options": [
+    "Histograms and box plots",
+    "Scatter plots and line graphs",
+    "Stem plots and dot plots",
+    "Pie charts and bar graphs"
+   ],
+   "answer": 3,
+   "explain": "Categories are shown as wedges (pie) or bars proportional to their counts or percentages.",
+   "lesson": "statistics-07",
+   "evidence": "Two graphs that are used to display categorical data are pie charts and bar graphs.",
+   "origin": "authored"
+  },
+  {
+   "id": "2477554c2c",
+   "module": 1,
+   "q": "What can an outlier indicate?",
+   "options": [
+    "That the data are perfect",
+    "That the mean is always zero",
+    "A recording mistake, or that something unusual is happening",
+    "That the sample is too large"
+   ],
+   "answer": 2,
+   "explain": "Writing 50 instead of 500 is an example of a mistake.",
+   "lesson": "statistics-08",
+   "evidence": "Some outliers are due to mistakes (for example, writing down 50 instead of 500) while others may indicate that something unusual is happening.",
+   "origin": "authored"
+  },
+  {
+   "id": "1a73678e1a",
+   "module": 1,
+   "q": "What is often the first step when examining quantitative data?",
+   "options": [
+    "Running a hypothesis test",
+    "Putting it in a frequency table",
+    "Calculating a regression line",
+    "Deleting outliers"
+   ],
+   "answer": 1,
+   "explain": "Frequency tables lead naturally to histograms.",
+   "lesson": "statistics-08",
+   "evidence": "The first thing we may do, especially for quantitative data, is to examine it in a frequency table.",
+   "origin": "authored"
+  },
+  {
+   "id": "feaf97f8f4",
+   "module": 1,
+   "q": "Why is the median often a better measure of centre than the mean when there are outliers?",
+   "options": [
+    "It is always larger than the mean",
+    "It is more robust — not affected by the exact values of the outliers",
+    "It uses every data value",
+    "It is easier to calculate by hand"
+   ],
+   "answer": 1,
+   "explain": "One extreme value can pull the mean a long way but barely moves the median.",
+   "lesson": "statistics-09",
+   "evidence": "The median is generally a better measure of the center when there are extreme values or outliers because it is more robust",
+   "origin": "authored"
+  },
+  {
+   "id": "9587c7875b",
+   "module": 1,
+   "q": "When is the standard deviation small?",
+   "options": [
+    "When there are many outliers",
+    "When the sample is large",
+    "When the data are all concentrated close to the mean",
+    "When the data are skewed to the right"
+   ],
+   "answer": 2,
+   "explain": "Standard deviation measures how far values typically fall from the mean.",
+   "lesson": "statistics-10",
+   "evidence": "The standard deviation is small when the data are all concentrated close to the mean, exhibiting little variation or spread.",
+   "origin": "authored"
+  },
+  {
+   "id": "3f47fbbeb3",
+   "module": 1,
+   "q": "You score at the 90th percentile. What does that mean?",
+   "options": [
+    "90% of scores are the same as or lower than yours",
+    "You answered 90% of questions correctly",
+    "You were 90th in the class",
+    "10% of scores are lower than yours"
+   ],
+   "answer": 0,
+   "explain": "Percentiles describe position, not percentage correct.",
+   "lesson": "statistics-11",
+   "evidence": "It means that 90% of test scores are the same or less than your score and 10% of the test scores are the same or greater than your test score.",
+   "origin": "authored"
+  },
+  {
+   "id": "466d715189",
+   "module": 1,
+   "q": "When might a low percentile be a good result?",
+   "options": [
+    "Never",
+    "Only for test scores",
+    "Only in sports",
+    "On a timed exam, where finishing quickly is better"
+   ],
+   "answer": 3,
+   "explain": "Whether high or low is good depends on what is measured.",
+   "lesson": "statistics-11",
+   "evidence": "A low percentile could be considered good, as finishing more quickly on a timed exam is desirable.",
+   "origin": "authored"
+  },
+  {
+   "id": "ef91124fd3",
+   "module": 1,
+   "q": "What do measures of location quantify?",
+   "options": [
+    "How spread out the data are",
+    "The average value only",
+    "Where an observation stands relative to the rest of the distribution",
+    "The sample size"
+   ],
+   "answer": 2,
+   "explain": "Percentiles and quartiles are measures of location.",
+   "lesson": "statistics-11",
+   "evidence": "Measures of location are a tool used to quantify where an observation stands in relation to the rest of the distribution.",
+   "origin": "authored"
+  },
+  {
+   "id": "011355f1a4",
+   "module": 2,
+   "q": "What range of values can a probability take?",
+   "options": [
+    "Between −1 and 1",
+    "Between 0 and 1, inclusive",
+    "Between 0 and 100 only",
+    "Any positive number"
+   ],
+   "answer": 1,
+   "explain": "0 means impossible; 1 means certain.",
+   "lesson": "statistics-12",
+   "evidence": "Probabilities are between zero and one, inclusive",
+   "origin": "authored"
+  },
+  {
+   "id": "feaa29f33c",
+   "module": 2,
+   "q": "When is an experiment a probability experiment?",
+   "options": [
+    "When the result is not predetermined",
+    "When it uses a computer",
+    "When it has two groups",
+    "When it happens in a laboratory"
+   ],
+   "answer": 0,
+   "explain": "Rolling a die is a classic example.",
+   "lesson": "statistics-12",
+   "evidence": "If the result is not predetermined, then the experiment is said to be a probability experiment",
+   "origin": "authored"
+  },
+  {
+   "id": "b28e65c90b",
+   "module": 2,
+   "q": "What is probability?",
+   "options": [
+    "The average of a dataset",
+    "The spread of a dataset",
+    "A type of graph",
+    "A measure of how certain we are about the outcomes of an experiment"
+   ],
+   "answer": 3,
+   "explain": "It quantifies uncertainty.",
+   "lesson": "statistics-12",
+   "evidence": "Probability is a measure that is associated with how certain we are of outcomes of a particular experiment or activity.",
+   "origin": "authored"
+  },
+  {
+   "id": "118531523f",
+   "module": 2,
+   "q": "Klaus can afford only one holiday: P(A) = 0.6 and P(B) = 0.35. What is P(A OR B)?",
+   "options": [
+    "0.21",
+    "0.25",
+    "0.95",
+    "1.0"
+   ],
+   "answer": 2,
+   "explain": "For mutually exclusive events you can simply add the probabilities.",
+   "lesson": "statistics-13",
+   "evidence": "= 0.6 + 0.35 = 0.95",
+   "origin": "authored"
+  },
+  {
+   "id": "d3706489da",
+   "module": 2,
+   "q": "Why is P(A AND B) = 0 in Klaus's holiday example?",
+   "options": [
+    "Because the probabilities are small",
+    "He can only take one holiday, so the events are mutually exclusive",
+    "Because the events are independent",
+    "Because 0.6 × 0.35 is zero"
+   ],
+   "answer": 1,
+   "explain": "Mutually exclusive events cannot happen together.",
+   "lesson": "statistics-13",
+   "evidence": "because Klaus can only afford to take one vacation",
+   "origin": "authored"
+  },
+  {
+   "id": "954fe5daba",
+   "module": 2,
+   "q": "What should you assume about two events at the start of a problem?",
+   "options": [
+    "That they are neither mutually exclusive nor independent",
+    "That they are always independent",
+    "That they are always mutually exclusive",
+    "That one causes the other"
+   ],
+   "answer": 0,
+   "explain": "Only change the assumption when the information supports it.",
+   "lesson": "statistics-13",
+   "evidence": "We must always go into a problem assuming two events are not mutually exclusive or independent",
+   "origin": "authored"
+  },
+  {
+   "id": "9f28f61141",
+   "module": 2,
+   "q": "In a binomial experiment, how many outcomes are possible on each trial?",
+   "options": [
+    "Exactly two, called success and failure",
+    "Any whole number",
+    "Three: success, failure and unknown",
+    "As many as the number of trials"
+   ],
+   "answer": 0,
+   "explain": "A binomial setting also needs a fixed number of independent trials with the same probability of success.",
+   "lesson": "statistics-14",
+   "evidence": "There are only two possible outcomes, called “success” and “failure,” for each trial.",
+   "origin": "authored"
+  },
+  {
+   "id": "bf99a23426",
+   "module": 2,
+   "q": "In a normal distribution, how do the mean and median compare?",
+   "options": [
+    "The mean is always larger",
+    "The median is always larger",
+    "They are unrelated",
+    "They are the same, because the curve is symmetric"
+   ],
+   "answer": 3,
+   "explain": "Symmetry puts both at the centre.",
+   "lesson": "statistics-15",
+   "evidence": "In theory, the mean is the same as the median, because the graph is symmetric about",
+   "origin": "authored"
+  },
+  {
+   "id": "b3b942e3d6",
+   "module": 2,
+   "q": "How many normal distributions are there?",
+   "options": [
+    "Exactly one",
+    "Two",
+    "Infinitely many",
+    "Ten"
+   ],
+   "answer": 2,
+   "explain": "Each combination of mean and standard deviation gives a different one.",
+   "lesson": "statistics-15",
+   "evidence": "This means there are an infinite number of normal probability distributions.",
+   "origin": "authored"
+  },
+  {
+   "id": "e8ffdcb23a",
+   "module": 2,
+   "q": "Which distribution does the text call the most important of all?",
+   "options": [
+    "The binomial distribution",
+    "The normal (Gaussian) distribution",
+    "The uniform distribution",
+    "The Poisson distribution"
+   ],
+   "answer": 1,
+   "explain": "Many natural measurements and sample means follow it.",
+   "lesson": "statistics-15",
+   "evidence": "The normal or \"Gaussian\" distribution is the most important of all the distributions",
+   "origin": "authored"
+  },
+  {
+   "id": "b27f833cce",
+   "module": 3,
+   "q": "What are the main forms of statistical inference?",
+   "options": [
+    "Point estimation, confidence intervals and hypothesis testing",
+    "Mean, median and mode",
+    "Bar, pie and line charts",
+    "Sampling, coding and printing"
+   ],
+   "answer": 0,
+   "explain": "Inference generalises from a sample to a population.",
+   "lesson": "statistics-16",
+   "evidence": "The main forms of Inference are: Point estimation confidence interval Hypothesis testing",
+   "origin": "authored"
+  },
+  {
+   "id": "74614fe9a4",
+   "module": 3,
+   "q": "As the sample size grows, what happens to the spread of the sample means?",
+   "options": [
+    "It grows larger",
+    "It stays exactly the same",
+    "It becomes skewed",
+    "It gets smaller"
+   ],
+   "answer": 3,
+   "explain": "This is the Central Limit Theorem at work: averages of larger samples vary less.",
+   "lesson": "statistics-17",
+   "evidence": "The spread of the sample means (the standard deviation of the sample means) gets smaller.",
+   "origin": "authored"
+  },
+  {
+   "id": "6381f89776",
+   "module": 3,
+   "q": "What is a confidence interval?",
+   "options": [
+    "The single best guess for a parameter",
+    "An estimate that is an interval of numbers rather than just one number",
+    "The probability that the hypothesis is true",
+    "The range of the sample data"
+   ],
+   "answer": 1,
+   "explain": "The interval is random; the population parameter it tries to capture is fixed.",
+   "lesson": "statistics-18",
+   "evidence": "A confidence interval is another type of estimate but, instead of being just one number, it is an interval of numbers.",
+   "origin": "authored"
+  },
+  {
+   "id": "aa06e997ab",
+   "module": 3,
+   "q": "With confidence intervals, which part is random and which is fixed?",
+   "options": [
+    "The parameter is random; the interval is fixed",
+    "Both are fixed",
+    "Both are random",
+    "The interval is random; the population parameter is fixed"
+   ],
+   "answer": 3,
+   "explain": "Different samples give different intervals around the same true value.",
+   "lesson": "statistics-18",
+   "evidence": "the confidence interval itself is a random variable, while the population parameter is fixed",
+   "origin": "authored"
+  },
+  {
+   "id": "0a57787302",
+   "module": 3,
+   "q": "What is the alternative hypothesis (Ha)?",
+   "options": [
+    "The hypothesis we always accept",
+    "The same as the null hypothesis",
+    "A claim that contradicts H0, which we conclude when we reject H0",
+    "A guess made after the data are collected"
+   ],
+   "answer": 2,
+   "explain": "The null hypothesis is the starting assumption.",
+   "lesson": "statistics-19",
+   "evidence": "It is a claim about the population that is contradictory to H 0 and what we conclude when we reject H 0",
+   "origin": "authored"
+  },
+  {
+   "id": "5b49b3b587",
+   "module": 3,
+   "q": "Since the null and alternative hypotheses contradict each other, what must you do?",
+   "options": [
+    "Accept both",
+    "Examine the evidence to decide whether to reject the null hypothesis",
+    "Reject both",
+    "Choose the one you prefer"
+   ],
+   "answer": 1,
+   "explain": "The data decide, not personal preference.",
+   "lesson": "statistics-19",
+   "evidence": "you must examine evidence to decide if you have enough evidence to reject the null hypothesis or not",
+   "origin": "authored"
+  },
+  {
+   "id": "48d5151588",
+   "module": 3,
+   "q": "What is a Type I error?",
+   "options": [
+    "Not rejecting H0 when H0 is false",
+    "Using the wrong test statistic",
+    "Rejecting H0 when H0 is actually true",
+    "Taking a sample that is too small"
+   ],
+   "answer": 2,
+   "explain": "A Type II error is the opposite: failing to reject a false H0.",
+   "lesson": "statistics-20",
+   "evidence": "The decision is to reject H 0 when H 0 is true (incorrect decision known as a Type I error ).",
+   "origin": "authored"
+  },
+  {
+   "id": "1b4276f945",
+   "module": 4,
+   "q": "Which kind of question can linear regression and correlation help answer?",
+   "options": [
+    "Whether a mechanic's salary is related to their work experience",
+    "What colour a car is",
+    "How many people live in a city",
+    "Which day of the week it is"
+   ],
+   "answer": 0,
+   "explain": "They describe relationships between two quantitative variables.",
+   "lesson": "statistics-21",
+   "evidence": "Linear regression and correlation can help you determine if an auto mechanic’s salary is related to his work experience.",
+   "origin": "authored"
+  },
+  {
+   "id": "3cd8854f96",
+   "module": 4,
+   "q": "What values can the correlation coefficient r take?",
+   "options": [
+    "Any positive number",
+    "Only 0 or 1",
+    "Between 0 and 100",
+    "Any value between −1 and +1"
+   ],
+   "answer": 3,
+   "explain": "Values near −1 or +1 indicate a strong linear relationship.",
+   "lesson": "statistics-22",
+   "evidence": "The value of r is always between –1 and +1",
+   "origin": "authored"
+  },
+  {
+   "id": "1067179f99",
+   "module": 4,
+   "q": "What does the correlation coefficient r measure?",
+   "options": [
+    "Whether x causes y",
+    "The average of x",
+    "How strong a linear relationship between x and y is",
+    "The number of data points"
+   ],
+   "answer": 2,
+   "explain": "Correlation does not prove causation.",
+   "lesson": "statistics-22",
+   "evidence": "then r can measure how strong the linear relationship is",
+   "origin": "authored"
+  },
+  {
+   "id": "3ec94165fe",
+   "module": 4,
+   "q": "What is the process of fitting the best-fit line called?",
+   "options": [
+    "Linear regression",
+    "Standardising",
+    "Sampling",
+    "Hypothesis testing"
+   ],
+   "answer": 0,
+   "explain": "Regression finds the line that best predicts y from x.",
+   "lesson": "statistics-23",
+   "evidence": "This process of fitting the best-fit line is called linear regression",
+   "origin": "authored"
+  },
+  {
+   "id": "b7b90c519b",
+   "module": 4,
+   "q": "Why shouldn't you use a regression line to predict y for an x value far outside the sample's range?",
+   "options": [
+    "Because regression lines only work for negative slopes",
+    "Because the correlation would become exactly 1",
+    "Because the line has no y-intercept there",
+    "Because that x value is outside the domain of the x-values in the sample data"
+   ],
+   "answer": 3,
+   "explain": "Predicting beyond the observed range (extrapolation) assumes the pattern continues, which may not be true.",
+   "lesson": "statistics-24",
+   "evidence": "because 50 is not within the domain of the x -values in the sample data",
+   "origin": "authored"
+  },
+  {
+   "id": "97d1292542",
+   "module": 4,
+   "q": "What is interpolation?",
+   "options": [
+    "Predicting far outside the observed range",
+    "Predicting within the range of the observed x values",
+    "Removing outliers",
+    "Drawing a scatterplot"
+   ],
+   "answer": 1,
+   "explain": "Predicting outside the range is extrapolation, which is risky.",
+   "lesson": "statistics-24",
+   "evidence": "The process of predicting inside of the observed x values observed in the data is called interpolation.",
+   "origin": "authored"
+  },
+  {
+   "id": "d26f035472",
+   "module": 4,
+   "q": "What should you always do before fitting a regression line?",
+   "options": [
+    "Plot a scatter diagram",
+    "Calculate the median",
+    "Delete half the data",
+    "Run a hypothesis test"
+   ],
+   "answer": 0,
+   "explain": "The plot shows whether a linear model makes sense.",
+   "lesson": "statistics-24",
+   "evidence": "Remember, it is always important to plot a scatter diagram first.",
+   "origin": "authored"
+  },
+  {
+   "id": "04e91d7608",
+   "module": 4,
+   "q": "When is it reasonable to use linear regression methods?",
+   "options": [
+    "Always, for any data",
+    "Only when r is exactly 1",
+    "Only for categorical data",
+    "When the scatterplot suggests a linear relationship"
+   ],
+   "answer": 3,
+   "explain": "Curved patterns need different models.",
+   "lesson": "statistics-24",
+   "evidence": "If the scatter plot indicates that there is a linear relationship between the variables, then it is reasonable to use the methods we are discussing.",
+   "origin": "authored"
+  }
+ ],
  "minutes": 231,
  "sources": [
   {

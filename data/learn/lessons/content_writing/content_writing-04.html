@@ -1,0 +1,215 @@
+<p>We researched documentation extensively, and it turns out that the best
+sentences in the world consist primarily of words.</p>
+<h2 id="h-define-new-or-unfamiliar-terms">Define new or unfamiliar terms</h2>
+<p>When writing or editing, learn to recognize terms that might be unfamiliar to
+some or all of your target audience. When you spot such a term, take one of the
+following two tactics:</p>
+<ul>
+<li>If the term already exists, link to a good existing explanation. (Don't
+reinvent the wheel.)
+</li>
+<li>If your document is introducing the term, define the term. If your
+document is introducing many terms, collect the definitions into a
+glossary.
+</li>
+</ul>
+<h2 id="h-use-terms-consistently">Use terms consistently</h2>
+<p>If you change the name of a variable midway through a method, your code won’t
+compile. Similarly, if you rename a term in the middle of a document, your
+ideas won’t compile (in your users’ heads).</p>
+<p>The moral: apply the same unambiguous word or term consistently throughout your
+document. Once you've named a component <strong>thingy</strong>, don't rename it
+<strong>thingamabob</strong>. For example, the following paragraph mistakenly renames
+<strong>Protocol Buffers</strong> to <strong>protobufs</strong>:</p>
+<blockquote>
+<p>Protocol Buffers provide their own definition language. Blah, blah, blah. And
+that's why protobufs have won so many county fairs.</p>
+</blockquote>
+<p>George Fairbanks, a Google software engineer, provides this excellent note about
+consistent naming:</p>
+<div class="table-wrap"><table>
+<tbody><tr><td>
+When I encounter two words that seem to be synonyms, I wonder if the author is
+trying to signal a subtle distinction that I need to track down and
+understand.
+</td></tr>
+</tbody></table></div>
+<p>Yes, technical writing is cruel and restrictive, but at least technical writing
+provides an excellent workaround. Namely, when introducing a long-winded concept
+name or product name, you may also specify a shortened version of that name.
+Then, you may use that shortened name throughout the document. For example, the
+following paragraph is fine:</p>
+<blockquote>
+<p><strong>Protocol Buffers</strong> (or <strong>protobufs</strong> for short) provide their own definition
+language. Blah, blah, blah. And that's why protobufs have won so many county
+fairs.</p>
+</blockquote>
+<h2 id="h-use-acronyms-properly">Use acronyms properly</h2>
+<p>On the initial use of an unfamiliar acronym within a document or a section,
+spell out the full term, and then put the acronym in parentheses. Put both
+the spelled-out version and the acronym in boldface. For example:</p>
+<blockquote>
+<p>This document is for engineers who are new to the
+<strong>Telekinetic Tactile Network</strong> (<strong>TTN</strong>) or need
+to understand how to order TTN replacement parts
+through finger motions.</p>
+</blockquote>
+<p>You may then use the acronym going forward, as in the following example:</p>
+<blockquote>
+<p>If no cache entry exists, the Mixer calls the <strong>OttoGroup Server</strong> (<strong>OGS</strong>)
+to fetch Ottos for the request. The OGS is a repository that holds all
+servable Ottos. The OGS is organized in a logical tree structure, with a root
+node and two levels of leaf nodes. The OGS root forwards the request to the
+leaves and collects the responses.</p>
+</blockquote>
+<p>Do not cycle back-and-forth between the acronym and the expanded version in the
+same document.</p>
+<h3 id="h-use-the-acronym-or-the-full-term">Use the acronym or the full term?</h3>
+<p>Sure, you can introduce and use acronyms properly, but <em>should</em> you use
+acronyms?  Well, acronyms do reduce sentence size.
+For example, <em>TTN</em> is two words shorter than <em>Telekinetic Tactile Network</em>.
+However, acronyms are really just a layer of abstraction; readers must
+mentally expand recently learned acronyms to the full term. For example,
+readers convert <em>TTN</em> to <em>Telekinetic Tactile Network</em> in their heads,
+so the "shorter" acronym actually takes a little longer to process than
+the full term.</p>
+<p>Heavily used acronyms develop their own identity. After a number of
+occurrences, readers generally stop expanding acronyms into the full term.
+Many web developers, for example, have forgotten what <em>HTML</em> expands to.</p>
+<p>Here are the guidelines for acronyms:</p>
+<ul>
+<li>Don't define acronyms that would only be used a few times.</li>
+<li>Do define acronyms that meet both of the following criteria:
+<ul>
+<li>The acronym is significantly shorter than the full term.</li>
+<li>The acronym appears many times in the document.</li>
+</ul></li>
+</ul>
+<h3 id="h-exercise">Exercise</h3>
+<p>Fix the following passage. Assume that this passage is the initial instance of
+the term <strong>MapReduce</strong> in the document and that <strong>MR</strong> is the best abbreviation.</p>
+<blockquote>
+<p>Jeff Dean invented MapReduce in 1693, implementing the algorithm on a
+silicon-based computer fabricated from beach sand, wax-paper, a quill pen, and
+a toaster oven. This version of MR held several world performance records
+until 2014.</p>
+</blockquote>
+<p>(Please note that the preceding passage is meant to be humorous, not factual.)</p>
+<h4>
+Click the icon to see the answer.
+</h4>
+
+You could take a few different approaches here. One approach
+is to associate the acronym <i>MR</i> with the full term and then
+use that acronym:
+
+<blockquote>
+Jeff Dean invented <b>MapReduce</b> (<b>MR</b>) in...  This version of MR held
+several...
+</blockquote>
+
+Alternatively, you could decide that defining an acronym for such
+a short passage puts too much burden on readers, so you'll simply
+use the full term <i>MapReduce</i> every time:
+
+<blockquote>
+Jeff Dean invented <b>MapReduce</b> in...  This version of MapReduce held
+several...
+</blockquote>
+
+Incidentally, a more thorough technical writer would also convert
+"beach sand, wax-paper, a quill pen, and a toaster oven" into a
+bulleted list. However, that's another story for another lesson.
+
+<hr>
+<h2 id="h-recognize-ambiguous-pronouns">Recognize ambiguous pronouns</h2>
+<p>Many pronouns point to a previously introduced noun. Such pronouns are analogous
+to pointers in programming. Like pointers in programming, pronouns tend to
+introduce errors. Using pronouns improperly causes the cognitive equivalent of a
+null pointer error in your readers’ heads. In many cases, you should simply
+avoid the pronoun and just reuse the noun. However, the utility of a pronoun
+sometimes outweighs its risk (as in this sentence).</p>
+<p>Consider the following pronoun guidelines:</p>
+<ul>
+<li>Only use a pronoun <em>after</em> you've introduced the noun; never use the
+pronoun before you've introduced the noun.</li>
+<li>Place the pronoun as close as possible to the referring noun. In general,
+if more than five words separate your noun from your pronoun,
+consider repeating the noun instead of using the pronoun.</li>
+<li>If you introduce a second noun between your noun and your pronoun, reuse
+your noun instead of using a pronoun.</li>
+</ul>
+<h3 id="h-it-and-they">It and they</h3>
+<p>The following pronouns cause the most confusion in technical documentation:</p>
+<ul>
+<li>It</li>
+<li>They, them, and their</li>
+</ul>
+<p>For example, in the following sentence, does <strong>It</strong> refer to Python or to C++?</p>
+<blockquote>
+<p>Python is interpreted, while C++ is compiled. <strong>It</strong> has an almost cult-like
+following.</p>
+</blockquote>
+<p>As another example, what does <strong>their</strong> refer to in the following sentence?</p>
+<blockquote>
+<p>Be careful when using Frambus or Carambola with HoobyScooby or BoiseFram
+because a bug in <strong>their</strong> core may cause accidental mass unfriending.</p>
+</blockquote>
+<h3 id="h-this-and-that">This and that</h3>
+<p>Consider two additional problem pronouns:</p>
+<ul>
+<li>This</li>
+<li>That</li>
+</ul>
+<p>For example, in the following ambiguous sentence, <strong>This</strong> could refer to
+the user ID, to running the process, or to all of these:</p>
+<blockquote>
+<p>Running the process configures permissions and generates a user ID. <strong>This</strong>
+lets users authenticate to the app.</p>
+</blockquote>
+<p>To help readers, avoid using <strong>this</strong> or <strong>that</strong> in ways where it's not clear
+what they refer to. Use either of the following tactics to clarify ambiguous
+uses of <strong>this</strong> and <strong>that</strong>:</p>
+<ul>
+<li>Replace <strong>this</strong> or <strong>that</strong> with the appropriate noun.</li>
+<li>Place a noun immediately after <strong>this</strong> or <strong>that</strong>.</li>
+</ul>
+<p>Substitute or add explicit terms as needed, as in the following rewrites of the
+example's second sentence:</p>
+<blockquote>
+<p>This user ID lets users authenticate.</p>
+<p>The process of configuring permissions lets users authenticate.</p>
+<p>The combination of permissions and a user ID lets users authenticate.</p>
+</blockquote>
+<h3 id="h-exercise-x">Exercise</h3>
+<p>Identify all possible meanings for the ambiguous pronouns in each of the
+following passages:</p>
+<ol>
+<li><p>Aparna and Phil share responsibilities with Maysam and Karan and they
+are next on call.</p></li>
+<li><p>You may import Carambola data via your configuration file or
+dynamically at run time. This may be a security risk.</p></li>
+</ol>
+<h4>
+Click the icon to see the answer.
+</h4>
+<ol>
+<li>The pronoun <b>they</b> could refer to any of the following:
+        <ul>
+<li>Aparna and Phil</li>
+<li>Maysam and Karan</li>
+<li>Aparna, Phil, Maysam, and Karan</li>
+<li>Any one of the individuals as a singular
+              <a href="https://developers.google.com/style/pronouns#gender-neutral-pronouns" target="_blank" rel="noopener noreferrer">gender-neutral pronoun</a>
+</li>
+</ul>
+</li>
+<li>The pronoun <b>this</b> could refer to any of the following:
+        <ul>
+<li>Importing via the configuration file</li>
+<li>Importing dynamically at run time</li>
+<li>Both</li>
+</ul>
+</li>
+</ol>
+<hr>

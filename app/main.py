@@ -1,5 +1,6 @@
 """Path.AI API + static web app.   Run:  uvicorn app.main:app --reload"""
 import asyncio
+from typing import Annotated
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse
@@ -13,7 +14,8 @@ from .engine.forecast import Signals, compute_outlook, hn_sparkline, month_add, 
 from .engine.matching import Profile, Weights, current_role_outlook, match_role, rank_roles
 from .engine.pathway import build_pathway
 from .engine.profile import detect_skills, extract_text
-from .learn import PASS_RATIO, LearnError, get_learn, issue_certificate, verify_certificate
+from .learn import TEST_RULES, LearnError, get_learn, verify_certificate
+from . import opportunities as opp
 from .llm import tasks
 from .llm.client import LLMUnavailable, llm
 from .signals.refresh import refresh as refresh_signals
@@ -72,11 +74,35 @@ class RoleQuery(MatchQuery):
     role_id: str
 
 
-class QuizAnswers(BaseModel):
-    answers: list[int | None]
+class NextJobsQuery(BaseModel):
+    profile: Profile
+    certified: list[Annotated[str, Field(max_length=40)]] = Field(default_factory=list, max_length=60)
+    country: str = Field(pattern=r"^([A-Z]{2}|REMOTE)$")
+    roles: list[Annotated[str, Field(max_length=60)]] = Field(default_factory=list, max_length=8)
+    level: str | None = Field(default=None, pattern=r"^(any|early|mid|senior)$")
+    title: str = Field(default="", max_length=120)          # role title for job-site searches
+    country_name: str = Field(default="", max_length=80)    # English country name for job-site searches
 
 
-class CertificateRequest(QuizAnswers):
+class NextStudyQuery(BaseModel):
+    country: str = Field(pattern=r"^[A-Z]{2}$")
+    roles: list[Annotated[str, Field(max_length=60)]] = Field(default_factory=list, max_length=8)
+    study_field: str | None = Field(default=None, max_length=40)
+
+
+class TestStart(BaseModel):
+    chapter: int | None = None  # 1-based chapter; leave out for the final test
+    chapters: list[Annotated[str, Field(max_length=600)]] = Field(default_factory=list, max_length=30)  # signed chapter passes
+    previous: str | None = Field(default=None, max_length=3000)  # the last attempt, so a retake asks different questions
+
+
+class TestAnswers(BaseModel):
+    attempt: str = Field(max_length=3000)
+    answers: list[int | None] = Field(max_length=100)
+
+
+class CertificateRequest(BaseModel):
+    token: str = Field(max_length=600)  # the signed final-test pass
     name: str = Field(max_length=200)
 
 
@@ -94,7 +120,8 @@ async def meta() -> dict:
         "categories": catalog.skill_categories,
         "skills": [{"id": s["id"], "name": s["name"], "category": s["category"], "hours": s["hours"],
                     "has_market_signal": bool(s.get("hn")), "short": s.get("short"),
-                    "related": catalog.related[s["id"]]} for s in catalog.skills.values()],
+                    "related": catalog.related[s["id"]],
+                    "sdgs": [{"goal": catalog.goal_of(x["target"]), **x} for x in s.get("sdgs", [])]} for s in catalog.skills.values()],
         "roles": [{"id": r["id"], "kind": r["kind"], "family": r["family"], "title": r["title"], "summary": r["summary"],
                    "tags": r["tags"], "taxonomy": r["taxonomy"], "skills": r["skills"],
                    "wef": catalog.claims[r["wef"]]["text"] if r.get("wef") else None, "wef_dir": r.get("wef_dir"),
@@ -102,6 +129,7 @@ async def meta() -> dict:
                   for r in catalog.roles.values()],
         "sdg_goals": list(catalog.sdg_goals.values()),
         "sdg_targets": catalog.sdg_targets,
+        "sdg_targets_local": catalog.sdg_targets_local,
         "interest_tags": catalog.interest_tags,
         "interest_tiles": catalog.interest_tiles,
         "study_fields": catalog.study_fields,
@@ -300,7 +328,7 @@ def course_or_404(sid: str) -> None:
 
 @app.get("/api/learn/courses")
 def learn_courses() -> dict:
-    return {"courses": [learn.summary(sid) for sid in catalog.skills if sid in learn.courses], "pass_ratio": PASS_RATIO}
+    return {"courses": [learn.summary(sid) for sid in catalog.skills if sid in learn.courses], "tests": TEST_RULES}
 
 
 @app.get("/api/learn/course/{sid}")
@@ -318,17 +346,20 @@ def learn_lesson(sid: str, lid: str) -> dict:
         raise HTTPException(404, "unknown lesson")
 
 
-@app.get("/api/learn/course/{sid}/quiz")
-def learn_quiz(sid: str) -> dict:
-    course_or_404(sid)
-    return learn.quiz(sid)
-
-
-@app.post("/api/learn/course/{sid}/grade")
-def learn_grade(sid: str, body: QuizAnswers) -> dict:
+@app.post("/api/learn/course/{sid}/test")
+def learn_test(sid: str, body: TestStart) -> dict:
     course_or_404(sid)
     try:
-        return learn.grade(sid, body.answers)
+        return learn.start_test(sid, body.chapter, body.chapters, body.previous)
+    except LearnError as exc:
+        raise HTTPException(400, str(exc))
+
+
+@app.post("/api/learn/course/{sid}/test/grade")
+def learn_test_grade(sid: str, body: TestAnswers) -> dict:
+    course_or_404(sid)
+    try:
+        return learn.grade_test(sid, body.attempt, body.answers)
     except LearnError as exc:
         raise HTTPException(400, str(exc))
 
@@ -337,12 +368,34 @@ def learn_grade(sid: str, body: QuizAnswers) -> dict:
 def learn_certificate(sid: str, body: CertificateRequest) -> dict:
     course_or_404(sid)
     try:
-        result = learn.grade(sid, body.answers)
-        if not result["passed"]:
-            raise HTTPException(400, "Pass the quiz first.")
-        return {"certificate": issue_certificate(sid, body.name, result["score"], result["total"])}
+        return {"certificate": learn.certificate(sid, body.token, body.name)}
     except LearnError as exc:
         raise HTTPException(400, str(exc))
+
+
+# ---------------------------------------------------------------- Opportunities: jobs & universities
+
+@app.get("/api/next/meta")
+def next_meta() -> dict:
+    return opp.meta()
+
+
+@app.post("/api/next/jobs")
+def next_jobs(q: NextJobsQuery) -> dict:
+    result = opp.jobs_for(q.profile, q.certified, q.country, q.roles, q.level)
+    first = next((r for r in q.roles if r in catalog.roles), None)
+    title = q.title or (opp.search_title(first) if first else "")
+    result["portals"] = opp.job_portals(q.country, title, q.country_name or q.country) if title else []
+    result["search_title"] = title
+    return result
+
+
+@app.post("/api/next/study")
+def next_study(q: NextStudyQuery) -> dict:
+    try:
+        return opp.study_for(q.country, q.roles, q.study_field)
+    except opp.OppError as exc:
+        raise HTTPException(404, str(exc))
 
 
 @app.get("/api/certificates/verify/{token}")

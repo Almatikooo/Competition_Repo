@@ -1,0 +1,942 @@
+{
+ "title": "Lean, Quality & Six Sigma",
+ "subtitle": "Cut waste, improve processes and keep quality under control with lean tools and statistics.",
+ "level": "Beginner",
+ "outcomes": [
+  "Explain lean thinking, the wastes it removes and total quality management",
+  "Run kaizen events and organise workplaces with 5S",
+  "Use just-in-time, kanban and total productive maintenance",
+  "Monitor a process with control charts and Six Sigma"
+ ],
+ "skill": "lean_quality",
+ "modules": [
+  {
+   "title": "Quality and lean thinking",
+   "lessons": [
+    "lean_quality-01",
+    "lean_quality-02"
+   ]
+  },
+  {
+   "title": "Lean tools",
+   "lessons": [
+    "lean_quality-03",
+    "lean_quality-04",
+    "lean_quality-05",
+    "lean_quality-06"
+   ]
+  },
+  {
+   "title": "Six Sigma and process control",
+   "lessons": [
+    "lean_quality-07",
+    "lean_quality-08",
+    "lean_quality-09",
+    "lean_quality-10",
+    "lean_quality-11"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "lean_quality-01",
+   "title": "The Production Process: How Do We Make It?",
+   "words": 1091,
+   "minutes": 6,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/10-2-the-production-process-how-do-we-make-it",
+   "toc": [
+    {
+     "id": "h-one-for-all-mass-production",
+     "text": "One for All: Mass Production",
+     "level": 3
+    },
+    {
+     "id": "h-just-for-you-customizing-goods",
+     "text": "Just for You: Customizing Goods",
+     "level": 3
+    },
+    {
+     "id": "h-converting-inputs-to-outputs",
+     "text": "Converting Inputs to Outputs",
+     "level": 3
+    },
+    {
+     "id": "h-production-timing",
+     "text": "Production Timing",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "lean_quality-02",
+   "title": "Looking for a Better Way: Improving Production and Operations",
+   "words": 1178,
+   "minutes": 6,
+   "source": "ostx-biz",
+   "url": "https://openstax.org/books/introduction-business/pages/10-6-looking-for-a-better-way-improving-production-and-operations",
+   "toc": [
+    {
+     "id": "h-putting-quality-first",
+     "text": "Putting Quality First",
+     "level": 3
+    },
+    {
+     "id": "h-lean-manufacturing-trims-the-fat",
+     "text": "Lean Manufacturing Trims the Fat",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "lean_quality-03",
+   "title": "Kaizen",
+   "words": 1572,
+   "minutes": 8,
+   "source": "epa",
+   "url": "https://www.epa.gov/sustainability/lean-thinking-and-methods-kaizen",
+   "toc": [
+    {
+     "id": "h-lean-thinking-and-methods-kaizen",
+     "text": "Lean Thinking and Methods - Kaizen",
+     "level": 2
+    },
+    {
+     "id": "h-introduction",
+     "text": "Introduction",
+     "level": 3
+    },
+    {
+     "id": "h-method-and-implementation-approach",
+     "text": "Method and Implementation Approach",
+     "level": 3
+    },
+    {
+     "id": "h-implications-for-environmental-performance",
+     "text": "Implications for Environmental Performance",
+     "level": 3
+    },
+    {
+     "id": "h-useful-resources",
+     "text": "Useful Resources",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "lean_quality-04",
+   "title": "5S: sort, set in order, shine, standardise, sustain",
+   "words": 1371,
+   "minutes": 7,
+   "source": "epa",
+   "url": "https://www.epa.gov/sustainability/lean-thinking-and-methods-5s",
+   "toc": [
+    {
+     "id": "h-lean-thinking-and-methods-5s",
+     "text": "Lean Thinking and Methods - 5S",
+     "level": 2
+    },
+    {
+     "id": "h-introduction",
+     "text": "Introduction",
+     "level": 3
+    },
+    {
+     "id": "h-method-and-implementation-approach",
+     "text": "Method and Implementation Approach",
+     "level": 3
+    },
+    {
+     "id": "h-implications-for-environmental-performance",
+     "text": "Implications for Environmental Performance",
+     "level": 3
+    },
+    {
+     "id": "h-useful-resources",
+     "text": "Useful Resources",
+     "level": 3
+    }
+   ]
+  },
+  {
+   "id": "lean_quality-05",
+   "title": "Just-in-time and kanban",
+   "words": 1186,
+   "minutes": 6,
+   "source": "epa",
+   "url": "https://www.epa.gov/sustainability/lean-thinking-and-methods-jitkanban",
+   "toc": [
+    {
+     "id": "h-lean-thinking-and-methods-jit-kanban",
+     "text": "Lean Thinking and Methods - JIT/Kanban",
+     "level": 2
+    },
+    {
+     "id": "h-introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "h-method-and-implementation-approach",
+     "text": "Method and Implementation Approach",
+     "level": 2
+    },
+    {
+     "id": "h-implications-for-environmental-performance",
+     "text": "Implications for Environmental Performance",
+     "level": 2
+    },
+    {
+     "id": "h-potential-benefits",
+     "text": "Potential Benefits:",
+     "level": 3
+    },
+    {
+     "id": "h-potential-shortcomings",
+     "text": "Potential Shortcomings:",
+     "level": 3
+    },
+    {
+     "id": "h-useful-resources",
+     "text": "Useful Resources",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "lean_quality-06",
+   "title": "Total productive maintenance",
+   "words": 1296,
+   "minutes": 7,
+   "source": "epa",
+   "url": "https://www.epa.gov/sustainability/lean-thinking-and-methods-tpm",
+   "toc": [
+    {
+     "id": "h-lean-thinking-and-methods-tpm",
+     "text": "Lean Thinking and Methods - TPM",
+     "level": 2
+    },
+    {
+     "id": "h-introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "h-method-and-implementation-approach",
+     "text": "Method and Implementation Approach",
+     "level": 2
+    },
+    {
+     "id": "h-implications-for-environmental-performance",
+     "text": "Implications for Environmental Performance",
+     "level": 2
+    },
+    {
+     "id": "h-useful-resources",
+     "text": "Useful Resources",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "lean_quality-07",
+   "title": "Six Sigma",
+   "words": 1246,
+   "minutes": 7,
+   "source": "epa",
+   "url": "https://www.epa.gov/sustainability/lean-thinking-and-methods-six-sigma",
+   "toc": [
+    {
+     "id": "h-lean-thinking-and-methods-six-sigma",
+     "text": "Lean Thinking and Methods - Six Sigma",
+     "level": 2
+    },
+    {
+     "id": "h-introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "h-method-and-implementation-approach",
+     "text": "Method and Implementation Approach",
+     "level": 2
+    },
+    {
+     "id": "h-implications-for-environmental-performance",
+     "text": "Implications for Environmental Performance",
+     "level": 2
+    },
+    {
+     "id": "h-useful-resources",
+     "text": "Useful Resources",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "lean_quality-08",
+   "title": "Statistical process control",
+   "words": 1177,
+   "minutes": 6,
+   "source": "nist-sema",
+   "url": "https://www.itl.nist.gov/div898/handbook/pmc/section1/pmc11.htm",
+   "toc": [
+    {
+     "id": "h-how-statistical-quality-control-began",
+     "text": "How statistical quality control began",
+     "level": 2
+    },
+    {
+     "id": "h-process-control-techniques",
+     "text": "Process control techniques",
+     "level": 2
+    },
+    {
+     "id": "h-what-process-control-is",
+     "text": "What process control is",
+     "level": 2
+    },
+    {
+     "id": "h-when-a-process-is-out-of-control",
+     "text": "When a process is out of control",
+     "level": 2
+    },
+    {
+     "id": "h-when-a-process-is-in-control-but-unacceptable",
+     "text": "When a process is in control but unacceptable",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "lean_quality-09",
+   "title": "What are control charts?",
+   "words": 924,
+   "minutes": 5,
+   "source": "nist-sema",
+   "url": "https://www.itl.nist.gov/div898/handbook/pmc/section3/pmc31.htm",
+   "toc": []
+  },
+  {
+   "id": "lean_quality-10",
+   "title": "Charts for measurements and for counts",
+   "words": 1596,
+   "minutes": 8,
+   "source": "nist-sema",
+   "url": "https://www.itl.nist.gov/div898/handbook/pmc/section3/pmc32.htm",
+   "toc": [
+    {
+     "id": "h-variables-control-charts",
+     "text": "Variables control charts",
+     "level": 2
+    },
+    {
+     "id": "h-attributes-control-charts",
+     "text": "Attributes control charts",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "lean_quality-11",
+   "title": "Process capability",
+   "words": 1717,
+   "minutes": 9,
+   "source": "nist-sema",
+   "url": "https://www.itl.nist.gov/div898/handbook/pmc/section1/pmc16.htm",
+   "toc": []
+  }
+ ],
+ "pool": [
+  {
+   "id": "58586ee15a",
+   "module": 0,
+   "q": "What are the three general types of production?",
+   "options": [
+    "Mass production, mass customization and customization",
+    "Retail, wholesale and export",
+    "Planning, routing and scheduling",
+    "Sort, shine and sustain"
+   ],
+   "answer": 0,
+   "explain": "Each type balances cost and how individual the product is.",
+   "lesson": "lean_quality-01",
+   "evidence": "In general, there are three types of production: mass production, mass customization, and customization.",
+   "origin": "authored"
+  },
+  {
+   "id": "cef8d6f38c",
+   "module": 0,
+   "q": "What is mass production?",
+   "options": [
+    "Making each product to one customer's wishes",
+    "Producing goods only after a customer orders them",
+    "Importing goods in large containers",
+    "Manufacturing many identical goods at once"
+   ],
+   "answer": 3,
+   "explain": "It was a product of the Industrial Revolution.",
+   "lesson": "lean_quality-01",
+   "evidence": "One for All: Mass Production Mass production, manufacturing many identical goods at once, was a product of the Industrial Revolution.",
+   "origin": "authored"
+  },
+  {
+   "id": "146d238c65",
+   "module": 0,
+   "q": "What does mass production emphasise?",
+   "options": [
+    "Unique products for every customer",
+    "Hand-made craftsmanship",
+    "Low manufacturing costs through uniform products and repetitive, standardised processes",
+    "Selling directly to consumers"
+   ],
+   "answer": 2,
+   "explain": "Uniform, standardised processes keep costs low.",
+   "lesson": "lean_quality-01",
+   "evidence": "The emphasis in mass production is on keeping manufacturing costs low by producing uniform products using repetitive and standardized processes.",
+   "origin": "authored"
+  },
+  {
+   "id": "58be3995c7",
+   "module": 0,
+   "q": "How does customization differ from mass customization?",
+   "options": [
+    "Customization uses only robots",
+    "In customization each product or service produced is unique",
+    "Customization makes identical goods",
+    "There is no difference"
+   ],
+   "answer": 1,
+   "explain": "Customization is the opposite of mass production.",
+   "lesson": "lean_quality-01",
+   "evidence": "Unlike mass customization, each product or service produced is unique.",
+   "origin": "authored"
+  },
+  {
+   "id": "806d282030",
+   "module": 0,
+   "q": "What does quality control involve?",
+   "options": [
+    "Creating quality standards, producing goods that meet them and measuring results against them",
+    "Inspecting goods only at the end of the line",
+    "Hiring more salespeople",
+    "Lowering prices to win customers"
+   ],
+   "answer": 0,
+   "explain": "It needs company-wide dedication, not just end-of-line inspection.",
+   "lesson": "lean_quality-02",
+   "evidence": "Quality control involves creating quality standards, producing goods that meet them, and measuring finished goods and services against them.",
+   "origin": "authored"
+  },
+  {
+   "id": "61844483d2",
+   "module": 0,
+   "q": "Who was the first to say that quality control should be a company-wide goal?",
+   "options": [
+    "Henry Ford",
+    "Walter Shewhart",
+    "Adam Smith",
+    "W. Edwards Deming"
+   ],
+   "answer": 3,
+   "explain": "Deming believed quality starts with top management.",
+   "lesson": "lean_quality-02",
+   "evidence": "Edwards Deming, an American management consultant, was the first to say that quality control should be a company-wide goal.",
+   "origin": "authored"
+  },
+  {
+   "id": "3781f40128",
+   "module": 0,
+   "q": "What does Total Quality Management (TQM) emphasise?",
+   "options": [
+    "Inspecting only finished goods",
+    "Reducing the number of employees",
+    "Using quality principles in all aspects of production and operations",
+    "Outsourcing all production"
+   ],
+   "answer": 2,
+   "explain": "TQM is Deming's concept.",
+   "lesson": "lean_quality-02",
+   "evidence": "Deming’s concept of Total Quality Management (TQM) emphasizes the use of quality principles in all aspects of a company’s production and operations.",
+   "origin": "authored"
+  },
+  {
+   "id": "7fc258e045",
+   "module": 0,
+   "q": "Why do defective products raise costs?",
+   "options": [
+    "They are always sold at a higher price",
+    "They waste materials and time",
+    "They reduce the need for inspections",
+    "They lower shipping costs"
+   ],
+   "answer": 1,
+   "explain": "Quality problems waste resources.",
+   "lesson": "lean_quality-02",
+   "evidence": "Defective products waste materials and time, increasing costs.",
+   "origin": "authored"
+  },
+  {
+   "id": "308c39de20",
+   "module": 1,
+   "q": "What is kaizen often considered in lean production?",
+   "options": [
+    "The \"building block\" of all lean production methods",
+    "A type of inventory software",
+    "A tax on waste",
+    "A final inspection step"
+   ],
+   "answer": 0,
+   "explain": "Kaizen means rapid improvement processes and continual improvement.",
+   "lesson": "lean_quality-03",
+   "evidence": "Kaizen , or rapid improvement processes, often is considered to be the \"building block\" of all lean production methods.",
+   "origin": "authored"
+  },
+  {
+   "id": "4753c02170",
+   "module": 1,
+   "q": "What does kaizen focus on?",
+   "options": [
+    "Buying new machines",
+    "Increasing inventory",
+    "Cutting staff training",
+    "Eliminating waste, improving productivity and sustaining continual improvement"
+   ],
+   "answer": 3,
+   "explain": "Lean production is founded on continual improvement.",
+   "lesson": "lean_quality-03",
+   "evidence": "Kaizen focuses on eliminating waste, improving productivity, and achieving sustained continual improvement in targeted activities and processes of an organization.",
+   "origin": "authored"
+  },
+  {
+   "id": "3fe984060b",
+   "module": 1,
+   "q": "How quickly does a kaizen team often implement chosen improvements?",
+   "options": [
+    "After five years of study",
+    "Only at the end of the financial year",
+    "Often within 72 hours of starting the kaizen event",
+    "Never: kaizen only plans"
+   ],
+   "answer": 2,
+   "explain": "Kaizen events favour rapid, low-capital solutions.",
+   "lesson": "lean_quality-03",
+   "evidence": "The team works to implement chosen improvements rapidly (often within 72 hours of initiating the kaizen event), typically focusing on solutions that do not involve large capital outlays.",
+   "origin": "authored"
+  },
+  {
+   "id": "1dfd5599f4",
+   "module": 1,
+   "q": "Which techniques does a kaizen team use to find waste quickly?",
+   "options": [
+    "Advertising and promotions",
+    "Value stream mapping and \"the 5 whys\"",
+    "Tariffs and quotas",
+    "Payroll and bookkeeping"
+   ],
+   "answer": 1,
+   "explain": "These analytical techniques identify waste in a targeted process.",
+   "lesson": "lean_quality-03",
+   "evidence": "The team uses analytical techniques, such as value stream mapping and \"the 5 whys\", to identify opportunities quickly to eliminate waste in a targeted process or production area.",
+   "origin": "authored"
+  },
+  {
+   "id": "c7af7c7404",
+   "module": 1,
+   "q": "What are the five pillars of 5S?",
+   "options": [
+    "Sort, set in order, shine, standardize and sustain",
+    "Save, sell, ship, store and scan",
+    "Speed, safety, size, stock and service",
+    "Plan, do, check, act and repeat"
+   ],
+   "answer": 0,
+   "explain": "5S organises, cleans and sustains a productive workplace.",
+   "lesson": "lean_quality-04",
+   "evidence": "The 5S pillars, Sort ( Seiri ), Set in Order ( Seiton ), Shine ( Seiso ), Standardize ( Seiketsu ), and Sustain ( Shitsuke ), provide a methodology for organizing, cleaning, developing, and sustaining a productive work environment.",
+   "origin": "authored"
+  },
+  {
+   "id": "489200716b",
+   "module": 1,
+   "q": "What does the first S, Sort, focus on?",
+   "options": [
+    "Painting the factory floor",
+    "Sorting customers by income",
+    "Ordering more raw materials",
+    "Eliminating items that are not needed for current production"
+   ],
+   "answer": 3,
+   "explain": "Sorting reclaims space and removes broken tools and scrap.",
+   "lesson": "lean_quality-04",
+   "evidence": "Sort, the first S, focuses on eliminating unnecessary items from the workplace that are not needed for current production operations.",
+   "origin": "authored"
+  },
+  {
+   "id": "7c45bfd91b",
+   "module": 1,
+   "q": "What is \"red tagging\" in 5S?",
+   "options": [
+    "Marking prices for a sale",
+    "Labelling dangerous chemicals only",
+    "A visual method to evaluate whether each item in a work area is needed",
+    "Flagging late employees"
+   ],
+   "answer": 2,
+   "explain": "Red tags identify unneeded items so they can be dealt with.",
+   "lesson": "lean_quality-04",
+   "evidence": "An effective visual method to identify these unneeded items is called \"red tagging\", which involves evaluating the necessity of each item in a work area and dealing with it appropriately.",
+   "origin": "authored"
+  },
+  {
+   "id": "a9ea761530",
+   "module": 1,
+   "q": "What does just-in-time (JIT) enable a company to do?",
+   "options": [
+    "Keep large stocks of everything",
+    "Produce what customers want, when they want it, in the amount they want",
+    "Produce only once a year",
+    "Avoid working with suppliers"
+   ],
+   "answer": 1,
+   "explain": "JIT reduces inventory and work-in-process.",
+   "lesson": "lean_quality-05",
+   "evidence": "JIT enables a company to produce the products its customers want, when they want them, in the amount they want.",
+   "origin": "authored"
+  },
+  {
+   "id": "780914cf73",
+   "module": 1,
+   "q": "What is kanban used for in JIT?",
+   "options": [
+    "Physical cues that signal the need to move materials or produce components",
+    "Measuring employee satisfaction",
+    "Calculating taxes",
+    "Advertising to customers"
+   ],
+   "answer": 0,
+   "explain": "Kanban (sometimes reusable containers) ensure only what is needed gets produced.",
+   "lesson": "lean_quality-05",
+   "evidence": "JIT frequently relies on the use of physical inventory control cues (or kanban) to signal the need to move raw materials or produce new components from the previous process.",
+   "origin": "authored"
+  },
+  {
+   "id": "f8a823a488",
+   "module": 1,
+   "q": "How do JIT techniques make flow between processes smoother?",
+   "options": [
+    "By producing everything in one big batch",
+    "By stopping production whenever stock is low",
+    "By hiring temporary staff",
+    "By levelling production, spreading it evenly over time"
+   ],
+   "answer": 3,
+   "explain": "Levelled production fosters smooth flow.",
+   "lesson": "lean_quality-05",
+   "evidence": "JIT techniques work to level production, spreading production evenly over time to foster a smooth flow between processes.",
+   "origin": "authored"
+  },
+  {
+   "id": "f51c172c42",
+   "module": 1,
+   "q": "What does Total Productive Maintenance (TPM) seek to do?",
+   "options": [
+    "Leave all maintenance to an outside contractor",
+    "Replace machines every year",
+    "Engage all levels and functions to maximise the effectiveness of production equipment",
+    "Reduce the number of maintenance checks"
+   ],
+   "answer": 2,
+   "explain": "TPM involves everyone, not just the maintenance department.",
+   "lesson": "lean_quality-06",
+   "evidence": "Total Productive Maintenance (TPM) seeks to engage all levels and functions in an organization to maximize the overall effectiveness of production equipment.",
+   "origin": "authored"
+  },
+  {
+   "id": "0a3c8827f3",
+   "module": 1,
+   "q": "What is autonomous maintenance in TPM?",
+   "options": [
+    "Robots that repair themselves",
+    "Training workers to take care of the equipment and machines they work with",
+    "Maintenance done only at night",
+    "Outsourcing repairs abroad"
+   ],
+   "answer": 1,
+   "explain": "It is a key aspect of TPM.",
+   "lesson": "lean_quality-06",
+   "evidence": "Autonomous maintenance, a key aspect of TPM, trains and focuses workers to take care of the equipment and machines with which they work.",
+   "origin": "authored"
+  },
+  {
+   "id": "16d995141b",
+   "module": 1,
+   "q": "What are the ultimate goals of TPM?",
+   "options": [
+    "Zero equipment breakdowns and zero product defects",
+    "Maximum overtime",
+    "The largest possible inventory",
+    "Zero suppliers"
+   ],
+   "answer": 0,
+   "explain": "These goals improve use of assets and plant capacity.",
+   "lesson": "lean_quality-06",
+   "evidence": "The ultimate goals of TPM are zero equipment breakdowns and zero product defects, which lead to improved utilization of production assets and plant capacity.",
+   "origin": "authored"
+  },
+  {
+   "id": "b08a4fc39e",
+   "module": 2,
+   "q": "Who developed Six Sigma?",
+   "options": [
+    "Toyota",
+    "Bell Telephone Laboratories",
+    "The U.S. EPA",
+    "Motorola"
+   ],
+   "answer": 3,
+   "explain": "It drew on statistical quality control and data analysis.",
+   "lesson": "lean_quality-07",
+   "evidence": "Six Sigma was developed by Motorola in the 1990s, drawing on well-established statistical quality control techniques and data analysis methods.",
+   "origin": "authored"
+  },
+  {
+   "id": "6edd38e62d",
+   "module": 2,
+   "q": "What does a Six Sigma quality level equate to?",
+   "options": [
+    "Six defects per hundred",
+    "One defect per day",
+    "About 3.4 defects per million opportunities",
+    "Six percent waste"
+   ],
+   "answer": 2,
+   "explain": "It represents high quality and minimal variability.",
+   "lesson": "lean_quality-07",
+   "evidence": "A Six Sigma quality level equates to approximately 3.4 defects per million opportunities, representing high quality and minimal process variability.",
+   "origin": "authored"
+  },
+  {
+   "id": "58bc59a7f1",
+   "module": 2,
+   "q": "What does a sigma quality level indicate?",
+   "options": [
+    "How many employees a plant has",
+    "How often defects are likely to occur",
+    "How fast a machine runs",
+    "How much a product costs"
+   ],
+   "answer": 1,
+   "explain": "Higher sigma levels mean fewer defects.",
+   "lesson": "lean_quality-07",
+   "evidence": "A sigma quality level serves as an indicator of how often defects are likely to occur in processes, parts, or products.",
+   "origin": "authored"
+  },
+  {
+   "id": "4e05871faa",
+   "module": 2,
+   "q": "Who first applied statistical methods to quality control?",
+   "options": [
+    "Walter A. Shewhart of Bell Telephone Laboratories",
+    "W. Edwards Deming",
+    "Henry Ford",
+    "Motorola engineers"
+   ],
+   "answer": 0,
+   "explain": "His 1924 memorandum sketched a modern control chart.",
+   "lesson": "lean_quality-08",
+   "evidence": "He issued a memorandum on May 16, 1924 that featured a sketch of a modern control chart.",
+   "origin": "authored"
+  },
+  {
+   "id": "498648a231",
+   "module": 2,
+   "q": "What is process control?",
+   "options": [
+    "Inspecting every product by hand",
+    "Approving the annual budget",
+    "Choosing suppliers by price",
+    "Actively changing the process based on the results of process monitoring"
+   ],
+   "answer": 3,
+   "explain": "Interventions can be based on engineering judgement or be automated.",
+   "lesson": "lean_quality-08",
+   "evidence": "Process Control is the active changing of the process based on the results of process monitoring.",
+   "origin": "authored"
+  },
+  {
+   "id": "7d76599d01",
+   "module": 2,
+   "q": "What does a process engineer do when a process is out of control?",
+   "options": [
+    "Ignores it until the next audit",
+    "Shuts down the company",
+    "Looks for an assignable cause by following the out-of-control action plan (OCAP)",
+    "Raises prices"
+   ],
+   "answer": 2,
+   "explain": "The OCAP is linked to the control chart.",
+   "lesson": "lean_quality-08",
+   "evidence": "If the process is out-of-control, the process engineer looks for an assignable cause by following the out-of-control action plan (OCAP) associated with the control chart.",
+   "origin": "authored"
+  },
+  {
+   "id": "3e1f83cf9d",
+   "module": 2,
+   "q": "What does the centre line of a control chart represent?",
+   "options": [
+    "The maximum allowed value",
+    "The mean value for the in-control process",
+    "The customer's target price",
+    "The number of samples taken"
+   ],
+   "answer": 1,
+   "explain": "Upper and lower control limits are drawn around it.",
+   "lesson": "lean_quality-09",
+   "evidence": "In general, the chart contains a center line that represents the mean value for the in-control process.",
+   "origin": "authored"
+  },
+  {
+   "id": "59123388e3",
+   "module": 2,
+   "q": "What are the two horizontal lines drawn on a control chart besides the centre line?",
+   "options": [
+    "The upper control limit (UCL) and the lower control limit (LCL)",
+    "The price line and the cost line",
+    "The start date and end date",
+    "The supplier line and the customer line"
+   ],
+   "answer": 0,
+   "explain": "Points outside these limits suggest an assignable cause.",
+   "lesson": "lean_quality-09",
+   "evidence": "Two other horizontal lines, called the upper control limit ( UCL ) and the lower control limit ( LCL ), are also shown on the chart.",
+   "origin": "authored"
+  },
+  {
+   "id": "b21a1ce3f3",
+   "module": 2,
+   "q": "What should you do if a point falls outside the control limits?",
+   "options": [
+    "Nothing: points outside are normal",
+    "Delete the point from the data",
+    "Move the control limits",
+    "Search for an assignable cause of the variation"
+   ],
+   "answer": 3,
+   "explain": "Points outside the limits signal possible special causes.",
+   "lesson": "lean_quality-09",
+   "evidence": "We would be searching for an assignable cause if a point would fall outside these limits.",
+   "origin": "authored"
+  },
+  {
+   "id": "39005899b6",
+   "module": 2,
+   "q": "For a normal distribution, how likely is a point outside ±3σ?",
+   "options": [
+    "30%",
+    "3%",
+    "0.3%",
+    "50%"
+   ],
+   "answer": 2,
+   "explain": "That is why 3-sigma limits rarely give false alarms.",
+   "lesson": "lean_quality-10",
+   "evidence": "We know that, for a normal distribution, the probability of encountering a point outside ± 3 σ is 0.3%.",
+   "origin": "authored"
+  },
+  {
+   "id": "0e43bc6f23",
+   "module": 2,
+   "q": "What are attributes in quality control?",
+   "options": [
+    "Measurements such as thickness in millimetres",
+    "Quality characteristics from classifying or counting, such as defective or non-defective",
+    "The names of the machines",
+    "The prices of the products"
+   ],
+   "answer": 1,
+   "explain": "Attributes data arise when classifying or counting observations.",
+   "lesson": "lean_quality-10",
+   "evidence": "Quality characteristics of that type are called attributes.",
+   "origin": "authored"
+  },
+  {
+   "id": "6ceedb15f5",
+   "module": 2,
+   "q": "What does process capability compare?",
+   "options": [
+    "The output of an in-control process with the specification limits",
+    "The cost of two suppliers",
+    "The speed of two machines",
+    "The salaries of two teams"
+   ],
+   "answer": 0,
+   "explain": "Capability indices form the comparison.",
+   "lesson": "lean_quality-11",
+   "evidence": "Process capability compares the output of an in-control process to the specification limits by using capability indices .",
+   "origin": "authored"
+  },
+  {
+   "id": "7ddbef0445",
+   "module": 2,
+   "q": "What is a capable process?",
+   "options": [
+    "One that runs without people",
+    "One that never needs a control chart",
+    "One that has the lowest cost",
+    "One where almost all measurements fall inside the specification limits"
+   ],
+   "answer": 3,
+   "explain": "Capability compares natural variability with the specification limits.",
+   "lesson": "lean_quality-11",
+   "evidence": "A process where almost all the measurements fall inside the specification limits is a capable process.",
+   "origin": "authored"
+  },
+  {
+   "id": "d2e2dc3a80",
+   "module": 2,
+   "q": "In the lesson's table, if the specification width (USL − LSL) equals 8σ, what is Cp?",
+   "options": [
+    "1.00",
+    "2.00",
+    "1.33",
+    "0.50"
+   ],
+   "answer": 2,
+   "explain": "Cp 1.00, 1.33, 1.66 and 2.00 correspond to 6, 8, 10 and 12 σ.",
+   "lesson": "lean_quality-11",
+   "evidence": "C p 1.00 1.33 1.66 2.00",
+   "origin": "authored"
+  }
+ ],
+ "minutes": 75,
+ "sources": [
+  {
+   "id": "epa",
+   "name": "U.S. Environmental Protection Agency",
+   "url": "https://www.epa.gov/",
+   "license": "Public domain (U.S. Government work)",
+   "license_url": "https://www.usa.gov/government-copyright",
+   "attribution": "U.S. Environmental Protection Agency — a U.S. Government work, not subject to copyright",
+   "noncommercial": false
+  },
+  {
+   "id": "nist-sema",
+   "name": "NIST/SEMATECH e-Handbook of Statistical Methods",
+   "url": "https://www.itl.nist.gov/div898/handbook/",
+   "license": "Public domain (U.S. Government work)",
+   "license_url": "https://www.usa.gov/government-copyright",
+   "attribution": "National Institute of Standards and Technology — a U.S. Government work, not subject to copyright",
+   "noncommercial": false
+  },
+  {
+   "id": "ostx-biz",
+   "name": "OpenStax · Introduction to Business (1st ed.)",
+   "url": "https://openstax.org/details/books/introduction-business",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "Lawrence J. Gitman, Carl McDaniel, Amit Shah et al., OpenStax, CC BY 4.0",
+   "noncommercial": false
+  }
+ ]
+}

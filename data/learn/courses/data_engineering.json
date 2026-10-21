@@ -767,177 +767,561 @@
    ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "A primary key is",
-    "options": [
-     "a value used to identify one specific row in a table",
-     "a value used to make values unique",
-     "a value used to force capitalization"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "data_engineering-01",
-    "origin": "bank:ds:9",
-    "source": "ms-ds"
-   },
-   {
-    "q": "A foreign key is used to",
-    "options": [
-     "values that reference the ids in a separate table",
-     "values that reference the strings in a separate table",
-     "preserve values that change over time"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "data_engineering-01",
-    "origin": "bank:ds:9",
-    "source": "ms-ds"
-   },
-   {
-    "q": "Which one of these is NOT a type of NoSQL?",
-    "options": [
-     "Object oriented",
-     "Key-value",
-     "Columnar"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "data_engineering-02",
-    "origin": "bank:ds:11",
-    "source": "ms-ds"
-   },
-   {
-    "q": "What does 'polyglot persistence' mean?",
-    "options": [
-     "Storing every dataset in one relational database",
-     "Selecting multiple storage models for different needs in one system",
-     "Writing pipelines in several programming languages",
-     "Keeping several backups of the same table"
-    ],
-    "answer": 1,
-    "explain": "Most production systems mix relational, document, key-value and other stores, each where it fits best.",
-    "lesson": "data_engineering-03",
-    "evidence": "Most production systems adopt polyglot persistence , which means that you select multiple storage models.",
-    "origin": "authored"
-   },
-   {
-    "q": "In transaction processing (OLTP), what does atomicity mean?",
-    "options": [
-     "Each value is stored in its own column",
-     "Transactions run on a single atomic clock",
-     "An entire transaction succeeds or fails as one unit and is never left half-completed",
-     "Only one user can write at a time"
-    ],
-    "answer": 2,
-    "explain": "Atomicity is the 'A' of ACID — no partial updates are ever visible.",
-    "lesson": "data_engineering-04",
-    "evidence": "Atomicity means that an entire transaction always succeeds or fails as one unit of work, and is never left in a half-completed state.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is online analytical processing (OLAP) for?",
-    "options": [
-     "Organising large business databases to perform complex calculations and trend analysis",
-     "Recording individual sales as they happen",
-     "Encrypting data in transit",
-     "Backing up databases overnight"
-    ],
-    "answer": 0,
-    "explain": "OLAP serves read-heavy analytics; OLTP databases are optimised for individual record entries.",
-    "lesson": "data_engineering-05",
-    "evidence": "Online analytical processing (OLAP) is a technology that organizes large business databases to perform complex calculations and trend analysis.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is ETL?",
-    "options": [
-     "A query language for spreadsheets",
-     "A way to encrypt, transfer and log files",
-     "A type of data lake",
-     "A data integration process that consolidates data from diverse sources into a unified data store"
-    ],
-    "answer": 3,
-    "explain": "Extract from sources, transform with business rules, load into a target store.",
-    "lesson": "data_engineering-06",
-    "evidence": "Extract, transform, load (ETL) is a data integration process that consolidates data from diverse sources into a unified data store.",
-    "origin": "authored"
-   },
-   {
-    "q": "How does a data lake hold data?",
-    "options": [
-     "Only after it has been cleaned and modelled",
-     "In large volumes in its native, raw format",
-     "As printed reports",
-     "In a single spreadsheet per department"
-    ],
-    "answer": 1,
-    "explain": "Data lakes keep data untransformed and apply transformation only when the data is needed.",
-    "lesson": "data_engineering-08",
-    "evidence": "A data lake is a storage repository that holds large volumes of data in its native, raw format.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the fundamental requirement of batch processing engines?",
-    "options": [
-     "To answer each query in milliseconds",
-     "To store data in its raw format",
-     "To scale out computations to handle a large volume of data",
-     "To run only once a year"
-    ],
-    "answer": 2,
-    "explain": "Batch jobs process large, bounded datasets, so they must scale out across many machines.",
-    "lesson": "data_engineering-10",
-    "evidence": "The fundamental requirement of batch processing engines is to scale out computations to handle a large volume of data.",
-    "origin": "authored"
-   },
-   {
-    "q": "How is streaming data produced?",
-    "options": [
-     "At high volume in a continuous, incremental manner that can be processed in near real-time",
-     "In large monthly files",
-     "Only when a user requests a report",
-     "As a single snapshot of a database"
-    ],
-    "answer": 0,
-    "explain": "Stream processing handles unbounded data as it arrives, often with validation logic for errors.",
-    "lesson": "data_engineering-11",
-    "evidence": "Streaming data is emitted at high volume in a continuous, incremental manner that can be processed in near real-time.",
-    "origin": "authored"
-   },
-   {
-    "q": "When a table is imported into OpenRefine, how are its columns treated at first?",
-    "options": [
-     "As numbers wherever possible",
-     "As dates",
-     "As formulas",
-     "All columns are treated as containing text values"
-    ],
-    "answer": 3,
-    "explain": "You must transform a column to numbers explicitly before numeric facets make sense.",
-    "lesson": "data_engineering-13",
-    "evidence": "When a table is imported into OpenRefine, all columns are treated as containing text values.",
-    "origin": "authored"
-   },
-   {
-    "q": "Why can an OpenRefine cleaning process be reapplied to another dataset?",
-    "options": [
-     "Because it only works on CSV files",
-     "Because OpenRefine saves every change you make, and the steps can be exported as JSON and imported elsewhere",
-     "Because it uploads data to the cloud",
-     "Because changes cannot be undone"
-    ],
-    "answer": 1,
-    "explain": "The recorded history is a script you can export and replay — a repeatable pipeline step.",
-    "lesson": "data_engineering-14",
-    "evidence": "OpenRefine saves every change you make to the dataset.",
-    "origin": "authored"
-   }
-  ],
-  "pass_mark": 9,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "d74831e97f",
+   "module": 0,
+   "q": "A primary key is",
+   "options": [
+    "a value used to identify one specific row in a table",
+    "a value used to make values unique",
+    "a value used to force capitalization"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_engineering-01",
+   "origin": "bank:ds:9",
+   "source": "ms-ds"
+  },
+  {
+   "id": "fafeb54f98",
+   "module": 0,
+   "q": "A foreign key is used to",
+   "options": [
+    "values that reference the ids in a separate table",
+    "values that reference the strings in a separate table",
+    "preserve values that change over time"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_engineering-01",
+   "origin": "bank:ds:9",
+   "source": "ms-ds"
+  },
+  {
+   "id": "0992e2fee7",
+   "module": 0,
+   "q": "A numeric 'ID' column would be a good primary key",
+   "options": [
+    "true",
+    "false"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_engineering-01",
+   "origin": "bank:ds:9",
+   "source": "ms-ds"
+  },
+  {
+   "id": "2b00006369",
+   "module": 0,
+   "q": "Which one of these is NOT a type of NoSQL?",
+   "options": [
+    "Object oriented",
+    "Key-value",
+    "Columnar"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_engineering-02",
+   "origin": "bank:ds:11",
+   "source": "ms-ds"
+  },
+  {
+   "id": "d931684942",
+   "module": 0,
+   "q": "What do you use to do calculations in spreadsheets?",
+   "options": [
+    "Python",
+    "Aliases",
+    "Formulas"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "data_engineering-02",
+   "origin": "bank:ds:11",
+   "source": "ms-ds"
+  },
+  {
+   "id": "e34805414e",
+   "module": 0,
+   "q": "What other type of non-relational data does a document in a document database resemble?",
+   "options": [
+    "Keys",
+    "Column",
+    "JSON"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "data_engineering-02",
+   "origin": "bank:ds:11",
+   "source": "ms-ds"
+  },
+  {
+   "id": "f6ff3fd2c5",
+   "module": 0,
+   "q": "What does 'polyglot persistence' mean?",
+   "options": [
+    "Storing every dataset in one relational database",
+    "Selecting multiple storage models for different needs in one system",
+    "Writing pipelines in several programming languages",
+    "Keeping several backups of the same table"
+   ],
+   "answer": 1,
+   "explain": "Most production systems mix relational, document, key-value and other stores, each where it fits best.",
+   "lesson": "data_engineering-03",
+   "evidence": "Most production systems adopt polyglot persistence , which means that you select multiple storage models.",
+   "origin": "authored"
+  },
+  {
+   "id": "ad0dfa1de7",
+   "module": 0,
+   "q": "What does the guidance advise instead of combining storage models in complicated ways?",
+   "options": [
+    "Choose the best-fit model",
+    "Always use one relational database",
+    "Use every model at once",
+    "Avoid databases altogether"
+   ],
+   "answer": 0,
+   "explain": "Polyglot persistence is common, but each model should earn its place.",
+   "lesson": "data_engineering-03",
+   "evidence": "Choose the best-fit model instead of combining models in a way that complicates operations.",
+   "origin": "authored"
+  },
+  {
+   "id": "2ff72f0fba",
+   "module": 0,
+   "q": "What is Azure SQL Database?",
+   "options": [
+    "A document database",
+    "A data lake",
+    "A stream processing service",
+    "A managed relational database using the SQL Server engine"
+   ],
+   "answer": 3,
+   "explain": "It suits structured data with relationships and transactions.",
+   "lesson": "data_engineering-03",
+   "evidence": "SQL Database is a managed relational database for modern cloud applications that use the SQL Server engine.",
+   "origin": "authored"
+  },
+  {
+   "id": "b1a789c138",
+   "module": 0,
+   "q": "In transaction processing (OLTP), what does atomicity mean?",
+   "options": [
+    "Each value is stored in its own column",
+    "Transactions run on a single atomic clock",
+    "An entire transaction succeeds or fails as one unit and is never left half-completed",
+    "Only one user can write at a time"
+   ],
+   "answer": 2,
+   "explain": "Atomicity is the 'A' of ACID — no partial updates are ever visible.",
+   "lesson": "data_engineering-04",
+   "evidence": "Atomicity means that an entire transaction always succeeds or fails as one unit of work, and is never left in a half-completed state.",
+   "origin": "authored"
+  },
+  {
+   "id": "fd25c766a7",
+   "module": 0,
+   "q": "What is online analytical processing (OLAP) for?",
+   "options": [
+    "Organising large business databases to perform complex calculations and trend analysis",
+    "Recording individual sales as they happen",
+    "Encrypting data in transit",
+    "Backing up databases overnight"
+   ],
+   "answer": 0,
+   "explain": "OLAP serves read-heavy analytics; OLTP databases are optimised for individual record entries.",
+   "lesson": "data_engineering-05",
+   "evidence": "Online analytical processing (OLAP) is a technology that organizes large business databases to perform complex calculations and trend analysis.",
+   "origin": "authored"
+  },
+  {
+   "id": "6209175d87",
+   "module": 0,
+   "q": "Why are transaction (OLTP) databases poorly suited to analysis?",
+   "options": [
+    "They cannot store numbers",
+    "They delete records every day",
+    "They are built for individual record entries, so analytical retrieval is slow and difficult",
+    "They only hold images"
+   ],
+   "answer": 2,
+   "explain": "OLAP systems reorganise the data for complex calculations and trends.",
+   "lesson": "data_engineering-05",
+   "evidence": "These databases hold valuable information, but they're not designed for analysis, so data retrieval is time-consuming and difficult.",
+   "origin": "authored"
+  },
+  {
+   "id": "a2bad092a7",
+   "module": 0,
+   "q": "What does a semantic data model provide?",
+   "options": [
+    "Faster disk writes",
+    "A layer of abstraction so users needn't know the underlying data structures",
+    "Encryption of the data",
+    "An automatic backup"
+   ],
+   "answer": 1,
+   "explain": "Columns often get friendlier names that make their meaning obvious.",
+   "lesson": "data_engineering-05",
+   "evidence": "Semantic modeling provides a level of abstraction over the database schema so that users don't need to know the underlying data structures.",
+   "origin": "authored"
+  },
+  {
+   "id": "a22b3ece91",
+   "module": 1,
+   "q": "What is ETL?",
+   "options": [
+    "A query language for spreadsheets",
+    "A way to encrypt, transfer and log files",
+    "A type of data lake",
+    "A data integration process that consolidates data from diverse sources into a unified data store"
+   ],
+   "answer": 3,
+   "explain": "Extract from sources, transform with business rules, load into a target store.",
+   "lesson": "data_engineering-06",
+   "evidence": "Extract, transform, load (ETL) is a data integration process that consolidates data from diverse sources into a unified data store.",
+   "origin": "authored"
+  },
+  {
+   "id": "a9eb61233f",
+   "module": 1,
+   "q": "How does ELT differ from ETL?",
+   "options": [
+    "The target data store's own processing transforms the data, not a separate engine",
+    "ELT never transforms data",
+    "ELT loads data into spreadsheets",
+    "ELT skips the extract step"
+   ],
+   "answer": 0,
+   "explain": "Data is loaded first and transformed inside the destination.",
+   "lesson": "data_engineering-06",
+   "evidence": "Instead of using a separate transformation engine, the processing capabilities of the target data store are used to transform data.",
+   "origin": "authored"
+  },
+  {
+   "id": "1bf1880048",
+   "module": 1,
+   "q": "What is one benefit of the ELT approach?",
+   "options": [
+    "It needs no storage at all",
+    "It removes the need for business rules",
+    "It works only with small data",
+    "Scaling the target data store also scales the pipeline's performance"
+   ],
+   "answer": 3,
+   "explain": "Transformation power grows with the data store.",
+   "lesson": "data_engineering-06",
+   "evidence": "Another benefit to this approach is that scaling the target data store also scales the ELT pipeline performance.",
+   "origin": "authored"
+  },
+  {
+   "id": "4eba32eae8",
+   "module": 1,
+   "q": "If you need big data capabilities to move and transform data, what kind of service should you choose?",
+   "options": [
+    "A desktop spreadsheet tool",
+    "A script on a single laptop",
+    "A cloud-based service that doesn't depend on local processing power",
+    "Manual copy and paste"
+   ],
+   "answer": 2,
+   "explain": "Cloud services scale beyond what one machine can process.",
+   "lesson": "data_engineering-07",
+   "evidence": "If you do, choose a cloud-based service that doesn't depend on your local processing power.",
+   "origin": "authored"
+  },
+  {
+   "id": "28130bcb6a",
+   "module": 1,
+   "q": "How does a data lake hold data?",
+   "options": [
+    "Only after it has been cleaned and modelled",
+    "In large volumes in its native, raw format",
+    "As printed reports",
+    "In a single spreadsheet per department"
+   ],
+   "answer": 1,
+   "explain": "Data lakes keep data untransformed and apply transformation only when the data is needed.",
+   "lesson": "data_engineering-08",
+   "evidence": "A data lake is a storage repository that holds large volumes of data in its native, raw format.",
+   "origin": "authored"
+  },
+  {
+   "id": "dff2f7ca0c",
+   "module": 1,
+   "q": "When does a data lake apply transformations to data?",
+   "options": [
+    "Before anything is stored",
+    "Only when the data is needed",
+    "Never",
+    "Automatically every hour"
+   ],
+   "answer": 1,
+   "explain": "Keeping raw data is valuable when future insights aren't known yet.",
+   "lesson": "data_engineering-08",
+   "evidence": "Data lakes store all data types in their original, untransformed state and apply transformation only when the data is needed.",
+   "origin": "authored"
+  },
+  {
+   "id": "daa03d93ec",
+   "module": 1,
+   "q": "What is the medallion architecture?",
+   "options": [
+    "A layered design (bronze, silver, gold) that improves quality, governance and performance",
+    "A ranking of the best databases",
+    "A security certification",
+    "A type of dashboard chart"
+   ],
+   "answer": 0,
+   "explain": "Data is refined as it moves from one layer to the next.",
+   "lesson": "data_engineering-08",
+   "evidence": "This layered design, known as the medallion architecture",
+   "origin": "authored"
+  },
+  {
+   "id": "8cb1592429",
+   "module": 1,
+   "q": "What does the raw (bronze) layer of a data lake store?",
+   "options": [
+    "Only aggregated business metrics",
+    "Cleaned, deduplicated records",
+    "Machine learning models",
+    "Ingested data in its original format, with minimal transformation"
+   ],
+   "answer": 3,
+   "explain": "Later layers clean and aggregate it for analytics.",
+   "lesson": "data_engineering-08",
+   "evidence": "Stores ingested data in its original format with minimal transformation.",
+   "origin": "authored"
+  },
+  {
+   "id": "29f30d81ee",
+   "module": 2,
+   "q": "What is a big data architecture designed to handle?",
+   "options": [
+    "Small spreadsheets",
+    "Only image files",
+    "Data too large or complex for traditional database systems",
+    "A single user's documents"
+   ],
+   "answer": 2,
+   "explain": "It covers ingestion, processing and analysis at scale.",
+   "lesson": "data_engineering-09",
+   "evidence": "A big data architecture is designed to handle the ingestion, processing, and analysis of data that's too large or complex for traditional database systems.",
+   "origin": "authored"
+  },
+  {
+   "id": "05b24d5a90",
+   "module": 2,
+   "q": "When is batch processing the right choice?",
+   "options": [
+    "When you need instant alerts",
+    "When data must be prepared for reports on past events or trends",
+    "When data never changes",
+    "When there is very little data"
+   ],
+   "answer": 1,
+   "explain": "Real-time needs call for stream processing instead.",
+   "lesson": "data_engineering-09",
+   "evidence": "When data needs to be prepared for analysis and made available for reports that reflect past events or trends, batch processing is useful.",
+   "origin": "authored"
+  },
+  {
+   "id": "53ee729f0e",
+   "module": 2,
+   "q": "If a solution has real-time data sources, what must its architecture include?",
+   "options": [
+    "A way to capture and store real-time messages for stream processing",
+    "A nightly batch export",
+    "A manual upload page",
+    "A printed daily report"
+   ],
+   "answer": 0,
+   "explain": "Message ingestion services buffer events for stream processors.",
+   "lesson": "data_engineering-09",
+   "evidence": "the architecture must include a way to capture and store real-time messages for stream processing",
+   "origin": "authored"
+  },
+  {
+   "id": "df4b1f70ab",
+   "module": 2,
+   "q": "Which of these is an option for capturing real-time messages?",
+   "options": [
+    "Microsoft Excel",
+    "Tableau",
+    "Git",
+    "Apache Kafka"
+   ],
+   "answer": 3,
+   "explain": "Azure Event Hubs and IoT Hub are other options.",
+   "lesson": "data_engineering-09",
+   "evidence": "Options include Fabric Real-Time Intelligence eventstreams, Azure Event Hubs, Azure IoT Hub, and Apache Kafka.",
+   "origin": "authored"
+  },
+  {
+   "id": "9767f74efa",
+   "module": 2,
+   "q": "What is the fundamental requirement of batch processing engines?",
+   "options": [
+    "To answer each query in milliseconds",
+    "To store data in its raw format",
+    "To scale out computations to handle a large volume of data",
+    "To run only once a year"
+   ],
+   "answer": 2,
+   "explain": "Batch jobs process large, bounded datasets, so they must scale out across many machines.",
+   "lesson": "data_engineering-10",
+   "evidence": "The fundamental requirement of batch processing engines is to scale out computations to handle a large volume of data.",
+   "origin": "authored"
+  },
+  {
+   "id": "6b4861f3d0",
+   "module": 2,
+   "q": "How is streaming data produced?",
+   "options": [
+    "At high volume in a continuous, incremental manner that can be processed in near real-time",
+    "In large monthly files",
+    "Only when a user requests a report",
+    "As a single snapshot of a database"
+   ],
+   "answer": 0,
+   "explain": "Stream processing handles unbounded data as it arrives, often with validation logic for errors.",
+   "lesson": "data_engineering-11",
+   "evidence": "Streaming data is emitted at high volume in a continuous, incremental manner that can be processed in near real-time.",
+   "origin": "authored"
+  },
+  {
+   "id": "00b79e6d50",
+   "module": 2,
+   "q": "Why do stream processing systems usually include data validation logic?",
+   "options": [
+    "To slow the stream down",
+    "To encrypt the data",
+    "To catch errors in data that arrives continuously",
+    "To delete old events"
+   ],
+   "answer": 2,
+   "explain": "Streaming data can be malformed, duplicated or out of order.",
+   "lesson": "data_engineering-11",
+   "evidence": "So stream processing and analytics systems typically include logic for data validation to mitigate these errors.",
+   "origin": "authored"
+  },
+  {
+   "id": "71078ff808",
+   "module": 2,
+   "q": "How can stream producers cope with network disruptions or broker failures?",
+   "options": [
+    "By dropping the data",
+    "Through automatic retries",
+    "By switching to email",
+    "By pausing for a day"
+   ],
+   "answer": 1,
+   "explain": "Retries make data delivery dependable.",
+   "lesson": "data_engineering-11",
+   "evidence": "Producers can manage network disruptions or broker failures through automatic retries to ensure dependable data delivery.",
+   "origin": "authored"
+  },
+  {
+   "id": "3cc99b20e0",
+   "module": 3,
+   "q": "What are facets in OpenRefine useful for?",
+   "options": [
+    "Getting an overview of the data and making it more consistent",
+    "Writing SQL queries",
+    "Drawing maps",
+    "Sending emails"
+   ],
+   "answer": 0,
+   "explain": "They summarise and filter the values in a column.",
+   "lesson": "data_engineering-12",
+   "evidence": "Facets are one of the most useful features of OpenRefine and can help both get an overview of the data in a project as well as help you bring more consistency to the data.",
+   "origin": "authored"
+  },
+  {
+   "id": "73145130b7",
+   "module": 3,
+   "q": "What does a scatterplot facet let you do?",
+   "options": [
+    "Merge two text columns",
+    "Sort rows alphabetically",
+    "Split a column into two",
+    "Filter by combinations of values in two numeric columns"
+   ],
+   "answer": 3,
+   "explain": "Numeric and scatterplot facets display graphs instead of lists.",
+   "lesson": "data_engineering-12",
+   "evidence": "A scatterplot facet allows you to visualise values in a pair of numeric columns as a scatterplot, so that you can filter by two-value combinations.",
+   "origin": "authored"
+  },
+  {
+   "id": "0b79172114",
+   "module": 3,
+   "q": "Why try more than one clustering algorithm in OpenRefine?",
+   "options": [
+    "Only one algorithm works for text",
+    "They always give identical results",
+    "Different algorithms can give different results",
+    "Clustering deletes data"
+   ],
+   "answer": 2,
+   "explain": "Some near-duplicates are only caught by a different method.",
+   "lesson": "data_engineering-12",
+   "evidence": "Understand that there are different clustering algorithms which might give different results.",
+   "origin": "authored"
+  },
+  {
+   "id": "a54c253eb4",
+   "module": 3,
+   "q": "Which facets display graphs instead of lists of values?",
+   "options": [
+    "Text and custom facets",
+    "Numeric and scatterplot facets",
+    "Timeline and text facets",
+    "Only custom facets"
+   ],
+   "answer": 1,
+   "explain": "Graphs make it easy to spot outliers and ranges.",
+   "lesson": "data_engineering-12",
+   "evidence": "Numeric and Scatterplot facets display graphs instead of lists of values.",
+   "origin": "authored"
+  },
+  {
+   "id": "e7d5aaaa13",
+   "module": 3,
+   "q": "When a table is imported into OpenRefine, how are its columns treated at first?",
+   "options": [
+    "As numbers wherever possible",
+    "As dates",
+    "As formulas",
+    "All columns are treated as containing text values"
+   ],
+   "answer": 3,
+   "explain": "You must transform a column to numbers explicitly before numeric facets make sense.",
+   "lesson": "data_engineering-13",
+   "evidence": "When a table is imported into OpenRefine, all columns are treated as containing text values.",
+   "origin": "authored"
+  },
+  {
+   "id": "2fd3ecd667",
+   "module": 3,
+   "q": "Why can an OpenRefine cleaning process be reapplied to another dataset?",
+   "options": [
+    "Because it only works on CSV files",
+    "Because OpenRefine saves every change you make, and the steps can be exported as JSON and imported elsewhere",
+    "Because it uploads data to the cloud",
+    "Because changes cannot be undone"
+   ],
+   "answer": 1,
+   "explain": "The recorded history is a script you can export and replay — a repeatable pipeline step.",
+   "lesson": "data_engineering-14",
+   "evidence": "OpenRefine saves every change you make to the dataset.",
+   "origin": "authored"
+  }
+ ],
  "minutes": 105,
  "sources": [
   {

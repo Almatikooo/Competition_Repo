@@ -619,168 +619,457 @@
    ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "Which areas are closely related to data science?",
-    "options": [
-     "Artificial Intelligence",
-     "Machine Learning",
-     "All of the above"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "data_analysis-01",
-    "origin": "bank:ds:1",
-    "source": "ms-ds"
-   },
-   {
-    "q": "Which of the following is an example of non-structured data?",
-    "options": [
-     "List of students in class",
-     "Collection of student essays",
-     "Graph of friends of social network users"
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "data_analysis-01",
-    "origin": "bank:ds:1",
-    "source": "ms-ds"
-   },
-   {
-    "q": "A company is collecting surveys from their customers to improve their products. What type of data source is this?",
-    "options": [
-     "Primary",
-     "Secondary",
-     "Tertiary"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "data_analysis-02",
-    "origin": "bank:ds:5",
-    "source": "ms-ds"
-   },
-   {
-    "q": "We want to prove that basketball players are taller than average people. We have collected heights of 20 people from both groups. What do we need to do?",
-    "options": [
-     "compare means",
-     "collect more data, 20 is not enough!",
-     "use t-test"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "data_analysis-03",
-    "origin": "bank:ds:7",
-    "source": "ms-ds"
-   },
-   {
-    "q": "Which library would you use to represent a list of grades of students in class?",
-    "options": [
-     "Numpy",
-     "SciPy",
-     "Pandas"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "data_analysis-04",
-    "origin": "bank:ds:13",
-    "source": "ms-ds"
-   },
-   {
-    "q": "You have a DataFrame with a list of students, their group number, and average grade. Which operation would you use to compute the average grade per group?",
-    "options": [
-     "average",
-     "avg",
-     "groupby"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "data_analysis-04",
-    "origin": "bank:ds:13",
-    "source": "ms-ds"
-   },
-   {
-    "q": "Joining two or more datasets can cause which following issue(s)?",
-    "options": [
-     "Duplicates",
-     "Inconsistent formatting",
-     "All of the above"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "data_analysis-05",
-    "origin": "bank:ds:15",
-    "source": "ms-ds"
-   },
-   {
-    "q": "What step of the data science lifecycle is most likely to produce a model?",
-    "options": [
-     "Processing",
-     "Maintenance",
-     "Capturing"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "data_analysis-08",
-    "origin": "bank:ds:27",
-    "source": "ms-ds"
-   },
-   {
-    "q": "Which Panda functions provides basic data profiling?",
-    "options": [
-     "pandas()",
-     "isnull()",
-     "describe()"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "data_analysis-09",
-    "origin": "bank:ds:29",
-    "source": "ms-ds"
-   },
-   {
-    "q": "What is the purpose of sampling data?",
-    "options": [
-     "Sampling is better than data profiling when looking for errors",
-     "Sampling doesn't serve a purpose",
-     "Sampling is used to analyze data in a large data set because it's hard to analyze all of it"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "data_analysis-09",
-    "origin": "bank:ds:29",
-    "source": "ms-ds"
-   },
-   {
-    "q": "When communicating data to an Executive Audience, which would be an acceptable strategy to take?",
-    "options": [
-     "Go in depth with the small details and spend less time on the significance of the data.",
-     "Focus primarily on the significance of the data and the recommended next steps based on the data.",
-     "Explain the entire context and try to brainstorm potential solutions with the executives."
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "data_analysis-10",
-    "origin": "bank:ds:31",
-    "source": "ms-ds"
-   },
-   {
-    "q": "Use Data Science for sustainability research by",
-    "options": [
-     "studying deforestation",
-     "studying climate change data",
-     "both of these"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "data_analysis-11",
-    "origin": "bank:ds:39",
-    "source": "ms-ds"
-   }
-  ],
-  "pass_mark": 9,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "66ba5cd3ef",
+   "module": 0,
+   "q": "Which areas are closely related to data science?",
+   "options": [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "All of the above"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "data_analysis-01",
+   "origin": "bank:ds:1",
+   "source": "ms-ds"
+  },
+  {
+   "id": "af7f1be377",
+   "module": 0,
+   "q": "Which of the following is an example of non-structured data?",
+   "options": [
+    "List of students in class",
+    "Collection of student essays",
+    "Graph of friends of social network users"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "data_analysis-01",
+   "origin": "bank:ds:1",
+   "source": "ms-ds"
+  },
+  {
+   "id": "96a71c3913",
+   "module": 0,
+   "q": "What is the main goal of data science?",
+   "options": [
+    "to collect data",
+    "to process data",
+    "to be able to make decisions based on data"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "data_analysis-01",
+   "origin": "bank:ds:1",
+   "source": "ms-ds"
+  },
+  {
+   "id": "02c8495c93",
+   "module": 0,
+   "q": "The teacher is reviewing students’ number of correct answers, what type of data is that?",
+   "options": [
+    "Qualitative Data",
+    "Quantitative Data",
+    "All the above"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "data_analysis-02",
+   "origin": "bank:ds:5",
+   "source": "ms-ds"
+  },
+  {
+   "id": "0b746bb561",
+   "module": 0,
+   "q": "A company is collecting surveys from their customers to improve their products. What type of data source is this?",
+   "options": [
+    "Primary",
+    "Secondary",
+    "Tertiary"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_analysis-02",
+   "origin": "bank:ds:5",
+   "source": "ms-ds"
+  },
+  {
+   "id": "82a916cc93",
+   "module": 0,
+   "q": "A student is collecting data using queries. What data source could that be?",
+   "options": [
+    "Local Files",
+    "API",
+    "Database"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "data_analysis-02",
+   "origin": "bank:ds:5",
+   "source": "ms-ds"
+  },
+  {
+   "id": "ea4f230a0a",
+   "module": 0,
+   "q": "We want to prove that basketball players are taller than average people. We have collected heights of 20 people from both groups. What do we need to do?",
+   "options": [
+    "compare means",
+    "collect more data, 20 is not enough!",
+    "use t-test"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "data_analysis-03",
+   "origin": "bank:ds:7",
+   "source": "ms-ds"
+  },
+  {
+   "id": "6bac5d44f9",
+   "module": 0,
+   "q": "How can we demonstrate that income of a person is dependent on the level of education?",
+   "options": [
+    "compute correlation coefficient",
+    "divide into educated and non-educated cohorts and compute means",
+    "use t-test"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_analysis-03",
+   "origin": "bank:ds:7",
+   "source": "ms-ds"
+  },
+  {
+   "id": "7b8e3c743e",
+   "module": 0,
+   "q": "We throw the dice 100 times and compute the average value. What would be the distribution of the result?",
+   "options": [
+    "uniform",
+    "normal",
+    "none of the above"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "data_analysis-03",
+   "origin": "bank:ds:7",
+   "source": "ms-ds"
+  },
+  {
+   "id": "3defdac97d",
+   "module": 1,
+   "q": "Which library would you use to represent a list of grades of students in class?",
+   "options": [
+    "Numpy",
+    "SciPy",
+    "Pandas"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "data_analysis-04",
+   "origin": "bank:ds:13",
+   "source": "ms-ds"
+  },
+  {
+   "id": "82c6d41a51",
+   "module": 1,
+   "q": "You have a DataFrame with a list of students, their group number, and average grade. Which operation would you use to compute the average grade per group?",
+   "options": [
+    "average",
+    "avg",
+    "groupby"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "data_analysis-04",
+   "origin": "bank:ds:13",
+   "source": "ms-ds"
+  },
+  {
+   "id": "6f8cfa09d5",
+   "module": 1,
+   "q": "You have 100 friends and you want to represent the information on how frequently they take pictures with each other. Which data structure would you use?",
+   "options": [
+    "Numpy array",
+    "Pandas DataFrame",
+    "Pandas Series"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_analysis-04",
+   "origin": "bank:ds:13",
+   "source": "ms-ds"
+  },
+  {
+   "id": "4ed2e99dfe",
+   "module": 1,
+   "q": "What's the first thing that should be done when faced with missing data?",
+   "options": [
+    "Delete it",
+    "Assess why it's missing",
+    "Try to fill in empty values"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "data_analysis-05",
+   "origin": "bank:ds:15",
+   "source": "ms-ds"
+  },
+  {
+   "id": "05caf59997",
+   "module": 1,
+   "q": "Joining two or more datasets can cause which following issue(s)?",
+   "options": [
+    "Duplicates",
+    "Inconsistent formatting",
+    "All of the above"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "data_analysis-05",
+   "origin": "bank:ds:15",
+   "source": "ms-ds"
+  },
+  {
+   "id": "0f0afe615e",
+   "module": 1,
+   "q": "Merging or joining two datasets into one can affect consistency in data",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_analysis-05",
+   "origin": "bank:ds:15",
+   "source": "ms-ds"
+  },
+  {
+   "id": "caa81bc2c5",
+   "module": 2,
+   "q": "What step of the data science lifecycle is most likely to produce a model?",
+   "options": [
+    "Processing",
+    "Maintenance",
+    "Capturing"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_analysis-08",
+   "origin": "bank:ds:27",
+   "source": "ms-ds"
+  },
+  {
+   "id": "b85a377bb4",
+   "module": 2,
+   "q": "What questions would a data scientist ask in the capture phase of the data science lifecycle?",
+   "options": [
+    "What are the constraints?",
+    "Does the data make sense?",
+    "Does the model make sense?"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_analysis-08",
+   "origin": "bank:ds:27",
+   "source": "ms-ds"
+  },
+  {
+   "id": "8225d9027a",
+   "module": 2,
+   "q": "What are some common techniques in the processing stage?",
+   "options": [
+    "Clustering",
+    "Artificial intelligence",
+    "All of the above"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_analysis-08",
+   "origin": "bank:ds:27",
+   "source": "ms-ds"
+  },
+  {
+   "id": "233cd01bea",
+   "module": 2,
+   "q": "Which Panda functions provides basic data profiling?",
+   "options": [
+    "pandas()",
+    "isnull()",
+    "describe()"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "data_analysis-09",
+   "origin": "bank:ds:29",
+   "source": "ms-ds"
+  },
+  {
+   "id": "53e3c8bddb",
+   "module": 2,
+   "q": "What is the purpose of sampling data?",
+   "options": [
+    "Sampling is better than data profiling when looking for errors",
+    "Sampling doesn't serve a purpose",
+    "Sampling is used to analyze data in a large data set because it's hard to analyze all of it"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "data_analysis-09",
+   "origin": "bank:ds:29",
+   "source": "ms-ds"
+  },
+  {
+   "id": "3153ddca2d",
+   "module": 2,
+   "q": "Visualization is never part of exploratory data analysis (EDA)",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "data_analysis-09",
+   "origin": "bank:ds:29",
+   "source": "ms-ds"
+  },
+  {
+   "id": "417e28be69",
+   "module": 2,
+   "q": "Of the options below, which is the most meaningful explanation of a company's yearly progress?",
+   "options": [
+    "We had an excellent year! Our users grew by 30%, our revenue increased by 21%, and we've added 100 new team members.",
+    "We had a great year! Our users grew tremendously, our revenue increased by a lot, and we even added several new team members across all divisions.",
+    "Our progress year was simply phenomenal. I can't overstate how much of an increase we've had with growing our users, our revenue, or our team."
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_analysis-10",
+   "origin": "bank:ds:31",
+   "source": "ms-ds"
+  },
+  {
+   "id": "ebc67a3a3a",
+   "module": 2,
+   "q": "When communicating data to an Executive Audience, which would be an acceptable strategy to take?",
+   "options": [
+    "Go in depth with the small details and spend less time on the significance of the data.",
+    "Focus primarily on the significance of the data and the recommended next steps based on the data.",
+    "Explain the entire context and try to brainstorm potential solutions with the executives."
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "data_analysis-10",
+   "origin": "bank:ds:31",
+   "source": "ms-ds"
+  },
+  {
+   "id": "401aee1eb4",
+   "module": 2,
+   "q": "When communicating data, colors can be used to evoke emotion from the audience.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_analysis-10",
+   "origin": "bank:ds:31",
+   "source": "ms-ds"
+  },
+  {
+   "id": "85baf1eec4",
+   "module": 3,
+   "q": "What did the research on commercial gender-classification products find?",
+   "options": [
+    "Error rates differed noticeably between subgroups, revealing bias",
+    "All three products were equally accurate for every group",
+    "The products failed mainly because the images were low resolution",
+    "Accuracy was poor for every subgroup alike"
+   ],
+   "answer": 0,
+   "explain": "Overall accuracy looked good, but misgendering was higher for women and for people with darker skin.",
+   "lesson": "data_analysis-11",
+   "evidence": "there was a noticeable difference in error rates between various subgroups",
+   "origin": "authored"
+  },
+  {
+   "id": "2a48e0dbba",
+   "module": 3,
+   "q": "Which lesson did that facial-analysis research draw for data science?",
+   "options": [
+    "It should stop using images of people altogether",
+    "It needs bigger GPUs to remove bias",
+    "Bias can only be fixed after a product is released",
+    "It needs more representative datasets and more inclusive teams"
+   ],
+   "answer": 3,
+   "explain": "Balanced subgroups and diverse teams help catch bias earlier in AI solutions.",
+   "lesson": "data_analysis-11",
+   "evidence": "data science needs more representative datasets (balanced subgroups) and more inclusive teams (diverse backgrounds)",
+   "origin": "authored"
+  },
+  {
+   "id": "c363ebd623",
+   "module": 3,
+   "q": "How does UPS use data science, according to the lesson?",
+   "options": [
+    "To correlate search terms with flu trends",
+    "To visualise a day in the life of New York taxis",
+    "To predict optimal delivery routes using weather, traffic and deadlines",
+    "To calculate customers' credit scores"
+   ],
+   "answer": 2,
+   "explain": "Route prediction takes weather, traffic patterns and delivery deadlines into account.",
+   "lesson": "data_analysis-11",
+   "evidence": "UPS uses data science and machine learning to predict optimal routes for delivery",
+   "origin": "authored"
+  },
+  {
+   "id": "4817f0b48c",
+   "module": 3,
+   "q": "Use Data Science for sustainability research by",
+   "options": [
+    "studying deforestation",
+    "studying climate change data",
+    "both of these"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "data_analysis-11",
+   "origin": "bank:ds:39",
+   "source": "ms-ds"
+  },
+  {
+   "id": "b7c133d709",
+   "module": 3,
+   "q": "In finance, you can use data science for",
+   "options": [
+    "research on your financial services",
+    "to customize mutual fund options based on the type of customer",
+    "both of the above"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "data_analysis-11",
+   "origin": "bank:ds:39",
+   "source": "ms-ds"
+  },
+  {
+   "id": "b816b64cda",
+   "module": 3,
+   "q": "Digital Humanities is a practice that combines computational methods with humanistic inquiry",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "data_analysis-11",
+   "origin": "bank:ds:39",
+   "source": "ms-ds"
+  }
+ ],
  "minutes": 102,
  "sources": [
   {

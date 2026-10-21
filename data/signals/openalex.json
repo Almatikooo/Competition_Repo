@@ -62,42 +62,42 @@
   },
   "2025H2": {
    "counts": {
-    "agents": 12985,
-    "agri": 13343,
-    "baseline": 599850,
-    "codegen": 7141,
-    "docai": 3788,
-    "energy": 31808,
-    "genmedia": 34353,
-    "health": 178655,
-    "llm": 80928,
-    "robotics": 5366,
-    "safety": 21481,
-    "speech": 17273,
-    "vision": 81939
+    "agents": 12994,
+    "agri": 13352,
+    "baseline": 600126,
+    "codegen": 7143,
+    "docai": 3793,
+    "energy": 31828,
+    "genmedia": 34367,
+    "health": 178740,
+    "llm": 80942,
+    "robotics": 5365,
+    "safety": 21498,
+    "speech": 17297,
+    "vision": 81983
    },
    "end": "2025-12-31",
-   "fetched_at": "2026-10-20T03:48:58+00:00",
+   "fetched_at": "2026-10-20T14:44:34+00:00",
    "start": "2025-07-01"
   },
   "2026H1": {
    "counts": {
-    "agents": 41628,
-    "agri": 16117,
-    "baseline": 861994,
-    "codegen": 17085,
-    "docai": 6335,
-    "energy": 37169,
-    "genmedia": 52118,
-    "health": 237075,
-    "llm": 168356,
-    "robotics": 11394,
-    "safety": 47447,
-    "speech": 22904,
-    "vision": 113749
+    "agents": 41680,
+    "agri": 16135,
+    "baseline": 863147,
+    "codegen": 17102,
+    "docai": 6344,
+    "energy": 37247,
+    "genmedia": 52193,
+    "health": 237397,
+    "llm": 168526,
+    "robotics": 11403,
+    "safety": 47508,
+    "speech": 22943,
+    "vision": 113965
    },
    "end": "2026-06-30",
-   "fetched_at": "2026-10-20T03:49:02+00:00",
+   "fetched_at": "2026-10-20T14:44:38+00:00",
    "start": "2026-01-01"
   }
  },
@@ -117,6 +117,6 @@
   "speech": "\"speech recognition\" OR \"speech synthesis\" OR \"text-to-speech\"",
   "vision": "\"computer vision\" OR \"object detection\" OR \"image segmentation\""
  },
- "refreshed_at": "2026-10-20T03:49:02+00:00",
+ "refreshed_at": "2026-10-20T14:44:38+00:00",
  "source": "openalex"
 }

@@ -832,180 +832,536 @@
    "toc": []
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "What actually produces useful evaluations and interpretations, according to the book?",
-    "options": [
-     "Only skilled analysis and examination, which take training and practice",
-     "Strong feelings about a topic",
-     "Reading as many opinions as possible",
-     "Trusting your first impression"
-    ],
-    "answer": 0,
-    "explain": "Untrained everyday thinking is vulnerable to error; skill comes from practice.",
-    "lesson": "analytical_thinking-02",
-    "evidence": "Only skilled analysis and examinations will actually produce useful evaluations and interpretations",
-    "origin": "authored"
-   },
-   {
-    "q": "Who should study critical thinking?",
-    "options": [
-     "Only philosophers",
-     "Only scientists",
-     "Anyone who thinks",
-     "Only students of law"
-    ],
-    "answer": 2,
-    "explain": "If your thinking affects you — and it affects everyone — you benefit from thinking better.",
-    "lesson": "analytical_thinking-04",
-    "evidence": "The short answer to the question of who should study critical thinking is ‘Anyone who thinks.’.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is one of the most important steps when assessing or discussing ideas?",
-    "options": [
-     "Deciding who is right before the discussion",
-     "Speaking first",
-     "Finding as many sources as possible",
-     "Settling on definitions for the key terms or concepts"
-    ],
-    "answer": 3,
-    "explain": "Many disagreements disappear once terms are defined the same way.",
-    "lesson": "analytical_thinking-06",
-    "evidence": "One of the most important steps in assessing or discussing ideas is to settle on definitions for the key terms or concepts.",
-    "origin": "authored"
-   },
-   {
-    "q": "Formal logic is also known as…",
-    "options": [
-     "inductive logic",
-     "deductive logic",
-     "intuitive logic",
-     "probabilistic logic"
-    ],
-    "answer": 1,
-    "explain": "Deductive arguments include syllogisms.",
-    "lesson": "analytical_thinking-07",
-    "evidence": "Formal logic is known as deductive logic",
-    "origin": "authored"
-   },
-   {
-    "q": "What does it mean for scientific claims to be 'reliable'?",
-    "options": [
-     "They come from a famous scientist",
-     "They are popular on social media",
-     "They are backed by varied, repeatable evidence and can generate new predictions",
-     "They have never been questioned"
-    ],
-    "answer": 2,
-    "explain": "Reliability is about the quality and repeatability of the evidence.",
-    "lesson": "analytical_thinking-08",
-    "evidence": "Reliable means the claims are backed up by a variety of evidence, that the evidence is repeatable, and can be used to generate new predictions about the world.",
-    "origin": "authored"
-   },
-   {
-    "q": "When is scepticism especially necessary?",
-    "options": [
-     "For ideas and information that are immediately appealing to you",
-     "Only for scientific papers",
-     "Only for claims made by strangers",
-     "Never — it slows thinking down"
-    ],
-    "answer": 0,
-    "explain": "We scrutinise what we dislike and wave through what we like.",
-    "lesson": "analytical_thinking-11",
-    "evidence": "Scepticism is especially necessary for ideas and information that are immediately appealing to you.",
-    "origin": "authored"
-   },
-   {
-    "q": "Why are the strongest valid deductive arguments called 'truth-preserving'?",
-    "options": [
-     "Because they are always popular",
-     "Because they have many premises",
-     "Because they use statistics",
-     "Because the truth of the premises guarantees the truth of the conclusion"
-    ],
-    "answer": 3,
-    "explain": "In a valid deductive argument, true premises cannot lead to a false conclusion.",
-    "lesson": "analytical_thinking-12",
-    "evidence": "the truth of the premise guarantees or forces the truth of the conclusion.",
-    "origin": "authored"
-   },
-   {
-    "q": "In a categorical syllogism, what is the first premise called?",
-    "options": [
-     "The conclusion",
-     "The major premise",
-     "The minor premise",
-     "The middle term"
-    ],
-    "answer": 1,
-    "explain": "The second premise is the minor premise.",
-    "lesson": "analytical_thinking-14",
-    "evidence": "The first premise is called the major premise",
-    "origin": "authored"
-   },
-   {
-    "q": "In an 'if… then…' (conditional) proposition, what is the 'if' part called?",
-    "options": [
-     "The consequent",
-     "The premise",
-     "The antecedent",
-     "The inference"
-    ],
-    "answer": 2,
-    "explain": "The 'then' part is the consequent; modus ponens affirms the antecedent.",
-    "lesson": "analytical_thinking-16",
-    "evidence": "the ‘if’ part is called the antecedent",
-    "origin": "authored"
-   },
-   {
-    "q": "What are informal fallacies?",
-    "options": [
-     "Mistakes where the reason offered is insufficient, irrelevant or ambiguous in supporting the conclusion",
-     "Spelling mistakes in an argument",
-     "Arguments made in casual conversation",
-     "Valid arguments with false premises"
-    ],
-    "answer": 0,
-    "explain": "They are dangerous because they often look like good reasons.",
-    "lesson": "analytical_thinking-21",
-    "evidence": "Informal fallacies are mistakes in reasoning that occur because the premise offered is insufficient, irrelevant, or ambiguous in its task of supporting the conclusion.",
-    "origin": "authored"
-   },
-   {
-    "q": "Which phrase should alert you to a possible false dichotomy?",
-    "options": [
-     "'For example'",
-     "'According to research'",
-     "'In my experience'",
-     "'The alternative' — there is almost never a single alternative"
-    ],
-    "answer": 3,
-    "explain": "Presenting only two options hides the others.",
-    "lesson": "analytical_thinking-22",
-    "evidence": "Look out for key words such as the phrase ‘the alternative’, as there is almost never a single alternative.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the 'backfire effect'?",
-    "options": [
-     "Arguments that hurt the person making them",
-     "Showing people evidence against their beliefs can make them even more committed to those beliefs",
-     "Forgetting what you knew before",
-     "Being overconfident after success"
-    ],
-    "answer": 1,
-    "explain": "Changing minds takes more than presenting facts.",
-    "lesson": "analytical_thinking-24",
-    "evidence": "sometimes showing people new evidence and reasoning against their beliefs actually causes them to become even more committed to them.",
-    "origin": "authored"
-   }
-  ],
-  "pass_mark": 9,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "da9beb990f",
+   "module": 0,
+   "q": "What is the questioning approach to learning called?",
+   "options": [
+    "The Socratic method",
+    "The scientific method",
+    "Rote learning",
+    "The Feynman technique"
+   ],
+   "answer": 0,
+   "explain": "Asking questions drives your own thinking and stimulates the thinking of others.",
+   "lesson": "analytical_thinking-01",
+   "evidence": "This questioning approach to learning is what is called the ‘Socratic method’",
+   "origin": "authored"
+  },
+  {
+   "id": "a4441a3801",
+   "module": 0,
+   "q": "How does questioning help the people who hear or answer your questions?",
+   "options": [
+    "It makes them doubt everything they know",
+    "It ends the discussion sooner",
+    "It shows who the expert in the room is",
+    "It stimulates new ideas and nurtures creativity"
+   ],
+   "answer": 3,
+   "explain": "Good questions boost everyone's thinking, not just the questioner's.",
+   "lesson": "analytical_thinking-01",
+   "evidence": "because questioning stimulates new ideas and nurtures creativity",
+   "origin": "authored"
+  },
+  {
+   "id": "04d7dd3c1e",
+   "module": 0,
+   "q": "What actually produces useful evaluations and interpretations, according to the book?",
+   "options": [
+    "Only skilled analysis and examination, which take training and practice",
+    "Strong feelings about a topic",
+    "Reading as many opinions as possible",
+    "Trusting your first impression"
+   ],
+   "answer": 0,
+   "explain": "Untrained everyday thinking is vulnerable to error; skill comes from practice.",
+   "lesson": "analytical_thinking-02",
+   "evidence": "Only skilled analysis and examinations will actually produce useful evaluations and interpretations",
+   "origin": "authored"
+  },
+  {
+   "id": "98fea78cef",
+   "module": 0,
+   "q": "What does the book suggest to avoid only hearing ideas you already agree with?",
+   "options": [
+    "Read only sources you already trust",
+    "Avoid the news altogether",
+    "Expose yourself to input you aren't used to or even disagree with",
+    "Stick with your first idea"
+   ],
+   "answer": 2,
+   "explain": "Unfamiliar or opposing input breaks the echo chamber that limits creative thinking.",
+   "lesson": "analytical_thinking-03",
+   "evidence": "The solution is to try to expose yourself to input you aren’t used to or even disagree with.",
+   "origin": "authored"
+  },
+  {
+   "id": "3f0f691737",
+   "module": 0,
+   "q": "Which warning from physicist Richard Feynman does the book quote?",
+   "options": [
+    "Never trust any expert",
+    "We mustn't fool ourselves, because we are the easiest to fool",
+    "Science is always certain",
+    "Only doubt other people's ideas"
+   ],
+   "answer": 1,
+   "explain": "Critical thinking starts with checking your own beliefs.",
+   "lesson": "analytical_thinking-03",
+   "evidence": "who acknowledges that we mustn’t fool ourselves, as we are the easiest to fool",
+   "origin": "authored"
+  },
+  {
+   "id": "7f40f8c945",
+   "module": 0,
+   "q": "Who should study critical thinking?",
+   "options": [
+    "Only philosophers",
+    "Only scientists",
+    "Anyone who thinks",
+    "Only students of law"
+   ],
+   "answer": 2,
+   "explain": "If your thinking affects you — and it affects everyone — you benefit from thinking better.",
+   "lesson": "analytical_thinking-04",
+   "evidence": "The short answer to the question of who should study critical thinking is ‘Anyone who thinks.’.",
+   "origin": "authored"
+  },
+  {
+   "id": "bab6dccf80",
+   "module": 0,
+   "q": "How does the book compare processed information with processed food?",
+   "options": [
+    "It is just as bad for you mentally, and possibly more addictive",
+    "It is healthier because it has already been checked",
+    "It has no effect on how we think",
+    "It is only harmful to children"
+   ],
+   "answer": 0,
+   "explain": "Most information we consume has been heavily processed, so it calls for sharp thinking skills.",
+   "lesson": "analytical_thinking-04",
+   "evidence": "processed information is just as bad for you mentally as processed food is for you physically",
+   "origin": "authored"
+  },
+  {
+   "id": "dcb70db8fd",
+   "module": 1,
+   "q": "When one proposition is offered as support for another, what roles do they play?",
+   "options": [
+    "The first is a hypothesis; the second a theory",
+    "The first is a cause; the second an effect",
+    "The first is an inference; the second a fallacy",
+    "The supporting one is a premise; the supported one is a conclusion"
+   ],
+   "answer": 3,
+   "explain": "The link between premises and conclusion is called the inference.",
+   "lesson": "analytical_thinking-05",
+   "evidence": "the first proposition is playing the role of a premise, and the second proposition is playing the role of a conclusion",
+   "origin": "authored"
+  },
+  {
+   "id": "516fb90e6e",
+   "module": 1,
+   "q": "What is one of the most important steps when assessing or discussing ideas?",
+   "options": [
+    "Deciding who is right before the discussion",
+    "Speaking first",
+    "Finding as many sources as possible",
+    "Settling on definitions for the key terms or concepts"
+   ],
+   "answer": 3,
+   "explain": "Many disagreements disappear once terms are defined the same way.",
+   "lesson": "analytical_thinking-06",
+   "evidence": "One of the most important steps in assessing or discussing ideas is to settle on definitions for the key terms or concepts.",
+   "origin": "authored"
+  },
+  {
+   "id": "c4c4165300",
+   "module": 1,
+   "q": "Formal logic is also known as…",
+   "options": [
+    "inductive logic",
+    "deductive logic",
+    "intuitive logic",
+    "probabilistic logic"
+   ],
+   "answer": 1,
+   "explain": "Deductive arguments include syllogisms.",
+   "lesson": "analytical_thinking-07",
+   "evidence": "Formal logic is known as deductive logic",
+   "origin": "authored"
+  },
+  {
+   "id": "8dd90a944d",
+   "module": 1,
+   "q": "What does it mean for scientific claims to be 'reliable'?",
+   "options": [
+    "They come from a famous scientist",
+    "They are popular on social media",
+    "They are backed by varied, repeatable evidence and can generate new predictions",
+    "They have never been questioned"
+   ],
+   "answer": 2,
+   "explain": "Reliability is about the quality and repeatability of the evidence.",
+   "lesson": "analytical_thinking-08",
+   "evidence": "Reliable means the claims are backed up by a variety of evidence, that the evidence is repeatable, and can be used to generate new predictions about the world.",
+   "origin": "authored"
+  },
+  {
+   "id": "d44cea5756",
+   "module": 1,
+   "q": "According to the book, what is the most common reason an argument is unsound?",
+   "options": [
+    "It is too long",
+    "It uses technical vocabulary",
+    "It is fallacious",
+    "It has too many premises"
+   ],
+   "answer": 2,
+   "explain": "A fallacy is a flaw in reasoning that undermines how the premises support the conclusion.",
+   "lesson": "analytical_thinking-09",
+   "evidence": "The most common reason an argument is unsound is because it’s fallacious.",
+   "origin": "authored"
+  },
+  {
+   "id": "282e791315",
+   "module": 1,
+   "q": "What are formal fallacies about?",
+   "options": [
+    "Using offensive language",
+    "How the premises connect to the conclusion, whatever their content",
+    "False facts in the premises",
+    "Appeals to emotion"
+   ],
+   "answer": 1,
+   "explain": "They can be spotted even when the premises are abstract or nonsense, such as 'all Klemps are Plerbs'.",
+   "lesson": "analytical_thinking-09",
+   "evidence": "formal fallacies are all about how the premises connect to the conclusion",
+   "origin": "authored"
+  },
+  {
+   "id": "890c590bfb",
+   "module": 1,
+   "q": "When is scepticism especially necessary?",
+   "options": [
+    "For ideas and information that are immediately appealing to you",
+    "Only for scientific papers",
+    "Only for claims made by strangers",
+    "Never — it slows thinking down"
+   ],
+   "answer": 0,
+   "explain": "We scrutinise what we dislike and wave through what we like.",
+   "lesson": "analytical_thinking-11",
+   "evidence": "Scepticism is especially necessary for ideas and information that are immediately appealing to you.",
+   "origin": "authored"
+  },
+  {
+   "id": "ac875e53ef",
+   "module": 2,
+   "q": "Why are the strongest valid deductive arguments called 'truth-preserving'?",
+   "options": [
+    "Because they are always popular",
+    "Because they have many premises",
+    "Because they use statistics",
+    "Because the truth of the premises guarantees the truth of the conclusion"
+   ],
+   "answer": 3,
+   "explain": "In a valid deductive argument, true premises cannot lead to a false conclusion.",
+   "lesson": "analytical_thinking-12",
+   "evidence": "the truth of the premise guarantees or forces the truth of the conclusion.",
+   "origin": "authored"
+  },
+  {
+   "id": "acf4913920",
+   "module": 2,
+   "q": "According to the review of language and meaning, for whom is a language meaningful?",
+   "options": [
+    "Only for the community that agrees to adopt its symbols",
+    "For anyone who hears it",
+    "Only for people who write dictionaries",
+    "For computers but not for people"
+   ],
+   "answer": 0,
+   "explain": "Words are abstract, arbitrary symbols whose meaning depends on shared agreement.",
+   "lesson": "analytical_thinking-13",
+   "evidence": "language is only meaningful to those who are part of the community or social group that agree to adopt the symbols proposed by that system",
+   "origin": "authored"
+  },
+  {
+   "id": "245e915fca",
+   "module": 2,
+   "q": "In a categorical syllogism, what is the first premise called?",
+   "options": [
+    "The conclusion",
+    "The major premise",
+    "The minor premise",
+    "The middle term"
+   ],
+   "answer": 1,
+   "explain": "The second premise is the minor premise.",
+   "lesson": "analytical_thinking-14",
+   "evidence": "The first premise is called the major premise",
+   "origin": "authored"
+  },
+  {
+   "id": "7c9d4c37e6",
+   "module": 2,
+   "q": "In an 'if… then…' (conditional) proposition, what is the 'if' part called?",
+   "options": [
+    "The consequent",
+    "The premise",
+    "The antecedent",
+    "The inference"
+   ],
+   "answer": 2,
+   "explain": "The 'then' part is the consequent; modus ponens affirms the antecedent.",
+   "lesson": "analytical_thinking-16",
+   "evidence": "the ‘if’ part is called the antecedent",
+   "origin": "authored"
+  },
+  {
+   "id": "66f4c2adbd",
+   "module": 2,
+   "q": "Why does the book call scientific confirmation 'weak and dubious'?",
+   "options": [
+    "Scientists are usually dishonest",
+    "Experiments are too expensive to repeat",
+    "Evidence is always faked",
+    "It is deductively invalid: it affirms the consequent"
+   ],
+   "answer": 3,
+   "explain": "A theory predicting an observation, and the observation occurring, does not prove the theory true.",
+   "lesson": "analytical_thinking-17",
+   "evidence": "Confirmation is always weak and dubious because it’s deductively invalid.",
+   "origin": "authored"
+  },
+  {
+   "id": "44f256543b",
+   "module": 2,
+   "q": "How should the conclusions of inductive arguments be held?",
+   "options": [
+    "As certain, once the premises are true",
+    "As false until proven otherwise",
+    "With some scepticism, because they are inconclusive and fallible",
+    "As matters of personal taste"
+   ],
+   "answer": 2,
+   "explain": "Induction gives probable, not guaranteed, conclusions — and the probability is rarely stated.",
+   "lesson": "analytical_thinking-18",
+   "evidence": "just inconclusive and fallible, and therefore, should always be held with some scepticism",
+   "origin": "authored"
+  },
+  {
+   "id": "2a1e4e88d9",
+   "module": 3,
+   "q": "In argument analysis, what does 'content' refer to?",
+   "options": [
+    "The argument's logical form",
+    "What the argument is about",
+    "The number of premises",
+    "The inference connecting reason and claim"
+   ],
+   "answer": 1,
+   "explain": "Informal fallacies come from mishandling content; formal fallacies from faulty structure.",
+   "lesson": "analytical_thinking-20",
+   "evidence": "Content refers to what an argument is about",
+   "origin": "authored"
+  },
+  {
+   "id": "cac1cbdab0",
+   "module": 3,
+   "q": "What are informal fallacies?",
+   "options": [
+    "Mistakes where the reason offered is insufficient, irrelevant or ambiguous in supporting the conclusion",
+    "Spelling mistakes in an argument",
+    "Arguments made in casual conversation",
+    "Valid arguments with false premises"
+   ],
+   "answer": 0,
+   "explain": "They are dangerous because they often look like good reasons.",
+   "lesson": "analytical_thinking-21",
+   "evidence": "Informal fallacies are mistakes in reasoning that occur because the premise offered is insufficient, irrelevant, or ambiguous in its task of supporting the conclusion.",
+   "origin": "authored"
+  },
+  {
+   "id": "5e47d28d34",
+   "module": 3,
+   "q": "Why are fallacies so pervasive, according to the book?",
+   "options": [
+    "They often appear to be good reasons",
+    "Formal logic requires them",
+    "They are always deliberate lies",
+    "They are easy to spot"
+   ],
+   "answer": 0,
+   "explain": "The appearance of a good reason is an illusion, which is what makes fallacies persuasive.",
+   "lesson": "analytical_thinking-21",
+   "evidence": "Part of the reason fallacies are so pernicious and pervasive is that they often appear to be good reasons",
+   "origin": "authored"
+  },
+  {
+   "id": "ee7d07aac9",
+   "module": 3,
+   "q": "Which phrase should alert you to a possible false dichotomy?",
+   "options": [
+    "'For example'",
+    "'According to research'",
+    "'In my experience'",
+    "'The alternative' — there is almost never a single alternative"
+   ],
+   "answer": 3,
+   "explain": "Presenting only two options hides the others.",
+   "lesson": "analytical_thinking-22",
+   "evidence": "Look out for key words such as the phrase ‘the alternative’, as there is almost never a single alternative.",
+   "origin": "authored"
+  },
+  {
+   "id": "ff7f8a1634",
+   "module": 3,
+   "q": "How does the amphiboly fallacy differ from equivocation?",
+   "options": [
+    "Amphiboly uses statistics; equivocation uses emotion",
+    "Amphiboly is formal; equivocation is informal",
+    "They are two names for the same fallacy",
+    "Amphiboly is ambiguity in a sentence or phrase; equivocation is in a single word"
+   ],
+   "answer": 3,
+   "explain": "Both are fallacies of ambiguous reasons; they differ in scale.",
+   "lesson": "analytical_thinking-23",
+   "evidence": "whereas the amphiboly fallacy is sentence- or phrase-sized",
+   "origin": "authored"
+  },
+  {
+   "id": "0d15ed2e8d",
+   "module": 3,
+   "q": "What is the 'backfire effect'?",
+   "options": [
+    "Arguments that hurt the person making them",
+    "Showing people evidence against their beliefs can make them even more committed to those beliefs",
+    "Forgetting what you knew before",
+    "Being overconfident after success"
+   ],
+   "answer": 1,
+   "explain": "Changing minds takes more than presenting facts.",
+   "lesson": "analytical_thinking-24",
+   "evidence": "sometimes showing people new evidence and reasoning against their beliefs actually causes them to become even more committed to them.",
+   "origin": "authored"
+  },
+  {
+   "id": "11bd0e1e73",
+   "module": 4,
+   "q": "How do you carry out the 'five whys' technique?",
+   "options": [
+    "Ask five different people the same question once",
+    "List five solutions and vote on them",
+    "Ask why about a problem, then repeat four more times, building on each answer",
+    "Write five reasons why the problem doesn't matter"
+   ],
+   "answer": 2,
+   "explain": "Each answer becomes the next question, drilling down to a root cause.",
+   "lesson": "analytical_thinking-25",
+   "evidence": "Repeat this process another four times, building off of the previous response each time to drill down to a root cause.",
+   "origin": "authored"
+  },
+  {
+   "id": "13fd1cc54e",
+   "module": 4,
+   "q": "Which problem should you choose to investigate with five whys?",
+   "options": [
+    "The easiest problem to fix",
+    "A commonly occurring problem or one the team has prioritised",
+    "A problem picked at random",
+    "A problem nobody has reported"
+   ],
+   "answer": 1,
+   "explain": "Root-cause analysis is worth the effort for problems that matter most.",
+   "lesson": "analytical_thinking-25",
+   "evidence": "This could be the most commonly occurring problem or a problem that has been prioritized by the team.",
+   "origin": "authored"
+  },
+  {
+   "id": "753ff43f2f",
+   "module": 4,
+   "q": "According to Andrew Baker, what does critical thinking help us do?",
+   "options": [
+    "Evaluate how accurate and truthful statements and information are",
+    "Invent completely new products",
+    "Memorise facts faster",
+    "Avoid making judgments"
+   ],
+   "answer": 0,
+   "explain": "It means analysing a question or problem down to its most basic parts.",
+   "lesson": "analytical_thinking-26",
+   "evidence": "is what helps us evaluate the accuracy and truthfulness of statements, claims, and information we read and hear",
+   "origin": "authored"
+  },
+  {
+   "id": "284ada371b",
+   "module": 4,
+   "q": "According to Baker, what drives progress forward in solving problems?",
+   "options": [
+    "Critical thinking alone",
+    "Memorisation",
+    "Repeating past solutions",
+    "Creative thinking"
+   ],
+   "answer": 3,
+   "explain": "Critical thinking roots out the nature of a problem; creative thinking moves its solution forward.",
+   "lesson": "analytical_thinking-26",
+   "evidence": "it is creative thinking that drives progress forward when it comes to solving these problems",
+   "origin": "authored"
+  },
+  {
+   "id": "08ae1b310c",
+   "module": 4,
+   "q": "How does Baker describe exceptional creative thinkers?",
+   "options": [
+    "They copy the best existing solutions",
+    "They avoid difficult problems",
+    "They invent new solutions that don't rely on past or current ones",
+    "They always agree with experts"
+   ],
+   "answer": 2,
+   "explain": "Creativity is about new approaches to existing problems.",
+   "lesson": "analytical_thinking-26",
+   "evidence": "Exceptional creative thinkers are people that invent new solutions to existing problems that do not rely on past or current solutions.",
+   "origin": "authored"
+  },
+  {
+   "id": "77ea2158b2",
+   "module": 4,
+   "q": "How can we sharpen our critical thinking skills, according to Baker?",
+   "options": [
+    "By reading faster",
+    "Through purposeful, frequent, intentional questioning",
+    "By avoiding difficult sources",
+    "By trusting first impressions"
+   ],
+   "answer": 1,
+   "explain": "Ask questions such as: what is the source of this information?",
+   "lesson": "analytical_thinking-26",
+   "evidence": "It is only through purposeful, frequent, intentional questioning such as this that we can sharpen our critical thinking skills",
+   "origin": "authored"
+  },
+  {
+   "id": "6e6abd2ccc",
+   "module": 4,
+   "q": "Where, according to Baker, is more critical thinking demanded than in everyday life?",
+   "options": [
+    "In the academic setting",
+    "When shopping",
+    "In sport",
+    "On social media"
+   ],
+   "answer": 0,
+   "explain": "Study requires evaluating information and analysing many issues in a critical way.",
+   "lesson": "analytical_thinking-26",
+   "evidence": "The academic setting demands more of us in terms of critical thinking than everyday life.",
+   "origin": "authored"
+  }
+ ],
  "minutes": 282,
  "sources": [
   {

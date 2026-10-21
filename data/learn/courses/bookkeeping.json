@@ -589,180 +589,568 @@
    ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "In the accounting equation, what are liabilities and equity?",
-    "options": [
-     "Liabilities are cash; equity is inventory",
-     "Liabilities are sales; equity is expenses",
-     "Liabilities are what the business owes; equity is the part that belongs to the owner",
-     "They are two names for the same thing"
-    ],
-    "answer": 2,
-    "explain": "Assets = Liabilities + Equity.",
-    "lesson": "bookkeeping-01",
-    "evidence": "Liabilities are what it owes, and equity is the amount of the company that belongs to the business owner.",
-    "origin": "authored"
-   },
-   {
-    "q": "What are financial statements?",
-    "options": [
-     "Formal reports on a company's financial position, cash inflows and outflows, and results of operations",
-     "Monthly bank letters",
-     "Lists of customers",
-     "Tax forms only"
-    ],
-    "answer": 0,
-    "explain": "They include the balance sheet, income statement and statement of cash flows.",
-    "lesson": "bookkeeping-02",
-    "evidence": "These financial statements are formal reports providing information on a company’s financial position, cash inflows and outflows, and the results of operations.",
-    "origin": "authored"
-   },
-   {
-    "q": "Financial statements used by external entities are prepared using…",
-    "options": [
-     "The owner's preferred format",
-     "Tax rules only",
-     "Bank templates",
-     "Generally Accepted Accounting Principles (GAAP)"
-    ],
-    "answer": 3,
-    "explain": "Common rules make statements comparable between companies.",
-    "lesson": "bookkeeping-02",
-    "evidence": "Financial statements used by external entities are prepared using Generally Accepted Accounting Principles",
-    "origin": "authored"
-   },
-   {
-    "q": "Under accrual basis accounting, when are revenue and expenses recorded?",
-    "options": [
-     "When cash changes hands",
-     "When revenue is earned and expenses are incurred, regardless of when payment is received",
-     "At the end of the year only",
-     "When the bank statement arrives"
-    ],
-    "answer": 1,
-    "explain": "Cash basis records them when payment is received or made.",
-    "lesson": "bookkeeping-03",
-    "evidence": "Revenue is recorded when it is earned and expenses are recorded when they are incurred, regardless of when payment is received.",
-    "origin": "authored"
-   },
-   {
-    "q": "In double-entry bookkeeping, on which side are debits recorded?",
-    "options": [
-     "On the left (credits are on the right)",
-     "On the right (credits are on the left)",
-     "Debits are always negative numbers",
-     "Debits are written in red"
-    ],
-    "answer": 0,
-    "explain": "Every transaction has equal debits and credits.",
-    "lesson": "bookkeeping-04",
-    "evidence": "debits are on the left and credits are on the right",
-    "origin": "authored"
-   },
-   {
-    "q": "What are accounts?",
-    "options": [
-     "Bank accounts only",
-     "Customer files",
-     "The categories used to track the financial information that is important to us",
-     "Invoices sent to clients"
-    ],
-    "answer": 2,
-    "explain": "Examples include Cash, Accounts Receivable, Revenue and Supplies.",
-    "lesson": "bookkeeping-04",
-    "evidence": "Accounts are the categories that we use to track the financial information that is important to us.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is a journal in bookkeeping?",
-    "options": [
-     "A summary of balances by account",
-     "The annual report",
-     "A list of employees",
-     "A chronological list of economic events (transactions)"
-    ],
-    "answer": 3,
-    "explain": "Entries are later posted to the ledger, which sorts them by account.",
-    "lesson": "bookkeeping-05",
-    "evidence": "it is still a chronological list of economic events (transactions)",
-    "origin": "authored"
-   },
-   {
-    "q": "When are adjusting journal entries made?",
-    "options": [
-     "Whenever a customer pays",
-     "At the end of an accounting period, or whenever financial statements are prepared, so revenues and expenses match",
-     "Only when there is an error",
-     "Once every five years"
-    ],
-    "answer": 1,
-    "explain": "Adjustments apply the matching principle of accrual accounting.",
-    "lesson": "bookkeeping-08",
-    "evidence": "adjusting journal entries are made at the end of an accounting period or any time financial statements are prepared so that we have matching revenues and expenses.",
-    "origin": "authored"
-   },
-   {
-    "q": "In the closing process, where are the credit balances of revenue accounts transferred?",
-    "options": [
-     "To Cash",
-     "To Accounts Payable",
-     "To a clearing account called Income Summary",
-     "To the owner's bank account"
-    ],
-    "answer": 2,
-    "explain": "Income Summary is then closed to the owner's capital (or retained earnings).",
-    "lesson": "bookkeeping-12",
-    "evidence": "Closing the revenue accounts: transferring the credit balances in the revenue accounts to a clearing account called Income Summary.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is net pay?",
-    "options": [
-     "The amount an employee receives after all taxes and voluntary deductions",
-     "The salary promised in the contract",
-     "The employer's total payroll cost",
-     "Overtime pay only"
-    ],
-    "answer": 0,
-    "explain": "Gross pay is the amount promised before deductions.",
-    "lesson": "bookkeeping-14",
-    "evidence": "Net Pay: This is the amount an employee receives after all taxes and voluntary deductions have been taken out.",
-    "origin": "authored"
-   },
-   {
-    "q": "According to the IRS, what is an accounting method?",
-    "options": [
-     "A type of tax form",
-     "A computer program for bookkeeping",
-     "A way to calculate payroll",
-     "A set of rules used to determine when and how income and expenses are reported"
-    ],
-    "answer": 3,
-    "explain": "The two most common are the cash and accrual methods.",
-    "lesson": "bookkeeping-15",
-    "evidence": "An accounting method is a set of rules used to determine when and how income and expenses are reported.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is one of the first things to do when you start a business, for good records?",
-    "options": [
-     "Buy accounting software",
-     "Open a business checking account",
-     "Hire an auditor",
-     "Register a website"
-    ],
-    "answer": 1,
-    "explain": "Separating business and personal money makes records clear and supportable.",
-    "lesson": "bookkeeping-16",
-    "evidence": "One of the first things you should do when you start a business is open a business checking account.",
-    "origin": "authored"
-   }
-  ],
-  "pass_mark": 9,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "67b85d0aff",
+   "module": 0,
+   "q": "In the accounting equation, what are liabilities and equity?",
+   "options": [
+    "Liabilities are cash; equity is inventory",
+    "Liabilities are sales; equity is expenses",
+    "Liabilities are what the business owes; equity is the part that belongs to the owner",
+    "They are two names for the same thing"
+   ],
+   "answer": 2,
+   "explain": "Assets = Liabilities + Equity.",
+   "lesson": "bookkeeping-01",
+   "evidence": "Liabilities are what it owes, and equity is the amount of the company that belongs to the business owner.",
+   "origin": "authored"
+  },
+  {
+   "id": "20c937f9f6",
+   "module": 0,
+   "q": "What are financial statements?",
+   "options": [
+    "Formal reports on a company's financial position, cash inflows and outflows, and results of operations",
+    "Monthly bank letters",
+    "Lists of customers",
+    "Tax forms only"
+   ],
+   "answer": 0,
+   "explain": "They include the balance sheet, income statement and statement of cash flows.",
+   "lesson": "bookkeeping-02",
+   "evidence": "These financial statements are formal reports providing information on a company’s financial position, cash inflows and outflows, and the results of operations.",
+   "origin": "authored"
+  },
+  {
+   "id": "d8e26526a8",
+   "module": 0,
+   "q": "Financial statements used by external entities are prepared using…",
+   "options": [
+    "The owner's preferred format",
+    "Tax rules only",
+    "Bank templates",
+    "Generally Accepted Accounting Principles (GAAP)"
+   ],
+   "answer": 3,
+   "explain": "Common rules make statements comparable between companies.",
+   "lesson": "bookkeeping-02",
+   "evidence": "Financial statements used by external entities are prepared using Generally Accepted Accounting Principles",
+   "origin": "authored"
+  },
+  {
+   "id": "c4b3988240",
+   "module": 0,
+   "q": "Under accrual basis accounting, when are revenue and expenses recorded?",
+   "options": [
+    "When cash changes hands",
+    "When revenue is earned and expenses are incurred, regardless of when payment is received",
+    "At the end of the year only",
+    "When the bank statement arrives"
+   ],
+   "answer": 1,
+   "explain": "Cash basis records them when payment is received or made.",
+   "lesson": "bookkeeping-03",
+   "evidence": "Revenue is recorded when it is earned and expenses are recorded when they are incurred, regardless of when payment is received.",
+   "origin": "authored"
+  },
+  {
+   "id": "71b17a2308",
+   "module": 0,
+   "q": "Why do GAAP require accrual accounting?",
+   "options": [
+    "It gives a more accurate picture of a company's financial condition",
+    "It is simpler to calculate than the cash basis",
+    "It always reduces the tax bill",
+    "It ignores sales made on credit"
+   ],
+   "answer": 0,
+   "explain": "Matching revenue and expenses to the period they belong to shows true performance.",
+   "lesson": "bookkeeping-03",
+   "evidence": "GAAP require accrual accounting because it presents a more accurate picture of a company",
+   "origin": "authored"
+  },
+  {
+   "id": "34d5920a48",
+   "module": 0,
+   "q": "Under cash basis accounting, when is revenue recorded?",
+   "options": [
+    "When it is earned",
+    "At the end of the financial year",
+    "When the invoice is printed",
+    "When payment is received"
+   ],
+   "answer": 3,
+   "explain": "Expenses likewise are recorded when payment is made — the difference from accrual is timing.",
+   "lesson": "bookkeeping-03",
+   "evidence": "Revenue is recorded when payment is received and expenses are recorded when payment is made.",
+   "origin": "authored"
+  },
+  {
+   "id": "3b816a3dfd",
+   "module": 0,
+   "q": "For tax reporting, who is generally permitted to use the cash basis?",
+   "options": [
+    "Large corporations",
+    "Only publicly listed companies",
+    "Sole proprietors and certain other small businesses",
+    "Banks and insurers"
+   ],
+   "answer": 2,
+   "explain": "Bigger businesses and corporations are generally required to use the accrual basis.",
+   "lesson": "bookkeeping-03",
+   "evidence": "Generally, cash basis reporting is permitted for sole proprietors and certain other small businesses.",
+   "origin": "authored"
+  },
+  {
+   "id": "ded3589196",
+   "module": 1,
+   "q": "In double-entry bookkeeping, on which side are debits recorded?",
+   "options": [
+    "On the left (credits are on the right)",
+    "On the right (credits are on the left)",
+    "Debits are always negative numbers",
+    "Debits are written in red"
+   ],
+   "answer": 0,
+   "explain": "Every transaction has equal debits and credits.",
+   "lesson": "bookkeeping-04",
+   "evidence": "debits are on the left and credits are on the right",
+   "origin": "authored"
+  },
+  {
+   "id": "90c1fcfca4",
+   "module": 1,
+   "q": "What are accounts?",
+   "options": [
+    "Bank accounts only",
+    "Customer files",
+    "The categories used to track the financial information that is important to us",
+    "Invoices sent to clients"
+   ],
+   "answer": 2,
+   "explain": "Examples include Cash, Accounts Receivable, Revenue and Supplies.",
+   "lesson": "bookkeeping-04",
+   "evidence": "Accounts are the categories that we use to track the financial information that is important to us.",
+   "origin": "authored"
+  },
+  {
+   "id": "80a22497be",
+   "module": 1,
+   "q": "What is a journal in bookkeeping?",
+   "options": [
+    "A summary of balances by account",
+    "The annual report",
+    "A list of employees",
+    "A chronological list of economic events (transactions)"
+   ],
+   "answer": 3,
+   "explain": "Entries are later posted to the ledger, which sorts them by account.",
+   "lesson": "bookkeeping-05",
+   "evidence": "it is still a chronological list of economic events (transactions)",
+   "origin": "authored"
+  },
+  {
+   "id": "2fdf17bce6",
+   "module": 1,
+   "q": "What does it mean to buy supplies 'on account'?",
+   "options": [
+    "You paid cash on the spot",
+    "You received them but have not paid for them yet",
+    "You returned them for a refund",
+    "You bought them on behalf of a customer"
+   ],
+   "answer": 1,
+   "explain": "Buying on credit creates a liability (accounts payable) until you pay.",
+   "lesson": "bookkeeping-06",
+   "evidence": "means that we picked up the items but did not yet pay for them",
+   "origin": "authored"
+  },
+  {
+   "id": "a475baaacf",
+   "module": 1,
+   "q": "When you pay by cheque, how is the checking (cash) account posted?",
+   "options": [
+    "It is credited, because the cheque reduces it",
+    "It is debited, because money was spent",
+    "It is not touched until the cheque clears",
+    "It is closed and reopened"
+   ],
+   "answer": 0,
+   "explain": "Cash is an asset: credits decrease assets, debits increase them.",
+   "lesson": "bookkeeping-06",
+   "evidence": "we are going to post a credit to the checking account, noting that we are reducing that account by the amount of the check written",
+   "origin": "authored"
+  },
+  {
+   "id": "539b035763",
+   "module": 1,
+   "q": "The journal, or book of original entry, is compared to what?",
+   "options": [
+    "A bank statement",
+    "A summary report for investors",
+    "A tax return",
+    "An instruction manual for whoever posts the transactions to the ledger"
+   ],
+   "answer": 3,
+   "explain": "Each journal entry tells the bookkeeper which ledger accounts to debit and credit.",
+   "lesson": "bookkeeping-06",
+   "evidence": "is like an instruction manual to whoever is going to post these transactions to the ledger",
+   "origin": "authored"
+  },
+  {
+   "id": "7b910abadf",
+   "module": 1,
+   "q": "How do you run a trial balance?",
+   "options": [
+    "Add up the month's cash receipts",
+    "Compare this month's revenue with last month's",
+    "List debit balances in one column and credit balances in another, then compare the totals",
+    "Count the cash in the till"
+   ],
+   "answer": 2,
+   "explain": "If the totals match, debits equal credits — though some errors can still hide.",
+   "lesson": "bookkeeping-07",
+   "evidence": "Put all the debit balances in one column, and all the credit balances in another, and compare the totals",
+   "origin": "authored"
+  },
+  {
+   "id": "aece5b411e",
+   "module": 2,
+   "q": "When are adjusting journal entries made?",
+   "options": [
+    "Whenever a customer pays",
+    "At the end of an accounting period, or whenever financial statements are prepared, so revenues and expenses match",
+    "Only when there is an error",
+    "Once every five years"
+   ],
+   "answer": 1,
+   "explain": "Adjustments apply the matching principle of accrual accounting.",
+   "lesson": "bookkeeping-08",
+   "evidence": "adjusting journal entries are made at the end of an accounting period or any time financial statements are prepared so that we have matching revenues and expenses.",
+   "origin": "authored"
+  },
+  {
+   "id": "7cd5b89a57",
+   "module": 2,
+   "q": "Revenue has been earned but the customer has not been billed yet. What kind of adjusting entry records it?",
+   "options": [
+    "A deferred expense entry",
+    "An accrued revenue entry",
+    "A closing entry",
+    "A petty cash entry"
+   ],
+   "answer": 1,
+   "explain": "The entry records a receivable and the earned revenue in the right period.",
+   "lesson": "bookkeeping-09",
+   "evidence": "This is a prototypical accrued revenue entry.",
+   "origin": "authored"
+  },
+  {
+   "id": "05fb053e6a",
+   "module": 2,
+   "q": "What does the lesson recommend to catch accounting errors?",
+   "options": [
+    "Routinely run checks and make the necessary adjusting entries",
+    "Wait for the annual audit",
+    "Delete any wrong entries",
+    "Ignore small differences"
+   ],
+   "answer": 0,
+   "explain": "Regular checks keep errors from carrying into the financial statements.",
+   "lesson": "bookkeeping-10",
+   "evidence": "It is good practice to routinely run checks to catch errors and create the necessary journal adjusting entries.",
+   "origin": "authored"
+  },
+  {
+   "id": "e924203dc2",
+   "module": 2,
+   "q": "After identifying the type of error, how should you classify it?",
+   "options": [
+    "As a debit or a credit",
+    "As an asset or an expense",
+    "As internal or external",
+    "As a deferral (prepayment) or an accrual"
+   ],
+   "answer": 3,
+   "explain": "The classification tells you which adjusting entry fixes it.",
+   "lesson": "bookkeeping-10",
+   "evidence": "time to classify it as a deferral (also known as prepayment) or an accrual",
+   "origin": "authored"
+  },
+  {
+   "id": "da1f826cd4",
+   "module": 2,
+   "q": "Which financial statement is prepared first?",
+   "options": [
+    "The balance sheet",
+    "The statement of cash flows",
+    "The income statement",
+    "The trial balance"
+   ],
+   "answer": 2,
+   "explain": "Net income from the income statement feeds into the statements that follow.",
+   "lesson": "bookkeeping-11",
+   "evidence": "The first statement to prepare is the Income Statement.",
+   "origin": "authored"
+  },
+  {
+   "id": "83f2351c61",
+   "module": 2,
+   "q": "Why is the report format of the balance sheet more widely used than the account format?",
+   "options": [
+    "The account format is illegal",
+    "Today's complex balance sheets are hard to present side by side",
+    "The report format hides liabilities",
+    "The report format leaves out equity"
+   ],
+   "answer": 1,
+   "explain": "The report format lists assets, then liabilities, then equity, top to bottom.",
+   "lesson": "bookkeeping-11",
+   "evidence": "the report format (assets first, then liabilities, and finally the equity, top to bottom) is so much more widely used",
+   "origin": "authored"
+  },
+  {
+   "id": "5fa120ed9d",
+   "module": 2,
+   "q": "In the closing process, where are the credit balances of revenue accounts transferred?",
+   "options": [
+    "To Cash",
+    "To Accounts Payable",
+    "To a clearing account called Income Summary",
+    "To the owner's bank account"
+   ],
+   "answer": 2,
+   "explain": "Income Summary is then closed to the owner's capital (or retained earnings).",
+   "lesson": "bookkeeping-12",
+   "evidence": "Closing the revenue accounts: transferring the credit balances in the revenue accounts to a clearing account called Income Summary.",
+   "origin": "authored"
+  },
+  {
+   "id": "8bfbe284bb",
+   "module": 3,
+   "q": "Where is a discrepancy in the petty cash fund posted?",
+   "options": [
+    "To an account called Cash Over and Short",
+    "To Petty Cash Expense",
+    "To Accounts Payable",
+    "To Retained Earnings"
+   ],
+   "answer": 0,
+   "explain": "Small errors make the cash in the box differ from the fund less the vouchers.",
+   "lesson": "bookkeeping-13",
+   "evidence": "We post the discrepancy to an account called Cash Over and Short.",
+   "origin": "authored"
+  },
+  {
+   "id": "8dd02ba3c4",
+   "module": 3,
+   "q": "Why do businesses keep a petty cash fund?",
+   "options": [
+    "It earns interest",
+    "It avoids recording expenses",
+    "Banks require one",
+    "It is more convenient than going to accounts payable for every small purchase"
+   ],
+   "answer": 3,
+   "explain": "Petty cash covers stamps, coffee for meetings and similar small costs.",
+   "lesson": "bookkeeping-13",
+   "evidence": "Having a petty cash account is just more convenient than going to the accounts payable clerk every time someone needs a stamp",
+   "origin": "authored"
+  },
+  {
+   "id": "32da92ccaf",
+   "module": 3,
+   "q": "If the petty cash fund is closed because it is no longer needed, what is the journal entry?",
+   "options": [
+    "The same as the establishing entry",
+    "No entry is needed",
+    "The reverse of the entry that established the fund",
+    "A debit to Cash Over and Short"
+   ],
+   "answer": 2,
+   "explain": "Returning surplus cash to the bank is recorded the same way.",
+   "lesson": "bookkeeping-13",
+   "evidence": "the entry is the reverse of the establishing entry",
+   "origin": "authored"
+  },
+  {
+   "id": "cb82477783",
+   "module": 3,
+   "q": "Which internal controls does the petty cash system include?",
+   "options": [
+    "Encryption and two-factor authentication",
+    "Segregation of duties, assignment of responsibility and reconciliation",
+    "External audit and insurance",
+    "Budgeting and forecasting"
+   ],
+   "answer": 1,
+   "explain": "One responsible person holds the fund, others approve and reconcile it.",
+   "lesson": "bookkeeping-13",
+   "evidence": "most notably segregation of duties, assignment of responsibility, and a reconciliation (monitoring) process",
+   "origin": "authored"
+  },
+  {
+   "id": "998035a29c",
+   "module": 3,
+   "q": "To prevent collusion, who should reconcile the bank account?",
+   "options": [
+    "Someone who is not involved in the cash disbursement cycle",
+    "The person who writes the cheques",
+    "The bank's own staff",
+    "Whoever looks after petty cash"
+   ],
+   "answer": 0,
+   "explain": "Ideally the bank also mails the statement directly to that person.",
+   "lesson": "bookkeeping-13",
+   "evidence": "the person who reconciles the bank account should not be involved in the cash disbursement cycle",
+   "origin": "authored"
+  },
+  {
+   "id": "48ba3893f3",
+   "module": 3,
+   "q": "An item is added on the book side of a bank reconciliation. How is it recorded?",
+   "options": [
+    "As a credit to the checking account",
+    "It is not recorded at all",
+    "As a debit to an expense account",
+    "As a debit to the checking account, since debits increase assets"
+   ],
+   "answer": 3,
+   "explain": "Items that reconcile the book balance to the adjusted bank balance must be recorded in the general ledger.",
+   "lesson": "bookkeeping-13",
+   "evidence": "If we added an item in the bank reconciliation, we will DEBIT the checking account (because a debit increases an asset account in a GL).",
+   "origin": "authored"
+  },
+  {
+   "id": "3f709c1e8c",
+   "module": 3,
+   "q": "What is net pay?",
+   "options": [
+    "The amount an employee receives after all taxes and voluntary deductions",
+    "The salary promised in the contract",
+    "The employer's total payroll cost",
+    "Overtime pay only"
+   ],
+   "answer": 0,
+   "explain": "Gross pay is the amount promised before deductions.",
+   "lesson": "bookkeeping-14",
+   "evidence": "Net Pay: This is the amount an employee receives after all taxes and voluntary deductions have been taken out.",
+   "origin": "authored"
+  },
+  {
+   "id": "5520bcd644",
+   "module": 4,
+   "q": "According to the IRS, what is an accounting method?",
+   "options": [
+    "A type of tax form",
+    "A computer program for bookkeeping",
+    "A way to calculate payroll",
+    "A set of rules used to determine when and how income and expenses are reported"
+   ],
+   "answer": 3,
+   "explain": "The two most common are the cash and accrual methods.",
+   "lesson": "bookkeeping-15",
+   "evidence": "An accounting method is a set of rules used to determine when and how income and expenses are reported.",
+   "origin": "authored"
+  },
+  {
+   "id": "0d7150a66e",
+   "module": 4,
+   "q": "What is a tax year?",
+   "options": [
+    "Any twelve months you choose each year",
+    "The year your business started",
+    "The annual accounting period on which you figure taxable income",
+    "The time you have to pay your tax"
+   ],
+   "answer": 2,
+   "explain": "Your income tax return is filed based on it.",
+   "lesson": "bookkeeping-15",
+   "evidence": "You must figure your taxable income and file an income tax return based on an annual accounting period called a tax year.",
+   "origin": "authored"
+  },
+  {
+   "id": "765c055502",
+   "module": 4,
+   "q": "If you need an inventory to account for your income, which method must you generally use for purchases and sales?",
+   "options": [
+    "The cash method",
+    "An accrual method",
+    "Any method you prefer",
+    "No method is required"
+   ],
+   "answer": 1,
+   "explain": "Inventory businesses must match purchases and sales to the periods they belong to.",
+   "lesson": "bookkeeping-15",
+   "evidence": "If an inventory is necessary to account for your income, you must generally use an accrual method of accounting for purchases and sales.",
+   "origin": "authored"
+  },
+  {
+   "id": "1bd8248a62",
+   "module": 4,
+   "q": "What is one of the first things to do when you start a business, for good records?",
+   "options": [
+    "Buy accounting software",
+    "Open a business checking account",
+    "Hire an auditor",
+    "Register a website"
+   ],
+   "answer": 1,
+   "explain": "Separating business and personal money makes records clear and supportable.",
+   "lesson": "bookkeeping-16",
+   "evidence": "One of the first things you should do when you start a business is open a business checking account.",
+   "origin": "authored"
+  },
+  {
+   "id": "175c982285",
+   "module": 4,
+   "q": "You write a cheque for cash to pay a business expense. What should you keep?",
+   "options": [
+    "The receipt for the cash payment, with your records",
+    "Nothing — the cheque stub is enough",
+    "A note in your personal diary",
+    "Only the bank statement"
+   ],
+   "answer": 0,
+   "explain": "Supporting documents prove what each payment was for.",
+   "lesson": "bookkeeping-16",
+   "evidence": "If you must write a check for cash to pay a business expense, include the receipt for the cash payment in your records.",
+   "origin": "authored"
+  },
+  {
+   "id": "1c5a540e45",
+   "module": 4,
+   "q": "In the recordkeeping example, what does Henry never pay with cheques from the business account?",
+   "options": [
+    "Materials",
+    "Rent",
+    "Payroll",
+    "Personal or non-business expenses"
+   ],
+   "answer": 3,
+   "explain": "Keeping business and personal money separate keeps the records clean.",
+   "lesson": "bookkeeping-17",
+   "evidence": "Henry does not pay personal or nonbusiness expenses by checks drawn on the business account.",
+   "origin": "authored"
+  },
+  {
+   "id": "00af11a7a1",
+   "module": 4,
+   "q": "Why are Henry's business cheques prenumbered?",
+   "options": [
+    "So the bank can sort them faster",
+    "Because the tax office issues the numbers",
+    "So every cheque number is listed and accounted for",
+    "To show which payments matter most"
+   ],
+   "answer": 2,
+   "explain": "A missing number in the journal is an immediate warning sign.",
+   "lesson": "bookkeeping-17",
+   "evidence": "All checks are prenumbered and each check number is listed and accounted for in the column provided in the journal.",
+   "origin": "authored"
+  }
+ ],
  "minutes": 161,
  "sources": [
   {

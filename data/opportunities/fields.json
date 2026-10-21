@@ -1,0 +1,756 @@
+{
+  "_note": "Degree fields to suggest for university study. 'search' is the English programme name used to look a field up on a university's own website; 'prepare' lists Path.AI courses (skill ids) that are a good free head start. from_roles maps a target role to the degrees that lead to it; from_study maps the wizard's study-field tiles.",
+  "fields": {
+    "computer_science": {
+      "label": {
+        "en": "Computer Science",
+        "ms": "Sains Komputer",
+        "zh": "计算机科学"
+      },
+      "search": "Computer Science",
+      "prepare": [
+        "python",
+        "software_dev",
+        "sql"
+      ]
+    },
+    "information_technology": {
+      "label": {
+        "en": "Information Technology",
+        "ms": "Teknologi Maklumat",
+        "zh": "信息技术"
+      },
+      "search": "Information Technology",
+      "prepare": [
+        "digital_literacy",
+        "linux_networking",
+        "cloud_devops"
+      ]
+    },
+    "software_engineering": {
+      "label": {
+        "en": "Software Engineering",
+        "ms": "Kejuruteraan Perisian",
+        "zh": "软件工程"
+      },
+      "search": "Software Engineering",
+      "prepare": [
+        "software_dev",
+        "python",
+        "cloud_devops"
+      ]
+    },
+    "data_science": {
+      "label": {
+        "en": "Data Science",
+        "ms": "Sains Data",
+        "zh": "数据科学"
+      },
+      "search": "Data Science",
+      "prepare": [
+        "python",
+        "statistics",
+        "sql",
+        "data_analysis"
+      ]
+    },
+    "artificial_intelligence": {
+      "label": {
+        "en": "Artificial Intelligence",
+        "ms": "Kecerdasan Buatan",
+        "zh": "人工智能"
+      },
+      "search": "Artificial Intelligence",
+      "prepare": [
+        "machine_learning",
+        "python",
+        "genai_apps"
+      ]
+    },
+    "cybersecurity": {
+      "label": {
+        "en": "Cybersecurity",
+        "ms": "Keselamatan Siber",
+        "zh": "网络安全"
+      },
+      "search": "Cyber Security",
+      "prepare": [
+        "cybersecurity",
+        "linux_networking"
+      ]
+    },
+    "statistics": {
+      "label": {
+        "en": "Statistics",
+        "ms": "Statistik",
+        "zh": "统计学"
+      },
+      "search": "Statistics",
+      "prepare": [
+        "statistics",
+        "data_analysis",
+        "python"
+      ]
+    },
+    "business_analytics": {
+      "label": {
+        "en": "Business Analytics",
+        "ms": "Analitik Perniagaan",
+        "zh": "商业分析"
+      },
+      "search": "Business Analytics",
+      "prepare": [
+        "data_analysis",
+        "excel",
+        "data_viz"
+      ]
+    },
+    "business_administration": {
+      "label": {
+        "en": "Business Administration",
+        "ms": "Pentadbiran Perniagaan",
+        "zh": "工商管理"
+      },
+      "search": "Business Administration",
+      "prepare": [
+        "entrepreneurship",
+        "project_mgmt",
+        "communication"
+      ]
+    },
+    "accounting": {
+      "label": {
+        "en": "Accounting",
+        "ms": "Perakaunan",
+        "zh": "会计"
+      },
+      "search": "Accounting",
+      "prepare": [
+        "bookkeeping",
+        "excel",
+        "finance_domain"
+      ]
+    },
+    "finance": {
+      "label": {
+        "en": "Finance",
+        "ms": "Kewangan",
+        "zh": "金融"
+      },
+      "search": "Finance",
+      "prepare": [
+        "finance_domain",
+        "excel",
+        "statistics"
+      ]
+    },
+    "economics": {
+      "label": {
+        "en": "Economics",
+        "ms": "Ekonomi",
+        "zh": "经济学"
+      },
+      "search": "Economics",
+      "prepare": [
+        "statistics",
+        "data_analysis",
+        "analytical_thinking"
+      ]
+    },
+    "marketing": {
+      "label": {
+        "en": "Marketing",
+        "ms": "Pemasaran",
+        "zh": "市场营销"
+      },
+      "search": "Marketing",
+      "prepare": [
+        "digital_marketing",
+        "sales",
+        "content_writing"
+      ]
+    },
+    "media_communication": {
+      "label": {
+        "en": "Media & Communication",
+        "ms": "Media & Komunikasi",
+        "zh": "传媒与传播"
+      },
+      "search": "Media and Communication",
+      "prepare": [
+        "content_writing",
+        "communication",
+        "digital_marketing"
+      ]
+    },
+    "law": {
+      "label": {
+        "en": "Law",
+        "ms": "Undang-undang",
+        "zh": "法学"
+      },
+      "search": "Law",
+      "prepare": [
+        "compliance_risk",
+        "ai_governance",
+        "analytical_thinking"
+      ]
+    },
+    "electrical_engineering": {
+      "label": {
+        "en": "Electrical & Electronic Engineering",
+        "ms": "Kejuruteraan Elektrik & Elektronik",
+        "zh": "电气与电子工程"
+      },
+      "search": "Electrical Engineering",
+      "prepare": [
+        "electrical",
+        "iot_embedded",
+        "python"
+      ]
+    },
+    "mechanical_engineering": {
+      "label": {
+        "en": "Mechanical Engineering",
+        "ms": "Kejuruteraan Mekanikal",
+        "zh": "机械工程"
+      },
+      "search": "Mechanical Engineering",
+      "prepare": [
+        "industrial_automation",
+        "lean_quality",
+        "energy_efficiency"
+      ]
+    },
+    "renewable_energy": {
+      "label": {
+        "en": "Renewable Energy Engineering",
+        "ms": "Kejuruteraan Tenaga Boleh Baharu",
+        "zh": "可再生能源工程"
+      },
+      "search": "Renewable Energy",
+      "prepare": [
+        "solar_pv",
+        "energy_efficiency",
+        "electrical"
+      ]
+    },
+    "environmental_science": {
+      "label": {
+        "en": "Environmental Science",
+        "ms": "Sains Alam Sekitar",
+        "zh": "环境科学"
+      },
+      "search": "Environmental Science",
+      "prepare": [
+        "carbon_accounting",
+        "circular_economy",
+        "gis"
+      ]
+    },
+    "agriculture": {
+      "label": {
+        "en": "Agriculture",
+        "ms": "Pertanian",
+        "zh": "农学"
+      },
+      "search": "Agriculture",
+      "prepare": [
+        "precision_agri",
+        "gis",
+        "data_analysis"
+      ]
+    },
+    "nursing": {
+      "label": {
+        "en": "Nursing",
+        "ms": "Kejururawatan",
+        "zh": "护理学"
+      },
+      "search": "Nursing",
+      "prepare": [
+        "healthcare_basics",
+        "communication"
+      ]
+    },
+    "public_health": {
+      "label": {
+        "en": "Public Health",
+        "ms": "Kesihatan Awam",
+        "zh": "公共卫生"
+      },
+      "search": "Public Health",
+      "prepare": [
+        "healthcare_basics",
+        "statistics",
+        "data_analysis"
+      ]
+    },
+    "biomedical_science": {
+      "label": {
+        "en": "Biomedical Science",
+        "ms": "Sains Bioperubatan",
+        "zh": "生物医学"
+      },
+      "search": "Biomedical Science",
+      "prepare": [
+        "healthcare_basics",
+        "statistics"
+      ]
+    },
+    "education": {
+      "label": {
+        "en": "Education",
+        "ms": "Pendidikan",
+        "zh": "教育学"
+      },
+      "search": "Education",
+      "prepare": [
+        "teaching_training",
+        "communication",
+        "digital_literacy"
+      ]
+    },
+    "psychology": {
+      "label": {
+        "en": "Psychology",
+        "ms": "Psikologi",
+        "zh": "心理学"
+      },
+      "search": "Psychology",
+      "prepare": [
+        "statistics",
+        "communication",
+        "analytical_thinking"
+      ]
+    },
+    "graphic_design": {
+      "label": {
+        "en": "Graphic Design",
+        "ms": "Reka Bentuk Grafik",
+        "zh": "平面设计"
+      },
+      "search": "Graphic Design",
+      "prepare": [
+        "graphic_design",
+        "creative_thinking",
+        "ux_design"
+      ]
+    },
+    "interaction_design": {
+      "label": {
+        "en": "Interaction Design / HCI",
+        "ms": "Reka Bentuk Interaksi / HCI",
+        "zh": "交互设计 / 人机交互"
+      },
+      "search": "Human-Computer Interaction",
+      "prepare": [
+        "ux_design",
+        "graphic_design",
+        "creative_thinking"
+      ]
+    },
+    "human_resources": {
+      "label": {
+        "en": "Human Resource Management",
+        "ms": "Pengurusan Sumber Manusia",
+        "zh": "人力资源管理"
+      },
+      "search": "Human Resource Management",
+      "prepare": [
+        "hr_people",
+        "communication",
+        "leadership"
+      ]
+    },
+    "supply_chain_management": {
+      "label": {
+        "en": "Logistics & Supply Chain Management",
+        "ms": "Logistik & Pengurusan Rantaian Bekalan",
+        "zh": "物流与供应链管理"
+      },
+      "search": "Supply Chain Management",
+      "prepare": [
+        "supply_chain",
+        "lean_quality",
+        "data_analysis"
+      ]
+    },
+    "industrial_engineering": {
+      "label": {
+        "en": "Industrial & Manufacturing Engineering",
+        "ms": "Kejuruteraan Industri & Pembuatan",
+        "zh": "工业与制造工程"
+      },
+      "search": "Manufacturing Engineering",
+      "prepare": [
+        "lean_quality",
+        "industrial_automation",
+        "statistics"
+      ]
+    },
+    "hospitality_tourism": {
+      "label": {
+        "en": "Hospitality & Tourism Management",
+        "ms": "Pengurusan Hospitaliti & Pelancongan",
+        "zh": "酒店与旅游管理"
+      },
+      "search": "Hospitality Management",
+      "prepare": [
+        "customer_service",
+        "communication",
+        "digital_marketing"
+      ]
+    },
+    "languages": {
+      "label": {
+        "en": "Languages & Translation",
+        "ms": "Bahasa & Terjemahan",
+        "zh": "语言与翻译"
+      },
+      "search": "Translation",
+      "prepare": [
+        "content_writing",
+        "communication",
+        "digital_literacy"
+      ]
+    }
+  },
+  "from_roles": {
+    "data_analyst": [
+      "data_science",
+      "business_analytics",
+      "statistics"
+    ],
+    "data_scientist": [
+      "data_science",
+      "statistics",
+      "computer_science"
+    ],
+    "ml_engineer": [
+      "artificial_intelligence",
+      "computer_science",
+      "data_science"
+    ],
+    "genai_developer": [
+      "artificial_intelligence",
+      "computer_science",
+      "software_engineering"
+    ],
+    "automation_specialist": [
+      "information_technology",
+      "computer_science",
+      "business_analytics"
+    ],
+    "ai_governance_specialist": [
+      "law",
+      "computer_science",
+      "artificial_intelligence"
+    ],
+    "security_analyst": [
+      "cybersecurity",
+      "computer_science",
+      "information_technology"
+    ],
+    "cloud_devops_engineer": [
+      "computer_science",
+      "information_technology",
+      "software_engineering"
+    ],
+    "software_developer": [
+      "software_engineering",
+      "computer_science",
+      "information_technology"
+    ],
+    "ux_designer": [
+      "interaction_design",
+      "graphic_design",
+      "psychology"
+    ],
+    "digital_marketing_analyst": [
+      "marketing",
+      "business_analytics",
+      "media_communication"
+    ],
+    "iot_specialist": [
+      "electrical_engineering",
+      "computer_science"
+    ],
+    "renewable_energy_engineer": [
+      "renewable_energy",
+      "electrical_engineering",
+      "mechanical_engineering"
+    ],
+    "solar_pv_technician": [
+      "renewable_energy",
+      "electrical_engineering"
+    ],
+    "energy_manager": [
+      "renewable_energy",
+      "mechanical_engineering",
+      "environmental_science"
+    ],
+    "esg_analyst": [
+      "environmental_science",
+      "finance",
+      "economics"
+    ],
+    "ev_technician": [
+      "electrical_engineering",
+      "mechanical_engineering"
+    ],
+    "precision_agri_technologist": [
+      "agriculture",
+      "environmental_science",
+      "data_science"
+    ],
+    "health_informatics_analyst": [
+      "public_health",
+      "data_science",
+      "biomedical_science"
+    ],
+    "ld_specialist": [
+      "education",
+      "psychology",
+      "human_resources"
+    ],
+    "customer_success_manager": [
+      "business_administration",
+      "marketing",
+      "media_communication"
+    ],
+    "conversation_designer": [
+      "interaction_design",
+      "media_communication",
+      "artificial_intelligence"
+    ],
+    "digital_pm": [
+      "business_administration",
+      "information_technology",
+      "software_engineering"
+    ],
+    "financial_analyst": [
+      "finance",
+      "accounting",
+      "economics"
+    ],
+    "data_entry_clerk": [
+      "information_technology",
+      "business_administration"
+    ],
+    "accounting_clerk": [
+      "accounting",
+      "finance"
+    ],
+    "customer_service_rep": [
+      "business_administration",
+      "hospitality_tourism",
+      "media_communication"
+    ],
+    "graphic_designer": [
+      "graphic_design",
+      "interaction_design"
+    ],
+    "admin_assistant": [
+      "business_administration",
+      "human_resources"
+    ],
+    "cashier": [
+      "business_administration",
+      "accounting"
+    ],
+    "bank_teller": [
+      "finance",
+      "accounting"
+    ],
+    "retail_sales": [
+      "marketing",
+      "business_administration",
+      "hospitality_tourism"
+    ],
+    "teacher": [
+      "education",
+      "psychology"
+    ],
+    "electrician": [
+      "electrical_engineering",
+      "renewable_energy"
+    ],
+    "nurse": [
+      "nursing",
+      "public_health"
+    ],
+    "data_engineer": [
+      "computer_science",
+      "data_science",
+      "information_technology"
+    ],
+    "computer_vision_engineer": [
+      "artificial_intelligence",
+      "computer_science",
+      "electrical_engineering"
+    ],
+    "fintech_engineer": [
+      "software_engineering",
+      "computer_science",
+      "finance"
+    ],
+    "compliance_analyst": [
+      "law",
+      "finance",
+      "accounting"
+    ],
+    "business_analyst": [
+      "business_analytics",
+      "business_administration",
+      "information_technology"
+    ],
+    "product_manager": [
+      "business_administration",
+      "computer_science",
+      "interaction_design"
+    ],
+    "supply_chain_analyst": [
+      "supply_chain_management",
+      "business_analytics",
+      "industrial_engineering"
+    ],
+    "quality_engineer": [
+      "industrial_engineering",
+      "mechanical_engineering",
+      "statistics"
+    ],
+    "automation_technician": [
+      "electrical_engineering",
+      "industrial_engineering",
+      "mechanical_engineering"
+    ],
+    "semiconductor_engineer": [
+      "electrical_engineering",
+      "industrial_engineering",
+      "computer_science"
+    ],
+    "content_strategist": [
+      "media_communication",
+      "marketing"
+    ],
+    "technical_writer": [
+      "media_communication",
+      "computer_science",
+      "languages"
+    ],
+    "account_manager": [
+      "marketing",
+      "business_administration"
+    ],
+    "ecommerce_specialist": [
+      "marketing",
+      "business_analytics",
+      "business_administration"
+    ],
+    "hr_specialist": [
+      "human_resources",
+      "psychology",
+      "business_administration"
+    ],
+    "entrepreneur": [
+      "business_administration",
+      "marketing",
+      "finance"
+    ],
+    "environmental_engineer": [
+      "environmental_science",
+      "renewable_energy",
+      "mechanical_engineering"
+    ],
+    "drone_technician": [
+      "environmental_science",
+      "agriculture",
+      "electrical_engineering"
+    ],
+    "care_coordinator": [
+      "nursing",
+      "public_health"
+    ],
+    "factory_operator": [
+      "industrial_engineering",
+      "mechanical_engineering"
+    ],
+    "warehouse_clerk": [
+      "supply_chain_management",
+      "business_administration"
+    ],
+    "delivery_driver": [
+      "supply_chain_management",
+      "business_administration"
+    ],
+    "telemarketer": [
+      "marketing",
+      "business_administration"
+    ],
+    "receptionist": [
+      "hospitality_tourism",
+      "business_administration"
+    ],
+    "copywriter": [
+      "media_communication",
+      "marketing",
+      "languages"
+    ],
+    "translator": [
+      "languages",
+      "media_communication"
+    ],
+    "claims_examiner": [
+      "finance",
+      "accounting",
+      "law"
+    ],
+    "hr_assistant": [
+      "human_resources",
+      "business_administration"
+    ]
+  },
+  "from_study": {
+    "it": [
+      "computer_science",
+      "information_technology",
+      "data_science",
+      "software_engineering",
+      "cybersecurity"
+    ],
+    "engineering": [
+      "electrical_engineering",
+      "mechanical_engineering",
+      "industrial_engineering",
+      "renewable_energy"
+    ],
+    "business": [
+      "accounting",
+      "finance",
+      "business_administration",
+      "economics",
+      "supply_chain_management"
+    ],
+    "science": [
+      "nursing",
+      "biomedical_science",
+      "public_health",
+      "statistics"
+    ],
+    "design": [
+      "graphic_design",
+      "interaction_design",
+      "media_communication"
+    ],
+    "education": [
+      "education",
+      "psychology",
+      "languages"
+    ],
+    "agriculture": [
+      "agriculture",
+      "environmental_science"
+    ]
+  }
+}

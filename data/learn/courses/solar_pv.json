@@ -41,6 +41,14 @@
     "solar_pv-11",
     "solar_pv-12"
    ]
+  },
+  {
+   "title": "Solar heat and storage",
+   "lessons": [
+    "solar_pv-13",
+    "solar_pv-14",
+    "solar_pv-15"
+   ]
   }
  ],
  "lessons": [
@@ -467,155 +475,774 @@
      "level": 2
     }
    ]
+  },
+  {
+   "id": "solar_pv-13",
+   "title": "Concentrating Solar-Thermal Power Basics",
+   "words": 214,
+   "minutes": 3,
+   "source": "doe",
+   "url": "https://www.energy.gov/cmei/systems/concentrating-solar-thermal-power-basics",
+   "toc": []
+  },
+  {
+   "id": "solar_pv-14",
+   "title": "Solar-Thermal Power and Industrial Processes Basics",
+   "words": 934,
+   "minutes": 5,
+   "source": "doe",
+   "url": "https://www.energy.gov/cmei/systems/solar-thermal-power-and-industrial-processes-basics",
+   "toc": []
+  },
+  {
+   "id": "solar_pv-15",
+   "title": "Thermal Storage System Concentrating Solar-Thermal Power Basics",
+   "words": 628,
+   "minutes": 4,
+   "source": "doe",
+   "url": "https://www.energy.gov/cmei/systems/thermal-storage-system-concentrating-solar-thermal-power-basics",
+   "toc": []
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "How are solar cells scaled up to supply a whole house?",
-    "options": [
-     "One very large cell is used per house",
-     "Cells are wired directly to each appliance",
-     "Cells are grouped into PV panels, and panels are connected in arrays",
-     "Cells are stacked inside the electricity meter"
-    ],
-    "answer": 2,
-    "explain": "Cells → panels (modules) → arrays.",
-    "lesson": "solar_pv-01",
-    "evidence": "PV panels are connected in arrays that can produce electricity for an entire house.",
-    "origin": "authored"
-   },
-   {
-    "q": "When is the intensity of solar radiation at a location greatest?",
-    "options": [
-     "When the sun is at its highest in the sky — solar noon — on clear, cloudless days",
-     "Just after sunrise",
-     "On cloudy days, when light is diffused",
-     "At midnight in summer"
-    ],
-    "answer": 0,
-    "explain": "Sunlight travels through the least atmosphere when the sun is highest.",
-    "lesson": "solar_pv-01",
-    "evidence": "the intensity of solar radiation at any location is greatest when the sun is at its highest apparent position in the sky—at solar noon—on clear, cloudless days.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is solar radiation?",
-    "options": [
-     "Heat stored in solar panels",
-     "Radioactive material used in panels",
-     "Electricity produced by a PV array",
-     "A general term for the electromagnetic radiation emitted by the sun"
-    ],
-    "answer": 3,
-    "explain": "It is also called the solar resource, or simply sunlight.",
-    "lesson": "solar_pv-02",
-    "evidence": "Solar radiation, often called the solar resource or just sunlight, is a general term for the electromagnetic radiation emitted by the sun.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is a photovoltaic (PV) cell?",
-    "options": [
-     "A battery that stores solar heat",
-     "A nonmechanical device that converts sunlight directly into electricity",
-     "A mirror that concentrates sunlight",
-     "A turbine driven by hot air"
-    ],
-    "answer": 1,
-    "explain": "Absorbed sunlight dislodges electrons in a semiconductor, creating a current.",
-    "lesson": "solar_pv-03",
-    "evidence": "is a nonmechanical device that converts sunlight directly into electricity.",
-    "origin": "authored"
-   },
-   {
-    "q": "How is the power output of PV cells boosted?",
-    "options": [
-     "By cooling them with water",
-     "By painting them black",
-     "By connecting them in chains to form modules or panels",
-     "By rotating them quickly"
-    ],
-    "answer": 2,
-    "explain": "Modules can then be combined into arrays of any size.",
-    "lesson": "solar_pv-04",
-    "evidence": "To boost the power output of PV cells, they are connected in chains to form larger units known as modules or panels.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the conversion efficiency of a PV cell?",
-    "options": [
-     "The percentage of the solar energy shining on it that is converted into usable electricity",
-     "How quickly it can be installed",
-     "The share of its cost paid by subsidies",
-     "Its weight per square metre"
-    ],
-    "answer": 0,
-    "explain": "Improving efficiency helps make PV cost-competitive with conventional sources.",
-    "lesson": "solar_pv-05",
-    "evidence": "The conversion efficiency of a photovoltaic (PV) cell, or solar cell, is the percentage of the solar energy shining on a PV device that is converted into usable electricity.",
-    "origin": "authored"
-   },
-   {
-    "q": "Which mounting method is currently the most common for PV, and why?",
-    "options": [
-     "Floating systems, because water cools panels",
-     "Tracking systems, because they follow the sun",
-     "Building-integrated PV, because it replaces roof tiles",
-     "Rack mounting, because it is robust, versatile and easy to construct and install"
-    ],
-    "answer": 3,
-    "explain": "Modules are only one part of a PV system; mounting, inverters and wiring complete it.",
-    "lesson": "solar_pv-07",
-    "evidence": "Rack mounting is currently the most common method because it is robust, versatile, and easy to construct and install.",
-    "origin": "authored"
-   },
-   {
-    "q": "How does energy yield differ from efficiency?",
-    "options": [
-     "They mean exactly the same thing",
-     "Energy yield is the energy actually harvested in real conditions (heat, dirt, shade); efficiency is measured in the lab",
-     "Efficiency includes shading losses; yield does not",
-     "Energy yield only applies to wind turbines"
-    ],
-    "answer": 1,
-    "explain": "System design aims to maximise annual energy yield, which drives the cost of solar electricity.",
-    "lesson": "solar_pv-08",
-    "evidence": "Energy yield is the amount of energy actually harvested from solar panels, taking into consideration external factors like heat, dirt, and shade, whereas efficiency refers to testing done in lab conditions.",
-    "origin": "authored"
-   },
-   {
-    "q": "Inverters are an example of which class of devices?",
-    "options": [
-     "Batteries",
-     "Transformers that raise voltage only",
-     "Power electronics that regulate the flow of electrical power",
-     "Solar trackers"
-    ],
-    "answer": 2,
-    "explain": "Inverters convert the DC from panels into AC for the grid and can provide grid services.",
-    "lesson": "solar_pv-09",
-    "evidence": "Inverters are just one example of a class of devices called power electronics that regulate the flow of electrical power.",
-    "origin": "authored"
-   },
-   {
-    "q": "What does end-of-life management for photovoltaics refer to?",
-    "options": [
-     "The processes that occur when solar panels and other PV components are retired from operation",
-     "Cleaning panels at the end of each day",
-     "Turning panels off at night",
-     "Insurance for damaged panels"
-    ],
-    "answer": 0,
-    "explain": "Reuse, recycling and disposal of panels, racking and inverters are part of a circular economy for solar.",
-    "lesson": "solar_pv-12",
-    "evidence": "End-of-life management for photovoltaics (PV) refers to the processes that occur when solar panels and other components of a PV system (racking, inverters, etc.) are retired from operation.",
-    "origin": "authored"
-   }
-  ],
-  "pass_mark": 7,
-  "missing": false
- },
- "minutes": 71,
+ "pool": [
+  {
+   "id": "c4cc95f319",
+   "module": 0,
+   "q": "How are solar cells scaled up to supply a whole house?",
+   "options": [
+    "One very large cell is used per house",
+    "Cells are wired directly to each appliance",
+    "Cells are grouped into PV panels, and panels are connected in arrays",
+    "Cells are stacked inside the electricity meter"
+   ],
+   "answer": 2,
+   "explain": "Cells → panels (modules) → arrays.",
+   "lesson": "solar_pv-01",
+   "evidence": "PV panels are connected in arrays that can produce electricity for an entire house.",
+   "origin": "authored"
+  },
+  {
+   "id": "e50b9b8226",
+   "module": 0,
+   "q": "When is the intensity of solar radiation at a location greatest?",
+   "options": [
+    "When the sun is at its highest in the sky — solar noon — on clear, cloudless days",
+    "Just after sunrise",
+    "On cloudy days, when light is diffused",
+    "At midnight in summer"
+   ],
+   "answer": 0,
+   "explain": "Sunlight travels through the least atmosphere when the sun is highest.",
+   "lesson": "solar_pv-01",
+   "evidence": "the intensity of solar radiation at any location is greatest when the sun is at its highest apparent position in the sky—at solar noon—on clear, cloudless days.",
+   "origin": "authored"
+  },
+  {
+   "id": "ad66e75071",
+   "module": 0,
+   "q": "How does the solar energy Earth receives each day compare with human energy use?",
+   "options": [
+    "It is about the same",
+    "It is many times greater than all the energy people use each day",
+    "It is much smaller",
+    "It is exactly double"
+   ],
+   "answer": 1,
+   "explain": "The challenge is capturing it, not its quantity.",
+   "lesson": "solar_pv-01",
+   "evidence": "the earth receives each day is many times greater than the total amount of all energy people consume each day",
+   "origin": "authored"
+  },
+  {
+   "id": "dd51d41cb6",
+   "module": 0,
+   "q": "Why is solar energy challenging to rely on at the Earth's surface?",
+   "options": [
+    "It runs out after a few years",
+    "It only works in winter",
+    "It is too concentrated",
+    "It is variable and intermittent"
+   ],
+   "answer": 3,
+   "explain": "Clouds, night and seasons change how much reaches a panel.",
+   "lesson": "solar_pv-01",
+   "evidence": "on the earth's surface, solar energy is a variable and intermittent energy source",
+   "origin": "authored"
+  },
+  {
+   "id": "55bd16ca4f",
+   "module": 0,
+   "q": "What is a solar oven an example of?",
+   "options": [
+    "A photovoltaic cell",
+    "A wind turbine",
+    "A simple solar energy collection device",
+    "A battery"
+   ],
+   "answer": 2,
+   "explain": "It collects and absorbs sunlight as heat.",
+   "lesson": "solar_pv-01",
+   "evidence": "is a simple example of a solar energy collection device",
+   "origin": "authored"
+  },
+  {
+   "id": "00c2663cd4",
+   "module": 0,
+   "q": "What is solar radiation?",
+   "options": [
+    "Heat stored in solar panels",
+    "Radioactive material used in panels",
+    "Electricity produced by a PV array",
+    "A general term for the electromagnetic radiation emitted by the sun"
+   ],
+   "answer": 3,
+   "explain": "It is also called the solar resource, or simply sunlight.",
+   "lesson": "solar_pv-02",
+   "evidence": "Solar radiation, often called the solar resource or just sunlight, is a general term for the electromagnetic radiation emitted by the sun.",
+   "origin": "authored"
+  },
+  {
+   "id": "1777eddd9d",
+   "module": 0,
+   "q": "What are the two main types of solar energy technology?",
+   "options": [
+    "Wind and hydro power",
+    "Photovoltaics (PV) and concentrating solar-thermal power (CSP)",
+    "Nuclear and geothermal",
+    "Batteries and inverters"
+   ],
+   "answer": 1,
+   "explain": "PV is the one used in solar panels.",
+   "lesson": "solar_pv-02",
+   "evidence": "There are two main types of solar energy technologies: photovoltaics (PV) and concentrating solar-thermal power (CSP).",
+   "origin": "authored"
+  },
+  {
+   "id": "f13e93ec45",
+   "module": 1,
+   "q": "What is a photovoltaic (PV) cell?",
+   "options": [
+    "A battery that stores solar heat",
+    "A nonmechanical device that converts sunlight directly into electricity",
+    "A mirror that concentrates sunlight",
+    "A turbine driven by hot air"
+   ],
+   "answer": 1,
+   "explain": "Absorbed sunlight dislodges electrons in a semiconductor, creating a current.",
+   "lesson": "solar_pv-03",
+   "evidence": "is a nonmechanical device that converts sunlight directly into electricity.",
+   "origin": "authored"
+  },
+  {
+   "id": "8ea29cdfa3",
+   "module": 1,
+   "q": "How much power can a single PV cell produce?",
+   "options": [
+    "Only 1 or 2 watts — enough for a calculator or watch",
+    "About 1 kilowatt",
+    "Enough for a whole house",
+    "About 100 watts"
+   ],
+   "answer": 0,
+   "explain": "Cells are combined into panels and arrays for more power.",
+   "lesson": "solar_pv-03",
+   "evidence": "one PV cell can only produce 1 or 2 Watts",
+   "origin": "authored"
+  },
+  {
+   "id": "f2ddd5f42c",
+   "module": 1,
+   "q": "What happens when a PV cell's semiconductor absorbs enough sunlight?",
+   "options": [
+    "The cell heats water",
+    "The cell stores the light",
+    "The cell's atoms split apart",
+    "Electrons are dislodged from the material's atoms"
+   ],
+   "answer": 3,
+   "explain": "Moving electrons form an electric current.",
+   "lesson": "solar_pv-03",
+   "evidence": "When the semiconductor material absorbs enough sunlight (solar energy), electrons are dislodged from the material's atoms.",
+   "origin": "authored"
+  },
+  {
+   "id": "88d2f9eb04",
+   "module": 1,
+   "q": "How is the power output of PV cells boosted?",
+   "options": [
+    "By cooling them with water",
+    "By painting them black",
+    "By connecting them in chains to form modules or panels",
+    "By rotating them quickly"
+   ],
+   "answer": 2,
+   "explain": "Modules can then be combined into arrays of any size.",
+   "lesson": "solar_pv-04",
+   "evidence": "To boost the power output of PV cells, they are connected in chains to form larger units known as modules or panels.",
+   "origin": "authored"
+  },
+  {
+   "id": "edd76b71d0",
+   "module": 1,
+   "q": "How thick are PV cells often?",
+   "options": [
+    "About 1 centimetre",
+    "About the thickness of a brick",
+    "Less than the thickness of four human hairs",
+    "About 1 metre"
+   ],
+   "answer": 2,
+   "explain": "They are made from thin layers of semiconductor material.",
+   "lesson": "solar_pv-04",
+   "evidence": "are often less than the thickness of four human hairs",
+   "origin": "authored"
+  },
+  {
+   "id": "0466dbd23d",
+   "module": 1,
+   "q": "How is the current extracted from a solar cell?",
+   "options": [
+    "Through the glass cover",
+    "Through conductive metal contacts — the grid-like lines on the cell",
+    "Through the cell's frame screws",
+    "Through the air"
+   ],
+   "answer": 1,
+   "explain": "The current can then power homes and the grid.",
+   "lesson": "solar_pv-04",
+   "evidence": "This current is extracted through conductive metal contacts",
+   "origin": "authored"
+  },
+  {
+   "id": "553998b6d0",
+   "module": 1,
+   "q": "What is the conversion efficiency of a PV cell?",
+   "options": [
+    "The percentage of the solar energy shining on it that is converted into usable electricity",
+    "How quickly it can be installed",
+    "The share of its cost paid by subsidies",
+    "Its weight per square metre"
+   ],
+   "answer": 0,
+   "explain": "Improving efficiency helps make PV cost-competitive with conventional sources.",
+   "lesson": "solar_pv-05",
+   "evidence": "The conversion efficiency of a photovoltaic (PV) cell, or solar cell, is the percentage of the solar energy shining on a PV device that is converted into usable electricity.",
+   "origin": "authored"
+  },
+  {
+   "id": "944fe81fc6",
+   "module": 1,
+   "q": "What is the Czochralski process?",
+   "options": [
+    "Growing a monocrystalline silicon ingot by slowly pulling a seed crystal from molten silicon",
+    "Cutting glass for panel covers",
+    "Recycling old panels",
+    "Testing panels in sunlight"
+   ],
+   "answer": 0,
+   "explain": "The ingot is later sliced into wafers.",
+   "lesson": "solar_pv-06",
+   "evidence": "In one process, called the Czochralski process, a large cylindrical ingot of monocrystalline silicon is grown by touching a small crystalline seed to the surface of the liquid and slowly pulling it upward.",
+   "origin": "authored"
+  },
+  {
+   "id": "5e150d11bc",
+   "module": 1,
+   "q": "What does chemical texturing of a silicon wafer do?",
+   "options": [
+    "Colours the wafer blue",
+    "Makes the wafer flexible",
+    "Adds the metal contacts",
+    "Removes saw damage and lets more light into the wafer"
+   ],
+   "answer": 3,
+   "explain": "More light absorbed means more electricity.",
+   "lesson": "solar_pv-06",
+   "evidence": "chemical texturing of the wafer surface, which removes saw damage and increases how much light gets into the wafer",
+   "origin": "authored"
+  },
+  {
+   "id": "95fc154a59",
+   "module": 1,
+   "q": "Which manufactured components make up a PV system?",
+   "options": [
+    "Only the solar cells",
+    "Only the inverter",
+    "Modules, racking and wiring, power electronics and monitoring devices",
+    "Only the roof"
+   ],
+   "answer": 2,
+   "explain": "Manufacturing goes well beyond the cells themselves.",
+   "lesson": "solar_pv-06",
+   "evidence": "Those systems are comprised of PV modules, racking and wiring, power electronics, and system monitoring devices, all of which are manufactured.",
+   "origin": "authored"
+  },
+  {
+   "id": "83ff81d893",
+   "module": 1,
+   "q": "In thin-film manufacturing, how is the absorber material deposited on the glass?",
+   "options": [
+    "By hand painting",
+    "By close-spaced sublimation",
+    "By the Czochralski process",
+    "By 3-D printing"
+   ],
+   "answer": 1,
+   "explain": "The glass is first coated with a transparent conductive layer.",
+   "lesson": "solar_pv-06",
+   "evidence": "onto which the photovoltaic absorber material is deposited in a process called close-spaced sublimation",
+   "origin": "authored"
+  },
+  {
+   "id": "94ec8062da",
+   "module": 2,
+   "q": "Which mounting method is currently the most common for PV, and why?",
+   "options": [
+    "Floating systems, because water cools panels",
+    "Tracking systems, because they follow the sun",
+    "Building-integrated PV, because it replaces roof tiles",
+    "Rack mounting, because it is robust, versatile and easy to construct and install"
+   ],
+   "answer": 3,
+   "explain": "Modules are only one part of a PV system; mounting, inverters and wiring complete it.",
+   "lesson": "solar_pv-07",
+   "evidence": "Rack mounting is currently the most common method because it is robust, versatile, and easy to construct and install.",
+   "origin": "authored"
+  },
+  {
+   "id": "feb1a19afa",
+   "module": 2,
+   "q": "How does energy yield differ from efficiency?",
+   "options": [
+    "They mean exactly the same thing",
+    "Energy yield is the energy actually harvested in real conditions (heat, dirt, shade); efficiency is measured in the lab",
+    "Efficiency includes shading losses; yield does not",
+    "Energy yield only applies to wind turbines"
+   ],
+   "answer": 1,
+   "explain": "System design aims to maximise annual energy yield, which drives the cost of solar electricity.",
+   "lesson": "solar_pv-08",
+   "evidence": "Energy yield is the amount of energy actually harvested from solar panels, taking into consideration external factors like heat, dirt, and shade, whereas efficiency refers to testing done in lab conditions.",
+   "origin": "authored"
+  },
+  {
+   "id": "645e2ea57c",
+   "module": 2,
+   "q": "How can more accurate energy yield models reduce a system's cost?",
+   "options": [
+    "They lower financing costs by showing output will meet expectations",
+    "They make panels cheaper to build",
+    "They remove the need for inverters",
+    "They make sunlight stronger"
+   ],
+   "answer": 0,
+   "explain": "Meeting expectations reduces financing risk.",
+   "lesson": "solar_pv-08",
+   "evidence": "More accurate energy yield models can also affect the cost of the system by reducing the financing costs",
+   "origin": "authored"
+  },
+  {
+   "id": "e9ad3b636c",
+   "module": 2,
+   "q": "Why does maximising a PV system's annual energy yield matter?",
+   "options": [
+    "It changes the panel colour",
+    "It is required to get a permit",
+    "It has no effect",
+    "It can have a significant impact on the overall cost"
+   ],
+   "answer": 3,
+   "explain": "Design and construction choices drive yield.",
+   "lesson": "solar_pv-08",
+   "evidence": "Optimizing the design and construction of PV systems to maximize annual energy yield can have a significant impact on the overall cost.",
+   "origin": "authored"
+  },
+  {
+   "id": "3a92f4328a",
+   "module": 2,
+   "q": "Inverters are an example of which class of devices?",
+   "options": [
+    "Batteries",
+    "Transformers that raise voltage only",
+    "Power electronics that regulate the flow of electrical power",
+    "Solar trackers"
+   ],
+   "answer": 2,
+   "explain": "Inverters convert the DC from panels into AC for the grid and can provide grid services.",
+   "lesson": "solar_pv-09",
+   "evidence": "Inverters are just one example of a class of devices called power electronics that regulate the flow of electrical power.",
+   "origin": "authored"
+  },
+  {
+   "id": "1b055294a0",
+   "module": 2,
+   "q": "What does power frequency indicate?",
+   "options": [
+    "The price of electricity",
+    "The colour of sunlight",
+    "The health of the electrical grid",
+    "The age of the panels"
+   ],
+   "answer": 2,
+   "explain": "Frequency drops when demand outpaces supply.",
+   "lesson": "solar_pv-09",
+   "evidence": "Power frequency is an important indicator for monitoring the health of the electrical grid.",
+   "origin": "authored"
+  },
+  {
+   "id": "0097d2946a",
+   "module": 2,
+   "q": "Why do large spinning turbines resist changes in grid frequency?",
+   "options": [
+    "Because of friction alone",
+    "Because of inertia",
+    "Because of software limits",
+    "Because of solar radiation"
+   ],
+   "answer": 1,
+   "explain": "Inverter-based solar doesn't have this physical inertia.",
+   "lesson": "solar_pv-09",
+   "evidence": "they resist changes in the frequency just as all objects resist changes in their motion, a property known as inertia",
+   "origin": "authored"
+  },
+  {
+   "id": "626a3985b6",
+   "module": 2,
+   "q": "What happens when there is too much load on the grid?",
+   "options": [
+    "Energy is removed faster than it can be supplied",
+    "Prices fall to zero",
+    "Panels produce more power",
+    "The frequency rises"
+   ],
+   "answer": 0,
+   "explain": "Grid operators must balance supply and demand constantly.",
+   "lesson": "solar_pv-09",
+   "evidence": "then energy is removed from the grid faster than it can be supplied",
+   "origin": "authored"
+  },
+  {
+   "id": "ce2fd648c3",
+   "module": 3,
+   "q": "Which roof features matter when considering solar?",
+   "options": [
+    "Its colour only",
+    "The number of chimneys only",
+    "Its age in months",
+    "Its size, shape and slope"
+   ],
+   "answer": 3,
+   "explain": "Age and tree cover can also make a roof unsuitable.",
+   "lesson": "solar_pv-10",
+   "evidence": "The size, shape, and slope of your roof are also important factors to consider.",
+   "origin": "authored"
+  },
+  {
+   "id": "9af956944a",
+   "module": 3,
+   "q": "In shared (community) solar, how are costs divided?",
+   "options": [
+    "The utility pays everything",
+    "Only the first participant pays",
+    "Among all participants, who buy in at a level that fits their budget",
+    "Costs are not shared"
+   ],
+   "answer": 2,
+   "explain": "It lets renters and people with unsuitable roofs benefit.",
+   "lesson": "solar_pv-10",
+   "evidence": "Costs associated with purchasing and installing a solar energy system are divided among all of the participants",
+   "origin": "authored"
+  },
+  {
+   "id": "5a68942a03",
+   "module": 3,
+   "q": "After using an online solar calculator, what should you do?",
+   "options": [
+    "Buy panels immediately",
+    "Get a custom estimate from a solar installer",
+    "Install it yourself",
+    "Ignore the results"
+   ],
+   "answer": 1,
+   "explain": "Calculators are only a starting point.",
+   "lesson": "solar_pv-10",
+   "evidence": "make sure to work with a solar installer for a custom estimate of how much power your solar energy system is likely to generate",
+   "origin": "authored"
+  },
+  {
+   "id": "4e106d07ae",
+   "module": 3,
+   "q": "What is net metering?",
+   "options": [
+    "Compensating solar owners for the power they export to the grid",
+    "Measuring panel temperature",
+    "A fee for connecting to the grid",
+    "A ban on exporting power"
+   ],
+   "answer": 0,
+   "explain": "Your local utility can explain its net metering rules.",
+   "lesson": "solar_pv-10",
+   "evidence": "Net metering is an arrangement between solar energy system owners and utilities in which the system owners are compensated for any solar power generation that is exported to the electricity grid.",
+   "origin": "authored"
+  },
+  {
+   "id": "e56c1be923",
+   "module": 3,
+   "q": "How does the total cost of a purchased system usually compare with a loan, lease or PPA?",
+   "options": [
+    "Buying always costs more",
+    "They all cost exactly the same",
+    "Leases are always cheapest overall",
+    "Buying usually costs less in total"
+   ],
+   "answer": 3,
+   "explain": "Loans can still save money from the start if payments are below the old bill.",
+   "lesson": "solar_pv-10",
+   "evidence": "In general, a purchased solar system can be installed at a lower total cost than system installed using a solar loan, lease, or power purchase agreement (PPA).",
+   "origin": "authored"
+  },
+  {
+   "id": "6d06b53c2c",
+   "module": 3,
+   "q": "How do solar leases and power purchase agreements work?",
+   "options": [
+    "You own the system outright",
+    "The government installs it for free",
+    "A solar company owns the system on your home and you buy its electricity",
+    "You sell your roof to the company"
+   ],
+   "answer": 2,
+   "explain": "Often this means going solar with no money down.",
+   "lesson": "solar_pv-10",
+   "evidence": "Solar leases and PPAs allow consumers to host solar energy systems that are owned by solar companies and purchase back the electricity generated.",
+   "origin": "authored"
+  },
+  {
+   "id": "8a4549583c",
+   "module": 3,
+   "q": "Why might a rooftop be unsuitable for solar panels?",
+   "options": [
+    "Because it is in a cold climate",
+    "Because of its age or tree cover",
+    "Because it is painted white",
+    "Because it faces the street"
+   ],
+   "answer": 1,
+   "explain": "Panels work in all climates, but shade and old roofs are problems.",
+   "lesson": "solar_pv-10",
+   "evidence": "rooftops may not be suitable for solar systems due to age or tree cover",
+   "origin": "authored"
+  },
+  {
+   "id": "536383c856",
+   "module": 3,
+   "q": "Is concentrating solar-thermal power (CSP) suitable for homes?",
+   "options": [
+    "No — it is used mainly in very large power plants",
+    "Yes, it is the most common home system",
+    "Only for apartments",
+    "Only in winter"
+   ],
+   "answer": 0,
+   "explain": "Homes use photovoltaic panels instead.",
+   "lesson": "solar_pv-11",
+   "evidence": "It is used primarily in very large power plants and is not appropriate for residential use.",
+   "origin": "authored"
+  },
+  {
+   "id": "92e921786b",
+   "module": 3,
+   "q": "How does concentrating solar-thermal power work?",
+   "options": [
+    "Panels convert light directly into electricity",
+    "Wind turns the mirrors",
+    "Batteries store sunlight as light",
+    "Mirrors concentrate sunlight onto receivers that turn it into heat for electricity"
+   ],
+   "answer": 3,
+   "explain": "PV converts light to electricity directly; CSP goes through heat.",
+   "lesson": "solar_pv-11",
+   "evidence": "This technology uses mirrors to reflect and concentrate sunlight onto receivers that collect solar energy and convert it to heat",
+   "origin": "authored"
+  },
+  {
+   "id": "3c6afe6db1",
+   "module": 3,
+   "q": "What does end-of-life management for photovoltaics refer to?",
+   "options": [
+    "The processes that occur when solar panels and other PV components are retired from operation",
+    "Cleaning panels at the end of each day",
+    "Turning panels off at night",
+    "Insurance for damaged panels"
+   ],
+   "answer": 0,
+   "explain": "Reuse, recycling and disposal of panels, racking and inverters are part of a circular economy for solar.",
+   "lesson": "solar_pv-12",
+   "evidence": "End-of-life management for photovoltaics (PV) refers to the processes that occur when solar panels and other components of a PV system (racking, inverters, etc.) are retired from operation.",
+   "origin": "authored"
+  },
+  {
+   "id": "375e20ee09",
+   "module": 3,
+   "q": "Roughly how many PV panels are in use in the United States?",
+   "options": [
+    "A few thousand",
+    "About one million",
+    "Hundreds of millions",
+    "Fewer than a hundred"
+   ],
+   "answer": 2,
+   "explain": "Millions of installations are connected to the grid.",
+   "lesson": "solar_pv-12",
+   "evidence": "there are hundreds of millions of PV panels in use",
+   "origin": "authored"
+  },
+  {
+   "id": "d31f2866da",
+   "module": 3,
+   "q": "Are many solar systems entering the waste stream today?",
+   "options": [
+    "Most are being thrown away now",
+    "Few now, but many more will in the coming decades",
+    "None ever will",
+    "Only in Europe"
+   ],
+   "answer": 1,
+   "explain": "Planning for recycling now prepares for the future wave.",
+   "lesson": "solar_pv-12",
+   "evidence": "While few systems are entering the waste stream right now, more will reach their end of life in the next few decades.",
+   "origin": "authored"
+  },
+  {
+   "id": "0718d3c9c2",
+   "module": 4,
+   "q": "How do concentrating solar-thermal power (CSP) technologies collect energy?",
+   "options": [
+    "Mirrors reflect and concentrate sunlight onto a receiver",
+    "Solar panels convert light directly into electricity",
+    "Wind turbines spin in the sun",
+    "Batteries absorb sunlight"
+   ],
+   "answer": 0,
+   "explain": "The concentrated sunlight heats a high-temperature fluid.",
+   "lesson": "solar_pv-13",
+   "evidence": "CSP technologies use mirrors to reflect and concentrate sunlight onto a receiver.",
+   "origin": "authored"
+  },
+  {
+   "id": "3df88ccf56",
+   "module": 4,
+   "q": "How is the heat from a CSP receiver turned into electricity?",
+   "options": [
+    "It charges a phone directly",
+    "It is released into the air",
+    "It melts the mirrors",
+    "It spins a turbine or powers an engine"
+   ],
+   "answer": 3,
+   "explain": "The heat is thermal energy.",
+   "lesson": "solar_pv-13",
+   "evidence": "This heat - also known as thermal energy - can be used to spin a turbine or power an engine to generate electricity.",
+   "origin": "authored"
+  },
+  {
+   "id": "251a5d2418",
+   "module": 4,
+   "q": "What scale of project are CSP systems generally used for?",
+   "options": [
+    "Single homes only",
+    "Mobile phones",
+    "Utility-scale projects",
+    "Electric cars"
+   ],
+   "answer": 2,
+   "explain": "CSP is a large-scale technology.",
+   "lesson": "solar_pv-13",
+   "evidence": "Concentrating solar-thermal power systems are generally used for utility-scale projects.",
+   "origin": "authored"
+  },
+  {
+   "id": "3bf894433c",
+   "module": 4,
+   "q": "What is industrial heat?",
+   "options": [
+    "Heat lost from buildings",
+    "Heat used to transform materials into useful products",
+    "The temperature of a factory floor",
+    "Heat from computer servers"
+   ],
+   "answer": 1,
+   "explain": "Solar heat can replace fossil fuels for it.",
+   "lesson": "solar_pv-14",
+   "evidence": "Industrial heat refers to heat that is used to transform materials into useful products.",
+   "origin": "authored"
+  },
+  {
+   "id": "43bb18e028",
+   "module": 4,
+   "q": "How much of reported U.S. manufacturing process heat came from fossil fuels in 2014?",
+   "options": [
+    "90%",
+    "10%",
+    "50%",
+    "None"
+   ],
+   "answer": 0,
+   "explain": "That is why industry accounts for about a third of energy-related CO2 emissions.",
+   "lesson": "solar_pv-14",
+   "evidence": "In the United States, fossil fuels generated 90% of reported manufacturing process heat energy in 2014",
+   "origin": "authored"
+  },
+  {
+   "id": "229a010c93",
+   "module": 4,
+   "q": "Which industries can solar-thermal power serve?",
+   "options": [
+    "Only home water heating",
+    "Only electric vehicles",
+    "Only data centres",
+    "Petroleum refining, chemicals, iron and steel, cement, and food and beverage"
+   ],
+   "answer": 3,
+   "explain": "Together these account for 15% of U.S. CO2 emissions.",
+   "lesson": "solar_pv-14",
+   "evidence": "Solar-thermal power can replace fossil fuels in a wide variety of industrial applications, including petroleum refining, chemical production, iron and steel, cement, and the food and beverage industries",
+   "origin": "authored"
+  },
+  {
+   "id": "34995252d6",
+   "module": 4,
+   "q": "Which thermal energy storage technologies have been tested and implemented since 1985?",
+   "options": [
+    "Lithium-ion phone batteries",
+    "Pumped hydro only",
+    "Two-tank direct, two-tank indirect and single-tank thermocline systems",
+    "Hydrogen fuel cells only"
+   ],
+   "answer": 2,
+   "explain": "These are sensible thermal storage technologies.",
+   "lesson": "solar_pv-15",
+   "evidence": "These include the two-tank direct system, two-tank indirect system, and single-tank thermocline system.",
+   "origin": "authored"
+  },
+  {
+   "id": "7eaa346198",
+   "module": 4,
+   "q": "In a two-tank direct system, where is the solar thermal energy stored?",
+   "options": [
+    "In a separate battery",
+    "In the same fluid used to collect it",
+    "In the mirrors",
+    "In the turbine blades"
+   ],
+   "answer": 1,
+   "explain": "One tank is hot and the other is cold.",
+   "lesson": "solar_pv-15",
+   "evidence": "Two-Tank Direct System Solar thermal energy in this system is stored in the same fluid used to collect it.",
+   "origin": "authored"
+  }
+ ],
+ "minutes": 83,
  "sources": [
   {
    "id": "doe",

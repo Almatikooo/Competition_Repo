@@ -1481,6 +1481,1203 @@
    ]
   },
   {
+   "id": "data_engineer",
+   "kind": "target",
+   "family": "ai_data",
+   "title": {
+    "en": "Data Engineer",
+    "ms": "Jurutera Data",
+    "zh": "数据工程师"
+   },
+   "summary": "Builds and runs the pipelines and warehouses that deliver clean, timely data.",
+   "tags": [
+    "data",
+    "technology"
+   ],
+   "taxonomy": {
+    "onet": "15-1243.01",
+    "onet_title": "Data Warehousing Specialists"
+   },
+   "wef": "wef_role_datawarehouse",
+   "wef_dir": "growing",
+   "hn": "data engineer|etl developer|data platform engineer",
+   "skills": [
+    {
+     "id": "data_engineering",
+     "w": 1.0
+    },
+    {
+     "id": "sql",
+     "w": 1.0
+    },
+    {
+     "id": "python",
+     "w": 1.0
+    },
+    {
+     "id": "cloud_devops",
+     "w": 0.5
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.25
+    },
+    {
+     "id": "linux_networking",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "17.18",
+     "why": "Builds the pipelines that make data timely and reliable.",
+     "strength": "direct"
+    },
+    {
+     "target": "9.5",
+     "why": "Modern data infrastructure upgrades an organisation's technology.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "computer_vision_engineer",
+   "kind": "target",
+   "family": "ai_data",
+   "title": {
+    "en": "Computer Vision Engineer",
+    "ms": "Jurutera Penglihatan Komputer",
+    "zh": "计算机视觉工程师"
+   },
+   "summary": "Builds systems that inspect, recognise and measure things in images and video.",
+   "tags": [
+    "technology",
+    "data",
+    "hardware"
+   ],
+   "taxonomy": {
+    "onet": null,
+    "onet_title": null
+   },
+   "wef": "wef_role_ai_ml",
+   "wef_dir": "growing",
+   "hn": "computer vision|perception engineer|image processing",
+   "skills": [
+    {
+     "id": "computer_vision",
+     "w": 1.0
+    },
+    {
+     "id": "machine_learning",
+     "w": 1.0
+    },
+    {
+     "id": "python",
+     "w": 1.0
+    },
+    {
+     "id": "mlops",
+     "w": 0.5
+    },
+    {
+     "id": "statistics",
+     "w": 0.25
+    },
+    {
+     "id": "iot_embedded",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "9.5",
+     "why": "Vision systems upgrade inspection and automation in industry.",
+     "strength": "direct"
+    },
+    {
+     "target": "8.2",
+     "why": "Automated inspection raises productivity and quality.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "fintech_engineer",
+   "kind": "target",
+   "family": "digital",
+   "title": {
+    "en": "FinTech Engineer",
+    "ms": "Jurutera FinTech",
+    "zh": "金融科技工程师"
+   },
+   "summary": "Builds payment, banking and e-wallet systems that are fast, secure and compliant.",
+   "tags": [
+    "finance",
+    "technology"
+   ],
+   "taxonomy": {
+    "onet": "15-1252.00",
+    "onet_title": "Software Developers (closest)"
+   },
+   "wef": "wef_role_fintech",
+   "wef_dir": "growing",
+   "hn": "fintech|payments engineer|payment systems",
+   "skills": [
+    {
+     "id": "software_dev",
+     "w": 1.0
+    },
+    {
+     "id": "finance_domain",
+     "w": 1.0
+    },
+    {
+     "id": "cloud_devops",
+     "w": 0.5
+    },
+    {
+     "id": "cybersecurity",
+     "w": 0.5
+    },
+    {
+     "id": "compliance_risk",
+     "w": 0.5
+    },
+    {
+     "id": "sql",
+     "w": 0.5
+    },
+    {
+     "id": "python",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.10",
+     "why": "Builds payment and banking services that widen access to finance.",
+     "strength": "direct"
+    },
+    {
+     "target": "9.c",
+     "why": "Mobile finance spreads the benefits of ICT.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "compliance_analyst",
+   "kind": "target",
+   "family": "human",
+   "title": {
+    "en": "Risk & Compliance Analyst (AML/KYC)",
+    "ms": "Penganalisis Risiko & Pematuhan (AML/KYC)",
+    "zh": "风险与合规分析师（反洗钱/KYC）"
+   },
+   "summary": "Checks customers and transactions, spots financial crime and keeps the firm within the rules.",
+   "tags": [
+    "finance",
+    "security",
+    "business"
+   ],
+   "taxonomy": {
+    "onet": "13-1041.00",
+    "onet_title": "Compliance Officers"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": "compliance analyst|\\baml\\b|\\bkyc\\b|financial crime",
+   "skills": [
+    {
+     "id": "compliance_risk",
+     "w": 1.0
+    },
+    {
+     "id": "finance_domain",
+     "w": 0.5
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.5
+    },
+    {
+     "id": "analytical_thinking",
+     "w": 0.5
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    },
+    {
+     "id": "ai_governance",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "16.4",
+     "why": "Detects and reports money laundering and terrorist financing.",
+     "strength": "direct"
+    },
+    {
+     "target": "8.10",
+     "why": "Trusted financial institutions widen access to financial services.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "business_analyst",
+   "kind": "target",
+   "family": "human",
+   "title": {
+    "en": "Business Analyst",
+    "ms": "Penganalisis Perniagaan",
+    "zh": "业务分析师"
+   },
+   "summary": "Analyses how a business works and specifies changes to its processes and systems.",
+   "tags": [
+    "business",
+    "data",
+    "process improvement"
+   ],
+   "taxonomy": {
+    "onet": "13-1111.00",
+    "onet_title": "Management Analysts"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": "business analyst",
+   "skills": [
+    {
+     "id": "analytical_thinking",
+     "w": 1.0
+    },
+    {
+     "id": "data_analysis",
+     "w": 1.0
+    },
+    {
+     "id": "communication",
+     "w": 1.0
+    },
+    {
+     "id": "project_mgmt",
+     "w": 0.5
+    },
+    {
+     "id": "sql",
+     "w": 0.5
+    },
+    {
+     "id": "excel",
+     "w": 0.5
+    },
+    {
+     "id": "process_automation",
+     "w": 0.25
+    },
+    {
+     "id": "product_mgmt",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.2",
+     "why": "Finds and designs changes that raise productivity.",
+     "strength": "direct"
+    },
+    {
+     "target": "17.18",
+     "why": "Turns data into evidence for decisions.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "product_manager",
+   "kind": "target",
+   "family": "digital",
+   "title": {
+    "en": "Product Manager",
+    "ms": "Pengurus Produk",
+    "zh": "产品经理"
+   },
+   "summary": "Decides what to build next, based on user needs, evidence and business goals.",
+   "tags": [
+    "technology",
+    "business",
+    "people"
+   ],
+   "taxonomy": {
+    "onet": null,
+    "onet_title": null
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": "product manager|product owner",
+   "skills": [
+    {
+     "id": "product_mgmt",
+     "w": 1.0
+    },
+    {
+     "id": "communication",
+     "w": 1.0
+    },
+    {
+     "id": "ux_design",
+     "w": 0.5
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.5
+    },
+    {
+     "id": "leadership",
+     "w": 0.5
+    },
+    {
+     "id": "software_dev",
+     "w": 0.25
+    },
+    {
+     "id": "prompt_eng",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "9.c",
+     "why": "Good digital products widen access to services.",
+     "strength": "enabling"
+    },
+    {
+     "target": "8.2",
+     "why": "Products that solve real problems raise productivity.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "supply_chain_analyst",
+   "kind": "target",
+   "family": "human",
+   "title": {
+    "en": "Supply Chain & Logistics Analyst",
+    "ms": "Penganalisis Rantaian Bekalan & Logistik",
+    "zh": "供应链与物流分析师"
+   },
+   "summary": "Plans stock, transport and suppliers so goods arrive on time at the lowest cost.",
+   "tags": [
+    "business",
+    "data",
+    "process improvement"
+   ],
+   "taxonomy": {
+    "onet": "13-1081.02",
+    "onet_title": "Logistics Analysts"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": null,
+   "skills": [
+    {
+     "id": "supply_chain",
+     "w": 1.0
+    },
+    {
+     "id": "data_analysis",
+     "w": 1.0
+    },
+    {
+     "id": "excel",
+     "w": 1.0
+    },
+    {
+     "id": "lean_quality",
+     "w": 0.5
+    },
+    {
+     "id": "sql",
+     "w": 0.5
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    },
+    {
+     "id": "process_automation",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "12.3",
+     "why": "Cuts losses and waste along supply chains.",
+     "strength": "direct"
+    },
+    {
+     "target": "9.1",
+     "why": "Keeps trade and logistics infrastructure flowing.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "quality_engineer",
+   "kind": "target",
+   "family": "digital",
+   "title": {
+    "en": "Quality & Continuous Improvement Engineer",
+    "ms": "Jurutera Kualiti & Penambahbaikan Berterusan",
+    "zh": "质量与持续改进工程师"
+   },
+   "summary": "Improves production so products come out right first time, with less waste.",
+   "tags": [
+    "process improvement",
+    "hardware",
+    "data"
+   ],
+   "taxonomy": {
+    "onet": "17-2112.00",
+    "onet_title": "Industrial Engineers"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": null,
+   "skills": [
+    {
+     "id": "lean_quality",
+     "w": 1.0
+    },
+    {
+     "id": "statistics",
+     "w": 1.0
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.5
+    },
+    {
+     "id": "project_mgmt",
+     "w": 0.5
+    },
+    {
+     "id": "analytical_thinking",
+     "w": 0.5
+    },
+    {
+     "id": "industrial_automation",
+     "w": 0.25
+    },
+    {
+     "id": "supply_chain",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "9.4",
+     "why": "Makes production leaner: less scrap, energy and rework.",
+     "strength": "direct"
+    },
+    {
+     "target": "12.2",
+     "why": "Less waste means natural resources go further.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "automation_technician",
+   "kind": "target",
+   "family": "digital",
+   "title": {
+    "en": "Industrial Automation & Robotics Technician",
+    "ms": "Juruteknik Automasi Industri & Robotik",
+    "zh": "工业自动化与机器人技术员"
+   },
+   "summary": "Installs, programs and maintains PLCs, robots and sensors on the factory floor.",
+   "tags": [
+    "hardware",
+    "technology",
+    "process improvement"
+   ],
+   "taxonomy": {
+    "onet": "17-3024.01",
+    "onet_title": "Robotics Technicians"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": "robotics|\\bplcs?\\b|scada|mechatronic|controls engineer",
+   "skills": [
+    {
+     "id": "industrial_automation",
+     "w": 1.0
+    },
+    {
+     "id": "electrical",
+     "w": 1.0
+    },
+    {
+     "id": "iot_embedded",
+     "w": 0.5
+    },
+    {
+     "id": "analytical_thinking",
+     "w": 0.5
+    },
+    {
+     "id": "lean_quality",
+     "w": 0.25
+    },
+    {
+     "id": "python",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "9.2",
+     "why": "Keeps automated factories running and industrial jobs in the country.",
+     "strength": "direct"
+    },
+    {
+     "target": "8.8",
+     "why": "Safe interlocks and fail-safe design protect workers.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "semiconductor_engineer",
+   "kind": "target",
+   "family": "digital",
+   "title": {
+    "en": "Semiconductor Test & Process Engineer",
+    "ms": "Jurutera Ujian & Proses Semikonduktor",
+    "zh": "半导体测试与工艺工程师"
+   },
+   "summary": "Tests chips and tunes manufacturing processes to raise yield in electronics plants.",
+   "tags": [
+    "hardware",
+    "technology",
+    "data"
+   ],
+   "taxonomy": {
+    "onet": "17-2072.00",
+    "onet_title": "Electronics Engineers, Except Computer"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": "semiconductor|silicon validation|\\basic\\b|wafer",
+   "skills": [
+    {
+     "id": "electrical",
+     "w": 1.0
+    },
+    {
+     "id": "statistics",
+     "w": 1.0
+    },
+    {
+     "id": "lean_quality",
+     "w": 0.5
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.5
+    },
+    {
+     "id": "python",
+     "w": 0.5
+    },
+    {
+     "id": "industrial_automation",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "9.5",
+     "why": "Raises the technological capability of the electronics industry.",
+     "strength": "direct"
+    },
+    {
+     "target": "9.2",
+     "why": "Sustains high-skill manufacturing jobs.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "content_strategist",
+   "kind": "target",
+   "family": "digital",
+   "title": {
+    "en": "Content Strategist / Social Media Manager",
+    "ms": "Strategis Kandungan / Pengurus Media Sosial",
+    "zh": "内容策略师 / 社交媒体经理"
+   },
+   "summary": "Plans, writes and measures content across websites and social channels.",
+   "tags": [
+    "design",
+    "business",
+    "people"
+   ],
+   "taxonomy": {
+    "onet": "13-1161.01",
+    "onet_title": "Search Marketing Strategists (closest)"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": "content (strategist|marketing manager|designer)|social media manager",
+   "skills": [
+    {
+     "id": "content_writing",
+     "w": 1.0
+    },
+    {
+     "id": "digital_marketing",
+     "w": 1.0
+    },
+    {
+     "id": "creative_thinking",
+     "w": 0.5
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.5
+    },
+    {
+     "id": "prompt_eng",
+     "w": 0.5
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    },
+    {
+     "id": "graphic_design",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "16.10",
+     "why": "Clear, accurate content helps people find information they can trust.",
+     "strength": "enabling"
+    },
+    {
+     "target": "8.3",
+     "why": "Helps small businesses reach customers.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "technical_writer",
+   "kind": "target",
+   "family": "digital",
+   "title": {
+    "en": "Technical Writer",
+    "ms": "Penulis Teknikal",
+    "zh": "技术写作专员"
+   },
+   "summary": "Writes manuals, guides and documentation that help people use products.",
+   "tags": [
+    "technology",
+    "people"
+   ],
+   "taxonomy": {
+    "onet": "27-3042.00",
+    "onet_title": "Technical Writers"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": "technical writer|documentation engineer|docs engineer",
+   "skills": [
+    {
+     "id": "content_writing",
+     "w": 1.0
+    },
+    {
+     "id": "communication",
+     "w": 1.0
+    },
+    {
+     "id": "digital_literacy",
+     "w": 0.5
+    },
+    {
+     "id": "prompt_eng",
+     "w": 0.5
+    },
+    {
+     "id": "software_dev",
+     "w": 0.25
+    },
+    {
+     "id": "ux_design",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "16.10",
+     "why": "Makes complex information clear and accessible to everyone.",
+     "strength": "direct"
+    },
+    {
+     "target": "9.c",
+     "why": "Good documentation helps more people use technology.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "account_manager",
+   "kind": "target",
+   "family": "human",
+   "title": {
+    "en": "Sales Executive / Account Manager",
+    "ms": "Eksekutif Jualan / Pengurus Akaun",
+    "zh": "销售主管 / 客户经理"
+   },
+   "summary": "Finds new customers, manages key accounts and grows revenue.",
+   "tags": [
+    "business",
+    "people"
+   ],
+   "taxonomy": {
+    "onet": "41-4011.00",
+    "onet_title": "Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": "account executive|account manager|business development",
+   "skills": [
+    {
+     "id": "sales",
+     "w": 1.0
+    },
+    {
+     "id": "communication",
+     "w": 1.0
+    },
+    {
+     "id": "customer_service",
+     "w": 0.5
+    },
+    {
+     "id": "digital_marketing",
+     "w": 0.5
+    },
+    {
+     "id": "prompt_eng",
+     "w": 0.5
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.3",
+     "why": "Sales grows businesses and the jobs they create.",
+     "strength": "enabling"
+    },
+    {
+     "target": "9.3",
+     "why": "Connects suppliers with new markets.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "ecommerce_specialist",
+   "kind": "target",
+   "family": "digital",
+   "title": {
+    "en": "E-commerce Specialist",
+    "ms": "Pakar E-dagang",
+    "zh": "电商运营专员"
+   },
+   "summary": "Runs online stores and marketplaces: listings, promotions, orders and customer data.",
+   "tags": [
+    "business",
+    "design",
+    "data"
+   ],
+   "taxonomy": {
+    "onet": "13-1161.00",
+    "onet_title": "Market Research Analysts and Marketing Specialists (closest)"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": "e-?commerce",
+   "skills": [
+    {
+     "id": "digital_marketing",
+     "w": 1.0
+    },
+    {
+     "id": "sales",
+     "w": 0.5
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.5
+    },
+    {
+     "id": "customer_service",
+     "w": 0.5
+    },
+    {
+     "id": "excel",
+     "w": 0.5
+    },
+    {
+     "id": "prompt_eng",
+     "w": 0.5
+    },
+    {
+     "id": "supply_chain",
+     "w": 0.25
+    },
+    {
+     "id": "graphic_design",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "9.3",
+     "why": "Brings small sellers into online markets.",
+     "strength": "direct"
+    },
+    {
+     "target": "8.3",
+     "why": "Helps small businesses grow online.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "hr_specialist",
+   "kind": "target",
+   "family": "human",
+   "title": {
+    "en": "HR & Talent Acquisition Specialist",
+    "ms": "Pakar Sumber Manusia & Pengambilan Bakat",
+    "zh": "人力资源与人才招聘专员"
+   },
+   "summary": "Recruits, onboards and supports employees with fair, data-informed HR practices.",
+   "tags": [
+    "people",
+    "business"
+   ],
+   "taxonomy": {
+    "onet": "13-1071.00",
+    "onet_title": "Human Resources Specialists"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": "talent acquisition|people (ops|operations|partner)|hr (manager|business partner|generalist)|technical recruiter",
+   "skills": [
+    {
+     "id": "hr_people",
+     "w": 1.0
+    },
+    {
+     "id": "communication",
+     "w": 1.0
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.5
+    },
+    {
+     "id": "excel",
+     "w": 0.5
+    },
+    {
+     "id": "prompt_eng",
+     "w": 0.5
+    },
+    {
+     "id": "leadership",
+     "w": 0.25
+    },
+    {
+     "id": "ai_governance",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.5",
+     "why": "Matches people to decent, productive work.",
+     "strength": "direct"
+    },
+    {
+     "target": "5.5",
+     "why": "Fair hiring and promotion give women equal opportunities to lead.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "entrepreneur",
+   "kind": "target",
+   "family": "human",
+   "title": {
+    "en": "Small Business Owner / Entrepreneur",
+    "ms": "Pemilik Perniagaan Kecil / Usahawan",
+    "zh": "小企业主 / 创业者"
+   },
+   "summary": "Starts and runs a small business, from the first idea to hiring the first staff.",
+   "tags": [
+    "business",
+    "people"
+   ],
+   "taxonomy": {
+    "onet": "11-1021.00",
+    "onet_title": "General and Operations Managers (closest)"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": null,
+   "skills": [
+    {
+     "id": "entrepreneurship",
+     "w": 1.0
+    },
+    {
+     "id": "sales",
+     "w": 0.5
+    },
+    {
+     "id": "digital_marketing",
+     "w": 0.5
+    },
+    {
+     "id": "finance_domain",
+     "w": 0.5
+    },
+    {
+     "id": "project_mgmt",
+     "w": 0.5
+    },
+    {
+     "id": "prompt_eng",
+     "w": 0.5
+    },
+    {
+     "id": "bookkeeping",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.3",
+     "why": "Starts small businesses that create decent jobs.",
+     "strength": "direct"
+    },
+    {
+     "target": "9.3",
+     "why": "Small firms join value chains and markets.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "environmental_engineer",
+   "kind": "target",
+   "family": "green",
+   "title": {
+    "en": "Environmental Engineer",
+    "ms": "Jurutera Alam Sekitar",
+    "zh": "环境工程师"
+   },
+   "summary": "Designs ways to cut pollution, treat waste and protect water, air and soil.",
+   "tags": [
+    "climate",
+    "data",
+    "process improvement"
+   ],
+   "taxonomy": {
+    "onet": "17-2081.00",
+    "onet_title": "Environmental Engineers"
+   },
+   "wef": "wef_role_renewable",
+   "wef_dir": "growing",
+   "hn": null,
+   "skills": [
+    {
+     "id": "circular_economy",
+     "w": 1.0
+    },
+    {
+     "id": "carbon_accounting",
+     "w": 0.5
+    },
+    {
+     "id": "gis",
+     "w": 0.5
+    },
+    {
+     "id": "statistics",
+     "w": 0.5
+    },
+    {
+     "id": "energy_efficiency",
+     "w": 0.5
+    },
+    {
+     "id": "project_mgmt",
+     "w": 0.5
+    },
+    {
+     "id": "esg_reporting",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "11.6",
+     "why": "Reduces pollution and improves waste management in cities.",
+     "strength": "direct"
+    },
+    {
+     "target": "12.5",
+     "why": "Designs systems that prevent, reduce and recycle waste.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "drone_technician",
+   "kind": "target",
+   "family": "green",
+   "title": {
+    "en": "Drone & Remote-Sensing Technician",
+    "ms": "Juruteknik Dron & Penderiaan Jauh",
+    "zh": "无人机与遥感技术员"
+   },
+   "summary": "Flies drones and turns aerial images into maps for farms, construction and utilities.",
+   "tags": [
+    "agriculture",
+    "hardware",
+    "data",
+    "climate"
+   ],
+   "taxonomy": {
+    "onet": "19-4099.03",
+    "onet_title": "Remote Sensing Technicians"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": null,
+   "skills": [
+    {
+     "id": "gis",
+     "w": 1.0
+    },
+    {
+     "id": "computer_vision",
+     "w": 0.5
+    },
+    {
+     "id": "precision_agri",
+     "w": 0.5
+    },
+    {
+     "id": "iot_embedded",
+     "w": 0.5
+    },
+    {
+     "id": "data_analysis",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "2.4",
+     "why": "Surveys crops so farmers use water and inputs precisely.",
+     "strength": "enabling"
+    },
+    {
+     "target": "9.1",
+     "why": "Inspects roads, bridges and power lines safely from the air.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "care_coordinator",
+   "kind": "target",
+   "family": "human",
+   "title": {
+    "en": "Community Health & Care Coordinator",
+    "ms": "Penyelaras Kesihatan Komuniti & Penjagaan",
+    "zh": "社区健康与护理协调员"
+   },
+   "summary": "Helps patients and families navigate care, follow treatment and stay healthy at home.",
+   "tags": [
+    "health",
+    "people"
+   ],
+   "taxonomy": {
+    "onet": "21-1094.00",
+    "onet_title": "Community Health Workers"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": null,
+   "skills": [
+    {
+     "id": "healthcare_basics",
+     "w": 1.0
+    },
+    {
+     "id": "communication",
+     "w": 1.0
+    },
+    {
+     "id": "customer_service",
+     "w": 0.5
+    },
+    {
+     "id": "digital_literacy",
+     "w": 0.5
+    },
+    {
+     "id": "data_entry",
+     "w": 0.25
+    },
+    {
+     "id": "teaching_training",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "3.8",
+     "why": "Connects people to the health care they need.",
+     "strength": "direct"
+    },
+    {
+     "target": "3.c",
+     "why": "Strengthens the health workforce in communities.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
    "id": "data_entry_clerk",
    "kind": "current",
    "family": "human",
@@ -1992,6 +3189,443 @@
      "target": "3.8",
      "why": "Directly delivers quality health care.",
      "strength": "direct"
+    }
+   ]
+  },
+  {
+   "id": "factory_operator",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "Production Operator",
+    "ms": "Operator Pengeluaran",
+    "zh": "生产操作员"
+   },
+   "summary": "Runs and checks production machines and assembly lines.",
+   "tags": [
+    "hardware",
+    "process improvement"
+   ],
+   "taxonomy": {
+    "onet": "51-2092.00",
+    "onet_title": "Team Assemblers"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": null,
+   "skills": [
+    {
+     "id": "lean_quality",
+     "w": 0.5
+    },
+    {
+     "id": "digital_literacy",
+     "w": 0.5
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    },
+    {
+     "id": "industrial_automation",
+     "w": 0.25
+    },
+    {
+     "id": "data_entry",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "9.2",
+     "why": "Manufacturing employs millions and is changing fast with automation.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "warehouse_clerk",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "Stock & Warehouse Clerk",
+    "ms": "Kerani Stor & Gudang",
+    "zh": "仓库与库存文员"
+   },
+   "summary": "Receives, records and dispatches stock in warehouses and stores.",
+   "tags": [
+    "business"
+   ],
+   "taxonomy": {
+    "onet": "43-5071.00",
+    "onet_title": "Shipping, Receiving, and Inventory Clerks"
+   },
+   "wef": "wef_role_stock_clerks",
+   "wef_dir": "declining",
+   "hn": null,
+   "skills": [
+    {
+     "id": "supply_chain",
+     "w": 1.0
+    },
+    {
+     "id": "data_entry",
+     "w": 0.5
+    },
+    {
+     "id": "excel",
+     "w": 0.5
+    },
+    {
+     "id": "digital_literacy",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "9.1",
+     "why": "Keeps goods moving through supply chains.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "delivery_driver",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "Delivery Rider / Driver",
+    "ms": "Penghantar / Pemandu Penghantaran",
+    "zh": "外卖骑手 / 配送司机"
+   },
+   "summary": "Delivers parcels and food to customers by motorbike, van or truck.",
+   "tags": [
+    "business",
+    "people"
+   ],
+   "taxonomy": {
+    "onet": "53-3033.00",
+    "onet_title": "Light Truck Drivers"
+   },
+   "wef": "wef_role_delivery",
+   "wef_dir": "growing",
+   "hn": null,
+   "skills": [
+    {
+     "id": "customer_service",
+     "w": 0.5
+    },
+    {
+     "id": "digital_literacy",
+     "w": 0.5
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    },
+    {
+     "id": "supply_chain",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "11.2",
+     "why": "Keeps goods moving through cities.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "telemarketer",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "Telemarketer / Telesales Agent",
+    "ms": "Telemarketer / Ejen Jualan Telefon",
+    "zh": "电话销售员"
+   },
+   "summary": "Sells products and services to customers over the phone.",
+   "tags": [
+    "business",
+    "people"
+   ],
+   "taxonomy": {
+    "onet": "41-9041.00",
+    "onet_title": "Telemarketers"
+   },
+   "wef": "wef_role_telemarketers",
+   "wef_dir": "declining",
+   "hn": null,
+   "skills": [
+    {
+     "id": "sales",
+     "w": 1.0
+    },
+    {
+     "id": "communication",
+     "w": 1.0
+    },
+    {
+     "id": "customer_service",
+     "w": 0.5
+    },
+    {
+     "id": "data_entry",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.5",
+     "why": "Many entry-level jobs today.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "receptionist",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "Receptionist / Front Desk",
+    "ms": "Penyambut Tetamu / Meja Hadapan",
+    "zh": "前台接待"
+   },
+   "summary": "Welcomes visitors, answers calls and handles bookings at hotels, clinics and offices.",
+   "tags": [
+    "people",
+    "business"
+   ],
+   "taxonomy": {
+    "onet": "43-4171.00",
+    "onet_title": "Receptionists and Information Clerks"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": null,
+   "skills": [
+    {
+     "id": "customer_service",
+     "w": 1.0
+    },
+    {
+     "id": "communication",
+     "w": 1.0
+    },
+    {
+     "id": "digital_literacy",
+     "w": 0.5
+    },
+    {
+     "id": "data_entry",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.5",
+     "why": "Many entry-level jobs today.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "copywriter",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "Copywriter / Content Writer",
+    "ms": "Penulis Iklan / Penulis Kandungan",
+    "zh": "文案 / 内容写手"
+   },
+   "summary": "Writes adverts, web pages, posts and articles.",
+   "tags": [
+    "design",
+    "business"
+   ],
+   "taxonomy": {
+    "onet": "27-3043.00",
+    "onet_title": "Writers and Authors"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": null,
+   "skills": [
+    {
+     "id": "content_writing",
+     "w": 1.0
+    },
+    {
+     "id": "creative_thinking",
+     "w": 0.5
+    },
+    {
+     "id": "digital_marketing",
+     "w": 0.5
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "16.10",
+     "why": "Clear writing helps people access information.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "translator",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "Translator / Interpreter",
+    "ms": "Penterjemah / Jurubahasa",
+    "zh": "翻译 / 口译员"
+   },
+   "summary": "Translates documents and interprets conversations between languages.",
+   "tags": [
+    "people"
+   ],
+   "taxonomy": {
+    "onet": "27-3091.00",
+    "onet_title": "Interpreters and Translators"
+   },
+   "wef": null,
+   "wef_dir": null,
+   "hn": null,
+   "skills": [
+    {
+     "id": "communication",
+     "w": 1.0
+    },
+    {
+     "id": "content_writing",
+     "w": 0.5
+    },
+    {
+     "id": "digital_literacy",
+     "w": 0.5
+    },
+    {
+     "id": "prompt_eng",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "10.2",
+     "why": "Helps people access services in their own language.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "claims_examiner",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "Insurance Claims Adjuster / Examiner",
+    "ms": "Pelaras / Pemeriksa Tuntutan Insurans",
+    "zh": "保险理赔审核员"
+   },
+   "summary": "Reviews insurance claims, checks evidence and decides what to pay.",
+   "tags": [
+    "finance",
+    "business"
+   ],
+   "taxonomy": {
+    "onet": "13-1031.00",
+    "onet_title": "Claims Adjusters, Examiners, and Investigators"
+   },
+   "wef": "wef_role_claims",
+   "wef_dir": "declining",
+   "hn": null,
+   "skills": [
+    {
+     "id": "analytical_thinking",
+     "w": 1.0
+    },
+    {
+     "id": "compliance_risk",
+     "w": 0.5
+    },
+    {
+     "id": "finance_domain",
+     "w": 0.5
+    },
+    {
+     "id": "customer_service",
+     "w": 0.5
+    },
+    {
+     "id": "data_entry",
+     "w": 0.5
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.10",
+     "why": "Insurance protects people and businesses from financial shocks.",
+     "strength": "enabling"
+    }
+   ]
+  },
+  {
+   "id": "hr_assistant",
+   "kind": "current",
+   "family": "human",
+   "title": {
+    "en": "HR / Payroll Assistant",
+    "ms": "Pembantu Sumber Manusia / Gaji",
+    "zh": "人事 / 薪资助理"
+   },
+   "summary": "Keeps employee records, runs payroll and supports hiring paperwork.",
+   "tags": [
+    "people",
+    "business"
+   ],
+   "taxonomy": {
+    "onet": "43-4161.00",
+    "onet_title": "Human Resources Assistants, Except Payroll and Timekeeping"
+   },
+   "wef": "wef_role_accounting_clerks",
+   "wef_dir": "declining",
+   "hn": null,
+   "skills": [
+    {
+     "id": "hr_people",
+     "w": 1.0
+    },
+    {
+     "id": "data_entry",
+     "w": 0.5
+    },
+    {
+     "id": "excel",
+     "w": 0.5
+    },
+    {
+     "id": "communication",
+     "w": 0.5
+    },
+    {
+     "id": "bookkeeping",
+     "w": 0.25
+    }
+   ],
+   "sdgs": [
+    {
+     "target": "8.5",
+     "why": "Supports decent, well-administered work.",
+     "strength": "enabling"
     }
    ]
   }

@@ -10,7 +10,8 @@ import pytest
 from fastapi.testclient import TestClient
 
 from app.catalog import get_catalog
-from app.learn import LEARN_DIR, PASS_RATIO, LearnError, clean_name, get_learn, issue_certificate, verify_certificate
+from app.learn import (CHAPTER_PASS, CHAPTER_QUESTIONS, FINAL_PASS, FINAL_QUESTIONS, LEARN_DIR, MIN_CHAPTER_POOL, MIN_COURSE_POOL,
+                       TEST_RULES, LearnError, clean_name, get_learn, issue_certificate, sign, verify_certificate)
 from app.main import app
 
 client = TestClient(app)
@@ -21,8 +22,21 @@ OPEN_LICENSES = {"MIT", "CC0 1.0", "CC BY 4.0", "CC BY-SA 4.0", "Open Government
                  "Public domain (U.S. Government work)", "Design Science License"}
 
 
-def key(sid):
-    return [q["answer"] for q in learn.courses[sid]["quiz"]["questions"]]
+def answers_for(sid, questions, right):
+    """Answer the first `right` questions correctly and the rest wrongly."""
+    pool = learn.questions[sid]
+    return [pool[q["id"]]["answer"] if i < right else (pool[q["id"]]["answer"] + 1) % len(q["options"]) for i, q in enumerate(questions)]
+
+
+def take(sid, body, right=None):
+    attempt = client.post(f"/api/learn/course/{sid}/test", json=body).json()
+    n = len(attempt["questions"]) if right is None else right
+    return attempt, client.post(f"/api/learn/course/{sid}/test/grade",
+                                json={"attempt": attempt["attempt"], "answers": answers_for(sid, attempt["questions"], n)}).json()
+
+
+def chapter_tokens(sid):
+    return [take(sid, {"chapter": n})[1]["token"] for n in range(1, len(learn.courses[sid]["modules"]) + 1)]
 
 
 def lesson_files():
@@ -103,13 +117,18 @@ def test_heading_ids_cannot_collide_with_the_app():
         assert len(ids) == len({i for _, i in ids}), path.name
 
 
-def test_final_tests_are_grounded_and_balanced():
+def test_question_pools_are_large_grounded_and_balanced():
+    """Every chapter can fill its test with spares for a retake, and the final test can draw a fresh mix."""
     positions = Counter()
     for sid, course in learn.courses.items():
-        questions = course["quiz"]["questions"]
-        assert 6 <= len(questions) <= 12, sid
+        pool = course["pool"]
+        per_chapter = Counter(q["module"] for q in pool)
+        assert len(pool) >= MIN_COURSE_POOL > FINAL_QUESTIONS, sid
+        assert all(per_chapter[i] >= MIN_CHAPTER_POOL > CHAPTER_QUESTIONS for i in range(len(course["modules"]))), (sid, per_chapter)
+        assert len({q["id"] for q in pool}) == len(pool), sid
         texts = {}
-        for q in questions:
+        for q in pool:
+            assert q["module"] == next(i for i, m in enumerate(course["modules"]) if q["lesson"] in m["lessons"]), (sid, q["q"])
             if q.get("origin") != "authored":
                 continue
             positions[q["answer"]] += 1
@@ -126,12 +145,13 @@ def test_final_tests_are_grounded_and_balanced():
 
 def test_course_endpoints_never_leak_answers():
     course = client.get("/api/learn/course/sql").json()
-    assert course["title"] == "Databases and SQL" and course["syllabus"] and course["sources"]
-    assert "quiz" not in course and "questions" not in json.dumps(course["syllabus"])
-    quiz = client.get("/api/learn/course/sql/quiz").json()
-    assert quiz["total"] == len(quiz["questions"]) >= 6
-    assert all(set(q) == {"q", "options", "lesson", "lesson_title"} for q in quiz["questions"])
+    assert course["title"] == "Databases and SQL" and course["syllabus"] and course["sources"] and course["tests"] == TEST_RULES
+    assert "pool" not in course and "answer" not in json.dumps(course)
+    attempt = client.post("/api/learn/course/sql/test", json={"chapter": 1}).json()
+    assert attempt["total"] == len(attempt["questions"]) == CHAPTER_QUESTIONS and attempt["pass_mark"] == CHAPTER_PASS
+    assert all(set(q) == {"id", "q", "options", "lesson", "lesson_title"} for q in attempt["questions"])
     assert client.get("/api/learn/course/nope").status_code == 404
+    assert client.post("/api/learn/course/sql/test", json={"chapter": 99}).status_code == 400
 
 
 def test_lesson_endpoint_serves_text_and_navigation():
@@ -144,36 +164,66 @@ def test_lesson_endpoint_serves_text_and_navigation():
 
 def test_courses_list_is_summarised():
     body = client.get("/api/learn/courses").json()
-    assert len(body["courses"]) == len(catalog.skills) and body["pass_ratio"] == PASS_RATIO
+    assert len(body["courses"]) == len(catalog.skills) and body["tests"] == TEST_RULES
     c = next(x for x in body["courses"] if x["skill"] == "excel")
-    assert c["lessons"] >= 10 and c["minutes"] > 60 and c["provider"] and "html" not in c
+    assert c["lessons"] >= 10 and c["minutes"] > 60 and c["provider"] and c["chapters"] == 4 and "html" not in c
 
 
-def test_grading_thresholds_and_key_reveal():
-    k = key("sql")
-    n = len(k)
-    pass_mark = learn.courses["sql"]["quiz"]["pass_mark"]
-    wrong = [(a + 1) % len(q["options"]) for a, q in zip(k, learn.courses["sql"]["quiz"]["questions"])]
-    fail = client.post("/api/learn/course/sql/grade", json={"answers": wrong}).json()
-    assert not fail["passed"] and fail["score"] == 0 and fail["review"]
-    assert all("answer" not in r for r in fail["results"]), "a failed attempt must not reveal the key"
-    just = k[:pass_mark] + wrong[pass_mark:]
-    assert client.post("/api/learn/course/sql/grade", json={"answers": just}).json()["passed"]
-    below = k[:pass_mark - 1] + wrong[pass_mark - 1:]
-    assert not client.post("/api/learn/course/sql/grade", json={"answers": below}).json()["passed"]
-    full = client.post("/api/learn/course/sql/grade", json={"answers": k}).json()
-    assert full["score"] == n and all("answer" in r for r in full["results"]) and full["review"] == []
-    assert client.post("/api/learn/course/sql/grade", json={"answers": [0, 1]}).status_code == 400
+def test_chapter_test_passes_at_four_of_five_and_hides_the_key():
+    fail_attempt, fail = take("sql", {"chapter": 2}, right=0)
+    assert not fail["passed"] and fail["score"] == 0 and fail["review"] and "token" not in fail
+    assert all("answer" not in r for r in fail["results"]), "a chapter test must not reveal the key"
+    _, just = take("sql", {"chapter": 2}, right=CHAPTER_PASS)
+    assert just["passed"] and just["score"] == 4 and just["token"] and all("answer" not in r for r in just["results"])
+    _, below = take("sql", {"chapter": 2}, right=CHAPTER_PASS - 1)
+    assert not below["passed"]
+    bad = client.post("/api/learn/course/sql/test/grade", json={"attempt": fail_attempt["attempt"], "answers": [0, 1]})
+    assert bad.status_code == 400
 
 
-def test_certificate_requires_a_pass_and_verifies():
-    k = key("excel")
-    assert client.post("/api/learn/course/excel/certificate", json={"answers": [None] * len(k), "name": "Wei Jie"}).status_code == 400
-    cert = client.post("/api/learn/course/excel/certificate", json={"answers": k, "name": "  Tan   Wei Jie "}).json()["certificate"]
-    assert cert["name"] == "Tan Wei Jie" and cert["score"] == len(k) and cert["id"].startswith("PAI-")
+def test_attempts_are_signed_and_bound_to_their_course():
+    attempt = client.post("/api/learn/course/sql/test", json={"chapter": 1}).json()
+    answers = answers_for("sql", attempt["questions"], CHAPTER_QUESTIONS)
+    payload, sig = attempt["attempt"].split(".")
+    forged = sign("attempt", {"s": "sql", "k": "chapter", "m": 0, "q": [q["id"] for q in attempt["questions"]], "t": 0}).split(".")[0]
+    assert client.post("/api/learn/course/sql/test/grade", json={"attempt": f"{forged}.{sig}", "answers": answers}).status_code == 400
+    assert client.post("/api/learn/course/excel/test/grade", json={"attempt": attempt["attempt"], "answers": answers}).status_code == 400
+    assert client.post("/api/learn/course/sql/test/grade", json={"attempt": "garbage", "answers": answers}).status_code == 400
+
+
+def test_a_retake_asks_questions_the_learner_has_not_just_seen():
+    first = client.post("/api/learn/course/sql/test", json={"chapter": 1}).json()
+    seen = {q["id"] for q in first["questions"]}
+    unseen = {q["id"] for q in learn.courses["sql"]["pool"] if q["module"] == 0} - seen
+    retake = client.post("/api/learn/course/sql/test", json={"chapter": 1, "previous": first["attempt"]}).json()
+    assert unseen and len(unseen & {q["id"] for q in retake["questions"]}) == min(len(unseen), CHAPTER_QUESTIONS)
+
+
+def test_final_test_needs_every_chapter_and_passes_at_twenty_of_twenty_five():
+    assert client.post("/api/learn/course/cybersecurity/test", json={}).status_code == 400
+    tokens = chapter_tokens("cybersecurity")
+    assert client.post("/api/learn/course/cybersecurity/test", json={"chapters": tokens[:-1]}).status_code == 400
+    assert client.post("/api/learn/course/cybersecurity/test", json={"chapters": tokens[:-1] + chapter_tokens("sql")[:1]}).status_code == 400
+    attempt, fail = take("cybersecurity", {"chapters": tokens}, right=FINAL_PASS - 1)
+    assert attempt["total"] == FINAL_QUESTIONS and attempt["pass_mark"] == FINAL_PASS
+    modules = {learn.questions["cybersecurity"][q["id"]]["module"] for q in attempt["questions"]}
+    assert modules == set(range(len(learn.courses["cybersecurity"]["modules"]))), "the final test covers every chapter"
+    assert not fail["passed"] and all("answer" not in r for r in fail["results"])
+    _, ok = take("cybersecurity", {"chapters": tokens}, right=FINAL_PASS)
+    assert ok["passed"] and ok["token"] and all("answer" in r for r in ok["results"]) and ok["review"] == []
+
+
+def test_certificate_requires_a_final_pass_and_verifies():
+    tokens = chapter_tokens("excel")
+    assert client.post("/api/learn/course/excel/certificate", json={"token": tokens[0], "name": "Wei Jie"}).status_code == 400
+    _, final = take("excel", {"chapters": tokens})
+    assert client.post("/api/learn/course/sql/certificate", json={"token": final["token"], "name": "Wei Jie"}).status_code == 400
+    cert = client.post("/api/learn/course/excel/certificate", json={"token": final["token"], "name": "  Tan   Wei Jie "}).json()["certificate"]
+    assert cert["name"] == "Tan Wei Jie" and cert["score"] == cert["total"] == FINAL_QUESTIONS and cert["id"].startswith("PAI-")
     check = client.get(f"/api/certificates/verify/{cert['token']}").json()
     assert check["valid"] and check["certificate"]["course"] == learn.courses["excel"]["title"]
     assert check["certificate"]["hours"] > 1 and check["certificate"]["providers"]
+    assert verify_certificate(tokens[0])["valid"] is False, "a chapter pass is not a certificate"
 
 
 def test_tampered_or_garbage_certificates_are_rejected():

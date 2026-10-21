@@ -1820,6 +1820,461 @@
    ],
    "practice": "Build a budget-vs-actual model for a fictional SME.",
    "short": "Finance"
+  },
+  {
+   "id": "supply_chain",
+   "category": "human",
+   "name": {
+    "en": "Supply chain & logistics",
+    "ms": "Rantaian bekalan & logistik",
+    "zh": "供应链与物流"
+   },
+   "hours": 40,
+   "prereqs": [],
+   "related": {
+    "data_analysis": 0.2,
+    "excel": 0.25,
+    "project_mgmt": 0.3
+   },
+   "aliases": [
+    "supply chain",
+    "logistics",
+    "procurement",
+    "purchasing",
+    "inventory management",
+    "inventory control",
+    "warehousing",
+    "freight",
+    "demand planning",
+    "sourcing",
+    "rantaian bekalan",
+    "logistik",
+    "供应链",
+    "物流",
+    "采购"
+   ],
+   "hn": null,
+   "wef": null,
+   "ai": {
+    "agents": -0.01,
+    "llm": 0.01
+   },
+   "sdgs": [
+    {
+     "target": "12.3",
+     "why": "Better planning and logistics cut losses and waste along supply chains."
+    },
+    {
+     "target": "9.1",
+     "why": "Logistics keeps trade and infrastructure flowing."
+    }
+   ],
+   "practice": "Map the supply chain of a product sold in your town and propose two ways to cut delays, stock or waste.",
+   "short": "Supply chain"
+  },
+  {
+   "id": "lean_quality",
+   "category": "human",
+   "name": {
+    "en": "Lean, quality & Six Sigma",
+    "ms": "Lean, kualiti & Six Sigma",
+    "zh": "精益、质量与六西格玛"
+   },
+   "hours": 40,
+   "prereqs": [],
+   "related": {
+    "statistics": 0.4,
+    "supply_chain": 0.4,
+    "project_mgmt": 0.3,
+    "analytical_thinking": 0.3,
+    "energy_efficiency": 0.2
+   },
+   "aliases": [
+    "lean manufacturing",
+    "lean six sigma",
+    "six sigma",
+    "kaizen",
+    "\\b5s\\b",
+    "quality control",
+    "statistical process control",
+    "\\bspc\\b",
+    "iso 9001",
+    "continuous improvement",
+    "total quality management",
+    "\\btqm\\b",
+    "kawalan kualiti",
+    "质量管理",
+    "精益"
+   ],
+   "hn": null,
+   "wef": null,
+   "ai": {
+    "vision": -0.01
+   },
+   "sdgs": [
+    {
+     "target": "9.4",
+     "why": "Leaner production uses less material, energy and rework."
+    },
+    {
+     "target": "12.2",
+     "why": "Cutting waste makes natural resources go further."
+    }
+   ],
+   "practice": "Run a 5S and a simple control chart on a process you know, such as order turnaround time, and report what changed.",
+   "short": "Lean & quality"
+  },
+  {
+   "id": "industrial_automation",
+   "category": "digital",
+   "name": {
+    "en": "Industrial automation & PLCs",
+    "ms": "Automasi industri & PLC",
+    "zh": "工业自动化与 PLC"
+   },
+   "hours": 80,
+   "prereqs": [
+    "electrical"
+   ],
+   "related": {
+    "electrical": 0.4,
+    "iot_embedded": 0.4,
+    "process_automation": 0.15,
+    "lean_quality": 0.2
+   },
+   "aliases": [
+    "\\bplcs?\\b",
+    "programmable logic controller",
+    "scada",
+    "ladder logic",
+    "industrial automation",
+    "industrial robot",
+    "robotics",
+    "mechatronics",
+    "\\bhmi\\b",
+    "automasi industri",
+    "工业自动化",
+    "机器人"
+   ],
+   "hn": "robotics|\\bplcs?\\b|scada|mechatronic|controls engineer",
+   "wef": null,
+   "ai": {
+    "robotics": 0.03,
+    "vision": 0.01
+   },
+   "sdgs": [
+    {
+     "target": "9.2",
+     "why": "Automation keeps manufacturing competitive and jobs in industry."
+    },
+    {
+     "target": "8.8",
+     "why": "Interlocks and fail-safe design keep workers safe around machines."
+    }
+   ],
+   "practice": "Draw the ladder logic for a conveyor that starts, stops and halts safely when a guard is opened.",
+   "short": "Automation & PLCs"
+  },
+  {
+   "id": "content_writing",
+   "category": "human",
+   "name": {
+    "en": "Content & business writing",
+    "ms": "Penulisan kandungan & perniagaan",
+    "zh": "内容与商务写作"
+   },
+   "hours": 30,
+   "prereqs": [],
+   "related": {
+    "communication": 0.5,
+    "digital_marketing": 0.3,
+    "creative_thinking": 0.2,
+    "ux_design": 0.15
+   },
+   "aliases": [
+    "copywriting",
+    "copywriter",
+    "content writing",
+    "content writer",
+    "technical writing",
+    "technical writer",
+    "proofreading",
+    "copy editing",
+    "content creation",
+    "blog writing",
+    "penulisan kandungan",
+    "文案",
+    "内容写作"
+   ],
+   "hn": "technical writ|copywrit|content (writer|strategist)",
+   "wef": null,
+   "ai": {
+    "llm": -0.04
+   },
+   "sdgs": [
+    {
+     "target": "16.10",
+     "why": "Clear, accessible information helps everyone understand their options and rights."
+    },
+    {
+     "target": "4.4",
+     "why": "Writing is a core skill for employment."
+    }
+   ],
+   "practice": "Rewrite a confusing notice, form or product page in plain language and test it with two readers.",
+   "short": "Writing"
+  },
+  {
+   "id": "sales",
+   "category": "human",
+   "name": {
+    "en": "Sales & customer relationships",
+    "ms": "Jualan & hubungan pelanggan",
+    "zh": "销售与客户关系"
+   },
+   "hours": 30,
+   "prereqs": [],
+   "related": {
+    "customer_service": 0.4,
+    "communication": 0.4,
+    "digital_marketing": 0.3
+   },
+   "aliases": [
+    "\\bsales\\b",
+    "selling",
+    "business development",
+    "account management",
+    "account executive",
+    "negotiation",
+    "lead generation",
+    "\\bcrm\\b",
+    "salesforce",
+    "telesales",
+    "jualan",
+    "销售",
+    "谈判"
+   ],
+   "hn": "account executive|business development|\\bsdr\\b|sales (engineer|manager|representative)",
+   "wef": null,
+   "ai": {
+    "llm": -0.01,
+    "agents": -0.01,
+    "speech": -0.01
+   },
+   "sdgs": [
+    {
+     "target": "8.3",
+     "why": "Sales grows small businesses and the jobs they create."
+    },
+    {
+     "target": "9.3",
+     "why": "Selling brings small producers into wider markets."
+    }
+   ],
+   "practice": "Plan and role-play a sales conversation for a product you know: qualifying questions, likely objections and the next step.",
+   "short": "Sales"
+  },
+  {
+   "id": "hr_people",
+   "category": "human",
+   "name": {
+    "en": "HR & recruitment",
+    "ms": "Sumber manusia & pengambilan",
+    "zh": "人力资源与招聘"
+   },
+   "hours": 40,
+   "prereqs": [],
+   "related": {
+    "communication": 0.4,
+    "leadership": 0.4,
+    "teaching_training": 0.2,
+    "data_analysis": 0.15
+   },
+   "aliases": [
+    "human resources",
+    "\\bhr\\b",
+    "recruitment",
+    "recruiting",
+    "recruiter",
+    "talent acquisition",
+    "onboarding",
+    "employee relations",
+    "performance management",
+    "payroll",
+    "people operations",
+    "sumber manusia",
+    "pengambilan",
+    "人力资源",
+    "招聘"
+   ],
+   "hn": "talent acquisition|people (ops|operations|partner)|technical recruiter|hr (manager|business partner|generalist)",
+   "wef": null,
+   "ai": {
+    "llm": -0.01,
+    "docai": -0.01
+   },
+   "sdgs": [
+    {
+     "target": "8.5",
+     "why": "Fair recruitment matches people to decent work."
+    },
+    {
+     "target": "5.5",
+     "why": "Fair hiring and promotion give women equal opportunities to lead."
+    }
+   ],
+   "practice": "Write a skills-based job ad and a structured interview guide for one role, then check both for bias.",
+   "short": "HR"
+  },
+  {
+   "id": "compliance_risk",
+   "category": "human",
+   "name": {
+    "en": "Risk, compliance & AML",
+    "ms": "Risiko, pematuhan & AML",
+    "zh": "风险、合规与反洗钱"
+   },
+   "hours": 40,
+   "prereqs": [],
+   "related": {
+    "finance_domain": 0.4,
+    "ai_governance": 0.3,
+    "analytical_thinking": 0.3,
+    "cybersecurity": 0.15
+   },
+   "aliases": [
+    "compliance",
+    "risk management",
+    "anti-money laundering",
+    "\\baml\\b",
+    "\\bkyc\\b",
+    "know your customer",
+    "regulatory",
+    "fraud prevention",
+    "internal control",
+    "due diligence",
+    "pematuhan",
+    "合规",
+    "反洗钱",
+    "风险管理"
+   ],
+   "hn": "compliance|\\baml\\b|\\bkyc\\b|financial crime|risk management",
+   "wef": null,
+   "ai": {
+    "llm": 0.01,
+    "docai": -0.01
+   },
+   "sdgs": [
+    {
+     "target": "16.4",
+     "why": "Anti-money-laundering work cuts illicit financial flows."
+    },
+    {
+     "target": "16.5",
+     "why": "Compliance programmes reduce corruption and bribery."
+    }
+   ],
+   "practice": "Draft a one-page customer due-diligence checklist for a fictional e-wallet and test it on three synthetic customers.",
+   "short": "Compliance"
+  },
+  {
+   "id": "product_mgmt",
+   "category": "digital",
+   "name": {
+    "en": "Product management",
+    "ms": "Pengurusan produk",
+    "zh": "产品管理"
+   },
+   "hours": 40,
+   "prereqs": [],
+   "related": {
+    "project_mgmt": 0.4,
+    "ux_design": 0.4,
+    "data_analysis": 0.25,
+    "communication": 0.3
+   },
+   "aliases": [
+    "product management",
+    "product manager",
+    "product owner",
+    "product roadmap",
+    "user stories",
+    "product discovery",
+    "go-to-market",
+    "pengurusan produk",
+    "产品管理",
+    "产品经理"
+   ],
+   "hn": "product manager|product owner|product management",
+   "wef": null,
+   "ai": {
+    "llm": 0.01,
+    "agents": 0.01
+   },
+   "sdgs": [
+    {
+     "target": "9.c",
+     "why": "Good digital products widen access to services."
+    },
+    {
+     "target": "8.2",
+     "why": "Products that solve real problems raise productivity."
+    }
+   ],
+   "practice": "Write a one-page product brief for a local problem: users, evidence, success metric and the first experiment.",
+   "short": "Product mgmt"
+  },
+  {
+   "id": "entrepreneurship",
+   "category": "human",
+   "name": {
+    "en": "Entrepreneurship & small business",
+    "ms": "Keusahawanan & perniagaan kecil",
+    "zh": "创业与小企业"
+   },
+   "hours": 40,
+   "prereqs": [],
+   "related": {
+    "sales": 0.3,
+    "digital_marketing": 0.3,
+    "finance_domain": 0.3,
+    "project_mgmt": 0.2,
+    "creative_thinking": 0.3,
+    "bookkeeping": 0.2
+   },
+   "aliases": [
+    "entrepreneur",
+    "entrepreneurship",
+    "startup",
+    "start-up",
+    "founder",
+    "co-founder",
+    "small business",
+    "business plan",
+    "\\bsme\\b",
+    "usahawan",
+    "keusahawanan",
+    "创业",
+    "创业者"
+   ],
+   "hn": null,
+   "wef": null,
+   "ai": {
+    "llm": 0.01,
+    "agents": 0.01
+   },
+   "sdgs": [
+    {
+     "target": "8.3",
+     "why": "New small businesses create decent jobs."
+    },
+    {
+     "target": "9.3",
+     "why": "Small enterprises join value chains and markets."
+    }
+   ],
+   "practice": "Write a one-page lean canvas for a business idea and test one key assumption with five potential customers.",
+   "short": "Entrepreneurship"
   }
  ]
 }

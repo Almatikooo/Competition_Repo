@@ -1211,180 +1211,776 @@
    ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "What does project management include?",
-    "options": [
-     "Only writing the project plan",
-     "Planning, putting the plan into action, and measuring progress and performance",
-     "Only tracking the budget",
-     "Hiring the project team"
-    ],
-    "answer": 1,
-    "explain": "Planning, executing and monitoring repeat throughout the project.",
-    "lesson": "project_mgmt-02",
-    "evidence": "Project management is a process that includes planning, putting the project plan into action, and measuring progress and performance.",
-    "origin": "authored"
-   },
-   {
-    "q": "In the project life cycle, which two questions do feasibility and justification answer?",
-    "options": [
-     "Can we do the project? Should we do the project?",
-     "Who pays? Who approves?",
-     "When does it end? How long will it take?",
-     "Which tools? Which vendor?"
-    ],
-    "answer": 0,
-    "explain": "A feasibility study compares options before a project is initiated.",
-    "lesson": "project_mgmt-04",
-    "evidence": "Issues of feasibility (“can we do the project?”) and justification (“should we do the project?”) are addressed.",
-    "origin": "authored"
-   },
-   {
-    "q": "Who decides whether a project is worth undertaking and will be profitable for the organisation?",
-    "options": [
-     "The project team",
-     "The customer",
-     "The project manager",
-     "The project sponsor"
-    ],
-    "answer": 3,
-    "explain": "The sponsor owns the business case.",
-    "lesson": "project_mgmt-05",
-    "evidence": "It is up to the project sponsor to determine if the project is worth undertaking and whether the project will be profitable to the organization.",
-    "origin": "authored"
-   },
-   {
-    "q": "How is a project's return on investment (ROI) calculated?",
-    "options": [
-     "Benefits divided by the number of team members",
-     "Costs minus benefits",
-     "Benefits minus costs, divided by costs",
-     "Total costs divided by the project's duration"
-    ],
-    "answer": 2,
-    "explain": "ROI expresses the net gain relative to what was invested.",
-    "lesson": "project_mgmt-06",
-    "evidence": "This is calculated by subtracting the project’s costs from the benefits and then dividing by the costs.",
-    "origin": "authored"
-   },
-   {
-    "q": "What are project deliverables?",
-    "options": [
-     "The team's job descriptions",
-     "Tangible outcomes, measurable results or specific items that must be produced to complete the project or phase",
-     "The project's budget lines",
-     "Weekly status meetings"
-    ],
-    "answer": 1,
-    "explain": "Describe each deliverable in enough detail to tell it apart from related ones.",
-    "lesson": "project_mgmt-07",
-    "evidence": "Project deliverables are tangible outcomes, measurable results, or specific items that must be produced to consider either the project or the project phase completed.",
-    "origin": "authored"
-   },
-   {
-    "q": "How does a requirements traceability matrix help?",
-    "options": [
-     "It assigns tasks to team members",
-     "It schedules activities",
-     "It records project expenses",
-     "It links each requirement to business and project objectives so it adds business value"
-    ],
-    "answer": 3,
-    "explain": "It also tracks requirements through the life cycle so approved ones are delivered.",
-    "lesson": "project_mgmt-08",
-    "evidence": "The implementation of a requirements traceability matrix helps ensure that each requirement adds business value by linking it to the business and project objectives.",
-    "origin": "authored"
-   },
-   {
-    "q": "Why is a dependency called 'finish-to-start'?",
-    "options": [
-     "Because the first activity's finish leads into the second activity's start",
-     "Because both activities finish together",
-     "Because the project starts when it finishes",
-     "Because the second task must finish first"
-    ],
-    "answer": 0,
-    "explain": "It is the most common dependency type in network diagrams.",
-    "lesson": "project_mgmt-09",
-    "evidence": "It’s called finish-to-start because the first activity’s finish leads into the second activity’s start",
-    "origin": "authored"
-   },
-   {
-    "q": "In earned value management, what is the planned value (PV)?",
-    "options": [
-     "The money spent so far",
-     "The value of the work actually completed",
-     "The amount of work that should have been done by a particular date",
-     "The budget left at the end"
-    ],
-    "answer": 2,
-    "explain": "Comparing PV, earned value and actual cost shows schedule and cost performance.",
-    "lesson": "project_mgmt-12",
-    "evidence": "The amount of work that should have been done by a particular date is the planned value (PV)",
-    "origin": "authored"
-   },
-   {
-    "q": "When is accepting a risk your only choice?",
-    "options": [
-     "When the risk is very likely",
-     "When you can't avoid it and nothing can reduce its impact",
-     "When the sponsor is absent",
-     "Whenever the risk is external"
-    ],
-    "answer": 1,
-    "explain": "Other responses are to avoid, mitigate or transfer the risk.",
-    "lesson": "project_mgmt-13",
-    "evidence": "If you can’t avoid the risk, and there’s nothing you can do to reduce its impact, then accepting it is your only choice.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is Kanban?",
-    "options": [
-     "A fixed two-week sprint",
-     "A Japanese contract type",
-     "A budgeting technique",
-     "A way of visualising and improving current working practices so work flows quickly"
-    ],
-    "answer": 3,
-    "explain": "Smooth flow delivers value quickly and gets early feedback.",
-    "lesson": "project_mgmt-15",
-    "evidence": "Kanban is a way of visualising and improving your current working practices so that work flows through a system quickly.",
-    "origin": "authored"
-   },
-   {
-    "q": "How does the Scrum Guide define Scrum?",
-    "options": [
-     "A lightweight framework that helps people, teams and organisations generate value through adaptive solutions for complex problems",
-     "A detailed method that prescribes every task",
-     "A tool for estimating budgets",
-     "A type of project contract"
-    ],
-    "answer": 0,
-    "explain": "Scrum is deliberately incomplete, defining only what is required.",
-    "lesson": "project_mgmt-17",
-    "evidence": "Scrum is a lightweight framework that helps people, teams and organizations generate value through adaptive solutions for complex problems.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the most important part of a user story?",
-    "options": [
-     "The actor",
-     "The estimate",
-     "The goal",
-     "The ticket number"
-    ],
-    "answer": 2,
-    "explain": "Stories briefly explain the actor, the narrative and — most importantly — the goal.",
-    "lesson": "project_mgmt-19",
-    "evidence": "The most important part of a user story is the goal.",
-    "origin": "authored"
-   }
-  ],
-  "pass_mark": 9,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "db009e5752",
+   "module": 0,
+   "q": "How does the purpose of operations differ from the purpose of a project?",
+   "options": [
+    "Operations keep the organisation running; a project meets its goals and ends",
+    "They have the same purpose",
+    "Projects never end; operations do",
+    "Operations are always temporary"
+   ],
+   "answer": 0,
+   "explain": "Projects are temporary and unique; operations are ongoing and repetitive.",
+   "lesson": "project_mgmt-01",
+   "evidence": "The purpose of operations is to keep the organization functioning while the purpose of a project is to meet its goals and conclude.",
+   "origin": "authored"
+  },
+  {
+   "id": "337a0d061c",
+   "module": 0,
+   "q": "Is assembling cars on a production line a project?",
+   "options": [
+    "Yes, every car is a project",
+    "Only for new models",
+    "Only if it takes more than a year",
+    "No — it is an operation, a repetitive process"
+   ],
+   "answer": 3,
+   "explain": "Designing a new car model, by contrast, would be a project.",
+   "lesson": "project_mgmt-01",
+   "evidence": "the actual assembly of the cars is considered an operation (i.e., a repetitive process that is followed for most makes and models)",
+   "origin": "authored"
+  },
+  {
+   "id": "7f4d69d458",
+   "module": 0,
+   "q": "What does project management include?",
+   "options": [
+    "Only writing the project plan",
+    "Planning, putting the plan into action, and measuring progress and performance",
+    "Only tracking the budget",
+    "Hiring the project team"
+   ],
+   "answer": 1,
+   "explain": "Planning, executing and monitoring repeat throughout the project.",
+   "lesson": "project_mgmt-02",
+   "evidence": "Project management is a process that includes planning, putting the project plan into action, and measuring progress and performance.",
+   "origin": "authored"
+  },
+  {
+   "id": "4a13f516dd",
+   "module": 0,
+   "q": "Which project environment factors are most often misunderstood or ignored?",
+   "options": [
+    "Physical factors",
+    "Budget factors",
+    "Cultural and international factors",
+    "Office furniture"
+   ],
+   "answer": 2,
+   "explain": "Physical factors are the easiest to understand.",
+   "lesson": "project_mgmt-03",
+   "evidence": "it is the cultural and international factors that are often misunderstood or ignored",
+   "origin": "authored"
+  },
+  {
+   "id": "6d3e063b84",
+   "module": 0,
+   "q": "What must project staff know about their work?",
+   "options": [
+    "Only the project's name",
+    "What is expected, when, and the budget, time and quality constraints",
+    "Only the deadline",
+    "Nothing until the end"
+   ],
+   "answer": 1,
+   "explain": "Clear expectations prevent wasted effort.",
+   "lesson": "project_mgmt-03",
+   "evidence": "It is essential that your project staff know what is expected of them",
+   "origin": "authored"
+  },
+  {
+   "id": "f97e73ba81",
+   "module": 0,
+   "q": "In the project life cycle, which two questions do feasibility and justification answer?",
+   "options": [
+    "Can we do the project? Should we do the project?",
+    "Who pays? Who approves?",
+    "When does it end? How long will it take?",
+    "Which tools? Which vendor?"
+   ],
+   "answer": 0,
+   "explain": "A feasibility study compares options before a project is initiated.",
+   "lesson": "project_mgmt-04",
+   "evidence": "Issues of feasibility (“can we do the project?”) and justification (“should we do the project?”) are addressed.",
+   "origin": "authored"
+  },
+  {
+   "id": "4b864cad08",
+   "module": 0,
+   "q": "Who decides whether a project is worth undertaking and will be profitable for the organisation?",
+   "options": [
+    "The project team",
+    "The customer",
+    "The project manager",
+    "The project sponsor"
+   ],
+   "answer": 3,
+   "explain": "The sponsor owns the business case.",
+   "lesson": "project_mgmt-05",
+   "evidence": "It is up to the project sponsor to determine if the project is worth undertaking and whether the project will be profitable to the organization.",
+   "origin": "authored"
+  },
+  {
+   "id": "d85e31e001",
+   "module": 0,
+   "q": "What happens in the project initiation phase?",
+   "options": [
+    "The problem is identified, a solution defined, a project formed and a team appointed",
+    "The project is closed and archived",
+    "The final product is delivered",
+    "Lessons learned are recorded"
+   ],
+   "answer": 0,
+   "explain": "Initiation is the first phase of the project life cycle.",
+   "lesson": "project_mgmt-05",
+   "evidence": "Within the initiation phase, the business problem or opportunity is identified, a solution is defined, a project is formed, and a project team is appointed",
+   "origin": "authored"
+  },
+  {
+   "id": "1c1c640779",
+   "module": 0,
+   "q": "Who should set project objectives so they are achievable and realistic?",
+   "options": [
+    "The sponsor alone",
+    "An external consultant",
+    "The newest team member",
+    "Managers jointly with the people who do the work"
+   ],
+   "answer": 3,
+   "explain": "Those doing the work know what is realistic.",
+   "lesson": "project_mgmt-05",
+   "evidence": "they must be determined jointly by managers and those who perform the work",
+   "origin": "authored"
+  },
+  {
+   "id": "80787addb0",
+   "module": 0,
+   "q": "How is a project's return on investment (ROI) calculated?",
+   "options": [
+    "Benefits divided by the number of team members",
+    "Costs minus benefits",
+    "Benefits minus costs, divided by costs",
+    "Total costs divided by the project's duration"
+   ],
+   "answer": 2,
+   "explain": "ROI expresses the net gain relative to what was invested.",
+   "lesson": "project_mgmt-06",
+   "evidence": "This is calculated by subtracting the project’s costs from the benefits and then dividing by the costs.",
+   "origin": "authored"
+  },
+  {
+   "id": "3be138c161",
+   "module": 1,
+   "q": "What are project deliverables?",
+   "options": [
+    "The team's job descriptions",
+    "Tangible outcomes, measurable results or specific items that must be produced to complete the project or phase",
+    "The project's budget lines",
+    "Weekly status meetings"
+   ],
+   "answer": 1,
+   "explain": "Describe each deliverable in enough detail to tell it apart from related ones.",
+   "lesson": "project_mgmt-07",
+   "evidence": "Project deliverables are tangible outcomes, measurable results, or specific items that must be produced to consider either the project or the project phase completed.",
+   "origin": "authored"
+  },
+  {
+   "id": "017bc8da7e",
+   "module": 1,
+   "q": "How detailed must project deliverables be described?",
+   "options": [
+    "In a single word",
+    "Not at all until delivery",
+    "Enough to tell them apart from related deliverables",
+    "Only by their price"
+   ],
+   "answer": 2,
+   "explain": "Clear descriptions avoid disputes about what was promised.",
+   "lesson": "project_mgmt-07",
+   "evidence": "All deliverables must be described in a sufficient level of detail so that they can be differentiated from related deliverables.",
+   "origin": "authored"
+  },
+  {
+   "id": "c1089102fb",
+   "module": 1,
+   "q": "What do a project's requirements describe?",
+   "options": [
+    "Only the budget",
+    "What the project should accomplish and how it should be created and implemented",
+    "Only the team's names",
+    "Only the end date"
+   ],
+   "answer": 1,
+   "explain": "Requirements are defined in the scope plan.",
+   "lesson": "project_mgmt-07",
+   "evidence": "describe what a project is supposed to accomplish and how the project is supposed to be created and implemented",
+   "origin": "authored"
+  },
+  {
+   "id": "482c677102",
+   "module": 1,
+   "q": "How does a requirements traceability matrix help?",
+   "options": [
+    "It assigns tasks to team members",
+    "It schedules activities",
+    "It records project expenses",
+    "It links each requirement to business and project objectives so it adds business value"
+   ],
+   "answer": 3,
+   "explain": "It also tracks requirements through the life cycle so approved ones are delivered.",
+   "lesson": "project_mgmt-08",
+   "evidence": "The implementation of a requirements traceability matrix helps ensure that each requirement adds business value by linking it to the business and project objectives.",
+   "origin": "authored"
+  },
+  {
+   "id": "da921384d3",
+   "module": 1,
+   "q": "Why is a dependency called 'finish-to-start'?",
+   "options": [
+    "Because the first activity's finish leads into the second activity's start",
+    "Because both activities finish together",
+    "Because the project starts when it finishes",
+    "Because the second task must finish first"
+   ],
+   "answer": 0,
+   "explain": "It is the most common dependency type in network diagrams.",
+   "lesson": "project_mgmt-09",
+   "evidence": "It’s called finish-to-start because the first activity’s finish leads into the second activity’s start",
+   "origin": "authored"
+  },
+  {
+   "id": "f2266f4624",
+   "module": 1,
+   "q": "Why are Gantt charts commonly used?",
+   "options": [
+    "They are easy to read and show schedule activities",
+    "They calculate the budget automatically",
+    "They replace the project plan",
+    "They are required by law"
+   ],
+   "answer": 0,
+   "explain": "Bars show each activity's start, end and duration.",
+   "lesson": "project_mgmt-09",
+   "evidence": "Gantt charts are easy to read and are commonly used to display schedule activities.",
+   "origin": "authored"
+  },
+  {
+   "id": "e4ae74ad51",
+   "module": 1,
+   "q": "Managing a project in an unfamiliar field, how can you define its tasks?",
+   "options": [
+    "Guess from past projects in other fields",
+    "Skip task definition",
+    "Let the client define everything",
+    "Bring in experts in that field to help"
+   ],
+   "answer": 3,
+   "explain": "Experts help you understand what activities are involved.",
+   "lesson": "project_mgmt-09",
+   "evidence": "you might also use experts in that particular field to help define tasks",
+   "origin": "authored"
+  },
+  {
+   "id": "34600eedf8",
+   "module": 1,
+   "q": "Which tasks must be included in a network diagram?",
+   "options": [
+    "Only the longest tasks",
+    "Only the first and last tasks",
+    "All the tasks in the work breakdown structure",
+    "Only tasks with costs"
+   ],
+   "answer": 2,
+   "explain": "Every WBS task has to be accounted for in the schedule.",
+   "lesson": "project_mgmt-10",
+   "evidence": "All of the WBS tasks must be included in the network because they have to be accounted for in the schedule.",
+   "origin": "authored"
+  },
+  {
+   "id": "b07acd6ada",
+   "module": 1,
+   "q": "What is a limitation of the activity-on-arrow (AOA) method?",
+   "options": [
+    "It cannot show any tasks",
+    "It can only show finish-to-start relationships",
+    "It needs no dependencies",
+    "It only works for one-day projects"
+   ],
+   "answer": 1,
+   "explain": "Activity-on-node diagrams are more flexible.",
+   "lesson": "project_mgmt-10",
+   "evidence": "The AOA network can only show finish-to-start relationships.",
+   "origin": "authored"
+  },
+  {
+   "id": "4ca9a3b5ca",
+   "module": 1,
+   "q": "Do dummy activities in a network diagram have durations?",
+   "options": [
+    "No",
+    "Yes, always one day",
+    "Yes, the longest duration",
+    "Only on the critical path"
+   ],
+   "answer": 0,
+   "explain": "They only show dependencies between tasks.",
+   "lesson": "project_mgmt-10",
+   "evidence": "Dummy activities do not have durations associated with them.",
+   "origin": "authored"
+  },
+  {
+   "id": "695ab23506",
+   "module": 1,
+   "q": "What is a parametric estimate?",
+   "options": [
+    "Asking the team to vote",
+    "Copying a competitor's price",
+    "Doubling last year's budget",
+    "Using average costs per unit for activities common to many projects"
+   ],
+   "answer": 3,
+   "explain": "For example, estimating truck size from the number of bedrooms in a move.",
+   "lesson": "project_mgmt-11",
+   "evidence": "If the project consists of activities that are common to many other projects, average costs are available per unit.",
+   "origin": "authored"
+  },
+  {
+   "id": "f75d6b6a23",
+   "module": 1,
+   "q": "How much time and resources should go into making estimates?",
+   "options": [
+    "As much as possible",
+    "None — estimates are guesses",
+    "An amount appropriate to the project's size and complexity",
+    "Exactly one week"
+   ],
+   "answer": 2,
+   "explain": "Estimates must be accurate enough to be meaningful, but not cost more than they're worth.",
+   "lesson": "project_mgmt-11",
+   "evidence": "the amount of time and resources used to make the estimates should be appropriate to the size and complexity of the project",
+   "origin": "authored"
+  },
+  {
+   "id": "d053edafab",
+   "module": 1,
+   "q": "In earned value management, what is the planned value (PV)?",
+   "options": [
+    "The money spent so far",
+    "The value of the work actually completed",
+    "The amount of work that should have been done by a particular date",
+    "The budget left at the end"
+   ],
+   "answer": 2,
+   "explain": "Comparing PV, earned value and actual cost shows schedule and cost performance.",
+   "lesson": "project_mgmt-12",
+   "evidence": "The amount of work that should have been done by a particular date is the planned value (PV)",
+   "origin": "authored"
+  },
+  {
+   "id": "23a4a80ef6",
+   "module": 1,
+   "q": "For which projects is earned value management (EVM) widely used?",
+   "options": [
+    "Only tiny personal projects",
+    "Medium- and high-complexity projects",
+    "Only projects without budgets",
+    "Only software projects"
+   ],
+   "answer": 1,
+   "explain": "EVM compares planned value, earned value and actual cost.",
+   "lesson": "project_mgmt-12",
+   "evidence": "A method that is widely used for medium- and high-complexity projects is the earned value management (EVM) method.",
+   "origin": "authored"
+  },
+  {
+   "id": "6b65dd2a6d",
+   "module": 1,
+   "q": "When is accepting a risk your only choice?",
+   "options": [
+    "When the risk is very likely",
+    "When you can't avoid it and nothing can reduce its impact",
+    "When the sponsor is absent",
+    "Whenever the risk is external"
+   ],
+   "answer": 1,
+   "explain": "Other responses are to avoid, mitigate or transfer the risk.",
+   "lesson": "project_mgmt-13",
+   "evidence": "If you can’t avoid the risk, and there’s nothing you can do to reduce its impact, then accepting it is your only choice.",
+   "origin": "authored"
+  },
+  {
+   "id": "6a2e7dee53",
+   "module": 1,
+   "q": "What is a common risk avoidance technique?",
+   "options": [
+    "Using proven, existing technologies instead of new ones",
+    "Adopting the newest untested tools",
+    "Ignoring risks",
+    "Doubling the team size"
+   ],
+   "answer": 0,
+   "explain": "New techniques may promise more but carry more risk.",
+   "lesson": "project_mgmt-14",
+   "evidence": "A common risk avoidance technique is to use proven and existing technologies rather than adopt new techniques",
+   "origin": "authored"
+  },
+  {
+   "id": "2c5e01298d",
+   "module": 1,
+   "q": "How is contingency typically managed in a project budget?",
+   "options": [
+    "Hidden in every task",
+    "Not included at all",
+    "Paid by the client separately",
+    "As one line item"
+   ],
+   "answer": 3,
+   "explain": "Its size depends on the risks identified.",
+   "lesson": "project_mgmt-14",
+   "evidence": "contingency is typically managed as one line item in the project budget",
+   "origin": "authored"
+  },
+  {
+   "id": "d95243a578",
+   "module": 1,
+   "q": "Which events are outside the project team's control?",
+   "options": [
+    "Task scheduling",
+    "Team meetings",
+    "Weather, political unrest and labour strikes",
+    "Choice of tools"
+   ],
+   "answer": 2,
+   "explain": "Such risks may only be accepted or mitigated, not avoided.",
+   "lesson": "project_mgmt-14",
+   "evidence": "Weather, political unrest, and labour strikes are examples of events that can significantly impact the project and that are outside the control of the project team.",
+   "origin": "authored"
+  },
+  {
+   "id": "dc15b83d45",
+   "module": 2,
+   "q": "What is Kanban?",
+   "options": [
+    "A fixed two-week sprint",
+    "A Japanese contract type",
+    "A budgeting technique",
+    "A way of visualising and improving current working practices so work flows quickly"
+   ],
+   "answer": 3,
+   "explain": "Smooth flow delivers value quickly and gets early feedback.",
+   "lesson": "project_mgmt-15",
+   "evidence": "Kanban is a way of visualising and improving your current working practices so that work flows through a system quickly.",
+   "origin": "authored"
+  },
+  {
+   "id": "109e3e4cbc",
+   "module": 2,
+   "q": "Whose needs must agile teams prioritise, even above senior stakeholders'?",
+   "options": [
+    "The developers' preferences",
+    "Users' needs",
+    "The finance team's needs",
+    "Suppliers' needs"
+   ],
+   "answer": 1,
+   "explain": "Agile is about constantly putting users first.",
+   "lesson": "project_mgmt-16",
+   "evidence": "including those of your senior stakeholders",
+   "origin": "authored"
+  },
+  {
+   "id": "02b5653321",
+   "module": 2,
+   "q": "After building something that meets the most important user need, what should you do?",
+   "options": [
+    "Show it to users, listen to their feedback and improve it",
+    "Launch it and never change it",
+    "Build every other feature first",
+    "Wait for a year"
+   ],
+   "answer": 0,
+   "explain": "Then repeat for the next most important need.",
+   "lesson": "project_mgmt-16",
+   "evidence": "Show it to your users, listen to their feedback and improve it.",
+   "origin": "authored"
+  },
+  {
+   "id": "66144f2086",
+   "module": 2,
+   "q": "Which of these is one of the core principles of agile delivery?",
+   "options": [
+    "Plan everything once at the start",
+    "Avoid user feedback",
+    "Deliver everything at the end",
+    "Fail fast and learn quickly"
+   ],
+   "answer": 3,
+   "explain": "Others include focusing on user needs and delivering iteratively.",
+   "lesson": "project_mgmt-16",
+   "evidence": "fail fast and learn quickly",
+   "origin": "authored"
+  },
+  {
+   "id": "a3661752a3",
+   "module": 2,
+   "q": "How does the Scrum Guide define Scrum?",
+   "options": [
+    "A lightweight framework that helps people, teams and organisations generate value through adaptive solutions for complex problems",
+    "A detailed method that prescribes every task",
+    "A tool for estimating budgets",
+    "A type of project contract"
+   ],
+   "answer": 0,
+   "explain": "Scrum is deliberately incomplete, defining only what is required.",
+   "lesson": "project_mgmt-17",
+   "evidence": "Scrum is a lightweight framework that helps people, teams and organizations generate value through adaptive solutions for complex problems.",
+   "origin": "authored"
+  },
+  {
+   "id": "fc2648614e",
+   "module": 2,
+   "q": "How long is the Sprint Review timeboxed for a one-month Sprint?",
+   "options": [
+    "Fifteen minutes",
+    "Eight hours",
+    "A maximum of four hours",
+    "One full day"
+   ],
+   "answer": 2,
+   "explain": "Shorter Sprints have shorter reviews.",
+   "lesson": "project_mgmt-18",
+   "evidence": "is timeboxed to a maximum of four hours for a one-month Sprint",
+   "origin": "authored"
+  },
+  {
+   "id": "204670a4b7",
+   "module": 2,
+   "q": "Should a Sprint Review be just a presentation?",
+   "options": [
+    "Yes, a formal slide show",
+    "No — it is a working session",
+    "Yes, by the Product Owner only",
+    "It is optional"
+   ],
+   "answer": 1,
+   "explain": "Stakeholders and the team discuss progress toward the Product Goal.",
+   "lesson": "project_mgmt-18",
+   "evidence": "The Sprint Review is a working session and the Scrum Team should avoid limiting it to a presentation.",
+   "origin": "authored"
+  },
+  {
+   "id": "c3445c9cb2",
+   "module": 2,
+   "q": "What is the most important part of a user story?",
+   "options": [
+    "The actor",
+    "The estimate",
+    "The goal",
+    "The ticket number"
+   ],
+   "answer": 2,
+   "explain": "Stories briefly explain the actor, the narrative and — most importantly — the goal.",
+   "lesson": "project_mgmt-19",
+   "evidence": "The most important part of a user story is the goal.",
+   "origin": "authored"
+  },
+  {
+   "id": "5ce2e25a22",
+   "module": 2,
+   "q": "How often should prioritisation decisions be made?",
+   "options": [
+    "Regularly — e.g. weekly for the sprint backlog and quarterly for the roadmap",
+    "Once at the start of the project",
+    "Only when something goes wrong",
+    "Every five years"
+   ],
+   "answer": 0,
+   "explain": "Priorities change as you learn more.",
+   "lesson": "project_mgmt-20",
+   "evidence": "weekly to prioritise the sprint backlog, or quarterly to organise the service roadmap",
+   "origin": "authored"
+  },
+  {
+   "id": "1ff954b496",
+   "module": 2,
+   "q": "What should prioritisation decisions be based on?",
+   "options": [
+    "The loudest opinion in the room",
+    "Whatever is easiest",
+    "Random selection",
+    "Performance analysis, user research and stakeholder input"
+   ],
+   "answer": 3,
+   "explain": "Use a clear prioritisation method and involve the team.",
+   "lesson": "project_mgmt-20",
+   "evidence": "They should be based on performance analysis, user research and input from stakeholders.",
+   "origin": "authored"
+  },
+  {
+   "id": "71c48cde5e",
+   "module": 2,
+   "q": "What is a roadmap?",
+   "options": [
+    "A map of the office",
+    "A list of bugs",
+    "A plan showing how a product or service is likely to develop over time",
+    "A budget spreadsheet"
+   ],
+   "answer": 2,
+   "explain": "It makes clear the goal and the steps toward it.",
+   "lesson": "project_mgmt-21",
+   "evidence": "A roadmap is a plan that shows how a product or service is likely to develop over time.",
+   "origin": "authored"
+  },
+  {
+   "id": "5063bd8401",
+   "module": 2,
+   "q": "Who usually leads creating and updating a roadmap?",
+   "options": [
+    "An external auditor",
+    "The product manager, working collaboratively",
+    "The newest developer alone",
+    "The finance director"
+   ],
+   "answer": 1,
+   "explain": "The team and stakeholders should be involved too.",
+   "lesson": "project_mgmt-21",
+   "evidence": "Creating and iterating a roadmap is something you do collaboratively, usually led by your product manager.",
+   "origin": "authored"
+  },
+  {
+   "id": "d32b6a3b52",
+   "module": 3,
+   "q": "Who should be able to see your agile planning?",
+   "options": [
+    "Anyone in your organisation, through online tools",
+    "Only the project manager",
+    "Only senior leaders",
+    "Nobody outside the team"
+   ],
+   "answer": 0,
+   "explain": "Openness builds shared understanding.",
+   "lesson": "project_mgmt-22",
+   "evidence": "You should also allow anyone in your organisation to see any planning you do using online tools.",
+   "origin": "authored"
+  },
+  {
+   "id": "76b3115c35",
+   "module": 3,
+   "q": "If you have a fixed deadline, how should you focus roadmap planning?",
+   "options": [
+    "On everything you would like to build",
+    "On features for next year",
+    "On the cheapest work",
+    "On what you can achieve within that deadline"
+   ],
+   "answer": 3,
+   "explain": "Fixed deadlines, such as ministerial ones, constrain scope.",
+   "lesson": "project_mgmt-22",
+   "evidence": "you should focus your roadmap planning around what you can achieve within that deadline",
+   "origin": "authored"
+  },
+  {
+   "id": "598d6c5afa",
+   "module": 3,
+   "q": "Besides defining objectives, what should a team have?",
+   "options": [
+    "A trophy for each objective",
+    "A rule never to change objectives",
+    "A system for checking when objectives are achieved",
+    "A separate team for each objective"
+   ],
+   "answer": 2,
+   "explain": "Measurable objectives show real progress.",
+   "lesson": "project_mgmt-22",
+   "evidence": "have a system for checking when you",
+   "origin": "authored"
+  },
+  {
+   "id": "e9950421ac",
+   "module": 3,
+   "q": "What is a punch list?",
+   "options": [
+    "The project's budget",
+    "A list of minor items still to be repaired or completed before closing",
+    "A list of team members",
+    "A list of risks"
+   ],
+   "answer": 1,
+   "explain": "Clearing it is part of closing the contract.",
+   "lesson": "project_mgmt-23",
+   "evidence": "any minor items that need to be repaired or completed are placed on a punch list",
+   "origin": "authored"
+  },
+  {
+   "id": "6fa81e6fdc",
+   "module": 3,
+   "q": "What should project information gathered during completion reflect?",
+   "options": [
+    "The characteristics and specifications of the final product",
+    "The original proposal only",
+    "The team's opinions",
+    "Competitors' products"
+   ],
+   "answer": 0,
+   "explain": "Documentation should match what was actually delivered.",
+   "lesson": "project_mgmt-23",
+   "evidence": "The project information you are collecting during this phase should reflect the characteristics and specifications of the final product.",
+   "origin": "authored"
+  },
+  {
+   "id": "c207738b4d",
+   "module": 3,
+   "q": "If you administer a contract yourself, whom should you ask about special conditions?",
+   "options": [
+    "The client's customers",
+    "A random colleague",
+    "Nobody",
+    "Your procurement department"
+   ],
+   "answer": 3,
+   "explain": "Missing a condition can delay project closure.",
+   "lesson": "project_mgmt-23",
+   "evidence": "be sure to ask your procurement department if there are any special conditions",
+   "origin": "authored"
+  },
+  {
+   "id": "c6f5ca22f1",
+   "module": 3,
+   "q": "What is a lessons-learned meeting?",
+   "options": [
+    "The project's kick-off meeting",
+    "A weekly status update",
+    "A review before the team disbands to capture what the project taught",
+    "A sales presentation"
+   ],
+   "answer": 2,
+   "explain": "Some organisations feed lessons into their work processes.",
+   "lesson": "project_mgmt-23",
+   "evidence": "a review is conducted to capture the lessons that can be learned from this project, often called a lessons-learned meeting or document",
+   "origin": "authored"
+  },
+  {
+   "id": "655efdea84",
+   "module": 3,
+   "q": "If estimates often differ from actual costs, what should be reviewed?",
+   "options": [
+    "The team's salaries",
+    "The choice of estimating method",
+    "The project's name",
+    "The office location"
+   ],
+   "answer": 1,
+   "explain": "Better methods improve future estimates.",
+   "lesson": "project_mgmt-23",
+   "evidence": "If the estimates are frequently different from the actual costs, the choice of estimating method is reviewed.",
+   "origin": "authored"
+  }
+ ],
  "minutes": 204,
  "sources": [
   {

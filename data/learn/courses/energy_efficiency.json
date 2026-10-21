@@ -754,180 +754,616 @@
    ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "In the United States, which is the most common unit for comparing energy sources or fuels?",
-    "options": [
-     "Kilowatthour",
-     "British thermal unit (Btu)",
-     "Barrel",
-     "Short ton"
-    ],
-    "answer": 1,
-    "explain": "Converting fuels to a common unit lets you compare them directly.",
-    "lesson": "energy_efficiency-01",
-    "evidence": "In the United States, Btu is the most common unit for comparing energy sources or fuels.",
-    "origin": "authored"
-   },
-   {
-    "q": "Which of these is energy conservation rather than energy efficiency?",
-    "options": [
-     "Installing energy-efficient lights",
-     "Buying a more efficient boiler",
-     "Insulating a building",
-     "Turning lights off when they are not needed"
-    ],
-    "answer": 3,
-    "explain": "Efficiency does the same job with less energy; conservation avoids using energy at all.",
-    "lesson": "energy_efficiency-02",
-    "evidence": "installing energy-efficient lights is an efficiency measure, and turning lights off when not needed, either manually or with timers or motion sensor switches, is conservation.",
-    "origin": "authored"
-   },
-   {
-    "q": "Why is electricity called a secondary energy source?",
-    "options": [
-     "It is produced by converting primary sources such as coal, gas, nuclear, solar and wind",
-     "It is less important than oil",
-     "It is always produced second, after heat",
-     "It can only be stored in batteries"
-    ],
-    "answer": 0,
-    "explain": "The losses of that conversion are part of why saving electricity matters.",
-    "lesson": "energy_efficiency-03",
-    "evidence": "The electricity we use is a secondary energy source because it is produced by converting primary sources of energy such as coal, natural gas, nuclear energy, solar energy, and wind energy into electrical power.",
-    "origin": "authored"
-   },
-   {
-    "q": "Which home energy uses continue all year round?",
-    "options": [
-     "Space heating and air conditioning",
-     "Swimming-pool heating only",
-     "Water heating, lighting and refrigeration",
-     "Garden lighting only"
-    ],
-    "answer": 2,
-    "explain": "Heating and cooling are seasonal; these uses are constant.",
-    "lesson": "energy_efficiency-04",
-    "evidence": "Water heating, lighting, and refrigeration are year-round home energy uses.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is manufacturing, as an energy-using industrial activity?",
-    "options": [
-     "Extracting coal, oil and gas",
-     "The physical, mechanical or chemical transformation of materials into new products",
-     "Growing crops",
-     "Building roads and houses"
-    ],
-    "answer": 1,
-    "explain": "Industry also includes agriculture, mining and construction.",
-    "lesson": "energy_efficiency-06",
-    "evidence": "Manufacturing is the physical, mechanical, or chemical transformation of materials or substances into new products.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the UK Energy Savings Opportunity Scheme (ESOS)?",
-    "options": [
-     "A grant for home insulation",
-     "A voluntary green label for products",
-     "A tax on electricity bills",
-     "A mandatory energy assessment scheme for UK organisations that meet the qualification criteria"
-    ],
-    "answer": 3,
-    "explain": "Qualifying organisations must assess their energy use and report opportunities.",
-    "lesson": "energy_efficiency-07",
-    "evidence": "is a mandatory energy assessment scheme for organisations in the UK that meet the qualification criteria.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is an ESOS assessment designed to identify?",
-    "options": [
-     "Tailored, cost-effective measures to save energy and achieve carbon and cost savings",
-     "Which staff use the most electricity",
-     "The cheapest energy supplier",
-     "Buildings to sell"
-    ],
-    "answer": 0,
-    "explain": "The audit points to savings that make business sense.",
-    "lesson": "energy_efficiency-07",
-    "evidence": "The ESOS assessment is designed to identify tailored and cost-effective measures that allow participating businesses to save energy and achieve carbon and cost savings.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is 'de minimis' energy consumption under ESOS?",
-    "options": [
-     "Energy used outside working hours",
-     "Energy from renewable sources",
-     "The maximum 5% of total energy consumption that may be excluded from audits",
-     "The smallest site in the organisation"
-    ],
-    "answer": 2,
-    "explain": "At least 95% of energy use must be covered by audits or another compliance route.",
-    "lesson": "energy_efficiency-09",
-    "evidence": "The maximum 5% of total energy consumption that may be excluded from any audit or alternative compliance measures is known as your ‘de minimis’ energy consumption.",
-    "origin": "authored"
-   },
-   {
-    "q": "How must an energy intensity ratio be expressed?",
-    "options": [
-     "As a percentage of the energy bill",
-     "In kWh per unit of an activity indicator, for example kWh/m² of floor area",
-     "In pounds per employee",
-     "As the number of energy audits per year"
-    ],
-    "answer": 1,
-    "explain": "Ratios let you compare energy use as an organisation grows or shrinks.",
-    "lesson": "energy_efficiency-10",
-    "evidence": "The units for any energy intensity ratio must be expressed in kWh /x",
-    "origin": "authored"
-   },
-   {
-    "q": "If verifiable data for an indicator is not available, what should you do?",
-    "options": [
-     "Leave the indicator out of the audit",
-     "Copy last year's figure without explanation",
-     "Ask the regulator for an exemption",
-     "Use a reasonable estimate and record the estimation method in your evidence pack"
-    ],
-    "answer": 3,
-    "explain": "Methods include direct comparison, pro-rata extrapolation and benchmarking.",
-    "lesson": "energy_efficiency-11",
-    "evidence": "If verifiable data is not available, you should use a reasonable estimate and keep a record of the method used to estimate the indicator in your evidence pack.",
-    "origin": "authored"
-   },
-   {
-    "q": "If energy data is not in your accounting system, what does the guidance suggest?",
-    "options": [
-     "Nominate a person to record energy use and costs",
-     "Stop monitoring energy until the system is upgraded",
-     "Estimate everything at year end",
-     "Rely on the supplier's marketing data"
-    ],
-    "answer": 0,
-    "explain": "Reliable monitoring is the foundation of any energy audit.",
-    "lesson": "energy_efficiency-13",
-    "evidence": "If the data is not included in your accounting system, nominate a person to record energy use and costs.",
-    "origin": "authored"
-   },
-   {
-    "q": "What should investment, equipment replacement and maintenance decisions consider?",
-    "options": [
-     "Only the purchase price",
-     "Only the energy saved in the first month",
-     "The full cost to the organisation",
-     "Whatever the supplier recommends"
-    ],
-    "answer": 2,
-    "explain": "Life-cycle cost analysis compares options over their whole working life.",
-    "lesson": "energy_efficiency-14",
-    "evidence": "It is helpful to ensure that investment decisions and equipment replacement or maintenance decisions consider the full cost to the organisation.",
-    "origin": "authored"
-   }
-  ],
-  "pass_mark": 9,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "2c45d71a5d",
+   "module": 0,
+   "q": "In the United States, which is the most common unit for comparing energy sources or fuels?",
+   "options": [
+    "Kilowatthour",
+    "British thermal unit (Btu)",
+    "Barrel",
+    "Short ton"
+   ],
+   "answer": 1,
+   "explain": "Converting fuels to a common unit lets you compare them directly.",
+   "lesson": "energy_efficiency-01",
+   "evidence": "In the United States, Btu is the most common unit for comparing energy sources or fuels.",
+   "origin": "authored"
+  },
+  {
+   "id": "1d19993a1b",
+   "module": 0,
+   "q": "Which unit is normally used to measure electricity?",
+   "options": [
+    "Kilowatthours (kWh)",
+    "Barrels",
+    "Cubic feet",
+    "Short tons"
+   ],
+   "answer": 0,
+   "explain": "Barrels are for liquid fuels, cubic feet for natural gas and short tons for coal.",
+   "lesson": "energy_efficiency-01",
+   "evidence": "Kilowatthours (kWh) Electricity",
+   "origin": "authored"
+  },
+  {
+   "id": "1ad5a20ca8",
+   "module": 0,
+   "q": "Which of these is energy conservation rather than energy efficiency?",
+   "options": [
+    "Installing energy-efficient lights",
+    "Buying a more efficient boiler",
+    "Insulating a building",
+    "Turning lights off when they are not needed"
+   ],
+   "answer": 3,
+   "explain": "Efficiency does the same job with less energy; conservation avoids using energy at all.",
+   "lesson": "energy_efficiency-02",
+   "evidence": "installing energy-efficient lights is an efficiency measure, and turning lights off when not needed, either manually or with timers or motion sensor switches, is conservation.",
+   "origin": "authored"
+  },
+  {
+   "id": "0516087962",
+   "module": 0,
+   "q": "How can consumers benefit indirectly from using less electricity?",
+   "options": [
+    "It raises their credit score",
+    "It makes their home larger",
+    "It cuts their fuel taxes",
+    "It reduces demand on the electric system"
+   ],
+   "answer": 3,
+   "explain": "Lower peak demand can mean fewer new power plants and lower system costs.",
+   "lesson": "energy_efficiency-02",
+   "evidence": "Consumers can also benefit indirectly when reducing their electricity consumption because it helps to reduce demand on the electric system.",
+   "origin": "authored"
+  },
+  {
+   "id": "5ff9e9dd08",
+   "module": 0,
+   "q": "What does the ENERGY STAR Home Energy Yardstick do?",
+   "options": [
+    "Measures a home's floor area",
+    "Tests appliances for safety",
+    "Compares a home's energy use with similar homes",
+    "Calculates mortgage payments"
+   ],
+   "answer": 2,
+   "explain": "Benchmarking shows whether a home uses more energy than it should.",
+   "lesson": "energy_efficiency-02",
+   "evidence": "Home Energy Yardstick helps customers compare their home's energy use with similar homes across the country",
+   "origin": "authored"
+  },
+  {
+   "id": "c64164044f",
+   "module": 0,
+   "q": "Which two benefits can energy efficiency and conservation bring?",
+   "options": [
+    "Higher energy prices and more emissions",
+    "Lower energy bills and potentially lower greenhouse gas emissions",
+    "Bigger homes and more appliances",
+    "Faster internet and cheaper phones"
+   ],
+   "answer": 1,
+   "explain": "Using less energy saves money and avoids the emissions of producing it.",
+   "lesson": "energy_efficiency-02",
+   "evidence": "Efficiency and conservation can help to lower consumers' energy bills and potentially reduce greenhouse gas emissions associated with energy use.",
+   "origin": "authored"
+  },
+  {
+   "id": "64f35ab3ec",
+   "module": 0,
+   "q": "Why is electricity called a secondary energy source?",
+   "options": [
+    "It is produced by converting primary sources such as coal, gas, nuclear, solar and wind",
+    "It is less important than oil",
+    "It is always produced second, after heat",
+    "It can only be stored in batteries"
+   ],
+   "answer": 0,
+   "explain": "The losses of that conversion are part of why saving electricity matters.",
+   "lesson": "energy_efficiency-03",
+   "evidence": "The electricity we use is a secondary energy source because it is produced by converting primary sources of energy such as coal, natural gas, nuclear energy, solar energy, and wind energy into electrical power.",
+   "origin": "authored"
+  },
+  {
+   "id": "8490b13710",
+   "module": 1,
+   "q": "Which home energy uses continue all year round?",
+   "options": [
+    "Space heating and air conditioning",
+    "Swimming-pool heating only",
+    "Water heating, lighting and refrigeration",
+    "Garden lighting only"
+   ],
+   "answer": 2,
+   "explain": "Heating and cooling are seasonal; these uses are constant.",
+   "lesson": "energy_efficiency-04",
+   "evidence": "Water heating, lighting, and refrigeration are year-round home energy uses.",
+   "origin": "authored"
+  },
+  {
+   "id": "2ea4e33a11",
+   "module": 1,
+   "q": "Why do apartments use a smaller share of energy for heating and cooling than detached houses?",
+   "options": [
+    "They are smaller and partly insulated by neighbouring apartments",
+    "They have no windows",
+    "They run only on solar power",
+    "Their residents are always away"
+   ],
+   "answer": 0,
+   "explain": "Shared walls reduce heat loss and gain.",
+   "lesson": "energy_efficiency-04",
+   "evidence": "Apartments are generally smaller than single-family homes, and they are often partially insulated from weather by adjacent apartments.",
+   "origin": "authored"
+  },
+  {
+   "id": "8c8b253ce3",
+   "module": 1,
+   "q": "How does home size relate to energy use?",
+   "options": [
+    "Smaller homes always use more",
+    "Size makes no difference",
+    "Only the number of windows matters",
+    "Larger homes and households tend to use more energy overall"
+   ],
+   "answer": 3,
+   "explain": "More space to heat and more people mean more energy.",
+   "lesson": "energy_efficiency-04",
+   "evidence": "Larger homes and larger households tend to use more energy overall than smaller homes and smaller households.",
+   "origin": "authored"
+  },
+  {
+   "id": "e336c3c4e4",
+   "module": 1,
+   "q": "How does the commercial buildings survey (CBECS) classify buildings?",
+   "options": [
+    "By the building's age only",
+    "By the owner's income",
+    "By the principal activity in the building",
+    "By the building's colour"
+   ],
+   "answer": 2,
+   "explain": "Offices, schools, shops and hospitals use energy very differently.",
+   "lesson": "energy_efficiency-05",
+   "evidence": "CBECS includes data for energy use by type of commercial building according to the principal activity taking place in the building",
+   "origin": "authored"
+  },
+  {
+   "id": "3ceb56c44f",
+   "module": 1,
+   "q": "Roughly how many commercial buildings did the US have in 2018?",
+   "options": [
+    "About 59,000",
+    "About 5.9 million",
+    "About 590 million",
+    "About 5.9 billion"
+   ],
+   "answer": 1,
+   "explain": "Together they had about 96.4 billion square feet of floorspace.",
+   "lesson": "energy_efficiency-05",
+   "evidence": "In 2018, the United States had about 5.9 million commercial buildings",
+   "origin": "authored"
+  },
+  {
+   "id": "15b86f6980",
+   "module": 1,
+   "q": "What is manufacturing, as an energy-using industrial activity?",
+   "options": [
+    "Extracting coal, oil and gas",
+    "The physical, mechanical or chemical transformation of materials into new products",
+    "Growing crops",
+    "Building roads and houses"
+   ],
+   "answer": 1,
+   "explain": "Industry also includes agriculture, mining and construction.",
+   "lesson": "energy_efficiency-06",
+   "evidence": "Manufacturing is the physical, mechanical, or chemical transformation of materials or substances into new products.",
+   "origin": "authored"
+  },
+  {
+   "id": "475f0c7095",
+   "module": 1,
+   "q": "How do some industrial facilities generate their own electricity?",
+   "options": [
+    "Using residues from their processes or fuels they buy",
+    "Only from rooftop solar",
+    "By buying it from neighbours",
+    "They never generate electricity"
+   ],
+   "answer": 0,
+   "explain": "On-site generation is common in energy-intensive industries.",
+   "lesson": "energy_efficiency-06",
+   "evidence": "Industrial facilities also generate electricity for their own use by using residues from their industrial processes or from fuels that they purchase.",
+   "origin": "authored"
+  },
+  {
+   "id": "7add88ab71",
+   "module": 1,
+   "q": "What does the mining industry include?",
+   "options": [
+    "Turning materials into new products",
+    "Growing crops",
+    "Building roads and houses",
+    "Extracting minerals, stone and gravel, coal, oil and natural gas"
+   ],
+   "answer": 3,
+   "explain": "Mining is one of the four major industrial activities in energy projections.",
+   "lesson": "energy_efficiency-06",
+   "evidence": "Mining includes extracting minerals, nonmineral products such as stone and gravel, coal, oil, and natural gas.",
+   "origin": "authored"
+  },
+  {
+   "id": "e1e43fa1a5",
+   "module": 2,
+   "q": "What is the UK Energy Savings Opportunity Scheme (ESOS)?",
+   "options": [
+    "A grant for home insulation",
+    "A voluntary green label for products",
+    "A tax on electricity bills",
+    "A mandatory energy assessment scheme for UK organisations that meet the qualification criteria"
+   ],
+   "answer": 3,
+   "explain": "Qualifying organisations must assess their energy use and report opportunities.",
+   "lesson": "energy_efficiency-07",
+   "evidence": "is a mandatory energy assessment scheme for organisations in the UK that meet the qualification criteria.",
+   "origin": "authored"
+  },
+  {
+   "id": "3f791396ac",
+   "module": 2,
+   "q": "What is an ESOS assessment designed to identify?",
+   "options": [
+    "Tailored, cost-effective measures to save energy and achieve carbon and cost savings",
+    "Which staff use the most electricity",
+    "The cheapest energy supplier",
+    "Buildings to sell"
+   ],
+   "answer": 0,
+   "explain": "The audit points to savings that make business sense.",
+   "lesson": "energy_efficiency-07",
+   "evidence": "The ESOS assessment is designed to identify tailored and cost-effective measures that allow participating businesses to save energy and achieve carbon and cost savings.",
+   "origin": "authored"
+  },
+  {
+   "id": "1fbd774dad",
+   "module": 2,
+   "q": "What does calculating your total energy consumption let you identify under ESOS?",
+   "options": [
+    "Your staff's pay",
+    "Your company's share price",
+    "Which assets or activities your route to compliance must cover",
+    "Which suppliers to fire"
+   ],
+   "answer": 2,
+   "explain": "Total consumption is the starting point of the assessment.",
+   "lesson": "energy_efficiency-08",
+   "evidence": "The calculation of total energy consumption will enable you to identify which assets or activities you will subsequently need to ensure are covered by a route to compliance.",
+   "origin": "authored"
+  },
+  {
+   "id": "fab0817a6f",
+   "module": 2,
+   "q": "A fuel you use isn't in the conversion factor list. What should you do?",
+   "options": [
+    "Leave it out",
+    "Ask your fuel provider for its properties",
+    "Use the value for coal",
+    "Estimate it from its price"
+   ],
+   "answer": 1,
+   "explain": "Accurate fuel properties are needed to convert usage to energy.",
+   "lesson": "energy_efficiency-08",
+   "evidence": "If a fuel you use is not listed, you should contact your fuel provider to get information about its properties.",
+   "origin": "authored"
+  },
+  {
+   "id": "43f1d93269",
+   "module": 2,
+   "q": "What is 'de minimis' energy consumption under ESOS?",
+   "options": [
+    "Energy used outside working hours",
+    "Energy from renewable sources",
+    "The maximum 5% of total energy consumption that may be excluded from audits",
+    "The smallest site in the organisation"
+   ],
+   "answer": 2,
+   "explain": "At least 95% of energy use must be covered by audits or another compliance route.",
+   "lesson": "energy_efficiency-09",
+   "evidence": "The maximum 5% of total energy consumption that may be excluded from any audit or alternative compliance measures is known as your ‘de minimis’ energy consumption.",
+   "origin": "authored"
+  },
+  {
+   "id": "0bf0f2afe9",
+   "module": 2,
+   "q": "How must an energy intensity ratio be expressed?",
+   "options": [
+    "As a percentage of the energy bill",
+    "In kWh per unit of an activity indicator, for example kWh/m² of floor area",
+    "In pounds per employee",
+    "As the number of energy audits per year"
+   ],
+   "answer": 1,
+   "explain": "Ratios let you compare energy use as an organisation grows or shrinks.",
+   "lesson": "energy_efficiency-10",
+   "evidence": "The units for any energy intensity ratio must be expressed in kWh /x",
+   "origin": "authored"
+  },
+  {
+   "id": "a4b40357dd",
+   "module": 2,
+   "q": "Why might floor area figures from different sources disagree?",
+   "options": [
+    "Some exclude unheated or uncooled areas while others include them",
+    "Buildings shrink over time",
+    "Floor area is measured in different colours",
+    "Only one source can be right"
+   ],
+   "answer": 0,
+   "explain": "Be consistent about which source you use for intensity ratios.",
+   "lesson": "energy_efficiency-10",
+   "evidence": "The floor area figure for some of these sources may exclude parts of the buildings which are neither heated nor cooled, whereas others may include these areas.",
+   "origin": "authored"
+  },
+  {
+   "id": "9a7fcc9e70",
+   "module": 2,
+   "q": "If verifiable data for an indicator is not available, what should you do?",
+   "options": [
+    "Leave the indicator out of the audit",
+    "Copy last year's figure without explanation",
+    "Ask the regulator for an exemption",
+    "Use a reasonable estimate and record the estimation method in your evidence pack"
+   ],
+   "answer": 3,
+   "explain": "Methods include direct comparison, pro-rata extrapolation and benchmarking.",
+   "lesson": "energy_efficiency-11",
+   "evidence": "If verifiable data is not available, you should use a reasonable estimate and keep a record of the method used to estimate the indicator in your evidence pack.",
+   "origin": "authored"
+  },
+  {
+   "id": "9b8cc4de62",
+   "module": 2,
+   "q": "Which estimation methods can you use when verifiable data is missing?",
+   "options": [
+    "Guessing and rounding",
+    "Copying last year's figures",
+    "Letting staff vote",
+    "Direct comparison, pro-rata extrapolation and benchmarking"
+   ],
+   "answer": 3,
+   "explain": "Record the method you used in your evidence pack.",
+   "lesson": "energy_efficiency-11",
+   "evidence": "Some possible methods include: direct comparison pro-rata extrapolation benchmarking",
+   "origin": "authored"
+  },
+  {
+   "id": "4d4db4c1c4",
+   "module": 2,
+   "q": "What is 'direct comparison' as an estimation method?",
+   "options": [
+    "Comparing your bills with a competitor's",
+    "Measuring every device directly",
+    "Using partial data to estimate complete data",
+    "Ignoring missing months"
+   ],
+   "answer": 2,
+   "explain": "For example, scaling up the months you have data for.",
+   "lesson": "energy_efficiency-11",
+   "evidence": "This is where you use partial data to estimate complete data.",
+   "origin": "authored"
+  },
+  {
+   "id": "b028e224b1",
+   "module": 2,
+   "q": "What must participants make clear in an ESOS action plan?",
+   "options": [
+    "The names of every employee",
+    "Whether each measure is a recommendation from an energy audit",
+    "Their profit for the year",
+    "Their competitors' energy use"
+   ],
+   "answer": 1,
+   "explain": "The plan becomes a single source for all measures and expected savings.",
+   "lesson": "energy_efficiency-12",
+   "evidence": "Participants must make clear in the action plan whether the measures they include in it are recommendations from an energy audit.",
+   "origin": "authored"
+  },
+  {
+   "id": "ad69edd488",
+   "module": 2,
+   "q": "What do ESOS action plans let organisations do?",
+   "options": [
+    "Set out how they are taking forward their ESOS recommendations",
+    "Avoid doing an energy audit",
+    "Sell energy to the grid",
+    "Skip the notification of compliance"
+   ],
+   "answer": 0,
+   "explain": "Action plans follow the notification of compliance.",
+   "lesson": "energy_efficiency-12",
+   "evidence": "These enable organisations to set out how they are taking forward their ESOS recommendations.",
+   "origin": "authored"
+  },
+  {
+   "id": "8854c2c9ee",
+   "module": 2,
+   "q": "If energy data is not in your accounting system, what does the guidance suggest?",
+   "options": [
+    "Nominate a person to record energy use and costs",
+    "Stop monitoring energy until the system is upgraded",
+    "Estimate everything at year end",
+    "Rely on the supplier's marketing data"
+   ],
+   "answer": 0,
+   "explain": "Reliable monitoring is the foundation of any energy audit.",
+   "lesson": "energy_efficiency-13",
+   "evidence": "If the data is not included in your accounting system, nominate a person to record energy use and costs.",
+   "origin": "authored"
+  },
+  {
+   "id": "13ca5b34b8",
+   "module": 2,
+   "q": "What should investment, equipment replacement and maintenance decisions consider?",
+   "options": [
+    "Only the purchase price",
+    "Only the energy saved in the first month",
+    "The full cost to the organisation",
+    "Whatever the supplier recommends"
+   ],
+   "answer": 2,
+   "explain": "Life-cycle cost analysis compares options over their whole working life.",
+   "lesson": "energy_efficiency-14",
+   "evidence": "It is helpful to ensure that investment decisions and equipment replacement or maintenance decisions consider the full cost to the organisation.",
+   "origin": "authored"
+  },
+  {
+   "id": "3aa8ae63f2",
+   "module": 3,
+   "q": "Who should support government departments on digital sustainability?",
+   "options": [
+    "Each user individually",
+    "The cheapest supplier",
+    "Nobody in particular",
+    "A designated digital sustainability lead"
+   ],
+   "answer": 3,
+   "explain": "Sustainability goals should shape projects from the start.",
+   "lesson": "energy_efficiency-15",
+   "evidence": "Government departments should have support from a designated digital sustainability lead.",
+   "origin": "authored"
+  },
+  {
+   "id": "3e6afa043e",
+   "module": 3,
+   "q": "How does user research help make technology more sustainable?",
+   "options": [
+    "It makes servers run cooler",
+    "It replaces energy audits",
+    "It defines requirements better, so you don't buy hardware and software you don't need",
+    "It removes the need for suppliers"
+   ],
+   "answer": 2,
+   "explain": "The greenest device is the one you never buy.",
+   "lesson": "energy_efficiency-15",
+   "evidence": "Do your project plans include user research to more clearly define requirements and reduce the chance of buying software and hardware you do not need?",
+   "origin": "authored"
+  },
+  {
+   "id": "0ea46e5bff",
+   "module": 3,
+   "q": "For contracts over £5 million a year, what should a supplier have done?",
+   "options": [
+    "Moved its offices abroad",
+    "Committed to net zero and published a Carbon Reduction Plan",
+    "Offered the lowest price",
+    "Used only paper invoices"
+   ],
+   "answer": 1,
+   "explain": "Government procurement asks large suppliers to show their climate commitments.",
+   "lesson": "energy_efficiency-15",
+   "evidence": "net zero target, and published a Carbon Reduction Plan",
+   "origin": "authored"
+  },
+  {
+   "id": "36ed2c48fc",
+   "module": 3,
+   "q": "Letting a non-domestic property is prohibited, unless exempt, below which EPC rating?",
+   "options": [
+    "E",
+    "A",
+    "C",
+    "G"
+   ],
+   "answer": 0,
+   "explain": "F and G rated properties need improvement or a registered exemption.",
+   "lesson": "energy_efficiency-16",
+   "evidence": "There are various exemptions that apply to the prohibition on letting a property with an energy efficiency rating below E.",
+   "origin": "authored"
+  },
+  {
+   "id": "8c998d71f4",
+   "module": 3,
+   "q": "When does a measure fail the '7 year payback test'?",
+   "options": [
+    "When it takes more than 7 days to install",
+    "When it lasts less than 7 years",
+    "When it costs more than £7,000",
+    "When 7 years of expected bill savings are less than its cost"
+   ],
+   "answer": 3,
+   "explain": "Failing measures can support an exemption.",
+   "lesson": "energy_efficiency-16",
+   "evidence": "will fail the 7 year payback test where the expected value of savings on energy bills that the measures are expected to achieve over a period of 7 years",
+   "origin": "authored"
+  },
+  {
+   "id": "12bcf4b039",
+   "module": 3,
+   "q": "Who must register an exemption, and when?",
+   "options": [
+    "The tenant, after moving in",
+    "The local council, once a year",
+    "The landlord or their agent, before relying on it",
+    "Nobody — exemptions are automatic"
+   ],
+   "answer": 2,
+   "explain": "Exemptions go on the PRS Exemptions Register.",
+   "lesson": "energy_efficiency-16",
+   "evidence": "the exemption must be registered by the landlord (or an agent for the landlord) before it can be relied on",
+   "origin": "authored"
+  },
+  {
+   "id": "fd5fe75472",
+   "module": 3,
+   "q": "A property is empty and won't be let. Must the landlord improve its rating now?",
+   "options": [
+    "Yes, immediately",
+    "No — only when they decide to let it again",
+    "Yes, within a month",
+    "Only if it is rated E"
+   ],
+   "answer": 1,
+   "explain": "The standard applies to letting, not to owning.",
+   "lesson": "energy_efficiency-16",
+   "evidence": "you don’t need to take any action to improve its rating until you decide to let it again",
+   "origin": "authored"
+  },
+  {
+   "id": "cfae056bae",
+   "module": 3,
+   "q": "Do registered exemptions pass to a new owner when a property is sold?",
+   "options": [
+    "Not necessarily — they may not pass over",
+    "Yes, always",
+    "Yes, for 50 years",
+    "Only if the tenant agrees"
+   ],
+   "answer": 0,
+   "explain": "A new landlord may need to register their own exemption.",
+   "lesson": "energy_efficiency-16",
+   "evidence": "may not pass over to a new owner or landlord of a property upon sale, or other transfer",
+   "origin": "authored"
+  },
+  {
+   "id": "5bfca1b38f",
+   "module": 3,
+   "q": "Which properties do the minimum energy efficiency regulations cover?",
+   "options": [
+    "Every building in the country",
+    "Only owner-occupied homes",
+    "Only new buildings",
+    "Non-domestic rented properties legally required to have an EPC"
+   ],
+   "answer": 3,
+   "explain": "Properties without an EPC requirement are outside the rules.",
+   "lesson": "energy_efficiency-16",
+   "evidence": "The Regulations apply to all non-domestic rented properties that are legally required to have an Energy Performance Certificate",
+   "origin": "authored"
+  }
+ ],
  "minutes": 161,
  "sources": [
   {

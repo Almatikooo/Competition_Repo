@@ -1,0 +1,466 @@
+<h2 id="h-variables-control-charts">Variables control charts</h2><br>
+<div class="table-wrap"><table>
+<tbody><tr>
+<td colspan="2">
+<br>
+<div class="table-wrap"><table>
+<tbody><tr>
+<td>
+</td>
+<td>
+</td>
+</tr>
+</tbody></table></div>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+During the 1920's, Dr. Walter A. Shewhart
+proposed a general model for control charts as follows:
+</td>
+</tr>
+<tr>
+<td>
+<i>Shewhart Control Charts for variables</i>
+</td>
+<td>
+Let w
+
+be a sample statistic that measures some continuously
+varying quality characteristic of interest (e.g., thickness), and
+suppose that the mean of w
+
+is μ<sub>w</sub>,
+
+with a standard deviation of σ<sub>w</sub>.
+
+Then the center line, the UCL, and the LCL are
+<ul>
+UCL = μ<sub>w</sub> + k σ<sub>w</sub>
+<br>
+    Center Line = μ<sub>w</sub>
+<br>
+LCL = μ<sub>w</sub> - k σ<sub>w</sub>
+</ul>
+where k
+
+is the distance of the control limits from the center
+line, expressed in terms of standard deviation units.  When k
+
+is set to 3, we speak of 3-sigma control charts.
+<p>
+<i>Historically, k = 3 has become an accepted standard in
+industry</i>.
+</p><p>
+The centerline is the process mean, which in general is unknown. We
+replace it with a <i>target</i> or the average of all the data.
+The quantity that we plot is the sample average, X̄.
+
+The chart is called the X̄
+
+chart.
+</p><p>
+We also have to deal with the fact that σ
+
+is, in general, unknown. Here we replace σ<sub>w</sub>
+
+with a given standard value, or we estimate it by a function of
+the <i>average</i> <i>standard deviation</i>.  This is obtained by
+averaging the individual standard deviations that we calculated
+from each of m
+
+preliminary (or present) samples, each of size n.
+
+This function will be discussed shortly.
+</p><p>
+It is equally important to examine the standard deviations in
+ascertaining whether the process is in control.  There is,
+unfortunately, a slight problem involved when we work with the
+usual estimator of σ.
+
+The following discussion will illustrate this.
+
+</p></td>
+</tr>
+<tr>
+<td>
+<i>Sample Variance</i>
+</td>
+<td>
+If σ<sup>2</sup>
+
+is the unknown variance of a probability distribution, then an
+unbiased estimator of σ<sup>2</sup>
+
+is the <u>sample</u> variance,
+
+s<sup>2</sup> = (Σ<sub>i=1</sub><sup>n</sup> ( x<sub>i</sub> - x̄ )<sup>2</sup>)/(n-1) .
+
+However, s,
+
+the sample standard deviation, is <i>not</i> an unbiased estimator of σ.
+
+If the underlying distribution is normal, then s
+
+actually estimates c<sub>4</sub> · σ,
+
+where c<sub>4</sub>
+
+is a constant that depends on the sample size n.
+
+This constant is tabulated in most text books
+on statistical quality control and may be calculated using
+</td>
+</tr>
+<tr>
+<td>
+c<sub>4</sub>  factor
+</td>
+<td>
+c<sub>4</sub> = √((2)/(n-1)) ( ( (n)/(2)-1 )!)/(( (n-1)/(2)-1 )!) .
+
+<p>
+Note that in some sources the formula is given in terms of σ = c<sub>4</sub> · s,
+
+in which case c<sub>4</sub>
+
+will be the reciprocal of the formula given above.
+</p></td>
+</tr>
+<tr>
+<td>
+<i>Fractional Factorials</i>
+</td>
+<td>
+
+To compute this we need a <i>non-integer factorial,</i> which
+is defined for n/2
+ 
+as follows:
+
+( (n)/(2) ) ! = ( (n)/(2) ) ( (n)/(2) - 1 ) ( (n)/(2) - 2 ) … ( (1)/(2) ) √(π) .
+
+<p>
+For example, let n=7.
+
+Then n/2 = 7/2 = 3.5
+
+and
+
+( (7)/(2) ) ! = (3.5)! = (3.5)(2.5)(1.5)(0.5)(1.77246) = 11.632 .
+
+</p><p>
+With this definition the reader should have no problem verifying
+that the c<sub>4</sub>
+
+factor for n=10
+
+is 0.9727.
+
+</p></td>
+</tr>
+<tr>
+<td>
+<i>Mean and standard deviation of the estimators</i>
+</td>
+<td>
+
+So the <u>mean</u> or expected value of the sample standard deviation
+is c<sub>4</sub> · σ.
+
+<p>
+The <u>standard deviation</u> of the sample standard deviation is
+
+σ<sub>s</sub> = σ √(1 - c<sub>4</sub><sup>2</sup>) .
+
+</p></td>
+</tr>
+<tr>
+<td>
+<i>
+</i>
+</td>
+<td>
+<b>What are the differences between control limits and
+specification limits </b>?
+
+</td>
+</tr>
+<tr>
+<td>
+<i>Control limits vs. specifications</i>
+</td>
+<td>
+
+Control Limits are used to determine if the process is in a state of
+statistical control (i.e., is producing consistent output).
+<p>
+Specification Limits are used to determine if the product will
+function in the intended fashion.
+
+</p></td>
+</tr>
+<tr>
+<td>
+<i>
+</i>
+</td>
+<td>
+<b>How many data points are needed to set up a control chart?</b>
+</td>
+</tr>
+<tr>
+<td>
+<i>How many samples are needed?</i>
+</td>
+<td>
+
+Shewhart gave the following rule of thumb:
+<blockquote>
+<i>
+"It has also been observed that a person would seldom
+if ever be justified in concluding that a state of
+statistical control of a given repetitive operation
+or production process has been reached until he had
+obtained, under presumably the same essential
+conditions, a sequence of not less than twenty five
+samples of size four that are in control."
+</i>
+</blockquote>
+It is important to note that control chart properties, such as false
+alarm probabilities, are generally given under the assumption that
+the parameters, such as μ
+
+and σ,
+
+are known.  When the control limits are not computed from a large
+amount of data, the actual properties might be quite different from
+what is assumed (see, e.g.,
+<a href="https://www.itl.nist.gov/div898/handbook/pmc/section7/pmc7.htm#Quesenberry" target="_blank" rel="noopener noreferrer">Quesenberry, 1993</a>).
+
+</td>
+</tr>
+<tr>
+<td>
+<i>
+</i>
+</td>
+<td>
+<b>When do we recalculate control limits?</b>
+</td>
+</tr>
+<tr>
+<td>
+<i>When do we recalculate control limits?</i>
+</td>
+<td>
+
+Since a control chart "compares" the current performance of the
+process characteristic to the past performance of this
+characteristic, changing the control limits frequently would negate
+any usefulness.
+<p>
+So, only change your control limits if you have a valid, compelling
+reason for doing so.  Some examples of reasons:
+</p><ul>
+<li>When you have at least 30 more data points to add to the
+       chart and there have been no known changes to the process
+       <ul>
+          - you get a better estimate of the variability
+       </ul>
+</li><li>If a major process change occurs and affects the way your
+       process runs.
+       </li><li>If a known, preventable act changes the way the tool or
+       process would behave (power goes out, consumable is
+       corrupted or bad quality, etc.)
+</li></ul>
+</td>
+</tr>
+<tr>
+<td>
+<i>
+</i>
+</td>
+<td>
+<b>What are the WECO rules for signaling
+"Out of Control"?</b>
+</td>
+</tr>
+<tr>
+<td>
+<i>General rules for detecting out of control or non-random
+situaltions</i>
+</td>
+<td>
+WECO stands for Western Electric Company Rules
+<br>&nbsp;
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Any Point Above +3 Sigma&nbsp;
+<br>&nbsp;---------------------------------------------&nbsp;&nbsp;&nbsp;
++3 σ  LIMIT
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 Out of the Last 3 Points Above
++2 Sigma&nbsp;
+<br>&nbsp;---------------------------------------------&nbsp;&nbsp;&nbsp;
++2 σ  LIMIT
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 Out of the Last 5 Points Above
++1 Sigma&nbsp;
+<br>&nbsp;---------------------------------------------&nbsp;&nbsp;&nbsp;
++1 σ  LIMIT
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8 Consecutive Points on This Side
+of Control Line&nbsp;
+<br>==============================&nbsp;&nbsp; CENTER LINE&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8 Consecutive Points on This Side
+of Control Line&nbsp;
+<br>&nbsp;---------------------------------------------&nbsp;&nbsp;&nbsp;
+-1 σ  LIMIT
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 Out of the Last 5 Points Below
+- 1 Sigma&nbsp;
+<br>----------------------------------------------&nbsp;&nbsp;
+-2 σ  LIMIT
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 Out of the Last 3 Points Below
+-2 Sigma&nbsp;
+<br>&nbsp;---------------------------------------------&nbsp;&nbsp;&nbsp;
+-3 σ  LIMIT
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Any Point Below -3 Sigma&nbsp;
+</p><div class="table-wrap"><table>
+<tbody><tr>
+<td>
+<b>Trend Rules:</b>
+</td>
+<td>
+        6 in a row trending up or down.  14 in a row alternating
+        up and down
+     </td>
+</tr>
+</tbody></table></div>
+</td></tr>
+<tr>
+<td>
+<i>
+WECO rules based on probabilities
+</i>
+</td>
+<td>
+
+The WECO rules are based on probability.  We know that, for a normal
+distribution, the probability of encountering a point outside
+± 3 σ
+
+is 0.3%.  This is a rare event.  Therefore, if we observe a point
+outside the control limits, we conclude the process has shifted and
+is unstable.  Similarly, we can identify other events that are
+equally rare and use them as flags for instability.  The
+probability of observing two points out of three in a row between
+2 σ
+
+and 3 σ
+
+and the probability of observing four points out of five in a row
+between 1 σ
+
+and 2 σ
+
+are also about 0.3 %.
+
+</td>
+</tr>
+<tr>
+<td>
+<i>
+WECO rules increase false alarms
+ </i>
+</td>
+<td>
+<b>Note:</b> While the WECO rules increase a Shewhart chart's
+sensitivity to trends or drifts in the mean, there is a severe
+downside to adding the WECO rules to an ordinary Shewhart control
+chart that the user should understand.  When following the standard
+Shewhart "out of control" rule (i.e., signal if and only if you
+see a point beyond the plus or minus 3 sigma control limits) you
+will have "false alarms" every 371 points on the average (see
+the description of <a href="https://www.itl.nist.gov/div898/handbook/pmc/section3/pmc321.htm#Time To Detection or AverageRun Length" target="_blank" rel="noopener noreferrer">Average Run Length or ARL</a> on the next page).
+Adding the WECO rules increases the frequency of false alarms to
+about once in every 91.75 points, on the average (see
+<a href="https://www.itl.nist.gov/div898/handbook/pmc/section7/pmc7.htm#Champ," target="_blank" rel="noopener noreferrer">Champ and Woodall, 1987</a>).
+The user has to decide whether this price is worth paying (some
+users add the WECO rules, but take them "less seriously" in terms
+of the effort put into troubleshooting activities when out of
+control signals occur).
+<p>
+With this background, the next page will describe how to construct
+Shewhart variables control charts.
+
+</p></td>
+</tr>
+</tbody></table></div><h2 id="h-attributes-control-charts">Attributes control charts</h2><br>
+<div class="table-wrap"><table>
+<tbody><tr>
+<td colspan="2">
+<br>
+<div class="table-wrap"><table>
+<tbody><tr>
+<td>
+</td>
+<td>
+</td>
+</tr>
+</tbody></table></div>
+</td>
+</tr>
+<tr>
+<td>
+<i>Attributes data arise when classifying or counting observations</i>
+</td>
+<td>
+
+The Shewhart control chart plots quality characteristics that can
+be measured and expressed numerically.  We measure weight, height,
+position, thickness, etc.  If we cannot represent a particular
+quality characteristic numerically, or if it is impractical to do
+so, we then often resort to using a quality characteristic to sort
+or classify an item that is inspected into one of two "buckets".
+<p>
+An example of a common quality characteristic classification would be
+designating units as "conforming units" or "nonconforming units".
+Another quality characteristic criteria would be sorting units into
+"non defective" and "defective" categories.  Quality characteristics
+of that type are called <i>attributes.</i>
+</p><p>
+Note that there is a difference between "nonconforming to an
+engineering specification" and "defective" -- a nonconforming
+unit may function just fine and be, in fact, not defective at all,
+while a part can be "in spec" and not fucntion as desired (i.e., be
+defective).
+</p><p>
+Examples of quality characteristics that are attributes are the number
+of failures in a production run, the proportion of malfunctioning wafers
+in a lot, the number of people eating in the cafeteria on a given day,
+etc.
+
+</p></td>
+</tr>
+<tr>
+<td>
+<i>Types of attribute control charts</i>
+</td>
+<td>
+Control charts dealing with the number of <i>defects</i> or
+<i>nonconformities</i> are called <a href="https://www.itl.nist.gov/div898/handbook/pmc/section3/pmc331.htm" target="_blank" rel="noopener noreferrer"> <i>c</i>
+charts (for count)</a>.
+<p>
+Control charts dealing with the <i>proportion</i> or <i>fraction</i>
+of defective product are called&nbsp;<a href="https://www.itl.nist.gov/div898/handbook/pmc/section3/pmc332.htm" target="_blank" rel="noopener noreferrer"><i> p</i> charts
+(for proportion)</a>.
+</p><p>
+There is another chart which handles <i>defects per unit</i>, called
+the <i>u</i> chart (for unit). This applies when we wish to work
+with the average number of nonconformities per unit of product.
+</p><p>
+For additional references, see <a href="https://www.itl.nist.gov/div898/handbook/pmc/section7/pmc7.htm#Woodall, W.H." target="_blank" rel="noopener noreferrer">Woodall
+(1997)</a> which reviews papers showing examples of attribute control charting,
+including examples from semiconductor manufacturing such as those examining
+the spatial depencence of defects.
+</p></td>
+</tr>
+</tbody></table></div>

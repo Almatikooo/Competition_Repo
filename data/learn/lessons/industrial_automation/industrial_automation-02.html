@@ -1,0 +1,139 @@
+<p>
+Some relays are constructed with a kind of "shock absorber" mechanism attached to the armature which prevents immediate, full motion when the coil is either energized or de-energized.  This addition gives the relay the property of <i>time-delay</i> actuation.  Time-delay relays can be constructed to delay armature motion on coil energization, de-energization, or both.
+</p>
+<p>
+Time-delay relay contacts must be specified not only as either normally-open or normally-closed, but whether the delay operates in the direction of closing or in the direction of opening.  The following is a description of the four basic types of time-delay relay contacts.
+</p>
+<p>
+First we have the normally-open, timed-closed (NOTC) contact.  This type of contact is normally open when the coil is unpowered (de-energized).  The contact is closed by the application of power to the relay coil, but only after the coil has been continuously powered for the specified amount of time.  In other words, the <i>direction</i> of the contact's motion (either to close or to open) is identical to a regular NO contact, but there is a delay in <i>closing</i> direction.  Because the delay occurs in the direction of coil energization, this type of contact is alternatively known as a normally-open, <i>on</i>-delay:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04043.png"> </p>
+<p>
+The following is a timing diagram of this relay contact's operation:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04044.png"> </p>
+<p>
+Next we have the normally-open, timed-open (NOTO) contact.  Like the NOTC contact, this type of contact is normally open when the coil is unpowered (de-energized), and closed by the application of power to the relay coil.  However, unlike the NOTC contact, the timing action occurs upon <i>de-energization</i> of the coil rather than upon energization.  Because the delay occurs in the direction of coil de-energization, this type of contact is alternatively known as a normally-open, <i>off</i>-delay:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04045.png"> </p>
+<p>
+The following is a timing diagram of this relay contact's operation:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04046.png"> </p>
+<p>
+Next we have the normally-closed, timed-open (NCTO) contact.  This type of contact is normally closed when the coil is unpowered (de-energized).  The contact is opened with the application of power to the relay coil, but only after the coil has been continuously powered for the specified amount of time.  In other words, the <i>direction</i> of the contact's motion (either to close or to open) is identical to a regular NC contact, but there is a delay in the <i>opening</i> direction.  Because the delay occurs in the direction of coil energization, this type of contact is alternatively known as a normally-closed, <i>on</i>-delay:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04047.png"> </p>
+<p>
+The following is a timing diagram of this relay contact's operation:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04048.png"> </p>
+<p>
+Finally we have the normally-closed, timed-closed (NCTC) contact.  Like the NCTO contact, this type of contact is normally closed when the coil is unpowered (de-energized), and opened by the application of power to the relay coil.  However, unlike the NCTO contact, the timing action occurs upon <i>de-energization</i> of the coil rather than upon energization.  Because the delay occurs in the direction of coil de-energization, this type of contact is alternatively known as a normally-closed, <i>off</i>-delay:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04049.png"> </p>
+<p>
+The following is a timing diagram of this relay contact's operation:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04050.png"> </p>
+<p>
+Time-delay relays are very important for use in industrial control logic circuits.  Some examples of their use include:
+</p>
+<ul>
+<li>Flashing light control (time on, time off): two time-delay relays are used in conjunction with one another to provide a constant-frequency on/off pulsing of contacts for sending intermittent power to a lamp.</li>
+<li>Engine autostart control: Engines that are used to power emergency generators are often equipped with "autostart" controls that allow for automatic start-up if the main electric power fails.  To properly start a large engine, certain auxiliary devices must be started first and allowed some brief time to stabilize (fuel pumps, pre-lubrication oil pumps) before the engine's starter motor is energized.  Time-delay relays help sequence these events for proper start-up of the engine.</li>
+<li>Furnace safety purge control: Before a combustion-type furnace can be safely lit, the air fan must be run for a specified amount of time to "purge" the furnace chamber of any potentially flammable or explosive vapors.  A time-delay relay provides the furnace control logic with this necessary time element.</li>
+<li>Motor soft-start delay control: Instead of starting large electric motors by switching full power from a dead stop condition, reduced voltage can be switched for a "softer" start and less inrush current.  After a prescribed time delay (provided by a time-delay relay), full power is applied.</li>
+<li>Conveyor belt sequence delay: when multiple conveyor belts are arranged to transport material, the conveyor belts must be started in reverse sequence (the last one first and the first one last) so that material doesn't get piled on to a stopped or slow-moving conveyor.  In order to get large belts up to full speed, some time may be needed (especially if soft-start motor controls are used).  For this reason, there is usually a time-delay circuit arranged on each conveyor to give it adequate time to attain full belt speed before the next conveyor belt feeding it is started.</li>
+</ul>
+<p>
+The older, mechanical time-delay relays used pneumatic dashpots or fluid-filled piston/cylinder arrangements to provide the "shock absorbing" needed to delay the motion of the armature.  Newer designs of time-delay relays use electronic circuits with resistor-capacitor (RC) networks to generate a time delay, then energize a normal (instantaneous) electromechanical relay coil with the electronic circuit's output.  The electronic-timer relays are more versatile than the older, mechanical models, and less prone to failure.  Many models provide advanced timer features such as "one-shot" (one measured output pulse for every transition of the input from de-energized to energized), "recycle" (repeated on/off output cycles for as long as the input connection is energized) and "watchdog" (changes state if the input signal does not repeatedly cycle on and off).
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04051.png"> </p>
+<br>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04052.png"> </p>
+<br>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04053.png"> </p>
+<p>
+The "watchdog" timer is especially useful for monitoring of computer systems.  If a computer is being used to control a critical process, it is usually recommended to have an automatic alarm to detect computer "lockup" (an abnormal halting of program execution due to any number of causes).  An easy way to set up such a monitoring system is to have the computer regularly energize and de-energize the coil of a watchdog timer relay (similar to the output of the "recycle" timer).  If the computer execution halts for any reason, the signal it outputs to the watchdog relay coil will stop cycling and freeze in one or the other state.  A short time thereafter, the watchdog relay will "time out" and signal a problem.
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Time delay relays are built in these four basic modes of contact operation:</li>
+<li>1: Normally-open, timed-closed.  Abbreviated "NOTC", these relays open immediately upon coil de-energization and close only if the coil is continuously energized for the time duration period.  Also called <i>normally-open, on-delay</i> relays.</li>
+<li>2: Normally-open, timed-open.  Abbreviated "NOTO", these relays close immediately upon coil energization and open after the coil has been de-energized for the time duration period.  Also called <i>normally-open, off delay</i> relays.</li>
+<li>3: Normally-closed, timed-open.  Abbreviated "NCTO", these relays close immediately upon coil de-energization and open only if the coil is continuously energized for the time duration period.  Also called <i>normally-closed, on-delay</i> relays.</li>
+<li>4: Normally-closed, timed-closed.  Abbreviated "NCTC", these relays open immediately upon coil energization and close after the coil has been de-energized for the time duration period.  Also called <i>normally-closed, off delay</i> relays.</li>
+<li><i>One-shot</i> timers provide a single contact pulse of specified duration for each coil energization (transition from coil <i>off</i> to coil <i>on</i>).</li>
+<li><i>Recycle</i> timers provide a repeating sequence of on-off contact pulses as long as the coil is maintained in an energized state.</li>
+<li><i>Watchdog</i> timers actuate their contacts only if the coil fails to be continuously sequenced on and off (energized and de-energized) at a minimum frequency.</li>
+</ul>
+<h2 id="h-protective-relays">Protective relays</h2>
+<p>
+A special type of relay is one which monitors the current, voltage, frequency, or any other type of electric power measurement either from a generating source or to a load for the purpose of triggering a circuit breaker to open in the event of an abnormal condition.  These relays are referred to in the electrical power industry as <i>protective relays</i>.
+</p>
+<p>
+The circuit breakers which are used to switch large quantities of electric power on and off are actually electromechanical relays, themselves.  Unlike the circuit breakers found in residential and commercial use which determine when to trip (open) by means of a bimetallic strip inside that bends when it gets too hot from overcurrent, large industrial circuit breakers must be "told" by an external device when to open.  Such breakers have two electromagnetic coils inside: one to close the breaker contacts and one to open them.  The "trip" coil can be energized by one or more protective relays, as well as by hand switches, connected to switch 125 Volt DC power.  DC power is used because it allows for a battery bank to supply close/trip power to the breaker control circuits in the event of a complete (AC) power failure.
+</p>
+<p>
+Protective relays can monitor large AC currents by means of current transformers (CT's), which encircle the current-carrying conductors exiting a large circuit breaker, transformer, generator, or other device.  Current transformers step down the monitored current to a secondary (output) range of 0 to 5 amps AC to power the protective relay.  The current relay uses this 0-5 amp signal to power its internal mechanism, closing a contact to switch 125 Volt DC power to the breaker's trip coil if the monitored current becomes excessive.
+</p>
+<p>
+Likewise, (protective) voltage relays can monitor high AC voltages by means of voltage, or potential, transformers (PT's) which step down the monitored voltage to a secondary range of 0 to 120 Volts AC, typically.  Like (protective) current relays, this voltage signal powers the internal mechanism of the relay, closing a contact to switch 125 Volt DC power to the breaker's trip coil is the monitored voltage becomes excessive.
+</p>
+<p>
+There are many types of protective relays, some with highly specialized functions.  Not all monitor voltage or current, either.  They all, however, share the common feature of outputting a contact closure signal which can be used to switch power to a breaker trip coil, close coil, or operator alarm panel.  Most protective relay functions have been categorized into an ANSI standard number code.  Here are a few examples from that code list:
+</p>
+<br>
+<p>
+<i>ANSI protective relay designation numbers</i>
+</p>
+<pre>12 = Overspeed          
+24 = Overexcitation          
+25 = Syncrocheck
+27 = Bus/Line undervoltage        
+32 = Reverse power (anti-motoring)
+38 = Stator overtemp (RTD)     
+39 = Bearing vibration     
+40 = Loss of excitation           
+46 = Negative sequence undercurrent (phase current imbalance)
+47 = Negative sequence undervoltage (phase voltage imbalance)
+49 = Bearing overtemp (RTD)      
+50 = Instantaneous overcurrent
+51 = Time overcurrent      
+51V = Time overcurrent -- voltage restrained
+55 = Power factor          
+59 = Bus overvoltage 
+60FL = Voltage transformer fuse failure
+67 = Phase/Ground directional current
+79 = Autoreclose
+81 = Bus over/underfrequency
+</pre>
+<br>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Large electric circuit breakers do not contain within themselves the necessary mechanisms to automatically trip (open) in the event of overcurrent conditions.  They must be "told" to trip by external devices.</li>
+<li><i>Protective relays</i> are devices built to automatically trigger the actuation coils of large electric circuit breakers under certain conditions.</li>
+</ul>
+<h2 id="h-solid-state-relays">Solid-state relays</h2>
+<p>
+As versatile as electromechanical relays can be, they do suffer many limitations.  They can be expensive to build, have a limited contact cycle life, take up a lot of room, and switch slowly, compared to modern semiconductor devices.  These limitations are especially true for large power contactor relays.  To address these limitations, many relay manufacturers offer "solid-state" relays, which use an SCR, TRIAC, or transistor output instead of mechanical contacts to switch the controlled power.  The output device (SCR, TRIAC, or transistor) is optically-coupled to an LED light source inside the relay.  The relay is turned on by energizing this LED, usually with low-voltage DC power.  This optical isolation between input to output rivals the best that electromechanical relays can offer.
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04054.png"> </p>
+<p>
+Being solid-state devices, there are no moving parts to wear out, and they are able to switch on and off much faster than any mechanical relay armature can move.  There is no sparking between contacts, and no problems with contact corrosion.  However, solid-state relays are still too expensive to build in very high current ratings, and so electromechanical contactors continue to dominate that application in industry today.
+</p>
+<p>
+One significant advantage of a solid-state SCR or TRIAC relay over an electromechanical device is its natural tendency to open the AC circuit only at a point of zero load current.  Because SCR's and TRIAC's are <i>thyristors</i>, their inherent hysteresis maintains circuit continuity after the LED is de-energized until the AC current falls below a threshold value (the <i>holding current</i>).  In practical terms what this means is the circuit will never be interrupted in the middle of a sine wave peak.  Such untimely interruptions in a circuit containing substantial inductance would normally produce large voltage spikes due to the sudden magnetic field collapse around the inductance.  This will not happen in a circuit broken by an SCR or TRIAC.  This feature is called <i>zero-crossover switching</i>.
+</p>
+<p>
+One disadvantage of solid state relays is their tendency to fail "shorted" on their outputs, while electromechanical relay contacts tend to fail "open."  In either case, it is possible for a relay to fail in the other mode, but these are the most common failures.  Because a "fail-open" state is generally considered safer than a "fail-closed" state, electromechanical relays are still favored over their solid-state counterparts in many applications.  
+</p>
+<br>
+<hr>
+<p>
+<i>Lessons In Electric Circuits</i> copyright (C) 2000-2023 Tony R. Kuphaldt, under the terms and conditions of the <a href="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_A3.html" target="_blank" rel="noopener noreferrer">CC BY License</a>.
+</p>
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_4.html" target="_blank" rel="noopener noreferrer"><img alt="Previous" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/previous.jpg"></a>
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/index.html" target="_blank" rel="noopener noreferrer"><img alt="Contents" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/contents.jpg"></a>
+<a href="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/DIGI_6.html" target="_blank" rel="noopener noreferrer"><img alt="Next" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/next.jpg"></a>

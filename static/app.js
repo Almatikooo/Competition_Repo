@@ -2,9 +2,10 @@ import { h, radar, divergingBars, miniBar, magnitudeBars, sparkline, heatColor, 
 import { state, store, EMPTY_PROFILE, t, setLang, $, api, skillById, roleById, loc, skillName, skillShort, roleTitle, goalOf,
   hasProfile, dateLabel, monthLabel, setRenderer, go, toast, saveProfile, sdgBadge, costTag, icon,
   ensureRadar, ensureMatches, ensureCourses } from "./core.js";
-import { ensureLearn, viewLearn, viewCourse, viewLesson, viewTest, viewCertificate, certificatePrintStyle, courseLength } from "./learn.js";
+import { ensureLearn, viewLearn, viewCourse, viewLesson, viewTest, viewCertificate, certificatePrintStyle, hoursLabel, testPart } from "./learn.js";
+import { ensureNext, viewNext, nextCta } from "./next.js";
 
-const POPULAR_JOBS = ["accounting_clerk", "admin_assistant", "customer_service_rep", "cashier", "teacher", "graphic_designer"];
+const POPULAR_JOBS = ["accounting_clerk", "admin_assistant", "customer_service_rep", "factory_operator", "cashier", "teacher", "graphic_designer", "telemarketer"];
 const POPULAR_SKILLS = ["prompt_eng", "data_analysis", "communication", "excel", "project_mgmt", "digital_literacy", "leadership", "python", "customer_service", "teaching_training"];
 
 // ---------------------------------------------------------------- profile builders (one tap = a full profile)
@@ -81,7 +82,7 @@ function originLabel() {
 }
 
 // ---------------------------------------------------------------- header & footer
-const NAV = [["results", "nav_path"], ["learn", "nav_learn"], ["trends", "nav_trends"], ["teams", "nav_teams"], ["how", "nav_how"]];
+const NAV = [["results", "nav_path"], ["learn", "nav_learn"], ["next", "nav_next"], ["trends", "nav_trends"], ["teams", "nav_teams"], ["how", "nav_how"]];
 
 function renderChrome(routeName) {
   document.documentElement.lang = state.lang === "zh" ? "zh-CN" : state.lang;
@@ -98,7 +99,8 @@ function renderChrome(routeName) {
   const langs = [["en", "English"], ["ms", "Bahasa Melayu"], ["zh", "中文"]];
   $("footer").replaceChildren(h("div", { class: "container" },
     h("div", { class: "cols" },
-      h("div", {}, h("h4", {}, "Path.AI"), h("p", {}, t("ft_about")),
+      h("div", {}, h("div", { class: "footer-brand" }, h("img", { src: "/static/brand/mark.svg", alt: "" }),
+        h("img", { src: "/static/brand/wordmark-light.svg", alt: "Path.AI" })), h("p", {}, t("ft_about")),
         h("p", { class: "tiny", style: { marginTop: "10px", color: "#b2b2b2" } }, llm.online ? t("ft_ai_on", { model: llm.model }) : t("ft_ai_off"))),
       h("div", {}, h("h4", {}, t("ft_explore")), NAV.map(([r, key]) => h("a", { href: `#/${r}` }, t(key)))),
       h("div", {}, h("h4", {}, t("ft_lang")), h("div", { class: "lang-switch" }, langs.map(([code, label]) =>
@@ -134,7 +136,8 @@ function viewHome() {
     h("span", { class: "job" }, p.current_role ? roleTitle(p.current_role) : t("s1_student")),
     h("span", { class: "story" }, loc(p.headline)),
     h("span", { class: "go" }, t("see_results"))));
-  const features = [["trend", "feat1_t", "feat1_d", "#/trends"], ["target", "feat2_t", "feat2_d", "#/start?step=1"], ["award", "feat3_t", "feat3_d", "#/learn"]].map(([ic, title, desc, href]) =>
+  const features = [["trend", "feat1_t", "feat1_d", "#/trends"], ["target", "feat2_t", "feat2_d", "#/start?step=1"], ["award", "feat3_t", "feat3_d", "#/learn"],
+    ["briefcase", "feat4_t", "feat4_d", "#/next"]].map(([ic, title, desc, href]) =>
     h("a", { class: "card feature", href }, h("span", { class: "icon-circle" }, icon(ic)), h("h3", {}, t(title)),
       h("p", {}, t(desc, { posts: hn.posts.toLocaleString(), n: state.courses?.length || 44 }))));
   const heroCard = h("div", { class: "hero-card" },
@@ -148,7 +151,7 @@ function viewHome() {
   return h("div", {},
     h("section", { class: "hero" }, h("div", { class: "container hero-grid" },
       h("div", {}, h("h1", {}, t("hero_title")), h("p", { class: "lead" }, t("hero_lead"))), heroCard)),
-    h("section", { class: "band" }, h("div", { class: "container grid-3" }, features)),
+    h("section", { class: "band" }, h("div", { class: "container grid-4" }, features)),
     h("section", { class: "band band-white" }, h("div", { class: "container" },
       h("div", { class: "band-head" }, h("h2", {}, t("now_title")), h("p", {}, t("now_sub", { date: dateLabel(hn.fetched_at) }))),
       h("div", { class: "grid-2" },
@@ -160,7 +163,8 @@ function viewHome() {
       h("div", { class: "examples" }, examples))),
     h("section", { class: "band band-tint" }, h("div", { class: "container row", style: { gap: "24px", justifyContent: "space-between" } },
       h("div", { style: { maxWidth: "560px" } }, h("h3", {}, t("sdg_band_t")), h("p", { class: "muted", style: { marginTop: "6px" } }, t("sdg_band_d"))),
-      h("div", { class: "sdg-strip" }, state.meta.sdg_goals.map((g) => sdgBadge(g.goal, false))))));
+      h("div", {}, h("div", { class: "sdg-strip" }, state.meta.sdg_goals.map((g) => sdgBadge(g.goal, false))),
+        h("p", { class: "tiny muted", style: { marginTop: "8px" } }, t("sdg_tap"))))));
 }
 
 // ---------------------------------------------------------------- Wizard
@@ -325,14 +329,44 @@ function demandValue(pct) {
   return `${arrow}${abs < 10 ? abs.toFixed(1) : Math.round(abs)}%`;
 }
 
+// Explanations cite numbered sources as [S1], [S3][S6] (the guardrails require it). Show them as small superscript
+// footnote numbers that point at the source list below, instead of raw ids.
+function citedText(text, sources, rid) {
+  const byId = Object.fromEntries((sources || []).map((src, i) => [src.id, { ...src, n: i + 1 }]));
+  const out = [];
+  const marker = /\s*((?:\[S\d+\])+)/g;
+  let last = 0;
+  for (const m of text.matchAll(marker)) {
+    out.push(text.slice(last, m.index));
+    const ids = [...m[1].matchAll(/S\d+/g)].map((x) => x[0]).filter((id) => byId[id]);
+    if (ids.length) {
+      out.push(h("sup", { class: "cite" }, ids.map((id, k) => [k ? "," : "", h("a", {
+        href: `#src-${rid}-${byId[id].n}`, class: "cite-link", title: byId[id].label, "aria-label": `${t("d_sources")} ${byId[id].n}: ${byId[id].label}`,
+        onclick: (e) => {
+          e.preventDefault(); // an in-page anchor must not trigger the hash router
+          const li = document.getElementById(`src-${rid}-${byId[id].n}`);
+          if (!li) return;
+          li.scrollIntoView({ behavior: "smooth", block: "center" });
+          li.classList.remove("flash");
+          void li.offsetWidth; // restart the highlight animation
+          li.classList.add("flash");
+        } }, String(byId[id].n))])));
+    }
+    last = m.index + m[0].length;
+  }
+  out.push(text.slice(last));
+  return out;
+}
+
 function matchDetails(r, role) {
   const exp = state.explanations[r.id];
+  const sources = exp?.sources || r.sources || [];
   const have = r.items.filter((i) => i.status === "have");
   const learn = r.items.filter((i) => i.status !== "have").sort((a, b) => b.weight - a.weight);
   const engine = exp?.engine === "llm" ? t("engine_llm", { model: exp.model }) : exp?.guardrail?.rejected ? t("guard_rejected") : t("engine_template");
   return h("div", { class: "details" },
     h("h4", {}, t("d_explain")),
-    h("div", { class: "explain" }, h("p", {}, exp?.text || r.explanation), h("p", { class: "engine-note" }, engine),
+    h("div", { class: "explain" }, h("p", {}, citedText(exp?.text || r.explanation, sources, r.id)), h("p", { class: "engine-note" }, engine),
       state.meta.llm?.online ? h("button", { type: "button", class: "btn btn-secondary btn-sm", style: { marginTop: "8px" }, onclick: (e) => explainWithAI(r.id, e.currentTarget) }, t("explain_ai")) : null),
     have.length ? [h("h4", {}, t("d_have")), h("div", { class: "row" }, have.map((i) => h("span", { class: "pill have" }, "✓ ", skillShort(i.id))))] : null,
     learn.length ? [h("h4", {}, t("d_learn")), h("div", { class: "row" }, learn.map((i) => h("a", { class: "pill learn", href: `#/learn/${i.id}` }, `${skillShort(i.id)} · ${i.gap_hours} h`)))] : null,
@@ -342,9 +376,9 @@ function matchDetails(r, role) {
     h("span", {}, t(`pace_${k}`)), miniBar(r.outlook[k]), h("span", { class: "num" }, fmtPct(r.outlook[k].pct))))),
     h("h4", {}, t("d_sdg")),
     role.sdgs.map((x) => h("div", { class: "row", style: { gap: "10px", flexWrap: "nowrap", alignItems: "flex-start", marginTop: "6px" } },
-      sdgBadge(x.goal, true, state.meta.sdg_targets[x.target]), h("span", { class: "small" }, h("b", {}, `${x.target} `), x.why))),
-    (r.sources || []).length ? [h("h4", {}, t("d_sources")), h("ol", { class: "sources" }, r.sources.map((x) =>
-      h("li", {}, x.url ? h("a", { href: x.url, target: "_blank", rel: "noopener" }, x.label) : x.label)))] : null);
+      sdgBadge(x.goal, true, state.meta.sdg_targets[x.target], { role: r.id }), h("span", { class: "small" }, h("b", {}, `${x.target} `), x.why))),
+    sources.length ? [h("h4", {}, t("d_sources")), h("ol", { class: "sources" }, sources.map((x, i) =>
+      h("li", { id: `src-${r.id}-${i + 1}` }, x.url ? h("a", { href: x.url, target: "_blank", rel: "noopener" }, x.label) : x.label)))] : null);
 }
 
 function matchCard(r) {
@@ -367,7 +401,7 @@ function matchCard(r) {
       h("button", { type: "button", class: "btn btn-link", "aria-expanded": String(open), onclick: () => { state.expanded[r.id] = !open; render(); } }, open ? t("hide") : t("why")),
       h("span", { class: "spacer" }),
       h("span", { class: "row", style: { gap: "4px" } }, goals.map((goal) =>
-        sdgBadge(goal, true, role.sdgs.filter((x) => x.goal === goal).map((x) => `${x.target}: ${x.why}`).join("\n"))))),
+        sdgBadge(goal, true, role.sdgs.filter((x) => x.goal === goal).map((x) => `${x.target}: ${x.why}`).join("\n"), { role: r.id })))),
     open ? matchDetails(r, role) : null);
 }
 
@@ -425,6 +459,7 @@ function viewResults() {
         h("button", { type: "button", class: "btn btn-secondary", onclick: () => { state.showMore = !state.showMore; render(); } },
           state.showMore ? t("fewer_roles") : t("more_roles", { n: rest.length }))) : null,
       state.showMore ? moreList : null,
+      nextCta(),
       h("details", { class: "card", style: { marginTop: "24px" } }, h("summary", { style: { cursor: "pointer", fontWeight: "700" } }, t("adjust")),
         h("div", { class: "grid-3", style: { marginTop: "16px", gap: "20px" } }, weightSlider("fit", t("w_fit")), weightSlider("outlook", t("w_outlook")), weightSlider("preference", t("w_pref")))),
       h("p", { class: "source-line", style: { textAlign: "center", marginTop: "24px" } },
@@ -432,35 +467,58 @@ function viewResults() {
 }
 
 // ---------------------------------------------------------------- Plan
+// The step's main action is our own course when there is one (with the external course offered as an alternative);
+// otherwise the verified external course is the main action.
 function planStep(rid, st, progress) {
   const cert = state.certs[st.skill];
   const isDone = !!progress[st.skill] || !!cert;
   const openOpts = !!state.openOpts[st.skill];
   const res = st.resource;
+  const ours = state.courses?.find((x) => x.skill === st.skill);
+  const started = !!state.learned[st.skill]?.done?.length;
   const hasMore = st.alternatives.length || st.credential || st.practice;
-  const length = courseLength(st.skill);
-  const learnHere = cert
-    ? h("a", { class: "badge robust", href: `#/certificate/${cert.token}` }, `✓ ${t("certified")}`)
-    : h("a", { class: "btn btn-primary btn-sm", href: `#/learn/${st.skill}` }, icon("book"), length ? t("learn_here", { h: length }) : t("nav_learn"));
-  const course = res
-    ? h("div", { class: "course" },
-        h("div", { style: { flex: "1", minWidth: "200px" } }, h("div", { class: "tiny muted" }, t("then_course")), h("div", { class: "c-title" }, res.title),
-          h("div", { class: "c-sub" }, `${res.provider} · ~${res.hours} h `, costTag(res.cost))),
-        h("a", { class: "btn btn-secondary btn-sm", href: res.url, target: "_blank", rel: "noopener" }, `${t("open_course")} ↗`))
-    : h("div", { class: "course" }, h("span", { class: "small" }, t("no_resource")));
+  const external = (r, primary) => h("a", { class: `btn ${primary ? "btn-primary" : "btn-secondary"} btn-sm`, href: r.url, target: "_blank", rel: "noopener" },
+    `${t("open_course")} ↗`);
+  let main;
+  let alt = null;
+  if (ours) {
+    main = h("div", { class: "course ours" },
+      h("span", { class: "c-ico" }, h("img", { src: "/static/brand/mark.svg", alt: "" })),
+      h("div", { class: "c-body" },
+        h("div", { class: "c-kicker" }, t("pathai_course")),
+        h("div", { class: "c-title" }, ours.title),
+        h("div", { class: "c-sub" }, [t("lessons_n", { n: ours.lessons }), hoursLabel(ours.minutes), t("chip_ctests", { n: ours.chapters })].join(" · "))),
+      cert ? h("a", { class: "btn btn-secondary btn-sm", href: `#/certificate/${cert.token}` }, icon("award"), t("view_cert"))
+        : h("a", { class: "btn btn-primary btn-sm", href: `#/learn/${st.skill}` }, started ? t("continue_course") : t("start_course"), " →"));
+    alt = res ? h("div", { class: "course alt" },
+      h("div", { class: "c-body" },
+        h("div", { class: "c-kicker" }, t("alt_course")),
+        h("div", { class: "c-title" }, res.title),
+        h("div", { class: "c-sub" }, `${res.provider} · ~${res.hours} h `, costTag(res.cost))),
+      external(res, false)) : null;
+  } else if (res) {
+    main = h("div", { class: "course" },
+      h("div", { class: "c-body" },
+        h("div", { class: "c-kicker" }, t("ext_course")),
+        h("div", { class: "c-title" }, res.title),
+        h("div", { class: "c-sub" }, `${res.provider} · ~${res.hours} h `, costTag(res.cost))),
+      external(res, true));
+  } else {
+    main = h("div", { class: "course" }, h("span", { class: "small" }, t("no_resource")));
+  }
   const options = openOpts ? h("div", { class: "details small" },
     st.alternatives.length ? [h("h4", {}, t("alts")), h("ul", { class: "sources" }, st.alternatives.map((a) => h("li", {}, h("a", { href: a.url, target: "_blank", rel: "noopener" }, a.title), ` · ${a.provider} · `, costTag(a.cost))))] : null,
     st.credential ? [h("h4", {}, t("cred")), h("p", {}, h("a", { href: st.credential.url, target: "_blank", rel: "noopener" }, st.credential.title), " · ", costTag(st.credential.cost))] : null,
     st.practice ? [h("h4", {}, t("practice")), h("p", {}, st.practice)] : null,
-    st.sdgs.length ? h("div", { class: "row", style: { marginTop: "10px" } }, st.sdgs.map((x) => h("span", { class: "row", style: { gap: "6px" } }, sdgBadge(x.goal, true), `${x.target} ${x.why}`))) : null) : null;
+    st.sdgs.length ? h("div", { class: "row", style: { marginTop: "10px" } }, st.sdgs.map((x) => h("span", { class: "row", style: { gap: "6px" } }, sdgBadge(x.goal, true, null, { skill: st.skill }), `${x.target} ${x.why}`))) : null) : null;
   return h("div", { class: `plan-step ${isDone ? "done" : ""}` },
     h("div", { class: "step-num" }, isDone ? "✓" : String(st.n)),
     h("div", { class: "step-card" },
       h("div", { class: "tiny muted" }, t("step_n", { n: st.n }).toUpperCase()),
       h("h3", {}, skillName(st.skill)),
       h("div", { class: "step-meta" }, t("step_meta", { h: st.hours, a: st.week_start, b: st.week_end })),
-      h("div", { class: "row", style: { marginTop: "12px" } }, learnHere),
-      course,
+      main,
+      alt,
       h("div", { class: "step-foot" },
         cert ? null : h("label", { class: "check" }, h("input", { type: "checkbox", checked: isDone,
           onchange: (e) => { state.progress[rid] = { ...progress, [st.skill]: e.target.checked }; store.set("progress", state.progress); render(); } }), t("mark_done")),
@@ -476,7 +534,7 @@ function viewPlan(rid) {
   const done = p.steps.filter((st) => progress[st.skill] || state.certs[st.skill]).length;
   const allFree = p.steps.length && p.steps.every((st) => !st.resource || st.resource.cost === "free");
   const impact = h("div", { class: "card" }, h("h3", { style: { marginBottom: "14px" } }, t("impact_t")),
-    h("div", { class: "impact" }, p.sdg_contribution.slice(0, 3).map((c) => h("div", { class: "impact-item" }, sdgBadge(c.goal, false),
+    h("div", { class: "impact" }, p.sdg_contribution.slice(0, 3).map((c) => h("div", { class: "impact-item" }, sdgBadge(c.goal, false, null, { role: rid }),
       h("div", {}, h("b", {}, loc(goalOf(c.goal).name)), h("div", { class: "small muted" }, c.targets[0] ? `${c.targets[0].target} · ${c.targets[0].why}` : ""))))));
   const support = h("div", { class: "card" }, h("h3", {}, t("final_t")),
     p.capstone.practice ? h("p", { class: "small", style: { marginTop: "8px" } }, h("b", {}, `${t("practice")}: `), p.capstone.practice) : null,
@@ -493,6 +551,8 @@ function viewPlan(rid) {
     h("section", { class: "band", style: { paddingTop: "28px" } }, h("div", { class: "container grid-main" },
       h("div", {}, p.steps.map((st) => planStep(rid, st, progress))),
       h("div", { class: "stack" }, impact, support,
+        h("div", { class: "card no-print" }, h("h3", {}, t("nx_plan_t")), h("p", { class: "small muted", style: { marginTop: "6px" } }, t("nx_plan_d", { role: roleTitle(rid) })),
+          h("a", { class: "btn btn-secondary btn-block", href: `#/next?mode=work&role=${rid}`, style: { marginTop: "14px" } }, icon("briefcase"), t("nx_plan_btn"))),
         h("button", { type: "button", class: "btn btn-secondary btn-block no-print", onclick: () => window.print() }, t("print"))))));
 }
 
@@ -610,7 +670,8 @@ function viewHow() {
     ["2 · Live signals", `${m.signals.hn.posts.toLocaleString()} job posts (HN Who is hiring) + AI-research volume (OpenAlex) + cited WEF baselines.`],
     ["3 · Forecast", "Per skill: job-post momentum + baseline + AI pressure × scenario pace (slower 0.5 / expected 1 / faster 2), with a range."],
     ["4 · Match", "Skills fit (incl. transferable skills) · future demand · your interests and SDGs. Robust = top 5 in every scenario."],
-    ["5 · Learn + certify", `A full, free course for every skill — real chapters from open curricula (MIT, CC BY, OGL, public domain) — with a final test, a verifiable Path.AI certificate, and ${m.resources.count} verified external courses.`],
+    ["5 · Learn + certify", `A full, free course for every skill — real chapters from open curricula (MIT, CC BY, OGL, public domain) — with a test after every chapter, a final test, a verifiable Path.AI certificate, and ${m.resources.count} verified external courses.`],
+    ["6 · Next step", "Two questions: study or work, and where. Open jobs anywhere in the world ranked by the same skills match (a Path.AI certificate counts as a working-level skill), or the universities of that country with how to apply and how to fund it."],
   ];
   return h("div", {},
     h("section", { class: "page-head" }, h("div", { class: "container" }, h("h1", {}, t("how_title")),
@@ -633,18 +694,24 @@ function viewHow() {
         card("Lessons & certificates",
           h("ul", { class: "small" },
             h("li", {}, "Every course is assembled from openly licensed curricula — Microsoft “for Beginners”, The Carpentries, OpenStax, BCcampus, GOV.UK, NIST, EIA, EPA and others. Lessons keep the original text, re-typeset, with source, licence and a link to the original on every page."),
-            h("li", {}, "Final tests are graded on the server. Questions come from the source curricula's own open quiz banks or quote their answer word-for-word from a lesson (the build fails otherwise). Pass mark: 70%."),
+            h("li", {}, "Tests are graded on the server: 5 questions after every chapter (4 to unlock the next), 25 in the final test (20 to pass). Each attempt is drawn at random from the course's question pool; questions come from the source curricula's own open quiz banks or quote their answer word-for-word from a lesson (the build fails otherwise)."),
             h("li", {}, "Certificates are signed (HMAC-SHA256) and can be verified by anyone with the link; we keep no database of names. They are not accredited qualifications."))),
+        card("Jobs & universities",
+          h("ul", { class: "small" },
+            h("li", {}, "Jobs are a dated snapshot of open postings from public sources: company career pages on Greenhouse, Lever and Ashby, Hacker News “Who is hiring”, Himalayas, Jobicy, Remotive and Arbeitnow. We keep only the title, company, link, place, date and the skills detected — never the description — and you always apply on the employer's own page."),
+            h("li", {}, "Sites without a public API (JobStreet, LinkedIn, Indeed, SEEK…) are never scraped: we link to a ready-made search there, official public job portals first."),
+            h("li", {}, "Universities come from Wikidata (CC0) and the Hipo university list (MIT), ordered by how many Wikipedia language editions describe them — a rough sign of how widely known they are, not a ranking. Admission and scholarship links are curated and checked."))),
         card("AI model disclosure",
           h("p", { class: "small" }, m.llm.online ? `Online: ${m.llm.model} (open weights, served with vLLM).` : `Configured: ${m.llm.model || "Qwen/Qwen3.8-27B-FP8"} on a RunPod GPU — currently offline, so everything runs rule-based.`),
           h("p", { class: "small muted" }, "Rankings, trends, plans and lessons never depend on the language model.")),
         card("Fair and human-centred",
-          h("p", { class: "small" }, "We use only skills, interests, SDG priorities and available time — never age, gender, ethnicity or location. You can edit every skill and re-weight the ranking. Path.AI supports career decisions; it does not make hiring decisions.")),
+          h("p", { class: "small" }, "We rank roles using only skills, interests, SDG priorities and available time — never age, gender, ethnicity or location. The country you pick under Opportunities only sets where to look for jobs or universities; it never changes your matches. You can edit every skill and re-weight the ranking. Path.AI supports career decisions; it does not make hiring decisions.")),
         card("Known limitations",
           h("ul", { class: "small" },
             h("li", {}, "HN job posts are global and tech-centric, so we use them only for tech skills; other skills rely on baselines and AI signals (marked low confidence)."),
             h("li", {}, "Research attention is a proxy for AI progress, not a measure of real-world adoption."),
             h("li", {}, "Course text is in English (the original language of the open sources); the interface is available in English, Malay and Chinese."),
+            h("li", {}, "The job snapshot is tech-heavy and thin for some countries (Malaysia included), so every country also gets one-tap searches on its main job sites."),
             h("li", {}, "Next: Malaysian job feeds (e.g. MYFutureJobs / MyMahir), DOSM labour statistics and HRD Corp programme data.")))))));
 }
 
@@ -664,6 +731,13 @@ function applyParams(params) {
   if (["slow", "moderate", "fast"].includes(params.get("pace"))) state.scenario = params.get("pace");
   if (state.meta.as_of_options.includes(params.get("asof"))) state.asOf = params.get("asof");
   if (params.get("open")) state.expanded[params.get("open")] = true;
+  // Opportunities, e.g.  #/next?persona=aisyah&mode=work&country=MY
+  const mode = params.get("mode");
+  const country = (params.get("country") || "").toUpperCase();
+  if (["study", "work"].includes(mode)) state.next.mode = mode;
+  if (/^([A-Z]{2}|REMOTE)$/.test(country)) state.next.country = country;
+  if (mode || country) { state.nextUi.editing = false; store.set("next", state.next); }
+  if (roleById()[params.get("role")]) { state.nextUi.role = params.get("role"); store.set("focusRole", params.get("role")); }
   const step = Number(params.get("step"));
   if ([1, 2, 3].includes(step)) state.wizard = { ...state.wizard, step, student: false, searchOpen: false, skillQuery: "" };
 }
@@ -682,8 +756,10 @@ async function render() {
     if (r.name === "plan" && hasProfile() && roleById()[r.arg]) await ensurePathway(r.arg);
     if (r.name === "teams") await ensureTeam();
     if (r.name === "learn" || r.name === "certificate") await ensureLearn(r);
-    const views = { home: viewHome, start: viewStart, results: viewResults, plan: () => viewPlan(r.arg), trends: viewTrends, teams: viewTeams, how: viewHow,
-      learn: () => (!r.arg ? viewLearn() : r.sub === "test" ? viewTest() : r.sub ? viewLesson() : viewCourse()), certificate: () => viewCertificate(r.arg) };
+    if (r.name === "next") await ensureNext();
+    if (r.name === "plan" && roleById()[r.arg]) store.set("focusRole", r.arg); // the direction Opportunities searches first
+    const views = { home: viewHome, start: viewStart, results: viewResults, plan: () => viewPlan(r.arg), next: viewNext, trends: viewTrends, teams: viewTeams, how: viewHow,
+      learn: () => (!r.arg ? viewLearn() : testPart(r.sub) !== null ? viewTest() : r.sub ? viewLesson() : viewCourse()), certificate: () => viewCertificate(r.arg) };
     main.replaceChildren((views[r.name] || viewHome)());
   } catch (e) {
     main.replaceChildren(h("div", { class: "container" }, h("p", { class: "notice", style: { marginTop: "32px" } }, String(e.message || e))));

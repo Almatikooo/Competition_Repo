@@ -538,166 +538,536 @@
    ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "Without the natural greenhouse effect, what would Earth's average temperature be?",
-    "options": [
-     "About the same as today",
-     "About -2°F instead of today's 57°F",
-     "About 100°F",
-     "Exactly 0°C"
-    ],
-    "answer": 1,
-    "explain": "Some greenhouse effect is natural and essential; human emissions intensify it.",
-    "lesson": "carbon_accounting-01",
-    "evidence": "Without the greenhouse effect, the average temperature of the earth would be about -2°F rather than the 57°F we currently experience.",
-    "origin": "authored"
-   },
-   {
-    "q": "In the United States, where do most human-caused greenhouse gas emissions come from?",
-    "options": [
-     "Volcanoes",
-     "Livestock",
-     "Landfills",
-     "Burning fossil fuels — coal, natural gas and petroleum — for energy"
-    ],
-    "answer": 3,
-    "explain": "About 74% of US human-caused emissions come from fossil fuel energy use.",
-    "lesson": "carbon_accounting-02",
-    "evidence": "In the United States, most (about 74%) human-caused ( anthropogenic ) greenhouse gas (GHG) emissions come from burning fossil fuels—coal, natural gas, and petroleum—for energy use.",
-    "origin": "authored"
-   },
-   {
-    "q": "Which of these belongs to the first step of developing a GHG inventory?",
-    "options": [
-     "Reviewing accounting standards, setting organisational and operational boundaries, and choosing a base year",
-     "Buying carbon offsets",
-     "Publishing the final report",
-     "Setting a net zero target"
-    ],
-    "answer": 0,
-    "explain": "Boundaries and a base year make results consistent and comparable over time.",
-    "lesson": "carbon_accounting-03",
-    "evidence": "Review accounting standards and methods, determine organizational and operational boundaries, and choose a base year.",
-    "origin": "authored"
-   },
-   {
-    "q": "What are scope 2 emissions?",
-    "options": [
-     "Direct emissions from company vehicles",
-     "Emissions from suppliers' factories",
-     "Indirect emissions associated with purchased electricity, steam, heat or cooling",
-     "Emissions from employees commuting"
-    ],
-    "answer": 2,
-    "explain": "Scope 1 is direct; scope 2 is purchased energy; scope 3 is the rest of the value chain.",
-    "lesson": "carbon_accounting-04",
-    "evidence": "Scope 2 emissions are indirect GHG emissions associated with the purchase of electricity, steam, heat, or cooling.",
-    "origin": "authored"
-   },
-   {
-    "q": "Scope 2 emissions physically happen at the power plant. Why are they counted in the buyer's inventory?",
-    "options": [
-     "Because power plants do not report emissions",
-     "Because they are a result of the organisation's energy use",
-     "Because the law double-counts all emissions",
-     "Because electricity is always generated on site"
-    ],
-    "answer": 1,
-    "explain": "The organisation's demand for energy causes those emissions.",
-    "lesson": "carbon_accounting-04",
-    "evidence": "they are accounted for in an organization’s GHG inventory because they are a result of the organization’s energy use.",
-    "origin": "authored"
-   },
-   {
-    "q": "What do scope 3 emissions include?",
-    "options": [
-     "Only business travel",
-     "Only purchased electricity",
-     "Only emissions from company-owned boilers",
-     "All sources not within the organisation's scope 1 and 2 boundary"
-    ],
-    "answer": 3,
-    "explain": "One organisation's scope 3 is another organisation's scope 1 and 2.",
-    "lesson": "carbon_accounting-05",
-    "evidence": "Scope 3 emissions include all sources not within an organization’s scope 1 and 2 boundary.",
-    "origin": "authored"
-   },
-   {
-    "q": "How many scope 3 categories does an organisation screen for relevance?",
-    "options": [
-     "15",
-     "3",
-     "7",
-     "50"
-    ],
-    "answer": 0,
-    "explain": "Not every category is relevant to every organisation.",
-    "lesson": "carbon_accounting-05",
-    "evidence": "a relevance assessment to determine which of the 15 categories are relevant to the reporting organization.",
-    "origin": "authored"
-   },
-   {
-    "q": "Why does EPA use a marginal emission factor to estimate savings from efficiency and renewable energy?",
-    "options": [
-     "It is the cheapest factor to calculate",
-     "It ignores fossil fuels",
-     "It best represents which fossil-fired units the savings displace",
-     "It is required for scope 3 only"
-    ],
-    "answer": 2,
-    "explain": "Efficiency and renewables mostly displace plants brought online to meet demand, not baseload plants.",
-    "lesson": "carbon_accounting-06",
-    "evidence": "A marginal emission factor is the best representation to estimate which fossil-fired units EE/RE are displacing across the fossil fleet.",
-    "origin": "authored"
-   },
-   {
-    "q": "In the UK guidance for councils' own estate, what should each published GHG report show at a minimum?",
-    "options": [
-     "Totals in CO2e for scope 1, scope 2 and scope 3 (if provided)",
-     "Only the electricity bill",
-     "The names of staff who travel most",
-     "A forecast for the next 50 years"
-    ],
-    "answer": 0,
-    "explain": "Publishing totals locally makes councils accountable to local people.",
-    "lesson": "carbon_accounting-08",
-    "evidence": "as a minimum totals in CO2e for Scope 1, Scope 2 and Scope 3 emissions (if provided)",
-    "origin": "authored"
-   },
-   {
-    "q": "In the SECR worked example, which intensity ratio is chosen?",
-    "options": [
-     "Energy cost per building",
-     "Total gross emissions in tonnes CO2e per pupil",
-     "Litres of fuel per bus",
-     "kWh per employee per day"
-    ],
-    "answer": 1,
-    "explain": "An intensity ratio relates emissions to a measure of activity so years can be compared.",
-    "lesson": "carbon_accounting-10",
-    "evidence": "The chosen intensity measurement ratio is total gross emissions in metric tonnes CO2e per pupil, the recommended ratio for the sector.",
-    "origin": "authored"
-   },
-   {
-    "q": "How often are the UK government's greenhouse gas conversion factors updated?",
-    "options": [
-     "Every ten years",
-     "Only when the law changes",
-     "Never — they are fixed",
-     "Annually, generally released each June"
-    ],
-    "answer": 3,
-    "explain": "Use the factors that cover the greatest part of your reporting year.",
-    "lesson": "carbon_accounting-10",
-    "evidence": "The conversion factors are updated annually and are generally released each year in June.",
-    "origin": "authored"
-   }
-  ],
-  "pass_mark": 8,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "7ebae16a08",
+   "module": 0,
+   "q": "Without the natural greenhouse effect, what would Earth's average temperature be?",
+   "options": [
+    "About the same as today",
+    "About -2°F instead of today's 57°F",
+    "About 100°F",
+    "Exactly 0°C"
+   ],
+   "answer": 1,
+   "explain": "Some greenhouse effect is natural and essential; human emissions intensify it.",
+   "lesson": "carbon_accounting-01",
+   "evidence": "Without the greenhouse effect, the average temperature of the earth would be about -2°F rather than the 57°F we currently experience.",
+   "origin": "authored"
+  },
+  {
+   "id": "70bfc63348",
+   "module": 0,
+   "q": "Which greenhouse gases are exclusively human-made?",
+   "options": [
+    "Carbon dioxide",
+    "Methane",
+    "Industrial gases",
+    "Water vapour"
+   ],
+   "answer": 2,
+   "explain": "Other gases occur naturally and are also produced by human activities.",
+   "lesson": "carbon_accounting-01",
+   "evidence": "Some, such as industrial gases, are exclusively human made.",
+   "origin": "authored"
+  },
+  {
+   "id": "448dcb5c5a",
+   "module": 0,
+   "q": "In the United States, where do most human-caused greenhouse gas emissions come from?",
+   "options": [
+    "Volcanoes",
+    "Livestock",
+    "Landfills",
+    "Burning fossil fuels — coal, natural gas and petroleum — for energy"
+   ],
+   "answer": 3,
+   "explain": "About 74% of US human-caused emissions come from fossil fuel energy use.",
+   "lesson": "carbon_accounting-02",
+   "evidence": "In the United States, most (about 74%) human-caused ( anthropogenic ) greenhouse gas (GHG) emissions come from burning fossil fuels—coal, natural gas, and petroleum—for energy use.",
+   "origin": "authored"
+  },
+  {
+   "id": "5f6049ddb2",
+   "module": 0,
+   "q": "What are the main factors that drive how much energy is consumed?",
+   "options": [
+    "Population size and internet use",
+    "The number of cars and length of roads",
+    "Fuel taxes alone",
+    "Economic growth and weather that affects heating and cooling needs"
+   ],
+   "answer": 3,
+   "explain": "Energy prices and government policies also shape which types of energy are used.",
+   "lesson": "carbon_accounting-02",
+   "evidence": "weather patterns that affect heating and cooling needs are the main factors that drive the amount of energy consumed",
+   "origin": "authored"
+  },
+  {
+   "id": "9aaadc5ac3",
+   "module": 0,
+   "q": "Why does the US EPA publish estimates of total US greenhouse gas emissions?",
+   "options": [
+    "To set electricity prices",
+    "To tax individual households",
+    "To meet annual US commitments under the UN Framework Convention on Climate Change",
+    "To rank listed companies"
+   ],
+   "answer": 2,
+   "explain": "National inventories are reported to the UNFCCC every year.",
+   "lesson": "carbon_accounting-02",
+   "evidence": "GHG emissions to meet annual U.S. commitments under the United Nations Framework Convention on Climate Change (UNFCCC).",
+   "origin": "authored"
+  },
+  {
+   "id": "2129d2616f",
+   "module": 0,
+   "q": "What do fossil fuels mainly consist of?",
+   "options": [
+    "Nitrogen and oxygen",
+    "Carbon and hydrogen",
+    "Silicon and iron",
+    "Sulfur and helium"
+   ],
+   "answer": 1,
+   "explain": "Burning them combines the carbon with oxygen to form CO2.",
+   "lesson": "carbon_accounting-02",
+   "evidence": "Fossil fuels consist mainly of carbon and hydrogen.",
+   "origin": "authored"
+  },
+  {
+   "id": "a8e84c318a",
+   "module": 1,
+   "q": "Which of these belongs to the first step of developing a GHG inventory?",
+   "options": [
+    "Reviewing accounting standards, setting organisational and operational boundaries, and choosing a base year",
+    "Buying carbon offsets",
+    "Publishing the final report",
+    "Setting a net zero target"
+   ],
+   "answer": 0,
+   "explain": "Boundaries and a base year make results consistent and comparable over time.",
+   "lesson": "carbon_accounting-03",
+   "evidence": "Review accounting standards and methods, determine organizational and operational boundaries, and choose a base year.",
+   "origin": "authored"
+  },
+  {
+   "id": "5274b670bb",
+   "module": 1,
+   "q": "Which emissions count as scope 1?",
+   "options": [
+    "Direct emissions from sources the organisation owns or controls, such as its boilers and vehicles",
+    "Emissions from purchased electricity",
+    "Emissions in suppliers' factories",
+    "Emissions when customers use sold products"
+   ],
+   "answer": 0,
+   "explain": "Scope 2 covers purchased energy; scope 3 covers the rest of the value chain.",
+   "lesson": "carbon_accounting-03",
+   "evidence": "Scope 1 emissions are direct GHG emissions that occur from sources that are controlled or owned by an organization",
+   "origin": "authored"
+  },
+  {
+   "id": "17a354fc22",
+   "module": 1,
+   "q": "What are scope 2 emissions?",
+   "options": [
+    "Direct emissions from company vehicles",
+    "Emissions from suppliers' factories",
+    "Indirect emissions associated with purchased electricity, steam, heat or cooling",
+    "Emissions from employees commuting"
+   ],
+   "answer": 2,
+   "explain": "Scope 1 is direct; scope 2 is purchased energy; scope 3 is the rest of the value chain.",
+   "lesson": "carbon_accounting-04",
+   "evidence": "Scope 2 emissions are indirect GHG emissions associated with the purchase of electricity, steam, heat, or cooling.",
+   "origin": "authored"
+  },
+  {
+   "id": "4dc640f206",
+   "module": 1,
+   "q": "Scope 2 emissions physically happen at the power plant. Why are they counted in the buyer's inventory?",
+   "options": [
+    "Because power plants do not report emissions",
+    "Because they are a result of the organisation's energy use",
+    "Because the law double-counts all emissions",
+    "Because electricity is always generated on site"
+   ],
+   "answer": 1,
+   "explain": "The organisation's demand for energy causes those emissions.",
+   "lesson": "carbon_accounting-04",
+   "evidence": "they are accounted for in an organization’s GHG inventory because they are a result of the organization’s energy use.",
+   "origin": "authored"
+  },
+  {
+   "id": "8eaa44956b",
+   "module": 1,
+   "q": "What do scope 3 emissions include?",
+   "options": [
+    "Only business travel",
+    "Only purchased electricity",
+    "Only emissions from company-owned boilers",
+    "All sources not within the organisation's scope 1 and 2 boundary"
+   ],
+   "answer": 3,
+   "explain": "One organisation's scope 3 is another organisation's scope 1 and 2.",
+   "lesson": "carbon_accounting-05",
+   "evidence": "Scope 3 emissions include all sources not within an organization’s scope 1 and 2 boundary.",
+   "origin": "authored"
+  },
+  {
+   "id": "d8259feed3",
+   "module": 1,
+   "q": "How many scope 3 categories does an organisation screen for relevance?",
+   "options": [
+    "15",
+    "3",
+    "7",
+    "50"
+   ],
+   "answer": 0,
+   "explain": "Not every category is relevant to every organisation.",
+   "lesson": "carbon_accounting-05",
+   "evidence": "a relevance assessment to determine which of the 15 categories are relevant to the reporting organization.",
+   "origin": "authored"
+  },
+  {
+   "id": "3d25225004",
+   "module": 1,
+   "q": "How are one organisation's scope 3 emissions related to other organisations?",
+   "options": [
+    "They are double counting and must be removed",
+    "They are always zero for small firms",
+    "They belong to the government",
+    "They are the scope 1 and 2 emissions of another organisation"
+   ],
+   "answer": 3,
+   "explain": "Your suppliers' direct emissions show up in your value chain.",
+   "lesson": "carbon_accounting-05",
+   "evidence": "The scope 3 emissions for one organization are the scope 1 and 2 emissions of another organization.",
+   "origin": "authored"
+  },
+  {
+   "id": "5de2e61215",
+   "module": 1,
+   "q": "Why do scope 3 sources often offer emissions reduction opportunities?",
+   "options": [
+    "They are fully under the organisation's control",
+    "They are the cheapest emissions to measure",
+    "They may make up most of an organisation's emissions",
+    "They never have to be reported"
+   ],
+   "answer": 2,
+   "explain": "Even without control, an organisation may influence the activities that cause them.",
+   "lesson": "carbon_accounting-05",
+   "evidence": "because scope 3 sources may represent most of an organization",
+   "origin": "authored"
+  },
+  {
+   "id": "c65b8e8049",
+   "module": 1,
+   "q": "To fully meet GHG Protocol standards, which scope 3 emissions must be reported?",
+   "options": [
+    "Only business travel",
+    "Emissions from all relevant scope 3 categories",
+    "Only the largest category",
+    "None — scope 3 is always optional"
+   ],
+   "answer": 1,
+   "explain": "Building a complete scope 3 inventory is a process of continuous improvement.",
+   "lesson": "carbon_accounting-05",
+   "evidence": "To fully meet GHG Protocol standards, an organization must report emissions from all relevant scope 3 categories.",
+   "origin": "authored"
+  },
+  {
+   "id": "f66c4e957e",
+   "module": 1,
+   "q": "Which parts of the value chain do scope 3 emissions cover?",
+   "options": [
+    "Both upstream and downstream of the organisation's activities",
+    "Only upstream suppliers",
+    "Only downstream customers",
+    "Only the organisation's own buildings"
+   ],
+   "answer": 0,
+   "explain": "Upstream includes purchased goods; downstream includes use and disposal of sold products.",
+   "lesson": "carbon_accounting-05",
+   "evidence": "Scope 3 emission sources include emissions both upstream and downstream of the organization",
+   "origin": "authored"
+  },
+  {
+   "id": "1e5feb890f",
+   "module": 2,
+   "q": "Why does EPA use a marginal emission factor to estimate savings from efficiency and renewable energy?",
+   "options": [
+    "It is the cheapest factor to calculate",
+    "It ignores fossil fuels",
+    "It best represents which fossil-fired units the savings displace",
+    "It is required for scope 3 only"
+   ],
+   "answer": 2,
+   "explain": "Efficiency and renewables mostly displace plants brought online to meet demand, not baseload plants.",
+   "lesson": "carbon_accounting-06",
+   "evidence": "A marginal emission factor is the best representation to estimate which fossil-fired units EE/RE are displacing across the fossil fleet.",
+   "origin": "authored"
+  },
+  {
+   "id": "e74162a154",
+   "module": 2,
+   "q": "What does calculating the emission impact of efficiency and renewable energy require?",
+   "options": [
+    "Counting the solar panels installed",
+    "Measuring the efficiency of each light bulb",
+    "Adding up electricity bills",
+    "Estimating how much fossil-fired generation and emissions they displace"
+   ],
+   "answer": 3,
+   "explain": "Savings come from fossil generation that no longer has to run.",
+   "lesson": "carbon_accounting-06",
+   "evidence": "Calculating the emission impacts of EE and RE on the electricity grid requires estimating the amount of fossil-fired generation and emissions being displaced by EE and RE.",
+   "origin": "authored"
+  },
+  {
+   "id": "3f5c26d824",
+   "module": 2,
+   "q": "For electricity used (not avoided), which emission factor does the calculator apply?",
+   "options": [
+    "A marginal emission factor",
+    "A zero factor for renewable power",
+    "A regional or national average emission factor",
+    "A diesel generator factor"
+   ],
+   "answer": 2,
+   "explain": "Marginal factors are for avoided electricity; average factors are for electricity consumed.",
+   "lesson": "carbon_accounting-06",
+   "evidence": "This is either a regionally specific or a national average emissions factor, depending on the user input.",
+   "origin": "authored"
+  },
+  {
+   "id": "1ebd4923cd",
+   "module": 2,
+   "q": "What happens in the calculator if no zip code is entered?",
+   "options": [
+    "The calculation fails",
+    "The national default emission rate is used",
+    "The highest regional rate is used",
+    "A rate of zero is used"
+   ],
+   "answer": 1,
+   "explain": "Entering a zip code gives a regionally specific, more accurate rate.",
+   "lesson": "carbon_accounting-06",
+   "evidence": "If no zip code is entered by the user, the national default will be used",
+   "origin": "authored"
+  },
+  {
+   "id": "ba28635ee7",
+   "module": 2,
+   "q": "Which greenhouse gases does the electricity equivalency calculation include?",
+   "options": [
+    "Only carbon dioxide",
+    "CO2, methane and nitrous oxide",
+    "All the gases in the Kyoto basket",
+    "Only methane"
+   ],
+   "answer": 0,
+   "explain": "Other gases from power generation are left out of this particular calculation.",
+   "lesson": "carbon_accounting-06",
+   "evidence": "This calculation does not include any greenhouse gases other than CO",
+   "origin": "authored"
+  },
+  {
+   "id": "5e05a4d433",
+   "module": 2,
+   "q": "How did EPA estimate the total CO2 emissions per home?",
+   "options": [
+    "By measuring chimney emissions in sample homes",
+    "By using electricity bills only",
+    "By surveying owners about their habits",
+    "By converting electricity, gas, fuel oil and propane use to tonnes of CO2 and adding them up"
+   ],
+   "answer": 3,
+   "explain": "Each fuel has its own carbon coefficient; the results are summed per home.",
+   "lesson": "carbon_accounting-07",
+   "evidence": "consumption figures were converted from their various units to metric tons of CO",
+   "origin": "authored"
+  },
+  {
+   "id": "3056a50c67",
+   "module": 2,
+   "q": "On average, how much delivered electricity did each US home use in 2022?",
+   "options": [
+    "About 1,200 kWh",
+    "About 50,000 kWh",
+    "About 12,194 kWh",
+    "About 500 kWh"
+   ],
+   "answer": 2,
+   "explain": "Averages like this let calculators express emissions as 'homes' energy use'.",
+   "lesson": "carbon_accounting-07",
+   "evidence": "On average, each home consumed 12,194 kWh of delivered electricity.",
+   "origin": "authored"
+  },
+  {
+   "id": "6c437dc08a",
+   "module": 2,
+   "q": "In the UK guidance for councils' own estate, what should each published GHG report show at a minimum?",
+   "options": [
+    "Totals in CO2e for scope 1, scope 2 and scope 3 (if provided)",
+    "Only the electricity bill",
+    "The names of staff who travel most",
+    "A forecast for the next 50 years"
+   ],
+   "answer": 0,
+   "explain": "Publishing totals locally makes councils accountable to local people.",
+   "lesson": "carbon_accounting-08",
+   "evidence": "as a minimum totals in CO2e for Scope 1, Scope 2 and Scope 3 emissions (if provided)",
+   "origin": "authored"
+  },
+  {
+   "id": "07279f5c7a",
+   "module": 2,
+   "q": "Why should councils publish the greenhouse gas emissions of their own estate?",
+   "options": [
+    "To earn carbon credits",
+    "So local authorities are accountable to local people for their emissions",
+    "To compete in national league tables",
+    "Because the EU requires it"
+   ],
+   "answer": 1,
+   "explain": "It supports the localism agenda.",
+   "lesson": "carbon_accounting-08",
+   "evidence": "ensuring local authorities are accountable to their local people for their greenhouse gas emissions",
+   "origin": "authored"
+  },
+  {
+   "id": "0515a4169a",
+   "module": 2,
+   "q": "Which guidance should local authorities follow when preparing their emission reports?",
+   "options": [
+    "The government guidance for businesses and organisations",
+    "Their own internal method",
+    "The EU Emissions Trading System rules",
+    "Any method their energy supplier suggests"
+   ],
+   "answer": 0,
+   "explain": "Using the same guidance as businesses keeps reports consistent and comparable.",
+   "lesson": "carbon_accounting-08",
+   "evidence": "When preparing their emission reports local authorities should follow the guidance for businesses and organisations",
+   "origin": "authored"
+  },
+  {
+   "id": "68064d2e42",
+   "module": 3,
+   "q": "Who is the SECR guidance for academy trusts aimed at?",
+   "options": [
+    "Pupils and parents",
+    "Energy suppliers",
+    "Local councils",
+    "Chief financial officers, accounting officers and trustees"
+   ],
+   "answer": 3,
+   "explain": "They are responsible for the trust's annual report and accounts.",
+   "lesson": "carbon_accounting-09",
+   "evidence": "This guidance is aimed at chief financial officers, accounting officers and trustees in academy trusts.",
+   "origin": "authored"
+  },
+  {
+   "id": "d6a9eb64e0",
+   "module": 3,
+   "q": "Which data must academy trusts use for SECR where reasonably practicable?",
+   "options": [
+    "Estimates from similar schools",
+    "Results of staff surveys",
+    "Verifiable data such as meter readings or supplier invoices",
+    "National averages only"
+   ],
+   "answer": 2,
+   "explain": "Verifiable data makes the reported figures auditable.",
+   "lesson": "carbon_accounting-09",
+   "evidence": "Academy trusts must use verifiable data where reasonably practicable and should consider obtaining meter data or using invoices or annual statements from suppliers.",
+   "origin": "authored"
+  },
+  {
+   "id": "302a074faf",
+   "module": 3,
+   "q": "Is fuel for trips by train, plane or taxi that the trust does not operate included in its transport figures?",
+   "options": [
+    "Yes, always",
+    "No — procured transport services are excluded, though they may be reported separately",
+    "Only flights are included",
+    "Only trips over 100 km are included"
+   ],
+   "answer": 1,
+   "explain": "They can be reported voluntarily, for example as scope 3 emissions.",
+   "lesson": "carbon_accounting-09",
+   "evidence": "This excludes where a transportation service is procured that includes an indirect payment for the fuel consumption",
+   "origin": "authored"
+  },
+  {
+   "id": "381d686061",
+   "module": 3,
+   "q": "An academy trust was not in scope last year. Must it report prior-year figures?",
+   "options": [
+    "No, it is not required to",
+    "Yes, it must estimate them",
+    "Yes, using national averages",
+    "It must delay reporting by a year"
+   ],
+   "answer": 0,
+   "explain": "Comparatives are required only once the trust has been in scope.",
+   "lesson": "carbon_accounting-09",
+   "evidence": "If an academy trust was not in scope in the previous year, it is not required to report prior year figures.",
+   "origin": "authored"
+  },
+  {
+   "id": "88d9dfdd6f",
+   "module": 3,
+   "q": "What should a trust report if it took no energy efficiency measures during the year?",
+   "options": [
+    "Nothing at all",
+    "Measures planned for next year instead",
+    "Its supplier's measures",
+    "It should state that no measures were taken"
+   ],
+   "answer": 3,
+   "explain": "Saying so explicitly keeps the report transparent.",
+   "lesson": "carbon_accounting-09",
+   "evidence": "If no measures have been taken, this should be stated",
+   "origin": "authored"
+  },
+  {
+   "id": "be0f17fca6",
+   "module": 3,
+   "q": "In the SECR worked example, which intensity ratio is chosen?",
+   "options": [
+    "Energy cost per building",
+    "Total gross emissions in tonnes CO2e per pupil",
+    "Litres of fuel per bus",
+    "kWh per employee per day"
+   ],
+   "answer": 1,
+   "explain": "An intensity ratio relates emissions to a measure of activity so years can be compared.",
+   "lesson": "carbon_accounting-10",
+   "evidence": "The chosen intensity measurement ratio is total gross emissions in metric tonnes CO2e per pupil, the recommended ratio for the sector.",
+   "origin": "authored"
+  },
+  {
+   "id": "5608e3fe51",
+   "module": 3,
+   "q": "How often are the UK government's greenhouse gas conversion factors updated?",
+   "options": [
+    "Every ten years",
+    "Only when the law changes",
+    "Never — they are fixed",
+    "Annually, generally released each June"
+   ],
+   "answer": 3,
+   "explain": "Use the factors that cover the greatest part of your reporting year.",
+   "lesson": "carbon_accounting-10",
+   "evidence": "The conversion factors are updated annually and are generally released each year in June.",
+   "origin": "authored"
+  }
+ ],
  "minutes": 63,
  "sources": [
   {

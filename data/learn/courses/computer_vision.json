@@ -38,6 +38,13 @@
     "computer_vision-08",
     "computer_vision-09"
    ]
+  },
+  {
+   "title": "Generating and checking images",
+   "lessons": [
+    "computer_vision-10",
+    "computer_vision-11"
+   ]
   }
  ],
  "lessons": [
@@ -580,169 +587,674 @@
      "level": 2
     }
    ]
+  },
+  {
+   "id": "computer_vision-10",
+   "title": "Generative Adversarial Networks",
+   "words": 1056,
+   "minutes": 6,
+   "source": "ms-ai",
+   "url": "https://github.com/microsoft/AI-For-Beginners/blob/392d0df1b2647cbee104942390551f1ed9e072c8/lessons/4-ComputerVision/10-GANs/README.md",
+   "toc": [
+    {
+     "id": "h-discriminator",
+     "text": "Discriminator",
+     "level": 3
+    },
+    {
+     "id": "h-generator",
+     "text": "Generator",
+     "level": 3
+    },
+    {
+     "id": "h-training-the-gan",
+     "text": "Training the GAN",
+     "level": 3
+    },
+    {
+     "id": "h-exercises-gans",
+     "text": "✍️ Exercises: GANs",
+     "level": 2
+    },
+    {
+     "id": "h-problems-with-gan-training",
+     "text": "Problems with GAN training",
+     "level": 3
+    },
+    {
+     "id": "h-style-transfer",
+     "text": "Style Transfer",
+     "level": 2
+    },
+    {
+     "id": "h-example-style-transfer",
+     "text": "✍️ Example: Style Transfer",
+     "level": 2
+    },
+    {
+     "id": "h-conclusion",
+     "text": "Conclusion",
+     "level": 2
+    },
+    {
+     "id": "h-challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "h-review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
+  },
+  {
+   "id": "computer_vision-11",
+   "title": "Check stock from an IoT device",
+   "words": 1722,
+   "minutes": 9,
+   "source": "ms-iot",
+   "url": "https://github.com/microsoft/IoT-For-Beginners/blob/6ae558ee2b0aaade53f08b0f76505d5ea9736c43/5-retail/lessons/2-check-stock-device/README.md",
+   "toc": [
+    {
+     "id": "h-introduction",
+     "text": "Introduction",
+     "level": 2
+    },
+    {
+     "id": "h-stock-counting",
+     "text": "Stock counting",
+     "level": 2
+    },
+    {
+     "id": "h-call-your-object-detector-from-your-iot-device",
+     "text": "Call your object detector from your IoT device",
+     "level": 2
+    },
+    {
+     "id": "h-task-publish-an-iteration-of-your-object-detector",
+     "text": "Task - publish an iteration of your object detector",
+     "level": 3
+    },
+    {
+     "id": "h-task-call-your-object-detector-from-your-iot-device",
+     "text": "Task - call your object detector from your IoT device",
+     "level": 3
+    },
+    {
+     "id": "h-bounding-boxes",
+     "text": "Bounding boxes",
+     "level": 2
+    },
+    {
+     "id": "h-retrain-the-model",
+     "text": "Retrain the model",
+     "level": 2
+    },
+    {
+     "id": "h-task-retrain-the-model",
+     "text": "Task - retrain the model",
+     "level": 3
+    },
+    {
+     "id": "h-count-stock",
+     "text": "Count stock",
+     "level": 2
+    },
+    {
+     "id": "h-task-count-stock",
+     "text": "Task - count stock",
+     "level": 3
+    },
+    {
+     "id": "h-challenge",
+     "text": "🚀 Challenge",
+     "level": 2
+    },
+    {
+     "id": "h-review-self-study",
+     "text": "Review & Self Study",
+     "level": 2
+    }
+   ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "_____ computes the vector field that shows where each pixel is moving",
-    "options": [
-     "Sparse Optical Flow",
-     "Dense Optical Flow",
-     "none"
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "computer_vision-01",
-    "origin": "bank:ai:206",
-    "source": "ms-ai"
-   },
-   {
-    "q": "Resizing and Blurring are steps that can be taken during?",
-    "options": [
-     "pre-processing",
-     "training",
-     "image transformation"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "computer_vision-01",
-    "origin": "bank:ai:206",
-    "source": "ms-ai"
-   },
-   {
-    "q": "Convolutional networks generalizes much better",
-    "options": [
-     "True",
-     "False"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "computer_vision-02",
-    "origin": "bank:ai:207",
-    "source": "ms-ai"
-   },
-   {
-    "q": "Dropout layers act as a ____ technique",
-    "options": [
-     "gradient boosting",
-     "training",
-     "regularization"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "computer_vision-03",
-    "origin": "bank:ai:208",
-    "source": "ms-ai"
-   },
-   {
-    "q": "Properties of autoencoders include",
-    "options": [
-     "it is data Specific",
-     "works on unlabeled data",
-     "all of the above"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "computer_vision-04",
-    "origin": "bank:ai:209",
-    "source": "ms-ai"
-   },
-   {
-    "q": "Variational auto-encoders loss function does not consist of which of these?",
-    "options": [
-     "reconstruction loss",
-     "KL loss",
-     "TF loss"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "computer_vision-04",
-    "origin": "bank:ai:209",
-    "source": "ms-ai"
-   },
-   {
-    "q": "Which object detection models are faster?",
-    "options": [
-     "one-pass models",
-     "region proposal networks",
-     "Fast R-CNN"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "computer_vision-05",
-    "origin": "bank:ai:211",
-    "source": "ms-ai"
-   },
-   {
-    "q": "____ extracts features from an input image",
-    "options": [
-     "decoder",
-     "generator",
-     "encoder"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "computer_vision-06",
-    "origin": "bank:ai:212",
-    "source": "ms-ai"
-   },
-   {
-    "q": "The technique custom vision uses to train a model with only a few images is called:",
-    "options": [
-     "Transformational learning",
-     "Transaction learning",
-     "Transfer learning"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "computer_vision-07",
-    "origin": "bank:iot:30",
-    "source": "ms-iot"
-   },
-   {
-    "q": "Image classifiers can be trained using:",
-    "options": [
-     "Only 1 image per tag",
-     "At least 5 images per tag",
-     "At least 50 images per tag"
-    ],
-    "answer": 1,
-    "explain": "",
-    "lesson": "computer_vision-07",
-    "origin": "bank:iot:30",
-    "source": "ms-iot"
-   },
-   {
-    "q": "When images are sent for classification, they then become available to retrain the model:",
-    "options": [
-     "True",
-     "False"
-    ],
-    "answer": 0,
-    "explain": "",
-    "lesson": "computer_vision-08",
-    "origin": "bank:iot:32",
-    "source": "ms-iot"
-   },
-   {
-    "q": "What is the best domain to use in Custom Vision for stock counting",
-    "options": [
-     "General",
-     "Food",
-     "Products on shelves"
-    ],
-    "answer": 2,
-    "explain": "",
-    "lesson": "computer_vision-09",
-    "origin": "bank:iot:38",
-    "source": "ms-iot"
-   }
-  ],
-  "pass_mark": 9,
-  "missing": false
- },
- "minutes": 60,
+ "pool": [
+  {
+   "id": "eff3fedb83",
+   "module": 0,
+   "q": "_____ computes the vector field that shows where each pixel is moving",
+   "options": [
+    "Sparse Optical Flow",
+    "Dense Optical Flow",
+    "none"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "computer_vision-01",
+   "origin": "bank:ai:206",
+   "source": "ms-ai"
+  },
+  {
+   "id": "83b026a697",
+   "module": 0,
+   "q": "Resizing and Blurring are steps that can be taken during?",
+   "options": [
+    "pre-processing",
+    "training",
+    "image transformation"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "computer_vision-01",
+   "origin": "bank:ai:206",
+   "source": "ms-ai"
+  },
+  {
+   "id": "e6d06744e8",
+   "module": 0,
+   "q": "Optical Flow helps us to understand how each pixel on video frames move.",
+   "options": [
+    "true",
+    "false"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "computer_vision-01",
+   "origin": "bank:ai:206",
+   "source": "ms-ai"
+  },
+  {
+   "id": "9c4161e435",
+   "module": 0,
+   "q": "Which pooling layer is used \"scale down\" the size of the image",
+   "options": [
+    "average pooling",
+    "max pooling",
+    "a and b"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "computer_vision-02",
+   "origin": "bank:ai:207",
+   "source": "ms-ai"
+  },
+  {
+   "id": "ae7af3a955",
+   "module": 0,
+   "q": "Convolutional networks generalizes much better",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "computer_vision-02",
+   "origin": "bank:ai:207",
+   "source": "ms-ai"
+  },
+  {
+   "id": "5a027d686f",
+   "module": 0,
+   "q": "To train our neural network, we need to convert images to tensors",
+   "options": [
+    "true",
+    "false"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "computer_vision-02",
+   "origin": "bank:ai:207",
+   "source": "ms-ai"
+  },
+  {
+   "id": "82fbd06acd",
+   "module": 1,
+   "q": "Dropout layers act as a ____ technique",
+   "options": [
+    "gradient boosting",
+    "training",
+    "regularization"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "computer_vision-03",
+   "origin": "bank:ai:208",
+   "source": "ms-ai"
+  },
+  {
+   "id": "1eff70b971",
+   "module": 1,
+   "q": "freezing weights of convolutional feature extractor can be done by ____",
+   "options": [
+    "setting `requires_grad` property to `False`",
+    "setting `trainable` property to `False`",
+    "a and b"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "computer_vision-03",
+   "origin": "bank:ai:208",
+   "source": "ms-ai"
+  },
+  {
+   "id": "2594bab871",
+   "module": 1,
+   "q": "Batch normalization is to bring values that flow through the ____ to right interval",
+   "options": [
+    "algorithms",
+    "batches",
+    "neural network"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "computer_vision-03",
+   "origin": "bank:ai:208",
+   "source": "ms-ai"
+  },
+  {
+   "id": "5fc4d827a7",
+   "module": 1,
+   "q": "Properties of autoencoders include",
+   "options": [
+    "it is data Specific",
+    "works on unlabeled data",
+    "all of the above"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "computer_vision-04",
+   "origin": "bank:ai:209",
+   "source": "ms-ai"
+  },
+  {
+   "id": "779d42f70e",
+   "module": 1,
+   "q": "Variational auto-encoders loss function does not consist of which of these?",
+   "options": [
+    "reconstruction loss",
+    "KL loss",
+    "TF loss"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "computer_vision-04",
+   "origin": "bank:ai:209",
+   "source": "ms-ai"
+  },
+  {
+   "id": "a42029a41a",
+   "module": 1,
+   "q": "Auto encoders can be used to effectively remove noise from images",
+   "options": [
+    "true",
+    "false"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "computer_vision-04",
+   "origin": "bank:ai:209",
+   "source": "ms-ai"
+  },
+  {
+   "id": "4480f03da5",
+   "module": 2,
+   "q": "An Object detection model gives us",
+   "options": [
+    "object class",
+    "bounding box",
+    "both class and bounding box"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "computer_vision-05",
+   "origin": "bank:ai:211",
+   "source": "ms-ai"
+  },
+  {
+   "id": "2c45914099",
+   "module": 2,
+   "q": "Which object detection models are faster?",
+   "options": [
+    "one-pass models",
+    "region proposal networks",
+    "Fast R-CNN"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "computer_vision-05",
+   "origin": "bank:ai:211",
+   "source": "ms-ai"
+  },
+  {
+   "id": "feaf2dfa8c",
+   "module": 2,
+   "q": "Which metric can be used to determine how well bounding boxes are aligned?",
+   "options": [
+    "accuracy",
+    "precision",
+    "IoU"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "computer_vision-05",
+   "origin": "bank:ai:211",
+   "source": "ms-ai"
+  },
+  {
+   "id": "38a0dcb2ef",
+   "module": 2,
+   "q": "____ extracts features from an input image",
+   "options": [
+    "decoder",
+    "generator",
+    "encoder"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "computer_vision-06",
+   "origin": "bank:ai:212",
+   "source": "ms-ai"
+  },
+  {
+   "id": "16923bb9c6",
+   "module": 2,
+   "q": "____ transforms input features into mask image",
+   "options": [
+    "decoder",
+    "generator",
+    "encoder"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "computer_vision-06",
+   "origin": "bank:ai:212",
+   "source": "ms-ai"
+  },
+  {
+   "id": "3331474715",
+   "module": 2,
+   "q": "SegNet relies on ____ to train multi-layered network",
+   "options": [
+    "batch normalization",
+    "height normalization",
+    "weight normalization"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "computer_vision-06",
+   "origin": "bank:ai:212",
+   "source": "ms-ai"
+  },
+  {
+   "id": "a5714ed772",
+   "module": 3,
+   "q": "Why are farmers increasingly turning to automation and IoT?",
+   "options": [
+    "Labour is one of their largest costs",
+    "Machines sort fruit better while harvesting",
+    "Regulations require automated harvesting",
+    "It removes the need for any sorting"
+   ],
+   "answer": 0,
+   "explain": "Automation cuts labour costs, though machine harvesting loses the chance to sort produce as it is picked.",
+   "lesson": "computer_vision-07",
+   "evidence": "One of the largest costs is labor, so farmers are increasingly turning to automation and tools like IoT to reduce their labor costs.",
+   "origin": "authored"
+  },
+  {
+   "id": "dc5e555ed5",
+   "module": 3,
+   "q": "What is lost when produce is harvested by machine instead of by hand?",
+   "options": [
+    "The ability to harvest at night",
+    "Any saving in labour costs",
+    "The ability to pick fruit from trees",
+    "The ability to sort food as it is being harvested"
+   ],
+   "answer": 3,
+   "explain": "That is why image classifiers that spot unripe or damaged fruit are useful later in sorting lines.",
+   "lesson": "computer_vision-07",
+   "evidence": "the ability to sort food as it is being harvested",
+   "origin": "authored"
+  },
+  {
+   "id": "3d45a275d6",
+   "module": 3,
+   "q": "The technique custom vision uses to train a model with only a few images is called:",
+   "options": [
+    "Transformational learning",
+    "Transaction learning",
+    "Transfer learning"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "computer_vision-07",
+   "origin": "bank:iot:30",
+   "source": "ms-iot"
+  },
+  {
+   "id": "bb2173ad54",
+   "module": 3,
+   "q": "Image classifiers can be trained using:",
+   "options": [
+    "Only 1 image per tag",
+    "At least 5 images per tag",
+    "At least 50 images per tag"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "computer_vision-07",
+   "origin": "bank:iot:30",
+   "source": "ms-iot"
+  },
+  {
+   "id": "3b804b7475",
+   "module": 3,
+   "q": "The hardware that allows ML models to be trained quickly, as well as making the graphics on out Xbox look amazing are called:",
+   "options": [
+    "PGU",
+    "GPU",
+    "PUG"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "computer_vision-07",
+   "origin": "bank:iot:30",
+   "source": "ms-iot"
+  },
+  {
+   "id": "8b247eb57a",
+   "module": 3,
+   "q": "A published version of a custom vision model is called an:",
+   "options": [
+    "Iteration",
+    "Instance",
+    "Iguana"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "computer_vision-08",
+   "origin": "bank:iot:32",
+   "source": "ms-iot"
+  },
+  {
+   "id": "15afba6e86",
+   "module": 3,
+   "q": "When images are sent for classification, they then become available to retrain the model:",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "computer_vision-08",
+   "origin": "bank:iot:32",
+   "source": "ms-iot"
+  },
+  {
+   "id": "9f210f98a8",
+   "module": 3,
+   "q": "You don't need to use images captured from an IoT device to train the model as the cameras are as good quality as phone cameras:",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "computer_vision-08",
+   "origin": "bank:iot:32",
+   "source": "ms-iot"
+  },
+  {
+   "id": "05b8313997",
+   "module": 3,
+   "q": "How does an object detector differ from an image classifier?",
+   "options": [
+    "It gives one probability for the whole image",
+    "It only works on video, never on photos",
+    "It finds objects and where they are in the image",
+    "It needs no labelled training images"
+   ],
+   "answer": 2,
+   "explain": "Classification scores the image as a whole; detection locates each object with a bounding box.",
+   "lesson": "computer_vision-09",
+   "evidence": "These models don't classify an image by tags, instead they are trained to recognize objects, and can find them in images",
+   "origin": "authored"
+  },
+  {
+   "id": "b1d0e2d2b6",
+   "module": 3,
+   "q": "What is the best domain to use in Custom Vision for stock counting",
+   "options": [
+    "General",
+    "Food",
+    "Products on shelves"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "computer_vision-09",
+   "origin": "bank:iot:38",
+   "source": "ms-iot"
+  },
+  {
+   "id": "8021213d7f",
+   "module": 3,
+   "q": "At least how many images do you need to train an object detector?",
+   "options": [
+    "1",
+    "15",
+    "100"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "computer_vision-09",
+   "origin": "bank:iot:38",
+   "source": "ms-iot"
+  },
+  {
+   "id": "414af04eda",
+   "module": 3,
+   "q": "Object detectors only return one result no matter how many objects are detected",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "computer_vision-09",
+   "origin": "bank:iot:38",
+   "source": "ms-iot"
+  },
+  {
+   "id": "d9f40efbc3",
+   "module": 4,
+   "q": "Deep Convolutional GAN uses convolutional layers for ____ and ____",
+   "options": [
+    "generator, discriminator",
+    "CNN, generator",
+    "training, testing"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "computer_vision-10",
+   "origin": "bank:ai:210",
+   "source": "ms-ai"
+  },
+  {
+   "id": "a70f264dce",
+   "module": 4,
+   "q": "Problems of GAN training includes",
+   "options": [
+    "Sensitivity to hyperparameters",
+    "Keeping balance between generator and discriminator",
+    "all of the above"
+   ],
+   "answer": 2,
+   "explain": "",
+   "lesson": "computer_vision-10",
+   "origin": "bank:ai:210",
+   "source": "ms-ai"
+  },
+  {
+   "id": "5042bbc7ae",
+   "module": 4,
+   "q": "We can use Batch normalization and BatchNorm1D to stabilize the training",
+   "options": [
+    "true",
+    "false"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "computer_vision-10",
+   "origin": "bank:ai:210",
+   "source": "ms-ai"
+  },
+  {
+   "id": "4575b7082d",
+   "module": 4,
+   "q": "Bounding boxes use:",
+   "options": [
+    "Percentage based coordinates",
+    "Pixel based coordinates",
+    "Centimeter based coordinates"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "computer_vision-11",
+   "origin": "bank:iot:40",
+   "source": "ms-iot"
+  },
+  {
+   "id": "b55cfd7c10",
+   "module": 4,
+   "q": "To count stock you only need to consider the count of objects detected by the object detector",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1,
+   "explain": "",
+   "lesson": "computer_vision-11",
+   "origin": "bank:iot:40",
+   "source": "ms-iot"
+  },
+  {
+   "id": "216c45c17e",
+   "module": 4,
+   "q": "Can detected objects overlap?",
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": 0,
+   "explain": "",
+   "lesson": "computer_vision-11",
+   "origin": "bank:iot:40",
+   "source": "ms-iot"
+  }
+ ],
+ "minutes": 75,
  "sources": [
   {
    "id": "ms-ai",

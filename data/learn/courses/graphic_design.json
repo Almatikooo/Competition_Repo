@@ -834,152 +834,680 @@
    ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "Why is the RGB light system called additive?",
-    "options": [
-     "Because colours are added in layers of ink",
-     "Because the three primaries together create all the hues in the spectrum",
-     "Because it adds black to every colour",
-     "Because it is used only for printing"
-    ],
-    "answer": 1,
-    "explain": "CMYK printing works the opposite way — inks subtract light.",
-    "lesson": "graphic_design-02",
-    "evidence": "This light system is called additive because the three primaries together create all the hues in the spectrum.",
-    "origin": "authored"
-   },
-   {
-    "q": "How many colour systems must designers be aware of, often in the same project?",
-    "options": [
-     "One — RGB",
-     "Three — RGB, CMYK and HSV",
-     "Four — one per printing ink",
-     "Two — RGB and CMYK"
-    ],
-    "answer": 3,
-    "explain": "Screens use RGB light; print uses CMYK inks.",
-    "lesson": "graphic_design-02",
-    "evidence": "it is important to realize that there are two colour systems, and often a project needs to work in both.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is emphasis in composition?",
-    "options": [
-     "Making a specific element gain the attention of the eye",
-     "Using only one font",
-     "Centring every element",
-     "Repeating the same image"
-    ],
-    "answer": 0,
-    "explain": "Contrast in size, colour or position creates emphasis.",
-    "lesson": "graphic_design-04",
-    "evidence": "This is called emphasis and is achieved by making a specific element gain the attention of the eye.",
-    "origin": "authored"
-   },
-   {
-    "q": "When is a single-column grid an excellent approach?",
-    "options": [
-     "For complex newspapers",
-     "For dashboards with many charts",
-     "When the content is formatted in a simple manner",
-     "Never — grids should always have several columns"
-    ],
-    "answer": 2,
-    "explain": "Choose the grid to suit the structure of the content.",
-    "lesson": "graphic_design-05",
-    "evidence": "A single-column grid is an excellent approach if the content a designer is working with is formatted in a simple manner",
-    "origin": "authored"
-   },
-   {
-    "q": "In communication design, how does what you say relate to how you say it?",
-    "options": [
-     "They are unrelated",
-     "What you are saying determines how you say it and how it is delivered",
-     "The medium always comes first",
-     "The client's logo decides both"
-    ],
-    "answer": 1,
-    "explain": "Message first, then form and delivery.",
-    "lesson": "graphic_design-06",
-    "evidence": "what you are saying determines how you say it and in turn how it is delivered to your audience.",
-    "origin": "authored"
-   },
-   {
-    "q": "How should colour be thought of in graphic reproduction?",
-    "options": [
-     "As a fixed property of ink",
-     "As a number in a file",
-     "As something only printers control",
-     "As an event rather than an attribute of an object"
-    ],
-    "answer": 3,
-    "explain": "A light source, an object and an observer must all take part.",
-    "lesson": "graphic_design-09",
-    "evidence": "learn to think of colour as an event rather than as an attribute or characteristic of a particular object.",
-    "origin": "authored"
-   },
-   {
-    "q": "Why is colour described as an event?",
-    "options": [
-     "It requires three components to take part at a particular point in time",
-     "It changes every day",
-     "It only exists on screens",
-     "It depends on the price of ink"
-    ],
-    "answer": 0,
-    "explain": "Change the light, the surface or the viewer and the colour changes.",
-    "lesson": "graphic_design-09",
-    "evidence": "Colour is an event because it requires the participation of three components at a particular point in time to take place.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the perceptual rendering intent mainly used for?",
-    "options": [
-     "Spot-colour logos",
-     "Proofing on paper",
-     "RGB to CMYK transformations, typically image conversions",
-     "Converting fonts"
-    ],
-    "answer": 2,
-    "explain": "Colorimetric intents clip out-of-gamut colours instead.",
-    "lesson": "graphic_design-11",
-    "evidence": "The perceptual intent is used mainly for RGB to CMYK transformations, which are typically image conversions.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is trapping in prepress?",
-    "options": [
-     "Locking a file so it can't be edited",
-     "An electronic file treatment that helps solve registration issues on certain press technologies",
-     "Cutting paper to size",
-     "Converting images to black and white"
-    ],
-    "answer": 1,
-    "explain": "Slight overlaps between abutting colours hide small misregistration on press.",
-    "lesson": "graphic_design-15",
-    "evidence": "It is an electronic file treatment that must be performed to help solve registration issues on certain kinds of press technologies.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is paper opacity?",
-    "options": [
-     "How white the paper is",
-     "How heavy the paper is",
-     "How smooth the paper feels",
-     "The degree to which light is prevented from travelling through the paper"
-    ],
-    "answer": 3,
-    "explain": "Opacity matters most for thin stocks printed on both sides.",
-    "lesson": "graphic_design-17",
-    "evidence": "opacity is the degree to which light is prevented from travelling through a paper.",
-    "origin": "authored"
-   }
-  ],
-  "pass_mark": 7,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "9c51f71149",
+   "module": 0,
+   "q": "Why is the RGB light system called additive?",
+   "options": [
+    "Because colours are added in layers of ink",
+    "Because the three primaries together create all the hues in the spectrum",
+    "Because it adds black to every colour",
+    "Because it is used only for printing"
+   ],
+   "answer": 1,
+   "explain": "CMYK printing works the opposite way — inks subtract light.",
+   "lesson": "graphic_design-02",
+   "evidence": "This light system is called additive because the three primaries together create all the hues in the spectrum.",
+   "origin": "authored"
+  },
+  {
+   "id": "e2196b07ff",
+   "module": 0,
+   "q": "How many colour systems must designers be aware of, often in the same project?",
+   "options": [
+    "One — RGB",
+    "Three — RGB, CMYK and HSV",
+    "Four — one per printing ink",
+    "Two — RGB and CMYK"
+   ],
+   "answer": 3,
+   "explain": "Screens use RGB light; print uses CMYK inks.",
+   "lesson": "graphic_design-02",
+   "evidence": "it is important to realize that there are two colour systems, and often a project needs to work in both.",
+   "origin": "authored"
+  },
+  {
+   "id": "70d528c79e",
+   "module": 0,
+   "q": "What was blackletter?",
+   "options": [
+    "The medieval model for the first movable types",
+    "A modern sans-serif made for screens",
+    "A 1900s handwriting style",
+    "A typeface designed for road signs"
+   ],
+   "answer": 0,
+   "explain": "Its condensed letterforms give a very dark page tone.",
+   "lesson": "graphic_design-03",
+   "evidence": "Blackletter was the medieval model for the first movable types",
+   "origin": "authored"
+  },
+  {
+   "id": "bc00bab70c",
+   "module": 0,
+   "q": "Why is a page set in blackletter hard to read?",
+   "options": [
+    "It was printed too lightly",
+    "It used only capital letters",
+    "Legibility was not its first function — books were objects of wealth and beauty",
+    "It was designed for screens"
+   ],
+   "answer": 2,
+   "explain": "Today legibility comes first.",
+   "lesson": "graphic_design-03",
+   "evidence": "The look of the letterforms makes it hard to read the page, because legibility was not their first function as it is today.",
+   "origin": "authored"
+  },
+  {
+   "id": "0cf38c8242",
+   "module": 0,
+   "q": "What is emphasis in composition?",
+   "options": [
+    "Making a specific element gain the attention of the eye",
+    "Using only one font",
+    "Centring every element",
+    "Repeating the same image"
+   ],
+   "answer": 0,
+   "explain": "Contrast in size, colour or position creates emphasis.",
+   "lesson": "graphic_design-04",
+   "evidence": "This is called emphasis and is achieved by making a specific element gain the attention of the eye.",
+   "origin": "authored"
+  },
+  {
+   "id": "d1833839b5",
+   "module": 0,
+   "q": "What are the four kinds of horizontal text alignment?",
+   "options": [
+    "Top, middle, bottom and baseline",
+    "Serif, sans-serif, script and display",
+    "Flush left, flush right, centred and fully justified",
+    "Portrait, landscape, square and round"
+   ],
+   "answer": 2,
+   "explain": "Flush left is also called ragged right.",
+   "lesson": "graphic_design-04",
+   "evidence": "Typographically, horizontal alignment includes flush left",
+   "origin": "authored"
+  },
+  {
+   "id": "110f383ec6",
+   "module": 0,
+   "q": "What is the baseline grid in layout software?",
+   "options": [
+    "The page border",
+    "The invisible line on which font characters sit",
+    "The colour palette",
+    "A grid of images"
+   ],
+   "answer": 1,
+   "explain": "Aligning text to it keeps lines consistent across columns.",
+   "lesson": "graphic_design-04",
+   "evidence": "A baseline grid exists in digital software that is meant for layout of type and is the invisible line where font characters sit.",
+   "origin": "authored"
+  },
+  {
+   "id": "2cbcca9d1a",
+   "module": 0,
+   "q": "Which colours are warm colours?",
+   "options": [
+    "Red, orange and yellow",
+    "Blue, green and purple",
+    "Black, white and grey",
+    "Pink, brown and teal"
+   ],
+   "answer": 0,
+   "explain": "Cool colours are blue, green and purple.",
+   "lesson": "graphic_design-04",
+   "evidence": "Warm colours are the red, orange, and yellow colours of the colour wheel, while cool colours are blue, green, and purple.",
+   "origin": "authored"
+  },
+  {
+   "id": "51c96db7ce",
+   "module": 0,
+   "q": "When is a single-column grid an excellent approach?",
+   "options": [
+    "For complex newspapers",
+    "For dashboards with many charts",
+    "When the content is formatted in a simple manner",
+    "Never — grids should always have several columns"
+   ],
+   "answer": 2,
+   "explain": "Choose the grid to suit the structure of the content.",
+   "lesson": "graphic_design-05",
+   "evidence": "A single-column grid is an excellent approach if the content a designer is working with is formatted in a simple manner",
+   "origin": "authored"
+  },
+  {
+   "id": "00dcfed973",
+   "module": 0,
+   "q": "Why are grids often used in publication and web design?",
+   "options": [
+    "They make files smaller",
+    "They replace typography",
+    "They are required by printers",
+    "They bring consistency and guide hierarchy"
+   ],
+   "answer": 3,
+   "explain": "A complex grid can still leave room for new elements.",
+   "lesson": "graphic_design-05",
+   "evidence": "Grids are often used in publication and web design because they introduce consistency and guide hierarchy.",
+   "origin": "authored"
+  },
+  {
+   "id": "1b2e89442d",
+   "module": 0,
+   "q": "What should the grid for a book of poetry provide?",
+   "options": [
+    "As many columns as possible",
+    "Tight spacing to save paper",
+    "Generous negative space and generous leading",
+    "Large photographs on every page"
+   ],
+   "answer": 2,
+   "explain": "The grid should suit the content it carries.",
+   "lesson": "graphic_design-05",
+   "evidence": "if your publication is a book of poetry, the grid must have generous amounts of negative space and generous leading",
+   "origin": "authored"
+  },
+  {
+   "id": "7546f5cc71",
+   "module": 1,
+   "q": "In communication design, how does what you say relate to how you say it?",
+   "options": [
+    "They are unrelated",
+    "What you are saying determines how you say it and how it is delivered",
+    "The medium always comes first",
+    "The client's logo decides both"
+   ],
+   "answer": 1,
+   "explain": "Message first, then form and delivery.",
+   "lesson": "graphic_design-06",
+   "evidence": "what you are saying determines how you say it and in turn how it is delivered to your audience.",
+   "origin": "authored"
+  },
+  {
+   "id": "2058706713",
+   "module": 1,
+   "q": "What is the information gathered in the first stage of the design process?",
+   "options": [
+    "The final brief that can't change",
+    "Just a starting point — more research fine-tunes the goals",
+    "Only useful for invoicing",
+    "The finished design"
+   ],
+   "answer": 1,
+   "explain": "Research continues as the problem becomes clearer.",
+   "lesson": "graphic_design-06",
+   "evidence": "The information you collected in the first stage is just a starting point",
+   "origin": "authored"
+  },
+  {
+   "id": "2b9e2161de",
+   "module": 1,
+   "q": "Why is research before concept development so important?",
+   "options": [
+    "It helps craft a message that gets the response the client needs",
+    "It replaces the need for concepts",
+    "It makes printing cheaper",
+    "It lets you skip the client"
+   ],
+   "answer": 0,
+   "explain": "Knowing the audience shapes the message.",
+   "lesson": "graphic_design-06",
+   "evidence": "Knowing this information before the concept development begins is vital to crafting a message that will generate the response your client needs.",
+   "origin": "authored"
+  },
+  {
+   "id": "97e48865a4",
+   "module": 1,
+   "q": "What do critiquing and analysis let a designer evaluate?",
+   "options": [
+    "How fast the computer is",
+    "How much the client will pay",
+    "Which font is newest",
+    "How effective the whole design is for the concept and problem"
+   ],
+   "answer": 3,
+   "explain": "Critique is built into the iterative design process.",
+   "lesson": "graphic_design-06",
+   "evidence": "Critiquing and analysis allow you to evaluate the effectiveness of the whole design in relation to the concept and problem.",
+   "origin": "authored"
+  },
+  {
+   "id": "dcb685bab6",
+   "module": 1,
+   "q": "What does a strong concept help communicate?",
+   "options": [
+    "The designer's personal style only",
+    "The printing costs",
+    "The benefits of the offer and how it differs from the competition",
+    "The client's address"
+   ],
+   "answer": 2,
+   "explain": "A concept carries the message, not just the decoration.",
+   "lesson": "graphic_design-07",
+   "evidence": "It helps to communicate the benefits of the offer and helps with differentiation from the competition.",
+   "origin": "authored"
+  },
+  {
+   "id": "51d505aabf",
+   "module": 1,
+   "q": "When using hyperbole in visual communication, what must you ensure?",
+   "options": [
+    "That it looks completely realistic",
+    "That it is a clear exaggeration",
+    "That it is hidden",
+    "That it uses only text"
+   ],
+   "answer": 1,
+   "explain": "Otherwise viewers may take it literally.",
+   "lesson": "graphic_design-07",
+   "evidence": "When used for visual communication, one must be careful to ensure that hyperbole is a clear exaggeration.",
+   "origin": "authored"
+  },
+  {
+   "id": "645182534c",
+   "module": 1,
+   "q": "After attracting attention, what must a design do next?",
+   "options": [
+    "Hold the audience's interest long enough to absorb the whole message",
+    "Disappear quickly",
+    "Show the price first",
+    "Change colour"
+   ],
+   "answer": 0,
+   "explain": "It then needs to create desire and prompt action.",
+   "lesson": "graphic_design-07",
+   "evidence": "Your design must hold the audience’s interest long enough so they can completely absorb the whole communication.",
+   "origin": "authored"
+  },
+  {
+   "id": "40053582b9",
+   "module": 2,
+   "q": "How should colour be thought of in graphic reproduction?",
+   "options": [
+    "As a fixed property of ink",
+    "As a number in a file",
+    "As something only printers control",
+    "As an event rather than an attribute of an object"
+   ],
+   "answer": 3,
+   "explain": "A light source, an object and an observer must all take part.",
+   "lesson": "graphic_design-09",
+   "evidence": "learn to think of colour as an event rather than as an attribute or characteristic of a particular object.",
+   "origin": "authored"
+  },
+  {
+   "id": "231528118d",
+   "module": 2,
+   "q": "Why is colour described as an event?",
+   "options": [
+    "It requires three components to take part at a particular point in time",
+    "It changes every day",
+    "It only exists on screens",
+    "It depends on the price of ink"
+   ],
+   "answer": 0,
+   "explain": "Change the light, the surface or the viewer and the colour changes.",
+   "lesson": "graphic_design-09",
+   "evidence": "Colour is an event because it requires the participation of three components at a particular point in time to take place.",
+   "origin": "authored"
+  },
+  {
+   "id": "696057df55",
+   "module": 2,
+   "q": "Which three components must take part for colour to happen?",
+   "options": [
+    "Ink, paper and a press",
+    "A screen, a cable and a computer",
+    "Red, green and blue",
+    "An object, light and an observer"
+   ],
+   "answer": 3,
+   "explain": "That's why colour is described as an event.",
+   "lesson": "graphic_design-09",
+   "evidence": "how the object, light, and observer contribute to the colour event",
+   "origin": "authored"
+  },
+  {
+   "id": "beed97ae25",
+   "module": 2,
+   "q": "Most objects are opaque. What does that mean for how we see their colour?",
+   "options": [
+    "We see light passing through them",
+    "They have no colour",
+    "We mostly see light reflected from their surface",
+    "They create their own light"
+   ],
+   "answer": 2,
+   "explain": "Transparent objects transmit light instead.",
+   "lesson": "graphic_design-09",
+   "evidence": "The majority of objects are opaque, so most of the time we are dealing with the reflection of light.",
+   "origin": "authored"
+  },
+  {
+   "id": "c138026b2f",
+   "module": 2,
+   "q": "What are the CIE's three core definitions for colour?",
+   "options": [
+    "RGB, CMYK and spot colour",
+    "The standard observer, the Lab colour space and Delta E",
+    "Hue, saturation and brightness",
+    "Paper, ink and press"
+   ],
+   "answer": 1,
+   "explain": "Lab and Delta E are especially important for colour management.",
+   "lesson": "graphic_design-10",
+   "evidence": "Three core definitions provided by the CIE are the standard observer, the Lab colour space, and Delta E measurements.",
+   "origin": "authored"
+  },
+  {
+   "id": "8abd1a018b",
+   "module": 2,
+   "q": "Why are there no negative values on the L axis of Lab colour space?",
+   "options": [
+    "You can't have less than zero light, which is absolute darkness",
+    "Negative numbers are banned in colour science",
+    "L measures temperature",
+    "The axis is circular"
+   ],
+   "answer": 0,
+   "explain": "L describes the amount of light; a and b describe its colour.",
+   "lesson": "graphic_design-10",
+   "evidence": "there are no negative values on the L axis as we can’t have less than zero light, which describes absolute darkness",
+   "origin": "authored"
+  },
+  {
+   "id": "3a5294228c",
+   "module": 2,
+   "q": "What do the a and b axes describe in Lab colour space?",
+   "options": [
+    "How bright the light is",
+    "The paper's thickness",
+    "The time of day",
+    "The colour character — the type of light"
+   ],
+   "answer": 3,
+   "explain": "They are the chromatic axes.",
+   "lesson": "graphic_design-10",
+   "evidence": "describing the colour character and the type of light",
+   "origin": "authored"
+  },
+  {
+   "id": "4533726f70",
+   "module": 2,
+   "q": "What is the perceptual rendering intent mainly used for?",
+   "options": [
+    "Spot-colour logos",
+    "Proofing on paper",
+    "RGB to CMYK transformations, typically image conversions",
+    "Converting fonts"
+   ],
+   "answer": 2,
+   "explain": "Colorimetric intents clip out-of-gamut colours instead.",
+   "lesson": "graphic_design-11",
+   "evidence": "The perceptual intent is used mainly for RGB to CMYK transformations, which are typically image conversions.",
+   "origin": "authored"
+  },
+  {
+   "id": "668e5971b3",
+   "module": 3,
+   "q": "How are the spots on a raster grid encoded?",
+   "options": [
+    "As shades from 1 to 100",
+    "As letters of the alphabet",
+    "Each is either on or off — binary 0 or 1",
+    "As vector curves"
+   ],
+   "answer": 2,
+   "explain": "Raster image processing turns pages into these grids.",
+   "lesson": "graphic_design-12",
+   "evidence": "The spots on the grid can only be turned on or off",
+   "origin": "authored"
+  },
+  {
+   "id": "6152c46416",
+   "module": 3,
+   "q": "In computer-to-plate technology, what exposes the printing plate?",
+   "options": [
+    "Sunlight",
+    "A laser",
+    "A camera flash",
+    "Heated ink"
+   ],
+   "answer": 1,
+   "explain": "The laser exposes an emulsion on the plate.",
+   "lesson": "graphic_design-12",
+   "evidence": "a laser is used to expose an emulsion on a printing plate",
+   "origin": "authored"
+  },
+  {
+   "id": "14d486f9ec",
+   "module": 3,
+   "q": "Who pioneered the first device-independent font files with PostScript?",
+   "options": [
+    "Adobe",
+    "Microsoft",
+    "IBM",
+    "Kodak"
+   ],
+   "answer": 0,
+   "explain": "Microsoft later developed TrueType to compete.",
+   "lesson": "graphic_design-13",
+   "evidence": "The development of the PostScript computer language was pioneered by Adobe in creating the first device independent font files.",
+   "origin": "authored"
+  },
+  {
+   "id": "649fe29218",
+   "module": 3,
+   "q": "What does it usually mean if a font file has no kerning values?",
+   "options": [
+    "It is a premium font",
+    "It is a monospaced font only",
+    "It cannot be printed",
+    "It is a poor font that will cause spacing problems"
+   ],
+   "answer": 3,
+   "explain": "Kerning adjusts space between specific letter pairs.",
+   "lesson": "graphic_design-13",
+   "evidence": "If no kerning value appears, the font is usually a poor one and will cause spacing problems in the document it is used in.",
+   "origin": "authored"
+  },
+  {
+   "id": "6d0a6ff660",
+   "module": 3,
+   "q": "When must you pay close attention to reproducing an exact hue from device to device?",
+   "options": [
+    "Only when viewing on one screen",
+    "Never",
+    "When printing graphics onto a substrate",
+    "Only for black and white"
+   ],
+   "answer": 2,
+   "explain": "Designers must use colour models proven to give the same results on different devices.",
+   "lesson": "graphic_design-14",
+   "evidence": "It is only when we image a computer graphic on a substrate that we must pay attention to rendering the exact hue of red from one device to another.",
+   "origin": "authored"
+  },
+  {
+   "id": "77906f54bf",
+   "module": 3,
+   "q": "Why is a swatch book only an approximate guide to final colour?",
+   "options": [
+    "It is printed in RGB",
+    "It fades over time and its paper doesn't match every substrate",
+    "It is always wrong",
+    "It shows only greys"
+   ],
+   "answer": 1,
+   "explain": "Colour depends on the substrate as well as the ink.",
+   "lesson": "graphic_design-14",
+   "evidence": "the swatch books fade over time",
+   "origin": "authored"
+  },
+  {
+   "id": "7897fb7c0e",
+   "module": 3,
+   "q": "What is trapping in prepress?",
+   "options": [
+    "Locking a file so it can't be edited",
+    "An electronic file treatment that helps solve registration issues on certain press technologies",
+    "Cutting paper to size",
+    "Converting images to black and white"
+   ],
+   "answer": 1,
+   "explain": "Slight overlaps between abutting colours hide small misregistration on press.",
+   "lesson": "graphic_design-15",
+   "evidence": "It is an electronic file treatment that must be performed to help solve registration issues on certain kinds of press technologies.",
+   "origin": "authored"
+  },
+  {
+   "id": "a65b615af1",
+   "module": 3,
+   "q": "Where do most registration errors happen on a printing press?",
+   "options": [
+    "As the substrate travels from one printing unit to the next",
+    "In the designer's software",
+    "While ink is mixed",
+    "When paper is cut"
+   ],
+   "answer": 0,
+   "explain": "Trapping compensates for these tiny misalignments.",
+   "lesson": "graphic_design-15",
+   "evidence": "The substrate must travel from one printing unit to the next, and it is here that most registration errors occur.",
+   "origin": "authored"
+  },
+  {
+   "id": "00482464d3",
+   "module": 3,
+   "q": "What is the extra element created by trapping called?",
+   "options": [
+    "A bleed",
+    "A crop mark",
+    "A gutter",
+    "A trap line"
+   ],
+   "answer": 3,
+   "explain": "It overlaps adjoining colours slightly to hide gaps.",
+   "lesson": "graphic_design-15",
+   "evidence": "That third element is called a trap line",
+   "origin": "authored"
+  },
+  {
+   "id": "fa94129244",
+   "module": 3,
+   "q": "What is the main concern when transparent elements are rasterised in a PDF?",
+   "options": [
+    "They print in black and white",
+    "They disappear from the page",
+    "They can no longer be edited",
+    "They make the PDF smaller"
+   ],
+   "answer": 2,
+   "explain": "So transparency levels must be right before rasterising.",
+   "lesson": "graphic_design-16",
+   "evidence": "The primary concern is that the elements rasterized in the PDF are no longer editable",
+   "origin": "authored"
+  },
+  {
+   "id": "172b01d935",
+   "module": 3,
+   "q": "Is what you see on screen a reliable guide to transparency in the final output?",
+   "options": [
+    "Yes, always",
+    "Not necessarily",
+    "Only for photographs",
+    "Only on large screens"
+   ],
+   "answer": 1,
+   "explain": "Operators need to know when WYSIWYG isn't adequate.",
+   "lesson": "graphic_design-16",
+   "evidence": "what we are viewing on a computer screen is not necessarily a good representation of the final output",
+   "origin": "authored"
+  },
+  {
+   "id": "386cbe3b7e",
+   "module": 3,
+   "q": "What is preflight?",
+   "options": [
+    "Checking a graphic document before it goes to manufacturing",
+    "Packing printed products for shipping",
+    "Designing the cover",
+    "Testing the press speed"
+   ],
+   "answer": 0,
+   "explain": "Preflight catches problems before they become expensive.",
+   "lesson": "graphic_design-16",
+   "evidence": "The task of checking a computer graphic document in preparation for the manufacturing process is called preflight.",
+   "origin": "authored"
+  },
+  {
+   "id": "53fd5eb2cf",
+   "module": 3,
+   "q": "What does 'creep' do in imposition?",
+   "options": [
+    "Enlarges the cover",
+    "Removes blank pages",
+    "Changes the paper colour",
+    "Moves page images closer to the spine to allow for the publication's thickness"
+   ],
+   "answer": 3,
+   "explain": "Inner pages of a saddle-stitched booklet stick out further when folded.",
+   "lesson": "graphic_design-16",
+   "evidence": "Creep pushes the image on a page closer in to the spine the further the page is toward the spine",
+   "origin": "authored"
+  },
+  {
+   "id": "421072f529",
+   "module": 3,
+   "q": "What is paper opacity?",
+   "options": [
+    "How white the paper is",
+    "How heavy the paper is",
+    "How smooth the paper feels",
+    "The degree to which light is prevented from travelling through the paper"
+   ],
+   "answer": 3,
+   "explain": "Opacity matters most for thin stocks printed on both sides.",
+   "lesson": "graphic_design-17",
+   "evidence": "opacity is the degree to which light is prevented from travelling through a paper.",
+   "origin": "authored"
+  },
+  {
+   "id": "aac0be69e1",
+   "module": 3,
+   "q": "What is a paper's basis weight?",
+   "options": [
+    "The weight of one sheet",
+    "The thickness in millimetres",
+    "The weight of 500 sheets at its parent sheet size",
+    "The price per kilogram"
+   ],
+   "answer": 2,
+   "explain": "80# cover means 500 parent-size sheets weigh 80 pounds.",
+   "lesson": "graphic_design-17",
+   "evidence": "Basis weight is the weight of 500 sheets of paper at a specific size",
+   "origin": "authored"
+  },
+  {
+   "id": "87ea8dc866",
+   "module": 3,
+   "q": "Why are colour prints usually done on 24# or 28# bond instead of 20#?",
+   "options": [
+    "Because it's cheaper",
+    "For higher opacity",
+    "Because it's thinner",
+    "Because it absorbs less ink"
+   ],
+   "answer": 1,
+   "explain": "Heavier stock stops colour showing through to the other side.",
+   "lesson": "graphic_design-17",
+   "evidence": "colour prints are more commonly done on 24# or 28# bond due to the need for higher opacity",
+   "origin": "authored"
+  }
+ ],
  "minutes": 177,
  "sources": [
   {

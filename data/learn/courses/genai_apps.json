@@ -1328,152 +1328,584 @@
    ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "In a large language model, what is a token?",
-    "options": [
-     "A password for the model's API",
-     "A chunk of text made of a variable number of characters",
-     "A single whole sentence",
-     "A payment for each request"
-    ],
-    "answer": 1,
-    "explain": "The tokenizer splits input into tokens, and each token is mapped to an integer index.",
-    "lesson": "genai_apps-01",
-    "evidence": "A token is a chunk of text – consisting of a variable number of characters, so the tokenizer's main task is splitting the input into an array of tokens.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is an embedding?",
-    "options": [
-     "A video embedded in a web page",
-     "A model that writes long essays",
-     "A numerical representation of the input text",
-     "A summary written by a human"
-    ],
-    "answer": 2,
-    "explain": "Embeddings turn text into numbers so similar meanings end up close together.",
-    "lesson": "genai_apps-02",
-    "evidence": "Embeddings are a set of models that can convert text into a numerical form, called embedding, which is a numerical representation of the input text.",
-    "origin": "authored"
-   },
-   {
-    "q": "What can embeddings (vectors) be used for in a search application?",
-    "options": [
-     "Semantic search over data",
-     "Compressing images",
-     "Encrypting user passwords",
-     "Translating code into English"
-    ],
-    "answer": 0,
-    "explain": "Searching by meaning compares the vectors of the query and the documents.",
-    "lesson": "genai_apps-05",
-    "evidence": "Embeddings are numerical representations of data also known as vectors, and can be used for semantic search for data.",
-    "origin": "authored"
-   },
-   {
-    "q": "Which two ways does the lesson give for putting trust at the centre of AI app design?",
-    "options": [
-     "Speed and price",
-     "Branding and colour",
-     "Larger models and more data",
-     "Explainability and control"
-    ],
-    "answer": 3,
-    "explain": "Users trust a system they can understand and steer.",
-    "lesson": "genai_apps-07",
-    "evidence": "Two ways to ensure that trust is put right at the center of design are explainability and control.",
-    "origin": "authored"
-   },
-   {
-    "q": "In retrieval augmented generation (RAG), what is the retriever's job?",
-    "options": [
-     "To retrain the model every night",
-     "To get documents that provide context and ground the LLM on your data",
-     "To check the user's identity",
-     "To translate answers into other languages"
-    ],
-    "answer": 1,
-    "explain": "Retrieved passages are added to the prompt so answers are based on your own data.",
-    "lesson": "genai_apps-08",
-    "evidence": "The goal of the retriever is to get documents that will be used to provide context and ground the LLM on your data.",
-    "origin": "authored"
-   },
-   {
-    "q": "For a model to meet the traditional definition of open source, which information should be publicly available?",
-    "options": [
-     "Only the model's name",
-     "The price per token",
-     "The datasets used to train the model, among other things",
-     "The names of its users"
-    ],
-    "answer": 2,
-    "explain": "Openness also covers weights, training code and licence terms.",
-    "lesson": "genai_apps-09",
-    "evidence": "For a model to be aligned with the traditional definition of open source the following information should be publicly available: Datasets used to train the model.",
-    "origin": "authored"
-   },
-   {
-    "q": "In this course, what does fine-tuning refer to?",
-    "options": [
-     "Supervised fine-tuning: retraining the model with new data that was not in its original training set",
-     "Changing the temperature setting",
-     "Writing a better prompt",
-     "Running the same model on a faster GPU"
-    ],
-    "answer": 0,
-    "explain": "Fine-tuning changes the model's weights; prompting and RAG do not.",
-    "lesson": "genai_apps-10",
-    "evidence": "we are referring to supervised fine-tuning where the retraining is done by adding new data that was not part of the original training dataset.",
-    "origin": "authored"
-   },
-   {
-    "q": "Why are small language models (SLMs) a good fit for some applications?",
-    "options": [
-     "They always know more facts than large models",
-     "They do not need any training data",
-     "They can only be used offline",
-     "They are compact and efficient, ideal where computational resources are limited"
-    ],
-    "answer": 3,
-    "explain": "SLMs trade breadth for efficiency and can run on modest hardware.",
-    "lesson": "genai_apps-11",
-    "evidence": "SLMs are more compact and efficient, making them ideal for applications where computational resources are limited.",
-    "origin": "authored"
-   },
-   {
-    "q": "Why are tools important for AI agents?",
-    "options": [
-     "They make the model smaller",
-     "They allow agents to have a broader range of capabilities",
-     "They replace the language model entirely",
-     "They hide the agent's reasoning"
-    ],
-    "answer": 1,
-    "explain": "Functions let an agent act — call APIs, query data, run code — beyond generating text.",
-    "lesson": "genai_apps-14",
-    "evidence": "Tools are interesting because they allow AI agents to have a broader range of capabilities.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the distinguishing quality of an agentic (RAG) system?",
-    "options": [
-     "It never uses external tools",
-     "It answers in a single step",
-     "Its ability to own its reasoning process",
-     "It only works with images"
-    ],
-    "answer": 2,
-    "explain": "Agentic RAG evaluates results, refines queries and calls more tools until the answer is good enough.",
-    "lesson": "genai_apps-15",
-    "evidence": "The distinguishing quality of an agentic system is its ability to own its reasoning process.",
-    "origin": "authored"
-   }
-  ],
-  "pass_mark": 7,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "abc08fe315",
+   "module": 0,
+   "q": "In a large language model, what is a token?",
+   "options": [
+    "A password for the model's API",
+    "A chunk of text made of a variable number of characters",
+    "A single whole sentence",
+    "A payment for each request"
+   ],
+   "answer": 1,
+   "explain": "The tokenizer splits input into tokens, and each token is mapped to an integer index.",
+   "lesson": "genai_apps-01",
+   "evidence": "A token is a chunk of text – consisting of a variable number of characters, so the tokenizer's main task is splitting the input into an array of tokens.",
+   "origin": "authored"
+  },
+  {
+   "id": "10a737764b",
+   "module": 0,
+   "q": "How does a large language model produce its next token?",
+   "options": [
+    "It predicts a probability distribution over possible next tokens",
+    "It copies the next word from its training data",
+    "It picks a random dictionary word",
+    "It always chooses the shortest word"
+   ],
+   "answer": 0,
+   "explain": "The distribution comes from what the model learned in training.",
+   "lesson": "genai_apps-01",
+   "evidence": "This is because the model predicts a probability distribution over all possible ‘next tokens’, calculated based on its training.",
+   "origin": "authored"
+  },
+  {
+   "id": "c97a80adc4",
+   "module": 0,
+   "q": "Is the most probable token always the one chosen?",
+   "options": [
+    "Yes, every time",
+    "Only for short prompts",
+    "Only for code",
+    "No — not always"
+   ],
+   "answer": 3,
+   "explain": "Some randomness makes output more varied and creative.",
+   "lesson": "genai_apps-01",
+   "evidence": "However, not always is the token with the highest probability chosen from the resulting distribution.",
+   "origin": "authored"
+  },
+  {
+   "id": "7ecdf59084",
+   "module": 0,
+   "q": "What is an embedding?",
+   "options": [
+    "A video embedded in a web page",
+    "A model that writes long essays",
+    "A numerical representation of the input text",
+    "A summary written by a human"
+   ],
+   "answer": 2,
+   "explain": "Embeddings turn text into numbers so similar meanings end up close together.",
+   "lesson": "genai_apps-02",
+   "evidence": "Embeddings are a set of models that can convert text into a numerical form, called embedding, which is a numerical representation of the input text.",
+   "origin": "authored"
+  },
+  {
+   "id": "824bf9a0d6",
+   "module": 0,
+   "q": "Why can an AI service's name differ from the underlying model's name?",
+   "options": [
+    "Model names are kept secret by law",
+    "Every request uses a brand-new model",
+    "Services often route requests between several model variants",
+    "Service names are chosen at random"
+   ],
+   "answer": 2,
+   "explain": "Check which model actually answers when comparing options.",
+   "lesson": "genai_apps-02",
+   "evidence": "Modern AI services often route between several model variants, so the service name and the underlying model name are not always the same thing.",
+   "origin": "authored"
+  },
+  {
+   "id": "f8280633a7",
+   "module": 0,
+   "q": "What are embedding models often used for?",
+   "options": [
+    "Generating images from text",
+    "Transfer learning, reusing weights learned on a data-rich task",
+    "Compressing video",
+    "Encrypting passwords"
+   ],
+   "answer": 1,
+   "explain": "The learned embeddings are reused for other downstream tasks.",
+   "lesson": "genai_apps-02",
+   "evidence": "Embedding models are often used for transfer learning",
+   "origin": "authored"
+  },
+  {
+   "id": "fd3354741a",
+   "module": 0,
+   "q": "What are text generation models typically trained on?",
+   "options": [
+    "Large text datasets, such as BookCorpus",
+    "Only images",
+    "Only audio recordings",
+    "A single user's emails"
+   ],
+   "answer": 0,
+   "explain": "They can then generate new text or answer questions.",
+   "lesson": "genai_apps-02",
+   "evidence": "Text generation models are often trained on large datasets of text, such as BookCorpus",
+   "origin": "authored"
+  },
+  {
+   "id": "5841a61aad",
+   "module": 1,
+   "q": "Which tasks are LLMs good at, according to the lesson?",
+   "options": [
+    "Exact arithmetic on very large numbers",
+    "Rendering real-time video",
+    "Running databases",
+    "Summarising text, extracting insights and producing text such as CVs"
+   ],
+   "answer": 3,
+   "explain": "Text generation apps build on these strengths.",
+   "lesson": "genai_apps-03",
+   "evidence": "LLMs are great at things like summarizing text, getting insights from text, producing text like resumes and more.",
+   "origin": "authored"
+  },
+  {
+   "id": "3fd66754a4",
+   "module": 1,
+   "q": "How do you change how random or creative a model's output is?",
+   "options": [
+    "Change the API key",
+    "Shorten the model name",
+    "Adjust the temperature parameter",
+    "Restart the server"
+   ],
+   "answer": 2,
+   "explain": "Higher temperature gives more varied output; lower gives more predictable output.",
+   "lesson": "genai_apps-03",
+   "evidence": "To alter the temperature, you can use the temperature parameter.",
+   "origin": "authored"
+  },
+  {
+   "id": "1ccc20b1b9",
+   "module": 1,
+   "q": "What should you consider about tokens when building a text generation app?",
+   "options": [
+    "Tokens never matter",
+    "How many tokens you need to generate the text you want",
+    "Only the colour of the tokens",
+    "How many users have tokens"
+   ],
+   "answer": 1,
+   "explain": "Token limits cap the length of the response and affect cost.",
+   "lesson": "genai_apps-03",
+   "evidence": "We should consider how many tokens we need to generate the text we want.",
+   "origin": "authored"
+  },
+  {
+   "id": "e7ec36af3d",
+   "module": 1,
+   "q": "What usually controls access to an SDK's or API's services?",
+   "options": [
+    "A unique key or authentication token",
+    "The user's screen size",
+    "The time of day",
+    "Nothing — they are always open"
+   ],
+   "answer": 0,
+   "explain": "Keys must be kept secret, never committed to code.",
+   "lesson": "genai_apps-04",
+   "evidence": "which is often through the use of a unique key or authentication token",
+   "origin": "authored"
+  },
+  {
+   "id": "13b1db1228",
+   "module": 1,
+   "q": "Why do SDKs and APIs make maintenance easier?",
+   "options": [
+    "They never change",
+    "They remove the need for testing",
+    "They write your code for you",
+    "Updates often just mean updating a library"
+   ],
+   "answer": 3,
+   "explain": "New versions bring improvements without rewriting your app.",
+   "lesson": "genai_apps-04",
+   "evidence": "Updates and improvements are easier to manage as most APIs and SDKs simply require an update to a library when a newer version is released.",
+   "origin": "authored"
+  },
+  {
+   "id": "a6ef4cbb06",
+   "module": 1,
+   "q": "After deploying a chat app, what should you monitor besides functionality?",
+   "options": [
+    "The number of colours in the UI",
+    "The developers' working hours",
+    "How well it follows the six principles of responsible AI",
+    "Nothing else"
+   ],
+   "answer": 2,
+   "explain": "Quality includes fairness, reliability, safety and more.",
+   "lesson": "genai_apps-04",
+   "evidence": "both in terms of functionality and adhering to the six principles of responsible AI",
+   "origin": "authored"
+  },
+  {
+   "id": "593edfe314",
+   "module": 1,
+   "q": "What can embeddings (vectors) be used for in a search application?",
+   "options": [
+    "Semantic search over data",
+    "Compressing images",
+    "Encrypting user passwords",
+    "Translating code into English"
+   ],
+   "answer": 0,
+   "explain": "Searching by meaning compares the vectors of the query and the documents.",
+   "lesson": "genai_apps-05",
+   "evidence": "Embeddings are numerical representations of data also known as vectors, and can be used for semantic search for data.",
+   "origin": "authored"
+  },
+  {
+   "id": "1d060b1fcf",
+   "module": 1,
+   "q": "What problem did LLM responses have before function calling?",
+   "options": [
+    "They were always too short",
+    "They were unstructured and inconsistent",
+    "They could only be in English",
+    "They were too slow to use"
+   ],
+   "answer": 1,
+   "explain": "Function calling returns structured output your code can rely on.",
+   "lesson": "genai_apps-06",
+   "evidence": "Before function calling, responses from an LLM were unstructured and inconsistent.",
+   "origin": "authored"
+  },
+  {
+   "id": "1b67559400",
+   "module": 1,
+   "q": "What should you remember about function definitions sent to the model?",
+   "options": [
+    "They go into the system message and use up available tokens",
+    "They are free and unlimited",
+    "They are hidden from the model",
+    "They replace the user's prompt"
+   ],
+   "answer": 0,
+   "explain": "Large or many function definitions reduce space for the conversation.",
+   "lesson": "genai_apps-06",
+   "evidence": "Functions are included in the system message to the LLM and will be included in the amount of available tokens you have available.",
+   "origin": "authored"
+  },
+  {
+   "id": "eef8bb0d82",
+   "module": 1,
+   "q": "How do applications use the structured responses from function calling?",
+   "options": [
+    "To change the model's temperature",
+    "To train a new model",
+    "To display adverts",
+    "To decide which function to run"
+   ],
+   "answer": 3,
+   "explain": "For example, sending an email or querying a database.",
+   "lesson": "genai_apps-06",
+   "evidence": "We then use those structured responses to know what function to run in our applications.",
+   "origin": "authored"
+  },
+  {
+   "id": "70cab435b7",
+   "module": 1,
+   "q": "Which two ways does the lesson give for putting trust at the centre of AI app design?",
+   "options": [
+    "Speed and price",
+    "Branding and colour",
+    "Larger models and more data",
+    "Explainability and control"
+   ],
+   "answer": 3,
+   "explain": "Users trust a system they can understand and steer.",
+   "lesson": "genai_apps-07",
+   "evidence": "Two ways to ensure that trust is put right at the center of design are explainability and control.",
+   "origin": "authored"
+  },
+  {
+   "id": "fd511ed5ec",
+   "module": 2,
+   "q": "In retrieval augmented generation (RAG), what is the retriever's job?",
+   "options": [
+    "To retrain the model every night",
+    "To get documents that provide context and ground the LLM on your data",
+    "To check the user's identity",
+    "To translate answers into other languages"
+   ],
+   "answer": 1,
+   "explain": "Retrieved passages are added to the prompt so answers are based on your own data.",
+   "lesson": "genai_apps-08",
+   "evidence": "The goal of the retriever is to get documents that will be used to provide context and ground the LLM on your data.",
+   "origin": "authored"
+  },
+  {
+   "id": "80a387724f",
+   "module": 2,
+   "q": "Why can't a standard LLM chatbot answer from a company's internal product manual?",
+   "options": [
+    "Manuals are too short",
+    "LLMs cannot read English",
+    "Confidential information like internal manuals is not in its training data",
+    "Manuals are always images"
+   ],
+   "answer": 2,
+   "explain": "RAG retrieves such documents and adds them to the prompt.",
+   "lesson": "genai_apps-08",
+   "evidence": "the data used to train LLMs excludes confidential information such as personal notes or a company's product manual",
+   "origin": "authored"
+  },
+  {
+   "id": "3d15452dfd",
+   "module": 2,
+   "q": "Without retrieval, what limits an LLM chatbot's responses?",
+   "options": [
+    "The speed of the internet",
+    "The context provided and its foundational training data",
+    "The number of users",
+    "The size of the screen"
+   ],
+   "answer": 1,
+   "explain": "Its knowledge also stops at its training cutoff.",
+   "lesson": "genai_apps-08",
+   "evidence": "However, its responses are limited to the context provided and its foundational training data.",
+   "origin": "authored"
+  },
+  {
+   "id": "c916a826b0",
+   "module": 2,
+   "q": "For a model to meet the traditional definition of open source, which information should be publicly available?",
+   "options": [
+    "Only the model's name",
+    "The price per token",
+    "The datasets used to train the model, among other things",
+    "The names of its users"
+   ],
+   "answer": 2,
+   "explain": "Openness also covers weights, training code and licence terms.",
+   "lesson": "genai_apps-09",
+   "evidence": "For a model to be aligned with the traditional definition of open source the following information should be publicly available: Datasets used to train the model.",
+   "origin": "authored"
+  },
+  {
+   "id": "c85b9685d5",
+   "module": 2,
+   "q": "In this course, what does fine-tuning refer to?",
+   "options": [
+    "Supervised fine-tuning: retraining the model with new data that was not in its original training set",
+    "Changing the temperature setting",
+    "Writing a better prompt",
+    "Running the same model on a faster GPU"
+   ],
+   "answer": 0,
+   "explain": "Fine-tuning changes the model's weights; prompting and RAG do not.",
+   "lesson": "genai_apps-10",
+   "evidence": "we are referring to supervised fine-tuning where the retraining is done by adding new data that was not part of the original training dataset.",
+   "origin": "authored"
+  },
+  {
+   "id": "58758f4f72",
+   "module": 2,
+   "q": "What is one limitation of few-shot learning?",
+   "options": [
+    "Token limits restrict how many examples you can give",
+    "It needs no examples at all",
+    "It permanently changes the model",
+    "It only works for images"
+   ],
+   "answer": 0,
+   "explain": "Fine-tuning can overcome this by training on many examples.",
+   "lesson": "genai_apps-10",
+   "evidence": "Model token limits can restrict the number of examples you can give, and limit the effectiveness",
+   "origin": "authored"
+  },
+  {
+   "id": "79739ff7a5",
+   "module": 2,
+   "q": "What are large language models pre-trained on?",
+   "options": [
+    "A single company's documents",
+    "Only textbooks",
+    "Only code",
+    "Large quantities of text from diverse sources, including the internet"
+   ],
+   "answer": 3,
+   "explain": "Fine-tuning then adapts them to a specific task or domain.",
+   "lesson": "genai_apps-10",
+   "evidence": "large language models are pre-trained on large quantities of text sourced from diverse sources including the internet",
+   "origin": "authored"
+  },
+  {
+   "id": "2ba7f2478f",
+   "module": 2,
+   "q": "Why are small language models (SLMs) a good fit for some applications?",
+   "options": [
+    "They always know more facts than large models",
+    "They do not need any training data",
+    "They can only be used offline",
+    "They are compact and efficient, ideal where computational resources are limited"
+   ],
+   "answer": 3,
+   "explain": "SLMs trade breadth for efficiency and can run on modest hardware.",
+   "lesson": "genai_apps-11",
+   "evidence": "SLMs are more compact and efficient, making them ideal for applications where computational resources are limited.",
+   "origin": "authored"
+  },
+  {
+   "id": "43024f0005",
+   "module": 2,
+   "q": "Why are small language models less susceptible to some biases?",
+   "options": [
+    "They have no training data",
+    "They are always open source",
+    "They are trained on more constrained, domain-specific data",
+    "They cannot generate text"
+   ],
+   "answer": 2,
+   "explain": "They are still not immune to bias.",
+   "lesson": "genai_apps-11",
+   "evidence": "SLMs, being trained on more constrained, domain-specific datasets, are inherently less susceptible to such biases",
+   "origin": "authored"
+  },
+  {
+   "id": "3c04e974e4",
+   "module": 2,
+   "q": "How are small language models typically built?",
+   "options": [
+    "By training on a single sentence",
+    "By compressing or distilling larger models",
+    "By merging two large models",
+    "By removing all parameters"
+   ],
+   "answer": 1,
+   "explain": "They aim to keep much of the larger model's capability.",
+   "lesson": "genai_apps-11",
+   "evidence": "Typically, SLMs are constructed by compressing or distilling LLMs",
+   "origin": "authored"
+  },
+  {
+   "id": "ce7b92edb8",
+   "module": 2,
+   "q": "Where can models like Phi-3.5-mini be deployed, unlike large LLMs?",
+   "options": [
+    "On edge devices",
+    "Only in large data centres",
+    "Only on supercomputers",
+    "Nowhere outside the lab"
+   ],
+   "answer": 0,
+   "explain": "Small models suit resource-constrained environments.",
+   "lesson": "genai_apps-11",
+   "evidence": "Unlike LLM, you can deploy Phi-3/3.5-mini or Phi-3/3.5-Vision on edge devices.",
+   "origin": "authored"
+  },
+  {
+   "id": "89f39d5b3d",
+   "module": 3,
+   "q": "What are AI agents, in simple terms?",
+   "options": [
+    "Chatbots that only answer questions",
+    "Human assistants who type prompts",
+    "Databases of prompts",
+    "Systems that let LLMs act, by giving them tools and knowledge"
+   ],
+   "answer": 3,
+   "explain": "Agents can act on the world, not just respond to prompts.",
+   "lesson": "genai_apps-12",
+   "evidence": "AI Agents are systems that let Large Language Models (LLMs) actually do things",
+   "origin": "authored"
+  },
+  {
+   "id": "49a2785d6c",
+   "module": 3,
+   "q": "What does 'easily accessible yet occasionally invisible' mean for an agent?",
+   "options": [
+    "It is hidden from all users",
+    "It pops up constantly",
+    "It works in the background and only nudges you when relevant",
+    "It only works on one device"
+   ],
+   "answer": 2,
+   "explain": "It stays discoverable for authorised users on any device.",
+   "lesson": "genai_apps-13",
+   "evidence": "agent largely operates in the background and only nudges us when it is relevant and appropriate",
+   "origin": "authored"
+  },
+  {
+   "id": "4425b204a1",
+   "module": 3,
+   "q": "What does the design principle 'connecting, not collapsing' mean?",
+   "options": [
+    "Merging all apps into one",
+    "Helping connect people to other people, events and knowledge",
+    "Replacing people with agents",
+    "Reducing all choices to one option"
+   ],
+   "answer": 1,
+   "explain": "Agents should enable collaboration and connection.",
+   "lesson": "genai_apps-13",
+   "evidence": "help connect people to other people, events, and actionable knowledge to enable collaboration and connection",
+   "origin": "authored"
+  },
+  {
+   "id": "e847ebc296",
+   "module": 3,
+   "q": "Why are tools important for AI agents?",
+   "options": [
+    "They make the model smaller",
+    "They allow agents to have a broader range of capabilities",
+    "They replace the language model entirely",
+    "They hide the agent's reasoning"
+   ],
+   "answer": 1,
+   "explain": "Functions let an agent act — call APIs, query data, run code — beyond generating text.",
+   "lesson": "genai_apps-14",
+   "evidence": "Tools are interesting because they allow AI agents to have a broader range of capabilities.",
+   "origin": "authored"
+  },
+  {
+   "id": "8e536b06ff",
+   "module": 3,
+   "q": "Why are 'function' and 'tool' often used interchangeably for agents?",
+   "options": [
+    "Functions are the tools agents use to carry out tasks",
+    "They are two names for prompts",
+    "Tools are only hardware",
+    "Functions are only maths formulas"
+   ],
+   "answer": 0,
+   "explain": "Tools give agents a much wider range of actions.",
+   "lesson": "genai_apps-14",
+   "evidence": "You will often see 'Function' and 'Tool' used interchangeably because 'functions' (blocks of reusable code) are the 'tools' agents use to carry out tasks.",
+   "origin": "authored"
+  },
+  {
+   "id": "af542072a6",
+   "module": 3,
+   "q": "What is the distinguishing quality of an agentic (RAG) system?",
+   "options": [
+    "It never uses external tools",
+    "It answers in a single step",
+    "Its ability to own its reasoning process",
+    "It only works with images"
+   ],
+   "answer": 2,
+   "explain": "Agentic RAG evaluates results, refines queries and calls more tools until the answer is good enough.",
+   "lesson": "genai_apps-15",
+   "evidence": "The distinguishing quality of an agentic system is its ability to own its reasoning process.",
+   "origin": "authored"
+  },
+  {
+   "id": "031800f18f",
+   "module": 3,
+   "q": "How does an agentic RAG system work through a task?",
+   "options": [
+    "It answers once without checking",
+    "It only retrieves, never reasons",
+    "It asks the user to search",
+    "It evaluates results, refines queries and uses tools until it reaches a good answer"
+   ],
+   "answer": 3,
+   "explain": "This iterative maker-checker loop improves correctness.",
+   "lesson": "genai_apps-15",
+   "evidence": "The system evaluates results, refines queries, invokes additional tools if needed, and continues this cycle until a satisfactory solution is achieved.",
+   "origin": "authored"
+  }
+ ],
  "minutes": 141,
  "sources": [
   {

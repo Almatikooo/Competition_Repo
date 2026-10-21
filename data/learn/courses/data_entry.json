@@ -402,152 +402,568 @@
    ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "What is the foundation of any research project, according to Data Carpentry?",
-    "options": [
-     "Expensive software",
-     "A large dataset",
-     "Good data organisation",
-     "A statistics degree"
-    ],
-    "answer": 2,
-    "explain": "Badly organised data causes errors in every later step.",
-    "lesson": "data_entry-01",
-    "evidence": "Good data organization is the foundation of any research project.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is a drawback of doing data cleaning or analysis in a spreadsheet?",
-    "options": [
-     "It is not easy to show or replicate what you did",
-     "Spreadsheets cannot store numbers",
-     "Spreadsheets cannot be shared",
-     "Spreadsheets cannot sort data"
-    ],
-    "answer": 0,
-    "explain": "Spreadsheets are good for data entry; scripted tools keep a record of each step.",
-    "lesson": "data_entry-01",
-    "evidence": "Spreadsheets are good for data entry, but when doing data cleaning or analysis, it's not easy to show or replicate what you did.",
-    "origin": "authored"
-   },
-   {
-    "q": "What should you always do before changing data?",
-    "options": [
-     "Delete the empty rows",
-     "Sort the table by date",
-     "Convert it to a PDF",
-     "Make a copy — never modify your raw data"
-    ],
-    "answer": 3,
-    "explain": "Keeping raw data untouched means you can always start again.",
-    "lesson": "data_entry-02",
-    "evidence": "Never modify your raw data. Always make a copy before making any changes.",
-    "origin": "authored"
-   },
-   {
-    "q": "Why should you avoid spreading one dataset across multiple tabs?",
-    "options": [
-     "Tabs make files too large",
-     "The computer can't see the connections in the data",
-     "Tabs cannot be printed",
-     "Each tab needs its own password"
-    ],
-    "answer": 1,
-    "explain": "Keep one table per dataset; use a separate tab only to record cleaning notes.",
-    "lesson": "data_entry-03",
-    "evidence": "When you create extra tabs, you fail to allow the computer to see connections in the data that are there",
-    "origin": "authored"
-   },
-   {
-    "q": "What is a good practice to avoid ambiguity in dates?",
-    "options": [
-     "Type dates as words",
-     "Always use the local date format",
-     "Split dates into separate YEAR, MONTH and DAY columns",
-     "Store dates as colours"
-    ],
-    "answer": 2,
-    "explain": "Regional formats and software differences make single date cells risky.",
-    "lesson": "data_entry-04",
-    "evidence": "a good practice is to divide dates into components in different columns - YEAR, MONTH, and DAY.",
-    "origin": "authored"
-   },
-   {
-    "q": "How can you prevent invalid data being entered by accident?",
-    "options": [
-     "Use data validation",
-     "Use bold text",
-     "Hide the columns",
-     "Add more tabs"
-    ],
-    "answer": 0,
-    "explain": "Validation rules restrict cells to allowed values or ranges.",
-    "lesson": "data_entry-05",
-    "evidence": "Use data validation to prevent accidentally entering invalid data.",
-    "origin": "authored"
-   },
-   {
-    "q": "Why export spreadsheet data to a universal format such as CSV?",
-    "options": [
-     "CSV files look nicer",
-     "CSV keeps formulas working",
-     "CSV files are encrypted",
-     "Common spreadsheet formats are often not read correctly by analysis software"
-    ],
-    "answer": 3,
-    "explain": "Proprietary formats may also become hard to open in the future.",
-    "lesson": "data_entry-06",
-    "evidence": "Data stored in common spreadsheet formats will often not be read correctly into data analysis software, introducing errors into your data.",
-    "origin": "authored"
-   },
-   {
-    "q": "Why are closed questions often better in forms?",
-    "options": [
-     "They collect more data",
-     "They are easier to answer than open questions",
-     "They are required by law",
-     "They need no testing"
-    ],
-    "answer": 1,
-    "explain": "Users of government services are often afraid of being caught out by open questions.",
-    "lesson": "data_entry-07",
-    "evidence": "Closed questions are easier to answer than open questions",
-    "origin": "authored"
-   },
-   {
-    "q": "What do 'branching' questions do in a form?",
-    "options": [
-     "Ask every user every question",
-     "Let users skip the whole form",
-     "Mean people only answer questions relevant to them",
-     "Collect the same answer twice"
-    ],
-    "answer": 2,
-    "explain": "Shorter, relevant journeys reduce errors and abandoned forms.",
-    "lesson": "data_entry-08",
-    "evidence": "Use ‘branching’ questions so people only have to answer questions that are relevant to them.",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the first thing to do when planning to collect personal information?",
-    "options": [
-     "Remove any questions you do not need to ask",
-     "Add a consent checkbox to every page",
-     "Collect everything in case it is useful",
-     "Ask for an ID number first"
-    ],
-    "answer": 0,
-    "explain": "Collect only what you need — and check with your data protection adviser.",
-    "lesson": "data_entry-09",
-    "evidence": "The first thing to do is remove any questions that you do not need to ask",
-    "origin": "authored"
-   }
-  ],
-  "pass_mark": 7,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "fb918020d4",
+   "module": 0,
+   "q": "What is the foundation of any research project, according to Data Carpentry?",
+   "options": [
+    "Expensive software",
+    "A large dataset",
+    "Good data organisation",
+    "A statistics degree"
+   ],
+   "answer": 2,
+   "explain": "Badly organised data causes errors in every later step.",
+   "lesson": "data_entry-01",
+   "evidence": "Good data organization is the foundation of any research project.",
+   "origin": "authored"
+  },
+  {
+   "id": "0e4d7a4461",
+   "module": 0,
+   "q": "What is a drawback of doing data cleaning or analysis in a spreadsheet?",
+   "options": [
+    "It is not easy to show or replicate what you did",
+    "Spreadsheets cannot store numbers",
+    "Spreadsheets cannot be shared",
+    "Spreadsheets cannot sort data"
+   ],
+   "answer": 0,
+   "explain": "Spreadsheets are good for data entry; scripted tools keep a record of each step.",
+   "lesson": "data_entry-01",
+   "evidence": "Spreadsheets are good for data entry, but when doing data cleaning or analysis, it's not easy to show or replicate what you did.",
+   "origin": "authored"
+  },
+  {
+   "id": "bec8d28fb0",
+   "module": 0,
+   "q": "What should you always do before changing data?",
+   "options": [
+    "Delete the empty rows",
+    "Sort the table by date",
+    "Convert it to a PDF",
+    "Make a copy — never modify your raw data"
+   ],
+   "answer": 3,
+   "explain": "Keeping raw data untouched means you can always start again.",
+   "lesson": "data_entry-02",
+   "evidence": "Never modify your raw data. Always make a copy before making any changes.",
+   "origin": "authored"
+  },
+  {
+   "id": "f32b412f46",
+   "module": 0,
+   "q": "What is the most common mistake people make with spreadsheets?",
+   "options": [
+    "Using too many formulas",
+    "Treating them like lab notebooks, relying on notes, layout and context",
+    "Saving too often",
+    "Exporting to CSV"
+   ],
+   "answer": 1,
+   "explain": "Computers can't read margin notes or layout — only well-structured data.",
+   "lesson": "data_entry-02",
+   "evidence": "The most common mistake made is treating spreadsheet programs like lab notebooks",
+   "origin": "authored"
+  },
+  {
+   "id": "919766eb4b",
+   "module": 0,
+   "q": "What is the rule of thumb for setting up a datasheet?",
+   "options": [
+    "One table per tab, with colours for categories",
+    "Notes in the margin and totals at the bottom",
+    "Merged cells for headings and comments for units",
+    "Each variable in its own column, each observation in its own row, one value per cell"
+   ],
+   "answer": 3,
+   "explain": "These are the tidy data principles.",
+   "lesson": "data_entry-02",
+   "evidence": "should have its own column, each observation should have its own row, and each cell should contain only a single value",
+   "origin": "authored"
+  },
+  {
+   "id": "1f6b51f467",
+   "module": 0,
+   "q": "When should you set up well-formatted tables?",
+   "options": [
+    "After the analysis is finished",
+    "Only when publishing",
+    "From the outset, before entering any data",
+    "Only for large datasets"
+   ],
+   "answer": 2,
+   "explain": "Fixing structure later is much more work than getting it right first.",
+   "lesson": "data_entry-02",
+   "evidence": "it's extremely important to set up well-formatted tables from the outset",
+   "origin": "authored"
+  },
+  {
+   "id": "dae6c34a3e",
+   "module": 0,
+   "q": "Where should metadata about your data be kept?",
+   "options": [
+    "In the first rows of the data file",
+    "Separately, not inside the data file",
+    "In cell comments",
+    "Only in the file name"
+   ],
+   "answer": 1,
+   "explain": "Metadata in the data file can disrupt how programs read it.",
+   "lesson": "data_entry-02",
+   "evidence": "However, metadata should not be contained in the data file itself.",
+   "origin": "authored"
+  },
+  {
+   "id": "52d775c449",
+   "module": 0,
+   "q": "Why is recording metadata essential?",
+   "options": [
+    "You are unlikely to remember details, like a question's exact wording, later",
+    "Spreadsheets refuse to open without it",
+    "It makes files smaller",
+    "It replaces the raw data"
+   ],
+   "answer": 0,
+   "explain": "Metadata documents what each column means and how it was collected.",
+   "lesson": "data_entry-02",
+   "evidence": "the chances that you will still remember the exact wording of the question you asked",
+   "origin": "authored"
+  },
+  {
+   "id": "4573ab0068",
+   "module": 0,
+   "q": "Why should you avoid spreading one dataset across multiple tabs?",
+   "options": [
+    "Tabs make files too large",
+    "The computer can't see the connections in the data",
+    "Tabs cannot be printed",
+    "Each tab needs its own password"
+   ],
+   "answer": 1,
+   "explain": "Keep one table per dataset; use a separate tab only to record cleaning notes.",
+   "lesson": "data_entry-03",
+   "evidence": "When you create extra tabs, you fail to allow the computer to see connections in the data that are there",
+   "origin": "authored"
+  },
+  {
+   "id": "81e53834a4",
+   "module": 0,
+   "q": "What does a blank cell tell the computer?",
+   "options": [
+    "That the value is zero",
+    "That the value repeats the one above",
+    "That the cell is a header",
+    "That the value is unknown or missing (null)"
+   ],
+   "answer": 3,
+   "explain": "Blanks and zeros mean different things to analysis software.",
+   "lesson": "data_entry-03",
+   "evidence": "A blank cell means that it wasn't measured and the computer will interpret it as an unknown value (otherwise known as a null value).",
+   "origin": "authored"
+  },
+  {
+   "id": "7666be3a0d",
+   "module": 0,
+   "q": "Why must zeros be recorded as zeros rather than left blank?",
+   "options": [
+    "Blanks take more storage",
+    "Zeros look tidier when printed",
+    "A blank is read as missing data, which means something different",
+    "Spreadsheets delete blank rows"
+   ],
+   "answer": 2,
+   "explain": "Use a clear, consistent indicator for truly missing values.",
+   "lesson": "data_entry-03",
+   "evidence": "it's very important to record zeros as zeros and truly missing data as nulls",
+   "origin": "authored"
+  },
+  {
+   "id": "53fc1be4eb",
+   "module": 0,
+   "q": "Why should you avoid merged cells?",
+   "options": [
+    "They use more memory",
+    "They make data unreadable by statistics software",
+    "They cannot be printed",
+    "They change the font"
+   ],
+   "answer": 1,
+   "explain": "Analysis tools expect one value per cell in a regular grid.",
+   "lesson": "data_entry-03",
+   "evidence": "Merged cells will make your data unreadable by statistics software.",
+   "origin": "authored"
+  },
+  {
+   "id": "a8b133a2f7",
+   "module": 0,
+   "q": "What is a good alternative to spaces in column names?",
+   "options": [
+    "Underscores",
+    "Commas",
+    "Slashes",
+    "Emojis"
+   ],
+   "answer": 0,
+   "explain": "Spaces and special characters cause trouble in many programs.",
+   "lesson": "data_entry-03",
+   "evidence": "Underscores ( _ ) are a good alternative to spaces.",
+   "origin": "authored"
+  },
+  {
+   "id": "c57dcf6f8f",
+   "module": 0,
+   "q": "When is it fine to add a new tab to your spreadsheet?",
+   "options": [
+    "To store each year's data separately",
+    "To hold each site's data separately",
+    "To keep a second copy of the table",
+    "To record the cleaning or changes you made to the data"
+   ],
+   "answer": 3,
+   "explain": "Splitting the data itself across tabs hides connections from the computer.",
+   "lesson": "data_entry-03",
+   "evidence": "but do use a new tab to record data cleaning or manipulations",
+   "origin": "authored"
+  },
+  {
+   "id": "a7d2b47097",
+   "module": 0,
+   "q": "What is a good practice to avoid ambiguity in dates?",
+   "options": [
+    "Type dates as words",
+    "Always use the local date format",
+    "Split dates into separate YEAR, MONTH and DAY columns",
+    "Store dates as colours"
+   ],
+   "answer": 2,
+   "explain": "Regional formats and software differences make single date cells risky.",
+   "lesson": "data_entry-04",
+   "evidence": "a good practice is to divide dates into components in different columns - YEAR, MONTH, and DAY.",
+   "origin": "authored"
+  },
+  {
+   "id": "0afbeccb6b",
+   "module": 0,
+   "q": "Why are spreadsheet date functions risky when sharing data?",
+   "options": [
+    "They only work in leap years",
+    "They convert dates to text automatically",
+    "They are only guaranteed to work within the same family of software",
+    "They are disabled in CSV files"
+   ],
+   "answer": 2,
+   "explain": "Storing year, month and day in separate columns avoids the problem.",
+   "lesson": "data_entry-04",
+   "evidence": "functions are guaranteed to be compatible only within the same family of software products",
+   "origin": "authored"
+  },
+  {
+   "id": "4e99bf6e1a",
+   "module": 0,
+   "q": "How can you prevent invalid data being entered by accident?",
+   "options": [
+    "Use data validation",
+    "Use bold text",
+    "Hide the columns",
+    "Add more tabs"
+   ],
+   "answer": 0,
+   "explain": "Validation rules restrict cells to allowed values or ranges.",
+   "lesson": "data_entry-05",
+   "evidence": "Use data validation to prevent accidentally entering invalid data.",
+   "origin": "authored"
+  },
+  {
+   "id": "3f5874f29a",
+   "module": 0,
+   "q": "Which validation rule fits a column recording age in years?",
+   "options": [
+    "Any text is allowed",
+    "Numeric, greater than 0 and unlikely to exceed 120",
+    "Only dates",
+    "Only values with two decimals"
+   ],
+   "answer": 1,
+   "explain": "Validation stops impossible values at the moment of entry.",
+   "lesson": "data_entry-05",
+   "evidence": "For example a column recording age in years should be numeric, greater than 0 and is unlikely to be greater than 120.",
+   "origin": "authored"
+  },
+  {
+   "id": "306904b3bb",
+   "module": 0,
+   "q": "A column only accepts entries from a list. What happens if you type a value that isn't on it?",
+   "options": [
+    "You get an error message",
+    "It is accepted silently",
+    "It is added to the list",
+    "The spreadsheet closes"
+   ],
+   "answer": 0,
+   "explain": "A drop-down list also shows the allowed values.",
+   "lesson": "data_entry-05",
+   "evidence": "If you type a value which is not on the list, you will get an error message.",
+   "origin": "authored"
+  },
+  {
+   "id": "d3437b4bae",
+   "module": 0,
+   "q": "When you set up data validation, what should you also create?",
+   "options": [
+    "A password for the file",
+    "A chart of the data",
+    "A macro that deletes errors",
+    "An informative error alert and input message"
+   ],
+   "answer": 3,
+   "explain": "Good messages tell the person entering data what is expected.",
+   "lesson": "data_entry-05",
+   "evidence": "Be sure to create an informative error alert and input message.",
+   "origin": "authored"
+  },
+  {
+   "id": "9ca44e5993",
+   "module": 0,
+   "q": "Why export spreadsheet data to a universal format such as CSV?",
+   "options": [
+    "CSV files look nicer",
+    "CSV keeps formulas working",
+    "CSV files are encrypted",
+    "Common spreadsheet formats are often not read correctly by analysis software"
+   ],
+   "answer": 3,
+   "explain": "Proprietary formats may also become hard to open in the future.",
+   "lesson": "data_entry-06",
+   "evidence": "Data stored in common spreadsheet formats will often not be read correctly into data analysis software, introducing errors into your data.",
+   "origin": "authored"
+  },
+  {
+   "id": "3dac5f44ff",
+   "module": 1,
+   "q": "Why are closed questions often better in forms?",
+   "options": [
+    "They collect more data",
+    "They are easier to answer than open questions",
+    "They are required by law",
+    "They need no testing"
+   ],
+   "answer": 1,
+   "explain": "Users of government services are often afraid of being caught out by open questions.",
+   "lesson": "data_entry-07",
+   "evidence": "Closed questions are easier to answer than open questions",
+   "origin": "authored"
+  },
+  {
+   "id": "cd9389569f",
+   "module": 1,
+   "q": "What do 'branching' questions do in a form?",
+   "options": [
+    "Ask every user every question",
+    "Let users skip the whole form",
+    "Mean people only answer questions relevant to them",
+    "Collect the same answer twice"
+   ],
+   "answer": 2,
+   "explain": "Shorter, relevant journeys reduce errors and abandoned forms.",
+   "lesson": "data_entry-08",
+   "evidence": "Use ‘branching’ questions so people only have to answer questions that are relevant to them.",
+   "origin": "authored"
+  },
+  {
+   "id": "e802718da4",
+   "module": 1,
+   "q": "What is the first thing to do when planning to collect personal information?",
+   "options": [
+    "Remove any questions you do not need to ask",
+    "Add a consent checkbox to every page",
+    "Collect everything in case it is useful",
+    "Ask for an ID number first"
+   ],
+   "answer": 0,
+   "explain": "Collect only what you need — and check with your data protection adviser.",
+   "lesson": "data_entry-09",
+   "evidence": "The first thing to do is remove any questions that you do not need to ask",
+   "origin": "authored"
+  },
+  {
+   "id": "2e0077be1c",
+   "module": 1,
+   "q": "Whom should you consult to check that collecting personal information is proportionate?",
+   "options": [
+    "Your marketing team",
+    "The users' friends",
+    "Your data protection expert or legal adviser",
+    "A web designer"
+   ],
+   "answer": 2,
+   "explain": "They can confirm your plans are proportionate in the circumstances.",
+   "lesson": "data_entry-09",
+   "evidence": "Talk to your data protection expert or legal adviser to make sure what you",
+   "origin": "authored"
+  },
+  {
+   "id": "8a8c171029",
+   "module": 1,
+   "q": "Your service stores information on users' devices using cookies. What must you do?",
+   "options": [
+    "Nothing — cookies are always allowed",
+    "Follow the guidance about using cookies",
+    "Ask users for their passwords",
+    "Store the cookies on paper"
+   ],
+   "answer": 1,
+   "explain": "Cookies and similar technologies have their own rules.",
+   "lesson": "data_entry-09",
+   "evidence": "you must follow the guidance about using cookies",
+   "origin": "authored"
+  },
+  {
+   "id": "0ac631c491",
+   "module": 1,
+   "q": "You only need to know whether someone receives a benefit. What should you avoid storing?",
+   "options": [
+    "The raw personal information, such as a scan of their benefit letter",
+    "The fact that they are eligible",
+    "The date you checked",
+    "Nothing — store everything"
+   ],
+   "answer": 0,
+   "explain": "Keep only what you need, for no longer than you need it.",
+   "lesson": "data_entry-09",
+   "evidence": "And avoid storing the raw personal information they supplied (for example, a scan of the benefit letter that proved their eligibility).",
+   "origin": "authored"
+  },
+  {
+   "id": "97c7e03d0a",
+   "module": 1,
+   "q": "Must you always store the personal information you collect?",
+   "options": [
+    "Yes, forever",
+    "Yes, for at least ten years",
+    "Only if the user asks",
+    "No — sometimes you don't need to store it at all"
+   ],
+   "answer": 3,
+   "explain": "Never keep personal data longer than necessary.",
+   "lesson": "data_entry-09",
+   "evidence": "You do not always need to store personal information at all.",
+   "origin": "authored"
+  },
+  {
+   "id": "6a7964bb07",
+   "module": 2,
+   "q": "In OpenRefine, what does clustering mean?",
+   "options": [
+    "Sorting rows alphabetically",
+    "Splitting a column in two",
+    "Finding groups of different values that may represent the same thing",
+    "Drawing a chart of values"
+   ],
+   "answer": 2,
+   "explain": "It is ideal for merging spelling variants into one value.",
+   "lesson": "data_entry-10",
+   "evidence": "finding groups of different values that might be alternative representations of the same thing",
+   "origin": "authored"
+  },
+  {
+   "id": "a15f4ccfe6",
+   "module": 2,
+   "q": "Which data problems is clustering especially good at fixing?",
+   "options": [
+    "Missing columns",
+    "Misspelled or mistyped entries",
+    "Wrong file formats",
+    "Too many rows"
+   ],
+   "answer": 1,
+   "explain": "Clusters suggest values that should be merged.",
+   "lesson": "data_entry-10",
+   "evidence": "Clustering is a very powerful tool for cleaning datasets which contain misspelled or mistyped entries.",
+   "origin": "authored"
+  },
+  {
+   "id": "b4361f4594",
+   "module": 2,
+   "q": "Which file types can OpenRefine import?",
+   "options": [
+    "Many, including TSV, CSV, Excel, JSON, XML and Google Spreadsheets",
+    "Only CSV",
+    "Only Excel files",
+    "Only database dumps"
+   ],
+   "answer": 0,
+   "explain": "You create a project by importing data from your computer or the web.",
+   "lesson": "data_entry-10",
+   "evidence": "OpenRefine can import a variety of file types",
+   "origin": "authored"
+  },
+  {
+   "id": "bdc136604c",
+   "module": 2,
+   "q": "How does OpenRefine save your work?",
+   "options": [
+    "Only when you export",
+    "Only when you press Ctrl+S",
+    "It doesn't save at all",
+    "It saves the project continuously, so you can close the browser and reopen it"
+   ],
+   "answer": 3,
+   "explain": "Open Project on the start page continues where you left off.",
+   "lesson": "data_entry-10",
+   "evidence": "OpenRefine saves the project continuously so that you can close the browser",
+   "origin": "authored"
+  },
+  {
+   "id": "7423a7a030",
+   "module": 2,
+   "q": "What does OpenRefine's duplicates facet produce?",
+   "options": [
+    "A count of words",
+    "A chart of numbers",
+    "A true/false facet showing which values are duplicated",
+    "A list of dates"
+   ],
+   "answer": 2,
+   "explain": "It's a quick way to find repeated records.",
+   "lesson": "data_entry-10",
+   "evidence": "this results in a binary facet of 'true' or 'false'",
+   "origin": "authored"
+  },
+  {
+   "id": "c84a08e0c3",
+   "module": 2,
+   "q": "What does OpenRefine's word facet do?",
+   "options": [
+    "Translates text into another language",
+    "Breaks text into words and counts the records each word appears in",
+    "Checks spelling against a dictionary",
+    "Converts words to numbers"
+   ],
+   "answer": 1,
+   "explain": "It helps spot inconsistent terms inside free-text columns.",
+   "lesson": "data_entry-10",
+   "evidence": "this breaks down text into words and counts the number of records each word appears in",
+   "origin": "authored"
+  },
+  {
+   "id": "c96fe68275",
+   "module": 2,
+   "q": "How can you return to the exact view of your facets and filters later?",
+   "options": [
+    "Bookmark the project's Permalink",
+    "Take a screenshot",
+    "Export to CSV",
+    "Rename the project"
+   ],
+   "answer": 0,
+   "explain": "The Permalink sits to the right of the project name.",
+   "lesson": "data_entry-10",
+   "evidence": "To save the exact view, you can bookmark the \"Permalink\"",
+   "origin": "authored"
+  }
+ ],
  "minutes": 75,
  "sources": [
   {

@@ -1,0 +1,74 @@
+<p>
+A practical application of switch and relay logic is in control systems where several process conditions have to be met before a piece of equipment is allowed to start.  A good example of this is burner control for large combustion furnaces.  In order for the burners in a large furnace to be started safely, the control system requests "permission" from several process switches, including high and low fuel pressure, air fan flow check, exhaust stack damper position, access door position, etc.  Each process condition is called a <i>permissive</i>, and each permissive switch contact is wired in series, so that if any one of them detects an unsafe condition, the circuit will be opened:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04057.png"> </p>
+<p>
+If all permissive conditions are met, CR<sub>1</sub> will energize and the green lamp will be lit.  In real life, more than just a green lamp would be energized: usually a control relay or fuel valve solenoid would be placed in that rung of the circuit to be energized when all the permissive contacts were "good:" that is, all closed.  If any one of the permissive conditions are not met, the series string of switch contacts will be broken, CR<sub>2</sub> will de-energize, and the red lamp will light.  
+</p>
+<p>
+Note that the high fuel pressure contact is normally-closed.  This is because we want the switch contact to open if the fuel pressure gets too high.  Since the "normal" condition of any pressure switch is when zero (low) pressure is being applied to it, and we want this switch to open with excessive (high) pressure, we must choose a switch that is closed in its normal state.
+</p>
+<p>
+Another practical application of relay logic is in control systems where we want to ensure two incompatible events cannot occur at the same time.  An example of this is in reversible motor control, where two motor contactors are wired to switch polarity (or phase sequence) to an electric motor, and we don't want the forward and reverse contactors energized simultaneously:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04058.png"> </p>
+<p>
+When contactor M<sub>1</sub> is energized, the 3 phases (A, B, and C) are connected directly to terminals 1, 2, and 3 of the motor, respectively.  However, when contactor M<sub>2</sub> is energized, phases A and B are reversed, A going to motor terminal 2 and B going to motor terminal 1.  This reversal of phase wires results in the motor spinning the opposite direction.  Let's examine the control circuit for these two contactors:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04059.png"> </p>
+<p>
+Take note of the normally-closed "OL" contact, which is the thermal overload contact activated by the "heater" elements wired in series with each phase of the AC motor.  If the heaters get too hot, the contact will change from its normal (closed) state to being open, which will prevent either contactor from energizing.
+</p>
+<p>
+This control system will work fine, so long as no one pushes both buttons at the same time.  If someone were to do that, phases A and B would be short-circuited together by virtue of the fact that contactor M<sub>1</sub> sends phases A and B straight to the motor and contactor M<sub>2</sub> reverses them; phase A would be shorted to phase B and vice versa.  Obviously, this is a bad control system design!
+</p>
+<p>
+To prevent this occurrence from happening, we can design the circuit so that the energization of one contactor prevents the energization of the other.  This is called <i>interlocking</i>, and it is accomplished through the use of auxiliary contacts on each contactor, as such:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04060.png"> </p>
+<p>
+Now, when M<sub>1</sub> is energized, the normally-closed auxiliary contact on the second rung will be open, thus preventing M<sub>2</sub> from being energized, even if the "Reverse" pushbutton is actuated.  Likewise, M<sub>1</sub>'s energization is prevented when M<sub>2</sub> is energized.  Note, as well, how additional wire numbers (4 and 5) were added to reflect the wiring changes.
+</p>
+<p>
+It should be noted that this is not the only way to interlock contactors to prevent a short-circuit condition.  Some contactors come equipped with the option of a <i>mechanical</i> interlock: a lever joining the armatures of two contactors together so that they are physically prevented from simultaneous closure.  For additional safety, electrical interlocks may still be used, and due to the simplicity of the circuit there is no good reason not to employ them in addition to mechanical interlocks.
+</p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Switch contacts installed in a rung of ladder logic designed to interrupt a circuit if certain physical conditions are not met are called <i>permissive</i> contacts, because the system requires permission from these inputs to activate.</li>
+<li>Switch contacts designed to prevent a control system from taking two incompatible actions at once (such as powering an electric motor forward and backward simultaneously) are called <i>interlocks</i>.</li>
+</ul>
+<h2 id="h-motor-control-circuits">Motor control circuits</h2>
+<p>
+The interlock contacts installed in the previous section's motor control circuit work fine, but the motor will run only as long as each pushbutton switch is held down.  If we wanted to keep the motor running even after the operator takes his or her hand off the control switch(es), we could change the circuit in a couple of different ways: we could replace the pushbutton switches with toggle switches, or we could add some more relay logic to "latch" the control circuit with a single, momentary actuation of either switch.  Let's see how the second approach is implemented, since it is commonly used in industry:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04061.png"> </p>
+<p>
+When the "Forward" pushbutton is actuated, M<sub>1</sub> will energize, closing the normally-open auxiliary contact in parallel with that switch.  When the pushbutton is released, the closed M<sub>1</sub> auxiliary contact will maintain current to the coil of M<sub>1</sub>, thus latching the "Forward" circuit in the "on" state.  The same sort of thing will happen when the "Reverse" pushbutton is pressed.  These parallel auxiliary contacts are sometimes referred to as <i>seal-in</i> contacts, the word "seal" meaning essentially the same thing as the word <i>latch</i>.
+</p>
+<p>
+However, this creates a new problem: how to <i>stop</i> the motor!  As the circuit exists right now, the motor will run either forward or backward once the corresponding pushbutton switch is pressed, and will continue to run as long as there is power.  To stop either circuit (forward or backward), we require some means for the operator to interrupt power to the motor contactors.  We'll call this new switch, <i>Stop</i>:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04062.png"> </p>
+<p>
+Now, if either forward or reverse circuits are latched, they may be "unlatched" by momentarily pressing the "Stop" pushbutton, which will open either forward or reverse circuit, de-energizing the energized contactor, and returning the seal-in contact to its normal (open) state.  The "Stop" switch, having normally-closed contacts, will conduct power to either forward or reverse circuits when released.
+</p>
+<p>
+So far, so good.  Let's consider another practical aspect of our motor control scheme before we quit adding to it.  If our hypothetical motor turned a mechanical load with a lot of momentum, such as a large air fan, the motor might continue to coast for a substantial amount of time after the stop button had been pressed.  This could be problematic if an operator were to try to reverse the motor direction without waiting for the fan to stop turning.  If the fan was still coasting forward and the "Reverse" pushbutton was pressed, the motor would struggle to overcome that inertia of the large fan as it tried to begin turning in reverse, drawing excessive current and potentially reducing the life of the motor, drive mechanisms, and fan.  What we might like to have is some kind of a time-delay function in this motor control system to prevent such a premature startup from happening.
+</p>
+<p>
+Let's begin by adding a couple of time-delay relay coils, one in parallel with each motor contactor coil.  If we use contacts that delay returning to their normal state, these relays will provide us a "memory" of which direction the motor was last powered to turn.  What we want each time-delay contact to do is to open the starting-switch leg of the opposite rotation circuit for several seconds, while the fan coasts to a halt.
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04063.png"> </p>
+<p>
+If the motor has been running in the forward direction, both M<sub>1</sub> and TD<sub>1</sub> will have been energized.  This being the case, the normally-closed, timed-closed contact of TD<sub>1</sub> between wires 8 and 5 will have immediately opened the moment TD<sub>1</sub> was energized.  When the stop button is pressed, contact TD<sub>1</sub> waits for the specified amount of time before returning to its normally-closed state, thus holding the reverse pushbutton circuit open for the duration so M<sub>2</sub> can't be energized.  When TD<sub>1</sub> times out, the contact will close and the circuit will allow M<sub>2</sub> to be energized, if the reverse pushbutton is pressed.  In like manner, TD<sub>2</sub> will prevent the "Forward" pushbutton from energizing M<sub>1</sub> until the prescribed time delay after M<sub>2</sub> (and TD<sub>2</sub>) have been de-energized.
+</p>
+<p>
+The careful observer will notice that the time-interlocking functions of TD<sub>1</sub> and TD<sub>2</sub> render the M<sub>1</sub> and M<sub>2</sub> interlocking contacts redundant.  We can get rid of auxiliary contacts M<sub>1</sub> and M<sub>2</sub> for interlocks and just use TD<sub>1</sub> and TD<sub>2</sub>'s contacts, since they immediately open when their respective relay coils are energized, thus "locking out" one contactor if the other is energized.  Each time delay relay will serve a dual purpose: preventing the other contactor from energizing while the motor is running, and preventing the same contactor from energizing until a prescribed time after motor shutdown.  The resulting circuit has the advantage of being simpler than the previous example:
+</p>
+<p> <img alt="" loading="lazy" src="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/04064.png"> </p>
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Motor contactor (or "starter") coils are typically designated by the letter "M" in ladder logic diagrams.</li>
+<li>Continuous motor operation with a momentary "start" switch is possible if a normally-open "seal-in" contact from the contactor is connected in parallel with the start switch, so that once the contactor is energized it maintains power to itself and keeps itself "latched" on.</li>
+<li>Time delay relays are commonly used in large motor control circuits to prevent the motor from being started (or reversed) until a certain amount of time has elapsed from an event.</li>
+</ul>

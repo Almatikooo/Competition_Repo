@@ -23,7 +23,7 @@ def _truthy(value) -> bool:
     return value is True or str(value).strip().lower() == "true"
 
 
-def bank_questions(lessons: list[dict], per_lesson: int = 2) -> list[dict]:
+def bank_questions(lessons: list[dict], per_lesson: int | None = 2) -> list[dict]:
     picked = []
     for lesson in lessons:
         ref = lesson.get("_bank")
@@ -44,5 +44,5 @@ def bank_questions(lessons: list[dict], per_lesson: int = 2) -> list[dict]:
             candidates.append({"q": item["questionText"].strip(), "options": options, "answer": correct[0], "explain": "",
                                "lesson": lesson["id"], "origin": f"bank:{key}:{qid}", "source": BANKS[key]["source"]})
         candidates.sort(key=lambda c: -min(len(c["options"]), 3))  # prefer real multiple choice over true/false
-        picked += candidates[:per_lesson]
+        picked += candidates if per_lesson is None else candidates[:per_lesson]
     return picked

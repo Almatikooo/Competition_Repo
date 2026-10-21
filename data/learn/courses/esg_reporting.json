@@ -423,152 +423,552 @@
    ]
   }
  ],
- "quiz": {
-  "questions": [
-   {
-    "q": "According to the European Commission, who does corporate sustainability reporting help?",
-    "options": [
-     "Only tax authorities",
-     "Only the company's own managers",
-     "Investors, civil society organisations, consumers and other stakeholders evaluating companies' sustainability performance",
-     "Competitors looking for trade secrets"
-    ],
-    "answer": 2,
-    "explain": "Comparable, reliable disclosures let stakeholders judge sustainability performance.",
-    "lesson": "esg_reporting-01",
-    "evidence": "This helps investors, civil society organisations, consumers and other stakeholders to evaluate the sustainability performance of companies",
-    "origin": "authored"
-   },
-   {
-    "q": "Companies subject to the CSRD must report according to which standards?",
-    "options": [
-     "European Sustainability Reporting Standards (ESRS)",
-     "ISO 9001",
-     "Generally Accepted Accounting Principles only",
-     "Each company's own format"
-    ],
-    "answer": 0,
-    "explain": "The ESRS set out what and how companies disclose under the CSRD.",
-    "lesson": "esg_reporting-01",
-    "evidence": "Companies subject to the CSRD have to report according to European Sustainability Reporting Standards (ESRS).",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the EU taxonomy for sustainable activities?",
-    "options": [
-     "A tax on polluting companies",
-     "A list of banned products",
-     "A ranking of the greenest countries",
-     "A classification system defining criteria for economic activities aligned with net zero by 2050 and wider environmental goals"
-    ],
-    "answer": 3,
-    "explain": "It is a transparency tool that directs investment to activities needed for the transition.",
-    "lesson": "esg_reporting-02",
-    "evidence": "The taxonomy is a classification system that defines criteria for economic activities that are aligned with a net zero trajectory by 2050 and the broader environmental goals other than climate.",
-    "origin": "authored"
-   },
-   {
-    "q": "UK SRS S1 and UK SRS S2 are UK versions of which standards?",
-    "options": [
-     "GRI 1 and GRI 2",
-     "IFRS S1 and IFRS S2",
-     "ISO 14001 and ISO 50001",
-     "ESRS 1 and ESRS 2"
-    ],
-    "answer": 1,
-    "explain": "They are endorsed versions of the ISSB's IFRS Sustainability Disclosure Standards.",
-    "lesson": "esg_reporting-03",
-    "evidence": "The UK government consulted on the exposure drafts of the UK versions of IFRS S1 and IFRS S2 – respectively called UK SRS S1 and UK SRS S2.",
-    "origin": "authored"
-   },
-   {
-    "q": "What role was the International Sustainability Standards Board (ISSB) created for?",
-    "options": [
-     "To audit company accounts",
-     "To set carbon prices",
-     "To create a global baseline for sustainability reporting",
-     "To certify renewable energy"
-    ],
-    "answer": 2,
-    "explain": "It was announced at COP26 in Glasgow in 2021.",
-    "lesson": "esg_reporting-03",
-    "evidence": "with the role of creating a global baseline for sustainability reporting.",
-    "origin": "authored"
-   },
-   {
-    "q": "Which standard does the SECR worked example use to calculate emissions?",
-    "options": [
-     "The GHG Reporting Protocol – Corporate Standard",
-     "A standard invented by each trust",
-     "ISO 9001",
-     "The EU taxonomy"
-    ],
-    "answer": 0,
-    "explain": "Several independent standards are recognised; the example uses the GHG Protocol.",
-    "lesson": "esg_reporting-04",
-    "evidence": "the standard used in the worked example set out below is the GHG Reporting Protocol - Corporate Standard",
-    "origin": "authored"
-   },
-   {
-    "q": "Are organisations expected to hire specialist consultants to meet the SECR requirements in the example guidance?",
-    "options": [
-     "Yes, always",
-     "Only for scope 1 emissions",
-     "Only if they have more than one building",
-     "No — it is not expected; the figures can be calculated in-house"
-    ],
-    "answer": 3,
-    "explain": "The worked example shows how to calculate the figures yourself.",
-    "lesson": "esg_reporting-04",
-    "evidence": "It is not expected that academy trusts will need to engage specialist consultants to support the reporting requirements",
-    "origin": "authored"
-   },
-   {
-    "q": "What is the aim of England's resources and waste strategy?",
-    "options": [
-     "To export all waste abroad",
-     "To become a world leader in using resources efficiently and reducing the amount of waste created",
-     "To build more landfill sites",
-     "To ban recycling of plastics"
-    ],
-    "answer": 1,
-    "explain": "It favours recovering and regenerating products and materials.",
-    "lesson": "esg_reporting-06",
-    "evidence": "Our plan is to become a world leader in using resources efficiently and reducing the amount of waste we create as a society.",
-    "origin": "authored"
-   },
-   {
-    "q": "What do the UK Greening Government Commitments require for information technology?",
-    "options": [
-     "That all IT is bought from UK suppliers",
-     "That servers run only at night",
-     "That government reduces the carbon emissions and waste caused by its IT",
-     "That paper records are abolished"
-    ],
-    "answer": 2,
-    "explain": "Digital services have an environmental footprint that must be reduced.",
-    "lesson": "esg_reporting-07",
-    "evidence": "The Greening Government Commitments require government to reduce the carbon (CO2) emissions and waste caused by its information technology",
-    "origin": "authored"
-   },
-   {
-    "q": "What does environmental sustainability mean in the Data and AI Ethics Framework?",
-    "options": [
-     "Thinking about the wider impact of your project on people and the planet, and being mindful of the resources you use",
-     "Only using cloud providers",
-     "Printing documents on recycled paper",
-     "Avoiding any use of AI"
-    ],
-    "answer": 0,
-    "explain": "Consider it from the start — it shapes choices of tools, suppliers and infrastructure.",
-    "lesson": "esg_reporting-09",
-    "evidence": "Environmental sustainability means thinking about the wider impact of your project on people and the planet, and being mindful about the resources you use every day.",
-    "origin": "authored"
-   }
-  ],
-  "pass_mark": 7,
-  "missing": false
- },
+ "pool": [
+  {
+   "id": "2d84027a0c",
+   "module": 0,
+   "q": "According to the European Commission, who does corporate sustainability reporting help?",
+   "options": [
+    "Only tax authorities",
+    "Only the company's own managers",
+    "Investors, civil society organisations, consumers and other stakeholders evaluating companies' sustainability performance",
+    "Competitors looking for trade secrets"
+   ],
+   "answer": 2,
+   "explain": "Comparable, reliable disclosures let stakeholders judge sustainability performance.",
+   "lesson": "esg_reporting-01",
+   "evidence": "This helps investors, civil society organisations, consumers and other stakeholders to evaluate the sustainability performance of companies",
+   "origin": "authored"
+  },
+  {
+   "id": "057e6fe6ed",
+   "module": 0,
+   "q": "Companies subject to the CSRD must report according to which standards?",
+   "options": [
+    "European Sustainability Reporting Standards (ESRS)",
+    "ISO 9001",
+    "Generally Accepted Accounting Principles only",
+    "Each company's own format"
+   ],
+   "answer": 0,
+   "explain": "The ESRS set out what and how companies disclose under the CSRD.",
+   "lesson": "esg_reporting-01",
+   "evidence": "Companies subject to the CSRD have to report according to European Sustainability Reporting Standards (ESRS).",
+   "origin": "authored"
+  },
+  {
+   "id": "2e00831a4b",
+   "module": 0,
+   "q": "When do the first companies under the CSRD have to apply the new rules?",
+   "options": [
+    "From 2030 onwards",
+    "For the 2024 financial year, in reports published in 2025",
+    "From 2010 onwards",
+    "Only if they choose to"
+   ],
+   "answer": 1,
+   "explain": "More companies come into scope in later years.",
+   "lesson": "esg_reporting-01",
+   "evidence": "have to apply the new rules for the first time in the 2024 financial year, for reports published in 2025",
+   "origin": "authored"
+  },
+  {
+   "id": "63979236ac",
+   "module": 0,
+   "q": "Who develops the draft European Sustainability Reporting Standards?",
+   "options": [
+    "The United Nations",
+    "Each reporting company",
+    "The European Central Bank",
+    "EFRAG, an independent body bringing together various stakeholders"
+   ],
+   "answer": 3,
+   "explain": "EFRAG was previously known as the European Financial Reporting Advisory Group.",
+   "lesson": "esg_reporting-01",
+   "evidence": "The standards are developed in a draft form by the EFRAG",
+   "origin": "authored"
+  },
+  {
+   "id": "4a86e632f7",
+   "module": 0,
+   "q": "What is the EU taxonomy for sustainable activities?",
+   "options": [
+    "A tax on polluting companies",
+    "A list of banned products",
+    "A ranking of the greenest countries",
+    "A classification system defining criteria for economic activities aligned with net zero by 2050 and wider environmental goals"
+   ],
+   "answer": 3,
+   "explain": "It is a transparency tool that directs investment to activities needed for the transition.",
+   "lesson": "esg_reporting-02",
+   "evidence": "The taxonomy is a classification system that defines criteria for economic activities that are aligned with a net zero trajectory by 2050 and the broader environmental goals other than climate.",
+   "origin": "authored"
+  },
+  {
+   "id": "c41f5721cc",
+   "module": 0,
+   "q": "What role does the EU taxonomy play in sustainable finance?",
+   "options": [
+    "It sets company tax rates",
+    "It bans investment in all industry",
+    "It helps direct investment to the activities most needed for the transition",
+    "It replaces financial statements"
+   ],
+   "answer": 2,
+   "explain": "It supports the European Green Deal objectives.",
+   "lesson": "esg_reporting-02",
+   "evidence": "It helps direct investments to the economic activities most needed for the transition",
+   "origin": "authored"
+  },
+  {
+   "id": "f082018c3d",
+   "module": 0,
+   "q": "Why is a common classification of sustainable activities needed?",
+   "options": [
+    "To make reports longer",
+    "To give everyone a common language and a clear definition of 'sustainable'",
+    "To let each company define sustainability its own way",
+    "To replace climate targets"
+   ],
+   "answer": 1,
+   "explain": "Without shared definitions, 'green' claims can't be compared.",
+   "lesson": "esg_reporting-02",
+   "evidence": "a common language and a clear definition of what is ‘sustainable’ is needed",
+   "origin": "authored"
+  },
+  {
+   "id": "07b3d390ce",
+   "module": 0,
+   "q": "Taxonomy-aligned activities are consistent with which trajectory?",
+   "options": [
+    "Net zero by 2050",
+    "Net zero by 2100",
+    "Doubling emissions by 2050",
+    "No climate target at all"
+   ],
+   "answer": 0,
+   "explain": "Criteria also cover environmental goals other than climate.",
+   "lesson": "esg_reporting-02",
+   "evidence": "aligned with a net zero trajectory by 2050",
+   "origin": "authored"
+  },
+  {
+   "id": "e351a0e3bd",
+   "module": 0,
+   "q": "The EU taxonomy is described as a cornerstone of what?",
+   "options": [
+    "The EU's defence policy",
+    "The EU's farming subsidies",
+    "The EU's competition law",
+    "The EU's sustainable finance framework"
+   ],
+   "answer": 3,
+   "explain": "It is also an important market transparency tool.",
+   "lesson": "esg_reporting-02",
+   "evidence": "The EU taxonomy is a cornerstone of the EU’s sustainable finance framework",
+   "origin": "authored"
+  },
+  {
+   "id": "c2f8cf9089",
+   "module": 0,
+   "q": "UK SRS S1 and UK SRS S2 are UK versions of which standards?",
+   "options": [
+    "GRI 1 and GRI 2",
+    "IFRS S1 and IFRS S2",
+    "ISO 14001 and ISO 50001",
+    "ESRS 1 and ESRS 2"
+   ],
+   "answer": 1,
+   "explain": "They are endorsed versions of the ISSB's IFRS Sustainability Disclosure Standards.",
+   "lesson": "esg_reporting-03",
+   "evidence": "The UK government consulted on the exposure drafts of the UK versions of IFRS S1 and IFRS S2 – respectively called UK SRS S1 and UK SRS S2.",
+   "origin": "authored"
+  },
+  {
+   "id": "f472e0d335",
+   "module": 0,
+   "q": "What role was the International Sustainability Standards Board (ISSB) created for?",
+   "options": [
+    "To audit company accounts",
+    "To set carbon prices",
+    "To create a global baseline for sustainability reporting",
+    "To certify renewable energy"
+   ],
+   "answer": 2,
+   "explain": "It was announced at COP26 in Glasgow in 2021.",
+   "lesson": "esg_reporting-03",
+   "evidence": "with the role of creating a global baseline for sustainability reporting.",
+   "origin": "authored"
+  },
+  {
+   "id": "f20318508e",
+   "module": 1,
+   "q": "Which standard does the SECR worked example use to calculate emissions?",
+   "options": [
+    "The GHG Reporting Protocol – Corporate Standard",
+    "A standard invented by each trust",
+    "ISO 9001",
+    "The EU taxonomy"
+   ],
+   "answer": 0,
+   "explain": "Several independent standards are recognised; the example uses the GHG Protocol.",
+   "lesson": "esg_reporting-04",
+   "evidence": "the standard used in the worked example set out below is the GHG Reporting Protocol - Corporate Standard",
+   "origin": "authored"
+  },
+  {
+   "id": "612e6216dc",
+   "module": 1,
+   "q": "Are organisations expected to hire specialist consultants to meet the SECR requirements in the example guidance?",
+   "options": [
+    "Yes, always",
+    "Only for scope 1 emissions",
+    "Only if they have more than one building",
+    "No — it is not expected; the figures can be calculated in-house"
+   ],
+   "answer": 3,
+   "explain": "The worked example shows how to calculate the figures yourself.",
+   "lesson": "esg_reporting-04",
+   "evidence": "It is not expected that academy trusts will need to engage specialist consultants to support the reporting requirements",
+   "origin": "authored"
+  },
+  {
+   "id": "3e756e7141",
+   "module": 1,
+   "q": "Where are the main financial reporting requirements for academy trusts set out?",
+   "options": [
+    "Only in the Companies Act",
+    "In the tax code",
+    "In the Academies Accounts Direction (AAD)",
+    "In each school's timetable"
+   ],
+   "answer": 2,
+   "explain": "The SECR guidance supplements, but does not replace, those requirements.",
+   "lesson": "esg_reporting-04",
+   "evidence": "The main financial reporting requirements for academy trusts are set out in the Academies Accounts Direction",
+   "origin": "authored"
+  },
+  {
+   "id": "ac5918030e",
+   "module": 1,
+   "q": "What does 'gas combustion' include for SECR reporting?",
+   "options": [
+    "Only gas used for cooking",
+    "Gas used for stationary or mobile activities the trust is responsible for",
+    "Gas used by staff at home",
+    "Gas sold to other organisations"
+   ],
+   "answer": 1,
+   "explain": "Responsibility, not location, decides what is included.",
+   "lesson": "esg_reporting-04",
+   "evidence": "includes gas consumed for stationary or mobile activities for which the academy trust is responsible",
+   "origin": "authored"
+  },
+  {
+   "id": "3808c6af48",
+   "module": 1,
+   "q": "If some required information is missing, what should the trust report?",
+   "options": [
+    "That it is missing, what is omitted and how it will get it in future",
+    "Nothing — leave it out silently",
+    "An estimate presented as exact",
+    "Last year's figures instead"
+   ],
+   "answer": 0,
+   "explain": "Transparency about gaps is better than silence.",
+   "lesson": "esg_reporting-04",
+   "evidence": "this fact should be reported, and the academy trust should explain what is omitted and what steps it is taking to acquire this information in future",
+   "origin": "authored"
+  },
+  {
+   "id": "ab19469482",
+   "module": 1,
+   "q": "In the worked example, how did the trust record mini-bus and business travel?",
+   "options": [
+    "As litres of fuel bought",
+    "As the number of trips",
+    "As hours driven",
+    "As the number of miles travelled during the year"
+   ],
+   "answer": 3,
+   "explain": "Mileage is then converted to emissions with conversion factors.",
+   "lesson": "esg_reporting-05",
+   "evidence": "For the mini-buses and business travel, the trust has recorded the number of miles travelled during the year.",
+   "origin": "authored"
+  },
+  {
+   "id": "394c23dd86",
+   "module": 1,
+   "q": "In the worked example, how are the trust's academies heated?",
+   "options": [
+    "By a shared heat pump",
+    "By electric storage heaters only",
+    "Each has its own gas-fuelled boilers",
+    "By a district heating network"
+   ],
+   "answer": 2,
+   "explain": "Gas use and purchased electricity are the main energy sources.",
+   "lesson": "esg_reporting-05",
+   "evidence": "The academy trust has 3 academies, all with their own boilers which are gas fuelled and electricity is purchased.",
+   "origin": "authored"
+  },
+  {
+   "id": "3c5d262f68",
+   "module": 2,
+   "q": "What is the aim of England's resources and waste strategy?",
+   "options": [
+    "To export all waste abroad",
+    "To become a world leader in using resources efficiently and reducing the amount of waste created",
+    "To build more landfill sites",
+    "To ban recycling of plastics"
+   ],
+   "answer": 1,
+   "explain": "It favours recovering and regenerating products and materials.",
+   "lesson": "esg_reporting-06",
+   "evidence": "Our plan is to become a world leader in using resources efficiently and reducing the amount of waste we create as a society.",
+   "origin": "authored"
+  },
+  {
+   "id": "38c1d4db8f",
+   "module": 2,
+   "q": "What does England's resources and waste strategy aim to make the country a world leader in?",
+   "options": [
+    "Building landfill sites",
+    "Using resources efficiently and reducing waste",
+    "Exporting waste",
+    "Producing plastic packaging"
+   ],
+   "answer": 1,
+   "explain": "It is part of the 25 Year Environment Plan.",
+   "lesson": "esg_reporting-06",
+   "evidence": "Our plan is to become a world leader in using resources efficiently and reducing the amount of waste we create as a society.",
+   "origin": "authored"
+  },
+  {
+   "id": "a23ae8580a",
+   "module": 2,
+   "q": "What does the strategy say about products and materials at the end of use?",
+   "options": [
+    "Recover and regenerate them whenever possible",
+    "Send them to landfill",
+    "Burn them for energy first",
+    "Export them for others to handle"
+   ],
+   "answer": 0,
+   "explain": "Regeneration gives materials a new lease of life.",
+   "lesson": "esg_reporting-06",
+   "evidence": "We should recover and regenerate products and materials whenever we can, giving them a new lease of life.",
+   "origin": "authored"
+  },
+  {
+   "id": "5b4aa7e3fd",
+   "module": 2,
+   "q": "How does the strategy want to help consumers with the materials in products?",
+   "options": [
+    "To keep them forever",
+    "To throw them away faster",
+    "To sell them abroad",
+    "To recycle them and dispose of them in the most environmentally sensitive ways"
+   ],
+   "answer": 3,
+   "explain": "Clear information helps people make the right choice.",
+   "lesson": "esg_reporting-06",
+   "evidence": "We want to help consumers to be able to recycle the materials they contain and dispose of them in the most environmentally sensitive ways.",
+   "origin": "authored"
+  },
+  {
+   "id": "389fe7c43e",
+   "module": 2,
+   "q": "What do the UK Greening Government Commitments require for information technology?",
+   "options": [
+    "That all IT is bought from UK suppliers",
+    "That servers run only at night",
+    "That government reduces the carbon emissions and waste caused by its IT",
+    "That paper records are abolished"
+   ],
+   "answer": 2,
+   "explain": "Digital services have an environmental footprint that must be reduced.",
+   "lesson": "esg_reporting-07",
+   "evidence": "The Greening Government Commitments require government to reduce the carbon (CO2) emissions and waste caused by its information technology",
+   "origin": "authored"
+  },
+  {
+   "id": "262c406a81",
+   "module": 2,
+   "q": "Which team can government projects contact for sustainable technology advice?",
+   "options": [
+    "The Treasury",
+    "The Met Office",
+    "The cross-government STAR team",
+    "The police"
+   ],
+   "answer": 2,
+   "explain": "STAR stands for Sustainable Technology Advice & Reporting.",
+   "lesson": "esg_reporting-08",
+   "evidence": "you can contact the cross-government Sustainable Technology Advice & Reporting (STAR) team",
+   "origin": "authored"
+  },
+  {
+   "id": "5cfef08733",
+   "module": 2,
+   "q": "At the start of a technology project, which question should you consider?",
+   "options": [
+    "Which device is the newest?",
+    "What are your organisation's sustainability goals?",
+    "Which supplier is the cheapest?",
+    "How fast can we launch?"
+   ],
+   "answer": 1,
+   "explain": "Project objectives can then support those goals.",
+   "lesson": "esg_reporting-08",
+   "evidence": "you should consider these questions: What are your organisation’s sustainability goals?",
+   "origin": "authored"
+  },
+  {
+   "id": "469cf4c497",
+   "module": 3,
+   "q": "What does environmental sustainability mean in the Data and AI Ethics Framework?",
+   "options": [
+    "Thinking about the wider impact of your project on people and the planet, and being mindful of the resources you use",
+    "Only using cloud providers",
+    "Printing documents on recycled paper",
+    "Avoiding any use of AI"
+   ],
+   "answer": 0,
+   "explain": "Consider it from the start — it shapes choices of tools, suppliers and infrastructure.",
+   "lesson": "esg_reporting-09",
+   "evidence": "Environmental sustainability means thinking about the wider impact of your project on people and the planet, and being mindful about the resources you use every day.",
+   "origin": "authored"
+  },
+  {
+   "id": "fabd548ba0",
+   "module": 3,
+   "q": "What does developing and training AI models, especially LLMs, require?",
+   "options": [
+    "Critical minerals, energy, water and computing resources",
+    "Only electricity",
+    "Only data",
+    "No physical resources"
+   ],
+   "answer": 0,
+   "explain": "That footprint is why sustainability belongs in AI project design.",
+   "lesson": "esg_reporting-09",
+   "evidence": "requires the use of critical minerals, energy, water and computing resources",
+   "origin": "authored"
+  },
+  {
+   "id": "7908fa0e18",
+   "module": 3,
+   "q": "How can data and AI support environmental goals?",
+   "options": [
+    "By replacing all renewable energy",
+    "By ending the need for regulation",
+    "By increasing energy use",
+    "For example by predicting weather or monitoring biodiversity"
+   ],
+   "answer": 3,
+   "explain": "AI can help the environment while also having its own footprint.",
+   "lesson": "esg_reporting-09",
+   "evidence": "Data and AI can support environmental goals, such as predicting weather patterns or monitoring biodiversity levels.",
+   "origin": "authored"
+  },
+  {
+   "id": "02811fd083",
+   "module": 3,
+   "q": "What helps make sustainability a core part of project design?",
+   "options": [
+    "Buying the fastest hardware",
+    "Avoiding any measurement",
+    "Clear sustainability objectives and greener software practices",
+    "Leaving it to suppliers"
+   ],
+   "answer": 2,
+   "explain": "Objectives make sustainability measurable from the start.",
+   "lesson": "esg_reporting-09",
+   "evidence": "Setting clear sustainability objectives and using greener software practices will help make sustainability a core part of your project design.",
+   "origin": "authored"
+  },
+  {
+   "id": "31f0be7a10",
+   "module": 3,
+   "q": "Beyond the environment, what else does sustainability cover in how technology is made and used?",
+   "options": [
+    "Marketing and branding",
+    "Inclusion, fairness and human rights",
+    "Profit and market share",
+    "Speed and convenience"
+   ],
+   "answer": 1,
+   "explain": "This applies from design and manufacture to use and disposal.",
+   "lesson": "esg_reporting-09",
+   "evidence": "This means supporting inclusion, fairness and human rights in how technologies are designed, manufactured, used and disposed of.",
+   "origin": "authored"
+  },
+  {
+   "id": "093f45f3f0",
+   "module": 3,
+   "q": "Which example of a positive societal impact does the framework give?",
+   "options": [
+    "Chatbots in public sector call centres cutting costs and speeding up cases",
+    "Replacing all teachers with AI",
+    "Banning social media",
+    "Ending public services online"
+   ],
+   "answer": 0,
+   "explain": "The same changes also raise questions about effects on people.",
+   "lesson": "esg_reporting-10",
+   "evidence": "adopting chatbots in public sector call centres might reduce costs, boost productivity and allow for faster handling of cases",
+   "origin": "authored"
+  },
+  {
+   "id": "fa332b3ffc",
+   "module": 3,
+   "q": "What can the context and mechanisms of data collection affect?",
+   "options": [
+    "The colour of the charts",
+    "The speed of the computer",
+    "The file format",
+    "Who is, and is not, represented in a dataset"
+   ],
+   "answer": 3,
+   "explain": "Under-represented groups can be badly served by the resulting systems.",
+   "lesson": "esg_reporting-10",
+   "evidence": "the context and mechanisms of data collection can have a significant impact on who is, and is not, represented in a data set",
+   "origin": "authored"
+  },
+  {
+   "id": "c3500d2d28",
+   "module": 3,
+   "q": "To understand how data and AI affect society, what do you need to understand?",
+   "options": [
+    "Only the source code",
+    "Only the budget",
+    "The broader social and technical context they are used and built in",
+    "Only the user interface"
+   ],
+   "answer": 2,
+   "explain": "Impacts depend on where and how a system is deployed.",
+   "lesson": "esg_reporting-10",
+   "evidence": "you need to understand the broader social and technical context in which they are used and built",
+   "origin": "authored"
+  },
+  {
+   "id": "ebe4e58f50",
+   "module": 3,
+   "q": "Which harms linked to technology supply chains does the framework mention?",
+   "options": [
+    "Slower internet speeds",
+    "Displacement of local communities and food and water scarcity",
+    "Higher software prices",
+    "Fewer app downloads"
+   ],
+   "answer": 1,
+   "explain": "These fall hardest on already vulnerable parts of the world.",
+   "lesson": "esg_reporting-10",
+   "evidence": "This includes the displacement of local communities, and food and water scarcity in already vulnerable parts of the world.",
+   "origin": "authored"
+  }
+ ],
  "minutes": 71,
  "sources": [
   {

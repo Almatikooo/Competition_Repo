@@ -1,6 +1,8 @@
+<p align="center"><img src="static/brand/logo.svg" width="200" alt="Path.AI"></p>
+
 # Path.AI: find your path in the AI era
 
-Path.AI takes a person from **"who I am today"** to **"where I can be in the AI era"**. A first result takes one tap with an example, or about four taps on your own profile. It reads live job-market and AI-research signals, estimates which skills are rising or declining under three AI-disruption scenarios, ranks future roles with an explainable match, and builds a free or low-cost learning plan. Each skill in the plan has a **free micro-course** (3 lessons + a quiz), and passing the quiz earns a **verifiable Path.AI certificate**. Every role and skill is linked to concrete UN SDG targets.
+Path.AI takes a person from **"who I am today"** to **"where I can be in the AI era"**. A first result takes one tap with an example, or about four taps on your own profile. It reads live job-market and AI-research signals, estimates which skills are rising or declining under three AI-disruption scenarios, ranks future roles with an explainable match, and builds a free or low-cost learning plan. Each skill in the plan has a **free, full course** built from real chapters of open curricula (Microsoft *for Beginners*, The Carpentries, OpenStax, BCcampus, GOV.UK, NIST, EIA, EPA and more), studied chapter by chapter: a short test after every chapter unlocks the next one, and passing the final test earns a **verifiable Path.AI certificate**. The last step, **Opportunities**, asks two questions: *study or work?* and *where?* It then lists open jobs anywhere in the world, ranked by the same explainable match, or the universities of the chosen country with how to apply and how to fund it. Every role and skill is linked to concrete UN SDG targets.
 
 > SDC XMUM Hackathon 2026, Domain 1 (Aiversecity Future-Ready Workforce). Working prototype. Every example person is fictional.
 
@@ -24,8 +26,9 @@ Path.AI takes a person from **"who I am today"** to **"where I can be in the AI 
 | **Step 2 · Here's what you're good at** | Skills are **pre-filled** from the job, field or CV. Tap to remove, or tap a suggested skill to add it. |
 | **Step 3 · What matters to you?** | Optional interest tiles (they map to SDG goals) and weekly learning time. Then **Show my matches**. |
 | **Results** | Three role cards, each with **skills match**, **demand per year**, **time to get job-ready**, a *Holds up in every scenario* badge and SDG badges. Details sit behind *Why this role?*. One switch, *If AI changes work: slower / as expected / faster*, controls the scenario. |
-| **Plan** | Numbered steps, each with **Learn here · ~13 min** (the Path.AI micro-course) and one recommended external course. *Mark as done* tracks progress, and a certified skill is ticked off automatically. Alternatives, credentials and practice projects are folded behind *More options*. The page ends with SDG impact and Malaysian support channels (HRD Corp, MYFutureJobs, MyMahir). |
-| **Learn** | 44 free micro-courses, one per skill, recommended from the user's plan. Each course is 3 short lessons and then a 5-question quiz. Pass with 4 or more correct, enter a name, and get a **Path.AI certificate** to download as PDF or share as a verification link. |
+| **Plan** | Numbered steps, each with **Free course · 2.2 h** (the in-app Path.AI course) and one recommended external course. *Mark as done* tracks progress, and a certified skill is ticked off automatically. Alternatives, credentials and practice projects are folded behind *More options*. The page ends with SDG impact and Malaysian support channels (HRD Corp, MYFutureJobs, MyMahir). |
+| **Learn** | 53 full courses, one per skill (755 lessons, about 109 hours of reading), recommended from the user's plan. A catalogue with search and categories, a course page with syllabus, a lesson player with outline and progress, a 5-question test after every chapter (4 correct unlocks the next chapter) and a 25-question final test (20 correct to pass). Pass, enter a name, and get a **Path.AI certificate** to save as PDF or share as a verification link. |
+| **Opportunities** | Two questions: **Study or Work**, then **where** (any country, or *Remote — from anywhere* for work). **Work:** open jobs grouped *Ready to apply / Close — a little learning first / A stretch for now*. Each job shows the skills you have and the skills to learn, with hours and a link to the Path.AI course, and *View & apply* opens the employer's page. Pre-filled searches on the country's main job sites are one tap away. **Study:** the country's universities, a *Find programmes* search for the degree field that leads to your path, how to apply, funding and free courses to prepare. |
 
 Secondary pages are **Explore trends** (Future Skills Radar, AI capability pulse, data-as-of time machine, sources), **For teams** (HR heatmap) and **How it works** (methodology).
 
@@ -41,11 +44,11 @@ Secondary pages are **Explore trends** (Future Skills Radar, AI capability pulse
 
 | Must-have | Implementation | Code |
 |---|---|---|
-| 1. Skills profile intake | Job picker with pre-filled skills (35 roles with O*NET codes), field of study, or CV upload (PDF/TXT) with rule-based detection. The LLM adds skills only with a verbatim CV quote. Every skill stays editable. | `static/app.js`, `app/engine/profile.py`, `app/llm/tasks.py` |
+| 1. Skills profile intake | Job picker with pre-filled skills (63 roles with O*NET codes: 43 future roles and 20 jobs people do today), field of study, or CV upload (PDF/TXT) with rule-based detection. The LLM adds skills only with a verbatim CV quote. Every skill stays editable. | `static/app.js`, `app/engine/profile.py`, `app/llm/tasks.py` |
 | 2. AI-trend signal layer | **Live and updatable.** (a) Job posts from 36 monthly *HN "Who is hiring?"* threads: 11,583 posts, Nov 2023 – Oct 2026. (b) AI-research volume per capability from **OpenAlex**, half-years 2024H1–2026H1. Plus cited WEF *Future of Jobs* 2025/2023 baselines. Each value carries its source and fetch date. Refresh it from *Explore trends* or with `python -m app.signals.refresh`. | `app/signals/` |
 | 3. Future-role matching | Fit (direct plus capped transferable credit), outlook, and preferences. The user can re-weight them, and the current job is never recommended back. Roles come only from a catalog with O*NET codes and WEF categories. | `app/engine/matching.py` |
-| 4. Reskilling pathway | Prerequisites first, then core skills, with quick wins early. Hours and weeks are computed at the user's weekly time. Every step has an in-app micro-course with a quiz and certificate, plus 90 external courses with live-checked links, labelled free, free-to-audit, low-cost or paid (check HRD Corp). | `app/engine/pathway.py`, `app/learn.py`, `data/learn/` |
-| 5. SDG mapping | Every role and skill maps to specific **SDG targets** (e.g. 7.2, 8.5, 12.6), each with a reason and a direct or enabling strength. Interest tiles carry SDG priorities that re-rank roles, and the plan shows its SDG impact. | `data/catalog/*.json` |
+| 4. Reskilling pathway | Prerequisites first, then core skills, with quick wins early. Hours and weeks are computed at the user's weekly time. Every step opens with the in-app Path.AI course (chapter tests, final test, certificate), with an external course offered as the alternative; 102 external courses with live-checked links, labelled free, free-to-audit, low-cost or paid (check HRD Corp). | `app/engine/pathway.py`, `app/learn.py`, `data/learn/` |
+| 5. SDG mapping | Every role and skill maps to specific **SDG targets** (e.g. 7.2, 8.5, 12.6), each with a reason and a direct or enabling strength. Interest tiles carry SDG priorities that re-rank roles, and the plan shows its SDG impact. Every goal badge, wherever it appears, opens a short explainer. It gives the goal's meaning in plain words and its official wording (EN/MS/ZH), and says how the role or skill you clicked contributes. It also lists the targets Path.AI links to, the jobs and free courses that contribute, and a link to the UN page. | `data/catalog/*.json`, `static/core.js` |
 | 6. Handling uncertainty | Three scenarios: slower ×0.5, expected ×1, faster ×2 AI pace. Every estimate has a range and a confidence label, and roles are flagged when they hold up in every scenario. Trend data can be viewed *as of* any of the last 19 months. "Estimates, not predictions" wording appears everywhere. | `app/engine/forecast.py` |
 
 ## How trend signals become skill forecasts
@@ -81,28 +84,70 @@ flowchart LR
 
 ![Plan](docs/img/plan.png)
 
-## Learn: free micro-courses and Path.AI certificates
+## Learn: full open courses and Path.AI certificates
 
-Every one of the 44 skills has a course: 132 lessons and 220 quiz questions in all. Each lesson has four parts:
+Every one of the 53 skills has a **full course**: 755 lessons and about 109 hours of reading in all. Lessons are real chapters, episodes and guides from openly licensed curricula, kept whole and re-typeset, never paraphrased:
 
-1. **Why it matters.** A short Path.AI note on the career relevance.
-2. **Read.** An excerpt from an openly licensed source. Today that is the lead section of a Wikipedia article (**CC BY-SA 4.0**). It shows the article title, a link to the *exact revision* used, the licence, and a "shortened" flag when the excerpt was cut.
-3. **Try it.** A practical activity to do at work or at home.
-4. **Next lesson.** A button that marks the lesson done.
+- **Sources.** Microsoft *for Beginners* curricula (MIT), Security-101 (CC0), The Carpentries (CC BY 4.0), OpenStax *Introduction to Business* and BCcampus, Open Oregon, eCampusOntario and other open textbooks (CC BY / CC BY-SA), *Technical Writing Essentials* (CC BY 4.0), GOV.UK Service Manual and guidance (Open Government Licence), NIST, NIST/SEMATECH, EIA, EPA, DOE, OSHA, SBA, FinCEN, HealthIT and IRS (U.S. public domain), Google developer docs and *Technical Writing One* (CC BY 4.0), *Lessons In Electric Circuits* (Design Science License) and more. No non-commercial (NC) material is used; OpenStax's newer business titles are CC BY-NC-SA, so only its CC BY *Introduction to Business* is used.
+- **Every lesson** shows its source, licence and attribution, with a link to the original. GitHub sources are pinned to the exact commit imported (`data/learn/pins.json`).
+- **The lesson player** has a course outline, an "On this page" table of contents, reading time and *Complete & continue*. Progress stays in the browser.
 
-The **quiz** has 5 questions, and every question can be answered from the course's lessons. The pass mark is 4 of 5. Answers are graded **on the server**, so the answer key never reaches the browser. A failed attempt shows only which lessons to review, never the right answers, so a retake still tests the learner.
+**Tests.** Every chapter ends with a 5-question test; 4 correct answers unlock the next chapter. The **final test** has 25 questions drawn from the whole course, spread over every chapter; 20 correct earn the certificate. Each attempt is a fresh random draw from the course's question pool (1,966 questions in all, at least 6 per chapter and 30 per course), and a retake prefers questions the learner has not just seen. Questions come from the open quiz banks that ship with the source curricula (216), or are written for Path.AI (1,750); each authored question carries a word-for-word quote from a lesson, and the build fails if the quote is not found. Answers are graded **on the server** and the key is only revealed after the final test is passed; a failed attempt lists the lessons to review. Nothing is stored on the server: an attempt, a passed chapter and a passed final test are HMAC-signed tokens kept in the browser, the final test is only handed out against a signed pass for every chapter, and a certificate only against a signed final pass.
 
 **Certificates.**
-- **What it says.** The learner's name, the course, the score, the date and an ID such as `PAI-CWKF-OXIP`.
+- **What it says.** The learner's name, the course, its length, the score, the date and an ID such as `PAI-CWKF-OXIP`.
 - **How it is verified.** Each certificate is signed with HMAC-SHA256 (`CERT_SECRET`). Anyone can open its link `/#/certificate/<token>` to verify it, and a tampered link fails.
 - **Privacy.** No database of names is kept; the name lives only inside the signed link.
-- **Formats.** It prints as a single A4 landscape PDF.
-- **Status.** Each certificate states clearly that it confirms a free micro-course and is **not an accredited qualification**.
+- **Format.** Drawn as one fixed-grid SVG, so it prints as a single A4 landscape page that never reflows; text stays vector in the PDF.
+- **Status.** Each certificate states clearly that it confirms a free course and is **not an accredited qualification**.
 
-**Content pipeline.** `scripts/build_learn_content.py` fetches the excerpts through the MediaWiki API with attribution metadata and stores them in `data/learn/excerpts.json`, so the demo works offline. Formulas and lists are cleaned up for reading. Lesson notes, activities and quizzes are in `data/learn/courses/*.json`. Licensing is described in `data/learn/LICENSE.md`.
+**Content pipeline.** `scripts/learnkit` fetches each source (GitHub at a pinned commit, Pressbooks and GOV.UK APIs, public web pages), converts Markdown flavours, removes site chrome, sanitises HTML with an allowlist (nh3), splits long chapters at their own headings and writes `data/learn/`. `python -m scripts.learnkit.digest <skill>` prints quotable sentences for writing questions. Licensing is described in `data/learn/LICENSE.md`.
 
+![Learn catalogue](docs/img/learn.png)
 ![A lesson](docs/img/course.png)
 ![Certificate](docs/img/certificate.png)
+
+## Opportunities: a job or a university, anywhere
+
+This is the last step of the journey. It is linked from the results, the plan, your own certificate and the menu. It asks two questions only: **study or work?** and **where?** You can search any country, and popular ones are one tap away. Answers stay in the browser, and the profile is sent with each request, as on the results page. The country only sets where to look; it never changes the role ranking.
+
+**Work**
+- **The jobs.** A dated snapshot of **10,956 open postings in 87 countries**. 3,749 of them can be done remotely, 95 of those from anywhere. Only public, documented sources are used:
+  - company career pages on Greenhouse, Lever and Ashby (105 employers);
+  - Hacker News *Who is hiring?*;
+  - Himalayas, Jobicy, Remotive and Arbeitnow.
+
+  We keep only each posting's title, company, link, place, date and level, plus the skills our catalogue detects in it. Descriptions are not stored. Every card names its source, and you always apply on the original page. The GeoNames gazetteer (CC BY 4.0) maps each place to a country.
+- **The match.** Scoring is the same explainable method as the role matches. Each posting is recognised as one of the 63 catalogue roles from its title, and blended with the hard skills its text asks for.
+  - A Path.AI certificate counts as a working-level skill.
+  - Each card lists the skills you have and the ones you are missing, with hours to learn and a link to the Path.AI course.
+  - Without a profile yet, the newest postings for the chosen direction are shown, unscored.
+- **Filters.**
+  - *In <country>* or *Remote*.
+  - Level: entry and internships, mid or senior.
+  - Direction: the role whose plan you opened, your best matches, and your current job.
+  - *Remote — from anywhere* lists only postings open to applicants worldwide. A "remote, US only" job does not count.
+- **Job sites.** Each country gets pre-filled searches for your direction:
+  - official public portals first: MYFutureJobs, MyCareersFuture, GOV.UK Find a job, Job Bank, Bundesagentur für Arbeit, EURES, USAJOBS, Hello Work;
+  - then JobStreet, SEEK, Indeed, Naukri and LinkedIn.
+
+  These are links only. Sites without a public API are never scraped.
+
+**Study**
+- **Universities.** 221 countries, from Wikidata (CC0) and the Hipo university list (MIT). Each list is ordered by how many Wikipedia language editions describe the institution. That is a rough, open sign of how widely known it is, **not a ranking**: QS and THE are linked, not copied.
+- **Degree fields.** 28 fields, mapped from the person's direction and field of study. *Find programmes* searches each university's own website for the chosen field.
+- **How to apply and funding.** Checked links to official admission and scholarship portals for 17 popular destinations:
+  - Malaysia: UPU, EMGS, PTPTN;
+  - UK, US and Australia: UCAS, Chevening, Common App, Fulbright, Australia Awards;
+  - Europe: DAAD, uni-assist, Studielink, Campus France;
+  - Asia and Türkiye: MEXT, Campus China, Türkiye Scholarships;
+  - and more, plus Erasmus Mundus for EU countries.
+- **Prepare now.** Free Path.AI courses that give a head start in the chosen field.
+
+**Data pipeline.** Rebuild with `python -m scripts.opportunities.jobs` (about 8 minutes, polite and cached) and `python -m scripts.opportunities.universities`. Sources and terms are in `data/opportunities/LICENSE.md`.
+
+![Opportunities: jobs](docs/img/opportunities.png)
+![Opportunities: universities](docs/img/universities.png)
 
 ## Guardrails: nothing is invented
 
@@ -112,7 +157,7 @@ The **quiz** has 5 questions, and every question can be answered from the course
   - CV reading is JSON-schema constrained to our skill ids, and each skill must quote the CV verbatim or it is dropped.
   - Explanations must cite existing sources and may contain only numbers from the fact sheet; otherwise the verified text is shown.
   - Both rules are tested against a fake vLLM endpoint (`tests/test_guardrails.py`).
-- **Fairness.** The only inputs are skills, interests, SDG priorities and weekly hours. A test proves that adding age, gender, ethnicity or location cannot change the ranking.
+- **Fairness.** The only inputs are skills, interests, SDG priorities and weekly hours. A test proves that adding age, gender, ethnicity or location cannot change the ranking. The country chosen under *Opportunities* only filters where to look for jobs or universities.
 - **Human-centred.** Every skill can be edited and the ranking re-weighted. Path.AI supports career decisions; it does not make hiring decisions.
 
 ## Language model and GPU
@@ -131,6 +176,7 @@ The **quiz** has 5 questions, and every question can be answered from the course
 | Matching quality | Transparent components, transferable-skill credit, editable skills and weights, and robustness across scenarios. |
 | GPU or LLM down | Full rule-based mode. The UI states which engine wrote each explanation. |
 | Representativeness (HN is US/tech-centric) | Used for tech skills only, with confidence labels. Malaysian feeds are on the roadmap. |
+| Few open postings for a country in the job snapshot | Every country also gets one-tap searches on its main job sites, official portals first, and remote jobs open worldwide. |
 
 ## Run it
 
@@ -138,10 +184,12 @@ The **quiz** has 5 questions, and every question can be answered from the course
 python3 -m venv .venv && source .venv/bin/activate      # Python ≥ 3.11
 pip install -r requirements.txt
 uvicorn app.main:app --reload                            # http://127.0.0.1:8000
-python -m pytest -q                                      # 50 tests
+python -m pytest -q                                      # 71 tests
 python -m app.signals.refresh                            # pull fresh HN + OpenAlex data (optional)
 python scripts/verify_resources.py                       # re-check every course / source URL
-python scripts/build_learn_content.py                     # (re)fetch lesson readings with attribution
+python -m scripts.opportunities.jobs                     # refresh the job snapshot (about 8 min)
+python -m scripts.opportunities.universities             # refresh the university lists
+uv run --with markdown-it-py --with mdit-py-plugins --with nh3 --with beautifulsoup4 --with lxml --with pyyaml python -m scripts.learnkit.build  # rebuild the courses
 ```
 
 - **Replit.** Import the GitHub repo. `.replit` installs the requirements and runs uvicorn on port 8000.
@@ -156,7 +204,10 @@ python scripts/build_learn_content.py                     # (re)fetch lesson rea
 | `/#/results?persona=weijie` | Engineering graduate → EV, solar and renewable-energy roles |
 | `/#/results?persona=kavitha&pace=fast` | Contact-centre lead, under fast AI disruption |
 | `/#/plan/automation_specialist?persona=aisyah` | A full learning plan |
-| `/#/learn` · `/#/learn/prompt_eng` | Course catalogue · a micro-course with quiz and certificate |
+| `/#/learn` · `/#/learn/sql` · `/#/learn/sql/sql-03` · `/#/learn/sql/test-1` · `/#/learn/sql/final` | Course catalogue · course page · lesson player · chapter test · final test |
+| `/#/next?persona=aisyah&mode=work&country=MY` | Open jobs in Malaysia for an accounts clerk, with fit, gaps and job-site searches |
+| `/#/next?persona=weijie&mode=study&country=DE` | Universities in Germany for an engineering graduate, with DAAD and Erasmus links |
+| `/#/next?mode=work&country=REMOTE` | Remote jobs open to applicants worldwide |
 | `/#/trends?asof=2025-10` | Trends as of an earlier month (time machine) |
 | `/#/teams` | HR heatmap |
 | any link + `&lang=ms` or `&lang=zh` | Same page in Bahasa Melayu or 中文 |
@@ -172,14 +223,19 @@ app/
   signals/             live sources: hn.py (job posts), openalex.py (AI research), refresh.py
   engine/              forecast.py · matching.py · pathway.py · explain.py · profile.py
   llm/                 OpenAI-compatible client (vLLM / RunPod) + guarded tasks
-  learn.py             micro-courses, server-side quiz grading, signed certificates
+  learn.py             full courses, lessons, chapter and final tests graded on the server, signed passes and certificates
+  opportunities.py     jobs matched to a profile by country / remote, universities by country, job-site and study links
 data/
   catalog/             skills · roles (+ interest tiles, study fields) · resources · sdgs · capabilities · sources
   signals/             cached, dated trend data (refreshable)
-  learn/               courses/*.json (lessons + quizzes) · excerpts.json (CC BY-SA readings) · LICENSE.md
+  learn/               courses/*.json (syllabus + question pool) · lessons/<skill>/*.html (sanitised lesson text) · quizzes/*.json (authored questions) · pins.json · LICENSE.md
+  opportunities/       jobs.json (dated job snapshot) · universities.json · portals.json · fields.json · sources.json · LICENSE.md
   personas.json        fictional example people + fictional HR team
-static/                vanilla-JS single-page app (no build step): app.js · learn.js · core.js · charts.js · i18n.js · styles.css
-tests/                 catalog, engine, guardrail, learn/certificate and API tests
+static/                vanilla-JS single-page app (no build step): app.js · learn.js · next.js · core.js · charts.js · i18n.js · styles.css · brand/ (logo, icons)
+scripts/learnkit/      course importer: courses.py (which open material each course uses) · build.py · convert.py · digest.py
+scripts/opportunities/ job and university snapshots: jobs.py · universities.py · places.py (GeoNames) · fetch.py (polite cached GETs)
+scripts/brand_assets.py  rebuilds static/brand/ (vector logo, favicons, link preview) from the master logo
+tests/                 catalog, engine, guardrail, learn/certificate, opportunities and API tests
 docs/RUNPOD.md         model + GPU choice and deployment guide
 ```
 
@@ -189,10 +245,13 @@ docs/RUNPOD.md         model + GPU choice and deployment guide
 - Research attention is a proxy for AI progress, not a measure of real-world adoption. Adoption signals could be added.
 - Sensitivities are expert assumptions. They should be calibrated against observed job-post changes as more history accumulates.
 - Role summaries and lessons are English-only for now. Image-CV intake is possible because the model is vision-capable.
-- Lessons are short introductions. Longer open courses (Microsoft *for Beginners* repos under MIT, The Carpentries under CC BY 4.0, OpenStax under CC BY 4.0) could be added as extra lessons.
+- Course text is English (the language of the open sources); the interface is in English, Malay and Chinese. Some courses are reading-heavy and could gain hands-on labs.
+- The job snapshot leans towards tech and international employers. Malaysia has 68 on-site postings plus remote ones, so one-tap searches on local job sites carry much of the load. A Malaysian feed would fill the gap, for example MYFutureJobs through a partnership.
+- Roles are recognised from posting titles with patterns. Postings whose titles match no catalogue role are scored on their skills alone, at a discount.
+- Universities are ordered by how widely they are known, which is not a measure of quality or fit. Programme-level data, such as courses, fees and entry grades, would need each country's official sources.
 
 ## Data and AI disclosure
 
-- **Data.** Public or open data and fictional example people only. No real CVs or personal data are stored. Job posts are kept as aggregate counts only. Lesson readings are attributed Wikipedia excerpts (CC BY-SA 4.0).
+- **Data.** Public or open data and fictional example people only. No real CVs or personal data are stored. Trend job posts are kept as aggregate counts only. The Opportunities snapshot keeps each posting's facts (title, company, link, place, date and detected skills) but not its description. Its sources and terms are in `data/opportunities/LICENSE.md`. Lesson texts are openly licensed materials, shown with source and licence on every lesson (see `data/learn/LICENSE.md`).
 - **Language model.** Qwen3.8-27B (open weights) when configured. Otherwise the app runs fully rule-based, and the UI says which engine wrote each explanation.
 - **Estimates.** All forecasts are estimates, not predictions. People decide.
