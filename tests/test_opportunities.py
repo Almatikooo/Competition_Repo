@@ -166,3 +166,16 @@ def test_api():
     assert study["universities"] and study["recommended"][0] == "software_engineering"
     assert client.post("/api/next/study", json={"country": "XX"}).status_code == 404
     assert client.post("/api/next/study", json={"country": "REMOTE"}).status_code == 422
+
+
+def test_the_job_skill_prefilter_never_changes_what_is_found():
+    from scripts.opportunities.jobs import Matcher, trigger
+    assert trigger(r"\bsql\b(?!\s*account)") == "sql"          # text inside a look-ahead is not required
+    assert trigger("cyber ?security") == "security" and trigger(r"\bplcs?\b") == "plc" and trigger("a|b") is None
+    m = Matcher()
+    samples = ["We use SQL Server, Python and Power BI every day.", "SQL account manager wanted.", "Lean Six Sigma green belt; SPC, 5S and kaizen.",
+               "PLC and SCADA programming, ladder logic, HMI screens.", "Cybersecurity analyst (SOC, SIEM).", "Kami perlukan kerani akaun, 会计 经验.",
+               "Talent acquisition partner for our people operations team.", "AML/KYC analyst, financial crime and compliance."]
+    for text in samples:
+        full = [sid for sid, (_, patterns) in m.skills.items() if any(p.search(text) for p in patterns)]
+        assert m.skills_in(text) == full, text

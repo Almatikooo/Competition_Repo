@@ -94,3 +94,4 @@ def test_personas_get_plausible_top_roles():
     assert {"automation_specialist", "financial_analyst", "data_analyst"} & top3("aisyah")
     assert {"ev_technician", "solar_pv_technician", "renewable_energy_engineer"} & top3("weijie")
     assert {"customer_success_manager", "ld_specialist", "digital_pm"} & top3("kavitha")
+    assert {"automation_technician", "quality_engineer", "semiconductor_engineer"} & top3("arif")

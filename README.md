@@ -10,7 +10,7 @@ Path.AI takes a person from **"who I am today"** to **"where I can be in the AI 
 
 ## Who it is for
 
-**Primary user.** A Malaysian working adult in a high-AI-exposure job, such as an accounts clerk, admin assistant, cashier, customer-service agent or graphic designer, at the moment their employer starts automating with AI. MOSTI estimates that 600,000+ workers need reskilling within 3–5 years. Hays (2025) reports that 56% of Malaysian professionals use AI at work but only 26% have been trained.
+**Primary user.** A Malaysian working adult in a high-AI-exposure job, such as an accounts clerk, admin assistant, cashier, customer-service agent, graphic designer or production operator, at the moment their employer starts automating with AI. MOSTI estimates that 600,000+ workers need reskilling within 3–5 years. Hays (2025) reports that 56% of Malaysian professionals use AI at work but only 26% have been trained.
 
 **Also serves:**
 - students and fresh graduates;
@@ -112,8 +112,8 @@ Every one of the 53 skills has a **full course**: 755 lessons and about 109 hour
 This is the last step of the journey. It is linked from the results, the plan, your own certificate and the menu. It asks two questions only: **study or work?** and **where?** You can search any country, and popular ones are one tap away. Answers stay in the browser, and the profile is sent with each request, as on the results page. The country only sets where to look; it never changes the role ranking.
 
 **Work**
-- **The jobs.** A dated snapshot of **10,956 open postings in 87 countries**. 3,749 of them can be done remotely, 95 of those from anywhere. Only public, documented sources are used:
-  - company career pages on Greenhouse, Lever and Ashby (105 employers);
+- **The jobs.** A dated snapshot of **19,481 open postings in 94 countries**. 6,376 of them can be done remotely, 190 of those from anywhere. Only public, documented sources are used:
+  - company career pages on Greenhouse, Lever and Ashby (207 employers);
   - Hacker News *Who is hiring?*;
   - Himalayas, Jobicy, Remotive, Remote OK and Arbeitnow.
 
@@ -184,7 +184,7 @@ This is the last step of the journey. It is linked from the results, the plan, y
 python3 -m venv .venv && source .venv/bin/activate      # Python ≥ 3.11
 pip install -r requirements.txt
 uvicorn app.main:app --reload                            # http://127.0.0.1:8000
-python -m pytest -q                                      # 74 tests
+python -m pytest -q                                      # 75 tests
 python -m app.signals.refresh                            # pull fresh HN + OpenAlex data (optional)
 python scripts/verify_resources.py                       # re-check every course / source URL
 python -m scripts.opportunities.jobs                     # refresh the job snapshot (about 15 min)
@@ -203,6 +203,7 @@ uv run --with markdown-it-py --with mdit-py-plugins --with nh3 --with beautifuls
 | `/#/results?persona=aisyah` | Accounts clerk → automation, finance and data roles |
 | `/#/results?persona=weijie` | Engineering graduate → EV, solar and renewable-energy roles |
 | `/#/results?persona=kavitha&pace=fast` | Contact-centre lead, under fast AI disruption |
+| `/#/results?persona=arif` | Production operator at an electronics plant → automation, quality and semiconductor roles |
 | `/#/plan/automation_specialist?persona=aisyah` | A full learning plan |
 | `/#/learn` · `/#/learn/sql` · `/#/learn/sql/sql-03` · `/#/learn/sql/test-1` · `/#/learn/sql/final` | Course catalogue · course page · lesson player · chapter test · final test |
 | `/#/next?persona=aisyah&mode=work&country=MY` | Open jobs in Malaysia for an accounts clerk, with fit, gaps and job-site searches |
@@ -246,7 +247,7 @@ docs/RUNPOD.md         model + GPU choice and deployment guide
 - Sensitivities are expert assumptions. They should be calibrated against observed job-post changes as more history accumulates.
 - Role summaries and lessons are English-only for now. Image-CV intake is possible because the model is vision-capable.
 - Course text is English (the language of the open sources); the interface is in English, Malay and Chinese. Some courses are reading-heavy and could gain hands-on labs.
-- The job snapshot leans towards tech and international employers. Malaysia has 68 on-site postings plus remote ones, so one-tap searches on local job sites carry much of the load. A Malaysian feed would fill the gap, for example MYFutureJobs through a partnership.
+- The job snapshot leans towards tech and international employers. Malaysia has 166 on-site postings plus remote ones, so one-tap searches on local job sites carry much of the load. A Malaysian feed would fill the gap, for example MYFutureJobs through a partnership.
 - Roles are recognised from posting titles with patterns. Postings whose titles match no catalogue role are scored on their skills alone, at a discount.
 - Universities are ordered by how widely they are known, which is not a measure of quality or fit. Programme-level data, such as courses, fees and entry grades, would need each country's official sources.
 

@@ -147,7 +147,7 @@ main:focus { outline: none; }
 .source-line { color: var(--muted); font-size: 13px; margin-top: 14px; }
 
 /* ---------- persona examples ---------- */
-.examples { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+.examples { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 @media (max-width: 1000px) { .examples { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .examples { grid-template-columns: 1fr; } }
 .example { text-align: left; border: 0; background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px; cursor: pointer; display: flex; flex-direction: column; gap: 4px; transition: box-shadow 0.15s, transform 0.15s; }
