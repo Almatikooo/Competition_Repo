@@ -269,15 +269,14 @@ async def explain(q: RoleQuery) -> dict:
     facts = build_facts(catalog, signals, out, ranked, scenario, lang)
     result = {"engine": "template", "text": template_explanation(facts, lang), "sources": facts["sources"],
               "guardrail": None, "model": None}
-    if llm.configured:
-        try:
-            text, problems = await tasks.explain(facts, lang)
-            if problems:
-                result["guardrail"] = {"rejected": True, "problems": problems, "draft": text}
-            else:
-                result.update(engine="llm", text=text, model=llm.model, guardrail={"rejected": False})
-        except (LLMUnavailable, ValueError, KeyError) as exc:
-            result["guardrail"] = {"rejected": False, "error": str(exc)[:200]}
+    try:                                  # a saved answer is used even when no model is configured or the GPU is off
+        text, problems = await tasks.explain(facts, lang)
+        if problems:
+            result["guardrail"] = {"rejected": True, "problems": problems, "draft": text}
+        else:
+            result.update(engine="llm", text=text, model=llm.model, guardrail={"rejected": False})
+    except (LLMUnavailable, ValueError, KeyError) as exc:
+        result["guardrail"] = {"rejected": False, "error": str(exc)[:200]}
     return result
 
 

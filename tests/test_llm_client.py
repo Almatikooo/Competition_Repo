@@ -72,3 +72,16 @@ def test_at_most_max_parallel_requests_reach_the_gpu(tmp_path):
 
     asyncio.run(many())
     assert log["chat"] == 6 and log["peak"] == 2
+
+
+def test_saved_answers_work_without_any_model_configured(tmp_path):
+    transport, log = fake_vllm(["kept"])
+    c = client(tmp_path, transport)
+    assert asyncio.run(c.chat(ASK)) == "kept"
+    clone = client(tmp_path, transport)
+    clone.base_url = ""                                  # a fresh clone of the repo with no .env
+    assert asyncio.run(clone.chat(ASK)) == "kept" and log["chat"] == 1
+    with pytest.raises(LLMUnavailable, match="not set"):
+        asyncio.run(clone.chat([{"role": "user", "content": "new"}]))
+    (tmp_path / "saved.jsonl").write_text('{"k": "a", "v": "x"}\n{"k": "b", "v": "y"}\n')
+    assert asyncio.run(clone.status())["saved"] == 2

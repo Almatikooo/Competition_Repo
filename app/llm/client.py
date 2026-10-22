@@ -90,7 +90,16 @@ class LLMClient:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
 
     # ------------------------------------------------------------ status and chat
+    def saved_count(self) -> int:
+        """Answers saved for the demo (data/ai/answers.jsonl): shown even while the GPU is off."""
+        if self.saved_file is None or not self.saved_file.exists():
+            return 0
+        return sum(1 for line in self.saved_file.read_text(encoding="utf-8").splitlines() if line.strip())
+
     async def status(self, max_age: float = 30.0) -> dict:
+        return {**await self._status_now(max_age), "saved": self.saved_count() if self.cache_enabled else 0}
+
+    async def _status_now(self, max_age: float) -> dict:
         if not self.configured:
             return {"online": False, "configured": False, "model": None, "mode": "rules"}
         if time.time() - self._checked_at < max_age and self._status:
@@ -121,11 +130,11 @@ class LLMClient:
                    temperature: float = 0.2, cache: bool = True, accept: Callable[[str], bool] | None = None) -> str:
         """The model's answer. With `cache`, a request seen before is answered from the cache, and a new answer is
         kept when `accept` (e.g. a guardrail) passes it: a rejected answer is never replayed, the next try asks again."""
-        if not self.configured:
-            raise LLMUnavailable("LLM_BASE_URL is not set")
         payload = self.payload(messages, json_schema=json_schema, max_tokens=max_tokens, temperature=temperature)
         if cache and (hit := self.cached(payload)) is not None:
             return hit
+        if not self.configured:
+            raise LLMUnavailable("LLM_BASE_URL is not set")
         if not (await self.status()).get("online"):
             raise LLMUnavailable(f"the model is offline ({self._status.get('error', 'no answer')})")
         try:

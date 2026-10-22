@@ -145,3 +145,4 @@ def test_uptime_from_runpod_timestamps():
     assert gpu.uptime_hours({"desiredStatus": "RUNNING", "lastStartedAt": "2020-01-01T00:00:00Z"}) > 1000
     assert gpu.uptime_hours({"desiredStatus": "RUNNING", "lastStartedAt": "2020-01-01 00:00:00"}) > 1000
     assert gpu.uptime_hours({"desiredStatus": "RUNNING", "lastStartedAt": "soon"}) is None
+    assert gpu.uptime_hours({"desiredStatus": "RUNNING", "lastStartedAt": "2020-01-01 03:11:54.149 +0000 UTC"}) > 1000   # RunPod's format

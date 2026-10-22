@@ -367,7 +367,7 @@ function matchDetails(r, role) {
   return h("div", { class: "details" },
     h("h4", {}, t("d_explain")),
     h("div", { class: "explain" }, h("p", {}, citedText(exp?.text || r.explanation, sources, r.id)), h("p", { class: "engine-note" }, engine),
-      state.meta.llm?.online ? h("button", { type: "button", class: "btn btn-secondary btn-sm", style: { marginTop: "8px" }, onclick: (e) => explainWithAI(r.id, e.currentTarget) }, t("explain_ai")) : null),
+      state.meta.llm?.online || state.meta.llm?.saved ? h("button", { type: "button", class: "btn btn-secondary btn-sm", style: { marginTop: "8px" }, onclick: (e) => explainWithAI(r.id, e.currentTarget) }, t("explain_ai")) : null),
     have.length ? [h("h4", {}, t("d_have")), h("div", { class: "row" }, have.map((i) => h("span", { class: "pill have" }, "✓ ", skillShort(i.id))))] : null,
     learn.length ? [h("h4", {}, t("d_learn")), h("div", { class: "row" }, learn.map((i) => h("a", { class: "pill learn", href: `#/learn/${i.id}` }, `${skillShort(i.id)} · ${i.gap_hours} h`)))] : null,
     h("h4", {}, t("d_scen")),
@@ -409,7 +409,9 @@ async function explainWithAI(rid, btn) {
   btn.disabled = true;
   btn.textContent = t("explaining");
   try {
-    state.explanations[rid] = await api("/api/explain", { as_of: state.asOf, scenario: state.scenario, lang: state.lang, profile: state.profile, weights: state.weights, role_id: rid });
+    const exp = await api("/api/explain", { as_of: state.asOf, scenario: state.scenario, lang: state.lang, profile: state.profile, weights: state.weights, role_id: rid });
+    state.explanations[rid] = exp;
+    if (exp.engine !== "llm" && exp.guardrail?.error) toast(t("ai_off_now"));   // GPU off and no saved answer for this one
   } catch (e) { toast(String(e.message || e)); }
   render();
 }

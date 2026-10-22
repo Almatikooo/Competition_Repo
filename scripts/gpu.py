@@ -12,6 +12,7 @@ stops it after IDLE_MINUTES without requests, so a forgotten GPU stops on its ow
 """
 import argparse
 import datetime as dt
+import re
 import secrets
 import sys
 import time
@@ -145,8 +146,10 @@ def uptime_hours(pod: dict) -> float | None:
     started = pod.get("lastStartedAt")
     if pod.get("desiredStatus") != "RUNNING" or not started:
         return None
+    text = str(started).replace(" UTC", "").replace("Z", "+00:00")     # RunPod: "2026-10-22 03:11:54.149 +0000 UTC"
+    text = re.sub(r" ([+-]\d{2})(\d{2})$", r"\1:\2", text).replace(" ", "T", 1)
     try:
-        when = dt.datetime.fromisoformat(str(started).replace("Z", "+00:00").replace(" ", "T", 1))
+        when = dt.datetime.fromisoformat(text)
     except ValueError:
         return None
     if when.tzinfo is None:
