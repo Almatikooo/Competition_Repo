@@ -193,7 +193,7 @@ This is the last step of the journey. It is linked from the results, the plan, y
 python3 -m venv .venv && source .venv/bin/activate      # Python ≥ 3.11
 pip install -r requirements.txt
 uvicorn app.main:app --reload                            # http://127.0.0.1:8000
-python -m pytest -q                                      # 124 tests
+python -m pytest -q                                      # 118 tests
 python -m app.signals.refresh                            # pull fresh HN + OpenAlex data (optional)
 python scripts/verify_resources.py                       # re-check every course / source URL
 python -m scripts.opportunities.jobs                     # refresh the job snapshot (about 15 min)

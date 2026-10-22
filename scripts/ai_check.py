@@ -1,6 +1,7 @@
 """Checks the language model end to end through Path.AI's own API, on the six example people (GPU on):
 
     python -m scripts.ai_check           # CV reading and explanations in EN / MS / ZH: accepted by the guardrails? how fast?
+    python -m scripts.ai_check --jobs    # also "Ask AI about this job" for each person's top postings
     python -m scripts.ai_check --save    # also save the accepted answers to data/ai/answers.jsonl (committed), so the
                                          # demo shows real model answers for the example people with the GPU off
 
@@ -44,6 +45,7 @@ def main() -> None:
     ap = argparse.ArgumentParser(prog="python -m scripts.ai_check")
     ap.add_argument("--save", action="store_true", help="save the accepted answers for the demo")
     ap.add_argument("--people", type=int, default=6)
+    ap.add_argument("--jobs", action="store_true", help="also ask the AI about each person's top jobs in Malaysia and remote")
     args = ap.parse_args()
     keys = record_keys()
     client, catalog = TestClient(app), get_catalog()
@@ -71,6 +73,23 @@ def main() -> None:
             if ok and lang == "en":
                 print(f"      “{r['text'][:220]}…”")
     print(f"\nExplanations accepted by the guard: {accepted}/{total}")
+    if args.jobs:
+        ok = asked = 0
+        for person in catalog.personas["personas"][: args.people]:
+            profile = {k: person.get(k) for k in ("skills", "interests", "sdg_priorities", "current_role", "hours_per_week",
+                                                  "years_experience", "languages")}
+            roles = [r["id"] for r in client.post("/api/match", json={"profile": profile}).json()["roles"][:3]]
+            res = client.post("/api/next/jobs", json={"profile": profile, "country": "MY", "roles": roles, "lang": "en"}).json()
+            for job in (res["local"][:2] + res["remote"][:1]):
+                for lang in LANGS:
+                    t = time.time()
+                    r = client.post("/api/next/why", json={"profile": profile, "job_id": job["id"], "lang": lang}).json()
+                    good = r.get("engine") == "llm"
+                    ok, asked = ok + good, asked + 1
+                    print(f"   {person['name']} · {job['title'][:40]} [{lang}] {'accepted' if good else r.get('guardrail') or r.get('error')} in {time.time() - t:.1f}s")
+                    if good and lang == "en":
+                        print(f"      “{r['text'][:240]}”")
+        print(f"\nJob advice accepted by the guard: {ok}/{asked}")
     if args.save:
         answers = llm._load_answers()
         rows = [{"k": k, "v": answers[k], "model": llm.model} for k in dict.fromkeys(keys) if k in answers]
