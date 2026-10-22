@@ -2,6 +2,7 @@
 
     python -m scripts.ai_check           # CV reading and explanations in EN / MS / ZH: accepted by the guardrails? how fast?
     python -m scripts.ai_check --jobs    # also "Ask AI about this job" for each person's top postings
+    python -m scripts.ai_check --market  # also the AI market check for each person's top direction
     python -m scripts.ai_check --save    # also save the accepted answers to data/ai/answers.jsonl (committed), so the
                                          # demo shows real model answers for the example people with the GPU off
 
@@ -46,6 +47,7 @@ def main() -> None:
     ap.add_argument("--save", action="store_true", help="save the accepted answers for the demo")
     ap.add_argument("--people", type=int, default=6)
     ap.add_argument("--jobs", action="store_true", help="also ask the AI about each person's top jobs in Malaysia and remote")
+    ap.add_argument("--market", action="store_true", help="also the AI market check for each person's top direction in Malaysia")
     args = ap.parse_args()
     keys = record_keys()
     client, catalog = TestClient(app), get_catalog()
@@ -90,6 +92,22 @@ def main() -> None:
                     if good and lang == "en":
                         print(f"      “{r['text'][:240]}”")
         print(f"\nJob advice accepted by the guard: {ok}/{asked}")
+    if args.market:
+        ok = asked = 0
+        for person in catalog.personas["personas"][: args.people]:
+            profile = {k: person.get(k) for k in ("skills", "interests", "sdg_priorities", "current_role", "hours_per_week",
+                                                  "years_experience", "languages")}
+            top = client.post("/api/match", json={"profile": profile}).json()["roles"][0]["id"]
+            for lang in LANGS:
+                body = {"profile": profile, "country": "MY", "role": top, "lang": lang, "country_name": "Malaysia"}
+                t = time.time()
+                r = client.post("/api/next/market/ai", json=body).json()
+                good = r.get("engine") == "llm"
+                ok, asked = ok + good, asked + 1
+                print(f"   {person['name']} · market for {top} [{lang}] {'accepted' if good else r.get('guardrail') or r.get('error')} in {time.time() - t:.1f}s")
+                if good and lang == "en":
+                    print(f"      “{r['text'][:260]}”")
+        print(f"\nMarket checks accepted by the guard: {ok}/{asked}")
     if args.save:
         answers = llm._load_answers()
         rows = [{"k": k, "v": answers[k], "model": llm.model} for k in dict.fromkeys(keys) if k in answers]

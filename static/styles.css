@@ -748,6 +748,13 @@ a.po-ctest:hover { background: var(--surface); color: var(--blue); }
 .chip-sm:hover { border-color: var(--blue); color: var(--blue); }
 .chip-sm.on { background: var(--tint-2); border-color: var(--blue); color: var(--blue); font-weight: 600; }
 .chip-sm.more { border-style: dashed; color: var(--muted); }
+.market { margin-top: 16px; display: grid; gap: 8px; background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px 20px; }
+.market > .k { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+.market-counts { font-size: 15.5px; font-weight: 600; }
+.market-cover { font-size: 14.5px; margin-top: 4px; }
+.market .bar { height: 8px; background: var(--tint-2); border-radius: 999px; overflow: hidden; }
+.market .bar span { display: block; height: 100%; background: var(--blue); border-radius: 999px; }
+.market .job-skills { margin-top: 2px; }
 @media (max-width: 600px) { .about-you .k { min-width: 100%; } }
 .job-skills { margin-top: 10px; gap: 6px; }
 .job-skills .k { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); min-width: 84px; }

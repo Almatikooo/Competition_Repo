@@ -92,6 +92,15 @@ class NextWhyQuery(BaseModel):
     lang: str = "en"
 
 
+class NextMarketQuery(BaseModel):
+    profile: Profile
+    certified: list[Annotated[str, Field(max_length=40)]] = Field(default_factory=list, max_length=60)
+    country: str = Field(pattern=r"^([A-Z]{2}|REMOTE)$")
+    role: str = Field(max_length=60)
+    lang: str = "en"
+    country_name: str = Field(default="", max_length=80)
+
+
 class NextStudyQuery(BaseModel):
     country: str = Field(pattern=r"^[A-Z]{2}$")
     roles: list[Annotated[str, Field(max_length=60)]] = Field(default_factory=list, max_length=8)
@@ -411,6 +420,41 @@ async def next_why(q: NextWhyQuery) -> dict:
     facts = opp.advice_facts(q.profile, q.certified, job)
     try:
         text, problems = await tasks.job_advice(facts, q.lang if q.lang in LANGS else "en")
+    except (LLMUnavailable, ValueError, KeyError) as exc:
+        return {"engine": None, "text": None, "error": str(exc)[:200]}
+    if problems:
+        return {"engine": None, "text": None, "guardrail": {"rejected": True, "problems": problems}}
+    return {"engine": "llm", "text": text, "model": llm.model}
+
+
+def _market(q: NextMarketQuery) -> dict:
+    if q.role not in catalog.roles:
+        raise HTTPException(404, "unknown role")
+    market = opp.market_for(q.profile, q.certified, q.country, q.role)
+    growth = outlook_for(resolve_as_of(None))["roles"].get(q.role, {}).get("growth", {}).get("moderate")
+    market["outlook_pct"] = pct(growth) if growth is not None else None
+    return market
+
+
+@app.post("/api/next/market")
+async def next_market(q: NextMarketQuery) -> dict:
+    """What postings for one direction ask for where the person wants to work, and how much of it they cover."""
+    market = _market(q)
+    if market["basis"] != "none" and llm.saved_count() and not (await llm.status()).get("online"):   # GPU off: saved?
+        facts = opp.market_facts(market, market["outlook_pct"], q.country_name)
+        market["ai_saved"] = llm.cached(tasks.market_payload(facts, q.lang if q.lang in LANGS else "en")) is not None
+    return market
+
+
+@app.post("/api/next/market/ai")
+async def next_market_ai(q: NextMarketQuery) -> dict:
+    """The model's short market check for this person, from the market statistics only (numbers checked)."""
+    market = _market(q)
+    if market["basis"] == "none":
+        return {"engine": None, "text": None, "error": "too few postings for this direction"}
+    facts = opp.market_facts(market, market["outlook_pct"], q.country_name)
+    try:
+        text, problems = await tasks.market_check(facts, q.lang if q.lang in LANGS else "en")
     except (LLMUnavailable, ValueError, KeyError) as exc:
         return {"engine": None, "text": None, "error": str(exc)[:200]}
     if problems:

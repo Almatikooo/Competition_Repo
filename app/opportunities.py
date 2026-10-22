@@ -16,7 +16,9 @@ posting's own sentences.
 import hashlib
 import json
 import re
+import statistics
 import urllib.parse
+from collections import Counter
 from functools import lru_cache
 
 from .catalog import get_catalog
@@ -244,6 +246,116 @@ def advice_facts(profile: Profile, certified: list[str], job: dict) -> dict:
         person["languages"] = lang(profile.languages)
     return {"posting": {"title": job["title"], "company": job["company"], "place": job["location"], "level": job["level"]},
             "posting_asks": asks, "person": person, "fit_percent": scored["fit"]}
+
+
+# ---------------------------------------------------------------- the market for one direction
+MARKET_TOP_SKILLS = 8
+MIN_LOCAL_SAMPLE = 8        # fewer postings in the chosen country: the picture is drawn from the role worldwide
+MIN_WORLD_SAMPLE = 10       # fewer worldwide too: no picture, rather than percentages of two postings
+MIN_PAY_SAMPLE = 5
+
+
+def _share(part: int, whole: int) -> float:
+    return round(part / whole, 3) if whole else 0.0
+
+
+def market_stats(jobs: list[dict], profile: Profile) -> dict:
+    """What the postings for one direction ask for, from the facts the model read in them."""
+    catalog = get_catalog()
+    read = [j for j in jobs if j.get("ai")]
+    total = len(read)
+    required, nice = Counter(), Counter()
+    for j in read:
+        required.update(s for s in j["ai"].get("req", []) if s in catalog.skills)
+        nice.update(s for s in j["ai"].get("nice", []) if s in catalog.skills)
+    skills = []
+    for sid, count in required.most_common(MARKET_TOP_SKILLS):
+        have = skill_credit(catalog, profile.skills, sid, 2)["credit"] >= 1
+        skills.append({"id": sid, "share": _share(count, total), "nice_share": _share(nice[sid], total), "you": have})
+    asked = sum(x["share"] for x in skills)
+    years = sorted(j["ai"]["years"] for j in read if "years" in j["ai"])
+    degree = sum(1 for j in read if j["ai"].get("degree") in ("bachelor", "master", "phd") and j["ai"].get("degree_required", True))
+    languages = Counter(code for j in read for code in required_languages(j))
+    modes = Counter(j["ai"]["mode"] for j in read if j["ai"].get("mode"))
+    visa = Counter(j["ai"]["visa"] for j in read if "visa" in j["ai"])
+    pay_groups: dict[tuple, list] = {}
+    for j in read:
+        if p := j["ai"].get("pay"):
+            pay_groups.setdefault((p[2], p[3]), []).append(p)
+    pay = None
+    if pay_groups:
+        (currency, per), rows = max(pay_groups.items(), key=lambda kv: len(kv[1]))
+        if len(rows) >= MIN_PAY_SAMPLE:
+            pay = {"currency": currency, "per": per, "n": len(rows), "low": round(statistics.median(r[0] for r in rows)),
+                   "high": round(statistics.median(r[1] if r[1] is not None else r[0] for r in rows))}
+    return {
+        "n": len(jobs), "read": total, "remote": sum(1 for j in jobs if j["remote"]),
+        "skills": skills, "coverage": round(sum(x["share"] for x in skills if x["you"]) / asked, 3) if asked else None,
+        "years": {"n": len(years), "median": statistics.median(years), "share_0_2": _share(sum(1 for y in years if y <= 2), len(years)),
+                  "share_3_5": _share(sum(1 for y in years if 3 <= y <= 5), len(years)),
+                  "share_6_plus": _share(sum(1 for y in years if y >= 6), len(years))} if years else None,
+        "degree_share": _share(degree, total),
+        "languages": [{"code": code, "share": _share(count, total)} for code, count in languages.most_common(5)],
+        "modes": {mode: _share(count, sum(modes.values())) for mode, count in modes.most_common()},
+        "visa": {"sponsors": visa[True], "no": visa[False]},
+        "pay": pay,
+    }
+
+
+def market_for(profile: Profile, certified: list[str], country: str, rid: str) -> dict:
+    """The market for one direction where the person wants to work, next to the same direction worldwide."""
+    catalog = get_catalog()
+    certified_set = {s for s in certified if s in catalog.skills}
+    if certified_set:
+        profile = profile.model_copy(update={"skills": {**profile.skills, **{s: max(2, profile.skills.get(s, 0)) for s in certified_set}}})
+    role_jobs = [j for j in data()["jobs"] if rid in j["roles"]]
+    here = [j for j in role_jobs if where_ok(j, country)]
+    local, world = market_stats(here, profile), market_stats(role_jobs, profile)
+    return {"role": rid, "country": country, "updated": data()["jobs_meta"].get("generated"),
+            "here": local, "world": world,
+            "basis": "here" if local["read"] >= MIN_LOCAL_SAMPLE else "world" if world["read"] >= MIN_WORLD_SAMPLE else "none",
+            "you": {"years": profile.years_experience, "languages": profile.languages}}
+
+
+def market_facts(market: dict, outlook_pct: float | None, country_name: str) -> dict:
+    """The fact sheet for the model's market check: percentages as whole numbers, names instead of ids."""
+    catalog = get_catalog()
+    name = lambda sid: catalog.skills[sid]["name"]["en"]
+    basis = market[market["basis"]]
+    pc = lambda x: round(100 * x)
+    facts = {
+        "direction": catalog.roles[market["role"]]["title"]["en"],
+        "where": "remote jobs open to applicants worldwide" if market["country"] == REMOTE else (country_name or market["country"]),
+        "open_postings_here": market["here"]["n"], "open_postings_worldwide": market["world"]["n"],
+        "figures_below_are_for": "this place" if market["basis"] == "here" else "this direction worldwide (few postings here)",
+        "skills_employers_require_most": [{"skill": name(x["id"]), "percent_of_postings": pc(x["share"]), "person_has_it": x["you"]}
+                                          for x in basis["skills"]],
+    }
+    if basis["coverage"] is not None:
+        facts["person_covers_percent_of_that_demand"] = pc(basis["coverage"])
+    if outlook_pct is not None:
+        facts["demand_growth_percent_per_year_estimate"] = round(outlook_pct)
+    if basis["years"]:
+        facts["years_of_experience_asked"] = {"median": basis["years"]["median"], "percent_asking_0_to_2": pc(basis["years"]["share_0_2"]),
+                                              "percent_asking_6_or_more": pc(basis["years"]["share_6_plus"])}
+    facts["percent_requiring_a_degree"] = pc(basis["degree_share"])
+    if basis["languages"]:
+        facts["languages_required"] = [{"language": LANGUAGE_NAMES.get(x["code"], x["code"]), "percent_of_postings": pc(x["share"])}
+                                       for x in basis["languages"]]
+    if basis["pay"]:
+        facts["typical_pay"] = {**basis["pay"], "note": "median of postings that state pay"}
+    else:
+        facts["pay"] = "too few postings state pay to show a range"
+    if basis["visa"]["sponsors"] or basis["visa"]["no"]:
+        facts["visa_sponsorship_mentions"] = basis["visa"]
+    person = {}
+    if market["you"]["years"] is not None:
+        person["years_of_experience"] = market["you"]["years"]
+    if market["you"]["languages"]:
+        person["languages"] = [LANGUAGE_NAMES.get(c, c) for c in market["you"]["languages"]]
+    if person:
+        facts["person"] = person
+    return facts
 
 
 def _posted(job: dict) -> int:

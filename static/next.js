@@ -108,6 +108,56 @@ function aboutYou() {
       state.nextUi.moreLangs ? null : h("button", { type: "button", class: "chip-sm more", onclick: () => { state.nextUi.moreLangs = true; rerender(); } }, `${t("nx_more")} +`)));
 }
 
+// The market for the chosen direction: what its postings ask for, read by the model, and how much of it the person covers.
+const roundPay = (x) => (x >= 10000 ? Math.round(x / 1000) * 1000 : x);
+function marketPanel() {
+  const m = state.nextMarket;
+  if (!m || !hasProfile()) return null;
+  const pc = (x) => Math.round(100 * x);
+  const ours = new Set((state.courses || []).map((c) => c.skill));
+  const counts = [m.country === "REMOTE" ? t("mk_here_remote", { n: m.here.n }) : t("mk_here", { n: m.here.n, where: inCountry(m.country) }),
+    t("mk_world", { n: m.world.n.toLocaleString() })];
+  if (m.outlook_pct != null) counts.push(t("mk_trend", { pct: `${m.outlook_pct > 0 ? "+" : ""}${Math.round(m.outlook_pct)}%` }));
+  if (m.basis === "none") {
+    return h("section", { class: "market" }, h("p", { class: "k" }, t("mk_title", { role: roleTitle(m.role) })),
+      h("p", { class: "market-counts" }, counts.join(" · ")), h("p", { class: "small muted" }, t("mk_too_few")));
+  }
+  const b = m[m.basis];
+  const asks = [];
+  if (b.years) asks.push(t("mk_years", { n: b.years.median }));
+  if (b.read) asks.push(t("mk_degree", { n: pc(b.degree_share) }));
+  for (const l of b.languages.slice(0, 2)) asks.push(`${languageName(l.code)} ${pc(l.share)}%`);
+  const ai = state.marketAdvice?.[state.nextMarketKey];
+  return h("section", { class: "market" },
+    h("p", { class: "k" }, t("mk_title", { role: roleTitle(m.role) })),
+    h("p", { class: "market-counts" }, counts.join(" · ")),
+    m.basis === "world" ? h("p", { class: "small muted" }, t("mk_world_basis")) : null,
+    b.coverage != null ? [h("p", { class: "market-cover" }, t("mk_cover", { n: pc(b.coverage) })),
+      h("div", { class: "bar", role: "img", "aria-label": `${pc(b.coverage)}%` }, h("span", { style: { width: `${pc(b.coverage)}%` } }))] : null,
+    b.skills.length ? h("div", { class: "row job-skills" }, h("span", { class: "k" }, t("mk_skills")),
+      b.skills.slice(0, 6).map((s) => (s.you ? h("span", { class: "pill have" }, "✓ ", skillShort(s.id), ` · ${pc(s.share)}%`)
+        : ours.has(s.id) ? h("a", { class: "pill learn", href: `#/learn/${s.id}` }, `${skillShort(s.id)} · ${pc(s.share)}% →`)
+          : h("span", { class: "pill" }, `${skillShort(s.id)} · ${pc(s.share)}%`)))) : null,
+    asks.length ? h("p", { class: "small" }, h("b", {}, `${t("mk_asks")}: `), asks.join(" · ")) : null,
+    h("p", { class: "small" }, b.pay ? t(m.basis === "world" ? "mk_pay_world" : "mk_pay", { range: payText([roundPay(b.pay.low), roundPay(b.pay.high), b.pay.currency, b.pay.per]), n: b.pay.n }) : t("mk_pay_none")),
+    ai?.off ? h("div", { class: "job-ai off" }, h("p", {}, t("mk_ai_off")))
+      : ai ? h("div", { class: "job-ai" }, h("p", {}, ai.text), h("p", { class: "tiny muted" }, t("nx_ai_note", { model: ai.model })))
+        : h("div", {}, h("button", { type: "button", class: "btn btn-secondary btn-sm", onclick: (e) => askMarket(e.currentTarget) }, icon("sparkles"), t("mk_ai"))));
+}
+
+async function askMarket(btn) {
+  btn.disabled = true;
+  btn.textContent = t("nx_asking");
+  const key = state.nextMarketKey;
+  try {
+    const res = await api("/api/next/market/ai", JSON.parse(key));
+    if (res.engine === "llm") (state.marketAdvice ||= {})[key] = res;
+    else if (res.guardrail?.rejected) toast(t("nx_ai_rejected"));
+    else (state.marketAdvice ||= {})[key] = { off: true };
+  } catch (e) { toast(String(e.message || e)); }
+  rerender();
+}
+
 async function askAI(j, btn) {
   btn.disabled = true;
   btn.textContent = t("nx_asking");
@@ -191,6 +241,15 @@ export async function ensureNext() {
       state.nextJobs = await api("/api/next/jobs", body);
       state.nextJobsKey = key;
     }
+    const marketRole = dirs.includes(state.nextUi.role) ? state.nextUi.role : dirs[0];
+    if (marketRole && hasProfile()) {
+      const mbody = { profile: body.profile, certified: body.certified, country, role: marketRole, lang: state.lang, country_name: body.country_name };
+      const mkey = JSON.stringify(mbody);
+      if (state.nextMarketKey !== mkey) {
+        try { state.nextMarket = await api("/api/next/market", mbody); } catch { state.nextMarket = null; }   // optional panel
+        state.nextMarketKey = mkey;
+      }
+    } else state.nextMarket = null;
   } else {
     const body = { country, roles: directions(), study_field: state.origin?.type === "field" ? state.origin.id : null };
     const key = JSON.stringify(body);
@@ -363,6 +422,7 @@ function viewJobs() {
       h("div", {},
         filters, roleChips,
         d.scored ? aboutYou() : null,
+        d.scored ? marketPanel() : null,
         d.scored ? null : h("div", { class: "notice info", style: { marginTop: "18px" } }, h("div", {},
           h("p", {}, t("nx_no_profile")), h("a", { class: "btn btn-primary btn-sm", href: "#/start?step=1", style: { marginTop: "10px" } }, t("hero_start")))),
         results,

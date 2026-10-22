@@ -143,4 +143,34 @@ async def job_advice(facts: dict, lang: str) -> tuple[str, list[str]]:
     return text, guard_numbers(text, facts)
 
 
-__all__ = ["extract_skills", "explain", "job_advice", "guard_skills", "guard_explanation", "guard_numbers", "LLMUnavailable"]
+CHECK_SCHEMA = {"type": "object", "additionalProperties": False, "required": ["check"], "properties": {"check": {"type": "string"}}}
+CHECK_PARAMS = {"max_tokens": 260, "temperature": 0.3}
+
+
+def market_messages(facts: dict, lang: str) -> list[dict]:
+    return [
+        {"role": "system", "content": (
+            f"You are a careful, warm career adviser for Malaysian workers. In {LANG_NAMES.get(lang, 'English')}, in 3 or 4 "
+            "short sentences, compare the person with what employers in this job market ask for: how much of that demand "
+            "they already cover, what most stands between them and these jobs, and one concrete next step. Use ONLY the "
+            "facts provided and do not add any number that is not in them. If the figures are for the direction worldwide "
+            "because there are few postings in that place, say so. Plain text, no lists.")},
+        {"role": "user", "content": json.dumps(facts, ensure_ascii=False)},
+    ]
+
+
+def market_payload(facts: dict, lang: str) -> dict:
+    return llm.payload(market_messages(facts, lang), json_schema=CHECK_SCHEMA, **CHECK_PARAMS)
+
+
+async def market_check(facts: dict, lang: str) -> tuple[str, list[str]]:
+    """3-4 sentences comparing the person with the job market for one direction, from its statistics only."""
+    def grounded(raw: str) -> bool:
+        return not guard_numbers(json.loads(raw)["check"].strip(), facts)
+
+    raw = await llm.chat(market_messages(facts, lang), json_schema=CHECK_SCHEMA, accept=grounded, **CHECK_PARAMS)
+    text = json.loads(raw)["check"].strip()
+    return text, guard_numbers(text, facts)
+
+
+__all__ = ["extract_skills", "explain", "job_advice", "market_check", "guard_skills", "guard_explanation", "guard_numbers", "LLMUnavailable"]
