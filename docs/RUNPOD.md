@@ -12,8 +12,9 @@ Prices come from runpod.io/pricing as checked on 2026-10-20. They change, so che
 
 ## What the model does in Path.AI (and what it never does)
 
-1. **CV to skills.** The output is JSON-schema constrained to our 44 skill ids, and every skill must quote the CV verbatim. If a quote cannot be found in the CV, the skill is dropped (`app/llm/tasks.py`).
+1. **CV to skills.** The output is JSON-schema constrained to our 53 skill ids, and every skill must quote the CV verbatim. If a quote cannot be found in the CV, the skill is dropped (`app/llm/tasks.py`).
 2. **Grounded explanations** in English, Bahasa Malaysia or Chinese. The model only sees a fact sheet and must cite `[S1]…`. Any number that is not in the fact sheet makes the system fall back to the deterministic text.
+3. **Reading job postings, once.** Each posting is trimmed to its requirement sentences (`scripts/opportunities/trim.py`) and numbered. The model returns skills (required or nice to have), years of experience, degree, languages, pay, work mode and visa sponsorship, each citing a sentence number. A fact is dropped unless its sentence contains the number, currency, language or degree word it claims (`scripts/opportunities/enrich.py`). Only the facts are kept (`data/opportunities/job_facts.json`).
 
 The model never picks jobs, courses or statistics. Those come from the curated catalogs and the scoring engine.
 
@@ -56,53 +57,57 @@ The model needs 30.9 GB of weights plus KV cache plus activations, so at least a
 - Token generation is limited by memory bandwidth (A6000 768 GB/s vs L40S 864 GB/s), so the A6000 is only about 12% slower than an L40S at roughly half the price. Our load is a few users and short prompts.
 - The A6000 is Ampere and has no native FP8. vLLM runs FP8 checkpoints as weight-only **W8A16 with Marlin kernels**, a supported path according to the vLLM docs. Check the startup log for the selected kernel.
 
-**$25 budget plan.** Development and prompt tuning take about 10–15 h, the demo and video about 3–5 h, and the final round about 10–15 h. That is roughly 25–35 h, or $15–21 on Secure Cloud, with room left for storage.
+**$25 budget plan (≈42 GPU hours).** The GPU runs only when it is needed and stops itself when idle:
 
-- **Stop the pod whenever it is idle.** GPU billing stops, but storage billing continues. A stopped pod's volume costs $0.20/GB/month. A network volume costs $0.07/GB/month (60 GB is about $4.2/month). You can also skip storage and let vLLM re-download the 31 GB on the next start, which takes a few minutes.
-- **Community Cloud** is about 45% cheaper, but availability varies. Use Secure Cloud for the live demo.
-- **Serverless** charges per second ($1.22/h in the A6000/A40 class) and suits occasional development. Cold starts load 31 GB, though, so keep a pod or an active worker running during the demo.
+| Use | GPU hours |
+|---|---|
+| First start (downloads the 31 GB model) and checks | ≈1 |
+| Prompt checks for CV reading, explanations and job postings | ≈3–4 |
+| Reading every job posting once (≈19.5k, `scripts/opportunities/enrich.py`) | ≈3 (estimate; the 300-posting pilot measures it) |
+| Later features, demo rehearsals, video and the final round | the rest |
+
+- **Stop the pod whenever it is idle** (`python -m scripts.gpu stop`). GPU billing stops; the 40 GB volume with the weights costs ≈$0.27/day while stopped. The watchdog stops a forgotten pod after 20 minutes without requests.
+- **Community Cloud** is about 45% cheaper, but has fewer free GPUs. Use Secure Cloud for the live demo.
+- **Serverless** charges per second ($1.22/h in the A6000/A40 class) but cold-starts by loading 31 GB, so it does not suit a demo.
 
 **Fallbacks**
 
 - FP8 does not load on Ampere: use an L40 or L40S (native FP8), a W8A16 INT8 community checkpoint, or `Qwen3.6-35B-A3B` AWQ (4-bit, and faster).
-- No 48 GB GPU available: try A40, then L40 ($0.82/h), then L40S ($1.09/h).
-- GPU down during the demo: Path.AI keeps working in rule-based mode.
+- RunPod has no free GPU for the stopped pod: `python -m scripts.gpu recreate` makes a new pod (it downloads the model again). Or try A40, then L40 ($0.82/h), then L40S ($1.09/h) by setting `GPU_TYPE` in `.env`.
+- GPU down during the demo: Path.AI keeps working in rule-based mode, with the answers and job facts the model already gave.
 
-## Step by step: RunPod Pod with vLLM
+## Step by step: one command
+
+1. In RunPod, open **Settings → API Keys**, create a key and put it in `.env` as `RUNPOD_API_KEY=…`. Never commit it or paste it anywhere else.
+2. `python -m scripts.gpu create`. It creates the pod: **RTX A6000** on Secure Cloud, image `vllm/vllm-openai:v0.31.0`, a 40 GB volume at `/workspace` for the weights, HTTP port 8000, and the start command from `deploy/runpod/` (vLLM plus the watchdog). It writes `RUNPOD_POD_ID`, `LLM_BASE_URL`, `LLM_API_KEY` (a fresh secret for vLLM) and `LLM_MODEL` into `.env`.
+3. `python -m scripts.gpu wait`. The first start downloads about 31 GB; later starts take about 3–5 minutes.
+4. Restart Path.AI. The footer says the AI is on, CV parsing uses the model behind the evidence guardrail, every role card gets **Rewrite with AI**, and `python -m scripts.opportunities.enrich` can read the job postings.
+5. `python -m scripts.gpu stop` when you finish. `status` shows uptime, this session's cost and the balance left.
+
+**The watchdog** (`deploy/runpod/watchdog.py`) runs inside the pod. It stops the pod after `IDLE_MINUTES` (20) without a request to the model, when the model does not come up within 40 minutes, or after 10 hours in all. It uses the pod-scoped `RUNPOD_API_KEY` and `RUNPOD_POD_ID` that RunPod sets in every pod, so your account key never leaves your laptop.
+
+**Manual setup in the console (option A).**
 
 1. Go to **Pods → Deploy**, pick **RTX A6000** on **Secure Cloud**.
-2. Set the container image to **`vllm/vllm-openai:latest`** (Qwen3.8 needs vLLM ≥ 0.17).
-3. Give the container disk **≥ 60 GB**, or attach a network volume mounted at `/root/.cache/huggingface` so the weights survive restarts.
+2. Set the container image to **`vllm/vllm-openai:v0.31.0`** (Qwen3.8 needs vLLM ≥ 0.17).
+3. Give the pod a **40 GB volume** mounted at `/workspace` and set `HF_HOME=/workspace/hf`, so the weights survive Stop/Start.
 4. **Expose HTTP port 8000.**
 5. Set the container start command. Replace `CHANGE_ME` with a long random secret:
 
    ```
-   vllm serve Qwen/Qwen3.8-27B-FP8 --host 0.0.0.0 --port 8000 --max-model-len 32768 --gpu-memory-utilization 0.92 --reasoning-parser qwen3 --enable-prefix-caching --api-key CHANGE_ME
+   vllm serve Qwen/Qwen3.8-27B-FP8 --host 0.0.0.0 --port 8000 --max-model-len 16384 --gpu-memory-utilization 0.92 --reasoning-parser qwen3 --enable-prefix-caching --api-key CHANGE_ME
    ```
 
    - If the log says `unrecognized arguments`, the image's entrypoint already includes `vllm serve`. Delete those two words.
    - Optional: `--language-model-only` skips the vision encoder and frees memory.
    - Optional: MTP speculative decoding, `--speculative-config '{"method":"mtp","num_speculative_tokens":3}'`, if your vLLM build supports it.
-6. Wait for `Application startup complete` in **Logs**. The first boot downloads about 31 GB.
-7. Smoke test:
+6. Wait for `Application startup complete` in **Logs**, then smoke-test:
 
    ```bash
    curl https://<POD_ID>-8000.proxy.runpod.net/v1/models -H "Authorization: Bearer CHANGE_ME"
-   curl https://<POD_ID>-8000.proxy.runpod.net/v1/chat/completions \
-     -H "Authorization: Bearer CHANGE_ME" -H "Content-Type: application/json" \
-     -d '{"model":"Qwen/Qwen3.8-27B-FP8","messages":[{"role":"user","content":"Say hello in Bahasa Malaysia"}],"max_tokens":40,"chat_template_kwargs":{"enable_thinking":false}}'
    ```
 
-8. Connect Path.AI by putting this in `.env` (never commit it):
-
-   ```
-   LLM_BASE_URL=https://<POD_ID>-8000.proxy.runpod.net/v1
-   LLM_API_KEY=CHANGE_ME
-   LLM_MODEL=Qwen/Qwen3.8-27B-FP8
-   ```
-
-   Restart the app. The header pill turns green, CV parsing uses the model behind the evidence guardrail, and every role card gets a **Rewrite with AI** button under *Why this role?*.
-9. **Stop the pod** when you finish.
+7. Put `LLM_BASE_URL=https://<POD_ID>-8000.proxy.runpod.net/v1`, `LLM_API_KEY=CHANGE_ME` and `LLM_MODEL=Qwen/Qwen3.8-27B-FP8` in `.env`. This manual pod has no watchdog: **stop it yourself** when you finish.
 
 **Option B, with no image entrypoint questions.** Use the PyTorch template, open a web terminal, run `pip install -U vllm`, then run the same `vllm serve …` command. Expose port 8000 in the pod settings.
 

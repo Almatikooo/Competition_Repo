@@ -5,7 +5,7 @@
   - Hacker News *Ask HN: Who is hiring?*, the three latest monthly threads, through the Algolia HN Search API;
   - [Himalayas](https://himalayas.app/), [Jobicy](https://jobicy.com/), [Remotive](https://remotive.com/), [Remote OK](https://remoteok.com/) and [Arbeitnow](https://www.arbeitnow.com/) through their public job APIs.
 
-  For each posting only facts are kept: title, company, link, place, date, a level read from the title, and the skill and role ids our catalogue detects. Descriptions are read once to detect skills and are not stored or shown. Every job card names its source and links to the original posting, and applications always happen on the original page. We follow each feed's terms:
+  For each posting only facts are kept: title, company, link, place, date, a level read from the title, and the skill and role ids our catalogue detects. Descriptions are not stored in the snapshot or shown. A trimmed copy of each description (its requirement sentences) stays in the git-ignored cache so that our language model (Qwen3.8-27B, open weights, on our own GPU) can read it once; from it only facts are kept in `job_facts.json`: catalogue skills, years of experience, degree, languages, pay, work mode and visa sponsorship, each checked against the sentence it came from. Every job card names its source and links to the original posting, and applications always happen on the original page. We follow each feed's terms:
   - Remotive, Jobicy and Remote OK are credited by name with a link, and each Remote OK job links back to its Remote OK page (their API terms).
   - Remotive is queried only a few times a day.
   - Postings are never re-submitted to other job sites or used to collect sign-ups.

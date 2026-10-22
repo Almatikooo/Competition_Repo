@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "data/cache/opportunities/raw"
 USER_AGENT = "PathAI/0.1 (SDC XMUM hackathon prototype; education project; github.com/Almatikooo)"
 MAX_AGE_HOURS = 20
+OFFLINE = False   # set by `jobs.py --texts-only`: use cached responses whatever their age, never the network
 
 
 def _path(url: str) -> Path:
@@ -18,8 +19,10 @@ def _path(url: str) -> Path:
 
 def get_json(client: httpx.Client, url: str, max_age_hours: float = MAX_AGE_HOURS, pause: float = 0.4):
     path = _path(url)
-    if path.exists() and time.time() - path.stat().st_mtime < max_age_hours * 3600:
+    if path.exists() and (OFFLINE or time.time() - path.stat().st_mtime < max_age_hours * 3600):
         return json.loads(path.read_text(encoding="utf-8"))
+    if OFFLINE:
+        raise FileNotFoundError(f"not in the cache: {url}")
     for attempt in range(3):
         resp = client.get(url)
         if resp.status_code == 429 and attempt < 2:

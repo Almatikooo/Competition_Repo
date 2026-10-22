@@ -91,7 +91,10 @@ async def explain(facts: dict, lang: str) -> tuple[str, list[str]]:
             "in 'sources'. End by reminding the person that this is an estimate and the decision is theirs.")},
         {"role": "user", "content": json.dumps(public, ensure_ascii=False)},
     ]
-    raw = await llm.chat(messages, json_schema=schema, max_tokens=450, temperature=0.3)
+    def grounded(raw: str) -> bool:
+        return not guard_explanation(json.loads(raw)["explanation"].strip(), facts)
+
+    raw = await llm.chat(messages, json_schema=schema, max_tokens=450, temperature=0.3, accept=grounded)
     text = json.loads(raw)["explanation"].strip()
     return text, guard_explanation(text, facts)
 

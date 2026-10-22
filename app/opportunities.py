@@ -8,8 +8,12 @@ A person answers two questions (study or work? where?) and Path.AI lists:
           fields that lead towards the person's direction, how to apply and how to fund it.
 
 The data is a dated snapshot built by scripts/opportunities (jobs.py, universities.py); nothing about the person is
-stored — the profile is sent with each request, as on the matches page.
+stored — the profile is sent with each request, as on the matches page. When the language model has read the postings
+(scripts/opportunities/enrich.py → job_facts.json), each job also carries the facts it found — skills required or nice
+to have, years of experience, degree, languages, pay, work mode, visa sponsorship — every one checked against the
+posting's own sentences.
 """
+import hashlib
 import json
 import re
 import urllib.parse
@@ -37,11 +41,30 @@ def _load(name: str) -> dict:
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
 
 
+def url_key(url: str) -> str:
+    """A posting's stable id across rebuilds (the snapshot's j1, j2… ids are renumbered every build)."""
+    return hashlib.sha1(url.encode()).hexdigest()[:16]
+
+
+def with_facts(jobs: list[dict], facts: dict[str, dict]) -> list[dict]:
+    """Adds what the model read in each posting; its skills (required, then nice to have) replace the keyword match."""
+    for job in jobs:
+        found = facts.get(url_key(job["url"]))
+        if found is not None:
+            job["ai"] = found
+            if found.get("req") or found.get("nice"):
+                job["skills"] = list(dict.fromkeys(found.get("req", []) + found.get("nice", [])))
+    return jobs
+
+
 @lru_cache(maxsize=1)
 def data() -> dict:
     jobs = _load("jobs.json")
     unis = _load("universities.json")
-    return {"jobs": jobs.get("jobs", []), "jobs_meta": {k: jobs.get(k) for k in ("generated", "stats", "sources")},
+    ai = _load("job_facts.json") if (OPP_DIR / "job_facts.json").exists() else {}
+    jobs_meta = {k: jobs.get(k) for k in ("generated", "stats", "sources")}
+    jobs_meta["ai"] = {k: ai.get(k) for k in ("model", "generated", "read")} if ai else None
+    return {"jobs": with_facts(jobs.get("jobs", []), ai.get("facts", {})), "jobs_meta": jobs_meta,
             "universities": unis.get("countries", {}), "unis_meta": {k: unis.get(k) for k in ("generated", "sources")},
             "portals": _load("portals.json"), "fields": _load("fields.json")}
 
@@ -159,6 +182,7 @@ def jobs_for(profile: Profile, certified: list[str], country: str, roles: list[s
         else:
             s = {"fit": None, "role": next((r for r in job["roles"] if r in roles), (job["roles"] or [None])[0]), "have": [], "missing": []}
         item = {k: job[k] for k in ("id", "title", "company", "url", "source", "posted", "location", "level", "type")}
+        item["ai"] = {k: v for k, v in job.get("ai", {}).items() if k not in ("req", "nice")} or None
         item.update(s, where=where, remote=job["remote"] if isinstance(job["remote"], str) or not job["remote"] else job["remote"][:8])
         (local if where == "local" else remote).append(item)
     order = lambda j: (-(j["fit"] or 0), j["level"] == "senior", -_posted(j))

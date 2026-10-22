@@ -26,7 +26,8 @@ def test_job_snapshot_is_dated_attributed_and_lean():
     assert raw["generated"] and raw["sources"] and len(JOBS) > 1000
     keys = {"id", "title", "company", "url", "source", "posted", "location", "countries", "remote", "level", "type", "roles", "skills"}
     for job in JOBS:
-        assert set(job) == keys                       # no descriptions or other free text is stored
+        assert set(job) - {"ai"} == keys              # no descriptions or other free text is stored
+        assert set(job.get("ai", {})) <= {"req", "nice", "years", "degree", "degree_required", "languages", "pay", "mode", "visa"}
         assert job["url"].startswith("https://")
         assert all(re.fullmatch(r"[A-Z]{2}", c) for c in job["countries"])
         assert job["remote"] in (None, "WORLD", "UNSPECIFIED") or all(re.fullmatch(r"[A-Z]{2}", c) for c in job["remote"])
@@ -185,3 +186,16 @@ def test_the_job_skill_prefilter_never_changes_what_is_found():
     for text in samples:
         full = [sid for sid, (_, patterns) in m.skills.items() if any(p.search(text) for p in patterns)]
         assert m.skills_in(text) == full, text
+
+
+def test_facts_read_by_the_model_join_their_posting_and_replace_keyword_skills():
+    jobs = [{"url": "https://a.example/1", "skills": ["excel", "sales"]}, {"url": "https://a.example/2", "skills": ["sql"]},
+            {"url": "https://a.example/3", "skills": ["python"]}]
+    facts = {opp.url_key("https://a.example/1"): {"req": ["bookkeeping", "excel"], "nice": ["sql"], "years": 2, "pay": [3500, 4500, "MYR", "month"]},
+             opp.url_key("https://a.example/2"): {"languages": ["de"]}}
+    merged = opp.with_facts(jobs, facts)
+    assert merged[0]["skills"] == ["bookkeeping", "excel", "sql"] and merged[0]["ai"]["years"] == 2
+    assert merged[1]["skills"] == ["sql"] and merged[1]["ai"] == {"languages": ["de"]}     # no skills read: keyword match kept
+    assert "ai" not in merged[2]
+    res = opp.jobs_for(AISYAH, [], "MY", DIRECTIONS)
+    assert all("ai" in j and (j["ai"] is None or not {"req", "nice"} & set(j["ai"])) for j in res["local"] + res["remote"])

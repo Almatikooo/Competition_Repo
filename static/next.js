@@ -40,6 +40,37 @@ const hostOf = (url) => { try { return new URL(url).hostname.replace(/^www\./, "
 const isStudent = () => state.origin?.type === "field" || state.wizard.student;
 const ext = (href, ...children) => h("a", { href, target: "_blank", rel: "noopener" }, ...children);
 
+// What the model read in the posting (scripts/opportunities/enrich.py): one short line, every fact checked against the text.
+const langNamers = {};
+function languageName(code) {
+  try {
+    langNamers[state.lang] ||= new Intl.DisplayNames([LOCALES[state.lang] || "en"], { type: "language" });
+    return langNamers[state.lang].of(code) || code;
+  } catch { return code; }
+}
+const MONEY_LOCALES = { en: "en-MY", ms: "ms-MY", zh: "en-MY" };   // "RM 3,500–4,500", "US$120,000–150,000"
+function payText([min, max, currency, per]) {
+  let text;
+  try {
+    const fmt = new Intl.NumberFormat(MONEY_LOCALES[state.lang] || "en-MY", { style: "currency", currency, maximumFractionDigits: 0 });
+    text = max && max !== min ? (fmt.formatRange ? fmt.formatRange(min, max) : `${fmt.format(min)}–${fmt.format(max)}`) : fmt.format(min);
+  } catch {
+    text = `${currency} ${Math.round(min).toLocaleString()}${max && max !== min ? `–${Math.round(max).toLocaleString()}` : ""}`;
+  }
+  return `${text} ${t(`nx_per_${per}`)}`;
+}
+function requirements(ai) {
+  if (!ai) return null;
+  const bits = [];
+  if (ai.years != null) bits.push(ai.years === 0 ? t("nx_req_no_exp") : t("nx_req_years", { n: ai.years }));
+  if (ai.degree) bits.push(ai.degree_required === false ? `${t(`nx_deg_${ai.degree}`)} (${t("nx_req_preferred")})` : t(`nx_deg_${ai.degree}`));
+  if (ai.languages?.length) bits.push(ai.languages.map(languageName).join(", "));
+  if (ai.pay) bits.push(payText(ai.pay));
+  if (ai.mode && ai.mode !== "remote") bits.push(t(`nx_mode_${ai.mode}`));
+  if (ai.visa != null) bits.push(t(ai.visa ? "nx_visa_yes" : "nx_visa_no"));
+  return bits.length ? h("p", { class: "job-req", title: t("nx_ai_read") }, icon("sparkles"), h("span", {}, bits.join(" · "))) : null;
+}
+
 function posted(iso) {
   if (!iso) return "";
   const days = Math.max(0, Math.round((Date.now() - Date.parse(`${iso}T00:00:00Z`)) / 864e5));
@@ -220,6 +251,7 @@ function jobCard(j) {
       h("span", { class: "tiny muted" }, posted(j.posted))),
     h("h3", {}, ext(j.url, j.title)),
     h("p", { class: "job-meta" }, [j.company, j.location].filter(Boolean).join(" · ")),
+    requirements(j.ai),
     j.have.length ? h("div", { class: "row job-skills" }, h("span", { class: "k" }, t("nx_have")),
       j.have.map((s) => h("span", { class: "pill have", title: s.certified ? t("nx_cert_tip") : null }, "✓ ", skillShort(s.id), s.certified ? icon("award") : null))) : null,
     j.missing.length ? h("div", { class: "row job-skills" }, h("span", { class: "k" }, t("nx_learn")),

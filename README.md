@@ -158,7 +158,8 @@ This is the last step of the journey. It is linked from the results, the plan, y
 - **The LLM never chooses jobs, courses or numbers.**
   - CV reading is JSON-schema constrained to our skill ids, and each skill must quote the CV verbatim or it is dropped.
   - Explanations must cite existing sources and may contain only numbers from the fact sheet; otherwise the verified text is shown.
-  - Both rules are tested against a fake vLLM endpoint (`tests/test_guardrails.py`).
+  - Job postings are read sentence by sentence: every fact the model reports (skills, years, degree, languages, pay, work mode, visa) must cite a numbered sentence of the posting that really says it — the number, currency, language or degree word has to be in that sentence — or the fact is dropped (`scripts/opportunities/enrich.py`).
+  - All three rules are tested against a fake vLLM endpoint (`tests/test_guardrails.py`, `tests/test_enrich.py`).
 - **Fairness.** The only inputs are skills, interests, SDG priorities and weekly hours. A test proves that adding age, gender, ethnicity or location cannot change the ranking. The country chosen under *Opportunities* only filters where to look for jobs or universities.
 - **Human-centred.** Every skill can be edited and the ranking re-weighted. Path.AI supports career decisions; it does not make hiring decisions.
 
@@ -166,7 +167,9 @@ This is the last step of the journey. It is linked from the results, the plan, y
 
 - **Model.** `Qwen/Qwen3.8-27B-FP8`: open weights (Apache-2.0, Aug 2026), multilingual (EN/BM/ZH), vision-capable, fits one 48 GB GPU.
 - **GPU.** 1× **RTX A6000 48 GB** on RunPod: $0.59/h Secure, $0.33/h Community, about 40 hours for $25.
-- **Without the model.** The app works fully **without** it. Only CV reading and the *Rewrite with AI* explanations use it.
+- **What it does.** It reads CVs, rewrites the *Why this role?* explanations, and reads every job posting once (≈19.5k postings, ≈3 GPU hours): skills required or nice to have, years of experience, degree, languages, pay, work mode and visa sponsorship, shown on each job card and used for matching.
+- **GPU only when needed.** `python -m scripts.gpu create | start | stop | status` switches the RunPod pod on and off, and a watchdog inside the pod stops it after 20 minutes without requests. Answers the model gave are kept, so the demo people and repeated requests need no GPU.
+- **Without the model.** The app works fully **without** it, in rule-based mode; facts already read from postings stay in the snapshot.
 - **Details.** Reasoning, alternatives, budget plan and setup are in **[docs/RUNPOD.md](docs/RUNPOD.md)**.
 
 ## Hardest risks and fallbacks
@@ -176,7 +179,8 @@ This is the last step of the journey. It is linked from the results, the plan, y
 | Trend data unreliable or unavailable during the demo | Signals are cached in the repo with fetch dates. Refresh is incremental and keeps the last good data on failure. There are two independent live sources plus cited baselines, and OpenAlex use is budget-aware. |
 | AI inventing jobs, courses or statistics | Catalog-only ids, evidence and number guardrails, and tests. |
 | Matching quality | Transparent components, transferable-skill credit, editable skills and weights, and robustness across scenarios. |
-| GPU or LLM down | Full rule-based mode. The UI states which engine wrote each explanation. |
+| GPU or LLM down | Full rule-based mode. The UI states which engine wrote each explanation. Kept answers and the facts read from postings still show. |
+| GPU budget ($25 ≈ 42 h) runs out | The GPU runs only for checks, the one-off reading of postings and the demo; the in-pod watchdog stops it after 20 idle minutes. |
 | Representativeness (HN is US/tech-centric) | Used for tech skills only, with confidence labels. Malaysian feeds are on the roadmap. |
 | Few open postings for a country in the job snapshot | Every country also gets one-tap searches on its main job sites, official portals first, and remote jobs open worldwide. |
 
@@ -186,16 +190,20 @@ This is the last step of the journey. It is linked from the results, the plan, y
 python3 -m venv .venv && source .venv/bin/activate      # Python ≥ 3.11
 pip install -r requirements.txt
 uvicorn app.main:app --reload                            # http://127.0.0.1:8000
-python -m pytest -q                                      # 76 tests
+python -m pytest -q                                      # 108 tests
 python -m app.signals.refresh                            # pull fresh HN + OpenAlex data (optional)
 python scripts/verify_resources.py                       # re-check every course / source URL
 python -m scripts.opportunities.jobs                     # refresh the job snapshot (about 15 min)
 python -m scripts.opportunities.universities             # refresh the university lists
+python -m scripts.gpu create                             # first time: the RunPod GPU pod for Qwen (needs RUNPOD_API_KEY in .env)
+python -m scripts.gpu start | stop | status              # switch the GPU on and off (it also stops itself after 20 idle minutes)
+python -m scripts.opportunities.enrich --dry-run         # what reading every job posting with the model would cost
+python -m scripts.opportunities.enrich                   # read them (GPU on; continues where it stopped)
 uv run --with markdown-it-py --with mdit-py-plugins --with nh3 --with beautifulsoup4 --with lxml --with pyyaml python -m scripts.learnkit.build  # rebuild the courses
 ```
 
 - **Replit.** Import the GitHub repo. `.replit` installs the requirements and runs uvicorn on port 8000.
-- **LLM.** Copy `.env.example` to `.env` and set `LLM_BASE_URL`, `LLM_API_KEY` and `LLM_MODEL`.
+- **LLM.** Copy `.env.example` to `.env`, put your RunPod API key in `RUNPOD_API_KEY` and run `python -m scripts.gpu create`: it creates the pod and fills in `LLM_BASE_URL`, `LLM_API_KEY` and `LLM_MODEL`. Any other OpenAI-compatible endpoint works too.
 - **Certificates.** In production, set a stable `CERT_SECRET`.
 
 **Demo links** (one tap to a full result):
@@ -232,11 +240,13 @@ data/
   catalog/             skills · roles (+ interest tiles, study fields) · resources · sdgs · capabilities · sources
   signals/             cached, dated trend data (refreshable)
   learn/               courses/*.json (syllabus + question pool) · lessons/<skill>/*.html (sanitised lesson text) · quizzes/*.json (authored questions) · pins.json · LICENSE.md
-  opportunities/       jobs.json (dated job snapshot) · universities.json · portals.json · fields.json · sources.json · LICENSE.md
+  opportunities/       jobs.json (dated job snapshot) · job_facts.json (what the model read in each posting) · universities.json · portals.json · fields.json · sources.json · LICENSE.md
   personas.json        fictional example people + fictional HR team
 static/                vanilla-JS single-page app (no build step): app.js · learn.js · next.js · core.js · charts.js · i18n.js · styles.css · brand/ (logo, icons) · flags/ (country flags, MIT)
 scripts/learnkit/      course importer: courses.py (which open material each course uses) · build.py · convert.py · digest.py
-scripts/opportunities/ job and university snapshots: jobs.py · universities.py · places.py (GeoNames) · fetch.py (polite cached GETs)
+scripts/opportunities/ job and university snapshots: jobs.py · universities.py · places.py (GeoNames) · fetch.py (polite cached GETs) · trim.py (requirement sentences) · enrich.py (the model reads each posting once)
+scripts/gpu.py         switch the RunPod GPU on and off: create · start · stop · status · wait · recreate
+deploy/runpod/         the pod's start command (start.sh: vLLM) and watchdog.py (stops the pod when the model sits idle)
 scripts/brand_assets.py  rebuilds static/brand/ (vector logo, favicons, link preview) from the master logo
 tests/                 catalog, engine, guardrail, learn/certificate, opportunities and API tests
 docs/RUNPOD.md         model + GPU choice and deployment guide

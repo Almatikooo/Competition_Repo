@@ -31,6 +31,12 @@ LLM_MODEL = os.getenv("LLM_MODEL", "Qwen/Qwen3.8-27B-FP8")
 LLM_TIMEOUT = float(os.getenv("LLM_TIMEOUT", "90"))
 # Qwen3.x thinks by default; structured extraction is faster and more reliable without it.
 LLM_DISABLE_THINKING = os.getenv("LLM_DISABLE_THINKING", "true").lower() == "true"
+# One GPU serves everyone: the web app sends at most this many requests at a time (batch jobs set their own limit).
+LLM_MAX_PARALLEL = int(os.getenv("LLM_MAX_PARALLEL", "4"))
+# Model answers are kept, so the same request is answered at once and without the GPU: data/cache/llm (local)
+# and data/ai/answers.jsonl (saved answers for the example people, committed so the demo shows them with the GPU off).
+LLM_CACHE_DIR = CACHE_DIR / "llm"
+LLM_SAVED_ANSWERS = DATA / "ai" / "answers.jsonl"
 
 # Certificates: HMAC key that signs Path.AI certificates. Set it in production; changing it invalidates old links.
 CERT_SECRET = os.getenv("CERT_SECRET", "")

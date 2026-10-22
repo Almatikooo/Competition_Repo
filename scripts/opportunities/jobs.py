@@ -1,6 +1,7 @@
 """Open job postings worldwide -> data/opportunities/jobs.json
 
     python -m scripts.opportunities.jobs
+    python -m scripts.opportunities.jobs --texts-only   # only re-write the trimmed texts for the current snapshot (offline)
 
 Sources (all public and read-only; every listing links back to the original posting):
   * company job boards on Greenhouse, Lever and Ashby (their public embed APIs), listed in data/opportunities/sources.json
@@ -9,7 +10,9 @@ Sources (all public and read-only; every listing links back to the original post
   * Arbeitnow (jobs in Germany)
 
 For each posting we keep only facts needed to match and link it: title, company, where it can be done, level,
-the Path.AI roles its title matches and the catalogue skills its text asks for. Descriptions are not stored.
+the Path.AI roles its title matches and the catalogue skills its text asks for. Descriptions are not stored in the
+snapshot: only a trimmed copy (requirement sentences, see trim.py) goes to the git-ignored cache, for the language model
+to read once (scripts/opportunities/enrich.py).
 """
 import datetime as dt
 import html
@@ -26,8 +29,10 @@ from app.catalog import alias_regex, get_catalog  # noqa: E402
 
 from . import fetch  # noqa: E402
 from .places import countries_in, remote_scope  # noqa: E402
+from .trim import text_hash, trim, url_key  # noqa: E402
 
 OUT = ROOT / "data/opportunities/jobs.json"
+TEXTS = ROOT / "data/cache/opportunities/texts.jsonl"     # trimmed posting texts for enrich.py (cache only, not in git)
 SOURCES = json.loads((ROOT / "data/opportunities/sources.json").read_text(encoding="utf-8"))
 DEFAULT_CAP = 400
 MAX_AGE_DAYS = 120
@@ -167,7 +172,7 @@ def record(m: Matcher, *, source, company, title, url, posted, location, text, r
     skills = m.skills_in(f"{title}. {text}")
     return {"title": title[:140], "company": (company or "").strip()[:80], "url": url, "source": source, "posted": day(posted),
             "location": (location or "")[:90], "countries": places, "remote": remote, "level": level_of(title),
-            "type": kind, "roles": roles, "skills": skills}
+            "type": kind, "roles": roles, "skills": skills, "text": text}
 
 
 # ---------------------------------------------------------------- company boards
@@ -374,6 +379,9 @@ def build() -> dict:
     kept.sort(key=lambda r: r["posted"] or "", reverse=True)
     for i, r in enumerate(kept, start=1):
         r["id"] = f"j{i}"
+    write_texts(kept)
+    for r in jobs:
+        r.pop("text", None)
     sources = [{"name": b["company"], "url": board_url(b), "kind": "company"} for b in SOURCES["boards"]]
     sources += [{"name": f["name"], "url": f["url"], "kind": "feed"} for f in feeds.values()]
     data = {"generated": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "jobs": kept,
@@ -383,12 +391,56 @@ def build() -> dict:
     return data
 
 
+def write_texts(jobs: list[dict]) -> None:
+    TEXTS.parent.mkdir(parents=True, exist_ok=True)
+    with TEXTS.open("w", encoding="utf-8") as f:
+        for r in jobs:
+            sents = trim(r.get("text") or "")
+            row = {"key": url_key(r["url"]), "id": r["id"], "title": r["title"], "company": r["company"], "sentences": sents, "h": text_hash(sents)}
+            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+
+class _NoMatch:
+    """--texts-only: the texts are needed, not the (slow) skill matching."""
+    def roles(self, title: str) -> list[str]:
+        return []
+
+    def skills_in(self, text: str) -> list[str]:
+        return []
+
+
+def texts_only() -> int:
+    """Re-writes the trimmed texts for the postings of the current snapshot from the cached responses (no network)."""
+    fetch.OFFLINE = True
+    m, feeds, found = _NoMatch(), SOURCES["feeds"], {}
+    with fetch.client() as client:
+        runs = [lambda b=b: BOARDS[b["ats"]](m, client, b) for b in SOURCES["boards"]]
+        runs += [lambda: hacker_news(m, client), lambda: himalayas(m, client, feeds["himalayas"]["pages"]),
+                 lambda: jobicy(m, client, feeds["jobicy"]["pages"]), lambda: remotive(m, client),
+                 lambda: arbeitnow(m, client, feeds["arbeitnow"]["pages"]), lambda: remote_ok(m, client)]
+        for run in runs:
+            try:
+                for r in run():
+                    if r:
+                        found.setdefault((r["company"].lower(), r["title"].lower(), r["location"].lower()), r["text"])
+            except Exception as exc:
+                print(f"  !! {exc}")
+    jobs = json.loads(OUT.read_text(encoding="utf-8"))["jobs"]
+    rows = [{**j, "text": found.get((j["company"].lower(), j["title"].lower(), j["location"].lower()), "")} for j in jobs]
+    write_texts(rows)
+    return sum(1 for r in rows if r["text"])
+
+
 def board_url(board: dict) -> str:
     return {"greenhouse": f"https://boards.greenhouse.io/{board['slug']}", "lever": f"https://jobs.lever.co/{board['slug']}",
             "ashby": f"https://jobs.ashbyhq.com/{board['slug']}"}[board["ats"]]
 
 
 def main() -> None:
+    if "--texts-only" in sys.argv:
+        n = texts_only()
+        print(f"trimmed texts for {n} postings -> {TEXTS.relative_to(ROOT)}")
+        return
     data = build()
     jobs = data["jobs"]
     countries = Counter(c for j in jobs for c in j["countries"])

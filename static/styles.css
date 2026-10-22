@@ -733,6 +733,8 @@ a.po-ctest:hover { background: var(--surface); color: var(--blue); }
 .job-card h3 a { color: var(--ink); text-decoration: none; }
 .job-card h3 a:hover { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
 .job-meta { color: var(--ink-2); font-size: 14px; margin-top: 2px; }
+.job-req { display: flex; gap: 6px; align-items: flex-start; color: var(--ink); font-size: 13.5px; margin-top: 8px; }
+.job-req svg { width: 15px; height: 15px; flex: none; margin-top: 2px; color: var(--blue); }
 .job-skills { margin-top: 10px; gap: 6px; }
 .job-skills .k { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); min-width: 84px; }
 .job-skills .pill svg { width: 13px; height: 13px; }
