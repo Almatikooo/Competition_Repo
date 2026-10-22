@@ -327,7 +327,7 @@ def market_facts(market: dict, outlook_pct: float | None, country_name: str) -> 
         "direction": catalog.roles[market["role"]]["title"]["en"],
         "where": "remote jobs open to applicants worldwide" if market["country"] == REMOTE else (country_name or market["country"]),
         "open_postings_here": market["here"]["n"], "open_postings_worldwide": market["world"]["n"],
-        "figures_below_are_for": "this place" if market["basis"] == "here" else "this direction worldwide (few postings here)",
+        "scope": "this place" if market["basis"] == "here" else "worldwide",       # few postings here: the direction worldwide
         "skills_employers_require_most": [{"skill": name(x["id"]), "percent_of_postings": pc(x["share"]), "person_has_it": x["you"]}
                                           for x in basis["skills"]],
     }

@@ -58,7 +58,7 @@ def fake_check(monkeypatch):
         if request.url.path.endswith("/models"):
             return httpx.Response(200, json={"data": [{"id": "fake-qwen"}]})
         seen["facts"] = json.loads(json.loads(request.content)["messages"][1]["content"])
-        return httpx.Response(200, json={"choices": [{"message": {"content": json.dumps({"check": seen["text"]})}}]})
+        return httpx.Response(200, json={"choices": [{"message": {"content": json.dumps({"advice": seen["text"]})}}]})
 
     monkeypatch.setattr(llm, "base_url", "http://fake-vllm/v1")
     monkeypatch.setattr(llm, "transport", httpx.MockTransport(handler))

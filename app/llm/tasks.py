@@ -143,18 +143,23 @@ async def job_advice(facts: dict, lang: str) -> tuple[str, list[str]]:
     return text, guard_numbers(text, facts)
 
 
-CHECK_SCHEMA = {"type": "object", "additionalProperties": False, "required": ["check"], "properties": {"check": {"type": "string"}}}
+CHECK_SCHEMA = {"type": "object", "additionalProperties": False, "required": ["advice"], "properties": {"advice": {"type": "string"}}}
 CHECK_PARAMS = {"max_tokens": 260, "temperature": 0.3}
 
 
 def market_messages(facts: dict, lang: str) -> list[dict]:
+    # Measured on the real model: a meta-sounding task ("compare the person with…") made it narrate the task or echo the
+    # instructions; exact three sentences in the second person plus a placeholder example gave 12/12 grounded answers.
     return [
         {"role": "system", "content": (
-            f"You are a careful, warm career adviser for Malaysian workers. In {LANG_NAMES.get(lang, 'English')}, in 3 or 4 "
-            "short sentences, compare the person with what employers in this job market ask for: how much of that demand "
-            "they already cover, what most stands between them and these jobs, and one concrete next step. Use ONLY the "
-            "facts provided and do not add any number that is not in them. If the figures are for the direction worldwide "
-            "because there are few postings in that place, say so. Plain text, no lists.")},
+            "You are a careful, warm career adviser for Malaysian workers. Write directly to the person (\"you\") in "
+            f"{LANG_NAMES.get(lang, 'English')}, in exactly three short sentences: first, how much of what employers in this "
+            "job market most often require they already have; second, the biggest gap between them and these jobs; third, "
+            "one concrete next step. Use ONLY the facts provided and do not add any number that is not in them. If scope is "
+            "worldwide, say once that the figures are worldwide. Write only the advice itself: no headings, no lists, no "
+            "notes about these instructions. Example of the style, with placeholders instead of numbers: \"You already have "
+            "about N% of the skills employers ask for most in this market, including Excel. The biggest gap is SQL, which M% "
+            "of these postings require. Start with the SQL course this week.\"")},
         {"role": "user", "content": json.dumps(facts, ensure_ascii=False)},
     ]
 
@@ -166,10 +171,10 @@ def market_payload(facts: dict, lang: str) -> dict:
 async def market_check(facts: dict, lang: str) -> tuple[str, list[str]]:
     """3-4 sentences comparing the person with the job market for one direction, from its statistics only."""
     def grounded(raw: str) -> bool:
-        return not guard_numbers(json.loads(raw)["check"].strip(), facts)
+        return not guard_numbers(json.loads(raw)["advice"].strip(), facts)
 
     raw = await llm.chat(market_messages(facts, lang), json_schema=CHECK_SCHEMA, accept=grounded, **CHECK_PARAMS)
-    text = json.loads(raw)["check"].strip()
+    text = json.loads(raw)["advice"].strip()
     return text, guard_numbers(text, facts)
 
 
