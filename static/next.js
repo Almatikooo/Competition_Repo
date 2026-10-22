@@ -114,7 +114,8 @@ async function askAI(j, btn) {
   try {
     const res = await api("/api/next/why", { profile: { ...state.profile, languages: myLanguages() }, certified: Object.keys(state.certs), job_id: j.id, lang: state.lang });
     if (res.engine === "llm") (state.jobAdvice ||= {})[j.id] = res;
-    else toast(t(res.guardrail?.rejected ? "nx_ai_rejected" : "ai_off_now"));
+    else if (res.guardrail?.rejected) toast(t("nx_ai_rejected"));
+    else (state.jobAdvice ||= {})[j.id] = { off: true };      // GPU off and nothing saved for this job: say so here
   } catch (e) { toast(String(e.message || e)); }
   rerender();
 }
@@ -306,11 +307,12 @@ function jobCard(j) {
       j.missing.map((m) => (ours.has(m.id)
         ? h("a", { class: "pill learn", href: `#/learn/${m.id}` }, `${skillShort(m.id)} · ${m.hours} h →`)
         : h("span", { class: "pill" }, `${skillShort(m.id)} · ${m.hours} h`)))) : null,
-    state.jobAdvice?.[j.id] ? h("div", { class: "job-ai" }, h("p", {}, state.jobAdvice[j.id].text),
-      h("p", { class: "tiny muted" }, t("nx_ai_note", { model: state.jobAdvice[j.id].model }))) : null,
+    state.jobAdvice?.[j.id]?.off ? h("div", { class: "job-ai off" }, h("p", {}, t("nx_ai_off_job")))
+      : state.jobAdvice?.[j.id] ? h("div", { class: "job-ai" }, h("p", {}, state.jobAdvice[j.id].text),
+        h("p", { class: "tiny muted" }, t("nx_ai_note", { model: state.jobAdvice[j.id].model }))) : null,
     h("div", { class: "job-actions" },
       h("a", { class: "btn btn-primary btn-sm", href: j.url, target: "_blank", rel: "noopener" }, `${t("nx_apply")} ↗`),
-      j.fit != null && !state.jobAdvice?.[j.id] && (state.meta.llm?.online || j.advice_saved)
+      j.fit != null && !state.jobAdvice?.[j.id]                 // always offered; answered live, from a saved answer, or "AI is off"
         ? h("button", { type: "button", class: "btn btn-secondary btn-sm", onclick: (e) => askAI(j, e.currentTarget) }, icon("sparkles"), t("nx_ask_ai")) : null,
       h("span", { class: "tiny muted" }, `${t("nx_via")} `, sourceLink(j))));
 }
