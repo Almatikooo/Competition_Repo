@@ -432,6 +432,70 @@ function weightSlider(key, label) {
       oninput: (e) => { out.textContent = e.target.value; }, onchange: (e) => { state.weights[key] = Number(e.target.value) / 100; render(); } }));
 }
 
+// ---------------------------------------------------------------- AI review and career chat (results page)
+// Both are written by the model from the person's own facts (app/advisor.py); every number is checked on the server.
+function advisorBody() {
+  const country = state.next?.country || "MY";                 // where they look for jobs, if they chose; else Malaysia
+  return { as_of: state.asOf, scenario: state.scenario, lang: state.lang, weights: state.weights, country,
+    profile: { ...state.profile, languages: state.profile.languages || EMPTY_PROFILE.languages } };
+}
+
+function aiReviewCard() {
+  const key = JSON.stringify(advisorBody());
+  const r = state.review?.key === key ? state.review : null;
+  return h("section", { class: "card ai-review" },
+    h("div", { class: "ai-head" }, icon("sparkles"), h("h2", {}, t("rv_title"))),
+    r?.text ? [h("p", { class: "ai-review-text" }, r.text), h("p", { class: "tiny muted" }, t("rv_note", { model: r.model }))]
+      : r?.off ? h("p", { class: "small muted" }, t("rv_off"))
+        : [h("p", { class: "small muted" }, t("rv_sub")),
+          h("button", { type: "button", class: "btn btn-primary btn-sm", style: { marginTop: "10px" }, onclick: (e) => askReview(e.currentTarget) }, icon("sparkles"), t("rv_button"))]);
+}
+
+async function askReview(btn) {
+  btn.disabled = true;
+  btn.textContent = t("nx_asking");
+  const body = advisorBody();
+  const key = JSON.stringify(body);
+  try {
+    const res = await api("/api/review", body);
+    if (res.engine === "llm") state.review = { key, text: res.text, model: res.model };
+    else if (res.guardrail?.rejected) toast(t("nx_ai_rejected"));
+    else state.review = { key, off: true };
+  } catch (e) { toast(String(e.message || e)); }
+  render();
+}
+
+const SUGGESTED = ["chat_q_fastest", "chat_q_first", "chat_q_jobs"];
+function careerChat() {
+  const key = JSON.stringify(advisorBody());
+  if (state.chat?.key !== key) state.chat = { key, messages: [], busy: false };
+  const c = state.chat;
+  const send = async (text) => {
+    text = (text || "").trim().slice(0, 600);
+    if (!text || c.busy) return;
+    c.messages.push({ role: "user", content: text });
+    c.busy = true;
+    render();
+    const history = c.messages.filter((m) => !m.note).map(({ role, content }) => ({ role, content })).slice(-8);
+    try {
+      const res = await api("/api/chat", { ...advisorBody(), messages: history });
+      if (res.engine === "llm") c.messages.push({ role: "assistant", content: res.text });
+      else c.messages.push({ role: "assistant", content: t(res.guardrail?.rejected ? "chat_cant" : "chat_off"), note: true });
+    } catch (e) { c.messages.push({ role: "assistant", content: String(e.message || e), note: true }); }
+    c.busy = false;
+    render();
+  };
+  return h("section", { class: "card career-chat" },
+    h("div", { class: "ai-head" }, icon("sparkles"), h("h2", {}, t("chat_title"))),
+    h("p", { class: "small muted" }, t("chat_sub")),
+    c.messages.length ? h("div", { class: "chat-log", "aria-live": "polite" }, c.messages.map((m) => h("p", { class: `msg ${m.role}${m.note ? " note" : ""}` }, m.content))) : null,
+    c.busy ? h("p", { class: "small muted" }, t("nx_asking")) : null,
+    c.messages.length ? null : h("div", { class: "chips", style: { marginTop: "12px" } }, SUGGESTED.map((k) => h("button", { type: "button", class: "chip-sm", onclick: () => send(t(k)) }, t(k)))),
+    h("form", { class: "chat-form", onsubmit: (e) => { e.preventDefault(); const f = e.currentTarget.elements.q; send(f.value); f.value = ""; } },
+      h("input", { name: "q", type: "text", maxlength: 600, placeholder: t("chat_ph"), autocomplete: "off", "aria-label": t("chat_ph") }),
+      h("button", { type: "submit", class: "btn btn-primary btn-sm", disabled: c.busy }, t("chat_send"))));
+}
+
 function viewResults() {
   if (!hasProfile()) return startPrompt();
   const m = state.matches;
@@ -456,6 +520,7 @@ function viewResults() {
         h("span", { class: "spacer" }), paceSwitch()))),
     h("section", { class: "band", style: { paddingTop: "28px" } }, h("div", { class: "container", style: { maxWidth: "920px" } },
       notice ? h("div", { style: { marginBottom: "20px" } }, notice) : null,
+      aiReviewCard(),
       moved.length ? h("p", { class: "small muted", style: { marginBottom: "14px" } }, `${t("changes", { month: monthLabel(m.as_of) })} `,
         moved.map((r, i) => [i ? " · " : "", `${roleTitle(r.id)} ${r.prev_rank > r.rank ? "▲" : "▼"}${Math.abs(r.prev_rank - r.rank)}`])) : null,
       m.roles.slice(0, 3).map(matchCard),
@@ -464,6 +529,7 @@ function viewResults() {
           state.showMore ? t("fewer_roles") : t("more_roles", { n: rest.length }))) : null,
       state.showMore ? moreList : null,
       nextCta(),
+      careerChat(),
       h("details", { class: "card", style: { marginTop: "24px" } }, h("summary", { style: { cursor: "pointer", fontWeight: "700" } }, t("adjust")),
         h("div", { class: "grid-3", style: { marginTop: "16px", gap: "20px" } }, weightSlider("fit", t("w_fit")), weightSlider("outlook", t("w_outlook")), weightSlider("preference", t("w_pref")))),
       h("p", { class: "source-line", style: { textAlign: "center", marginTop: "24px" } },

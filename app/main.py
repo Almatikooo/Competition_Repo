@@ -15,6 +15,7 @@ from .engine.matching import Profile, Weights, current_role_outlook, match_role,
 from .engine.pathway import build_pathway
 from .engine.profile import detect_skills, extract_text
 from .learn import TEST_RULES, LearnError, get_learn, verify_certificate
+from . import advisor
 from . import opportunities as opp
 from .llm import tasks
 from .llm.client import LLMUnavailable, llm
@@ -72,6 +73,19 @@ class MatchQuery(Query):
 
 class RoleQuery(MatchQuery):
     role_id: str
+
+
+class ReviewQuery(MatchQuery):
+    country: str = Field(default="MY", pattern=r"^([A-Z]{2}|REMOTE)$")     # where the person looks for jobs
+
+
+class ChatMessage(BaseModel):
+    role: str = Field(pattern=r"^(user|assistant)$")
+    content: str = Field(min_length=1, max_length=600)
+
+
+class ChatQuery(ReviewQuery):
+    messages: list[ChatMessage] = Field(min_length=1, max_length=8)
 
 
 class NextJobsQuery(BaseModel):
@@ -295,6 +309,39 @@ async def explain(q: RoleQuery) -> dict:
     except (LLMUnavailable, ValueError, KeyError) as exc:
         result["guardrail"] = {"rejected": False, "error": str(exc)[:200]}
     return result
+
+
+def _person_facts(q: ReviewQuery) -> tuple[dict, str]:
+    facts = advisor.person_facts(catalog, outlook_for(resolve_as_of(q.as_of)), q.profile, q.weights, resolve_scenario(q.scenario), q.country)
+    return facts, q.lang if q.lang in LANGS else "en"
+
+
+@app.post("/api/review")
+async def ai_review(q: ReviewQuery) -> dict:
+    """The personal AI review on the results page: four sentences from the person's own facts (numbers checked)."""
+    facts, lang = _person_facts(q)
+    try:
+        text, problems = await tasks.career_review(facts, lang)
+    except (LLMUnavailable, ValueError, KeyError) as exc:
+        return {"engine": None, "text": None, "error": str(exc)[:200]}
+    if problems:
+        return {"engine": None, "text": None, "guardrail": {"rejected": True, "problems": problems}}
+    return {"engine": "llm", "text": text, "model": llm.model}
+
+
+@app.post("/api/chat")
+async def career_chat(q: ChatQuery) -> dict:
+    """The career chat: answers about the person's own options, from their facts only (numbers checked)."""
+    if q.messages[-1].role != "user":
+        raise HTTPException(422, "the last message must be the person's question")
+    facts, lang = _person_facts(q)
+    try:
+        text, problems = await tasks.career_chat(facts, [m.model_dump() for m in q.messages], lang)
+    except (LLMUnavailable, ValueError, KeyError) as exc:
+        return {"engine": None, "text": None, "error": str(exc)[:200]}
+    if problems:
+        return {"engine": None, "text": None, "guardrail": {"rejected": True, "problems": problems}}
+    return {"engine": "llm", "text": text, "model": llm.model}
 
 
 # ---------------------------------------------------------------- 4. pathway

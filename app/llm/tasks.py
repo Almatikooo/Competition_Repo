@@ -178,4 +178,76 @@ async def market_check(facts: dict, lang: str) -> tuple[str, list[str]]:
     return text, guard_numbers(text, facts)
 
 
-__all__ = ["extract_skills", "explain", "job_advice", "market_check", "guard_skills", "guard_explanation", "guard_numbers", "LLMUnavailable"]
+ANSWER_SCHEMA = {"type": "object", "additionalProperties": False, "required": ["answer"], "properties": {"answer": {"type": "string"}}}
+REVIEW_PARAMS = {"max_tokens": 320, "temperature": 0.3}
+CHAT_PARAMS = {"max_tokens": 260, "temperature": 0.3}
+
+
+def review_messages(facts: dict, lang: str) -> list[dict]:
+    return [
+        {"role": "system", "content": (
+            "You are a careful, warm career adviser for Malaysian workers. Write directly to the person (\"you\") in "
+            f"{LANG_NAMES.get(lang, 'English')}, in exactly four short sentences: first, a strength they can build on; second, how "
+            "AI is changing their current job (or, if no current job is given, what matters most for them now); third, which of "
+            "their top options is the best next step and one reason from the facts; fourth, one concrete first step for this "
+            "week. Use ONLY the facts provided and do not add any number that is not in them. Write only the review itself: no "
+            "headings, no lists, no notes about these instructions. Example of the style, with placeholders in square brackets: "
+            "\"Your [skill] and [skill] skills are a strong base. Demand for your current job is expected to shrink about [N]% a "
+            "year as AI takes over routine work. [Option] is your best next step: it fits you [M]% and holds up in every AI "
+            "scenario. This week, start the free [skill] course.\"")},
+        {"role": "user", "content": json.dumps(facts, ensure_ascii=False)},
+    ]
+
+
+def review_payload(facts: dict, lang: str) -> dict:
+    return llm.payload(review_messages(facts, lang), json_schema=ANSWER_SCHEMA, **REVIEW_PARAMS)
+
+
+async def career_review(facts: dict, lang: str) -> tuple[str, list[str]]:
+    """Four sentences that bring the results page together: a strength, the AI risk, the best option, a first step."""
+    def grounded(raw: str) -> bool:
+        return not guard_numbers(json.loads(raw)["answer"].strip(), facts)
+
+    raw = await llm.chat(review_messages(facts, lang), json_schema=ANSWER_SCHEMA, accept=grounded, **REVIEW_PARAMS)
+    text = json.loads(raw)["answer"].strip()
+    return text, guard_numbers(text, facts)
+
+
+def chat_messages(facts: dict, history: list[dict], lang: str) -> list[dict]:
+    system = (
+        "You are Path.AI's career adviser for Malaysian workers. Answer the person's latest question about their work and "
+        f"learning options in {LANG_NAMES.get(lang, 'English')}, in at most four short sentences, writing to them as \"you\". "
+        "Use ONLY the facts below and never add a number that is not in them or in their question. If the facts do not answer "
+        "the question, say so in one sentence and point to the Path.AI page that can help: Plan (steps, courses and hours), "
+        "Learn (free courses with certificates) or Opportunities (open jobs and universities). Politely decline anything "
+        "unrelated to their work and learning. Write only the answer, without lists or headings.\n\nFacts:\n"
+        + json.dumps(facts, ensure_ascii=False))
+    return [{"role": "system", "content": system}, *history]
+
+
+def chat_payload(facts: dict, history: list[dict], lang: str) -> dict:
+    return llm.payload(chat_messages(facts, history, lang), json_schema=ANSWER_SCHEMA, **CHAT_PARAMS)
+
+
+async def career_chat(facts: dict, history: list[dict], lang: str) -> tuple[str, list[str]]:
+    """One answer in the career chat. Numbers may come from the facts or from what the person asked; a draft with any
+    other number is asked again once, then rejected."""
+    allowed = {"facts": facts, "asked": [m["content"] for m in history if m["role"] == "user"]}
+
+    def grounded(raw: str) -> bool:
+        return not guard_numbers(json.loads(raw)["answer"].strip(), allowed)
+
+    messages = chat_messages(facts, history, lang)
+    raw = await llm.chat(messages, json_schema=ANSWER_SCHEMA, accept=grounded, **CHAT_PARAMS)
+    text = json.loads(raw)["answer"].strip()
+    problems = guard_numbers(text, allowed)
+    if problems:                          # one more try, reminded of the rule
+        retry = messages + [{"role": "system", "content": "Your previous draft used a number that is not in the facts. "
+                                                          "Answer again using only numbers from the facts."}]
+        raw = await llm.chat(retry, json_schema=ANSWER_SCHEMA, cache=False, **CHAT_PARAMS)
+        text = json.loads(raw)["answer"].strip()
+        problems = guard_numbers(text, allowed)
+    return text, problems
+
+
+__all__ = ["extract_skills", "explain", "job_advice", "market_check", "career_review", "career_chat", "guard_skills", "guard_explanation", "guard_numbers", "LLMUnavailable"]
