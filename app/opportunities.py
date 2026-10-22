@@ -168,8 +168,11 @@ def jobs_for(profile: Profile, certified: list[str], country: str, roles: list[s
             continue
         on_path = bool(set(job["roles"]) & set(roles))
         overlap = len((mine & set(job["skills"])) - SOFT)
+        # The model lists only the skills a posting asks for (≈3 per posting) where keyword matching found ≈7, so a
+        # posting it has read needs one shared skill less to count as relevant.
+        need = 2 if job.get("ai") else 3
         if mine:
-            relevant = (on_path or overlap >= 3) if roles else overlap >= 2
+            relevant = (on_path or overlap >= need) if roles else overlap >= need - 1
         else:
             relevant = on_path if roles else bool(job["roles"])
         if not relevant:

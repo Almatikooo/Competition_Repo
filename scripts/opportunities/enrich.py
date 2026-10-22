@@ -462,8 +462,9 @@ def read_everything(limit: int | None, concurrency: int, retries: int, then_stop
                 print("The GPU pod is not running any more (stopped by the watchdog or by hand). Progress is saved.")
                 break
             if attempt < retries:
-                print(f"Lost the model while the pod still runs: trying again in 60 s ({attempt + 1}/{retries}).", flush=True)
-                time.sleep(60)
+                pause = min(60 * (attempt + 1), 300)       # proxy glitches (Cloudflare 520) can last a few minutes
+                print(f"Lost the model while the pod still runs: trying again in {pause} s ({attempt + 1}/{retries}).", flush=True)
+                time.sleep(pause)
         left = len(pending(load_rows(), load_progress()))
         print(f"{left} postings left to read.")
     finally:
@@ -479,7 +480,7 @@ def main() -> None:
     ap.add_argument("--concurrency", type=int, default=32)
     ap.add_argument("--eval", action="store_true", help="accuracy on the gold set")
     ap.add_argument("--then-stop", action="store_true", help="switch the GPU pod off at the end (finished or not)")
-    ap.add_argument("--retries", type=int, default=3, help="continue after a dropped connection while the pod still runs")
+    ap.add_argument("--retries", type=int, default=10, help="continue after a dropped connection while the pod still runs")
     args = ap.parse_args()
     if args.eval:
         asyncio.run(evaluate(min(args.concurrency, 16)))
