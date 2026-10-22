@@ -4,7 +4,7 @@
     {
       "id": "aisyah", "name": "Aisyah", "age": 34, "location": "Shah Alam, Selangor",
       "headline": {"en": "Accounts clerk — her company is rolling out AI invoice processing", "ms": "Kerani akaun — syarikatnya sedang memperkenalkan pemprosesan invois AI", "zh": "会计文员 — 公司正在引入 AI 发票处理"},
-      "current_role": "accounting_clerk", "years_experience": 9, "hours_per_week": 6, "language": "ms",
+      "current_role": "accounting_clerk", "years_experience": 9, "hours_per_week": 6, "language": "ms", "languages": ["ms", "en"],
       "skills": {"bookkeeping": 3, "excel": 2, "data_entry": 3, "communication": 2, "digital_literacy": 2, "analytical_thinking": 2, "finance_domain": 1, "customer_service": 1},
       "interests": ["finance", "data", "process improvement"], "sdg_priorities": [5, 8],
       "cv_text": "Aisyah binti Rahman (synthetic profile)\nAccounts Executive, ABC Trading Sdn Bhd (fictional), 2017-present\n- Handle accounts payable and accounts receivable, monthly bank reconciliation and payroll for 120 staff using AutoCount and Excel (pivot table, VLOOKUP).\n- Key in supplier invoices and maintain the general ledger.\n- Prepare monthly reporting for the finance manager; answer supplier and customer enquiries.\nSkills: bookkeeping, Excel, data entry, communication in Bahasa Malaysia and English, problem solving.\nCourses: Microsoft Office; currently exploring ChatGPT for drafting emails."
@@ -12,7 +12,7 @@
     {
       "id": "weijie", "name": "Wei Jie", "age": 23, "location": "George Town, Penang",
       "headline": {"en": "Fresh electrical-engineering graduate deciding where to start", "ms": "Graduan baharu kejuruteraan elektrik sedang memilih kerjaya", "zh": "电气工程应届毕业生，正在选择职业方向"},
-      "current_role": null, "years_experience": 0, "hours_per_week": 12, "language": "zh",
+      "current_role": null, "years_experience": 0, "hours_per_week": 12, "language": "zh", "languages": ["zh", "en", "ms"],
       "skills": {"electrical": 2, "python": 1, "iot_embedded": 1, "analytical_thinking": 2, "excel": 1, "communication": 1, "statistics": 1},
       "interests": ["renewable energy", "hardware", "climate"], "sdg_priorities": [7, 13],
       "cv_text": "Tan Wei Jie (synthetic profile)\nBachelor of Electrical & Electronic Engineering, 2026\nFinal-year project: Arduino-based sensor that logs household energy use; analysed the data with Python.\nInternship: electrical maintenance assistant at a fictional factory (wiring checks, circuit testing).\nSkills: electrical circuits, electronics, basic Python, Excel, problem solving.\nLanguages: English, Mandarin, Bahasa Malaysia."
@@ -20,7 +20,7 @@
     {
       "id": "kavitha", "name": "Kavitha", "age": 41, "location": "Kuala Lumpur",
       "headline": {"en": "Customer-service team lead — her contact centre is adding AI chatbots", "ms": "Ketua pasukan khidmat pelanggan — pusat panggilannya menambah chatbot AI", "zh": "客服团队主管 — 呼叫中心正在引入 AI 聊天机器人"},
-      "current_role": "customer_service_rep", "years_experience": 15, "hours_per_week": 5, "language": "en",
+      "current_role": "customer_service_rep", "years_experience": 15, "hours_per_week": 5, "language": "en", "languages": ["en", "ms", "ta"],
       "skills": {"customer_service": 3, "communication": 3, "leadership": 2, "excel": 1, "digital_literacy": 2, "teaching_training": 1, "project_mgmt": 1, "analytical_thinking": 1},
       "interests": ["people", "training", "technology"], "sdg_priorities": [4, 8, 10],
       "cv_text": "Kavitha Subramaniam (synthetic profile)\nTeam Lead, Customer Service, fictional shared-services centre, 2015-present\n- Supervisor for a team of 12 agents in a call centre; complaint handling and escalations using Zendesk CRM.\n- Coaching and onboarding new agents; run weekly training sessions.\n- Track team KPIs in Excel and present results to management.\nSkills: customer service, communication, leadership, mentoring, Microsoft Office."
@@ -28,7 +28,7 @@
     {
       "id": "hafiz", "name": "Hafiz", "age": 29, "location": "Johor Bahru, Johor",
       "headline": {"en": "Graphic designer watching generative AI take over routine design work", "ms": "Pereka grafik melihat AI generatif mengambil alih kerja reka bentuk rutin", "zh": "平面设计师，眼看生成式 AI 接手常规设计工作"},
-      "current_role": "graphic_designer", "years_experience": 6, "hours_per_week": 8, "language": "ms",
+      "current_role": "graphic_designer", "years_experience": 6, "hours_per_week": 8, "language": "ms", "languages": ["ms", "en"],
       "skills": {"graphic_design": 3, "creative_thinking": 3, "communication": 2, "digital_marketing": 1, "prompt_eng": 1, "ux_design": 1, "digital_literacy": 2},
       "interests": ["design", "technology", "business"], "sdg_priorities": [9, 11],
       "cv_text": "Muhammad Hafiz (synthetic profile)\nGraphic Designer, fictional creative agency, 2020-present\n- Branding, social media visuals and print using Adobe Photoshop, Illustrator and Canva.\n- Recently used generative AI tools (Midjourney-style) for mood boards; built two Figma wireframes for a client app.\nSkills: graphic design, creativity, branding, social media marketing basics."
@@ -36,7 +36,7 @@
     {
       "id": "nurul", "name": "Nurul", "age": 27, "location": "Kuantan, Pahang",
       "headline": {"en": "Agricultural extension officer curious about agritech", "ms": "Pegawai pengembangan pertanian berminat dengan agriteknologi", "zh": "农业推广员，对农业科技感兴趣"},
-      "current_role": null, "years_experience": 4, "hours_per_week": 7, "language": "ms",
+      "current_role": null, "years_experience": 4, "hours_per_week": 7, "language": "ms", "languages": ["ms", "en"],
       "skills": {"precision_agri": 1, "gis": 1, "excel": 2, "data_analysis": 1, "communication": 2, "teaching_training": 2},
       "interests": ["agriculture", "climate", "data"], "sdg_priorities": [2, 13, 15],
       "cv_text": "Nurul Ain (synthetic profile)\nAgricultural Extension Officer, fictional state agency, 2022-present\n- Advise smallholder farmers on fertigation and crop planning; run field training sessions.\n- Record farm visit data in Excel; produced simple maps with QGIS.\nSkills: agriculture, training, Excel, communication."
@@ -44,7 +44,7 @@
     {
       "id": "arif", "name": "Arif", "age": 31, "location": "Bayan Lepas, Penang",
       "headline": {"en": "Production operator at an electronics plant that is automating its lines", "ms": "Operator pengeluaran di kilang elektronik yang sedang mengautomasikan barisan pengeluaran", "zh": "电子厂生产操作员，工厂正在推进产线自动化"},
-      "current_role": "factory_operator", "years_experience": 8, "hours_per_week": 6, "language": "ms",
+      "current_role": "factory_operator", "years_experience": 8, "hours_per_week": 6, "language": "ms", "languages": ["ms", "en"],
       "skills": {"lean_quality": 2, "digital_literacy": 2, "communication": 2, "data_entry": 2, "excel": 1, "industrial_automation": 1, "electrical": 1},
       "interests": ["hardware", "technology", "process improvement"], "sdg_priorities": [8, 9],
       "cv_text": "Arif bin Hassan (synthetic profile)\nProduction Operator, fictional semiconductor assembly plant, Penang, 2018-present\n- Run and monitor test and packing machines on a 12-hour shift; log yields and downtime in Excel.\n- Took part in 5S and kaizen events; trained new operators on the line.\n- Help the maintenance team with basic troubleshooting; read simple electrical drawings.\nSkills: quality checks, 5S, Excel, data entry, teamwork."

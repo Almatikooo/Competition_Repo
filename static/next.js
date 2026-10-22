@@ -2,7 +2,7 @@
 // person's skills — with the Path.AI courses that close the gap — or the universities of that country, how to apply
 // and how to fund it. The answers stay in this browser; the profile is sent with each request, as on the matches page.
 import { h } from "./charts.js";
-import { state, store, t, api, loc, skillShort, roleTitle, roleById, hasProfile, icon, rerender, dateLabel,
+import { state, saveProfile, DEFAULT_LANGUAGES, toast, store, t, api, loc, skillShort, roleTitle, roleById, hasProfile, icon, rerender, dateLabel,
   ensureMatches, ensureCourses } from "./core.js";
 import { hoursLabel } from "./learn.js";
 
@@ -59,16 +59,64 @@ function payText([min, max, currency, per]) {
   }
   return `${text} ${t(`nx_per_${per}`)}`;
 }
-function requirements(ai) {
-  if (!ai) return null;
+function requirements(j) {
+  const check = Object.fromEntries((j.checks || []).map((c) => [c.kind, c]));
+  if (!j.ai && !check.languages) return null;
+  const ai = j.ai || {};
+  // ok: the person meets it · false: they do not (named, and it lowers the fit) · null: they have not said
+  const mark = (text, ok) => h("span", { class: ok === false ? "warn" : ok ? "ok" : null }, ok === false ? "⚠ " : ok ? "✓ " : "", text);
   const bits = [];
-  if (ai.years != null) bits.push(ai.years === 0 ? t("nx_req_no_exp") : t("nx_req_years", { n: ai.years }));
-  if (ai.degree) bits.push(ai.degree_required === false ? `${t(`nx_deg_${ai.degree}`)} (${t("nx_req_preferred")})` : t(`nx_deg_${ai.degree}`));
-  if (ai.languages?.length) bits.push(ai.languages.map(languageName).join(", "));
-  if (ai.pay) bits.push(payText(ai.pay));
-  if (ai.mode && ai.mode !== "remote") bits.push(t(`nx_mode_${ai.mode}`));
-  if (ai.visa != null) bits.push(t(ai.visa ? "nx_visa_yes" : "nx_visa_no"));
-  return bits.length ? h("p", { class: "job-req", title: t("nx_ai_read") }, icon("sparkles"), h("span", {}, bits.join(" · "))) : null;
+  const sk = check.skills;
+  if (sk && ai.req?.length && sk.of && sk.have === sk.of) bits.push(mark(t("nx_chk_all", { n: sk.of }), true));   // gaps show below
+  if (ai.years != null) {
+    const c = check.years;
+    bits.push(mark(c?.ok === false ? t("nx_chk_years_short", { n: ai.years, m: c.have }) : ai.years === 0 ? t("nx_req_no_exp") : t("nx_req_years", { n: ai.years }), c?.ok ?? null));
+  }
+  if (ai.degree) bits.push(mark(ai.degree_required === false ? `${t(`nx_deg_${ai.degree}`)} (${t("nx_req_preferred")})` : t(`nx_deg_${ai.degree}`), null));
+  const langs = check.languages?.need || ai.languages || [];      // incl. a language the job title names
+  if (langs.length) {
+    const c = check.languages;
+    bits.push(mark(c?.missing?.length ? t("nx_chk_needs", { langs: c.missing.map(languageName).join(", ") }) : langs.map(languageName).join(", "), c?.ok ?? null));
+  }
+  if (ai.pay) bits.push(mark(payText(ai.pay), null));
+  if (ai.mode && ai.mode !== "remote") bits.push(mark(t(`nx_mode_${ai.mode}`), null));
+  if (ai.visa != null) bits.push(mark(t(ai.visa ? "nx_visa_yes" : "nx_visa_no"), null));
+  return bits.length ? h("p", { class: "job-req", title: t("nx_ai_read") }, icon("sparkles"), h("span", {}, bits.flatMap((b, i) => (i ? [" · ", b] : [b])))) : null;
+}
+
+// The person's experience and languages, compared only with what postings explicitly ask for. Prefilled; one tap changes.
+const EXPERIENCE = [[0, 0, 0, "nx_exp_0"], [2, 1, 2, "nx_exp_2"], [4, 3, 5, "nx_exp_4"], [7, 6, 9, "nx_exp_7"], [10, 10, 99, "nx_exp_10"]];
+const MAIN_LANGS = ["en", "ms", "zh", "ta"];
+const MORE_LANGS = ["de", "fr", "es", "ja", "ko", "ar", "hi", "id", "th", "vi", "nl", "pt"];
+const myLanguages = () => state.profile.languages || DEFAULT_LANGUAGES;
+function aboutYou() {
+  const p = state.profile;
+  const years = p.years_experience ?? null;
+  const langs = myLanguages();
+  const setYears = (value, on) => { p.years_experience = on ? null : value; saveProfile(); rerender(); };
+  const toggle = (code) => { p.languages = langs.includes(code) ? langs.filter((x) => x !== code) : [...langs, code]; saveProfile(); rerender(); };
+  const shown = state.nextUi.moreLangs ? [...MAIN_LANGS, ...MORE_LANGS] : [...new Set([...MAIN_LANGS, ...langs])];
+  return h("div", { class: "about-you" },
+    h("div", { class: "row" }, h("span", { class: "k" }, t("nx_exp_label")),
+      EXPERIENCE.map(([value, lo, hi, key]) => {
+        const on = years != null && years >= lo && years <= hi;
+        return h("button", { type: "button", class: `chip-sm${on ? " on" : ""}`, "aria-pressed": String(on), onclick: () => setYears(value, on) }, t(key));
+      })),
+    h("div", { class: "row" }, h("span", { class: "k" }, t("nx_lang_label")),
+      shown.map((code) => h("button", { type: "button", class: `chip-sm${langs.includes(code) ? " on" : ""}`, "aria-pressed": String(langs.includes(code)),
+        onclick: () => toggle(code) }, languageName(code))),
+      state.nextUi.moreLangs ? null : h("button", { type: "button", class: "chip-sm more", onclick: () => { state.nextUi.moreLangs = true; rerender(); } }, `${t("nx_more")} +`)));
+}
+
+async function askAI(j, btn) {
+  btn.disabled = true;
+  btn.textContent = t("nx_asking");
+  try {
+    const res = await api("/api/next/why", { profile: { ...state.profile, languages: myLanguages() }, certified: Object.keys(state.certs), job_id: j.id, lang: state.lang });
+    if (res.engine === "llm") (state.jobAdvice ||= {})[j.id] = res;
+    else toast(t(res.guardrail?.rejected ? "nx_ai_rejected" : "ai_off_now"));
+  } catch (e) { toast(String(e.message || e)); }
+  rerender();
 }
 
 function posted(iso) {
@@ -135,7 +183,7 @@ export async function ensureNext() {
   if (mode === "work") {
     const dirs = directions();
     const roles = dirs.includes(state.nextUi.role) ? [state.nextUi.role] : dirs;
-    const body = { profile: state.profile, certified: Object.keys(state.certs), country, roles, level: state.nextUi.level,
+    const body = { profile: { ...state.profile, languages: myLanguages() }, certified: Object.keys(state.certs), country, roles, level: state.nextUi.level, lang: state.lang,
       country_name: country === "REMOTE" ? "" : countryName(country, "en") };
     const key = JSON.stringify(body);
     if (state.nextJobsKey !== key) {
@@ -251,15 +299,19 @@ function jobCard(j) {
       h("span", { class: "tiny muted" }, posted(j.posted))),
     h("h3", {}, ext(j.url, j.title)),
     h("p", { class: "job-meta" }, [j.company, j.location].filter(Boolean).join(" · ")),
-    requirements(j.ai),
+    requirements(j),
     j.have.length ? h("div", { class: "row job-skills" }, h("span", { class: "k" }, t("nx_have")),
       j.have.map((s) => h("span", { class: "pill have", title: s.certified ? t("nx_cert_tip") : null }, "✓ ", skillShort(s.id), s.certified ? icon("award") : null))) : null,
     j.missing.length ? h("div", { class: "row job-skills" }, h("span", { class: "k" }, t("nx_learn")),
       j.missing.map((m) => (ours.has(m.id)
         ? h("a", { class: "pill learn", href: `#/learn/${m.id}` }, `${skillShort(m.id)} · ${m.hours} h →`)
         : h("span", { class: "pill" }, `${skillShort(m.id)} · ${m.hours} h`)))) : null,
+    state.jobAdvice?.[j.id] ? h("div", { class: "job-ai" }, h("p", {}, state.jobAdvice[j.id].text),
+      h("p", { class: "tiny muted" }, t("nx_ai_note", { model: state.jobAdvice[j.id].model }))) : null,
     h("div", { class: "job-actions" },
       h("a", { class: "btn btn-primary btn-sm", href: j.url, target: "_blank", rel: "noopener" }, `${t("nx_apply")} ↗`),
+      j.fit != null && !state.jobAdvice?.[j.id] && (state.meta.llm?.online || j.advice_saved)
+        ? h("button", { type: "button", class: "btn btn-secondary btn-sm", onclick: (e) => askAI(j, e.currentTarget) }, icon("sparkles"), t("nx_ask_ai")) : null,
       h("span", { class: "tiny muted" }, `${t("nx_via")} `, sourceLink(j))));
 }
 
@@ -308,6 +360,7 @@ function viewJobs() {
     h("section", { class: "band", style: { paddingTop: "28px" } }, h("div", { class: "container grid-main" },
       h("div", {},
         filters, roleChips,
+        d.scored ? aboutYou() : null,
         d.scored ? null : h("div", { class: "notice info", style: { marginTop: "18px" } }, h("div", {},
           h("p", {}, t("nx_no_profile")), h("a", { class: "btn btn-primary btn-sm", href: "#/start?step=1", style: { marginTop: "10px" } }, t("hero_start")))),
         results,

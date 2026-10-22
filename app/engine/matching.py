@@ -23,6 +23,10 @@ class Profile(BaseModel):
     sdg_priorities: list[int] = Field(default_factory=list)
     current_role: str | None = None
     hours_per_week: float = 6.0
+    # Optional, used only on the Opportunities page to compare with what a posting explicitly asks for
+    # (years of experience, languages); they never change the role ranking.
+    years_experience: int | None = None
+    languages: list[str] = Field(default_factory=list)
 
     @field_validator("skills")
     @classmethod
@@ -39,6 +43,16 @@ class Profile(BaseModel):
     @classmethod
     def sane_hours(cls, value: float) -> float:
         return clamp(value, 1, 40)
+
+    @field_validator("years_experience")
+    @classmethod
+    def sane_years(cls, value: int | None) -> int | None:
+        return None if value is None else int(clamp(value, 0, 50))
+
+    @field_validator("languages")
+    @classmethod
+    def language_codes(cls, value: list[str]) -> list[str]:
+        return sorted({v.lower() for v in value if isinstance(v, str) and 2 <= len(v) <= 3 and v.isalpha()})[:12]
 
 
 class Weights(BaseModel):

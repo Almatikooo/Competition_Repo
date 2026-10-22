@@ -123,6 +123,8 @@ This is the last step of the journey. It is linked from the results, the plan, y
   - A Path.AI certificate counts as a working-level skill.
   - Each card lists the skills you have and the ones you are missing, with hours to learn and a link to the Path.AI course.
   - Without a profile yet, the newest postings for the chosen direction are shown, unscored.
+  - **What a posting asks for counts.** Skills it requires count fully, nice-to-haves half. The person's work experience and languages (prefilled, one tap to change; an example person brings their own) are compared with what the posting explicitly asks for, including a language its title names ("Japanese Speaker"). A missing requirement lowers the fit and is named on the card ("⚠ Asks 5+ yrs (you: 2)", "⚠ Needs German"). When the person has not said, nothing is assumed. These two answers never change the role ranking.
+  - **Ask AI about this job.** Two or three sentences from the model on whether the posting is a realistic next step and what to do first, written from the posting's facts and the person's profile only; any number not in those facts makes the answer fail the guard.
 - **Filters.**
   - *In <country>* or *Remote*.
   - Level: entry and internships, mid or senior.
@@ -191,7 +193,7 @@ This is the last step of the journey. It is linked from the results, the plan, y
 python3 -m venv .venv && source .venv/bin/activate      # Python ≥ 3.11
 pip install -r requirements.txt
 uvicorn app.main:app --reload                            # http://127.0.0.1:8000
-python -m pytest -q                                      # 110 tests
+python -m pytest -q                                      # 124 tests
 python -m app.signals.refresh                            # pull fresh HN + OpenAlex data (optional)
 python scripts/verify_resources.py                       # re-check every course / source URL
 python -m scripts.opportunities.jobs                     # refresh the job snapshot (about 15 min)

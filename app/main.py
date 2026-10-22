@@ -82,6 +82,14 @@ class NextJobsQuery(BaseModel):
     level: str | None = Field(default=None, pattern=r"^(any|early|mid|senior)$")
     title: str = Field(default="", max_length=120)          # role title for job-site searches
     country_name: str = Field(default="", max_length=80)    # English country name for job-site searches
+    lang: str = "en"
+
+
+class NextWhyQuery(BaseModel):
+    profile: Profile
+    certified: list[Annotated[str, Field(max_length=40)]] = Field(default_factory=list, max_length=60)
+    job_id: str = Field(pattern=r"^j\d{1,6}$")
+    lang: str = "en"
 
 
 class NextStudyQuery(BaseModel):
@@ -380,13 +388,34 @@ def next_meta() -> dict:
 
 
 @app.post("/api/next/jobs")
-def next_jobs(q: NextJobsQuery) -> dict:
+async def next_jobs(q: NextJobsQuery) -> dict:
     result = opp.jobs_for(q.profile, q.certified, q.country, q.roles, q.level)
+    if result["scored"] and llm.saved_count() and not (await llm.status()).get("online"):
+        lang = q.lang if q.lang in LANGS else "en"
+        for item in result["local"][:12] + result["remote"][:12]:    # GPU off: is the AI's take on it saved?
+            facts = opp.advice_facts(q.profile, q.certified, opp.job_by_id(item["id"]))
+            item["advice_saved"] = llm.cached(tasks.advice_payload(facts, lang)) is not None
     first = next((r for r in q.roles if r in catalog.roles), None)
     title = q.title or (opp.search_title(first) if first else "")
     result["portals"] = opp.job_portals(q.country, title, q.country_name or q.country) if title else []
     result["search_title"] = title
     return result
+
+
+@app.post("/api/next/why")
+async def next_why(q: NextWhyQuery) -> dict:
+    """The model's short take on one posting for this person, from its facts only (numbers checked)."""
+    job = opp.job_by_id(q.job_id)
+    if job is None:
+        raise HTTPException(404, "unknown job")
+    facts = opp.advice_facts(q.profile, q.certified, job)
+    try:
+        text, problems = await tasks.job_advice(facts, q.lang if q.lang in LANGS else "en")
+    except (LLMUnavailable, ValueError, KeyError) as exc:
+        return {"engine": None, "text": None, "error": str(exc)[:200]}
+    if problems:
+        return {"engine": None, "text": None, "guardrail": {"rejected": True, "problems": problems}}
+    return {"engine": "llm", "text": text, "model": llm.model}
 
 
 @app.post("/api/next/study")

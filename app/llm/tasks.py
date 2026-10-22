@@ -1,4 +1,4 @@
-"""The only two jobs the language model does, each behind a guardrail that rejects invented content.
+"""The jobs the language model does in the app, each behind a guardrail that rejects invented content.
 
 1. extract_skills  — CV text -> skills from OUR taxonomy (enum-constrained ids) with a verbatim evidence quote.
                      Guard: the quote must literally occur in the CV, otherwise the skill is dropped.
@@ -14,7 +14,7 @@ from ..catalog import Catalog
 from .client import LLMUnavailable, llm
 
 LANG_NAMES = {"en": "English", "ms": "Bahasa Malaysia", "zh": "Simplified Chinese"}
-NUMBER = re.compile(r"(?<![\w.])[-+]?\d+(?:[.,]\d+)?")
+NUMBER = re.compile(r"(?<![\d.,])[-+]?\d+(?:[.,]\d+)*")   # "RM4,500" -> 4,500; "1,234,567" whole
 CITATION = re.compile(r"\[(S\d+)\]")
 
 
@@ -22,8 +22,16 @@ def _norm(text: str) -> str:
     return " ".join(text.lower().split())
 
 
+def _number(raw: str) -> str:
+    n = re.sub(r"(?<=\d),(?=\d{3}(?!\d))", "", raw.lstrip("+-"))     # 4,500 -> 4500 (thousands)
+    n = n.replace(",", ".")                                            # 3,5 -> 3.5 (decimal comma)
+    if "." in n:
+        n = n.rstrip("0").rstrip(".")                                  # 3.50 -> 3.5, 4.0 -> 4
+    return n or "0"
+
+
 def numbers_in(text: str) -> set[str]:
-    return {n.replace(",", ".").lstrip("+-").rstrip("0").rstrip(".") or "0" for n in NUMBER.findall(text)}
+    return {_number(n) for n in NUMBER.findall(text)}
 
 
 def guard_skills(catalog: Catalog, cv_text: str, items: list[dict]) -> tuple[list[dict], list[dict]]:
@@ -99,4 +107,40 @@ async def explain(facts: dict, lang: str) -> tuple[str, list[str]]:
     return text, guard_explanation(text, facts)
 
 
-__all__ = ["extract_skills", "explain", "guard_skills", "guard_explanation", "LLMUnavailable"]
+def guard_numbers(text: str, facts: dict) -> list[str]:
+    stray = numbers_in(text) - numbers_in(json.dumps(facts, ensure_ascii=False))
+    return [f"numbers not in facts {sorted(stray)}"] if stray else []
+
+
+ADVICE_SCHEMA = {"type": "object", "additionalProperties": False, "required": ["advice"], "properties": {"advice": {"type": "string"}}}
+ADVICE_PARAMS = {"max_tokens": 220, "temperature": 0.3}
+
+
+def advice_messages(facts: dict, lang: str) -> list[dict]:
+    return [
+        {"role": "system", "content": (
+            f"You are a careful, warm career adviser for Malaysian workers. In {LANG_NAMES.get(lang, 'English')}, in 2 or 3 "
+            "short sentences, tell the person whether this job posting is a realistic next step for them, and the single "
+            "most useful thing to do before applying. Use ONLY the facts provided and do not add any number that is not in "
+            "them. If the posting asks for more years of experience or a language the person does not list, say so plainly. "
+            "Do not repeat the job title. Plain text, no lists.")},
+        {"role": "user", "content": json.dumps(facts, ensure_ascii=False)},
+    ]
+
+
+def advice_payload(facts: dict, lang: str) -> dict:
+    """The exact request job_advice sends: used to tell whether a saved answer exists while the GPU is off."""
+    return llm.payload(advice_messages(facts, lang), json_schema=ADVICE_SCHEMA, **ADVICE_PARAMS)
+
+
+async def job_advice(facts: dict, lang: str) -> tuple[str, list[str]]:
+    """2-3 sentences on whether one job posting is a realistic next step, from a fact sheet only."""
+    def grounded(raw: str) -> bool:
+        return not guard_numbers(json.loads(raw)["advice"].strip(), facts)
+
+    raw = await llm.chat(advice_messages(facts, lang), json_schema=ADVICE_SCHEMA, accept=grounded, **ADVICE_PARAMS)
+    text = json.loads(raw)["advice"].strip()
+    return text, guard_numbers(text, facts)
+
+
+__all__ = ["extract_skills", "explain", "job_advice", "guard_skills", "guard_explanation", "guard_numbers", "LLMUnavailable"]

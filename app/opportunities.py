@@ -106,10 +106,19 @@ def meta() -> dict:
 
 # ---------------------------------------------------------------- work
 
+YEAR_PENALTY, YEAR_PENALTY_CAP = 0.08, 0.30     # per year of experience a posting asks for beyond the person's
+LANGUAGE_PENALTY = 0.35                         # a language the posting requires and the person does not work in
+NICE_WEIGHT = 0.5                               # a skill the posting lists as nice to have counts half
+
+
 def score_job(profile: Profile, certified: set[str], job: dict, roles: list[str], role_cache: dict) -> dict:
     """Fit of one posting: the role it was recognised as (same weighting as the role matches), blended with the
-    hard skills its text asks for. Returns what the person already has and what is missing, with hours to learn."""
+    hard skills its text asks for (required ones count fully, nice-to-haves half). When the model has read the
+    posting, two checks follow what it explicitly asks for: years of experience and languages. A missing requirement
+    lowers the fit and is named on the card; when the person has not said, nothing is assumed.
+    Returns what the person already has and what is missing, with hours to learn, and the checks."""
     catalog = get_catalog()
+    ai = job.get("ai") or {}
     best = None
     for rid in job["roles"]:
         if rid not in catalog.roles:
@@ -118,31 +127,123 @@ def score_job(profile: Profile, certified: set[str], job: dict, roles: list[str]
             role_cache[rid] = match_role(catalog, profile, rid)
         if best is None or (role_cache[rid]["fit"], rid in roles) > (best[1]["fit"], best[0] in roles):
             best = (rid, role_cache[rid])
+    required, nice = set(ai.get("req", [])), set(ai.get("nice", []))
     hard = [s for s in job["skills"] if s not in SOFT and s in catalog.skills]
+    weight = {s: NICE_WEIGHT if s in nice and s not in required else 1.0 for s in hard}
     credits = {s: skill_credit(catalog, profile.skills, s, 2)["credit"] for s in hard}
-    skill_fit = sum(credits.values()) / len(credits) if credits else None
+    skill_fit = sum(weight[s] * credits[s] for s in hard) / sum(weight.values()) if hard else None
     if best and skill_fit is not None:
         fit = 0.7 * best[1]["fit"] + 0.3 * skill_fit
     elif best:
         fit = best[1]["fit"]
     else:
         fit = 0.8 * (skill_fit or 0)           # no recognised role: the skills alone, discounted
+
+    checks = []
+    asked = [s for s in hard if s in required] if required else hard
+    if asked:
+        got = sum(1 for s in asked if credits[s] >= 1)
+        checks.append({"kind": "skills", "have": got, "of": len(asked), "ok": got >= 0.75 * len(asked)})
+    if (years := ai.get("years")) is not None:
+        mine = profile.years_experience
+        checks.append({"kind": "years", "need": years, "have": mine, "ok": None if mine is None else mine >= years})
+        if mine is not None and mine < years:
+            fit -= min(YEAR_PENALTY_CAP, YEAR_PENALTY * (years - mine))
+    if langs := required_languages(job):
+        lacking = [code for code in langs if code not in profile.languages] if profile.languages else []
+        checks.append({"kind": "languages", "need": langs, "missing": lacking, "ok": None if not profile.languages else not lacking})
+        if lacking:
+            fit -= LANGUAGE_PENALTY
+
     have, missing = [], {}
+    for s in sorted(asked, key=lambda x: credits[x]) if required else []:   # what the posting requires comes first
+        if credits[s] < 1:
+            missing[s] = gap_hours(catalog, s, 2, credits[s])
     if best:
         for item in sorted(best[1]["items"], key=lambda i: -i["weight"]):
             if item["status"] == "have":
-                have.append(item["id"])
-            elif item["weight"] >= 0.5:        # core and supporting skills; nice-to-haves are not shown as gaps
+                if item["id"] not in missing:  # the posting asks for more than this role does: its level counts
+                    have.append(item["id"])
+            elif item["weight"] >= 0.5 and item["id"] not in missing:   # core and supporting skills only
                 missing[item["id"]] = item["gap_hours"]
     for s, credit in sorted(credits.items(), key=lambda kv: kv[1]):
         if credit >= 1:
             if s not in have:
                 have.append(s)
-        elif s not in missing and s not in have:   # partly there: the hours left to a working level
+        elif s not in missing and s not in have and s not in nice:   # partly there: the hours left to a working level
             missing[s] = gap_hours(catalog, s, 2, credit)
-    return {"fit": round(fit * 100), "role": best[0] if best else None,
+    return {"fit": max(0, round(fit * 100)), "role": best[0] if best else None, "checks": checks,
             "have": [{"id": s, "certified": s in certified} for s in have[:6]],
             "missing": [{"id": s, "hours": hours} for s, hours in list(missing.items())[:4]]}
+
+
+LANGUAGE_NAMES = {"en": "English", "ms": "Malay", "zh": "Mandarin Chinese", "yue": "Cantonese", "ta": "Tamil", "hi": "Hindi",
+                  "ja": "Japanese", "ko": "Korean", "th": "Thai", "vi": "Vietnamese", "id": "Indonesian", "tl": "Filipino",
+                  "ar": "Arabic", "de": "German", "fr": "French", "es": "Spanish", "pt": "Portuguese", "it": "Italian",
+                  "nl": "Dutch", "pl": "Polish", "sv": "Swedish", "da": "Danish", "no": "Norwegian", "fi": "Finnish",
+                  "tr": "Turkish", "ru": "Russian", "uk": "Ukrainian", "cs": "Czech", "he": "Hebrew", "el": "Greek",
+                  "ro": "Romanian", "hu": "Hungarian"}
+
+
+_TITLE_LANGUAGES = {"english": "en", "malay": "ms", "bahasa": "ms", "mandarin": "zh", "chinese": "zh", "cantonese": "yue", "tamil": "ta",
+                    "hindi": "hi", "japanese": "ja", "korean": "ko", "thai": "th", "vietnamese": "vi", "indonesian": "id",
+                    "filipino": "tl", "tagalog": "tl", "arabic": "ar", "german": "de", "french": "fr", "spanish": "es",
+                    "portuguese": "pt", "italian": "it", "dutch": "nl", "polish": "pl", "swedish": "sv", "danish": "da",
+                    "norwegian": "no", "finnish": "fi", "turkish": "tr", "russian": "ru", "ukrainian": "uk", "czech": "cs",
+                    "hebrew": "he", "greek": "el", "romanian": "ro", "hungarian": "hu"}
+_TITLE_LANGUAGE = re.compile(r"\b(" + "|".join(_TITLE_LANGUAGES) + r")\b", re.I)
+
+
+def title_languages(title: str) -> list[str]:
+    """Languages a job title itself names ("KYC Analyst - Japanese Speaker", "Finnish Tech Linguistic Tester")."""
+    title = re.sub(r"bahasa indonesia", "indonesian", title, flags=re.I)
+    return sorted({_TITLE_LANGUAGES[m.lower()] for m in _TITLE_LANGUAGE.findall(title)})
+
+
+def required_languages(job: dict) -> list[str]:
+    return sorted(set((job.get("ai") or {}).get("languages") or []) | set(title_languages(job["title"])))
+
+
+def job_by_id(job_id: str) -> dict | None:
+    return next((j for j in data()["jobs"] if j["id"] == job_id), None)
+
+
+def advice_facts(profile: Profile, certified: list[str], job: dict) -> dict:
+    """Everything the model may use to advise on one posting: what it asks for and what the person has."""
+    catalog = get_catalog()
+    certified_set = {s for s in certified if s in catalog.skills}
+    if certified_set:
+        profile = profile.model_copy(update={"skills": {**profile.skills, **{s: max(2, profile.skills.get(s, 0)) for s in certified_set}}})
+    scored = score_job(profile, certified_set, job, [], {})
+    name = lambda sid: catalog.skills[sid]["name"]["en"]
+    lang = lambda codes: [LANGUAGE_NAMES.get(c, c) for c in codes]
+    ai = job.get("ai") or {}
+    asks: dict = {}
+    if ai.get("req"):
+        asks["required_skills"] = [name(s) for s in ai["req"] if s in catalog.skills]
+    if ai.get("nice"):
+        asks["nice_to_have_skills"] = [name(s) for s in ai["nice"] if s in catalog.skills]
+    if ai.get("years") is not None:
+        asks["years_of_experience"] = ai["years"]
+    if ai.get("degree"):
+        asks["degree"] = ai["degree"] + ("" if ai.get("degree_required", True) else " (preferred, not required)")
+    if langs := required_languages(job):
+        asks["languages"] = lang(langs)
+    if ai.get("pay"):
+        low, high, currency, per = ai["pay"]
+        asks["pay"] = {"from": low, "to": high, "currency": currency, "per": per}
+    if ai.get("mode"):
+        asks["work_mode"] = ai["mode"]
+    if ai.get("visa") is not None:
+        asks["visa_sponsorship"] = ai["visa"]
+    person: dict = {"skills_they_have": [name(h["id"]) for h in scored["have"]],
+                    "skills_to_learn": [{"skill": name(m["id"]), "hours_to_learn": m["hours"]} for m in scored["missing"]]}
+    if profile.years_experience is not None:
+        person["years_of_experience"] = profile.years_experience
+    if profile.languages:
+        person["languages"] = lang(profile.languages)
+    return {"posting": {"title": job["title"], "company": job["company"], "place": job["location"], "level": job["level"]},
+            "posting_asks": asks, "person": person, "fit_percent": scored["fit"]}
 
 
 def _posted(job: dict) -> int:
@@ -183,7 +284,7 @@ def jobs_for(profile: Profile, certified: list[str], country: str, roles: list[s
             if s["fit"] < MIN_FIT:
                 continue
         else:
-            s = {"fit": None, "role": next((r for r in job["roles"] if r in roles), (job["roles"] or [None])[0]), "have": [], "missing": []}
+            s = {"fit": None, "role": next((r for r in job["roles"] if r in roles), (job["roles"] or [None])[0]), "have": [], "missing": [], "checks": []}
         item = {k: job[k] for k in ("id", "title", "company", "url", "source", "posted", "location", "level", "type")}
         item["ai"] = {k: v for k, v in job.get("ai", {}).items() if k not in ("req", "nice")} or None
         item.update(s, where=where, remote=job["remote"] if isinstance(job["remote"], str) or not job["remote"] else job["remote"][:8])

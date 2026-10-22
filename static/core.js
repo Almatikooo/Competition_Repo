@@ -7,7 +7,8 @@ export const store = {
   set(key, value) { try { localStorage.setItem(`pathai:${key}`, JSON.stringify(value)); } catch { /* private mode */ } },
 };
 
-export const EMPTY_PROFILE = { skills: {}, interests: [], sdg_priorities: [], current_role: null, hours_per_week: 6 };
+export const DEFAULT_LANGUAGES = ["en", "ms"];   // most Malaysian users work in English and Malay; one tap changes it
+export const EMPTY_PROFILE = { skills: {}, interests: [], sdg_priorities: [], current_role: null, hours_per_week: 6, years_experience: null, languages: DEFAULT_LANGUAGES };
 
 export const state = {
   meta: null, personas: [],

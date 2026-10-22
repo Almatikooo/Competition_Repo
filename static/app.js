@@ -16,7 +16,8 @@ function prefillFromRole(rid) {
 }
 
 function freshProfile(skills, currentRole = null) {
-  return { ...structuredClone(EMPTY_PROFILE), hours_per_week: state.profile.hours_per_week || 6, skills, current_role: currentRole };
+  return { ...structuredClone(EMPTY_PROFILE), hours_per_week: state.profile.hours_per_week || 6, skills, current_role: currentRole,
+    years_experience: state.profile.years_experience ?? null, languages: [...(state.profile.languages || EMPTY_PROFILE.languages)] };
 }
 
 function chooseJob(rid) {
@@ -40,7 +41,8 @@ function tilesFromInterests(interests) {
 }
 
 function loadPersona(p) {
-  state.profile = { skills: { ...p.skills }, interests: [...p.interests], sdg_priorities: [...p.sdg_priorities], current_role: p.current_role, hours_per_week: p.hours_per_week };
+  state.profile = { skills: { ...p.skills }, interests: [...p.interests], sdg_priorities: [...p.sdg_priorities], current_role: p.current_role, hours_per_week: p.hours_per_week,
+    years_experience: p.years_experience ?? null, languages: [...(p.languages || EMPTY_PROFILE.languages)] };
   state.origin = { type: "persona", id: p.id };
   state.tiles = tilesFromInterests(p.interests);
   saveProfile();
