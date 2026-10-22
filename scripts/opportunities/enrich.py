@@ -4,6 +4,7 @@
     python -m scripts.opportunities.enrich --limit 300     # a pilot: the first 300 by priority
     python -m scripts.opportunities.enrich                 # everything not read yet
     python -m scripts.opportunities.enrich --eval          # accuracy on the hand-checked gold set
+    caffeinate -is python -m scripts.opportunities.enrich --then-stop   # read everything, then switch the GPU off
 
 Input: the trimmed posting texts that jobs.py writes to data/cache/opportunities/texts.jsonl (they never leave the cache).
 The model sees each posting as numbered sentences and returns facts that each cite a sentence NUMBER. A guard drops
@@ -38,7 +39,7 @@ OUT = ROOT / "data/opportunities/job_facts.json"
 
 PRICE_PER_HOUR = 0.59                          # RTX A6000, RunPod Secure Cloud
 PREFILL_TOK_S, DECODE_TOK_S = 1250, 700        # A6000 + Qwen3.8-27B-FP8 guesses, replaced by the pilot's measured speed
-OUTPUT_TOKENS = 110                            # per posting: facts with sentence numbers, no quotes
+OUTPUT_TOKENS = 130                            # per posting: compact facts with sentence numbers (measured 80–160)
 
 LEVELS = ["secondary", "diploma", "bachelor", "master", "phd"]
 DEGREE = {"secondary": ["high school", "secondary", "spm", "stpm", "o level", "a level", "o-level", "a-level", "gcse"],
@@ -66,8 +67,10 @@ MODES = {"onsite": ["on-site", "onsite", "on site", "in office", "in-office", "o
          "remote": ["remote", "work from home", "wfh", "work from anywhere", "fully distributed"]}
 VISA = ["visa", "sponsor", "work permit", "right to work", "work authori", "relocat", "employment pass", "eligible to work", "citizen", "permanent resident"]
 PERIODS = ["hour", "day", "month", "year"]
-ZERO_EXPERIENCE = ["fresh grad", "new grad", "recent grad", "entry-level", "entry level", "no experience", "no prior experience",
-                   "graduates are welcome", "graduates welcome", "tiada pengalaman", "lepasan", "应届", "无经验"]
+ZERO_EXPERIENCE = re.compile(
+    r"\b(?:fresh|new|recent)\s+grad\w*|\bentry[- ]level\b|\bno (?:prior |previous )?(?:work )?experience|\bgraduates? (?:are )?welcome"
+    r"|\bintern(?:ship)?s?\b|\bcurrently (?:pursuing|enrolled|studying)|\bstudents?\b|\bup to \d+ years?|\btiada pengalaman|\blepasan"
+    r"|应届|无经验|实习", re.I)
 NUMBER_WORDS = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10,
                 "satu": 1, "dua": 2, "tiga": 3, "empat": 4, "lima": 5, "enam": 6, "tujuh": 7, "lapan": 8, "sembilan": 9, "sepuluh": 10}
 NUM = re.compile(r"(\d+(?:[.,]\d+)*)(\s?[kK]\b)?")
@@ -99,6 +102,8 @@ def numbers_in(sentence: str) -> set[float]:
                 out.add(x * 1000)
     low = sentence.lower()
     out |= {float(n) for w, n in NUMBER_WORDS.items() if re.search(rf"\b{w}\b", low)}
+    if re.search(r"\ban? (?:full )?years?\b", low):                  # "at least a year"
+        out.add(1.0)
     return out
 
 
@@ -132,11 +137,12 @@ def guard(sents: list[str], raw: dict, skill_ids: set[str]) -> tuple[dict, list[
     if nice:
         facts["nice"] = nice
 
-    if (y := raw.get("years")) is not None:
+    if (y := raw.get("experience")) is not None:
         st = cited(y)
-        zero_ok = y.get("min") == 0 and st and mentions(st, ZERO_EXPERIENCE)     # "fresh graduates welcome" = 0 years
-        if st and isinstance(y.get("min"), int) and 0 <= y["min"] <= 25 and (has_number(st, y["min"]) or zero_ok):
-            facts["years"] = y["min"]
+        years = y.get("min_years")
+        zero_ok = years == 0 and st and ZERO_EXPERIENCE.search(st)       # "fresh graduates welcome", interns = 0 years
+        if st and isinstance(years, int) and 0 <= years <= 25 and (has_number(st, years) or zero_ok):
+            facts["years"] = years
         else:
             dropped.append("years")
     if (d := raw.get("degree")) is not None:
@@ -166,7 +172,7 @@ def guard(sents: list[str], raw: dict, skill_ids: set[str]) -> tuple[dict, list[
             facts["pay"] = [num(lo), num(hi), p["currency"], p["per"]]
         else:
             dropped.append("pay")
-    if (m := raw.get("mode")) is not None:
+    if (m := raw.get("work_mode")) is not None:
         st = cited(m)
         if st and m.get("value") in MODES and mentions(st, MODES[m["value"]]):
             facts["mode"] = m["value"]
@@ -194,12 +200,12 @@ def schema(skill_ids: list[str]) -> dict:
     return obj({
         "skills": {"type": "array", "items": obj({"id": {"type": "string", "enum": skill_ids},
                                                   "need": {"type": "string", "enum": ["required", "nice"]}, "s": cite})},
-        "years": nullable(obj({"min": {"type": "integer"}, "s": cite})),
+        "experience": nullable(obj({"min_years": {"type": "integer"}, "s": cite})),   # named "years"/"min", the model left it null
         "degree": nullable(obj({"level": {"type": "string", "enum": LEVELS}, "required": {"type": "boolean"}, "s": cite})),
         "languages": {"type": "array", "items": obj({"code": {"type": "string", "enum": sorted(LANGS)}, "s": cite})},
         "pay": nullable(obj({"min": {"type": "number"}, "max": {"anyOf": [{"type": "number"}, {"type": "null"}]},
                              "currency": {"type": "string", "enum": sorted(CURRENCIES)}, "per": {"type": "string", "enum": PERIODS}, "s": cite})),
-        "mode": nullable(obj({"value": {"type": "string", "enum": sorted(MODES)}, "s": cite})),
+        "work_mode": nullable(obj({"value": {"type": "string", "enum": sorted(MODES)}, "s": cite})),
         "visa": nullable(obj({"sponsors": {"type": "boolean"}, "s": cite})),
     })
 
@@ -212,15 +218,21 @@ def system_prompt(catalog) -> str:
         "states explicitly; when something is not stated, use null or an empty list. Never guess.\n"
         "- skills: skills from the catalogue below that the job asks for. need = \"required\" when stated as a must, "
         "\"nice\" when stated as preferred, a plus or a bonus. Use only catalogue ids; leave out skills the catalogue lacks.\n"
-        "- years: the minimum years of experience asked for (\"3-5 years\" -> 3; fresh graduates or entry level welcome -> 0).\n"
+        "- experience: the minimum years of work experience the posting asks for, e.g. \"3-5 years\" -> min_years 3, \"at least 2 years\" "
+        "-> 2, \"fresh graduates welcome\" -> 0. Fill it whenever the posting states a number of years.\n"
         "- degree: the minimum education level asked for; required = false when it says preferred, or equivalent experience.\n"
-        "- languages: human languages the job requires (not programming languages).\n"
+        "- languages: human languages the job REQUIRES (not programming languages); leave out languages that are only a plus, "
+        "preferred or beneficial.\n"
         "- pay: the pay as written: min, max (null when only one amount), currency as an ISO code, per hour/day/month/year. "
         "Copy the amounts exactly; expand k (\"120k\" -> 120000).\n"
-        "- mode: onsite, hybrid or remote, only when stated.\n"
+        "- work_mode: onsite, hybrid or remote, when the posting says so (e.g. \"hybrid setup\", \"fully remote\", \"remote-first\").\n"
         "- visa: sponsors = true when visa sponsorship or relocation support is offered; false when it says no sponsorship "
         "or that applicants must already have the right to work.\n"
-        "The posting may be in English, Bahasa Malaysia, Chinese or another language.\n\n"
+        "The posting may be in English, Bahasa Malaysia, Chinese or another language.\n"
+        'Example of the format: {"skills":[{"id":"sql","need":"required","s":3},{"id":"python","need":"nice","s":5}],'
+        '"experience":{"min_years":3,"s":2},"degree":{"level":"bachelor","required":true,"s":4},"languages":[{"code":"en","s":6}],'
+        '"pay":{"min":4000,"max":6000,"currency":"MYR","per":"month","s":7},"work_mode":{"value":"hybrid","s":8},"visa":null}\n'
+        "Reply with compact JSON on a single line: no line breaks, no indentation.\n\n"   # pretty-printing doubled the output
         f"Skills catalogue (id: name):\n{taxonomy}")
 
 
@@ -241,7 +253,7 @@ class Reader:
         if not row["sentences"]:
             return {}, []
         messages = [{"role": "system", "content": self.system}, {"role": "user", "content": user_prompt(row)}]
-        raw = await self.client.chat(messages, json_schema=self.schema, max_tokens=400, temperature=0.0, cache=False)
+        raw = await self.client.chat(messages, json_schema=self.schema, max_tokens=600, temperature=0.0, cache=False)
         return guard(row["sentences"], json.loads(raw), set(self.skill_ids))
 
 
@@ -393,7 +405,14 @@ async def evaluate(concurrency: int, client: LLMClient | None = None) -> dict:
     client = client or batch_client(concurrency)
     await need_model(client)
     reader = Reader(client)
-    got = await asyncio.gather(*(reader.read(g) for g in gold))
+
+    async def read(g: dict) -> tuple[dict, list[str]]:
+        try:
+            return await reader.read(g)
+        except (ValueError, KeyError, TypeError) as exc:      # a broken answer counts as reading nothing
+            return {}, [f"bad answer: {exc}"[:80]]
+
+    got = await asyncio.gather(*(read(g) for g in gold))
     result = score(gold, [facts for facts, _ in got])
     for g, (facts, dropped) in zip(gold, got):
         fields = {k: sorted(v) if k == "languages" else v for k, v in facts.items() if k not in ("req", "nice")}
@@ -406,12 +425,61 @@ async def evaluate(concurrency: int, client: LLMClient | None = None) -> dict:
     return result
 
 
+def pod_running() -> bool | None:
+    """True/False from the RunPod API; None when it cannot say (no key, no network)."""
+    try:
+        from scripts import gpu
+        env = gpu.read_env()
+        return gpu.RunPod(env.get("RUNPOD_API_KEY", "")).pod(gpu.need_pod(env)).get("desiredStatus") == "RUNNING"
+    except Exception:
+        return None
+
+
+def stop_gpu() -> None:
+    try:
+        from scripts import gpu
+        env = gpu.read_env()
+        gpu.stop(gpu.RunPod(env.get("RUNPOD_API_KEY", "")), env)
+    except Exception as exc:          # the in-pod watchdog stops it after 20 idle minutes anyway
+        print(f"Could not stop the GPU ({exc}); the watchdog will stop it after 20 idle minutes.")
+
+
+def read_everything(limit: int | None, concurrency: int, retries: int, then_stop: bool) -> None:
+    """The whole run: continues after a dropped connection while the pod still runs, and optionally stops the GPU."""
+    outcome = "interrupted"
+    try:
+        for attempt in range(retries + 1):
+            try:
+                stats = asyncio.run(run(limit, concurrency))
+            except SystemExit as exc:         # the model did not answer at the start
+                print(exc)
+                stats = {"offline": True}
+            if not stats["offline"]:
+                outcome = "finished"
+                break
+            running = pod_running()
+            if running is False:
+                print("The GPU pod is not running any more (stopped by the watchdog or by hand). Progress is saved.")
+                break
+            if attempt < retries:
+                print(f"Lost the model while the pod still runs: trying again in 60 s ({attempt + 1}/{retries}).", flush=True)
+                time.sleep(60)
+        left = len(pending(load_rows(), load_progress()))
+        print(f"{left} postings left to read.")
+    finally:
+        if then_stop:
+            stop_gpu()
+        print(f"PATHAI_ENRICH_END {outcome}", flush=True)
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(prog="python -m scripts.opportunities.enrich")
     ap.add_argument("--dry-run", action="store_true", help="only show what is left to read and what it costs")
     ap.add_argument("--limit", type=int, help="read at most this many postings (a pilot)")
     ap.add_argument("--concurrency", type=int, default=32)
     ap.add_argument("--eval", action="store_true", help="accuracy on the gold set")
+    ap.add_argument("--then-stop", action="store_true", help="switch the GPU pod off at the end (finished or not)")
+    ap.add_argument("--retries", type=int, default=3, help="continue after a dropped connection while the pod still runs")
     args = ap.parse_args()
     if args.eval:
         asyncio.run(evaluate(min(args.concurrency, 16)))
@@ -424,7 +492,7 @@ def main() -> None:
         print(f"{e['postings']} postings to read: ≈{e['prompt_tokens'] / 1e6:.1f}M prompt + {e['output_tokens'] / 1e6:.1f}M output tokens "
               f"≈ {e['hours']:.1f} GPU hours ≈ ${e['cost']:.2f} (estimate; the pilot measures the real speed)")
         return
-    asyncio.run(run(args.limit, args.concurrency))
+    read_everything(args.limit, args.concurrency, args.retries, args.then_stop)
 
 
 if __name__ == "__main__":

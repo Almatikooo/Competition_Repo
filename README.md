@@ -190,7 +190,7 @@ This is the last step of the journey. It is linked from the results, the plan, y
 python3 -m venv .venv && source .venv/bin/activate      # Python ≥ 3.11
 pip install -r requirements.txt
 uvicorn app.main:app --reload                            # http://127.0.0.1:8000
-python -m pytest -q                                      # 108 tests
+python -m pytest -q                                      # 110 tests
 python -m app.signals.refresh                            # pull fresh HN + OpenAlex data (optional)
 python scripts/verify_resources.py                       # re-check every course / source URL
 python -m scripts.opportunities.jobs                     # refresh the job snapshot (about 15 min)
@@ -198,7 +198,7 @@ python -m scripts.opportunities.universities             # refresh the universit
 python -m scripts.gpu create                             # first time: the RunPod GPU pod for Qwen (needs RUNPOD_API_KEY in .env)
 python -m scripts.gpu start | stop | status              # switch the GPU on and off (it also stops itself after 20 idle minutes)
 python -m scripts.opportunities.enrich --dry-run         # what reading every job posting with the model would cost
-python -m scripts.opportunities.enrich                   # read them (GPU on; continues where it stopped)
+caffeinate -is python -m scripts.opportunities.enrich --then-stop   # read them all, then switch the GPU off
 uv run --with markdown-it-py --with mdit-py-plugins --with nh3 --with beautifulsoup4 --with lxml --with pyyaml python -m scripts.learnkit.build  # rebuild the courses
 ```
 

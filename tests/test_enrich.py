@@ -24,10 +24,10 @@ POSTING = [
 ANSWER = {
     "skills": [{"id": "bookkeeping", "need": "required", "s": 3}, {"id": "excel", "need": "required", "s": 4},
                {"id": "sql", "need": "nice", "s": 4}],
-    "years": {"min": 2, "s": 3}, "degree": {"level": "diploma", "required": True, "s": 2},
+    "experience": {"min_years": 2, "s": 3}, "degree": {"level": "diploma", "required": True, "s": 2},
     "languages": [{"code": "en", "s": 5}, {"code": "ms", "s": 5}],
     "pay": {"min": 3500, "max": 4500, "currency": "MYR", "per": "month", "s": 6},
-    "mode": {"value": "hybrid", "s": 7}, "visa": {"sponsors": False, "s": 8},
+    "work_mode": {"value": "hybrid", "s": 7}, "visa": {"sponsors": False, "s": 8},
 }
 FACTS = {"req": ["bookkeeping", "excel"], "nice": ["sql"], "years": 2, "degree": "diploma", "degree_required": True,
          "languages": ["en", "ms"], "pay": [3500, 4500, "MYR", "month"], "mode": "hybrid", "visa": False}
@@ -60,12 +60,12 @@ def test_guard_keeps_grounded_facts():
 
 
 @pytest.mark.parametrize("change, lost", [
-    ({"years": {"min": 5, "s": 3}}, "years"),                                     # 5 is not in sentence 3
-    ({"years": {"min": 2, "s": 99}}, "years"),                                    # no sentence 99
+    ({"experience": {"min_years": 5, "s": 3}}, "years"),                          # 5 is not in sentence 3
+    ({"experience": {"min_years": 2, "s": 99}}, "years"),                         # no sentence 99
     ({"pay": {"min": 3500, "max": 6000, "currency": "MYR", "per": "month", "s": 6}}, "pay"),   # 6000 is invented
     ({"pay": {"min": 3500, "max": 4500, "currency": "SGD", "per": "month", "s": 6}}, "pay"),   # the sentence says RM
     ({"degree": {"level": "master", "required": True, "s": 2}}, "degree"),       # sentence 2 says diploma/degree
-    ({"mode": {"value": "remote", "s": 7}}, "mode"),
+    ({"work_mode": {"value": "remote", "s": 7}}, "mode"),
     ({"visa": {"sponsors": True, "s": 6}}, "visa"),                              # sentence 6 is about pay
 ])
 def test_guard_drops_what_the_cited_sentence_does_not_say(change, lost):
@@ -85,24 +85,29 @@ def test_guard_drops_unknown_skills_and_unmentioned_languages():
 
 def test_guard_understands_k_amounts_number_words_and_malay():
     sents = ["Base salary $120k-$150k per year.", "Minimum three years in a similar role.", "Pengalaman sekurang-kurangnya dua tahun."]
-    answer = {"skills": [], "years": {"min": 3, "s": 2}, "degree": None, "languages": [],
-              "pay": {"min": 120000, "max": 150000, "currency": "USD", "per": "year", "s": 1}, "mode": None, "visa": None}
+    answer = {"skills": [], "experience": {"min_years": 3, "s": 2}, "degree": None, "languages": [],
+              "pay": {"min": 120000, "max": 150000, "currency": "USD", "per": "year", "s": 1}, "work_mode": None, "visa": None}
     facts, _ = enrich.guard(sents, answer, SKILLS)
     assert facts == {"years": 3, "pay": [120000, 150000, "USD", "year"]}
-    assert enrich.guard(sents, {**answer, "years": {"min": 2, "s": 3}}, SKILLS)[0]["years"] == 2
+    assert enrich.guard(sents, {**answer, "experience": {"min_years": 2, "s": 3}}, SKILLS)[0]["years"] == 2
 
 
 def test_zero_years_needs_an_entry_level_sentence():
     sents = ["Suitable for entry-level candidates, including fresh graduates.", "Work closely with the finance team."]
-    answer = {"skills": [], "years": {"min": 0, "s": 1}, "degree": None, "languages": [], "pay": None, "mode": None, "visa": None}
+    answer = {"skills": [], "experience": {"min_years": 0, "s": 1}, "degree": None, "languages": [], "pay": None, "work_mode": None, "visa": None}
     assert enrich.guard(sents, answer, SKILLS)[0] == {"years": 0}
-    assert enrich.guard(sents, {**answer, "years": {"min": 0, "s": 2}}, SKILLS)[0] == {}
+    assert enrich.guard(sents, {**answer, "experience": {"min_years": 0, "s": 2}}, SKILLS)[0] == {}
+    for line in ["Requirements: Recent graduate, with a strong interest in crypto.", "Currently pursuing a bachelor's degree.",
+                 "We are looking for a Global Events Intern.", "A recent graduate with up to 1 year of experience."]:
+        assert enrich.guard([line], {**answer, "experience": {"min_years": 0, "s": 1}}, SKILLS)[0] == {"years": 0}, line
+    assert enrich.guard(["Prior experience in customer-facing roles for at least a year."],
+                        {**answer, "experience": {"min_years": 1, "s": 1}}, SKILLS)[0] == {"years": 1}
 
 
 def test_schema_constrains_ids_and_codes():
     s = enrich.schema(sorted(SKILLS))
     assert s["properties"]["skills"]["items"]["properties"]["id"]["enum"] == sorted(SKILLS)
-    assert set(s["required"]) == {"skills", "years", "degree", "languages", "pay", "mode", "visa"}
+    assert set(s["required"]) == {"skills", "experience", "degree", "languages", "pay", "work_mode", "visa"}
     assert "MYR" in s["properties"]["pay"]["anyOf"][0]["properties"]["currency"]["enum"]
 
 

@@ -6,6 +6,8 @@
     python -m scripts.gpu status      running or not, for how long, what this session costs, balance left
     python -m scripts.gpu wait        wait until the model answers
     python -m scripts.gpu recreate    when RunPod has no free GPU for the stopped pod: a new pod (downloads the model again)
+    python -m scripts.gpu update      send a changed start command or settings to the pod (it restarts; weights stay)
+    python -m scripts.gpu logs        the end of vLLM's log, when vLLM has stopped (to see why)
 
 Needs RUNPOD_API_KEY in .env (RunPod → Settings → API Keys). Inside the pod a watchdog (deploy/runpod/watchdog.py)
 stops it after IDLE_MINUTES without requests, so a forgotten GPU stops on its own.
@@ -208,6 +210,25 @@ def start(rp: RunPod, env: dict, yes: bool) -> None:
     print(f"Starting {pod_id}. The model answers in ≈3–5 min: python -m scripts.gpu wait")
 
 
+def update(rp: RunPod, env: dict, idle: int, yes: bool) -> None:
+    pod_id = need_pod(env)
+    confirm(f"Send the current start command and settings to pod {pod_id}? It restarts (the model weights stay).", yes)
+    body = pod_body(env, env.get("LLM_API_KEY") or secrets.token_urlsafe(24), setting(env, "GPU_CLOUD"), idle)
+    rp._call("PATCH", f"/pods/{pod_id}", json={k: body[k] for k in ("imageName", "dockerEntrypoint", "dockerStartCmd", "env")})
+    write_env({"LLM_API_KEY": body["env"]["VLLM_API_KEY"]})
+    print(f"Updated {pod_id}; it restarts now. Wait for the model: python -m scripts.gpu wait")
+
+
+def logs(env: dict, transport: httpx.BaseTransport | None = None) -> str:
+    """When vLLM has exited, the pod serves the end of its log on the model's port (see deploy/runpod/start.sh)."""
+    url = (env.get("LLM_BASE_URL") or "").removesuffix("/v1") + "/"
+    with httpx.Client(timeout=20, transport=transport) as c:
+        resp = c.get(url, headers={"Authorization": f"Bearer {env.get('LLM_API_KEY', '')}"})
+    if resp.status_code == 503:
+        return resp.text
+    return f"No log page (HTTP {resp.status_code}): vLLM is still loading or running, or the pod is off."
+
+
 def stop(rp: RunPod, env: dict) -> None:
     pod_id = need_pod(env)
     rp.stop(pod_id)
@@ -221,7 +242,8 @@ def status(rp: RunPod, env: dict) -> dict:
     state = pod.get("desiredStatus", "?")
     line = f"Pod {pod_id}: {state}"
     if hours is not None:
-        line += f" for {hours:.1f} h (≈${hours * float(pod.get('costPerHr') or 0):.2f} this session, ${pod.get('costPerHr')}/h)"
+        took = f"{hours * 60:.0f} min" if hours < 1 else f"{hours:.1f} h"
+        line += f" for {took} (≈${hours * float(pod.get('costPerHr') or 0):.2f} this session, ${pod.get('costPerHr')}/h)"
     print(line)
     if state == "RUNNING":
         print("Model: ready" if model_ready(env, rp.transport) else "Model: not answering yet (loading, or stopped by the watchdog)")
@@ -251,7 +273,7 @@ def need_pod(env: dict) -> str:
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="python -m scripts.gpu", description="Turn the Path.AI GPU on and off.")
-    ap.add_argument("command", choices=["create", "start", "stop", "status", "wait", "recreate"])
+    ap.add_argument("command", choices=["create", "start", "stop", "status", "wait", "recreate", "update", "logs"])
     ap.add_argument("--yes", action="store_true", help="do not ask for confirmation")
     ap.add_argument("--cloud", choices=["SECURE", "COMMUNITY"], help="for create/recreate (default SECURE)")
     ap.add_argument("--idle", type=int, help="minutes without requests before the pod stops itself (default 20)")
@@ -262,6 +284,9 @@ def main(argv: list[str] | None = None) -> int:
         if args.command == "wait":
             wait(env, args.minutes)
             return 0
+        if args.command == "logs":
+            print(logs(env))
+            return 0
         rp = RunPod(env.get("RUNPOD_API_KEY", ""))
         cloud = args.cloud or setting(env, "GPU_CLOUD")
         idle = args.idle or int(setting(env, "IDLE_MINUTES"))
@@ -271,6 +296,8 @@ def main(argv: list[str] | None = None) -> int:
             start(rp, env, args.yes)
         elif args.command == "stop":
             stop(rp, env)
+        elif args.command == "update":
+            update(rp, env, idle, args.yes)
         else:
             status(rp, env)
     except GpuError as exc:

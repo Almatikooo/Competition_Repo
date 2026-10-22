@@ -83,6 +83,8 @@ The model needs 30.9 GB of weights plus KV cache plus activations, so at least a
 3. `python -m scripts.gpu wait`. The first start downloads about 31 GB; later starts take about 3–5 minutes.
 4. Restart Path.AI. The footer says the AI is on, CV parsing uses the model behind the evidence guardrail, every role card gets **Rewrite with AI**, and `python -m scripts.opportunities.enrich` can read the job postings.
 5. `python -m scripts.gpu stop` when you finish. `status` shows uptime, this session's cost and the balance left.
+6. Changed `deploy/runpod/` or a setting? `python -m scripts.gpu update` sends it to the pod (it restarts; the weights stay). If vLLM ever stops, `python -m scripts.gpu logs` prints the end of its log.
+7. Reading every job posting: `caffeinate -is python -m scripts.opportunities.enrich --concurrency 64 --then-stop` keeps the laptop awake, continues after a dropped connection and switches the GPU off at the end. Measured: ≈100 postings a minute at 32 in parallel.
 
 **The watchdog** (`deploy/runpod/watchdog.py`) runs inside the pod. It stops the pod after `IDLE_MINUTES` (20) without a request to the model, when the model does not come up within 40 minutes, or after 10 hours in all. It uses the pod-scoped `RUNPOD_API_KEY` and `RUNPOD_POD_ID` that RunPod sets in every pod, so your account key never leaves your laptop.
 
@@ -95,8 +97,10 @@ The model needs 30.9 GB of weights plus KV cache plus activations, so at least a
 5. Set the container start command. Replace `CHANGE_ME` with a long random secret:
 
    ```
-   vllm serve Qwen/Qwen3.8-27B-FP8 --host 0.0.0.0 --port 8000 --max-model-len 16384 --gpu-memory-utilization 0.92 --reasoning-parser qwen3 --enable-prefix-caching --api-key CHANGE_ME
+   vllm serve Qwen/Qwen3.8-27B-FP8 --host 0.0.0.0 --port 8000 --max-model-len 16384 --gpu-memory-utilization 0.92 --max-num-seqs 128 --reasoning-parser qwen3 --enable-prefix-caching --api-key CHANGE_ME
    ```
+
+   - Keep `--max-num-seqs 128`. Qwen3.8 is a hybrid model that needs one state ("Mamba") cache block per running sequence; on 48 GB only about 240 fit, so vLLM's default of 256 stops with `max_num_seqs (256) exceeds available Mamba cache blocks`.
 
    - If the log says `unrecognized arguments`, the image's entrypoint already includes `vllm serve`. Delete those two words.
    - Optional: `--language-model-only` skips the vision encoder and frees memory.
