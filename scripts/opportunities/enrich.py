@@ -66,6 +66,8 @@ MODES = {"onsite": ["on-site", "onsite", "on site", "in office", "in-office", "o
          "remote": ["remote", "work from home", "wfh", "work from anywhere", "fully distributed"]}
 VISA = ["visa", "sponsor", "work permit", "right to work", "work authori", "relocat", "employment pass", "eligible to work", "citizen", "permanent resident"]
 PERIODS = ["hour", "day", "month", "year"]
+ZERO_EXPERIENCE = ["fresh grad", "new grad", "recent grad", "entry-level", "entry level", "no experience", "no prior experience",
+                   "graduates are welcome", "graduates welcome", "tiada pengalaman", "lepasan", "应届", "无经验"]
 NUMBER_WORDS = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10,
                 "satu": 1, "dua": 2, "tiga": 3, "empat": 4, "lima": 5, "enam": 6, "tujuh": 7, "lapan": 8, "sembilan": 9, "sepuluh": 10}
 NUM = re.compile(r"(\d+(?:[.,]\d+)*)(\s?[kK]\b)?")
@@ -132,7 +134,8 @@ def guard(sents: list[str], raw: dict, skill_ids: set[str]) -> tuple[dict, list[
 
     if (y := raw.get("years")) is not None:
         st = cited(y)
-        if st and isinstance(y.get("min"), int) and 0 <= y["min"] <= 25 and has_number(st, y["min"]):
+        zero_ok = y.get("min") == 0 and st and mentions(st, ZERO_EXPERIENCE)     # "fresh graduates welcome" = 0 years
+        if st and isinstance(y.get("min"), int) and 0 <= y["min"] <= 25 and (has_number(st, y["min"]) or zero_ok):
             facts["years"] = y["min"]
         else:
             dropped.append("years")
@@ -209,7 +212,7 @@ def system_prompt(catalog) -> str:
         "states explicitly; when something is not stated, use null or an empty list. Never guess.\n"
         "- skills: skills from the catalogue below that the job asks for. need = \"required\" when stated as a must, "
         "\"nice\" when stated as preferred, a plus or a bonus. Use only catalogue ids; leave out skills the catalogue lacks.\n"
-        "- years: the minimum years of experience asked for (\"3-5 years\" -> 3).\n"
+        "- years: the minimum years of experience asked for (\"3-5 years\" -> 3; fresh graduates or entry level welcome -> 0).\n"
         "- degree: the minimum education level asked for; required = false when it says preferred, or equivalent experience.\n"
         "- languages: human languages the job requires (not programming languages).\n"
         "- pay: the pay as written: min, max (null when only one amount), currency as an ISO code, per hour/day/month/year. "
@@ -300,13 +303,17 @@ def batch_client(concurrency: int) -> LLMClient:
     return client
 
 
+async def need_model(client: LLMClient) -> None:
+    if not client.configured or not (await client.status()).get("online"):
+        raise SystemExit("The model is not answering. Start the GPU first: python -m scripts.gpu start && python -m scripts.gpu wait")
+
+
 async def run(limit: int | None, concurrency: int, client: LLMClient | None = None) -> dict:
     rows = load_rows()
     done = load_progress()
     todo = priority(pending(rows, done))[:limit] if limit else priority(pending(rows, done))
     client = client or batch_client(concurrency)
-    if not client.configured or not (await client.status()).get("online"):
-        raise SystemExit("The model is not answering. Start the GPU first: python -m scripts.gpu start && python -m scripts.gpu wait")
+    await need_model(client)
     reader = Reader(client)
     print(f"Reading {len(todo)} postings with {client.model} ({concurrency} at a time); {len(done)} were read before.")
     queue: asyncio.Queue = asyncio.Queue()
@@ -362,12 +369,16 @@ def score(gold: list[dict], got: list[dict]) -> dict:
     fields = {k: [0, 0] for k in ("years", "degree", "languages", "pay", "mode", "visa")}
     for g, facts in zip(gold, got):
         want, have = g["expect"], facts
-        ws, hs = set(want.get("req", []) + want.get("nice", [])), set(have.get("req", []) + have.get("nice", []))
-        tp, fp, fn = tp + len(ws & hs), fp + len(hs - ws), fn + len(ws - hs)
+        if g.get("skills") is not None:            # skills are labelled only where they are clear-cut
+            ws = set(g["skills"].get("req", []) + g["skills"].get("nice", []))
+            hs = set(have.get("req", []) + have.get("nice", []))
+            tp, fp, fn = tp + len(ws & hs), fp + len(hs - ws), fn + len(ws - hs)
         for k in fields:
             a, b = want.get(k), have.get(k)
             if k == "languages":
                 a, b = sorted(a or []), sorted(b or [])
+            elif k == "degree":
+                a, b = (a, want.get("degree_required")), (b, have.get("degree_required"))
             fields[k][0] += a == b
             fields[k][1] += 1
     out = {"skills_precision": tp / (tp + fp) if tp + fp else 1.0, "skills_recall": tp / (tp + fn) if tp + fn else 1.0}
@@ -379,13 +390,18 @@ async def evaluate(concurrency: int, client: LLMClient | None = None) -> dict:
     if not GOLD.exists():
         raise SystemExit(f"No gold set at {GOLD.relative_to(ROOT)}.")
     gold = json.loads(GOLD.read_text(encoding="utf-8"))
-    reader = Reader(client or batch_client(concurrency))
+    client = client or batch_client(concurrency)
+    await need_model(client)
+    reader = Reader(client)
     got = await asyncio.gather(*(reader.read(g) for g in gold))
     result = score(gold, [facts for facts, _ in got])
     for g, (facts, dropped) in zip(gold, got):
-        if facts != g["expect"]:
-            print(f"- {g['title'][:60]}\n    expected {json.dumps(g['expect'], ensure_ascii=False)}\n    got      {json.dumps(facts, ensure_ascii=False)}"
-                  + (f"\n    dropped  {dropped}" if dropped else ""))
+        fields = {k: sorted(v) if k == "languages" else v for k, v in facts.items() if k not in ("req", "nice")}
+        skills = {k: facts[k] for k in ("req", "nice") if k in facts}
+        want_skills = {k: v for k, v in (g.get("skills") or {}).items() if v}
+        if fields != g["expect"] or (g.get("skills") is not None and skills != want_skills):
+            print(f"- {g['title'][:60]}\n    expected {json.dumps({**g['expect'], **want_skills}, ensure_ascii=False)}"
+                  f"\n    got      {json.dumps(facts, ensure_ascii=False)}" + (f"\n    dropped  {dropped}" if dropped else ""))
     print("\n" + "  ".join(f"{k} {v:.0%}" for k, v in result.items()))
     return result
 

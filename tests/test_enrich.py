@@ -92,6 +92,13 @@ def test_guard_understands_k_amounts_number_words_and_malay():
     assert enrich.guard(sents, {**answer, "years": {"min": 2, "s": 3}}, SKILLS)[0]["years"] == 2
 
 
+def test_zero_years_needs_an_entry_level_sentence():
+    sents = ["Suitable for entry-level candidates, including fresh graduates.", "Work closely with the finance team."]
+    answer = {"skills": [], "years": {"min": 0, "s": 1}, "degree": None, "languages": [], "pay": None, "mode": None, "visa": None}
+    assert enrich.guard(sents, answer, SKILLS)[0] == {"years": 0}
+    assert enrich.guard(sents, {**answer, "years": {"min": 0, "s": 2}}, SKILLS)[0] == {}
+
+
 def test_schema_constrains_ids_and_codes():
     s = enrich.schema(sorted(SKILLS))
     assert s["properties"]["skills"]["items"]["properties"]["id"]["enum"] == sorted(SKILLS)
@@ -151,12 +158,16 @@ def test_a_stopped_gpu_loses_nothing(workspace):
 
 
 def test_eval_scores_against_the_gold_set(workspace):
-    gold = [{"title": "Accounts Executive", "company": "Acme", "sentences": POSTING, "expect": FACTS},
-            {"title": "Other", "company": "Acme", "sentences": POSTING, "expect": {**FACTS, "years": 4, "nice": ["sql", "python"]}}]
+    fields = {k: v for k, v in FACTS.items() if k not in ("req", "nice")}
+    gold = [{"title": "Accounts Executive", "company": "Acme", "sentences": POSTING, "expect": fields,
+             "skills": {"req": ["bookkeeping", "excel"], "nice": ["sql"]}},
+            {"title": "Other", "company": "Acme", "sentences": POSTING, "expect": {**fields, "years": 4},
+             "skills": {"req": ["bookkeeping", "excel"], "nice": ["sql", "python"]}},
+            {"title": "Skills not labelled", "company": "Acme", "sentences": POSTING, "expect": fields, "skills": None}]
     (workspace / "gold.json").write_text(json.dumps(gold))
     client, _ = fake_gpu()
     result = asyncio.run(enrich.evaluate(2, client))
-    assert result["pay"] == 1.0 and result["years"] == 0.5 and result["skills_precision"] == 1.0 and result["skills_recall"] == 6 / 7
+    assert result["pay"] == 1.0 and result["years"] == 2 / 3 and result["skills_precision"] == 1.0 and result["skills_recall"] == 6 / 7
 
 
 def test_dry_run_estimate_is_in_the_expected_range(workspace):
