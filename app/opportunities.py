@@ -270,8 +270,9 @@ def market_stats(jobs: list[dict], profile: Profile) -> dict:
         nice.update(s for s in j["ai"].get("nice", []) if s in catalog.skills)
     skills = []
     for sid, count in required.most_common(MARKET_TOP_SKILLS):
-        have = skill_credit(catalog, profile.skills, sid, 2)["credit"] >= 1
-        skills.append({"id": sid, "share": _share(count, total), "nice_share": _share(nice[sid], total), "you": have})
+        credit = skill_credit(catalog, profile.skills, sid, 2)["credit"]    # same partial credit as the match percentages
+        skills.append({"id": sid, "share": _share(count, total), "nice_share": _share(nice[sid], total), "you": credit >= 1,
+                       "credit": round(credit, 3)})
     asked = sum(x["share"] for x in skills)
     years = sorted(j["ai"]["years"] for j in read if "years" in j["ai"])
     degree = sum(1 for j in read if j["ai"].get("degree") in ("bachelor", "master", "phd") and j["ai"].get("degree_required", True))
@@ -290,7 +291,7 @@ def market_stats(jobs: list[dict], profile: Profile) -> dict:
                    "high": round(statistics.median(r[1] if r[1] is not None else r[0] for r in rows))}
     return {
         "n": len(jobs), "read": total, "remote": sum(1 for j in jobs if j["remote"]),
-        "skills": skills, "coverage": round(sum(x["share"] for x in skills if x["you"]) / asked, 3) if asked else None,
+        "skills": skills, "coverage": round(sum(x["share"] * x["credit"] for x in skills) / asked, 3) if asked else None,
         "years": {"n": len(years), "median": statistics.median(years), "share_0_2": _share(sum(1 for y in years if y <= 2), len(years)),
                   "share_3_5": _share(sum(1 for y in years if 3 <= y <= 5), len(years)),
                   "share_6_plus": _share(sum(1 for y in years if y >= 6), len(years))} if years else None,

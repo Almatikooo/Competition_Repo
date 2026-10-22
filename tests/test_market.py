@@ -28,7 +28,9 @@ def test_market_stats_count_what_postings_require():
     stats = opp.market_stats(jobs, Profile(skills={"sql": 2, "python": 3}))
     assert stats["n"] == 5 and stats["read"] == 5
     assert [(s["id"], s["share"], s["you"]) for s in stats["skills"]] == [("sql", 0.8, True), ("excel", 0.4, False), ("data_viz", 0.2, False)]
-    assert stats["coverage"] == round(0.8 / 1.4, 3)
+    credits = {s["id"]: s["credit"] for s in stats["skills"]}
+    assert credits["sql"] == 1 and all(0 <= c <= 1 for c in credits.values())
+    assert stats["coverage"] == round((0.8 * credits["sql"] + 0.4 * credits["excel"] + 0.2 * credits["data_viz"]) / 1.4, 3)
     assert stats["years"] == {"n": 3, "median": 5, "share_0_2": round(1 / 3, 3), "share_3_5": round(1 / 3, 3), "share_6_plus": round(1 / 3, 3)}
     assert stats["degree_share"] == 0.2                       # one requires a degree; the other only prefers one
     assert stats["languages"][0] == {"code": "en", "share": 0.4}

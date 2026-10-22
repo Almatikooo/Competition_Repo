@@ -188,9 +188,9 @@ def review_messages(facts: dict, lang: str) -> list[dict]:
         {"role": "system", "content": (
             "You are a careful, warm career adviser for Malaysian workers. Write directly to the person (\"you\") in "
             f"{LANG_NAMES.get(lang, 'English')}, in exactly four short sentences: first, a strength they can build on; second, how "
-            "AI is changing their current job (or, if no current job is given, what matters most for them now); third, which of "
-            "their top options is the best next step and one reason from the facts; fourth, one concrete first step for this "
-            "week. Use ONLY the facts provided and do not add any number that is not in them. Write only the review itself: no "
+            "AI is changing their current job (or, if no current job is given, what matters most for them now); third, why their "
+            "option ranked 1 (their best match, shown first on their results page) is the best next step, with one reason "
+            "from the facts; fourth, one concrete first step for this week. Use ONLY the facts provided and do not add any number that is not in them. Write only the review itself: no "
             "headings, no lists, no notes about these instructions. Example of the style, with placeholders in square brackets: "
             "\"Your [skill] and [skill] skills are a strong base. Demand for your current job is expected to shrink about [N]% a "
             "year as AI takes over routine work. [Option] is your best next step: it fits you [M]% and holds up in every AI "
@@ -217,6 +217,7 @@ def chat_messages(facts: dict, history: list[dict], lang: str) -> list[dict]:
     system = (
         "You are Path.AI's career adviser for Malaysian workers. Answer the person's latest question about their work and "
         f"learning options in {LANG_NAMES.get(lang, 'English')}, in at most four short sentences, writing to them as \"you\". "
+        "Their options are ranked as on their results page (rank 1 is their best match); do not contradict that ranking. "
         "Use ONLY the facts below and never add a number that is not in them or in their question. If the facts do not answer "
         "the question, say so in one sentence and point to the Path.AI page that can help: Plan (steps, courses and hours), "
         "Learn (free courses with certificates) or Opportunities (open jobs and universities). Politely decline anything "

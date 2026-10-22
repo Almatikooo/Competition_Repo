@@ -19,11 +19,12 @@ def person_facts(catalog: Catalog, outlook: dict, profile: Profile, weights: Wei
     skill = lambda sid: catalog.skills[sid]["name"]["en"]
     hours = profile.hours_per_week
     options = []
-    for r in rank_roles(catalog, outlook, profile, weights, scenario)[:TOP_OPTIONS]:
+    for rank, r in enumerate(rank_roles(catalog, outlook, profile, weights, scenario)[:TOP_OPTIONS], start=1):
         gaps = sorted((i for i in r["items"] if i["status"] != "have" and i["gap_hours"]), key=lambda i: -i["weight"])[:3]
         market = opp.market_for(profile, [], country, r["id"])
         basis = market[market["basis"]] if market["basis"] != "none" else None
         option = {
+            "rank_on_their_results_page": rank,          # 1 = the best match the page shows first
             "option": title(r["id"]),
             "fit_percent": r["fit"],
             "demand_growth_percent_per_year": round(r["outlook"][scenario]["pct"]),

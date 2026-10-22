@@ -54,6 +54,7 @@ def record_keys() -> list[str]:
 def main() -> None:
     ap = argparse.ArgumentParser(prog="python -m scripts.ai_check")
     ap.add_argument("--save", action="store_true", help="save the accepted answers for the demo")
+    ap.add_argument("--prune", action="store_true", help="with --save: keep only the answers this run used")
     ap.add_argument("--people", type=int, default=6)
     ap.add_argument("--jobs", action="store_true", help="also ask the AI about each person's top jobs in Malaysia and remote")
     ap.add_argument("--market", action="store_true", help="also the AI market check for each person's top direction in Malaysia")
@@ -63,9 +64,9 @@ def main() -> None:
     keys = record_keys()
     client, catalog = TestClient(app), get_catalog()
     status = client.get("/api/meta").json()["llm"]
-    if not status.get("online"):
+    if not status.get("online") and not args.prune:     # --prune can run from saved answers alone, GPU off
         raise SystemExit("The model is not answering: python -m scripts.gpu start && python -m scripts.gpu wait")
-    print(f"Model: {status['model']}\n")
+    print(f"Model: {status.get('model')} ({'online' if status.get('online') else 'off: saved answers only'})\n")
     accepted = total = 0
     for person in catalog.personas["personas"][: args.people]:
         t = time.time()
@@ -146,8 +147,9 @@ def main() -> None:
         answers = llm._load_answers()
         rows = [{"k": k, "v": answers[k], "model": llm.model} for k in dict.fromkeys(keys) if k in answers]
         config.LLM_SAVED_ANSWERS.parent.mkdir(parents=True, exist_ok=True)
-        old = {json.loads(line)["k"]: line for line in config.LLM_SAVED_ANSWERS.read_text(encoding="utf-8").splitlines()} \
-            if config.LLM_SAVED_ANSWERS.exists() else {}
+        old = {} if args.prune else (   # --prune keeps only the answers this run used (drops ones for outdated facts)
+            {json.loads(line)["k"]: line for line in config.LLM_SAVED_ANSWERS.read_text(encoding="utf-8").splitlines()}
+            if config.LLM_SAVED_ANSWERS.exists() else {})
         old.update({r["k"]: json.dumps(r, ensure_ascii=False) for r in rows})
         config.LLM_SAVED_ANSWERS.write_text("\n".join(old.values()) + "\n", encoding="utf-8")
         print(f"Saved {len(rows)} answers to {config.LLM_SAVED_ANSWERS.relative_to(ROOT)} ({len(old)} in all).")

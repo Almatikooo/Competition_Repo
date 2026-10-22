@@ -22,6 +22,7 @@ def test_the_fact_sheet_matches_the_results_page():
     facts = person_facts(catalog, outlook_for(resolve_as_of(None)), Profile(**PROFILE), Weights(), "moderate")
     roles = client.post("/api/match", json={"profile": PROFILE}).json()["roles"][:TOP_OPTIONS]
     assert [o["option"] for o in facts["top_options"]] == [catalog.roles[r["id"]]["title"]["en"] for r in roles]
+    assert [o["rank_on_their_results_page"] for o in facts["top_options"]] == [1, 2, 3]
     for option, role in zip(facts["top_options"], roles):
         assert option["fit_percent"] == role["fit"] and option["hours_to_job_ready"] == role["gap_hours"]
         assert option["demand_growth_percent_per_year"] == round(role["outlook"]["moderate"]["pct"])
