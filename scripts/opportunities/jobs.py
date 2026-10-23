@@ -4,7 +4,7 @@
     python -m scripts.opportunities.jobs --texts-only   # only re-write the trimmed texts for the current snapshot (offline)
 
 Sources (all public and read-only; every listing links back to the original posting):
-  * company job boards on Greenhouse, Lever and Ashby (their public embed APIs), listed in data/opportunities/sources.json
+  * company job boards on Greenhouse, Lever, Ashby and Workable (their public embed APIs), listed in data/opportunities/sources.json
   * Hacker News "Ask HN: Who is hiring?" (latest monthly thread, via the HN Algolia API)
   * remote-job boards with open APIs: Himalayas, Jobicy, Remotive (credited and linked as their terms ask)
   * Arbeitnow (jobs in Germany)
@@ -35,7 +35,8 @@ OUT = ROOT / "data/opportunities/jobs.json"
 TEXTS = ROOT / "data/cache/opportunities/texts.jsonl"     # trimmed posting texts for enrich.py (cache only, not in git)
 SOURCES = json.loads((ROOT / "data/opportunities/sources.json").read_text(encoding="utf-8"))
 DEFAULT_CAP = 400
-MAX_AGE_DAYS = 120
+MAX_AGE_DAYS = 120          # feeds such as the monthly Hacker News threads keep a post after the job is filled
+BOARD_MAX_AGE_DAYS = 365    # a company's own board lists only jobs still open; older ones tend to be evergreen ads
 
 TAG = re.compile(r"<[^>]+>")
 TITLE_RE = re.compile(r"Ask HN: Who is hiring\?\s*\((\w+)\s+(\d{4})\)", re.I)
@@ -225,7 +226,26 @@ def ashby(m: Matcher, client, board: dict) -> list[dict]:
     return out
 
 
-BOARDS = {"greenhouse": greenhouse, "lever": lever, "ashby": ashby}
+def workable(m: Matcher, client, board: dict) -> list[dict]:
+    data = fetch.get_json(client, f"https://www.workable.com/api/accounts/{board['slug']}?details=true")
+    out = []
+    for j in data.get("jobs", []):
+        spots = j.get("locations") or [{"city": j.get("city"), "country": j.get("country")}]
+        location = " / ".join(dict.fromkeys(", ".join(dict.fromkeys(x for x in (s.get("city"), s.get("country")) if x)) for s in spots))
+        places = list(dict.fromkeys(s["countryCode"].upper() for s in spots if s.get("countryCode"))) or countries_in(location)
+        hint = "remote" if str(j.get("telecommuting")).lower() == "true" else ""
+        out.append(record(m, source=f"workable:{board['slug']}", company=board["company"], title=j.get("title"), url=j.get("url") or j.get("shortlink"),
+                          posted=j.get("published_on") or j.get("created_at"), location=location, text=plain(j.get("description")),
+                          remote_hint=hint + (f" {location}" if hint else ""), kind=j.get("employment_type") or None, countries=places))
+    return out
+
+
+BOARDS = {"greenhouse": greenhouse, "lever": lever, "ashby": ashby, "workable": workable}
+
+
+def fresh(r: dict, today: dt.date) -> bool:
+    days = BOARD_MAX_AGE_DAYS if r["source"].partition(":")[0] in BOARDS else MAX_AGE_DAYS
+    return not r["posted"] or r["posted"] >= (today - dt.timedelta(days=days)).isoformat()
 
 
 # ---------------------------------------------------------------- feeds
@@ -364,11 +384,11 @@ def build() -> dict:
                 continue
             stats[feeds[key]["name"]] = len(got)
             jobs += got
-    cutoff = (dt.date.today() - dt.timedelta(days=MAX_AGE_DAYS)).isoformat()
+    today = dt.date.today()
     seen, kept = set(), []
     for r in jobs:
         key = (r["company"].lower(), r["title"].lower(), r["location"].lower())
-        if key in seen or (r["posted"] and r["posted"] < cutoff):
+        if key in seen or not fresh(r, today):
             continue
         seen.add(key)
         if not r["countries"] and r["remote"] in (None, "UNSPECIFIED"):
@@ -433,7 +453,7 @@ def texts_only() -> int:
 
 def board_url(board: dict) -> str:
     return {"greenhouse": f"https://boards.greenhouse.io/{board['slug']}", "lever": f"https://jobs.lever.co/{board['slug']}",
-            "ashby": f"https://jobs.ashbyhq.com/{board['slug']}"}[board["ats"]]
+            "ashby": f"https://jobs.ashbyhq.com/{board['slug']}", "workable": f"https://apply.workable.com/{board['slug']}/"}[board["ats"]]
 
 
 def main() -> None:

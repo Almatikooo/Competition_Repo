@@ -1,3 +1,4 @@
+import datetime as dt
 import json
 import re
 from pathlib import Path
@@ -186,6 +187,30 @@ def test_the_job_skill_prefilter_never_changes_what_is_found():
     for text in samples:
         full = [sid for sid, (_, patterns) in m.skills.items() if any(p.search(text) for p in patterns)]
         assert m.skills_in(text) == full, text
+
+
+def test_a_workable_board_is_read_with_its_countries_and_remote_flag(monkeypatch):
+    from scripts.opportunities import fetch, jobs
+    payload = {"name": "Example Co", "jobs": [
+        {"title": "Data Analyst", "url": "https://apply.workable.com/j/AAA111", "published_on": "2026-10-01", "created_at": "2026-09-20",
+         "employment_type": "Full-time", "telecommuting": False, "description": "<p>SQL and Power BI dashboards.</p>",
+         "locations": [{"country": "Malaysia", "countryCode": "MY", "city": "Kuala Lumpur"}, {"country": "Singapore", "countryCode": "SG", "city": "Singapore"}]},
+        {"title": "Customer Support Specialist", "shortlink": "https://apply.workable.com/j/BBB222", "created_at": "2026-10-02",
+         "telecommuting": "True", "description": "", "country": "Malaysia", "city": "Kuala Lumpur", "locations": []}]}
+    monkeypatch.setattr(fetch, "get_json", lambda client, url, **kw: payload)
+    office, home = jobs.workable(jobs.Matcher(), None, {"company": "Example Co", "ats": "workable", "slug": "example"})
+    assert office["countries"] == ["MY", "SG"] and office["location"] == "Kuala Lumpur, Malaysia / Singapore" and office["remote"] is None
+    assert office["source"] == "workable:example" and office["posted"] == "2026-10-01" and "data_analyst" in office["roles"]
+    assert home["countries"] == ["MY"] and home["remote"] == ["MY"] and home["url"] == "https://apply.workable.com/j/BBB222"
+
+
+def test_company_board_postings_count_for_a_year_feed_posts_for_120_days():
+    from scripts.opportunities.jobs import fresh
+    today = dt.date(2026, 10, 23)
+    post = lambda source, days: {"source": source, "posted": (today - dt.timedelta(days=days)).isoformat()}
+    assert fresh(post("greenhouse:acme", 300), today) and fresh(post("workable:acme", 365), today) and not fresh(post("lever:acme", 366), today)
+    assert fresh(post("hn", 120), today) and not fresh(post("hn", 121), today) and not fresh(post("himalayas", 200), today)
+    assert fresh({"source": "remotive", "posted": None}, today)
 
 
 def test_facts_read_by_the_model_join_their_posting_and_replace_keyword_skills():
