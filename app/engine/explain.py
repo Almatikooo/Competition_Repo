@@ -51,11 +51,9 @@ def build_facts(catalog: Catalog, signals: Signals, outlook: dict, ranked: dict,
     if any(outlook["skills"][i["id"]]["drivers"] for i in ranked["items"]):
         s_oa = add(f"OpenAlex research index, AI-capability topics {caps['bucket_base']} vs {caps['bucket_recent']}, "
                    f"fetched {(caps.get('fetched_at') or '')[:10]}", "https://openalex.org/")
-    s_wef = None
-    if role.get("wef"):
-        claim = catalog.claims[role["wef"]]
-        src = catalog.sources[claim["source"]]
-        s_wef = add(f"{src['title']} ({src['date']}): {claim['text']}", src["url"])
+    s_wef = add(*catalog.claim_source(role["wef"])) if role.get("wef") else None
+    s_wef_my = add(*catalog.claim_source(role["wef_my"])) if role.get("wef_my") else None
+    wef_my = catalog.claims[role["wef_my"]] if role.get("wef_my") else None
     if role["taxonomy"].get("onet"):
         add(f"O*NET {role['taxonomy']['onet']} {role['taxonomy']['onet_title']}",
             f"https://www.onetonline.org/link/summary/{role['taxonomy']['onet']}")
@@ -95,9 +93,13 @@ def build_facts(catalog: Catalog, signals: Signals, outlook: dict, ranked: dict,
         "outlook_pct_per_year": o["pct"], "outlook_low_pct": o["low"], "outlook_high_pct": o["high"],
         "robust_across_scenarios": ranked["robust"],
         "wef_claim": catalog.claims[role["wef"]]["text"] if role.get("wef") else None,
+        "wef_report_year": catalog.sources[catalog.claims[role["wef"]]["source"]]["date"][:4] if role.get("wef") else None,
+        "wef_direction": role.get("wef_dir"),
+        "wef_malaysia": {k: wef_my[k] for k in ("text", "job", "net_growth_pct")} if wef_my else None,
         "drivers": drivers,
         "sdg_targets": [{"target": s["target"], "why": s["why"]} for s in role["sdgs"]],
-        "citations": {"profile": "S1", "job_posts": s_hn, "research": s_oa, "wef": s_wef, "sdg": s_sdg, "model": s_model},
+        "citations": {"profile": "S1", "job_posts": s_hn, "research": s_oa, "wef": s_wef, "wef_my": s_wef_my, "sdg": s_sdg,
+                      "model": s_model},
         "sources": sources,
     }
 
@@ -118,7 +120,13 @@ def template_explanation(facts: dict, lang: str = "en") -> str:
                  f"Jurang utama: {gaps} (kira-kira {facts['gap_hours_total']} jam pembelajaran).",
                  f"Dalam senario {facts['scenario']}, permintaan dianggarkan {_signed(facts['outlook_pct_per_year'])} setahun (julat {rng}) {trend_cites}."]
         if facts["wef_claim"]:
-            parts.append(f"WEF 2025 menyenaraikan peranan ini antara yang paling pesat berkembang [{c['wef']}].")
+            way = "menurun" if facts["wef_direction"] == "declining" else "berkembang"
+            parts.append(f"Laporan WEF {facts['wef_report_year']} menyenaraikan peranan ini antara yang paling pesat {way} [{c['wef']}].")
+        if facts["wef_malaysia"]:
+            my = facts["wef_malaysia"]
+            way = "berkembang" if my["net_growth_pct"] > 0 else "menyusut"
+            parts.append(f"Di Malaysia, majikan yang ditinjau menjangka pekerjaan “{my['job']}” {way} {abs(my['net_growth_pct'])}% "
+                         f"(bersih) menjelang 2030 [{c['wef_my']}].")
         parts.append(f"Peranan ini menyumbang kepada sasaran SDG {sdgs} [{c['sdg']}]. Ini anggaran, bukan ramalan — keputusan di tangan anda.")
         return " ".join(parts)
     if lang == "zh":
@@ -126,7 +134,12 @@ def template_explanation(facts: dict, lang: str = "en") -> str:
                  f"主要差距：{gaps}（约 {facts['gap_hours_total']} 学习小时）。",
                  f"在{facts['scenario']}情景下，需求预计每年 {_signed(facts['outlook_pct_per_year'])}（区间 {rng}）{trend_cites}。"]
         if facts["wef_claim"]:
-            parts.append(f"世界经济论坛 2025 报告将该职位列为增长最快的职位之一 [{c['wef']}]。")
+            way = "下降" if facts["wef_direction"] == "declining" else "增长"
+            parts.append(f"世界经济论坛 {facts['wef_report_year']} 年报告将该职位列为{way}最快的职位之一 [{c['wef']}]。")
+        if facts["wef_malaysia"]:
+            my = facts["wef_malaysia"]
+            way = "增长" if my["net_growth_pct"] > 0 else "减少"
+            parts.append(f"在马来西亚，受访雇主预计“{my['job']}”类职位到 2030 年净{way} {abs(my['net_growth_pct'])}% [{c['wef_my']}]。")
         parts.append(f"该职位有助于实现可持续发展目标 {sdgs} [{c['sdg']}]。这只是估计，不是预言——由你做决定。")
         return " ".join(parts)
     parts = [f"You already cover {facts['fit_pct']}% of the {facts['role']} skill profile [{c['profile']}]"]
@@ -146,6 +159,8 @@ def template_explanation(facts: dict, lang: str = "en") -> str:
                      f"{driver['ai_relation']} {driver['skill']} [{driver['ai_source']}].")
     if facts["wef_claim"]:
         parts.append(f"{facts['wef_claim'].rstrip('.')} [{c['wef']}].")
+    if facts["wef_malaysia"]:
+        parts.append(f"{facts['wef_malaysia']['text'].rstrip('.')} [{c['wef_my']}].")
     parts.append(f"This role contributes to SDG targets {sdgs} [{c['sdg']}]. "
                  "This is an estimate, not a prediction — the decision is yours.")
     return " ".join(parts)

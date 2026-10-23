@@ -282,8 +282,11 @@ def match(q: MatchQuery) -> dict:
                    "roles": [{"id": r["id"], "rank": r["rank"], "prev_rank": prev_rank[r["id"]]} for r in ranked[:EXPLAIN_TOP_N]],
                    "skills": [m for m in skill_moves[:3] if abs(m["now"] - m["prev"]) >= 0.1]}
     current = current_role_outlook(catalog, out, q.profile)
-    if current and current["wef"]:
-        current["wef"] = catalog.claims[current["wef"]]["text"]
+    if current:
+        current["wef"] = catalog.claims[current["wef"]]["text"] if current["wef"] else None
+        my = catalog.roles[current["id"]].get("wef_my")           # what employers in Malaysia expect for this job (WEF)
+        current["wef_my"] = {"job": catalog.claims[my]["job"], "net_growth_pct": catalog.claims[my]["net_growth_pct"],
+                             "link": catalog.claim_source(my)[1]} if my else None
     return {"as_of": as_of, "scenario": scenario, "roles": ranked, "current": current, "changes": changes}
 
 

@@ -100,6 +100,8 @@ class Catalog:
                 problems.append(f"role {rid}: no SDG link")
             if r.get("wef") and r["wef"] not in self.claims:
                 problems.append(f"role {rid}: unknown claim {r['wef']}")
+            if r.get("wef_my") and self.claims.get(r["wef_my"], {}).get("economy") != "MY":
+                problems.append(f"role {rid}: {r['wef_my']} is not a Malaysian claim")
         for res_id, res in self.resources.items():
             for sid in res["skills"]:
                 if sid not in self.skills:
@@ -120,6 +122,14 @@ class Catalog:
 
     def resources_for(self, skill_id: str) -> list[dict]:
         return [r for r in self.resources.values() if skill_id in r["skills"]]
+
+    def claim_source(self, claim_id: str) -> tuple[str, str]:
+        """(label, link) for citing a claim: the label names the document, its date and page; a PDF opens at that page."""
+        claim = self.claims[claim_id]
+        src = self.sources[claim["source"]]
+        page = claim.get("page")
+        link = f"{src['pdf']}#page={page}" if page and src.get("pdf") else src["url"]
+        return f"{src['title']} ({src['date']}){f', p. {page}' if page else ''}: {claim['text']}", link
 
 
 @lru_cache(maxsize=1)

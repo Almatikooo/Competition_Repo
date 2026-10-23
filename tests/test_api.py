@@ -59,6 +59,30 @@ def test_wizard_data_is_exposed_and_prefill_roles_exist():
     assert all(sid in skill_ids for f in meta["study_fields"] for sid in f["skills"])
 
 
+def test_cited_claims_name_their_page_and_malaysia_gets_its_own_numbers():
+    for cid, claim in catalog.claims.items():
+        assert claim.get("page") or catalog.sources[claim["source"]]["kind"] == "press release", cid
+    body = persona_body(role_id="genai_developer", lang="en")
+    res = client.post("/api/explain", json=body).json()
+    my = next(s for s in res["sources"] if "p. 168" in s["label"])
+    assert my["url"].endswith("WEF_Future_of_Jobs_Report_2025.pdf#page=168")
+    assert f"grow by 29% (net) by 2030 [{my['id']}]" in res["text"]
+    ms = client.post("/api/explain", json={**body, "lang": "ms"}).json()["text"]
+    assert "berkembang 29%" in ms and "Laporan WEF 2025" in ms
+    esg = client.post("/api/explain", json={**body, "role_id": "esg_analyst", "lang": "ms"}).json()["text"]
+    assert "Laporan WEF 2023" in esg            # that claim is from the 2023 report
+
+
+def test_the_current_job_shows_what_employers_in_malaysia_expect():
+    body = persona_body()
+    body["profile"]["current_role"] = "data_entry_clerk"
+    cur = client.post("/api/match", json=body).json()["current"]
+    assert cur["wef_my"]["job"] == "Data Entry Clerks" and cur["wef_my"]["net_growth_pct"] == -28
+    assert cur["wef_my"]["link"].endswith("#page=168")
+    body["profile"]["current_role"] = "teacher"
+    assert client.post("/api/match", json=body).json()["current"]["wef_my"] is None
+
+
 def test_current_job_is_never_recommended_back():
     body = persona_body()
     body["profile"]["current_role"] = "data_analyst"

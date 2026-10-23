@@ -1,26 +1,28 @@
 {
-  "_note": "Static, citable sources used as baselines. Live, updatable sources (HN, OpenAlex) are recorded with fetch timestamps in data/signals/. Claims below are qualitative list memberships or findings; no numbers are invented. Verify wording against the published documents before final submission.",
+  "_note": "Static, citable sources used as baselines. Live, updatable sources (HN, OpenAlex) are recorded with fetch timestamps in data/signals/. Claims are list memberships or findings quoted from the documents; no numbers are invented. Wording and pages were checked against the official PDFs on 2026-10-23 (page = PDF page; 'pdf' links open at that page). 'MY' claims come from the Malaysia economy profile of the Future of Jobs Report 2025.",
   "sources": {
     "wef_foj_2025": {
       "title": "World Economic Forum — The Future of Jobs Report 2025",
       "publisher": "World Economic Forum",
       "date": "2025-01",
       "url": "https://www.weforum.org/publications/the-future-of-jobs-report-2025/",
-      "kind": "report"
+      "kind": "report",
+      "pdf": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf"
     },
     "ilo_genai_2025": {
       "title": "ILO — Generative AI and Jobs: A Refined Global Index of Occupational Exposure",
       "publisher": "International Labour Organization",
       "date": "2025-05",
       "url": "https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure",
-      "kind": "report"
+      "kind": "report",
+      "pdf": "https://www.ilo.org/sites/default/files/2025-05/WP140_web.pdf"
     },
     "hays_asia_2025": {
-      "title": "Hays Asia Salary Guide 2025 (as cited in the Aiversecity problem statement)",
+      "title": "Hays — press release on the 2025 Hays Asia Salary Guide (Malaysia)",
       "publisher": "Hays",
-      "date": "2025",
-      "url": "https://www.hays.com.my/salary-guide",
-      "kind": "report"
+      "date": "2025-03-07",
+      "url": "https://www.hays.com.my/press-release/content/future-of-work-malaysia-technology-ai-impact",
+      "kind": "press release"
     },
     "onet": {
       "title": "O*NET OnLine — occupational taxonomy (O*NET-SOC codes)",
@@ -55,137 +57,235 @@
       "publisher": "World Economic Forum",
       "date": "2023-05",
       "url": "https://www.weforum.org/publications/the-future-of-jobs-report-2023/",
-      "kind": "report"
+      "kind": "report",
+      "pdf": "https://www3.weforum.org/docs/WEF_Future_of_Jobs_2023.pdf"
     }
   },
   "claims": {
     "wef_skill_ai_bigdata": {
       "source": "wef_foj_2025",
-      "text": "'AI and big data' is the fastest-growing skill in employers' outlook to 2030."
+      "text": "'AI and big data' is the fastest-growing skill in employers' outlook to 2030.",
+      "page": 37
     },
     "wef_skill_cyber": {
       "source": "wef_foj_2025",
-      "text": "'Networks and cybersecurity' is the second fastest-growing skill."
+      "text": "'Networks and cybersecurity' is the second fastest-growing skill.",
+      "page": 37
     },
     "wef_skill_techlit": {
       "source": "wef_foj_2025",
-      "text": "'Technological literacy' is the third fastest-growing skill."
+      "text": "'Technological literacy' is the third fastest-growing skill.",
+      "page": 37
     },
     "wef_skill_creative": {
       "source": "wef_foj_2025",
-      "text": "'Creative thinking' is expected to keep rising in importance."
+      "text": "'Creative thinking' is expected to keep rising in importance.",
+      "page": 37
     },
     "wef_skill_curiosity": {
       "source": "wef_foj_2025",
-      "text": "'Curiosity and lifelong learning' and 'Resilience, flexibility and agility' are expected to keep rising in importance."
+      "text": "'Curiosity and lifelong learning' and 'Resilience, flexibility and agility' are expected to keep rising in importance.",
+      "page": 37
     },
     "wef_skill_leadership": {
       "source": "wef_foj_2025",
-      "text": "'Leadership and social influence' is among the skills growing in importance."
+      "text": "'Leadership and social influence' is among the top 10 skills on the rise.",
+      "page": 37
     },
     "wef_skill_analytical": {
       "source": "wef_foj_2025",
-      "text": "'Analytical thinking' remains the most sought-after core skill among employers."
+      "text": "'Analytical thinking' remains the top core skill for employers: seven out of 10 companies consider it essential.",
+      "page": 35
     },
     "wef_skill_env": {
       "source": "wef_foj_2025",
-      "text": "'Environmental stewardship' is among the skills growing in importance."
+      "text": "'Environmental stewardship' is among the top 10 skills on the rise.",
+      "page": 37
     },
     "wef_role_ai_ml": {
       "source": "wef_foj_2025",
-      "text": "'AI and Machine Learning Specialists' are among the fastest-growing jobs."
+      "text": "'AI and Machine Learning Specialists' are among the top 15 fastest-growing jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "wef_role_bigdata": {
       "source": "wef_foj_2025",
-      "text": "'Big Data Specialists' and 'Data Analysts and Scientists' are among the fastest-growing jobs."
+      "text": "'Big Data Specialists' and 'Data Analysts and Scientists' are among the top 15 fastest-growing jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "wef_role_software": {
       "source": "wef_foj_2025",
-      "text": "'Software and Applications Developers' are among the fastest-growing jobs."
+      "text": "'Software and Applications Developers' are among the top 15 fastest-growing jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "wef_role_security": {
       "source": "wef_foj_2025",
-      "text": "'Information Security Analysts' and 'Security Management Specialists' are among the fastest-growing jobs."
+      "text": "'Information Security Analysts' and 'Security Management Specialists' are among the top 15 fastest-growing jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "wef_role_devops": {
       "source": "wef_foj_2025",
-      "text": "'DevOps Engineers' are among the fastest-growing jobs."
+      "text": "'Devops Engineer' is among the top 15 fastest-growing jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "wef_role_uiux": {
       "source": "wef_foj_2025",
-      "text": "'UI and UX Designers' are among the fastest-growing jobs."
+      "text": "'UI and UX Designers' are among the top 15 fastest-growing jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "wef_role_iot": {
       "source": "wef_foj_2025",
-      "text": "'Internet of Things Specialists' are among the fastest-growing jobs."
+      "text": "'Internet of Things Specialists' are among the top 15 fastest-growing jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "wef_role_renewable": {
       "source": "wef_foj_2025",
-      "text": "'Renewable Energy Engineers' and 'Environmental Engineers' are among the fastest-growing jobs."
+      "text": "'Renewable Energy Engineers' and 'Environmental Engineers' are among the top 15 fastest-growing jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "wef_role_ev": {
       "source": "wef_foj_2025",
-      "text": "'Autonomous and Electric Vehicle Specialists' are among the fastest-growing jobs."
+      "text": "'Autonomous and Electric Vehicle Specialists' are among the top 15 fastest-growing jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "wef_role_fintech": {
       "source": "wef_foj_2025",
-      "text": "'FinTech Engineers' are among the fastest-growing jobs."
+      "text": "'FinTech Engineers' are among the top 15 fastest-growing jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "wef_role_data_entry": {
       "source": "wef_foj_2025",
-      "text": "'Data Entry Clerks' are among the fastest-declining jobs."
+      "text": "'Data Entry Clerks' are among the top 15 fastest-declining jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "wef_role_accounting_clerks": {
       "source": "wef_foj_2025",
-      "text": "'Accounting, Bookkeeping and Payroll Clerks' are among the fastest-declining jobs."
+      "text": "'Accounting, Bookkeeping and Payroll Clerks' are among the top 15 fastest-declining jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "wef_role_admin": {
       "source": "wef_foj_2025",
-      "text": "'Administrative Assistants and Executive Secretaries' are among the fastest-declining jobs."
+      "text": "'Administrative Assistants and Executive Secretaries' are among the top 15 fastest-declining jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "wef_role_graphic": {
       "source": "wef_foj_2025",
-      "text": "'Graphic Designers' are among the fastest-declining jobs."
+      "text": "'Graphic Designers' are among the top 15 fastest-declining jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "wef_role_telemarketers": {
       "source": "wef_foj_2025",
-      "text": "'Telemarketers' are among the fastest-declining jobs."
+      "text": "'Telemarketers' are among the top 15 fastest-declining jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "ilo_clerical": {
       "source": "ilo_genai_2025",
-      "text": "Clerical support occupations show the highest exposure to generative AI."
+      "text": "Clerical occupations continue to have the highest exposure to generative AI.",
+      "page": 4
     },
     "hays_ai_training_gap": {
       "source": "hays_asia_2025",
-      "text": "In Malaysia, 56% of professionals use AI tools at work but only 26% have received formal training."
+      "text": "In Malaysia, 56% of working professionals use AI tools at work, but only 26% have received training to use them."
     },
     "wef2023_role_sustainability": {
       "source": "wef_foj_2023",
-      "text": "'Sustainability Specialists' were among the fastest-growing jobs."
+      "text": "'Sustainability Specialists' came second, after 'AI and Machine Learning Specialists', in the 2023 list of fast-growing jobs.",
+      "page": 6
     },
     "wef_role_cashiers": {
       "source": "wef_foj_2025",
-      "text": "'Cashiers and Ticket Clerks' are among the fastest-declining jobs."
+      "text": "'Cashiers and Ticket Clerks' are among the top 15 fastest-declining jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "wef_role_tellers": {
       "source": "wef_foj_2025",
-      "text": "'Bank Tellers and Related Clerks' are among the fastest-declining jobs."
+      "text": "'Bank Tellers and Related Clerks' are among the top 15 fastest-declining jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "wef_role_datawarehouse": {
       "source": "wef_foj_2025",
-      "text": "'Data Warehousing Specialists' are among the fastest-growing jobs."
+      "text": "'Data Warehousing Specialists' are among the top 15 fastest-growing jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "wef_role_delivery": {
       "source": "wef_foj_2025",
-      "text": "'Light Truck or Delivery Services Drivers' are among the fastest-growing jobs."
+      "text": "'Light Truck or Delivery Services Drivers' are among the top 15 fastest-growing jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "wef_role_stock_clerks": {
       "source": "wef_foj_2025",
-      "text": "'Material-Recording and Stock-Keeping Clerks' are among the fastest-declining jobs."
+      "text": "'Material-Recording and Stock-Keeping Clerks' are among the top 15 fastest-declining jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
     },
     "wef_role_claims": {
       "source": "wef_foj_2025",
-      "text": "'Claims Adjusters, Examiners, and Investigators' are among the fastest-declining jobs."
+      "text": "'Claims Adjusters, Examiners, and Investigators' are among the top 15 fastest-declining jobs for 2025–2030, as projected by surveyed employers.",
+      "page": 19,
+      "figure": "Figure 2.2"
+    },
+    "wef_my_role_ai_ml": {
+      "source": "wef_foj_2025",
+      "text": "In Malaysia, surveyed employers expect jobs for 'AI and Machine Learning Specialists' to grow by 29% (net) by 2030.",
+      "page": 168,
+      "figure": "Economy profile: Malaysia",
+      "economy": "MY",
+      "job": "AI and Machine Learning Specialists",
+      "net_growth_pct": 29
+    },
+    "wef_my_role_supply_chain": {
+      "source": "wef_foj_2025",
+      "text": "In Malaysia, surveyed employers expect jobs for 'Supply Chain and Logistics Specialists' to grow by 12% (net) by 2030.",
+      "page": 168,
+      "figure": "Economy profile: Malaysia",
+      "economy": "MY",
+      "job": "Supply Chain and Logistics Specialists",
+      "net_growth_pct": 12
+    },
+    "wef_my_role_factory": {
+      "source": "wef_foj_2025",
+      "text": "In Malaysia, surveyed employers expect jobs for 'Assembly and Factory Workers' to grow by 11% (net) by 2030.",
+      "page": 168,
+      "figure": "Economy profile: Malaysia",
+      "economy": "MY",
+      "job": "Assembly and Factory Workers",
+      "net_growth_pct": 11
+    },
+    "wef_my_role_admin": {
+      "source": "wef_foj_2025",
+      "text": "In Malaysia, surveyed employers expect jobs for 'Administrative Assistants and Executive Secretaries' to shrink by 17% (net) by 2030.",
+      "page": 168,
+      "figure": "Economy profile: Malaysia",
+      "economy": "MY",
+      "job": "Administrative Assistants and Executive Secretaries",
+      "net_growth_pct": -17
+    },
+    "wef_my_role_data_entry": {
+      "source": "wef_foj_2025",
+      "text": "In Malaysia, surveyed employers expect jobs for 'Data Entry Clerks' to shrink by 28% (net) by 2030.",
+      "page": 168,
+      "figure": "Economy profile: Malaysia",
+      "economy": "MY",
+      "job": "Data Entry Clerks",
+      "net_growth_pct": -28
     }
   }
 }

@@ -503,8 +503,13 @@ function viewResults() {
   let notice = null;
   if (cur) {
     const pct = cur.outlook[state.scenario].pct;
-    if (pct < -1) notice = h("div", { class: "notice" }, t("alert_down", { role: roleTitle(cur.id), pct: Math.abs(pct).toFixed(0) }));
-    else if (pct > 1) notice = h("div", { class: "notice good" }, t("alert_up", { role: roleTitle(cur.id), pct: pct.toFixed(0) }));
+    const my = cur.wef_my;   // what employers in Malaysia expect for this job, from the WEF Future of Jobs Report
+    const local = my ? h("p", { class: "small", style: { margin: "6px 0 0" } },
+      t(my.net_growth_pct < 0 ? "wef_my_down" : "wef_my_up", { job: my.job, pct: Math.abs(my.net_growth_pct) }), " ",
+      h("a", { href: my.link, target: "_blank", rel: "noopener" }, t("wef_my_src"))) : null;
+    if (pct < -1) notice = h("div", { class: "notice" }, h("div", {}, t("alert_down", { role: roleTitle(cur.id), pct: Math.abs(pct).toFixed(0) }), local));
+    else if (pct > 1) notice = h("div", { class: "notice good" }, h("div", {}, t("alert_up", { role: roleTitle(cur.id), pct: pct.toFixed(0) }), local));
+    else if (local) notice = h("div", { class: "notice info" }, local);
   }
   const moved = m.changes ? m.changes.roles.filter((r) => r.rank <= 3 && r.prev_rank !== r.rank) : [];
   const rest = m.roles.slice(3, 8);
