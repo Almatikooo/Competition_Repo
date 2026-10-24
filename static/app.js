@@ -85,18 +85,18 @@ function originLabel() {
 }
 
 // ---------------------------------------------------------------- header & footer
-const NAV = [["results", "nav_path"], ["coach", "nav_coach"], ["learn", "nav_learn"], ["next", "nav_next"], ["trends", "nav_trends"], ["teams", "nav_teams"], ["how", "nav_how"]];
+const NAV = [["results", "nav_path"], ["chat", "nav_coach"], ["learn", "nav_learn"], ["next", "nav_next"], ["trends", "nav_trends"], ["teams", "nav_teams"], ["how", "nav_how"]];
 
 function renderChrome(routeName) {
   document.documentElement.lang = state.lang === "zh" ? "zh-CN" : state.lang;
   const nav = $("nav");
-  const active = (r) => routeName === r || (r === "results" && (routeName === "plan" || routeName === "start")) || (r === "learn" && routeName === "certificate");
+  const active = (r) => routeName === r || (r === "results" && (routeName === "plan" || routeName === "start")) || (r === "learn" && routeName === "certificate") || (r === "chat" && routeName === "coach");
   nav.replaceChildren(...NAV.map(([r, key]) => h("a", { href: `#/${r}`, "aria-current": active(r) ? "page" : null,
     onclick: () => { nav.classList.remove("open"); $("menuBtn").setAttribute("aria-expanded", "false"); } }, t(key))));
   $("cta").textContent = t("cta_start");
   $("cta").setAttribute("href", "#/start?step=1");
   $("cta").style.display = routeName === "start" ? "none" : "";
-  $("footer").style.display = routeName === "coach" ? "none" : "";   // the coach is a full-screen chat
+  $("footer").style.display = routeName === "chat" || routeName === "coach" ? "none" : "";   // the AI chat is full-screen
   $("menuBtn").textContent = t("menu");
   $("menuBtn").onclick = () => { const open = nav.classList.toggle("open"); $("menuBtn").setAttribute("aria-expanded", String(open)); };
   const llm = state.meta.llm || {};
@@ -798,13 +798,13 @@ async function render() {
   try {
     if (r.name === "home" || r.name === "trends") await ensureRadar();
     if (r.name === "home" || r.name === "plan") await ensureCourses();
-    if ((r.name === "results" || r.name === "coach") && hasProfile()) await ensureMatches();
+    if (["results", "chat", "coach"].includes(r.name) && hasProfile()) await ensureMatches();
     if (r.name === "plan" && hasProfile() && roleById()[r.arg]) await ensurePathway(r.arg);
     if (r.name === "teams") await ensureTeam();
     if (r.name === "learn" || r.name === "certificate") await ensureLearn(r);
     if (r.name === "next") await ensureNext();
     if (r.name === "plan" && roleById()[r.arg]) store.set("focusRole", r.arg); // the direction Opportunities searches first
-    const views = { home: viewHome, start: viewStart, results: viewResults, plan: () => viewPlan(r.arg), next: viewNext, coach: viewCoach, trends: viewTrends, teams: viewTeams, how: viewHow,
+    const views = { home: viewHome, start: viewStart, results: viewResults, plan: () => viewPlan(r.arg), next: viewNext, chat: viewCoach, coach: viewCoach, trends: viewTrends, teams: viewTeams, how: viewHow,
       learn: () => (!r.arg ? viewLearn() : testPart(r.sub) !== null ? viewTest() : r.sub ? viewLesson() : viewCourse()), certificate: () => viewCertificate(r.arg) };
     main.replaceChildren((views[r.name] || viewHome)());
   } catch (e) {

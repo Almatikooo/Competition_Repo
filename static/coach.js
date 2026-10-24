@@ -1,4 +1,4 @@
-// Career coach: a chat that knows the person's journey. Their browser sends the profile, course progress, certificates
+// AI chat (the career coach, #/chat): a chat that knows the person's journey. Their browser sends the profile, course progress, certificates
 // and ticked plan steps with each question; the server builds the facts, the model answers from them only (every
 // number is checked) and may add up to three links to Path.AI pages it was offered. The conversation stays here.
 // The page is laid out like a modern chat app: a centred conversation column, plain assistant turns, the person's
@@ -60,7 +60,7 @@ async function send(text) {
 // Opens the coach with a question already asked (from the results page).
 export function askCoach(question) {
   coach().pending = question;
-  go("#/coach");
+  go("#/chat");
 }
 
 function linkChip(l) {
@@ -177,7 +177,7 @@ function needProfile() {
     h("h1", {}, t("coach_need_title")), h("p", {}, t("coach_need_sub")),
     h("div", { class: "coach-hero-actions" },
       h("a", { class: "btn btn-primary", href: "#/start?step=1" }, t("hero_start")),
-      h("a", { class: "btn btn-secondary", href: "#/coach?persona=aisyah" }, t("coach_try_example"))))));
+      h("a", { class: "btn btn-secondary", href: "#/chat?persona=aisyah" }, t("coach_try_example"))))));
 }
 
 export function viewCoach() {
@@ -225,5 +225,5 @@ export function coachEntry() {
     h("p", { class: "small muted" }, t("coach_entry_d")),
     h("div", { class: "chips", style: { marginTop: "12px" } },
       ["chat_q_first", "chat_q_fastest", "coach_q_week"].map((k) => h("button", { type: "button", class: "chip-sm", onclick: () => askCoach(t(k)) }, t(k))),
-      h("a", { class: "btn btn-primary btn-sm", href: "#/coach" }, t("coach_open"))));
+      h("a", { class: "btn btn-primary btn-sm", href: "#/chat" }, t("coach_open"))));
 }
