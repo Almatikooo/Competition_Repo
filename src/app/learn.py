@@ -11,8 +11,9 @@ own open quiz banks plus Path.AI questions whose answers are quoted verbatim fro
 is not found), so a retake asks a different mix. Grading happens on the server and answer keys never reach the browser
 before a learner passes the final test.
 
-Nothing is stored on the server. A test attempt, a passed chapter and a passed final test are each an HMAC-signed
-token the browser keeps: the final test is only handed out against signed passes for every chapter, and a
+Nothing about a learner is stored on the server. A test attempt, a passed chapter and a passed final test are each an
+HMAC-signed token the browser keeps (the server only remembers, for a few hours, which attempts it has graded, so each
+attempt is graded once): the final test is only handed out against signed passes for every chapter, and a
 certificate only against a signed final pass. Certificates sign (name, course, score, date, nonce) the same way, so
 anyone can verify a certificate link while no database of names is kept.
 """
@@ -36,6 +37,7 @@ LEARN_DIR = config.DATA / "learn"
 CHAPTER_QUESTIONS, CHAPTER_PASS = 5, 4   # the test after every chapter; passing it unlocks the next chapter
 FINAL_QUESTIONS, FINAL_PASS = 25, 20     # the final test; passing it earns the certificate
 MIN_CHAPTER_POOL = CHAPTER_QUESTIONS + 1  # spare questions, so a retake asks a different mix
+ATTEMPT_TTL = 3 * 3600                   # seconds an attempt can be graded; each attempt is graded only once
 MIN_COURSE_POOL = FINAL_QUESTIONS + 5
 TEST_RULES = {"chapter": {"questions": CHAPTER_QUESTIONS, "pass": CHAPTER_PASS},
               "final": {"questions": FINAL_QUESTIONS, "pass": FINAL_PASS}}
@@ -58,6 +60,7 @@ class LearnCatalog:
         self.lesson_index: dict[str, dict[str, int]] = {
             sid: {lesson["id"]: i for i, lesson in enumerate(c["lessons"])} for sid, c in self.courses.items()}
         self.questions: dict[str, dict[str, dict]] = {sid: {q["id"]: q for q in c.get("pool", [])} for sid, c in self.courses.items()}
+        self._graded: dict[str, int] = {}      # nonce -> start time of attempts already graded (kept for ATTEMPT_TTL)
         # Surfaced by the test suite; the app keeps serving the courses that are complete.
         self.problems = self.validate()
 
@@ -198,7 +201,8 @@ class LearnCatalog:
         order = self.lesson_index[sid]
         picked.sort(key=lambda q: order[q["lesson"]])
         titles = {lesson["id"]: lesson["title"] for lesson in course["lessons"]}
-        attempt = sign("attempt", {"s": sid, "k": kind, "m": module, "q": [q["id"] for q in picked], "t": int(time.time())})
+        attempt = sign("attempt", {"s": sid, "k": kind, "m": module, "q": [q["id"] for q in picked], "t": int(time.time()),
+                                   "n": secrets.token_hex(8)})
         return {"attempt": attempt, "kind": kind, "chapter": chapter, "chapter_title": course["modules"][module]["title"] if chapter else None,
                 "total": len(picked), "pass_mark": pass_mark(len(picked), *rule),
                 "questions": [{"id": q["id"], "q": q["q"], "options": q["options"], "lesson": q["lesson"], "lesson_title": titles[q["lesson"]]}
@@ -208,11 +212,19 @@ class LearnCatalog:
         data = unsign("attempt", attempt)
         if not data or data.get("s") != sid or data.get("k") not in ("chapter", "final"):
             raise LearnError("This test attempt is not valid. Please start the test again.")
+        # One grading per attempt: otherwise the same questions could be resent with other answers until all are right.
+        now = int(time.time())
+        if not data.get("n") or now - int(data.get("t") or 0) > ATTEMPT_TTL:
+            raise LearnError("This test attempt has expired. Please start the test again.")
+        self._graded = {n: t for n, t in self._graded.items() if now - t <= ATTEMPT_TTL}
+        if data["n"] in self._graded:
+            raise LearnError("This test attempt has already been graded. Start the test again for a new set of questions.")
         questions = [self.questions[sid].get(qid) for qid in data["q"]]
         if None in questions:
             raise LearnError("This course was updated while you were taking the test. Please start it again.")
         if not isinstance(answers, list) or len(answers) != len(questions):
             raise LearnError(f"Send {len(questions)} answers.")
+        self._graded[data["n"]] = int(data["t"])
         final = data["k"] == "final"
         correct = [isinstance(a, int) and not isinstance(a, bool) and a == q["answer"] for a, q in zip(answers, questions)]
         score, total = sum(correct), len(questions)
@@ -229,7 +241,6 @@ class LearnCatalog:
         out = {"kind": data["k"], "chapter": None if final else data["m"] + 1, "score": score, "total": total, "pass_mark": need,
                "passed": passed, "results": results, "review": [{"id": lid, "title": titles[lid]} for lid in review]}
         if passed:
-            now = int(time.time())
             out["token"] = (sign("final", {"s": sid, "sc": score, "n": total, "t": now}) if final
                             else sign("chapter", {"s": sid, "m": data["m"], "sc": score, "n": total, "t": now}))
         return out

@@ -264,3 +264,15 @@ def test_every_interface_key_is_translated():
     used |= {f"level_{c['level'].lower()}" for c in learn.courses.values()}
     for lang in ("en", "ms", "zh"):
         assert not used - tables[lang], (lang, sorted(used - tables[lang]))
+
+
+def test_an_attempt_is_graded_only_once():
+    attempt = client.post("/api/learn/course/sql/test", json={"chapter": 1}).json()
+    wrong = answers_for("sql", attempt["questions"], 0)
+    first = client.post("/api/learn/course/sql/test/grade", json={"attempt": attempt["attempt"], "answers": wrong})
+    assert first.status_code == 200 and not first.json()["passed"]
+    right = answers_for("sql", attempt["questions"], CHAPTER_QUESTIONS)      # the same questions again, now all right
+    again = client.post("/api/learn/course/sql/test/grade", json={"attempt": attempt["attempt"], "answers": right})
+    assert again.status_code == 400 and "already been graded" in again.json()["detail"]
+    old = sign("attempt", {"s": "sql", "k": "chapter", "m": 0, "q": [q["id"] for q in attempt["questions"]], "t": 1, "n": "x"})
+    assert "expired" in client.post("/api/learn/course/sql/test/grade", json={"attempt": old, "answers": right}).json()["detail"]
