@@ -46,7 +46,7 @@ EXPLAIN_TOP_N = 8
 def resolve_as_of(as_of: str | None) -> str:
     options = signals.as_of_options()
     if not options:
-        raise HTTPException(503, "No trend data yet. Run: python -m app.signals.refresh")
+        raise HTTPException(503, "No trend data yet. Run: PYTHONPATH=src python -m app.signals.refresh")
     return as_of if as_of in options else options[-1]
 
 

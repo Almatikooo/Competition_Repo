@@ -2,6 +2,15 @@
 
 # Path.AI: find your path in the AI era
 
+| | |
+|---|---|
+| **Team name** | ASEA |
+| **Team domain** | Domain 1: Aiversecity Future-Ready Workforce |
+| **Pitch video** | https://www.youtube.com/watch?v=9sNNIqK_iYc |
+| **Live demo** | https://pathai.lol |
+
+**Jump to:** [How to run the project](#how-to-run-the-project) · [Overall project structure](#overall-project-structure) · [How we used Replit and RunPod](#how-we-used-replit-and-runpod)
+
 Path.AI takes a person from **"who I am today"** to **"where I can be in the AI era"**. A first result takes one tap with an example, or about four taps on your own profile. It reads live job-market and AI-research signals, estimates which skills are rising or declining under three AI-disruption scenarios, ranks future roles with an explainable match, and builds a free or low-cost learning plan. Each skill in the plan has a **free, full course** built from real chapters of open curricula (Microsoft *for Beginners*, The Carpentries, OpenStax, BCcampus, GOV.UK, NIST, EIA, EPA and more), studied chapter by chapter: a short test after every chapter unlocks the next one, and passing the final test earns a **verifiable Path.AI certificate**. The last step, **Opportunities**, asks two questions: *study or work?* and *where?* It then lists open jobs anywhere in the world, ranked by the same explainable match, or the universities of the chosen country with how to apply and how to fund it. Every role and skill is linked to concrete UN SDG targets.
 
 > SDC XMUM Hackathon 2026, Domain 1 (Aiversecity Future-Ready Workforce). Working prototype. Every example person is fictional.
@@ -45,7 +54,7 @@ Secondary pages are **Explore trends** (Future Skills Radar, AI capability pulse
 | Must-have | Implementation | Code |
 |---|---|---|
 | 1. Skills profile intake | Job picker with pre-filled skills (63 roles with O*NET codes: 43 future roles and 20 jobs people do today), field of study, or CV upload (PDF/TXT) with rule-based detection. The LLM adds skills only with a verbatim CV quote. Every skill stays editable. | `src/static/app.js`, `src/app/engine/profile.py`, `src/app/llm/tasks.py` |
-| 2. AI-trend signal layer | **Live and updatable.** (a) Job posts from 36 monthly *HN "Who is hiring?"* threads: 11,583 posts, Nov 2023 – Oct 2026. (b) AI-research volume per capability from **OpenAlex**, half-years 2024H1–2026H1. Plus cited WEF *Future of Jobs* 2025/2023 baselines. Each value carries its source and fetch date. Refresh it from *Explore trends* or with `python -m app.signals.refresh`. | `src/app/signals/` |
+| 2. AI-trend signal layer | **Live and updatable.** (a) Job posts from 36 monthly *HN "Who is hiring?"* threads: 11,583 posts, Nov 2023 – Oct 2026. (b) AI-research volume per capability from **OpenAlex**, half-years 2024H1–2026H1. Plus cited WEF *Future of Jobs* 2025/2023 baselines. Each value carries its source and fetch date. Refresh it from *Explore trends* or with `PYTHONPATH=src python -m app.signals.refresh`. | `src/app/signals/` |
 | 3. Future-role matching | Fit (direct plus capped transferable credit), outlook, and preferences. The user can re-weight them, and the current job is never recommended back. Roles come only from a catalog with O*NET codes and WEF categories. | `src/app/engine/matching.py` |
 | 4. Reskilling pathway | Prerequisites first, then core skills, with quick wins early. Hours and weeks are computed at the user's weekly time. Every step opens with the in-app Path.AI course (chapter tests, final test, certificate), with an external course offered as the alternative; 102 external courses with live-checked links, labelled free, free-to-audit, low-cost or paid (check HRD Corp). | `src/app/engine/pathway.py`, `src/app/learn.py`, `data/learn/` |
 | 5. SDG mapping | Every role and skill maps to specific **SDG targets** (e.g. 7.2, 8.5, 12.6), each with a reason and a direct or enabling strength. Interest tiles carry SDG priorities that re-rank roles, and the plan shows its SDG impact. Every goal badge, wherever it appears, opens a short explainer. It gives the goal's meaning in plain words and its official wording (EN/MS/ZH), and says how the role or skill you clicked contributes. It also lists the targets Path.AI links to, the jobs and free courses that contribute, and a link to the UN page. | `data/catalog/*.json`, `src/static/core.js` |
@@ -194,30 +203,46 @@ This is the last step of the journey. It is linked from the results, the plan, y
 | Representativeness (HN is US/tech-centric) | Used for tech skills only, with confidence labels. Malaysian feeds are on the roadmap. |
 | Few open postings for a country in the job snapshot | Every country also gets one-tap searches on its main job sites, official portals first, and remote jobs open worldwide. |
 
-## Run it
+## How to run the project
+
+**Easiest: the live demo.** Open https://pathai.lol. There is nothing to install.
+
+**On your computer** (Python 3.12; macOS, Linux or Windows):
 
 ```bash
-python3 -m venv .venv && source .venv/bin/activate      # Python ≥ 3.11
+git clone https://github.com/Almatikooo/Competition_Repo.git && cd Competition_Repo
+python3 -m venv .venv && source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-uvicorn app.main:app --app-dir src --reload               # http://127.0.0.1:8000
-python -m pytest -q                                      # 137 tests
-python -m app.signals.refresh                            # pull fresh HN + OpenAlex data (optional)
-python scripts/verify_resources.py                       # re-check every course / source URL
-python -m scripts.opportunities.jobs                     # refresh the job snapshot (about 15 min)
-python -m scripts.opportunities.universities             # refresh the university lists
-python -m scripts.gpu create                             # first time: the RunPod GPU pod for Qwen (needs RUNPOD_API_KEY in .env)
-python -m scripts.gpu start | stop | status              # switch the GPU on and off (it also stops itself after 20 idle minutes)
-python -m scripts.opportunities.enrich --dry-run         # what reading every job posting with the model would cost
-caffeinate -is python -m scripts.opportunities.enrich --then-stop   # read them all, then switch the GPU off
+uvicorn app.main:app --app-dir src --reload                   # then open http://127.0.0.1:8000
+```
+
+No API key is needed. Without one, the app runs in rule-based mode, and the saved AI answers for the example people are shown.
+
+**Turn on the AI (optional).** Copy `.env.example` to `.env`, then use one or both:
+- **Our own GPU on RunPod.** Put your RunPod API key in `RUNPOD_API_KEY` and run `python -m scripts.gpu create`. It creates the pod and fills in `LLM_BASE_URL`, `LLM_API_KEY` and `LLM_MODEL`. Switch the GPU with `python -m scripts.gpu start`, `stop` and `status`.
+- **The hosted backup.** Put a Groq API key in `LLM_BACKUP_API_KEY`.
+
+**On Replit.** Import the GitHub repository into Replit and press **Run**: `.replit` installs the requirements and starts `uvicorn app.main:app --app-dir src`.
+
+**Tests:** `python -m pytest -q` (138 tests).
+
+**Refreshing the data (optional):**
+
+```bash
+PYTHONPATH=src python -m app.signals.refresh               # fresh Hacker News + OpenAlex trend data
+python scripts/verify_resources.py                         # re-check every course and source URL
+python -m scripts.opportunities.jobs                       # rebuild the job snapshot (about 15 min)
+python -m scripts.opportunities.universities               # rebuild the university lists
+python -m scripts.opportunities.enrich --dry-run           # what reading every posting with the model would cost
+caffeinate -is python -m scripts.opportunities.enrich --then-stop   # GPU on: read them all, then switch the GPU off
+python -m scripts.ai_check --jobs --market --review --chat --save   # GPU on: save AI answers for the example people
 uv run --with markdown-it-py --with mdit-py-plugins --with nh3 --with beautifulsoup4 --with lxml --with pyyaml python -m scripts.learnkit.build  # rebuild the courses
 ```
 
-- **Replit.** Import the GitHub repo. `.replit` installs the requirements and runs uvicorn on port 8000.
-- **LLM.** Copy `.env.example` to `.env`, put your RunPod API key in `RUNPOD_API_KEY` and run `python -m scripts.gpu create`: it creates the pod and fills in `LLM_BASE_URL`, `LLM_API_KEY` and `LLM_MODEL`. Any other OpenAI-compatible endpoint works too.
 - **Certificates.** In production, set a stable `CERT_SECRET`.
 - **Live server.** https://pathai.lol runs on a DigitalOcean VPS in Singapore: Ubuntu 24.04, uvicorn under
-  systemd, and Caddy for HTTPS. It always works, rule-based or with saved model answers; it uses the live model only
-  while the GPU is on.
+  systemd, and Caddy for HTTPS. It always works: rule-based, with saved model answers, or through the hosted backup.
+  It uses our own GPU while it is on.
   - **Fresh server:** `HOST=pathai.lol ALIASES="www.pathai.lol" bash deploy/server/setup.sh`.
   - **Deploy main:** `ssh root@<server> /srv/pathai/app/deploy/server/update.sh`.
   - **Copy model settings from `.env`:** `SERVER=root@<server> bash deploy/server/push_env.sh`. Run it again after `gpu recreate`.
@@ -241,7 +266,9 @@ uv run --with markdown-it-py --with mdit-py-plugins --with nh3 --with beautifuls
 
 ![Explore trends](docs/img/trends.png)
 
-## Project structure
+## Overall project structure
+
+The app's source code is in `src/`: the backend in `src/app/` and the web pages in `src/static/`. Data, build scripts, tests, deployment and docs sit beside it.
 
 ```
 src/                   the source code of the app
@@ -270,6 +297,31 @@ scripts/brand_assets.py  rebuilds src/static/brand/ (vector logo, favicons, link
 tests/                 catalog, engine, guardrail, learn/certificate, opportunities and API tests
 docs/RUNPOD.md         model + GPU choice and deployment guide
 ```
+
+## How we used Replit and RunPod
+
+### RunPod: our own AI model on a GPU
+- **Setup.** One **RTX A6000 (48 GB)** pod on RunPod Secure Cloud ($0.59/h).
+  - It runs **vLLM** with **Qwen3.8-27B-FP8**: open weights, multilingual (English, Malay, Chinese), behind an OpenAI-compatible API.
+  - The weights sit on a 40 GB volume, so a stopped pod starts again in a few minutes without downloading them again.
+  - Files: `deploy/runpod/`.
+- **On only when needed.** `python -m scripts.gpu create | start | stop | status | wait | recreate` drives the RunPod REST API. The key stays in the local `.env` and is never on the server.
+  - A watchdog inside the pod stops it after 20 idle minutes and after 10 hours at most, so a forgotten GPU cannot burn the budget.
+- **What the GPU did for Path.AI:**
+  - **Read every job posting once:** 19,424 postings in about 3 GPU hours.
+    - It extracted the skills required or nice to have, years of experience, degree, languages, pay, work mode and visa sponsorship.
+    - Each fact cites a sentence number, and a guard checks that the numbers and words are really in that sentence.
+    - The results are in `data/opportunities/job_facts.json`.
+  - **Writes the guarded AI answers:** "Why this role?" explanations, job advice, the market check, the personal AI review and the AI Chat.
+  - **Saved answers.** It also wrote the answers for the example people (`data/ai/answers.jsonl`), so the demo shows real model output while the GPU is off.
+- **Budget.** We had $25 of credit and have spent about $4.50 so far, storage included. The rest is kept for the live demo.
+
+### Replit: research assistant and one-click workspace
+- **Replit Agent as a research team.** We gave Replit Agent a written brief: find open labour-market data for Malaysia under strict rules (open licences only, no scraping, exact quotes with page numbers, nothing invented). From its results:
+  - **Job boards.** It found company job boards with openings in Malaysia and Singapore. They became 27 new boards in `data/opportunities/sources.json`, plus support for Workable.
+  - **Claims.** It checked all 32 facts the app cites against the official WEF and ILO PDFs and extracted the WEF 2025 **Malaysia and Singapore** economy profiles. The app now uses the exact wording, opens each citation at its page, and shows what employers in Malaysia expect for a job (for example, Data Entry Clerks −28% by 2030).
+  - **Re-checked before use.** We re-checked every result ourselves: boards were re-fetched with our own importer, PDF hashes compared, and each quote found on its page.
+- **Replit workspace.** `.replit` lets anyone import the repository into Replit and run the app with one click.
 
 ## Limitations and roadmap
 

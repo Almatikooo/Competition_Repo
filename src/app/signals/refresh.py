@@ -1,4 +1,4 @@
-"""Refresh all live trend sources.  Usage:  python -m app.signals.refresh [--skip-hn] [--skip-openalex]"""
+"""Refresh all live trend sources.  Usage:  PYTHONPATH=src python -m app.signals.refresh [--skip-hn] [--skip-openalex]"""
 import argparse
 import asyncio
 
