@@ -96,6 +96,7 @@ function renderChrome(routeName) {
   $("cta").textContent = t("cta_start");
   $("cta").setAttribute("href", "#/start?step=1");
   $("cta").style.display = routeName === "start" ? "none" : "";
+  $("footer").style.display = routeName === "coach" ? "none" : "";   // the coach is a full-screen chat
   $("menuBtn").textContent = t("menu");
   $("menuBtn").onclick = () => { const open = nav.classList.toggle("open"); $("menuBtn").setAttribute("aria-expanded", String(open)); };
   const llm = state.meta.llm || {};
