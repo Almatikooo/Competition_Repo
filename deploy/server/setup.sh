@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 # Sets up (or re-applies) Path.AI on an Ubuntu 24.04 server. Run as root from the checkout:
 #
-#   HOST=157-230-248-132.sslip.io bash /srv/pathai/app/deploy/server/setup.sh
+#   HOST=pathai.lol ALIASES="www.pathai.lol 157-230-248-132.sslip.io" bash /srv/pathai/app/deploy/server/setup.sh
 #
-# The app runs as the 'pathai' user under systemd (uvicorn on 127.0.0.1:8000) and Caddy serves it over HTTPS on $HOST
-# (sslip.io turns the server's IP into a name, so a certificate works without buying a domain). Secrets live only in
-# /srv/pathai/app/.env, written by push_env.sh from the laptop.
+# The app runs as the 'pathai' user under systemd (uvicorn on 127.0.0.1:8000) and Caddy serves it over HTTPS on $HOST;
+# ALIASES (optional) are other names that lead to it. Without a domain, sslip.io turns the server's IP into a name
+# (157-230-248-132.sslip.io), so a certificate works anyway. Secrets live only in /srv/pathai/app/.env, written by
+# push_env.sh from the laptop.
 set -euo pipefail
-HOST=${HOST:?set HOST, e.g. 157-230-248-132.sslip.io}
+HOST=${HOST:?set HOST, e.g. pathai.lol}
+ALIASES=${ALIASES:-}
 APP=/srv/pathai/app
 HERE=$(cd "$(dirname "$0")" && pwd)
 
@@ -26,7 +28,11 @@ sudo -u pathai "$APP/.venv/bin/pip" install -q --upgrade pip
 sudo -u pathai "$APP/.venv/bin/pip" install -q -r "$APP/requirements.txt"
 
 install -m 644 "$HERE/pathai.service" /etc/systemd/system/pathai.service
-sed "s/{HOST}/$HOST/g" "$HERE/Caddyfile" > /etc/caddy/Caddyfile
+{                                                   # Caddy gets and renews the HTTPS certificates on its own
+  printf '%s {\n\tencode zstd gzip\n\treverse_proxy 127.0.0.1:8000\n}\n' "$HOST"
+  [ -z "$ALIASES" ] || printf '\n%s {\n\tredir https://%s{uri} permanent\n}\n' "${ALIASES// /, }" "$HOST"
+  printf '\n# The bare IP address leads to the HTTPS name.\nhttp:// {\n\tredir https://%s{uri}\n}\n' "$HOST"
+} > /etc/caddy/Caddyfile
 systemctl daemon-reload
 systemctl enable -q pathai
 systemctl restart pathai
