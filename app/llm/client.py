@@ -8,9 +8,13 @@ The GPU is switched on only when needed, so the client
 * answers a request it has seen before from its answer cache, without the GPU (data/cache/llm, plus the committed
   saved answers in data/ai/answers.jsonl);
 * fails fast while the model is offline, so callers fall back to the rule-based path at once;
-* sends at most `max_parallel` requests at a time to the single GPU.
+* sends at most `max_parallel` requests at a time to the single GPU;
+* while the GPU is off, the web app's client (`backup=True`) asks a hosted copy of the same open model instead
+  (LLM_BACKUP_*: Groq's qwen/qwen3.8-27b). Callers opt out per request (`backup=False`, e.g. reading a CV, which
+  may hold a name or a phone number), and batch scripts make their own client without the backup.
 """
 import asyncio
+import contextvars
 import datetime as dt
 import hashlib
 import json
@@ -27,11 +31,18 @@ class LLMUnavailable(RuntimeError):
     pass
 
 
+# The model that wrote the answer to the current request (our GPU's or the backup's), for the reply's "model" field.
+ANSWERED_BY: contextvars.ContextVar[str | None] = contextvars.ContextVar("llm_answered_by", default=None)
+
+
 class LLMClient:
     def __init__(self, transport: httpx.AsyncBaseTransport | None = None, max_parallel: int | None = None,
-                 cache_dir: Path | None = config.LLM_CACHE_DIR, saved: Path | None = config.LLM_SAVED_ANSWERS) -> None:
+                 cache_dir: Path | None = config.LLM_CACHE_DIR, saved: Path | None = config.LLM_SAVED_ANSWERS,
+                 backup: bool = False) -> None:
         self.base_url = config.LLM_BASE_URL
         self.model = config.LLM_MODEL
+        self.backup_url = config.LLM_BACKUP_BASE_URL if backup else ""
+        self.backup_model = config.LLM_BACKUP_MODEL
         self.transport = transport  # tests inject httpx.MockTransport here
         self.max_parallel = max_parallel or config.LLM_MAX_PARALLEL
         self.timeout = config.LLM_TIMEOUT
@@ -41,7 +52,7 @@ class LLMClient:
         self._answers: dict[str, str] | None = None
         self._status: dict = {}
         self._checked_at = 0.0
-        self._sem: tuple[asyncio.AbstractEventLoop, asyncio.Semaphore] | None = None
+        self._sems: dict[str, tuple[asyncio.AbstractEventLoop, asyncio.Semaphore]] = {}
 
     def _client(self, timeout: float) -> httpx.AsyncClient:
         return httpx.AsyncClient(timeout=timeout, transport=self.transport)
@@ -50,14 +61,18 @@ class LLMClient:
     def configured(self) -> bool:
         return bool(self.base_url)
 
+    @property
+    def backup_configured(self) -> bool:
+        return bool(self.backup_url and config.LLM_BACKUP_API_KEY)
+
     def _headers(self) -> dict:
         return {"Authorization": f"Bearer {config.LLM_API_KEY}"} if config.LLM_API_KEY else {}
 
-    def _semaphore(self) -> asyncio.Semaphore:
+    def _semaphore(self, which: str = "gpu") -> asyncio.Semaphore:
         loop = asyncio.get_running_loop()
-        if self._sem is None or self._sem[0] is not loop:
-            self._sem = (loop, asyncio.Semaphore(self.max_parallel))
-        return self._sem[1]
+        if which not in self._sems or self._sems[which][0] is not loop:
+            self._sems[which] = (loop, asyncio.Semaphore(self.max_parallel if which == "gpu" else 2))
+        return self._sems[which][1]
 
     # ------------------------------------------------------------ answer cache
     def _key(self, payload: dict) -> str:
@@ -97,7 +112,10 @@ class LLMClient:
         return sum(1 for line in self.saved_file.read_text(encoding="utf-8").splitlines() if line.strip())
 
     async def status(self, max_age: float = 30.0) -> dict:
-        return {**await self._status_now(max_age), "saved": self.saved_count() if self.cache_enabled else 0}
+        now = await self._status_now(max_age)
+        if not now.get("online") and self.backup_configured:      # our GPU is off: the hosted backup answers
+            now = {"online": True, "configured": True, "model": self.backup_model, "mode": "backup", "gpu_error": now.get("error")}
+        return {**now, "saved": self.saved_count() if self.cache_enabled else 0}
 
     async def _status_now(self, max_age: float) -> dict:
         if not self.configured:
@@ -126,28 +144,53 @@ class LLMClient:
                                           "json_schema": {"name": "output", "schema": json_schema, "strict": True}}
         return payload
 
+    def _backup_payload(self, payload: dict) -> dict:
+        """The same request for the hosted backup: its model id, and Groq's switch for Qwen thinking instead of vLLM's."""
+        body = {k: v for k, v in payload.items() if k != "chat_template_kwargs"}
+        body["model"] = self.backup_model
+        if "chat_template_kwargs" in payload and "qwen" in self.backup_model.lower():
+            body["reasoning_effort"] = "none"
+        return body
+
     async def chat(self, messages: list[dict], *, json_schema: dict | None = None, max_tokens: int = 700,
-                   temperature: float = 0.2, cache: bool = True, accept: Callable[[str], bool] | None = None) -> str:
+                   temperature: float = 0.2, cache: bool = True, accept: Callable[[str], bool] | None = None,
+                   backup: bool = True) -> str:
         """The model's answer. With `cache`, a request seen before is answered from the cache, and a new answer is
-        kept when `accept` (e.g. a guardrail) passes it: a rejected answer is never replayed, the next try asks again."""
+        kept when `accept` (e.g. a guardrail) passes it: a rejected answer is never replayed, the next try asks again.
+        Our GPU answers when it is on; otherwise the hosted backup, unless `backup=False`."""
         payload = self.payload(messages, json_schema=json_schema, max_tokens=max_tokens, temperature=temperature)
         if cache and (hit := self.cached(payload)) is not None:
+            ANSWERED_BY.set(self.model)
             return hit
-        if not self.configured:
+        own = await self._status_now(30.0)
+        if own.get("online"):
+            url, key, body, model, which = self.base_url, config.LLM_API_KEY, payload, self.model, "gpu"
+        elif backup and self.backup_configured:
+            body = self._backup_payload(payload)
+            if cache and (hit := self.cached(body)) is not None:
+                ANSWERED_BY.set(self.backup_model)
+                return hit
+            url, key, model, which = self.backup_url, config.LLM_BACKUP_API_KEY, self.backup_model, "backup"
+        elif not self.configured:
             raise LLMUnavailable("LLM_BASE_URL is not set")
-        if not (await self.status()).get("online"):
-            raise LLMUnavailable(f"the model is offline ({self._status.get('error', 'no answer')})")
+        else:
+            raise LLMUnavailable(f"the model is offline ({own.get('error', 'no answer')})")
         try:
-            async with self._semaphore():
+            async with self._semaphore(which):
                 async with self._client(self.timeout) as client:
-                    resp = await client.post(f"{self.base_url}/chat/completions", json=payload, headers=self._headers())
+                    resp = await client.post(f"{url}/chat/completions", json=body,
+                                             headers={"Authorization": f"Bearer {key}"} if key else {})
+                    if resp.status_code == 429:
+                        raise LLMUnavailable("busy: too many requests to the model; try again in a minute")
                     resp.raise_for_status()
                     content = resp.json()["choices"][0]["message"]["content"] or ""
         except (httpx.HTTPError, KeyError, ValueError) as exc:
-            self._status = {}
+            if which == "gpu":
+                self._status = {}
             raise LLMUnavailable(f"{type(exc).__name__}: {exc}") from exc
         if cache and _passes(accept, content):
-            self._remember(payload, content)
+            self._remember(body, content)
+        ANSWERED_BY.set(model)
         return content
 
 
@@ -160,4 +203,4 @@ def _passes(accept: Callable[[str], bool] | None, content: str) -> bool:
         return False
 
 
-llm = LLMClient()
+llm = LLMClient(backup=True)     # the web app's client; batch scripts make their own, without the backup

@@ -67,7 +67,7 @@ async def extract_skills(catalog: Catalog, cv_text: str) -> tuple[list[dict], li
             "The CV may be in English, Bahasa Malaysia or Chinese.")},
         {"role": "user", "content": f"Taxonomy:\n{taxonomy}\n\nCV:\n<<<\n{cv_text[:12000]}\n>>>"},
     ]
-    raw = await llm.chat(messages, json_schema=schema, max_tokens=900, temperature=0.0)
+    raw = await llm.chat(messages, json_schema=schema, max_tokens=900, temperature=0.0, backup=False)   # a CV never leaves our GPU
     items = json.loads(raw).get("skills", [])
     return guard_skills(catalog, cv_text, items)
 
@@ -180,7 +180,8 @@ async def market_check(facts: dict, lang: str) -> tuple[str, list[str]]:
 
 ANSWER_SCHEMA = {"type": "object", "additionalProperties": False, "required": ["answer"], "properties": {"answer": {"type": "string"}}}
 REVIEW_PARAMS = {"max_tokens": 320, "temperature": 0.3}
-CHAT_PARAMS = {"max_tokens": 260, "temperature": 0.3}
+COACH_PARAMS = {"max_tokens": 420, "temperature": 0.3}
+COACH_HISTORY = 6      # the latest messages the model sees: the hosted backup allows only a few thousand tokens a minute
 
 
 def review_messages(facts: dict, lang: str) -> list[dict]:
@@ -213,42 +214,54 @@ async def career_review(facts: dict, lang: str) -> tuple[str, list[str]]:
     return text, guard_numbers(text, facts)
 
 
+def coach_schema(link_ids: list[str]) -> dict:
+    """The coach's reply: the answer, and links chosen only from the pages it was offered (enforced by the decoder)."""
+    return {"type": "object", "additionalProperties": False, "required": ["answer", "links"],
+            "properties": {"answer": {"type": "string"}, "links": {"type": "array", "items": {"type": "string", "enum": link_ids}}}}
+
+
 def chat_messages(facts: dict, history: list[dict], lang: str) -> list[dict]:
     system = (
-        "You are Path.AI's career adviser for Malaysian workers. Answer the person's latest question about their work and "
-        f"learning options in {LANG_NAMES.get(lang, 'English')}, in at most four short sentences, writing to them as \"you\". "
-        "Their options are ranked as on their results page (rank 1 is their best match); do not contradict that ranking. "
-        "Use ONLY the facts below and never add a number that is not in them or in their question. If the facts do not answer "
-        "the question, say so in one sentence and point to the Path.AI page that can help: Plan (steps, courses and hours), "
-        "Learn (free courses with certificates) or Opportunities (open jobs and universities). Politely decline anything "
-        "unrelated to their work and learning. Write only the answer, without lists or headings.\n\nFacts:\n"
+        "You are Path.AI's career coach for workers in Malaysia, talking with one person. Everything you know about them is "
+        "in the facts below: their profile, their best-matching roles (ranked as on their results page; rank 1 is their best "
+        "match), their courses and plans, and open jobs where they look. "
+        f"Reply in {LANG_NAMES.get(lang, 'English')}, writing to them as \"you\": warm, practical and short (at most six "
+        "sentences, or a few lines starting with \"- \"). Rules: use only the facts for anything about this person, their "
+        "roles, courses, plans or jobs, and never contradict their ranking; never write a number that is not in the facts or "
+        "in their own messages; you may add general, well-known advice on studying, CVs and interviews, but never invent "
+        "jobs, companies, salaries or statistics; if the facts cannot answer, say so in one sentence and suggest the Path.AI "
+        "page that can help; politely decline anything unrelated to their work, learning or career. In \"links\", give up "
+        "to three ids from links_you_can_offer that help them act on your answer, or none.\n\nFacts:\n"
         + json.dumps(facts, ensure_ascii=False))
-    return [{"role": "system", "content": system}, *history]
+    return [{"role": "system", "content": system}, *history[-COACH_HISTORY:]]
 
 
-def chat_payload(facts: dict, history: list[dict], lang: str) -> dict:
-    return llm.payload(chat_messages(facts, history, lang), json_schema=ANSWER_SCHEMA, **CHAT_PARAMS)
+def _coach_reply(raw: str) -> tuple[str, list[str]]:
+    data = json.loads(raw)
+    return data["answer"].strip(), [x for x in data.get("links") or [] if isinstance(x, str)]
 
 
-async def career_chat(facts: dict, history: list[dict], lang: str) -> tuple[str, list[str]]:
-    """One answer in the career chat. Numbers may come from the facts or from what the person asked; a draft with any
-    other number is asked again once, then rejected."""
+async def career_chat(facts: dict, history: list[dict], lang: str) -> tuple[str, list[str], list[str]]:
+    """One answer from the career coach: (text, problems, link ids). Numbers may come from the facts or from what the
+    person wrote; a draft with any other number is asked again once, then rejected. Links outside the offer are dropped."""
+    offered = facts.get("links_you_can_offer") or {}
+    schema = coach_schema(list(offered) or ["learn"])
     allowed = {"facts": facts, "asked": [m["content"] for m in history if m["role"] == "user"]}
 
     def grounded(raw: str) -> bool:
-        return not guard_numbers(json.loads(raw)["answer"].strip(), allowed)
+        return not guard_numbers(_coach_reply(raw)[0], allowed)
 
     messages = chat_messages(facts, history, lang)
-    raw = await llm.chat(messages, json_schema=ANSWER_SCHEMA, accept=grounded, **CHAT_PARAMS)
-    text = json.loads(raw)["answer"].strip()
+    raw = await llm.chat(messages, json_schema=schema, accept=grounded, **COACH_PARAMS)
+    text, links = _coach_reply(raw)
     problems = guard_numbers(text, allowed)
     if problems:                          # one more try, reminded of the rule
         retry = messages + [{"role": "system", "content": "Your previous draft used a number that is not in the facts. "
                                                           "Answer again using only numbers from the facts."}]
-        raw = await llm.chat(retry, json_schema=ANSWER_SCHEMA, cache=False, **CHAT_PARAMS)
-        text = json.loads(raw)["answer"].strip()
+        raw = await llm.chat(retry, json_schema=schema, cache=False, **COACH_PARAMS)
+        text, links = _coach_reply(raw)
         problems = guard_numbers(text, allowed)
-    return text, problems
+    return text, problems, [x for x in dict.fromkeys(links) if x in offered][:3]
 
 
 __all__ = ["extract_skills", "explain", "job_advice", "market_check", "career_review", "career_chat", "guard_skills", "guard_explanation", "guard_numbers", "LLMUnavailable"]

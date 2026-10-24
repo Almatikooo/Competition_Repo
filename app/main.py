@@ -18,7 +18,7 @@ from .learn import TEST_RULES, LearnError, get_learn, verify_certificate
 from . import advisor
 from . import opportunities as opp
 from .llm import tasks
-from .llm.client import LLMUnavailable, llm
+from .llm.client import ANSWERED_BY, LLMUnavailable, llm
 from .signals.refresh import refresh as refresh_signals
 
 app = FastAPI(title="Path.AI — career paths for the AI era", version="0.3.0")
@@ -84,8 +84,22 @@ class ChatMessage(BaseModel):
     content: str = Field(min_length=1, max_length=600)
 
 
+class LearningProgress(BaseModel):
+    done: int = Field(default=0, ge=0, le=1000)          # lessons done in this course
+    chapters: int = Field(default=0, ge=0, le=100)       # chapter tests passed
+    final: bool = False
+
+
+class CoachContext(BaseModel):
+    """What the person did on Path.AI, as their browser keeps it (nothing of it is stored on the server)."""
+    learning: dict[Annotated[str, Field(max_length=40)], LearningProgress] = Field(default_factory=dict, max_length=60)
+    certified: list[Annotated[str, Field(max_length=40)]] = Field(default_factory=list, max_length=60)
+    plans: dict[Annotated[str, Field(max_length=60)], list[Annotated[str, Field(max_length=40)]]] = Field(default_factory=dict, max_length=8)
+
+
 class ChatQuery(ReviewQuery):
-    messages: list[ChatMessage] = Field(min_length=1, max_length=8)
+    messages: list[ChatMessage] = Field(min_length=1, max_length=12)
+    context: CoachContext = Field(default_factory=CoachContext)
 
 
 class NextJobsQuery(BaseModel):
@@ -308,7 +322,7 @@ async def explain(q: RoleQuery) -> dict:
         if problems:
             result["guardrail"] = {"rejected": True, "problems": problems, "draft": text}
         else:
-            result.update(engine="llm", text=text, model=llm.model, guardrail={"rejected": False})
+            result.update(engine="llm", text=text, model=ANSWERED_BY.get() or llm.model, guardrail={"rejected": False})
     except (LLMUnavailable, ValueError, KeyError) as exc:
         result["guardrail"] = {"rejected": False, "error": str(exc)[:200]}
     return result
@@ -329,22 +343,33 @@ async def ai_review(q: ReviewQuery) -> dict:
         return {"engine": None, "text": None, "error": str(exc)[:200]}
     if problems:
         return {"engine": None, "text": None, "guardrail": {"rejected": True, "problems": problems}}
-    return {"engine": "llm", "text": text, "model": llm.model}
+    return {"engine": "llm", "text": text, "model": ANSWERED_BY.get() or llm.model}
 
 
 @app.post("/api/chat")
 async def career_chat(q: ChatQuery) -> dict:
-    """The career chat: answers about the person's own options, from their facts only (numbers checked)."""
+    """The career coach: answers about the person's own career from their facts only (numbers and links checked)."""
     if q.messages[-1].role != "user":
         raise HTTPException(422, "the last message must be the person's question")
-    facts, lang = _person_facts(q)
+    ctx = q.context
+    facts = advisor.coach_facts(catalog, learn, outlook_for(resolve_as_of(q.as_of)), q.profile, q.weights, resolve_scenario(q.scenario),
+                                q.country, ctx.learning, ctx.certified, ctx.plans)
+    lang = q.lang if q.lang in LANGS else "en"
     try:
-        text, problems = await tasks.career_chat(facts, [m.model_dump() for m in q.messages], lang)
+        text, problems, link_ids = await tasks.career_chat(facts, [m.model_dump() for m in q.messages], lang)
     except (LLMUnavailable, ValueError, KeyError) as exc:
         return {"engine": None, "text": None, "error": str(exc)[:200]}
     if problems:
         return {"engine": None, "text": None, "guardrail": {"rejected": True, "problems": problems}}
-    return {"engine": "llm", "text": text, "model": llm.model}
+    return {"engine": "llm", "text": text, "links": [_coach_link(x, q.country) for x in link_ids], "model": ANSWERED_BY.get() or llm.model}
+
+
+def _coach_link(link_id: str, country: str) -> dict:
+    """A link the coach chose, as the page shows it (labels are written in the page's language)."""
+    kind, _, ref = link_id.partition(":")
+    if kind == "job" and (job := opp.job_by_id(ref)):
+        return {"kind": "job", "id": ref, "title": job["title"], "company": job["company"], "url": job["url"]}
+    return {"kind": kind, "id": ref or None, "country": country if kind == "jobs" else None}
 
 
 # ---------------------------------------------------------------- 4. pathway
@@ -474,7 +499,7 @@ async def next_why(q: NextWhyQuery) -> dict:
         return {"engine": None, "text": None, "error": str(exc)[:200]}
     if problems:
         return {"engine": None, "text": None, "guardrail": {"rejected": True, "problems": problems}}
-    return {"engine": "llm", "text": text, "model": llm.model}
+    return {"engine": "llm", "text": text, "model": ANSWERED_BY.get() or llm.model}
 
 
 def _market(q: NextMarketQuery) -> dict:
@@ -509,7 +534,7 @@ async def next_market_ai(q: NextMarketQuery) -> dict:
         return {"engine": None, "text": None, "error": str(exc)[:200]}
     if problems:
         return {"engine": None, "text": None, "guardrail": {"rejected": True, "problems": problems}}
-    return {"engine": "llm", "text": text, "model": llm.model}
+    return {"engine": "llm", "text": text, "model": ANSWERED_BY.get() or llm.model}
 
 
 @app.post("/api/next/study")

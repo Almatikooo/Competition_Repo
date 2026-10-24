@@ -33,6 +33,11 @@ LLM_TIMEOUT = float(os.getenv("LLM_TIMEOUT", "90"))
 LLM_DISABLE_THINKING = os.getenv("LLM_DISABLE_THINKING", "true").lower() == "true"
 # One GPU serves everyone: the web app sends at most this many requests at a time (batch jobs set their own limit).
 LLM_MAX_PARALLEL = int(os.getenv("LLM_MAX_PARALLEL", "4"))
+# Backup model while our own GPU is off: a hosted copy of the same open model (Groq serves qwen/qwen3.8-27b on an
+# OpenAI-compatible API). It gets the facts behind an answer, never a CV, and batch scripts never use it.
+LLM_BACKUP_BASE_URL = os.getenv("LLM_BACKUP_BASE_URL", "").rstrip("/")
+LLM_BACKUP_API_KEY = os.getenv("LLM_BACKUP_API_KEY", "")
+LLM_BACKUP_MODEL = os.getenv("LLM_BACKUP_MODEL", "qwen/qwen3.8-27b")
 # Model answers are kept, so the same request is answered at once and without the GPU: data/cache/llm (local)
 # and data/ai/answers.jsonl (saved answers for the example people, committed so the demo shows them with the GPU off).
 LLM_CACHE_DIR = CACHE_DIR / "llm"

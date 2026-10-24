@@ -4,6 +4,7 @@ import { state, store, EMPTY_PROFILE, t, setLang, $, api, skillById, roleById, l
   ensureRadar, ensureMatches, ensureCourses } from "./core.js";
 import { ensureLearn, viewLearn, viewCourse, viewLesson, viewTest, viewCertificate, certificatePrintStyle, hoursLabel, testPart } from "./learn.js";
 import { ensureNext, viewNext, nextCta } from "./next.js";
+import { viewCoach, coachEntry } from "./coach.js";
 
 const POPULAR_JOBS = ["accounting_clerk", "admin_assistant", "customer_service_rep", "factory_operator", "cashier", "teacher", "graphic_designer", "telemarketer"];
 const POPULAR_SKILLS = ["prompt_eng", "data_analysis", "communication", "excel", "project_mgmt", "digital_literacy", "leadership", "python", "customer_service", "teaching_training"];
@@ -84,7 +85,7 @@ function originLabel() {
 }
 
 // ---------------------------------------------------------------- header & footer
-const NAV = [["results", "nav_path"], ["learn", "nav_learn"], ["next", "nav_next"], ["trends", "nav_trends"], ["teams", "nav_teams"], ["how", "nav_how"]];
+const NAV = [["results", "nav_path"], ["coach", "nav_coach"], ["learn", "nav_learn"], ["next", "nav_next"], ["trends", "nav_trends"], ["teams", "nav_teams"], ["how", "nav_how"]];
 
 function renderChrome(routeName) {
   document.documentElement.lang = state.lang === "zh" ? "zh-CN" : state.lang;
@@ -465,37 +466,6 @@ async function askReview(btn) {
   render();
 }
 
-const SUGGESTED = ["chat_q_fastest", "chat_q_first", "chat_q_jobs"];
-function careerChat() {
-  const key = JSON.stringify(advisorBody());
-  if (state.chat?.key !== key) state.chat = { key, messages: [], busy: false };
-  const c = state.chat;
-  const send = async (text) => {
-    text = (text || "").trim().slice(0, 600);
-    if (!text || c.busy) return;
-    c.messages.push({ role: "user", content: text });
-    c.busy = true;
-    render();
-    const history = c.messages.filter((m) => !m.note).map(({ role, content }) => ({ role, content })).slice(-8);
-    try {
-      const res = await api("/api/chat", { ...advisorBody(), messages: history });
-      if (res.engine === "llm") c.messages.push({ role: "assistant", content: res.text });
-      else c.messages.push({ role: "assistant", content: t(res.guardrail?.rejected ? "chat_cant" : "chat_off"), note: true });
-    } catch (e) { c.messages.push({ role: "assistant", content: String(e.message || e), note: true }); }
-    c.busy = false;
-    render();
-  };
-  return h("section", { class: "card career-chat" },
-    h("div", { class: "ai-head" }, icon("sparkles"), h("h2", {}, t("chat_title"))),
-    h("p", { class: "small muted" }, t("chat_sub")),
-    c.messages.length ? h("div", { class: "chat-log", "aria-live": "polite" }, c.messages.map((m) => h("p", { class: `msg ${m.role}${m.note ? " note" : ""}` }, m.content))) : null,
-    c.busy ? h("p", { class: "small muted" }, t("nx_asking")) : null,
-    c.messages.length ? null : h("div", { class: "chips", style: { marginTop: "12px" } }, SUGGESTED.map((k) => h("button", { type: "button", class: "chip-sm", onclick: () => send(t(k)) }, t(k)))),
-    h("form", { class: "chat-form", onsubmit: (e) => { e.preventDefault(); const f = e.currentTarget.elements.q; send(f.value); f.value = ""; } },
-      h("input", { name: "q", type: "text", maxlength: 600, placeholder: t("chat_ph"), autocomplete: "off", "aria-label": t("chat_ph") }),
-      h("button", { type: "submit", class: "btn btn-primary btn-sm", disabled: c.busy }, t("chat_send"))));
-}
-
 function viewResults() {
   if (!hasProfile()) return startPrompt();
   const m = state.matches;
@@ -534,7 +504,7 @@ function viewResults() {
           state.showMore ? t("fewer_roles") : t("more_roles", { n: rest.length }))) : null,
       state.showMore ? moreList : null,
       nextCta(),
-      careerChat(),
+      coachEntry(),
       h("details", { class: "card", style: { marginTop: "24px" } }, h("summary", { style: { cursor: "pointer", fontWeight: "700" } }, t("adjust")),
         h("div", { class: "grid-3", style: { marginTop: "16px", gap: "20px" } }, weightSlider("fit", t("w_fit")), weightSlider("outlook", t("w_outlook")), weightSlider("preference", t("w_pref")))),
       h("p", { class: "source-line", style: { textAlign: "center", marginTop: "24px" } },
@@ -827,13 +797,13 @@ async function render() {
   try {
     if (r.name === "home" || r.name === "trends") await ensureRadar();
     if (r.name === "home" || r.name === "plan") await ensureCourses();
-    if (r.name === "results" && hasProfile()) await ensureMatches();
+    if ((r.name === "results" || r.name === "coach") && hasProfile()) await ensureMatches();
     if (r.name === "plan" && hasProfile() && roleById()[r.arg]) await ensurePathway(r.arg);
     if (r.name === "teams") await ensureTeam();
     if (r.name === "learn" || r.name === "certificate") await ensureLearn(r);
     if (r.name === "next") await ensureNext();
     if (r.name === "plan" && roleById()[r.arg]) store.set("focusRole", r.arg); // the direction Opportunities searches first
-    const views = { home: viewHome, start: viewStart, results: viewResults, plan: () => viewPlan(r.arg), next: viewNext, trends: viewTrends, teams: viewTeams, how: viewHow,
+    const views = { home: viewHome, start: viewStart, results: viewResults, plan: () => viewPlan(r.arg), next: viewNext, coach: viewCoach, trends: viewTrends, teams: viewTeams, how: viewHow,
       learn: () => (!r.arg ? viewLearn() : testPart(r.sub) !== null ? viewTest() : r.sub ? viewLesson() : viewCourse()), certificate: () => viewCertificate(r.arg) };
     main.replaceChildren((views[r.name] || viewHome)());
   } catch (e) {

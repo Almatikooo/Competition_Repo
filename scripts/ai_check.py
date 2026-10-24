@@ -64,7 +64,7 @@ def main() -> None:
     keys = record_keys()
     client, catalog = TestClient(app), get_catalog()
     status = client.get("/api/meta").json()["llm"]
-    if not status.get("online") and not args.prune:     # --prune can run from saved answers alone, GPU off
+    if status.get("mode") != "llm" and not args.prune:  # saved answers come from our own GPU (--prune can run from them, GPU off)
         raise SystemExit("The model is not answering: python -m scripts.gpu start && python -m scripts.gpu wait")
     print(f"Model: {status.get('model')} ({'online' if status.get('online') else 'off: saved answers only'})\n")
     accepted = total = 0
