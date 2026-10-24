@@ -8,6 +8,7 @@
 | **Team domain** | Domain 1: Aiversecity Future-Ready Workforce |
 | **Pitch video** | https://www.youtube.com/watch?v=9sNNIqK_iYc |
 | **Live demo** | https://pathai.lol |
+| **Submission files** | [Submission/](Submission/): the preliminary-round document and the RunPod and Replit proofs of use |
 
 **Jump to:** [How to run the project](#how-to-run-the-project) · [Overall project structure](#overall-project-structure) · [How we used Replit and RunPod](#how-we-used-replit-and-runpod)
 
@@ -293,6 +294,7 @@ scripts/opportunities/ job and university snapshots: jobs.py · universities.py 
 scripts/gpu.py         switch the RunPod GPU on and off: create · start · stop · status · wait · recreate
 deploy/runpod/         the pod's start command (start.sh: vLLM) and watchdog.py (stops the pod when the model sits idle)
 deploy/server/         the live server: setup.sh · update.sh · push_env.sh · pathai.service (systemd)
+Submission/            the preliminary-round document (PDF) and the RunPod and Replit proofs of use
 scripts/brand_assets.py  rebuilds src/static/brand/ (vector logo, favicons, link preview) from the master logo
 tests/                 catalog, engine, guardrail, learn/certificate, opportunities and API tests
 docs/RUNPOD.md         model + GPU choice and deployment guide
@@ -315,13 +317,16 @@ docs/RUNPOD.md         model + GPU choice and deployment guide
   - **Writes the guarded AI answers:** "Why this role?" explanations, job advice, the market check, the personal AI review and the AI Chat.
   - **Saved answers.** It also wrote the answers for the example people (`data/ai/answers.jsonl`), so the demo shows real model output while the GPU is off.
 - **Budget.** We had $25 of credit and have spent about $4.50 so far, storage included. The rest is kept for the live demo.
+- **Proof:** [Submission/RunPod Proof of Use.pdf](Submission/RunPod%20Proof%20of%20Use.pdf).
 
 ### Replit: research assistant and one-click workspace
 - **Replit Agent as a research team.** We gave Replit Agent a written brief: find open labour-market data for Malaysia under strict rules (open licences only, no scraping, exact quotes with page numbers, nothing invented). From its results:
   - **Job boards.** It found company job boards with openings in Malaysia and Singapore. They became 27 new boards in `data/opportunities/sources.json`, plus support for Workable.
   - **Claims.** It checked all 32 facts the app cites against the official WEF and ILO PDFs and extracted the WEF 2025 **Malaysia and Singapore** economy profiles. The app now uses the exact wording, opens each citation at its page, and shows what employers in Malaysia expect for a job (for example, Data Entry Clerks −28% by 2030).
   - **Re-checked before use.** We re-checked every result ourselves: boards were re-fetched with our own importer, PDF hashes compared, and each quote found on its page.
+- **Building with Replit Agent.** Team members also built and previewed parts of Path.AI in a Replit workspace with Replit Agent, for example the course converter that turns open curricula into lessons.
 - **Replit workspace.** `.replit` lets anyone import the repository into Replit and run the app with one click.
+- **Proof:** [Submission/Replit Proof of Use.pdf](Submission/Replit%20Proof%20of%20Use.pdf).
 
 ## Limitations and roadmap
 
