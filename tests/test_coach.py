@@ -132,3 +132,9 @@ def test_a_saved_answer_beats_the_backup(tmp_path, monkeypatch):
     assert asyncio.run(later.chat([{"role": "user", "content": "Something new"}])) == "from the backup"
     with pytest.raises(LLMUnavailable, match="offline"):
         asyncio.run(later.chat([{"role": "user", "content": "My CV"}], backup=False))
+
+
+def test_a_reply_cut_short_keeps_only_whole_sentences(fake_coach):
+    fake_coach["reply"] = {"answer": "Lead with your 9 years in bookkeeping. Mention Excel. Then say you are moving into", "links": []}
+    res = client.post("/api/chat", json={"profile": PROFILE, "messages": ASK}).json()
+    assert res["text"] == "Lead with your 9 years in bookkeeping. Mention Excel."

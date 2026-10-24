@@ -230,15 +230,27 @@ def chat_messages(facts: dict, history: list[dict], lang: str) -> list[dict]:
         "roles, courses, plans or jobs, and never contradict their ranking; never write a number that is not in the facts or "
         "in their own messages; you may add general, well-known advice on studying, CVs and interviews, but never invent "
         "jobs, companies, salaries or statistics; if the facts cannot answer, say so in one sentence and suggest the Path.AI "
-        "page that can help; politely decline anything unrelated to their work, learning or career. In \"links\", give up "
-        "to three ids from links_you_can_offer that help them act on your answer, or none.\n\nFacts:\n"
+        "page that can help; politely decline anything unrelated to their work, learning or career; do not use double quote "
+        "marks inside the answer (use single quotes to quote something). In \"links\", give up to three ids from "
+        "links_you_can_offer that help them act on your answer, or none.\n\nFacts:\n"
         + json.dumps(facts, ensure_ascii=False))
     return [{"role": "system", "content": system}, *history[-COACH_HISTORY:]]
 
 
+SENTENCE_END = re.compile(r"[.!?。！？…)]$")
+
+
+def _whole(text: str) -> str:
+    """A stray quote mark can end the JSON string early, cutting the reply mid-sentence: keep it up to the last full stop."""
+    if not text or SENTENCE_END.search(text):
+        return text
+    cut = max(text.rfind(c) for c in ".!?。！？")
+    return text[:cut + 1].rstrip() if cut > 0 else text
+
+
 def _coach_reply(raw: str) -> tuple[str, list[str]]:
     data = json.loads(raw)
-    return data["answer"].strip(), [x for x in data.get("links") or [] if isinstance(x, str)]
+    return _whole(data["answer"].strip()), [x for x in data.get("links") or [] if isinstance(x, str)]
 
 
 async def career_chat(facts: dict, history: list[dict], lang: str) -> tuple[str, list[str], list[str]]:
