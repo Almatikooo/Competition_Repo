@@ -8,7 +8,7 @@
 | **Team domain** | Domain 1: Aiversecity Future-Ready Workforce |
 | **Pitch video** | https://www.youtube.com/watch?v=9sNNIqK_iYc |
 | **Live demo** | https://pathai.lol |
-| **Submission files** | [Submission/](Submission/): the preliminary-round document and the RunPod and Replit proofs of use |
+| **Submission files** | [Submission/](Submission/): the preliminary-round document, the [pitch deck](Submission/Pitch%20Deck%20ASEA.pdf), and the RunPod and Replit proofs of use |
 
 **Jump to:** [How to run the project](#how-to-run-the-project) · [Overall project structure](#overall-project-structure) · [How we used Replit and RunPod](#how-we-used-replit-and-runpod)
 
@@ -294,7 +294,7 @@ scripts/opportunities/ job and university snapshots: jobs.py · universities.py 
 scripts/gpu.py         switch the RunPod GPU on and off: create · start · stop · status · wait · recreate
 deploy/runpod/         the pod's start command (start.sh: vLLM) and watchdog.py (stops the pod when the model sits idle)
 deploy/server/         the live server: setup.sh · update.sh · push_env.sh · pathai.service (systemd)
-Submission/            the preliminary-round document (PDF) and the RunPod and Replit proofs of use
+Submission/            the preliminary-round document, the pitch deck (PDFs), and the RunPod and Replit proofs of use
 scripts/brand_assets.py  rebuilds src/static/brand/ (vector logo, favicons, link preview) from the master logo
 tests/                 catalog, engine, guardrail, learn/certificate, opportunities and API tests
 docs/RUNPOD.md         model + GPU choice and deployment guide
