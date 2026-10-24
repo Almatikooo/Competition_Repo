@@ -13,7 +13,7 @@ echo "  http://${IP:-<this-computer-IP>}:${PORT}"
 echo "  (or http://${NAME}.local:${PORT} on iPhones and Macs; Android and Windows often cannot resolve .local names)"
 echo "Visitors must be on the same Wi-Fi. Keep this laptop on its charger with the lid open. Press Ctrl+C to stop."
 # Long keep-alive: phones reuse idle connections, and a short server timeout makes some of those requests fail.
-ARGS=(-m uvicorn app.main:app --host 0.0.0.0 --port "$PORT" --timeout-keep-alive 75)
+ARGS=(-m uvicorn app.main:app --app-dir src --host 0.0.0.0 --port "$PORT" --timeout-keep-alive 75)
 if command -v caffeinate >/dev/null 2>&1; then
   exec caffeinate -is "$PY" "${ARGS[@]}"
 fi

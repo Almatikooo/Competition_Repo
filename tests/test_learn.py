@@ -253,13 +253,13 @@ def test_bad_names_are_rejected(raw):
 def test_every_interface_key_is_translated():
     """A missing key renders as its raw name (e.g. 'nav_learn'), so every t("…") in the UI must exist in every language."""
     script = """
-      import { STRINGS } from './static/i18n.js';
+      import { STRINGS } from './src/static/i18n.js';
       console.log(JSON.stringify(Object.fromEntries(Object.entries(STRINGS).map(([k, v]) => [k, Object.keys(v)]))));
     """
     out = subprocess.run(["node", "--input-type=module", "-e", script], cwd=ROOT, capture_output=True, text=True, check=True)
     tables = {lang: set(keys) for lang, keys in json.loads(out.stdout).items()}
     used = set()
-    for js in (ROOT / "static").glob("*.js"):
+    for js in (ROOT / "src/static").glob("*.js"):
         used |= set(re.findall(r'\bt\("([a-z0-9_]+)"', js.read_text(encoding="utf-8")))
     used |= {f"level_{c['level'].lower()}" for c in learn.courses.values()}
     for lang in ("en", "ms", "zh"):

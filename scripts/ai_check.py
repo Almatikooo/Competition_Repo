@@ -19,7 +19,7 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+sys.path[:0] = [str(ROOT), str(ROOT / "src")]     # scripts/ and the app in src/
 
 from fastapi.testclient import TestClient  # noqa: E402
 
@@ -32,8 +32,8 @@ LANGS = ("en", "ms", "zh")
 
 
 def suggested_questions() -> dict[str, list[str]]:
-    """The chat's suggested questions exactly as the page shows them (static/i18n.js holds EN, MS, ZH in that order)."""
-    js = (ROOT / "static/i18n.js").read_text(encoding="utf-8")
+    """The chat's suggested questions exactly as the page shows them (src/static/i18n.js holds EN, MS, ZH in that order)."""
+    js = (ROOT / "src/static/i18n.js").read_text(encoding="utf-8")
     found = [re.findall(rf'{key}: "([^"]+)"', js) for key in ("chat_q_fastest", "chat_q_first", "chat_q_jobs")]
     return {lang: [texts[i] for texts in found] for i, lang in enumerate(LANGS)}
 

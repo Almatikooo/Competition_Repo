@@ -173,7 +173,7 @@ def test_api():
 def test_every_listed_country_has_a_flag_image():
     codes = {c["code"] for c in client.get("/api/next/meta").json()["countries"]}
     assert len(codes) > 150 and not codes & opp.HISTORICAL           # no East Germany or Yugoslavia listed twice as "Germany", "Serbia"
-    assert not [c for c in sorted(codes) if not (ROOT / "static/flags" / f"{c.lower()}.svg").is_file()]
+    assert not [c for c in sorted(codes) if not (ROOT / "src/static/flags" / f"{c.lower()}.svg").is_file()]
 
 
 def test_the_job_skill_prefilter_never_changes_what_is_found():

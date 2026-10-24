@@ -2,12 +2,13 @@
 import os
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[2]          # the repository: data/, .env, docs/
+SRC = Path(__file__).resolve().parents[1]           # src/: the app (app/) and the web pages (static/)
 DATA = ROOT / "data"
 CATALOG_DIR = DATA / "catalog"
 SIGNALS_DIR = DATA / "signals"
 CACHE_DIR = DATA / "cache"
-STATIC_DIR = ROOT / "static"
+STATIC_DIR = SRC / "static"
 
 
 def _load_dotenv() -> None:

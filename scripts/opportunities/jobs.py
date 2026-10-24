@@ -23,7 +23,7 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT))
+sys.path[:0] = [str(ROOT), str(ROOT / "src")]     # scripts/ and the app in src/
 
 from app.catalog import alias_regex, get_catalog  # noqa: E402
 

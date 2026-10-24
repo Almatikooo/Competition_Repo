@@ -1,4 +1,4 @@
-"""Path.AI API + static web app.   Run:  uvicorn app.main:app --reload"""
+"""Path.AI API + static web app.   Run:  uvicorn app.main:app --app-dir src --reload"""
 import asyncio
 from typing import Annotated
 

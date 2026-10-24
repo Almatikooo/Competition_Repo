@@ -10,7 +10,7 @@ Input: the trimmed posting texts that jobs.py writes to data/cache/opportunities
 The model sees each posting as numbered sentences and returns facts that each cite a sentence NUMBER. A guard drops
 every fact whose sentence does not exist or does not contain what the fact claims (the number of years, the pay amounts
 and currency, the language, the degree, the work mode, the visa wording). Output: data/opportunities/job_facts.json,
-keyed by a stable hash of the posting URL and merged into the jobs by app/opportunities.py.
+keyed by a stable hash of the posting URL and merged into the jobs by src/app/opportunities.py.
 
 Order: Malaysia, Singapore, remote jobs open to Malaysia, then the rest, newest first. Progress is saved after every
 posting, so when the GPU stops (or the watchdog stops it) nothing is lost: run the command again to continue.
@@ -25,7 +25,7 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT))
+sys.path[:0] = [str(ROOT), str(ROOT / "src")]     # scripts/ and the app in src/
 
 from app.catalog import get_catalog  # noqa: E402
 from app.llm.client import LLMClient, LLMUnavailable  # noqa: E402

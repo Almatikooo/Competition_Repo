@@ -1,8 +1,8 @@
-run = "pip install -q -r requirements.txt && uvicorn app.main:app --host 0.0.0.0 --port 8000"
+run = "pip install -q -r requirements.txt && uvicorn app.main:app --app-dir src --host 0.0.0.0 --port 8000"
 modules = ["python-3.12"]
 
 [deployment]
-run = ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port 8000"]
+run = ["sh", "-c", "uvicorn app.main:app --app-dir src --host 0.0.0.0 --port 8000"]
 build = ["sh", "-c", "pip install -r requirements.txt"]
 deploymentTarget = "cloudrun"
 

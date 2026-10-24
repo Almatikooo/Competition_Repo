@@ -1,4 +1,4 @@
-<p align="center"><img src="static/brand/logo.svg" width="200" alt="Path.AI"></p>
+<p align="center"><img src="src/static/brand/logo.svg" width="200" alt="Path.AI"></p>
 
 # Path.AI: find your path in the AI era
 
@@ -44,12 +44,12 @@ Secondary pages are **Explore trends** (Future Skills Radar, AI capability pulse
 
 | Must-have | Implementation | Code |
 |---|---|---|
-| 1. Skills profile intake | Job picker with pre-filled skills (63 roles with O*NET codes: 43 future roles and 20 jobs people do today), field of study, or CV upload (PDF/TXT) with rule-based detection. The LLM adds skills only with a verbatim CV quote. Every skill stays editable. | `static/app.js`, `app/engine/profile.py`, `app/llm/tasks.py` |
-| 2. AI-trend signal layer | **Live and updatable.** (a) Job posts from 36 monthly *HN "Who is hiring?"* threads: 11,583 posts, Nov 2023 – Oct 2026. (b) AI-research volume per capability from **OpenAlex**, half-years 2024H1–2026H1. Plus cited WEF *Future of Jobs* 2025/2023 baselines. Each value carries its source and fetch date. Refresh it from *Explore trends* or with `python -m app.signals.refresh`. | `app/signals/` |
-| 3. Future-role matching | Fit (direct plus capped transferable credit), outlook, and preferences. The user can re-weight them, and the current job is never recommended back. Roles come only from a catalog with O*NET codes and WEF categories. | `app/engine/matching.py` |
-| 4. Reskilling pathway | Prerequisites first, then core skills, with quick wins early. Hours and weeks are computed at the user's weekly time. Every step opens with the in-app Path.AI course (chapter tests, final test, certificate), with an external course offered as the alternative; 102 external courses with live-checked links, labelled free, free-to-audit, low-cost or paid (check HRD Corp). | `app/engine/pathway.py`, `app/learn.py`, `data/learn/` |
-| 5. SDG mapping | Every role and skill maps to specific **SDG targets** (e.g. 7.2, 8.5, 12.6), each with a reason and a direct or enabling strength. Interest tiles carry SDG priorities that re-rank roles, and the plan shows its SDG impact. Every goal badge, wherever it appears, opens a short explainer. It gives the goal's meaning in plain words and its official wording (EN/MS/ZH), and says how the role or skill you clicked contributes. It also lists the targets Path.AI links to, the jobs and free courses that contribute, and a link to the UN page. | `data/catalog/*.json`, `static/core.js` |
-| 6. Handling uncertainty | Three scenarios: slower ×0.5, expected ×1, faster ×2 AI pace. Every estimate has a range and a confidence label, and roles are flagged when they hold up in every scenario. Trend data can be viewed *as of* any of the last 19 months. "Estimates, not predictions" wording appears everywhere. | `app/engine/forecast.py` |
+| 1. Skills profile intake | Job picker with pre-filled skills (63 roles with O*NET codes: 43 future roles and 20 jobs people do today), field of study, or CV upload (PDF/TXT) with rule-based detection. The LLM adds skills only with a verbatim CV quote. Every skill stays editable. | `src/static/app.js`, `src/app/engine/profile.py`, `src/app/llm/tasks.py` |
+| 2. AI-trend signal layer | **Live and updatable.** (a) Job posts from 36 monthly *HN "Who is hiring?"* threads: 11,583 posts, Nov 2023 – Oct 2026. (b) AI-research volume per capability from **OpenAlex**, half-years 2024H1–2026H1. Plus cited WEF *Future of Jobs* 2025/2023 baselines. Each value carries its source and fetch date. Refresh it from *Explore trends* or with `python -m app.signals.refresh`. | `src/app/signals/` |
+| 3. Future-role matching | Fit (direct plus capped transferable credit), outlook, and preferences. The user can re-weight them, and the current job is never recommended back. Roles come only from a catalog with O*NET codes and WEF categories. | `src/app/engine/matching.py` |
+| 4. Reskilling pathway | Prerequisites first, then core skills, with quick wins early. Hours and weeks are computed at the user's weekly time. Every step opens with the in-app Path.AI course (chapter tests, final test, certificate), with an external course offered as the alternative; 102 external courses with live-checked links, labelled free, free-to-audit, low-cost or paid (check HRD Corp). | `src/app/engine/pathway.py`, `src/app/learn.py`, `data/learn/` |
+| 5. SDG mapping | Every role and skill maps to specific **SDG targets** (e.g. 7.2, 8.5, 12.6), each with a reason and a direct or enabling strength. Interest tiles carry SDG priorities that re-rank roles, and the plan shows its SDG impact. Every goal badge, wherever it appears, opens a short explainer. It gives the goal's meaning in plain words and its official wording (EN/MS/ZH), and says how the role or skill you clicked contributes. It also lists the targets Path.AI links to, the jobs and free courses that contribute, and a link to the UN page. | `data/catalog/*.json`, `src/static/core.js` |
+| 6. Handling uncertainty | Three scenarios: slower ×0.5, expected ×1, faster ×2 AI pace. Every estimate has a range and a confidence label, and roles are flagged when they hold up in every scenario. Trend data can be viewed *as of* any of the last 19 months. "Estimates, not predictions" wording appears everywhere. | `src/app/engine/forecast.py` |
 
 ## How trend signals become skill forecasts
 
@@ -150,7 +150,7 @@ This is the last step of the journey. It is linked from the results, the plan, y
 
 **Data pipeline.** Rebuild with `python -m scripts.opportunities.jobs` (about 15 minutes, polite and cached) and `python -m scripts.opportunities.universities`. Sources and terms are in `data/opportunities/LICENSE.md`.
 
-**Flags.** Country flags are small SVG images from [flag-icons](https://github.com/lipis/flag-icons) (MIT), kept in `static/flags/`. Windows has no colour flag emoji, so emoji flags would show up there as letters such as "MY".
+**Flags.** Country flags are small SVG images from [flag-icons](https://github.com/lipis/flag-icons) (MIT), kept in `src/static/flags/`. Windows has no colour flag emoji, so emoji flags would show up there as letters such as "MY".
 
 ![Opportunities: jobs](docs/img/opportunities.png)
 ![Opportunities: universities](docs/img/universities.png)
@@ -199,8 +199,8 @@ This is the last step of the journey. It is linked from the results, the plan, y
 ```bash
 python3 -m venv .venv && source .venv/bin/activate      # Python ≥ 3.11
 pip install -r requirements.txt
-uvicorn app.main:app --reload                            # http://127.0.0.1:8000
-python -m pytest -q                                      # 130 tests
+uvicorn app.main:app --app-dir src --reload               # http://127.0.0.1:8000
+python -m pytest -q                                      # 137 tests
 python -m app.signals.refresh                            # pull fresh HN + OpenAlex data (optional)
 python scripts/verify_resources.py                       # re-check every course / source URL
 python -m scripts.opportunities.jobs                     # refresh the job snapshot (about 15 min)
@@ -244,26 +244,29 @@ uv run --with markdown-it-py --with mdit-py-plugins --with nh3 --with beautifuls
 ## Project structure
 
 ```
-app/
-  main.py              FastAPI API + static web app
-  catalog.py           loads & validates the curated catalogs
-  signals/             live sources: hn.py (job posts), openalex.py (AI research), refresh.py
-  engine/              forecast.py · matching.py · pathway.py · explain.py · profile.py
-  llm/                 OpenAI-compatible client (vLLM / RunPod) + guarded tasks
-  learn.py             full courses, lessons, chapter and final tests graded on the server, signed passes and certificates
-  opportunities.py     jobs matched to a profile by country / remote, universities by country, job-site and study links
+src/                   the source code of the app
+  app/                 the backend (FastAPI)
+    main.py            API + serves the web app
+    catalog.py         loads & validates the curated catalogs
+    signals/           live sources: hn.py (job posts), openalex.py (AI research), refresh.py
+    engine/            forecast.py · matching.py · pathway.py · explain.py · profile.py
+    llm/               OpenAI-compatible client (our GPU, Groq backup) + guarded tasks
+    advisor.py         fact sheets for the AI review and the AI Chat
+    learn.py           full courses, lessons, chapter and final tests graded on the server, signed passes and certificates
+    opportunities.py   jobs matched to a profile by country / remote, universities by country, job-site and study links
+  static/              the frontend: vanilla-JS single-page app (no build step): app.js · coach.js (AI Chat) · learn.js · next.js · core.js · charts.js · i18n.js · styles.css · brand/ (logo, icons) · flags/ (country flags, MIT)
 data/
   catalog/             skills · roles (+ interest tiles, study fields) · resources · sdgs · capabilities · sources
   signals/             cached, dated trend data (refreshable)
   learn/               courses/*.json (syllabus + question pool) · lessons/<skill>/*.html (sanitised lesson text) · quizzes/*.json (authored questions) · pins.json · LICENSE.md
   opportunities/       jobs.json (dated job snapshot) · job_facts.json (what the model read in each posting) · universities.json · portals.json · fields.json · sources.json · LICENSE.md
   personas.json        fictional example people + fictional HR team
-static/                vanilla-JS single-page app (no build step): app.js · learn.js · next.js · core.js · charts.js · i18n.js · styles.css · brand/ (logo, icons) · flags/ (country flags, MIT)
 scripts/learnkit/      course importer: courses.py (which open material each course uses) · build.py · convert.py · digest.py
 scripts/opportunities/ job and university snapshots: jobs.py · universities.py · places.py (GeoNames) · fetch.py (polite cached GETs) · trim.py (requirement sentences) · enrich.py (the model reads each posting once)
 scripts/gpu.py         switch the RunPod GPU on and off: create · start · stop · status · wait · recreate
 deploy/runpod/         the pod's start command (start.sh: vLLM) and watchdog.py (stops the pod when the model sits idle)
-scripts/brand_assets.py  rebuilds static/brand/ (vector logo, favicons, link preview) from the master logo
+deploy/server/         the live server: setup.sh · update.sh · push_env.sh · pathai.service (systemd)
+scripts/brand_assets.py  rebuilds src/static/brand/ (vector logo, favicons, link preview) from the master logo
 tests/                 catalog, engine, guardrail, learn/certificate, opportunities and API tests
 docs/RUNPOD.md         model + GPU choice and deployment guide
 ```

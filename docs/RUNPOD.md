@@ -12,7 +12,7 @@ Prices come from runpod.io/pricing as checked on 2026-10-20. They change, so che
 
 ## What the model does in Path.AI (and what it never does)
 
-1. **CV to skills.** The output is JSON-schema constrained to our 53 skill ids, and every skill must quote the CV verbatim. If a quote cannot be found in the CV, the skill is dropped (`app/llm/tasks.py`).
+1. **CV to skills.** The output is JSON-schema constrained to our 53 skill ids, and every skill must quote the CV verbatim. If a quote cannot be found in the CV, the skill is dropped (`src/app/llm/tasks.py`).
 2. **Grounded explanations** in English, Bahasa Malaysia or Chinese. The model only sees a fact sheet and must cite `[S1]…`. Any number that is not in the fact sheet makes the system fall back to the deterministic text.
 3. **Reading job postings, once.** Each posting is trimmed to its requirement sentences (`scripts/opportunities/trim.py`) and numbered. The model returns skills (required or nice to have), years of experience, degree, languages, pay, work mode and visa sponsorship, each citing a sentence number. A fact is dropped unless its sentence contains the number, currency, language or degree word it claims (`scripts/opportunities/enrich.py`). Only the facts are kept (`data/opportunities/job_facts.json`).
 
