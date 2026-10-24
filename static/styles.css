@@ -159,6 +159,7 @@ main:focus { outline: none; }
 
 .sdg-strip { display: flex; flex-wrap: wrap; gap: 4px; }
 .sdg-badge { display: inline-grid; place-items: center; min-width: 30px; height: 30px; border-radius: 6px; color: #fff; font-weight: 700; font-size: 13px; flex: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);   /* keeps the white number readable on the light goal colours (7, 11, 2) */
   border: 0; padding: 0 4px; font-family: inherit; line-height: 1; cursor: pointer; transition: transform 0.12s, box-shadow 0.12s; }
 .sdg-badge:hover { transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); }
 .sdg-badge:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }

@@ -103,12 +103,11 @@ function contrasts(hex) {
   return { white: 1.05 / (L + 0.05), ink: (L + 0.05) / 0.0629 };
 }
 // Badges keep the UN's white numerals unless they would be hard to read (yellow, light orange, light blue, light green).
-const badgeInk = (hex) => (contrasts(hex).white < 2.5 ? "#1e1e1e" : "#fff");
 const headInk = (hex) => { const c = contrasts(hex); return c.white >= c.ink ? "#fff" : "#1e1e1e"; };
 
 export function sdgBadge(goal, small = true, title, ctx = null) {
   const g = goalOf(goal);
-  return h("button", { type: "button", class: `sdg-badge ${small ? "sm" : ""}`, style: { background: g.color, color: badgeInk(g.color) }, title: title || `SDG ${goal}: ${loc(g.name)}`,
+  return h("button", { type: "button", class: `sdg-badge ${small ? "sm" : ""}`, style: { background: g.color }, title: title || `SDG ${goal}: ${loc(g.name)}`,
     "aria-label": t("sdg_open", { n: goal, name: loc(g.name) }), "aria-haspopup": "dialog",
     onclick: (e) => { e.preventDefault(); e.stopPropagation(); openGoal(goal, ctx, e.currentTarget); } }, String(goal));
 }
