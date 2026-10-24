@@ -209,10 +209,10 @@ uv run --with markdown-it-py --with mdit-py-plugins --with nh3 --with beautifuls
 - **Replit.** Import the GitHub repo. `.replit` installs the requirements and runs uvicorn on port 8000.
 - **LLM.** Copy `.env.example` to `.env`, put your RunPod API key in `RUNPOD_API_KEY` and run `python -m scripts.gpu create`: it creates the pod and fills in `LLM_BASE_URL`, `LLM_API_KEY` and `LLM_MODEL`. Any other OpenAI-compatible endpoint works too.
 - **Certificates.** In production, set a stable `CERT_SECRET`.
-- **Live server.** https://157-230-248-132.sslip.io runs on a DigitalOcean VPS in Singapore: Ubuntu 24.04, uvicorn under
+- **Live server.** https://pathai.lol runs on a DigitalOcean VPS in Singapore: Ubuntu 24.04, uvicorn under
   systemd, and Caddy for HTTPS. It always works, rule-based or with saved model answers; it uses the live model only
   while the GPU is on.
-  - **Fresh server:** `HOST=<name> bash deploy/server/setup.sh`.
+  - **Fresh server:** `HOST=pathai.lol ALIASES="www.pathai.lol" bash deploy/server/setup.sh`.
   - **Deploy main:** `ssh root@<server> /srv/pathai/app/deploy/server/update.sh`.
   - **Copy model settings from `.env`:** `SERVER=root@<server> bash deploy/server/push_env.sh`. Run it again after `gpu recreate`.
 
