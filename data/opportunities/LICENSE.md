@@ -1,7 +1,7 @@
 # Sources and terms of the Opportunities data
 
 - **Job postings (`jobs.json`).** A dated snapshot built by `scripts/opportunities/jobs.py` from public, documented endpoints only:
-  - company job boards through the public posting APIs of Greenhouse, Lever and Ashby (the employers are listed in `sources.json`);
+  - company job boards through the public posting APIs of Greenhouse, Lever and Ashby, and Workable's documented public jobs endpoint (the employers are listed in `sources.json`);
   - Hacker News *Ask HN: Who is hiring?*, the three latest monthly threads, through the Algolia HN Search API;
   - [Himalayas](https://himalayas.app/), [Jobicy](https://jobicy.com/), [Remotive](https://remotive.com/), [Remote OK](https://remoteok.com/) and [Arbeitnow](https://www.arbeitnow.com/) through their public job APIs.
 

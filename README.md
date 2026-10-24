@@ -281,6 +281,36 @@ docs/RUNPOD.md         model + GPU choice and deployment guide
 
 ## Data and AI disclosure
 
-- **Data.** Public or open data and fictional example people only. No real CVs or personal data are stored. Trend job posts are kept as aggregate counts only. The Opportunities snapshot keeps each posting's facts (title, company, link, place, date and detected skills) but not its description. Its sources and terms are in `data/opportunities/LICENSE.md`. Lesson texts are openly licensed materials, shown with source and licence on every lesson (see `data/learn/LICENSE.md`).
-- **Language model.** Qwen3.8-27B (open weights) when configured. Otherwise the app runs fully rule-based, and the UI says which engine wrote each explanation.
+### APIs, models and services
+
+| What | What Path.AI uses it for | Access and licence |
+|---|---|---|
+| **Qwen3.8-27B-FP8** (Qwen team, Alibaba): open weights, served by **vLLM** on a **RunPod** RTX A6000 | Reads CVs and job postings. Writes the "Why this role?" explanations, job advice, the market check, the personal AI review and the AI Chat answers | Apache-2.0 weights, self-hosted. OpenAI-compatible API, switched on only when needed |
+| **Groq API**, `qwen/qwen3.8-27b` (the same open model, hosted) | Backup for the AI features while our GPU is off | API key, on the server only. It receives only the facts behind an answer, never a CV, and saved answers are used first. Groq does not retain inference data by default |
+| **RunPod REST API** | Starting and stopping the GPU pod | API key, kept on the developer's laptop and never on the server |
+| **Hacker News Search API** (Algolia) | Live trend signal: skill and role mentions in the monthly "Who is hiring?" threads, plus postings for Opportunities | Public, no key |
+| **OpenAlex API** | Live trend signal: each AI capability's share of new research | Public, CC0 data |
+| **Greenhouse, Lever, Ashby and Workable** public job-board APIs | Open postings from the company boards listed in `data/opportunities/sources.json` | The employers' public embed APIs. Only facts are kept, and every posting links back |
+| **Himalayas, Jobicy, Remotive, Remote OK and Arbeitnow** APIs | Remote jobs and jobs in Germany | Public APIs, credited and linked as their terms ask |
+| **Wikidata** (through QLever SPARQL), **Hipo university-domains-list**, **GeoNames** | Universities by country; mapping job locations to countries | CC0, MIT, CC BY 4.0 |
+| Cited documents: **WEF** *Future of Jobs Report 2025* (including the Malaysia profile) and *2023*, **ILO** Working Paper 140, a **Hays** 2025 press release, **O\*NET**, **UN SDGs** | Facts shown with their source. Each citation opens the PDF at the cited page | ILO and O\*NET are CC BY 4.0. The WEF and Hays texts are cited, not reproduced |
+| Lesson texts (OpenStax, Microsoft *for Beginners* and other open courses) and **flag-icons** | Learn courses and quizzes; country flags | Open licences only, shown on every lesson (`data/learn/LICENSE.md`); MIT |
+| **DigitalOcean** VPS (Singapore), **Caddy**, **Let's Encrypt**, domain **pathai.lol** | Hosting https://pathai.lol | Ubuntu 24.04 with uvicorn under systemd (`deploy/server/`) |
+
+Job sites without a public API (JobStreet, SEEK, Indeed, LinkedIn, Naukri) are only linked, with a search filled in. They are never fetched or scraped.
+
+### Data
+- **Personal data.** Public or open data and fictional example people only. No real CVs or personal data are stored.
+- **What stays in the browser.** The profile, course progress and AI Chat history are kept in the visitor's browser and sent only with the request that needs them.
+- **Job postings.** The Opportunities snapshot keeps each posting's facts (title, company, link, place, date, detected skills) but not its description. Sources and terms: `data/opportunities/LICENSE.md`.
+- **Trend posts.** Kept as aggregate counts only.
+
+### AI and estimates
+- **Grounding.** Every AI answer is built only from facts Path.AI computes for that person.
+- **Guardrails.** Numbers not found in those facts are rejected (one retry, then the checked template). Links are limited to Path.AI pages that exist, and quotes in skills read from a CV must appear in the CV.
+- **Without a model.** The app runs fully rule-based, and the UI says which engine wrote each answer.
 - **Estimates.** All forecasts are estimates, not predictions. People decide.
+
+### AI tools used to build Path.AI
+- **Code.** Written with the help of **Claude Code** (Anthropic); commits it co-wrote are marked "Co-Authored-By: Claude".
+- **Research.** **Replit Agent** helped find company job boards and check the wording of cited claims. Every board, quote and page was re-checked against the original source before use.
