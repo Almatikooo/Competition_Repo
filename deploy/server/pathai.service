@@ -1,0 +1,16 @@
+[Unit]
+Description=Path.AI web app (FastAPI)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=pathai
+WorkingDirectory=/srv/pathai/app
+ExecStart=/srv/pathai/app/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000 --proxy-headers --forwarded-allow-ips 127.0.0.1 --timeout-keep-alive 75
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

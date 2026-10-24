@@ -1,0 +1,10 @@
+# Written by setup.sh ({HOST} is replaced). Caddy gets and renews the HTTPS certificate on its own.
+{HOST} {
+	encode zstd gzip
+	reverse_proxy 127.0.0.1:8000
+}
+
+# Someone who types the bare IP address is sent to the HTTPS name.
+http:// {
+	redir https://{HOST}{uri}
+}
