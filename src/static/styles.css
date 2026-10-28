@@ -1015,6 +1015,8 @@ a.po-ctest:hover { background: var(--surface); color: var(--blue); }
 .btn-apple { background: #000; border-color: #000; color: #fff; }
 .btn-apple:hover { background: #1d1d1f; }
 .btn-apple svg { color: #fff; }
-.save-step { max-width: 400px; margin-top: 28px; }
+.save-step { max-width: 400px; margin: 28px auto 0; }
+.wizard-save h1, .wizard-save .sub { text-align: center; }
+.wizard-save .wizard-actions { justify-content: center; }
 .save-step .btn-google { padding: 12px 16px; font-size: 15px; }
 .save-step .small { margin-top: 10px; text-align: center; }

@@ -410,7 +410,7 @@ function wizardStep4() {
 function viewStart() {
   const step = state.wizard.step === 4 && !saveStepNeeded() ? 3 : state.wizard.step;
   const body = [wizardStep1, wizardStep2, wizardStep3, wizardStep4][step - 1]();
-  return h("div", { class: "container" }, h("section", { class: "wizard" }, stepsBar(step), body));
+  return h("div", { class: "container" }, h("section", { class: `wizard${step === 4 ? " wizard-save" : ""}` }, stepsBar(step), body));
 }
 
 // ---------------------------------------------------------------- Results
