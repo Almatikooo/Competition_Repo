@@ -98,7 +98,7 @@ def test_without_google_keys_sign_in_is_off(monkeypatch):
     monkeypatch.setattr(config, "GOOGLE_CLIENT_ID", "")
     client = TestClient(app)
     assert client.get("/auth/google", follow_redirects=False).status_code == 404
-    assert client.get("/api/me").json()["providers"] == {"google": False}
+    assert client.get("/api/me").json()["providers"]["google"] is False
 
 
 def test_an_old_cookie_never_opens_an_account(google):
@@ -120,3 +120,43 @@ def test_signing_out_revokes_every_copy_of_the_cookie(google):
     copied = client.cookies.get(accounts.SESSION_COOKIE)
     client.post("/auth/logout")
     assert TestClient(app, cookies={accounts.SESSION_COOKIE: copied}).get("/api/me").json()["user"] is None
+
+
+
+@pytest.fixture
+def github(tmp_path, monkeypatch):
+    monkeypatch.setattr(config, "GITHUB_CLIENT_ID", "Iv1.github-client")
+    monkeypatch.setattr(config, "GITHUB_CLIENT_SECRET", "gh-secret")
+    monkeypatch.setattr(config, "ACCOUNTS_DB", tmp_path / "accounts.sqlite3")
+    seen = {"user": {"id": 1001, "login": "aisyah-dev", "name": None, "email": None, "avatar_url": "https://avatars.example/a.png"}}
+
+    def github_api(request: httpx.Request) -> httpx.Response:
+        if request.url.path == "/login/oauth/access_token":
+            seen["form"] = parse_qs(request.content.decode())
+            return httpx.Response(200, json={"access_token": "gho_token", "token_type": "bearer"})
+        assert request.headers["authorization"] == "Bearer gho_token"
+        if request.url.path == "/user":
+            return httpx.Response(200, json=seen["user"])
+        return httpx.Response(200, json=[{"email": "old@example.com", "primary": False, "verified": True},
+                                         {"email": "aisyah@users.example", "primary": True, "verified": True}])
+
+    monkeypatch.setattr(accounts, "transport", httpx.MockTransport(github_api))
+    return seen
+
+
+def test_sign_in_with_github_finds_a_private_email(github):
+    client = TestClient(app)
+    start = client.get("/auth/github", params={"next": "/#/chat"}, follow_redirects=False)
+    assert start.headers["location"].startswith(accounts.GITHUB_AUTH)
+    q = parse_qs(urlparse(start.headers["location"]).query)
+    assert q["scope"] == ["read:user user:email"] and q["code_challenge_method"] == ["S256"]
+    back = client.get("/auth/github/callback", params={"code": "c0de", "state": q["state"][0]}, follow_redirects=False)
+    assert back.status_code == 303 and back.headers["location"] == "/#/chat" and github["form"]["code_verifier"][0]
+    assert client.get("/api/me").json()["user"] == {"name": "aisyah-dev", "email": "aisyah@users.example", "picture": "https://avatars.example/a.png"}
+
+
+def test_a_state_from_one_provider_does_not_work_for_another(github, google):
+    client = TestClient(app)
+    start = client.get("/auth/google", follow_redirects=False)                # the state was made for Google...
+    state = parse_qs(urlparse(start.headers["location"]).query)["state"][0]
+    assert client.get("/auth/github/callback", params={"code": "c", "state": state}, follow_redirects=False).status_code == 400

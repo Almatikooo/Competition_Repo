@@ -104,13 +104,26 @@ function googleMark() {      // Google's "G", as its sign-in buttons show it
   }
   return svg;
 }
-const googleHref = () => `/auth/google?next=${encodeURIComponent(`/${location.hash || "#/"}`)}`;
-const googleButton = () => h("a", { class: "btn-google", href: googleHref() }, googleMark(), h("span", {}, t("acc_google")));
+function githubMark() {      // GitHub's mark
+  const svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("viewBox", "0 0 24 24");
+  svg.setAttribute("aria-hidden", "true");
+  const path = document.createElementNS(NS, "path");
+  path.setAttribute("fill", "currentColor");
+  path.setAttribute("d", "M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.6.3 2.8.1 3.2.8.8 1.3 1.9 1.3 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3");
+  svg.append(path);
+  return svg;
+}
+const signInHref = (provider) => `/auth/${provider}?next=${encodeURIComponent(`/${location.hash || "#/"}`)}`;
+const signInButtons = () => [
+  account.providers.google ? h("a", { class: "btn-google", href: signInHref("google") }, googleMark(), h("span", {}, t("acc_google"))) : null,
+  account.providers.github ? h("a", { class: "btn-google btn-github", href: signInHref("github") }, githubMark(), h("span", {}, t("acc_github"))) : null];
+const canSignIn = () => !!(account.providers.google || account.providers.github);
 
 function renderAccount() {
   const box = $("account");
   const u = account.user;
-  if (!u && !account.providers.google) { box.replaceChildren(); return; }
+  if (!u && !canSignIn()) { box.replaceChildren(); return; }
   const toggle = (e) => { e.stopPropagation(); state.accountOpen = !state.accountOpen; state.accountDeleting = false; renderAccount(); };
   const button = u
     ? h("button", { type: "button", class: "account-btn", "aria-expanded": String(!!state.accountOpen), "aria-label": t("acc_menu"), title: u.name || u.email || "", onclick: toggle },
@@ -129,7 +142,8 @@ function renderAccount() {
       h("button", { type: "button", class: "btn btn-secondary btn-sm btn-block", onclick: () => signOut().catch((e) => toast(String(e.message || e))) }, t("acc_signout")),
       h("button", { type: "button", class: "acc-delete", onclick: (e) => { e.stopPropagation(); state.accountDeleting = true; renderAccount(); } }, t("acc_delete"))];
   } else if (state.accountOpen) {
-    body = [h("p", { class: "acc-title" }, t("acc_title")), h("p", { class: "acc-note" }, t("acc_guest_note")), googleButton()];
+    body = [h("p", { class: "acc-title" }, t("acc_title")), h("p", { class: "acc-note" }, t("acc_guest_note")),
+      h("div", { class: "acc-buttons" }, signInButtons())];
   }
   const menu = body ? h("div", { class: "account-menu", role: "dialog", "aria-label": t("acc_menu"), onclick: (e) => e.stopPropagation() }, body) : null;
   box.replaceChildren(...[button, menu].filter(Boolean));      // replaceChildren would print a null
@@ -142,13 +156,15 @@ function renderGuestBar(routeName) {
   const bar = $("guestBar");
   let hidden = false;
   try { hidden = sessionStorage.getItem("pathai-ui:guestbar") === "hidden"; } catch { /* storage blocked */ }
-  if (account.user || !account.providers.google || !hasProfile() || hidden || ["chat", "coach", "certificate"].includes(routeName)) {
+  if (account.user || !canSignIn() || !hasProfile() || hidden || ["chat", "coach", "certificate"].includes(routeName)) {
     bar.replaceChildren();
     return;
   }
   const hide = () => { try { sessionStorage.setItem("pathai-ui:guestbar", "hidden"); } catch { /* storage blocked */ } renderGuestBar(routeName); };
+  const open = (e) => { e.stopPropagation(); state.accountOpen = true; state.accountDeleting = false; renderAccount(); window.scrollTo({ top: 0 }); };
   bar.replaceChildren(h("div", { class: "guest-bar" }, h("div", { class: "container" }, icon("clock"), h("span", {}, t("acc_banner"), " ",
-    h("a", { href: googleHref() }, t("acc_banner_cta"))), h("button", { type: "button", class: "guest-bar-x", "aria-label": t("coach_close"), onclick: hide }, icon("close")))));
+    h("button", { type: "button", class: "link-btn", onclick: open }, t("acc_banner_cta"))),
+    h("button", { type: "button", class: "guest-bar-x", "aria-label": t("coach_close"), onclick: hide }, icon("close")))));
 }
 
 function renderChrome(routeName) {
@@ -811,7 +827,7 @@ function viewHow() {
         card("Your data",
           h("ul", { class: "small" },
             h("li", {}, "No sign-up needed: as a guest, your profile, plans, course progress and AI Chat stay in this browser tab and are gone when you close it."),
-            h("li", {}, "Sign in with Google to keep them on any device. We then store your Google name, email and picture with your progress, and nothing else. No password is ever stored."),
+            h("li", {}, "Sign in with Google or GitHub to keep them on any device. We then store the name, email and picture from that account with your progress, and nothing else. No password is ever stored."),
             h("li", {}, "You can delete your account and everything saved with it from the account menu at any time."))),
         card("Jobs & universities",
           h("ul", { class: "small" },

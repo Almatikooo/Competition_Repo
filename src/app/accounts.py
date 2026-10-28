@@ -1,8 +1,9 @@
-"""Optional accounts: sign in with Google to keep your progress.
+"""Optional accounts: sign in with Google or GitHub to keep your progress.
 
 Guests need no account: their browser keeps the profile, plans, courses and AI Chat for the current tab only
 (sessionStorage), so everything is gone when the tab is closed. A person who signs in with Google gets the same data
-saved to their account here, and loaded again on any device.
+saved to their account here, and loaded again on any device. GitHub works the same way (OAuth app; the profile
+and, when it is private, the primary verified email come from GitHub's API with the one-time access token).
 
 * Sign-in is Google's OAuth 2.0 authorization-code flow with PKCE. A signed, short-lived cookie carries the state and
   the code verifier, and the ID token comes straight from Google's token endpoint over TLS, so its claims (issuer,
@@ -42,10 +43,17 @@ MAX_VALUE = 200_000                                   # characters of JSON per k
 GOOGLE_AUTH = "https://accounts.google.com/o/oauth2/v2/auth"
 GOOGLE_TOKEN = "https://oauth2.googleapis.com/token"
 GOOGLE_ISSUERS = {"accounts.google.com", "https://accounts.google.com"}
+GITHUB_AUTH = "https://github.com/login/oauth/authorize"
+GITHUB_TOKEN = "https://github.com/login/oauth/access_token"
+GITHUB_API = "https://api.github.com"
 
 
 def google_ready() -> bool:
     return bool(config.GOOGLE_CLIENT_ID and config.GOOGLE_CLIENT_SECRET)
+
+
+def github_ready() -> bool:
+    return bool(config.GITHUB_CLIENT_ID and config.GITHUB_CLIENT_SECRET)
 
 
 # ---------------------------------------------------------------- storage
@@ -126,25 +134,44 @@ def _claims(id_token: str) -> dict:
     return json.loads(base64.urlsafe_b64decode(payload + "=" * (-len(payload) % 4)))
 
 
-@router.get("/auth/google")
-def google_start(request: Request, next: str = "/"):
-    if not google_ready():
-        raise HTTPException(404, "Sign-in with Google is not set up on this server.")
+def _begin(request: Request, provider: str, auth_url: str, params: dict, next_path: str) -> RedirectResponse:
+    """Off to the provider: a fresh state and PKCE verifier ride in a signed, short-lived cookie."""
     nonce, verifier = secrets.token_urlsafe(16), secrets.token_urlsafe(48)
-    query = {"client_id": config.GOOGLE_CLIENT_ID, "redirect_uri": str(request.url_for("google_callback")),
-             "response_type": "code", "scope": "openid email profile", "state": nonce, "prompt": "select_account",
-             "code_challenge": _b64url(hashlib.sha256(verifier.encode()).digest()), "code_challenge_method": "S256"}
-    resp = RedirectResponse(f"{GOOGLE_AUTH}?{urlencode(query)}", status_code=303)
-    resp.set_cookie(STATE_COOKIE, sign("oauth", {"n": nonce, "v": verifier, "r": _safe_next(next), "t": int(time.time())}),
+    query = {**params, "state": nonce, "code_challenge": _b64url(hashlib.sha256(verifier.encode()).digest()), "code_challenge_method": "S256"}
+    resp = RedirectResponse(f"{auth_url}?{urlencode(query)}", status_code=303)
+    resp.set_cookie(STATE_COOKIE, sign("oauth", {"p": provider, "n": nonce, "v": verifier, "r": _safe_next(next_path), "t": int(time.time())}),
                     max_age=STATE_TTL, httponly=True, secure=_secure(request), samesite="lax", path="/auth")
     return resp
 
 
+def _check_state(request: Request, provider: str, state: str) -> dict:
+    data = unsign("oauth", request.cookies.get(STATE_COOKIE))
+    if (not data or data.get("p") != provider or time.time() - data.get("t", 0) > STATE_TTL
+            or not secrets.compare_digest(str(data.get("n")), state)):
+        raise HTTPException(400, "This sign-in link has expired. Please try again.")
+    return data
+
+
+def _signed_in(request: Request, back: str, provider: str, subject: str, email: str | None, name: str | None, picture: str | None):
+    user_id, epoch = upsert_user(provider, subject, email, name, picture)
+    out = RedirectResponse(back, status_code=303)
+    out.set_cookie(SESSION_COOKIE, sign("session", {"u": user_id, "e": epoch, "t": int(time.time())}), max_age=SESSION_DAYS * 86400,
+                   httponly=True, secure=_secure(request), samesite="lax", path="/")
+    out.delete_cookie(STATE_COOKIE, path="/auth")
+    return out
+
+
+@router.get("/auth/google")
+def google_start(request: Request, next: str = "/"):
+    if not google_ready():
+        raise HTTPException(404, "Sign-in with Google is not set up on this server.")
+    return _begin(request, "google", GOOGLE_AUTH, {"client_id": config.GOOGLE_CLIENT_ID, "redirect_uri": str(request.url_for("google_callback")),
+                                                     "response_type": "code", "scope": "openid email profile", "prompt": "select_account"}, next)
+
+
 @router.get("/auth/google/callback", name="google_callback")
 async def google_callback(request: Request, code: str = "", state: str = "", error: str = ""):
-    data = unsign("oauth", request.cookies.get(STATE_COOKIE))
-    if not data or time.time() - data.get("t", 0) > STATE_TTL or not secrets.compare_digest(str(data.get("n")), state):
-        raise HTTPException(400, "This sign-in link has expired. Please try again.")
+    data = _check_state(request, "google", state)
     back = data.get("r", "/")
     if error or not code:                                 # the person cancelled at Google
         return RedirectResponse(back, status_code=303)
@@ -157,12 +184,40 @@ async def google_callback(request: Request, code: str = "", state: str = "", err
     claims = _claims(resp.json()["id_token"])
     if claims.get("iss") not in GOOGLE_ISSUERS or claims.get("aud") != config.GOOGLE_CLIENT_ID or claims.get("exp", 0) < time.time() or not claims.get("sub"):
         raise HTTPException(400, "Google's answer did not check out. Please try again.")
-    user_id, epoch = upsert_user("google", claims["sub"], claims.get("email"), claims.get("name"), claims.get("picture"))
-    out = RedirectResponse(back, status_code=303)
-    out.set_cookie(SESSION_COOKIE, sign("session", {"u": user_id, "e": epoch, "t": int(time.time())}), max_age=SESSION_DAYS * 86400,
-                   httponly=True, secure=_secure(request), samesite="lax", path="/")
-    out.delete_cookie(STATE_COOKIE, path="/auth")
-    return out
+    return _signed_in(request, back, "google", claims["sub"], claims.get("email"), claims.get("name"), claims.get("picture"))
+
+
+@router.get("/auth/github")
+def github_start(request: Request, next: str = "/"):
+    if not github_ready():
+        raise HTTPException(404, "Sign-in with GitHub is not set up on this server.")
+    return _begin(request, "github", GITHUB_AUTH, {"client_id": config.GITHUB_CLIENT_ID, "redirect_uri": str(request.url_for("github_callback")),
+                                                     "scope": "read:user user:email", "allow_signup": "true"}, next)
+
+
+@router.get("/auth/github/callback", name="github_callback")
+async def github_callback(request: Request, code: str = "", state: str = "", error: str = ""):
+    data = _check_state(request, "github", state)
+    back = data.get("r", "/")
+    if error or not code:                                 # the person cancelled at GitHub
+        return RedirectResponse(back, status_code=303)
+    async with httpx.AsyncClient(timeout=15, transport=transport) as client:
+        tok = await client.post(GITHUB_TOKEN, headers={"Accept": "application/json"},
+                                data={"client_id": config.GITHUB_CLIENT_ID, "client_secret": config.GITHUB_CLIENT_SECRET, "code": code,
+                                      "redirect_uri": str(request.url_for("github_callback")), "code_verifier": data.get("v", "")})
+        token = tok.json().get("access_token") if tok.status_code == 200 else None
+        if not token:
+            raise HTTPException(400, "GitHub did not confirm the sign-in. Please try again.")
+        auth = {"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"}
+        user = (await client.get(f"{GITHUB_API}/user", headers=auth)).json()
+        email = user.get("email")
+        if not email:                                     # a private email: the primary verified one
+            listed = await client.get(f"{GITHUB_API}/user/emails", headers=auth)
+            if listed.status_code == 200:
+                email = next((e.get("email") for e in listed.json() if e.get("primary") and e.get("verified")), None)
+    if not user.get("id"):
+        raise HTTPException(400, "GitHub's answer did not check out. Please try again.")
+    return _signed_in(request, back, "github", str(user["id"]), email, user.get("name") or user.get("login"), user.get("avatar_url"))
 
 
 @router.post("/auth/logout")
@@ -184,7 +239,7 @@ class StateUpdate(BaseModel):
 @router.get("/api/me")
 def me(request: Request) -> dict:
     user_id = session_user(request)
-    providers = {"google": google_ready()}
+    providers = {"google": google_ready(), "github": github_ready()}
     if user_id is None:
         return {"user": None, "state": {}, "providers": providers}
     return {"user": _user(user_id), "state": _state(user_id), "providers": providers}
