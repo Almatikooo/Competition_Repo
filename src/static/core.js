@@ -8,6 +8,10 @@ import { makeT } from "./i18n.js";
 const DEVICE_KEYS = new Set(["lang"]);
 const SYNCED = new Set(["profile", "origin", "tiles", "progress", "learned", "certs", "certName", "coach", "next", "focusRole"]);
 const area = (key) => (DEVICE_KEYS.has(key) ? localStorage : sessionStorage);
+// The answers a guest just gave in the wizard. Signing in from its last step ("save your results") keeps them.
+const ANSWERS = ["profile", "origin", "tiles"];
+const KEEP_ANSWERS = "pathai-ui:keep-answers";
+export function keepAnswersOnSignIn() { try { sessionStorage.setItem(KEEP_ANSWERS, "1"); } catch { /* storage blocked */ } }
 
 export const account = {
   user: null, providers: {}, pending: {}, timer: null,
@@ -77,26 +81,29 @@ export function hydrate() {
 }
 
 // On every page load: who is signed in. The account's saved progress wins; a first sign-in keeps what this tab has.
+// Signing in from the wizard's save step keeps the answers just given, plus anything in this tab the account lacks.
 export async function startAccount() {
-  let me;
+  let me, keep = false;
+  try { keep = sessionStorage.getItem(KEEP_ANSWERS) === "1"; sessionStorage.removeItem(KEEP_ANSWERS); } catch { /* storage blocked */ }
   try { me = await api("/api/me"); } catch { return; }
   account.providers = me.providers || {};
   if (!me.user) return;
   account.user = me.user;
-  const saved = me.state || {};
-  if (Object.keys(saved).length) {
-    for (const [k, v] of Object.entries(saved)) {
-      if (SYNCED.has(k)) try { sessionStorage.setItem(`pathai:${k}`, JSON.stringify(v)); } catch { /* storage blocked */ }
-    }
-    hydrate();
-  } else {
-    for (const k of SYNCED) { const v = store.get(k, undefined); if (v !== undefined) account.pending[k] = v; }
-    await account.flush();
+  const saved = Object.fromEntries(Object.entries(me.state || {}).filter(([k]) => SYNCED.has(k)));
+  const first = !Object.keys(saved).length;
+  const here = (k) => store.get(k, undefined) !== undefined;
+  const upload = first ? [...SYNCED] : keep ? [...SYNCED].filter((k) => ANSWERS.includes(k) || !(k in saved)) : [];
+  for (const [k, v] of Object.entries(saved)) {
+    if (upload.includes(k) && here(k)) continue;           // the answers just given win
+    try { sessionStorage.setItem(`pathai:${k}`, JSON.stringify(v)); } catch { /* storage blocked */ }
   }
+  for (const k of upload) if (here(k)) account.pending[k] = store.get(k, undefined);
+  if (!first) hydrate();
+  await account.flush();
 }
 
 function forgetThisTab() {
-  try { for (const k of Object.keys(sessionStorage)) if (k.startsWith("pathai:")) sessionStorage.removeItem(k); } catch { /* storage blocked */ }
+  try { for (const k of Object.keys(sessionStorage)) if (/^pathai(:|-ui:)/.test(k)) sessionStorage.removeItem(k); } catch { /* storage blocked */ }
 }
 
 export async function signOut() {

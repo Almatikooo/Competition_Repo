@@ -38,11 +38,12 @@ export function appleMark() {      // Apple's logo, as its sign-in buttons show 
   svg.append(path);
   return svg;
 }
-export const signInHref = (provider) => `/auth/${provider}?next=${encodeURIComponent(`/${location.hash || "#/"}`)}`;
-export const signInButtons = () => [
-  account.providers.google ? h("a", { class: "btn-google", href: signInHref("google") }, googleMark(), h("span", {}, t("acc_google"))) : null,
-  account.providers.github ? h("a", { class: "btn-google btn-github", href: signInHref("github") }, githubMark(), h("span", {}, t("acc_github"))) : null,
-  account.providers.apple ? h("a", { class: "btn-google btn-apple", href: signInHref("apple") }, appleMark(), h("span", {}, t("acc_apple"))) : null];
+// After signing in, the person comes back to `next` (this page by default); `onclick` runs before they leave.
+export const signInHref = (provider, next = location.hash || "#/") => `/auth/${provider}?next=${encodeURIComponent(`/${next}`)}`;
+export const signInButtons = (next, onclick) => [
+  account.providers.google ? h("a", { class: "btn-google", href: signInHref("google", next), onclick }, googleMark(), h("span", {}, t("acc_google"))) : null,
+  account.providers.github ? h("a", { class: "btn-google btn-github", href: signInHref("github", next), onclick }, githubMark(), h("span", {}, t("acc_github"))) : null,
+  account.providers.apple ? h("a", { class: "btn-google btn-apple", href: signInHref("apple", next), onclick }, appleMark(), h("span", {}, t("acc_apple"))) : null];
 export const canSignIn = () => !!(account.providers.google || account.providers.github || account.providers.apple);
 
 

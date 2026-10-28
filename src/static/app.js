@@ -1,7 +1,7 @@
 import { h, radar, divergingBars, miniBar, magnitudeBars, sparkline, heatColor, fmtPct, trendSpan } from "./charts.js";
 import { state, store, EMPTY_PROFILE, t, setLang, $, api, skillById, roleById, loc, skillName, skillShort, roleTitle, goalOf,
   hasProfile, dateLabel, monthLabel, setRenderer, go, toast, saveProfile, sdgBadge, costTag, icon,
-  ensureRadar, ensureMatches, ensureCourses, account, startAccount, signOut, deleteAccount } from "./core.js";
+  ensureRadar, ensureMatches, ensureCourses, account, startAccount, signOut, deleteAccount, keepAnswersOnSignIn } from "./core.js";
 import { ensureLearn, viewLearn, viewCourse, viewLesson, viewTest, viewCertificate, certificatePrintStyle, hoursLabel, testPart } from "./learn.js";
 import { ensureNext, viewNext, nextCta } from "./next.js";
 import { viewCoach, coachEntry } from "./coach.js";
@@ -129,7 +129,8 @@ function renderGuestBar(routeName) {
   const bar = $("guestBar");
   let hidden = false;
   try { hidden = sessionStorage.getItem("pathai-ui:guestbar") === "hidden"; } catch { /* storage blocked */ }
-  if (account.user || !canSignIn() || !hasProfile() || hidden || ["chat", "coach", "certificate", "me"].includes(routeName)) {
+  if (account.user || !canSignIn() || !hasProfile() || hidden || ["chat", "coach", "certificate", "me"].includes(routeName)
+      || (routeName === "start" && state.wizard.step === 4)) {        // the save step says the same
     bar.replaceChildren();
     return;
   }
@@ -235,8 +236,19 @@ function viewHome() {
 }
 
 // ---------------------------------------------------------------- Wizard
+// A guest who can sign in gets a fourth step after the questions: save the results to an account, or go on as a
+// guest. Once they choose to go on as a guest, this tab does not ask again.
+const GUEST_OK = "pathai-ui:guest-ok";
+function saveStepNeeded() {
+  let chosen = false;
+  try { chosen = sessionStorage.getItem(GUEST_OK) === "1"; } catch { /* storage blocked */ }
+  return !account.user && canSignIn() && !chosen;
+}
+
 function stepsBar(step) {
-  return h("div", { class: "steps" }, h("span", {}, t("step_of", { n: step })), [1, 2, 3].map((n) => h("span", { class: `bar ${n <= step ? "on" : ""}` })));
+  const total = saveStepNeeded() ? 4 : 3;
+  return h("div", { class: "steps" }, h("span", {}, t("step_of", { n: step, total })),
+    Array.from({ length: total }, (_, i) => h("span", { class: `bar ${i < step ? "on" : ""}` })));
 }
 
 function jobMatches(query) {
@@ -356,7 +368,8 @@ function wizardStep3() {
     state.profile.interests = [...new Set(chosen.flatMap((x) => x.tags))];
     state.profile.sdg_priorities = [...new Set(chosen.flatMap((x) => x.sdgs))];
     saveProfile();
-    go("#/results");
+    if (saveStepNeeded()) { state.wizard.step = 4; render(); window.scrollTo({ top: 0 }); }
+    else go("#/results");
   };
   const tiles = state.meta.interest_tiles.map((tile) => {
     const on = state.tiles.includes(tile.id);
@@ -371,14 +384,32 @@ function wizardStep3() {
     h("div", { class: "seg", role: "group" }, [3, 6, 10].map((n) => h("button", { type: "button", "aria-pressed": String(state.profile.hours_per_week === n),
       onclick: () => { state.profile.hours_per_week = n; saveProfile(); render(); } }, t("hours_opt", { h: n })))),
     h("div", { class: "wizard-actions" },
-      h("button", { type: "button", class: "btn btn-primary btn-lg", onclick: finish }, t("s3_go")),
+      h("button", { type: "button", class: "btn btn-primary btn-lg", onclick: finish }, t(saveStepNeeded() ? "continue" : "s3_go")),
       h("button", { type: "button", class: "btn btn-link", onclick: () => { state.wizard.step = 2; render(); } }, `← ${t("back")}`)),
   ];
 }
 
+function wizardStep4() {
+  const asGuest = () => {
+    try { sessionStorage.setItem(GUEST_OK, "1"); } catch { /* storage blocked */ }
+    state.wizard.step = 1;
+    go("#/results");
+  };
+  return [
+    h("h1", {}, t("s4_title")), h("p", { class: "sub" }, t("s4_sub")),
+    h("div", { class: "save-step" },
+      h("div", { class: "acc-buttons" }, signInButtons("#/results", keepAnswersOnSignIn)),
+      h("div", { class: "divider" }, t("or")),
+      h("button", { type: "button", class: "btn btn-secondary btn-block", onclick: asGuest }, t("s4_guest")),
+      h("p", { class: "small muted" }, t("s4_guest_note"))),
+    h("div", { class: "wizard-actions" },
+      h("button", { type: "button", class: "btn btn-link", onclick: () => { state.wizard.step = 3; render(); } }, `← ${t("back")}`)),
+  ];
+}
+
 function viewStart() {
-  const step = state.wizard.step;
-  const body = step === 1 ? wizardStep1() : step === 2 ? wizardStep2() : wizardStep3();
+  const step = state.wizard.step === 4 && !saveStepNeeded() ? 3 : state.wizard.step;
+  const body = [wizardStep1, wizardStep2, wizardStep3, wizardStep4][step - 1]();
   return h("div", { class: "container" }, h("section", { class: "wizard" }, stepsBar(step), body));
 }
 
