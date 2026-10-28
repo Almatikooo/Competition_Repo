@@ -6,7 +6,7 @@ import { makeT } from "./i18n.js";
 // in with Google also has the same keys saved to their account (see `account`), and they come back on any device.
 // The interface language is a preference of the device and is kept across visits (localStorage).
 const DEVICE_KEYS = new Set(["lang"]);
-const SYNCED = new Set(["profile", "origin", "tiles", "progress", "learned", "certs", "certName", "coach", "next", "focusRole"]);
+const SYNCED = new Set(["profile", "origin", "tiles", "progress", "learned", "certs", "certName", "coach", "next", "focusRole", "activity", "goal", "path"]);
 const area = (key) => (DEVICE_KEYS.has(key) ? localStorage : sessionStorage);
 // The answers a guest just gave in the wizard. Signing in from its last step ("save your results") keeps them.
 const ANSWERS = ["profile", "origin", "tiles"];
@@ -68,6 +68,8 @@ export const state = {
   certView: null, certViewToken: null,
   // Opportunities
   next: store.get("next", { mode: null, country: null }), nextMeta: null, nextJobs: null, nextJobsKey: "", nextStudy: null, nextStudyKey: "",
+  // My path: the job worked towards, its steps and readiness by day, and what was done each day (visits, lessons, tests)
+  goal: store.get("goal", null), path: store.get("path", {}), activity: store.get("activity", {}), pathCourse: null, streakOpen: false,
   nextUi: { editing: false, q: "", tab: "local", level: "any", role: "all", field: null, allFields: false, uniQ: "", uniShown: 20 },
 };
 
@@ -77,6 +79,7 @@ let table = makeT(state.lang);
 export function hydrate() {
   Object.assign(state, { profile: store.get("profile", structuredClone(EMPTY_PROFILE)), origin: store.get("origin", null), tiles: store.get("tiles", []),
     progress: store.get("progress", {}), learned: store.get("learned", {}), certs: store.get("certs", {}), next: store.get("next", { mode: null, country: null }),
+    goal: store.get("goal", null), path: store.get("path", {}), activity: store.get("activity", {}),
     coach: null, matchesKey: "", pathwayKey: "", nextJobsKey: "", nextStudyKey: "" });
 }
 
@@ -174,6 +177,49 @@ export function toast(msg) {
   const el = h("div", { class: "toast", role: "status" }, msg);
   document.body.append(el);
   setTimeout(() => el.remove(), 2800);
+}
+
+// A passed final test proves the skill: it shows as Advanced in the profile (a level is never lowered).
+export function masterSkill(sid) {
+  if (!hasProfile() || (state.profile.skills[sid] || 0) >= 3) return false;
+  state.profile.skills = { ...state.profile.skills, [sid]: 3 };
+  saveProfile();
+  return true;
+}
+
+// ---------------------------------------------------------------- days, activity and the streak
+// Days are the person's local calendar days ("2026-10-29").
+export const dayKey = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+export const shiftDay = (key, n) => { const [y, m, d] = key.split("-").map(Number); return dayKey(new Date(y, m - 1, d + n)); };
+
+// What was done each day: v visited, l lessons finished, t tests passed, m minutes of lessons. Kept for 400 days.
+export function logActivity(kind, n = 1, minutes = 0) {
+  const today = dayKey();
+  const was = state.activity[today] || {};
+  if (kind === "v" && was.v) return false;
+  const day = { ...was, v: 1 };
+  if (kind !== "v") day[kind] = (day[kind] || 0) + n;
+  if (minutes) day.m = (day.m || 0) + Math.round(minutes);
+  const keep = shiftDay(today, -400);
+  state.activity = Object.fromEntries(Object.entries({ ...state.activity, [today]: day }).filter(([d]) => d >= keep).sort(([a], [b]) => (a < b ? -1 : 1)));
+  store.set("activity", state.activity);
+  return true;
+}
+
+// The visit streak: days visited in a row, where one missed day in between is forgiven and two in a row end it.
+// `ended` is the length of the streak that ended just before a new one started today (0 otherwise).
+export function streak(activity = state.activity, today = dayKey()) {
+  const runs = [];
+  for (const d of Object.keys(activity || {}).filter((k) => activity[k]?.v && k <= today).sort()) {
+    const run = runs[runs.length - 1];
+    if (run && d <= shiftDay(run.end, 2)) Object.assign(run, { count: run.count + 1, end: d });
+    else runs.push({ count: 1, end: d });
+  }
+  const last = runs[runs.length - 1];
+  const alive = !!last && last.end >= shiftDay(today, -2);
+  const before = runs[runs.length - (alive ? 2 : 1)];
+  return { count: alive ? last.count : 0, best: Math.max(0, ...runs.map((r) => r.count)),
+    ended: alive && last.count === 1 && before ? before.count : 0 };
 }
 
 export function saveProfile() {
@@ -306,6 +352,13 @@ export async function ensureMatches() {
   if (state.matchesKey === key) return;
   state.matches = await api("/api/match", { as_of: state.asOf, scenario: state.scenario, lang: state.lang, profile: state.profile, weights: state.weights });
   state.matchesKey = key;
+}
+
+export async function ensurePathway(rid) {
+  const key = JSON.stringify([state.asOf, state.scenario, rid, state.profile]);
+  if (state.pathwayKey === key) return;
+  state.pathway = await api("/api/pathway", { as_of: state.asOf, scenario: state.scenario, profile: state.profile, role_id: rid });
+  state.pathwayKey = key;
 }
 
 export async function ensureCourses() {

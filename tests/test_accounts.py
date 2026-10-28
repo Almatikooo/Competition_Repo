@@ -68,6 +68,24 @@ def test_sign_in_keeps_progress_in_the_account(google):
     assert client.get("/api/me").json()["user"] is None
 
 
+def test_activity_from_two_devices_is_merged_not_overwritten(google):
+    phone, laptop = TestClient(app), TestClient(app)
+    sign_in(phone)
+    sign_in(laptop)
+    assert phone.put("/api/me/state", json={"state": {"activity": {"2026-10-27": {"v": 1}, "2026-10-28": {"v": 1, "l": 2}}}}).json() == {"saved": 1}
+    laptop.put("/api/me/state", json={"state": {"activity": {"2026-10-28": {"v": 1, "l": 1, "t": 1}, "2026-10-29": {"v": 1}}, "goal": "data_analyst"}})
+    state = phone.get("/api/me").json()["state"]
+    assert state["activity"] == {"2026-10-27": {"v": 1}, "2026-10-28": {"v": 1, "l": 2, "t": 1}, "2026-10-29": {"v": 1}}
+    assert state["goal"] == "data_analyst"
+
+
+def test_merging_activity_keeps_400_days_and_ignores_junk():
+    old = {f"2025-{m:02d}-{d:02d}": {"v": 1} for m in range(1, 13) for d in range(1, 29)}          # 336 days
+    new = {f"2026-{m:02d}-{d:02d}": {"v": 1} for m in range(1, 4) for d in range(1, 29)} | {"x": "junk", "2026-04-01": {"v": True, "l": "2"}}
+    merged = accounts.merge_days(old, new)
+    assert len(merged) == 400 and min(merged) == "2025-01-22" and merged["2026-04-01"] == {}     # 421 days, the oldest 21 dropped
+
+
 def test_deleting_the_account_deletes_its_data(google):
     client = TestClient(app)
     sign_in(client)

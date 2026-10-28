@@ -1,12 +1,14 @@
 import { h, radar, divergingBars, miniBar, magnitudeBars, sparkline, heatColor, fmtPct, trendSpan } from "./charts.js";
 import { state, store, EMPTY_PROFILE, t, setLang, $, api, skillById, roleById, loc, skillName, skillShort, roleTitle, goalOf,
   hasProfile, dateLabel, timeLabel, monthLabel, setRenderer, go, toast, saveProfile, sdgBadge, costTag, icon,
-  ensureRadar, ensureMatches, ensureCourses, account, startAccount, signOut, deleteAccount, keepAnswersOnSignIn } from "./core.js";
+  ensureRadar, ensureMatches, ensureCourses, ensurePathway, account, startAccount, signOut, deleteAccount, keepAnswersOnSignIn,
+  logActivity, masterSkill } from "./core.js";
 import { ensureLearn, viewLearn, viewCourse, viewLesson, viewTest, viewCertificate, certificatePrintStyle, hoursLabel, testPart } from "./learn.js";
 import { ensureNext, viewNext, nextCta } from "./next.js";
 import { viewCoach, coachEntry } from "./coach.js";
 import { signInButtons, canSignIn, avatar } from "./account.js";
 import { viewProfile } from "./profile.js";
+import { ensurePath, viewPath, setGoal, renderStreak, star } from "./path.js";
 
 const POPULAR_JOBS = ["accounting_clerk", "admin_assistant", "customer_service_rep", "factory_operator", "cashier", "teacher", "graphic_designer", "telemarketer"];
 const POPULAR_SKILLS = ["prompt_eng", "data_analysis", "communication", "excel", "project_mgmt", "digital_literacy", "leadership", "python", "customer_service", "teaching_training"];
@@ -87,14 +89,14 @@ function originLabel() {
 }
 
 // ---------------------------------------------------------------- header & footer
-const NAV = [["results", "nav_path"], ["chat", "nav_coach"], ["learn", "nav_learn"], ["next", "nav_next"], ["trends", "nav_trends"], ["teams", "nav_teams"], ["how", "nav_how"]];
+const NAV = [["path", "nav_path"], ["chat", "nav_coach"], ["learn", "nav_learn"], ["next", "nav_next"], ["trends", "nav_trends"], ["teams", "nav_teams"], ["how", "nav_how"]];
 
 // ---------------------------------------------------------------- account (optional sign-in with Google)
 function renderAccount() {
   const box = $("account");
   const u = account.user;
   if (!u && !canSignIn()) { box.replaceChildren(); return; }
-  const toggle = (e) => { e.stopPropagation(); state.accountOpen = !state.accountOpen; state.accountDeleting = false; renderAccount(); };
+  const toggle = (e) => { e.stopPropagation(); state.accountOpen = !state.accountOpen; state.accountDeleting = false; state.streakOpen = false; renderStreak(); renderAccount(); };
   const button = u
     ? h("button", { type: "button", class: "account-btn", "aria-expanded": String(!!state.accountOpen), "aria-label": t("acc_menu"), title: u.name || u.email || "", onclick: toggle },
         u.picture ? h("img", { src: u.picture, alt: "", referrerpolicy: "no-referrer" }) : h("span", { class: "initial" }, (u.name || u.email || "?").slice(0, 1).toUpperCase()))
@@ -144,9 +146,10 @@ function renderGuestBar(routeName) {
 function renderChrome(routeName) {
   document.documentElement.lang = state.lang === "zh" ? "zh-CN" : state.lang;
   renderAccount();
+  renderStreak();
   renderGuestBar(routeName);
   const nav = $("nav");
-  const active = (r) => routeName === r || (r === "results" && (routeName === "plan" || routeName === "start")) || (r === "learn" && routeName === "certificate") || (r === "chat" && routeName === "coach");
+  const active = (r) => routeName === r || (r === "path" && ["results", "plan", "start"].includes(routeName)) || (r === "learn" && routeName === "certificate") || (r === "chat" && routeName === "coach");
   nav.replaceChildren(...NAV.map(([r, key]) => h("a", { href: `#/${r}`, "aria-current": active(r) ? "page" : null,
     onclick: () => { nav.classList.remove("open"); $("menuBtn").setAttribute("aria-expanded", "false"); } }, t(key))));
   const returning = hasProfile();            // someone with a profile goes back to their results, not into the wizard again
@@ -170,13 +173,6 @@ function renderChrome(routeName) {
 }
 
 // ---------------------------------------------------------------- data loaders
-async function ensurePathway(rid) {
-  const key = JSON.stringify([state.asOf, state.scenario, rid, state.profile]);
-  if (state.pathwayKey === key) return;
-  state.pathway = await api("/api/pathway", { as_of: state.asOf, scenario: state.scenario, profile: state.profile, role_id: rid });
-  state.pathwayKey = key;
-}
-
 async function ensureTeam() {
   const key = `${state.asOf}|${state.scenario}`;
   if (state.teamKey === key) return;
@@ -501,6 +497,8 @@ function matchCard(r) {
       h("div", { class: "stat" }, h("div", { class: "v" }, timeToReady(r.plan_hours ?? r.gap_hours)), h("div", { class: "k" }, t("stat_time")))),
     h("div", { class: "match-actions" },
       h("a", { class: "btn btn-primary", href: `#/plan/${r.id}` }, t("see_plan")),
+      state.goal === r.id ? h("a", { class: "btn btn-link goal-chip", href: "#/path" }, star(), t("goal_badge"))
+        : h("button", { type: "button", class: "btn btn-secondary", onclick: () => setGoal(r.id) }, t("path_set_goal")),
       h("button", { type: "button", class: "btn btn-link", "aria-expanded": String(open), onclick: () => { state.expanded[r.id] = !open; render(); } }, open ? t("hide") : t("why")),
       h("span", { class: "spacer" }),
       h("span", { class: "row", style: { gap: "4px" } }, goals.map((goal) =>
@@ -689,6 +687,9 @@ function viewPlan(rid) {
     h("section", { class: "page-head" }, h("div", { class: "container" },
       h("p", { class: "no-print", style: { marginBottom: "10px" } }, h("a", { href: "#/results" }, `← ${t("back_results")}`)),
       h("h1", {}, t("plan_title", { role: roleTitle(rid) })),
+      h("p", { class: "no-print", style: { margin: "8px 0 0" } }, state.goal === rid
+        ? h("a", { class: "goal-chip", href: "#/path" }, star(), t("plan_is_goal"))
+        : h("button", { type: "button", class: "btn btn-primary btn-sm", onclick: () => setGoal(rid) }, star(), t("path_set_goal"))),
       h("p", {}, t("plan_sum", { n: p.steps.length, hours: p.total_hours, weeks: p.weeks, hpw: p.hours_per_week }), allFree ? ` · ${t("plan_free")}` : ""),
       h("div", { class: "progress", role: "progressbar", "aria-valuemin": 0, "aria-valuemax": p.steps.length, "aria-valuenow": done },
         h("span", { style: { width: `${p.steps.length ? (done / p.steps.length) * 100 : 0}%` } })),
@@ -940,11 +941,12 @@ async function render() {
     if (["results", "chat", "coach"].includes(r.name) && hasProfile()) await ensureMatches();
     if (r.name === "plan" && hasProfile() && roleById()[r.arg]) await ensurePathway(r.arg);
     if (r.name === "teams") await ensureTeam();
+    if (r.name === "path") await ensurePath();
     if (r.name === "me") { if (hasProfile()) await ensureMatches(); await ensureCourses(); }
     if (r.name === "learn" || r.name === "certificate") await ensureLearn(r);
     if (r.name === "next") await ensureNext();
     if (r.name === "plan" && roleById()[r.arg]) store.set("focusRole", r.arg); // the direction Opportunities searches first
-    const views = { home: viewHome, start: viewStart, results: viewResults, plan: () => viewPlan(r.arg), next: viewNext, me: viewProfile, chat: viewCoach, coach: viewCoach, trends: viewTrends, teams: viewTeams, how: viewHow,
+    const views = { home: viewHome, start: viewStart, results: viewResults, path: viewPath, plan: () => viewPlan(r.arg), next: viewNext, me: viewProfile, chat: viewCoach, coach: viewCoach, trends: viewTrends, teams: viewTeams, how: viewHow,
       learn: () => (!r.arg ? viewLearn() : testPart(r.sub) !== null ? viewTest() : r.sub ? viewLesson() : viewCourse()), certificate: () => viewCertificate(r.arg) };
     main.replaceChildren((views[r.name] || viewHome)());
   } catch (e) {
@@ -968,8 +970,13 @@ window.addEventListener("hashchange", () => {
 async function boot() {
   [state.meta, { personas: state.personas }] = await Promise.all([api("/api/meta"), api("/api/personas"), startAccount()]);
   state.asOf = state.meta.as_of_default;
+  logActivity("v");                                    // today's visit, for the streak and the activity calendar
+  for (const sid of Object.keys(state.learned || {})) if (state.learned[sid]?.final || state.certs[sid]) masterSkill(sid);
   applyParams(parseRoute().params);
   await render();
 }
+
+// A tab left open overnight: the first look the next day counts as that day's visit.
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && logActivity("v")) renderStreak(); });
 
 boot().catch((e) => { $("main").replaceChildren(h("div", { class: "container" }, h("p", { class: "notice", style: { marginTop: "32px" } }, `Failed to load: ${e.message || e}`))); });

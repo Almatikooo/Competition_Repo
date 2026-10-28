@@ -2,7 +2,7 @@
 // languages (editable here), skills, best roles and plan, courses and certificates, and where they look for work or
 // study. A guest sees the same from this tab, with a nudge to sign in.
 import { h } from "./charts.js";
-import { state, store, t, account, signOut, deleteAccount, hasProfile, roleTitle, skillName, icon, rerender, sdgBadge, loc, monthLabel, toast } from "./core.js";
+import { state, store, t, account, signOut, deleteAccount, hasProfile, roleById, roleTitle, skillName, icon, rerender, sdgBadge, loc, monthLabel, toast } from "./core.js";
 import { aboutYou, countryName } from "./next.js";
 import { signInButtons, canSignIn, avatar } from "./account.js";
 
@@ -49,12 +49,11 @@ function skills() {
 
 function path() {
   const top = (state.matches?.roles || []).slice(0, 3);
-  const focus = store.get("focusRole", null);
-  const ticked = focus ? Object.values(state.progress?.[focus] || {}).filter(Boolean).length : 0;
+  const goal = state.goal && roleById()[state.goal] ? state.goal : null;
   return card(t("me_path"),
     top.length ? h("div", {}, h("p", { class: "k" }, t("me_best")),
       h("ol", { class: "me-roles" }, top.map((r) => h("li", {}, h("a", { href: `#/plan/${r.id}` }, roleTitle(r.id)), h("span", { class: "muted" }, ` · ${r.fit}%`))))) : null,
-    focus ? row(t("me_plan"), h("span", {}, h("a", { href: `#/plan/${focus}` }, roleTitle(focus)), h("span", { class: "muted" }, ` · ${t("me_plan_v", { n: ticked })}`))) : null,
+    row(t("goal_badge"), h("a", { href: "#/path" }, goal ? roleTitle(goal) : t("path_choose_t"))),
     link("#/results", t("me_open")));
 }
 
@@ -71,7 +70,7 @@ function learning() {
         h("span", { class: "small muted" }, t("me_lessons", { d: Math.min(x.done.length, total), n: total })));
     }) : h("p", { class: "muted" }, t("me_no_courses")),
     certs.length ? h("div", { class: "me-certs" }, h("p", { class: "k" }, t("me_certs")),
-      certs.map(([sid, token]) => h("a", { class: "chip-sm cert", href: `#/certificate/${token}` }, icon("award"), skillName(sid)))) : null,
+      certs.map(([sid, c]) => h("a", { class: "chip-sm cert", href: `#/certificate/${c?.token || c}` }, icon("award"), skillName(sid)))) : null,
     link("#/learn", t("me_browse")));
 }
 

@@ -2,7 +2,7 @@
 import { h, s, trendSpan } from "./charts.js";
 import { BRAND } from "./brand.js";
 import { state, store, t, api, loc, skillName, roleTitle, hasProfile, sdgBadge, icon, rerender, go, toast,
-  ensureRadar, ensureMatches, ensureCourses, dateLabel, goalOf } from "./core.js";
+  ensureRadar, ensureMatches, ensureCourses, dateLabel, goalOf, logActivity, masterSkill } from "./core.js";
 
 const CATS = ["all", "ai_data", "digital", "green", "human"];
 const CAT_ICON = { ai_data: "cpu", digital: "code", green: "leaf", human: "users" };
@@ -33,7 +33,10 @@ function saveProgress(sid, patch) {
 
 function markDone(sid, lid) {
   const p = progressOf(sid);
-  if (!p.done.includes(lid)) saveProgress(sid, { done: [...p.done, lid] });
+  if (p.done.includes(lid)) return;
+  saveProgress(sid, { done: [...p.done, lid] });
+  const lesson = state.course?.skill === sid ? state.course.syllabus.flatMap((m) => m.lessons).find((l) => l.id === lid) : null;
+  logActivity("l", 1, lesson?.minutes || 0);                  // for My path: the day's lessons and minutes
 }
 
 const pctDone = (sid, total) => (total ? Math.round((Math.min(progressOf(sid).done.length, total) / total) * 100) : 0);
@@ -44,7 +47,7 @@ const chaptersPassed = (sid, count) => Array.from({ length: count }, (_, i) => i
 const chapterOpen = (c, n) => n <= 1 || certified(c.skill) || !!chapterPass(c.skill, n - 1);
 const finalOpen = (c) => certified(c.skill) || chaptersPassed(c.skill, c.syllabus.length) === c.syllabus.length;
 const chapterOfLesson = (c, lid) => c.syllabus.findIndex((m) => m.lessons.some((l) => l.id === lid)) + 1;
-const testHref = (sid, part) => `#/learn/${sid}/${part === "final" ? "final" : `test-${part}`}`;
+export const testHref = (sid, part) => `#/learn/${sid}/${part === "final" ? "final" : `test-${part}`}`;
 
 // "#/learn/<sid>/test-2" → 2 · ".../final" (and the older ".../test") → "final" · a lesson id → null
 export function testPart(sub) {
@@ -54,7 +57,7 @@ export function testPart(sub) {
 }
 
 // Where "continue" should take the learner: the first unread lesson of the current chapter, else its test.
-function nextStep(c) {
+export function nextStep(c) {
   const done = new Set(progressOf(c.skill).done);
   for (const [i, m] of c.syllabus.entries()) {
     if (chapterPass(c.skill, i + 1)) continue;
@@ -529,6 +532,8 @@ async function submitTest(c) {
       const record = { token: r.token, score: r.score, total: r.total };
       if (r.kind === "chapter") saveProgress(c.skill, { chapters: { ...(progressOf(c.skill).chapters || {}), [r.chapter]: record } });
       else saveProgress(c.skill, { final: record });
+      logActivity("t");
+      if (r.kind !== "chapter" && masterSkill(c.skill)) toast(t("skill_raised", { skill: skillName(c.skill) }));
     }
     window.scrollTo({ top: 0 });
   } catch (e) { toast(String(e.message || e)); }

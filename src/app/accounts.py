@@ -40,7 +40,7 @@ transport: httpx.AsyncBaseTransport | None = None    # tests put a fake Google h
 SESSION_COOKIE, STATE_COOKIE = "pathai_session", "pathai_oauth"
 SESSION_DAYS = 30
 STATE_TTL = 600                                       # seconds to finish signing in at Google
-SYNCED_KEYS = {"profile", "origin", "tiles", "progress", "learned", "certs", "certName", "coach", "next", "focusRole"}
+SYNCED_KEYS = {"profile", "origin", "tiles", "progress", "learned", "certs", "certName", "coach", "next", "focusRole", "activity", "goal", "path"}
 MAX_VALUE = 200_000                                   # characters of JSON per key
 GOOGLE_AUTH = "https://accounts.google.com/o/oauth2/v2/auth"
 GOOGLE_TOKEN = "https://oauth2.googleapis.com/token"
@@ -324,6 +324,19 @@ def me(request: Request) -> dict:
     return {"user": _user(user_id), "state": _state(user_id), "providers": providers}
 
 
+def merge_days(old, new) -> dict:
+    """Activity by day from two devices: keep every day, and the larger count of each kind (visits, lessons, tests…)."""
+    out: dict = {}
+    for src in (old, new):
+        for day, kinds in (src.items() if isinstance(src, dict) else ()):
+            if isinstance(kinds, dict):
+                merged = out.setdefault(day, {})
+                for kind, n in kinds.items():
+                    if isinstance(n, (int, float)) and not isinstance(n, bool):
+                        merged[kind] = max(merged.get(kind, 0), n)
+    return dict(sorted(out.items())[-400:])
+
+
 @router.put("/api/me/state")
 def save_state(request: Request, body: StateUpdate) -> dict:
     user_id = session_user(request)
@@ -336,6 +349,11 @@ def save_state(request: Request, body: StateUpdate) -> dict:
             raise HTTPException(422, f"Cannot save {key!r}.")
         rows.append((user_id, key, text, _now()))
     with closing(_db()) as con, con:
+        for i, (uid, key, text, at) in enumerate(rows):
+            if key == "activity":                         # another device may have logged other days
+                old = con.execute("SELECT value FROM user_state WHERE user_id=? AND key=?", (uid, key)).fetchone()
+                if old:
+                    rows[i] = (uid, key, json.dumps(merge_days(json.loads(old[0]), json.loads(text)), separators=(",", ":")), at)
         con.executemany("""INSERT INTO user_state (user_id, key, value, updated_at) VALUES (?, ?, ?, ?)
                            ON CONFLICT(user_id, key) DO UPDATE SET value=excluded.value, updated_at=excluded.updated_at""", rows)
     return {"saved": len(rows)}
