@@ -148,9 +148,10 @@ function renderChrome(routeName) {
   const active = (r) => routeName === r || (r === "results" && (routeName === "plan" || routeName === "start")) || (r === "learn" && routeName === "certificate") || (r === "chat" && routeName === "coach");
   nav.replaceChildren(...NAV.map(([r, key]) => h("a", { href: `#/${r}`, "aria-current": active(r) ? "page" : null,
     onclick: () => { nav.classList.remove("open"); $("menuBtn").setAttribute("aria-expanded", "false"); } }, t(key))));
-  $("cta").textContent = t("cta_start");
-  $("cta").setAttribute("href", "#/start?step=1");
-  $("cta").style.display = routeName === "start" ? "none" : "";
+  const returning = hasProfile();            // someone with a profile goes back to their results, not into the wizard again
+  $("cta").textContent = t(returning ? "cta_results" : "cta_start");
+  $("cta").setAttribute("href", returning ? "#/results" : "#/start?step=1");
+  $("cta").style.display = routeName === "start" || (returning && routeName === "results") ? "none" : "";
   $("footer").style.display = routeName === "chat" || routeName === "coach" ? "none" : "";   // the AI chat is full-screen
   $("menuBtn").textContent = t("menu");
   $("menuBtn").onclick = () => { const open = nav.classList.toggle("open"); $("menuBtn").setAttribute("aria-expanded", String(open)); };
@@ -199,7 +200,14 @@ function viewHome() {
     ["briefcase", "feat4_t", "feat4_d", "#/next"]].map(([ic, title, desc, href]) =>
     h("a", { class: "card feature", href }, h("span", { class: "icon-circle" }, icon(ic)), h("h3", {}, t(title)),
       h("p", {}, t(desc, { posts: hn.posts.toLocaleString(), n: state.courses?.length || 44 }))));
-  const heroCard = h("div", { class: "hero-card" },
+  const first = (account.user?.name || "").split(" ")[0];
+  const heroCard = hasProfile() ? h("div", { class: "hero-card" },
+    h("h3", {}, first ? t("hero_back_title_name", { name: first }) : t("hero_back_title")),
+    h("p", { class: "small muted" }, t("hero_back_sub", { n: Object.keys(state.profile.skills).length })),
+    h("a", { class: "btn btn-primary btn-lg btn-block", href: "#/results", style: { marginTop: "20px" } }, t("hero_back_results")),
+    h("a", { class: "btn btn-secondary btn-block", href: "#/start?step=2", style: { marginTop: "10px" } }, icon("pen"), t("hero_back_edit")),
+    h("p", { style: { textAlign: "center", marginTop: "14px" } }, h("a", { class: "btn-link", href: "#/start?step=1" }, t("hero_back_over"))))
+  : h("div", { class: "hero-card" },
     h("h3", {}, t("hero_card_title")),
     h("p", { class: "small muted" }, t("hero_card_sub")),
     h("a", { class: "btn btn-primary btn-lg btn-block", href: "#/start?step=1", style: { marginTop: "20px" } }, t("hero_start")),
@@ -269,6 +277,11 @@ function wizardStep1() {
     oninput: (e) => { state.wizard.query = e.target.value; list.fill(e.target.value); },
     onkeydown: (e) => { if (e.key === "Enter") { const first = jobMatches(state.wizard.query)[0]; if (first) chooseJob(first.id); } } });
   return [
+    hasProfile() ? h("div", { class: "notice info have-profile" }, h("div", {},
+      h("p", {}, h("b", {}, t("s1_have_profile", { n: Object.keys(state.profile.skills).length }))), h("p", { class: "small" }, t("s1_have_hint")),
+      h("div", { class: "row", style: { gap: "8px", marginTop: "10px", flexWrap: "wrap" } },
+        h("a", { class: "btn btn-primary btn-sm", href: "#/results" }, t("hero_back_results")),
+        h("a", { class: "btn btn-secondary btn-sm", href: "#/start?step=2" }, t("hero_back_edit"))))) : null,
     h("h1", {}, t("s1_title")), h("p", { class: "sub" }, t("s1_sub")),
     h("div", { class: "search" }, icon("search"), input), list,
     h("div", { class: "label" }, t("s1_popular")),

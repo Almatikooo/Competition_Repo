@@ -1009,3 +1009,6 @@ a.po-ctest:hover { background: var(--surface); color: var(--blue); }
 .me-card .acc-delete { display: inline; margin: 0; }
 .header-cta .btn { white-space: nowrap; }
 @media (max-width: 480px) { .header-cta.signed-in #cta { display: none; } }
+.have-profile { margin-bottom: 24px; text-align: left; }
+.have-profile p { margin: 0; }
+.have-profile p + p { margin-top: 4px; }
