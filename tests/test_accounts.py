@@ -99,3 +99,24 @@ def test_without_google_keys_sign_in_is_off(monkeypatch):
     client = TestClient(app)
     assert client.get("/auth/google", follow_redirects=False).status_code == 404
     assert client.get("/api/me").json()["providers"] == {"google": False}
+
+
+def test_an_old_cookie_never_opens_an_account(google):
+    first = TestClient(app)
+    sign_in(first)
+    copied = first.cookies.get(accounts.SESSION_COOKIE)              # e.g. still on another device
+    first.delete("/api/me")
+    google["claims"]["sub"] = "2002"                                 # a new person signs up after the deletion
+    newcomer = TestClient(app)
+    sign_in(newcomer)
+    assert newcomer.get("/api/me").json()["user"]["email"] == "aisyah@example.com"
+    stale = TestClient(app, cookies={accounts.SESSION_COOKIE: copied})
+    assert stale.get("/api/me").json()["user"] is None               # the deleted account's cookie opens nothing
+
+
+def test_signing_out_revokes_every_copy_of_the_cookie(google):
+    client = TestClient(app)
+    sign_in(client)
+    copied = client.cookies.get(accounts.SESSION_COOKIE)
+    client.post("/auth/logout")
+    assert TestClient(app, cookies={accounts.SESSION_COOKIE: copied}).get("/api/me").json()["user"] is None
