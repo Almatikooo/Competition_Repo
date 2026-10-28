@@ -227,7 +227,7 @@ No API key is needed. Without one, the app runs in rule-based mode, and the save
 
 **On Replit.** Import the GitHub repository into Replit and press **Run**: `.replit` installs the requirements and starts `uvicorn app.main:app --app-dir src`.
 
-**Tests:** `python -m pytest -q` (150 tests).
+**Tests:** `python -m pytest -q` (151 tests).
 
 **Refreshing the data (optional):**
 
@@ -352,7 +352,7 @@ docs/RUNPOD.md         model + GPU choice and deployment guide
 | **Groq API**, `qwen/qwen3.8-27b` (the same open model, hosted) | Backup for the AI features while our GPU is off | API key, on the server only. It receives only the facts behind an answer, never a CV, and saved answers are used first. Groq does not retain inference data by default |
 | **RunPod REST API** | Starting and stopping the GPU pod | API key, kept on the developer's laptop and never on the server |
 | **Hacker News Search API** (Algolia) | Live trend signal: skill and role mentions in the monthly "Who is hiring?" threads, plus postings for Opportunities | Public, no key |
-| **OpenAlex API** | Live trend signal: each AI capability's share of new research | Public, CC0 data |
+| **OpenAlex API** | Live trend signal: each AI capability's share of new research | Public, CC0 data. A free API key (`OPENALEX_API_KEY`) raises the daily budget about tenfold. |
 | **Greenhouse, Lever, Ashby and Workable** public job-board APIs | Open postings from the company boards listed in `data/opportunities/sources.json` | The employers' public embed APIs. Only facts are kept, and every posting links back |
 | **Himalayas, Jobicy, Remotive, Remote OK and Arbeitnow** APIs | Remote jobs and jobs in Germany | Public APIs, credited and linked as their terms ask |
 | **Wikidata** (through QLever SPARQL), **Hipo university-domains-list**, **GeoNames** | Universities by country; mapping job locations to countries | CC0, MIT, CC BY 4.0 |

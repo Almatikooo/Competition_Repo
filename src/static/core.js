@@ -162,6 +162,7 @@ export const hasProfile = () => Object.keys(state.profile.skills).length > 0;
 
 const LOCALES = { en: "en-MY", ms: "ms-MY", zh: "zh-CN" };
 export const dateLabel = (iso, lang = state.lang) => (iso ? new Date(iso).toLocaleDateString(LOCALES[lang], { day: "numeric", month: "short", year: "numeric" }) : "–");
+export const timeLabel = (iso, lang = state.lang) => (iso ? new Date(iso).toLocaleTimeString(LOCALES[lang], { hour: "2-digit", minute: "2-digit" }) : "–");
 export const monthLabel = (m) => (m ? new Date(`${m}-01T00:00:00`).toLocaleDateString(LOCALES[state.lang], { month: "short", year: "numeric" }) : "–");
 
 let renderFn = () => {};

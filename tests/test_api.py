@@ -106,3 +106,26 @@ def test_meta_carries_what_the_goal_explainer_needs():
     assert meta["sdg_targets_local"]["zh"]["4.4"] and meta["sdg_targets_local"]["ms"]["8.5"]
     skills = {s["id"]: s for s in meta["skills"]}
     assert {"goal": 4, "target": "4.4"}.items() <= skills["digital_literacy"]["sdgs"][0].items()
+
+
+def test_a_refresh_reports_what_it_changed(tmp_path, monkeypatch):
+    import asyncio
+    import json
+    from app.signals import refresh as r
+    write = lambda path, data: path.write_text(json.dumps(data))
+    hn, oa, meta = tmp_path / "hn.json", tmp_path / "openalex.json", tmp_path / "meta.json"
+    write(hn, {"months": {"2026-09": {"posts": 400}, "2026-10": {"posts": 300}}})
+    write(oa, {"buckets": {"2026H1": {"counts": {"baseline": 1000, "agents": 50}}}})
+    for name, path in (("HN_FILE", hn), ("OPENALEX_FILE", oa), ("META_FILE", meta)):
+        monkeypatch.setattr(r, name, path)
+
+    async def a_new_month(*args, **kwargs):          # the November thread appears, October gets 20 more posts
+        write(hn, {"months": {"2026-09": {"posts": 400}, "2026-10": {"posts": 320}, "2026-11": {"posts": 50}}})
+        return {"posts": 770}
+
+    monkeypatch.setattr(r, "refresh_hn", a_new_month)
+    out = asyncio.run(r.refresh(openalex=False, log=lambda *_: None))
+    assert out["hn"]["status"] == "ok"
+    assert out["change"]["before"] == {"posts": 700, "months": 2, "month": "2026-10", "month_posts": 300, "half": "2026H1", "papers": 1000}
+    assert out["change"]["after"] == {"posts": 770, "months": 3, "month": "2026-11", "month_posts": 50, "half": "2026H1", "papers": 1000}
+    assert json.loads(meta.read_text())["change"]["after"]["posts"] == 770      # kept for the page

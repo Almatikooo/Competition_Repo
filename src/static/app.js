@@ -1,6 +1,6 @@
 import { h, radar, divergingBars, miniBar, magnitudeBars, sparkline, heatColor, fmtPct, trendSpan } from "./charts.js";
 import { state, store, EMPTY_PROFILE, t, setLang, $, api, skillById, roleById, loc, skillName, skillShort, roleTitle, goalOf,
-  hasProfile, dateLabel, monthLabel, setRenderer, go, toast, saveProfile, sdgBadge, costTag, icon,
+  hasProfile, dateLabel, timeLabel, monthLabel, setRenderer, go, toast, saveProfile, sdgBadge, costTag, icon,
   ensureRadar, ensureMatches, ensureCourses, account, startAccount, signOut, deleteAccount, keepAnswersOnSignIn } from "./core.js";
 import { ensureLearn, viewLearn, viewCourse, viewLesson, viewTest, viewCertificate, certificatePrintStyle, hoursLabel, testPart } from "./learn.js";
 import { ensureNext, viewNext, nextCta } from "./next.js";
@@ -702,27 +702,59 @@ function viewPlan(rid) {
 }
 
 // ---------------------------------------------------------------- Explore trends
+// The server fetches the newest posts and paper counts; its log shows live, then a card says what changed.
 async function refreshSignals(btn) {
   state.busy = true;
+  state.lastChange = null;
   btn.disabled = true;
   btn.textContent = t("tr_refreshing");
+  const box = $("refreshLog");
   try {
     await api("/api/signals/refresh", {});
     for (;;) {
-      await new Promise((r) => setTimeout(r, 1500));
+      await new Promise((r) => setTimeout(r, 1000));
       const st = await api("/api/signals/status");
+      if (box) { box.hidden = false; box.textContent = (st.log || []).join("\n") || "…"; box.scrollTop = box.scrollHeight; }
       if (st.state !== "running") {
         state.meta = await api("/api/meta");
         state.asOf = state.meta.as_of_default;
         state.radarKey = ""; state.matchesKey = ""; state.teamKey = ""; state.pathwayKey = "";
-        const bad = Object.entries(st.result || {}).filter(([, v]) => v !== "ok");
-        toast(bad.length ? `${t("tr_refreshed")} · ${bad.map(([k, v]) => `${k}: ${v}`).join("; ")}` : t("tr_refreshed"));
+        if (st.state === "error" || !st.change) toast(st.error || t("tr_refreshed"));
+        else state.lastChange = { ...st.change, result: st.result || {}, log: st.log || [] };
         break;
       }
     }
   } catch (e) { toast(String(e.message || e)); }
   state.busy = false;
   render();
+}
+
+function changeCard() {
+  const c = state.lastChange;
+  if (!c?.after) return null;
+  const { before: b, after: a } = c;
+  const n = (x) => (x || 0).toLocaleString();
+  const diff = (x) => (x > 0 ? `+${n(x)}` : x < 0 ? `−${n(-x)}` : "±0");
+  const same = a.posts === b.posts && a.month === b.month && a.papers === b.papers;
+  const limit = ([k, v]) => k === "openalex" && /budget|40[23]|429/.test(v);   // its free daily budget ran out partway
+  const failed = Object.entries(c.result).filter(([, v]) => v !== "ok");
+  const down = failed.filter((x) => !limit(x)).map(([k]) => (k === "hn" ? "Hacker News" : "OpenAlex"));
+  const since = c.since ? dateLabel(c.since) : "–";
+  const d = a.month_posts - b.month_posts;              // the newest thread grows, and loses posts HN removes
+  const lines = [
+    a.month !== b.month ? t("tr_ch_new_month", { month: monthLabel(a.month), n: n(a.month_posts) })
+      : t(d > 0 ? "tr_ch_month_up" : d < 0 ? "tr_ch_month_down" : "tr_ch_month_same", { month: monthLabel(a.month), after: n(a.month_posts), d: n(Math.abs(d)), since }),
+    t("tr_ch_posts", { months: a.months, before: n(b.posts), after: n(a.posts) }),
+    t("tr_ch_papers", { half: (a.half || "").replace("H", " H"), before: n(b.papers), after: n(a.papers), d: diff(a.papers - b.papers) }),
+  ];
+  return h("section", { class: "card refresh-change", role: "status" },
+    h("div", { class: "row" }, icon("check"), h("h3", {}, t("tr_ch_title", { time: timeLabel(c.at) })), h("span", { class: "spacer" }),
+      h("button", { type: "button", class: "guest-bar-x", "aria-label": t("coach_close"), onclick: () => { state.lastChange = null; render(); } }, icon("close"))),
+    same ? h("p", {}, t("tr_ch_none")) : h("ul", {}, lines.map((x) => h("li", {}, x))),
+    failed.some(limit) ? h("p", { class: "small" }, t("tr_ch_budget")) : null,
+    down.length ? h("p", { class: "small" }, t("tr_ch_failed", { names: down.join(", ") })) : null,
+    h("p", { class: "small muted" }, t("tr_ch_note")),
+    c.log.length ? h("details", { class: "small" }, h("summary", {}, t("tr_ch_log")), h("pre", { class: "refresh-log" }, c.log.join("\n"))) : null);
 }
 
 async function selectSkill(id) {
@@ -771,8 +803,11 @@ function viewTrends() {
         h("label", {}, t("tr_asof"), h("select", { onchange: (e) => { state.asOf = e.target.value; state.matchesKey = ""; state.pathwayKey = ""; state.skillDetail = null; render(); } },
           state.meta.as_of_options.map((mo) => h("option", { value: mo, selected: mo === state.asOf }, monthLabel(mo))))),
         paceSwitch(),
-        h("button", { type: "button", class: "btn btn-secondary btn-sm", disabled: state.busy, onclick: (e) => refreshSignals(e.currentTarget) }, state.busy ? t("tr_refreshing") : t("tr_refresh"))))),
+        h("button", { type: "button", class: "btn btn-secondary btn-sm", disabled: state.busy, onclick: (e) => refreshSignals(e.currentTarget) }, state.busy ? t("tr_refreshing") : t("tr_refresh")),
+        sig.refreshed_at ? h("span", { class: "small tr-updated" }, t("tr_updated", { when: `${dateLabel(sig.refreshed_at)}, ${timeLabel(sig.refreshed_at)}` })) : null),
+      h("pre", { class: "refresh-log", id: "refreshLog", "aria-live": "polite", hidden: !state.busy }))),
     h("section", { class: "band", style: { paddingTop: "28px" } }, h("div", { class: "container stack" },
+      changeCard(),
       h("div", { class: "grid-2" },
         h("div", { class: "card card-top", style: { borderTopColor: "var(--blue)" } }, h("h3", { style: { marginBottom: "14px" } }, t("tr_rising")), bars(sorted.slice(0, 8))),
         h("div", { class: "card card-top", style: { borderTopColor: "var(--orange)" } }, h("h3", { style: { marginBottom: "14px" } }, t("tr_falling")), bars(sorted.slice(-8).reverse()))),

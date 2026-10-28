@@ -188,6 +188,7 @@ async def meta() -> dict:
                    "status": signals.meta.get("hn", {}).get("status")},
             "openalex": {"buckets": sorted(oa), "fetched_at": signals.openalex.get("refreshed_at"),
                          "status": signals.meta.get("openalex", {}).get("status")},
+            "refreshed_at": max((signals.meta.get(k, {}).get("refreshed_at") or "" for k in ("hn", "openalex")), default="") or None,
         },
         "resources": {"count": len(catalog.resources), "checked": catalog.resources_checked},
         "llm": await llm.status(),
@@ -559,12 +560,13 @@ async def start_refresh() -> dict:
         return _refresh_state
 
     async def job() -> None:
-        _refresh_state.update(state="running", log=[])
+        _refresh_state.update(state="running", log=[], result=None, change=None, error=None)
         try:
             meta_after = await refresh_signals(log=lambda line: _refresh_state["log"].append(line))
             signals.reload()
             _outlooks.clear()
-            _refresh_state.update(state="done", result={k: v.get("status") for k, v in meta_after.items()})
+            _refresh_state.update(state="done", result={k: meta_after[k].get("status") for k in ("hn", "openalex") if k in meta_after},
+                                  change=meta_after.get("change"))
         except Exception as exc:
             _refresh_state.update(state="error", error=str(exc)[:300])
 
