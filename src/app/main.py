@@ -15,13 +15,14 @@ from .engine.matching import Profile, Weights, current_role_outlook, match_role,
 from .engine.pathway import build_pathway
 from .engine.profile import detect_skills, extract_text
 from .learn import TEST_RULES, LearnError, get_learn, verify_certificate
-from . import advisor
+from . import accounts, advisor
 from . import opportunities as opp
 from .llm import tasks
 from .llm.client import ANSWERED_BY, LLMUnavailable, llm
 from .signals.refresh import refresh as refresh_signals
 
 app = FastAPI(title="Path.AI — career paths for the AI era", version="0.3.0")
+app.include_router(accounts.router)      # optional sign-in with Google; guests need none
 
 
 @app.middleware("http")

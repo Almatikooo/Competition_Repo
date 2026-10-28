@@ -1,7 +1,7 @@
 import { h, radar, divergingBars, miniBar, magnitudeBars, sparkline, heatColor, fmtPct, trendSpan } from "./charts.js";
 import { state, store, EMPTY_PROFILE, t, setLang, $, api, skillById, roleById, loc, skillName, skillShort, roleTitle, goalOf,
   hasProfile, dateLabel, monthLabel, setRenderer, go, toast, saveProfile, sdgBadge, costTag, icon,
-  ensureRadar, ensureMatches, ensureCourses } from "./core.js";
+  ensureRadar, ensureMatches, ensureCourses, account, startAccount, signOut, deleteAccount } from "./core.js";
 import { ensureLearn, viewLearn, viewCourse, viewLesson, viewTest, viewCertificate, certificatePrintStyle, hoursLabel, testPart } from "./learn.js";
 import { ensureNext, viewNext, nextCta } from "./next.js";
 import { viewCoach, coachEntry } from "./coach.js";
@@ -87,8 +87,74 @@ function originLabel() {
 // ---------------------------------------------------------------- header & footer
 const NAV = [["results", "nav_path"], ["chat", "nav_coach"], ["learn", "nav_learn"], ["next", "nav_next"], ["trends", "nav_trends"], ["teams", "nav_teams"], ["how", "nav_how"]];
 
+// ---------------------------------------------------------------- account (optional sign-in with Google)
+const NS = "http://www.w3.org/2000/svg";
+function googleMark() {      // Google's "G", as its sign-in buttons show it
+  const svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("viewBox", "0 0 48 48");
+  svg.setAttribute("aria-hidden", "true");
+  for (const [fill, d] of [["#EA4335", "M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"],
+    ["#4285F4", "M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"],
+    ["#FBBC05", "M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"],
+    ["#34A853", "M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"]]) {
+    const path = document.createElementNS(NS, "path");
+    path.setAttribute("fill", fill);
+    path.setAttribute("d", d);
+    svg.append(path);
+  }
+  return svg;
+}
+const googleHref = () => `/auth/google?next=${encodeURIComponent(`/${location.hash || "#/"}`)}`;
+const googleButton = () => h("a", { class: "btn-google", href: googleHref() }, googleMark(), h("span", {}, t("acc_google")));
+
+function renderAccount() {
+  const box = $("account");
+  const u = account.user;
+  if (!u && !account.providers.google) { box.replaceChildren(); return; }
+  const toggle = (e) => { e.stopPropagation(); state.accountOpen = !state.accountOpen; state.accountDeleting = false; renderAccount(); };
+  const button = u
+    ? h("button", { type: "button", class: "account-btn", "aria-expanded": String(!!state.accountOpen), "aria-label": t("acc_menu"), title: u.name || u.email || "", onclick: toggle },
+        u.picture ? h("img", { src: u.picture, alt: "", referrerpolicy: "no-referrer" }) : h("span", { class: "initial" }, (u.name || u.email || "?").slice(0, 1).toUpperCase()))
+    : h("button", { type: "button", class: "btn btn-secondary btn-sm account-signin", "aria-expanded": String(!!state.accountOpen), onclick: toggle },
+        icon("user"), h("span", {}, t("acc_signin")));
+  let body = null;
+  if (state.accountOpen && u && state.accountDeleting) {
+    body = [h("p", { class: "acc-title" }, t("acc_delete_sure")),
+      h("div", { class: "row", style: { gap: "8px" } },
+        h("button", { type: "button", class: "btn btn-sm acc-danger", onclick: () => deleteAccount().catch((e) => toast(String(e.message || e))) }, t("acc_delete_yes")),
+        h("button", { type: "button", class: "btn btn-secondary btn-sm", onclick: (e) => { e.stopPropagation(); state.accountDeleting = false; renderAccount(); } }, t("acc_cancel")))];
+  } else if (state.accountOpen && u) {
+    body = [h("p", { class: "acc-name" }, u.name || u.email), u.name && u.email ? h("p", { class: "acc-email" }, u.email) : null,
+      h("p", { class: "acc-note" }, t("acc_saved")),
+      h("button", { type: "button", class: "btn btn-secondary btn-sm btn-block", onclick: () => signOut().catch((e) => toast(String(e.message || e))) }, t("acc_signout")),
+      h("button", { type: "button", class: "acc-delete", onclick: (e) => { e.stopPropagation(); state.accountDeleting = true; renderAccount(); } }, t("acc_delete"))];
+  } else if (state.accountOpen) {
+    body = [h("p", { class: "acc-title" }, t("acc_title")), h("p", { class: "acc-note" }, t("acc_guest_note")), googleButton()];
+  }
+  const menu = body ? h("div", { class: "account-menu", role: "dialog", "aria-label": t("acc_menu"), onclick: (e) => e.stopPropagation() }, body) : null;
+  box.replaceChildren(...[button, menu].filter(Boolean));      // replaceChildren would print a null
+}
+document.addEventListener("click", () => { if (state.accountOpen) { state.accountOpen = false; renderAccount(); } });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && state.accountOpen) { state.accountOpen = false; renderAccount(); } });
+
+// A thin bar for guests who have started: their progress lasts until the tab is closed, unless they sign in.
+function renderGuestBar(routeName) {
+  const bar = $("guestBar");
+  let hidden = false;
+  try { hidden = sessionStorage.getItem("pathai-ui:guestbar") === "hidden"; } catch { /* storage blocked */ }
+  if (account.user || !account.providers.google || !hasProfile() || hidden || ["chat", "coach", "certificate"].includes(routeName)) {
+    bar.replaceChildren();
+    return;
+  }
+  const hide = () => { try { sessionStorage.setItem("pathai-ui:guestbar", "hidden"); } catch { /* storage blocked */ } renderGuestBar(routeName); };
+  bar.replaceChildren(h("div", { class: "guest-bar" }, h("div", { class: "container" }, icon("clock"), h("span", {}, t("acc_banner"), " ",
+    h("a", { href: googleHref() }, t("acc_banner_cta"))), h("button", { type: "button", class: "guest-bar-x", "aria-label": t("coach_close"), onclick: hide }, icon("close")))));
+}
+
 function renderChrome(routeName) {
   document.documentElement.lang = state.lang === "zh" ? "zh-CN" : state.lang;
+  renderAccount();
+  renderGuestBar(routeName);
   const nav = $("nav");
   const active = (r) => routeName === r || (r === "results" && (routeName === "plan" || routeName === "start")) || (r === "learn" && routeName === "certificate") || (r === "chat" && routeName === "coach");
   nav.replaceChildren(...NAV.map(([r, key]) => h("a", { href: `#/${r}`, "aria-current": active(r) ? "page" : null,
@@ -741,7 +807,12 @@ function viewHow() {
           h("ul", { class: "small" },
             h("li", {}, "Every course is assembled from openly licensed curricula — Microsoft “for Beginners”, The Carpentries, OpenStax, BCcampus, GOV.UK, NIST, EIA, EPA and others. Lessons keep the original text, re-typeset, with source, licence and a link to the original on every page."),
             h("li", {}, "Tests are graded on the server: 5 questions after every chapter (4 to unlock the next), 25 in the final test (20 to pass). Each attempt is drawn at random from the course's question pool; questions come from the source curricula's own open quiz banks or quote their answer word-for-word from a lesson (the build fails otherwise)."),
-            h("li", {}, "Certificates are signed (HMAC-SHA256) and can be verified by anyone with the link; we keep no database of names. They are not accredited qualifications."))),
+            h("li", {}, "Certificates are signed (HMAC-SHA256) and can be verified by anyone with the link. We keep no database of certificate names (signed-in accounts keep their own certificate links with the rest of their progress). They are not accredited qualifications."))),
+        card("Your data",
+          h("ul", { class: "small" },
+            h("li", {}, "No sign-up needed: as a guest, your profile, plans, course progress and AI Chat stay in this browser tab and are gone when you close it."),
+            h("li", {}, "Sign in with Google to keep them on any device. We then store your Google name, email and picture with your progress, and nothing else. No password is ever stored."),
+            h("li", {}, "You can delete your account and everything saved with it from the account menu at any time."))),
         card("Jobs & universities",
           h("ul", { class: "small" },
             h("li", {}, "Jobs are a dated snapshot of open postings from public sources: company career pages on Greenhouse, Lever and Ashby, Hacker News “Who is hiring”, Himalayas, Jobicy, Remotive, Remote OK and Arbeitnow. We keep only the title, company, link, place, date and the skills detected — never the description — and you always apply on the employer's own page."),
@@ -826,7 +897,7 @@ window.addEventListener("hashchange", () => {
 });
 
 async function boot() {
-  [state.meta, { personas: state.personas }] = await Promise.all([api("/api/meta"), api("/api/personas")]);
+  [state.meta, { personas: state.personas }] = await Promise.all([api("/api/meta"), api("/api/personas"), startAccount()]);
   state.asOf = state.meta.as_of_default;
   applyParams(parseRoute().params);
   await render();

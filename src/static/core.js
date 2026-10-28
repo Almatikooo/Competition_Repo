@@ -2,10 +2,49 @@
 import { h } from "./charts.js";
 import { makeT } from "./i18n.js";
 
-export const store = {
-  get(key, fallback) { try { const v = localStorage.getItem(`pathai:${key}`); return v ? JSON.parse(v) : fallback; } catch { return fallback; } },
-  set(key, value) { try { localStorage.setItem(`pathai:${key}`, JSON.stringify(value)); } catch { /* private mode */ } },
+// Guests keep their progress in this tab only, so it is gone when the tab is closed (sessionStorage). A person signed
+// in with Google also has the same keys saved to their account (see `account`), and they come back on any device.
+// The interface language is a preference of the device and is kept across visits (localStorage).
+const DEVICE_KEYS = new Set(["lang"]);
+const SYNCED = new Set(["profile", "origin", "tiles", "progress", "learned", "certs", "certName", "coach", "next", "focusRole"]);
+const area = (key) => (DEVICE_KEYS.has(key) ? localStorage : sessionStorage);
+
+export const account = {
+  user: null, providers: {}, pending: {}, timer: null,
+  changed(key, value) {
+    if (!this.user || !SYNCED.has(key)) return;
+    this.pending[key] = value;
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => this.flush(), 1200);
+  },
+  async flush(keepalive = false) {
+    const batch = this.pending;
+    this.pending = {};
+    if (!Object.keys(batch).length) return;
+    try {
+      const r = await fetch("/api/me/state", { method: "PUT", keepalive, headers: { "Content-Type": "application/json" }, body: JSON.stringify({ state: batch }) });
+      if (!r.ok && r.status !== 422) throw new Error(r.statusText);
+    } catch { this.pending = { ...batch, ...this.pending }; }    // sent again with the next change
+  },
 };
+addEventListener("pagehide", () => account.flush(true));
+
+export const store = {
+  get(key, fallback) { try { const v = area(key).getItem(`pathai:${key}`); return v ? JSON.parse(v) : fallback; } catch { return fallback; } },
+  set(key, value) {
+    try { area(key).setItem(`pathai:${key}`, JSON.stringify(value)); } catch { /* storage blocked */ }
+    account.changed(key, value);
+  },
+};
+
+// Before accounts existed, progress was kept in localStorage for good: move it into this tab's storage, once.
+try {
+  for (const k of Object.keys(localStorage)) {
+    if (!k.startsWith("pathai:") || DEVICE_KEYS.has(k.slice(7))) continue;
+    if (sessionStorage.getItem(k) === null) sessionStorage.setItem(k, localStorage.getItem(k));
+    localStorage.removeItem(k);
+  }
+} catch { /* storage blocked */ }
 
 export const DEFAULT_LANGUAGES = ["en", "ms"];   // most Malaysian users work in English and Malay; one tap changes it
 export const EMPTY_PROFILE = { skills: {}, interests: [], sdg_priorities: [], current_role: null, hours_per_week: 6, years_experience: null, languages: DEFAULT_LANGUAGES };
@@ -29,6 +68,51 @@ export const state = {
 };
 
 let table = makeT(state.lang);
+
+// Re-reads the saved keys into the state (after signing in: the account's progress replaces this tab's).
+export function hydrate() {
+  Object.assign(state, { profile: store.get("profile", structuredClone(EMPTY_PROFILE)), origin: store.get("origin", null), tiles: store.get("tiles", []),
+    progress: store.get("progress", {}), learned: store.get("learned", {}), certs: store.get("certs", {}), next: store.get("next", { mode: null, country: null }),
+    coach: null, matchesKey: "", pathwayKey: "", nextJobsKey: "", nextStudyKey: "" });
+}
+
+// On every page load: who is signed in. The account's saved progress wins; a first sign-in keeps what this tab has.
+export async function startAccount() {
+  let me;
+  try { me = await api("/api/me"); } catch { return; }
+  account.providers = me.providers || {};
+  if (!me.user) return;
+  account.user = me.user;
+  const saved = me.state || {};
+  if (Object.keys(saved).length) {
+    for (const [k, v] of Object.entries(saved)) {
+      if (SYNCED.has(k)) try { sessionStorage.setItem(`pathai:${k}`, JSON.stringify(v)); } catch { /* storage blocked */ }
+    }
+    hydrate();
+  } else {
+    for (const k of SYNCED) { const v = store.get(k, undefined); if (v !== undefined) account.pending[k] = v; }
+    await account.flush();
+  }
+}
+
+function forgetThisTab() {
+  try { for (const k of Object.keys(sessionStorage)) if (k.startsWith("pathai:")) sessionStorage.removeItem(k); } catch { /* storage blocked */ }
+}
+
+export async function signOut() {
+  await account.flush();
+  await api("/auth/logout", {});
+  forgetThisTab();                       // the next person on this device starts fresh
+  location.hash = "#/";
+  location.reload();
+}
+
+export async function deleteAccount() {
+  await api("/api/me", null, false, "DELETE");
+  forgetThisTab();
+  location.hash = "#/";
+  location.reload();
+}
 export const t = (key, vars) => table(key, vars);
 
 export function setLang(code) {
@@ -41,8 +125,9 @@ export function setLang(code) {
 
 export const $ = (id) => document.getElementById(id);
 
-export async function api(path, body, isForm = false) {
-  const opts = body ? { method: "POST", body: isForm ? body : JSON.stringify(body), headers: isForm ? {} : { "Content-Type": "application/json" } } : {};
+export async function api(path, body, isForm = false, method = null) {
+  const opts = body ? { method: method || "POST", body: isForm ? body : JSON.stringify(body), headers: isForm ? {} : { "Content-Type": "application/json" } }
+    : method ? { method } : {};
   const resp = await fetch(path, opts);
   if (!resp.ok) {
     let detail = resp.statusText;
@@ -167,7 +252,7 @@ const ICONS = {
   book: "M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5zm0 16a2 2 0 0 1 2-2h13", award: "M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm-3.5-1L7 22l5-3 5 3-1.5-8",
   clock: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zm0-14v5l3 2", check: "M5 12.5l4.5 4.5L19 7.5", play: "M8 5.5v13l10.5-6.5z",
   list: "M9 6h12M9 12h12M9 18h12M4 6h.01M4 12h.01M4 18h.01", code: "M8 8l-5 4 5 4M16 8l5 4-5 4M14 4l-4 16", chevron: "M6 9l6 6 6-6",
-  close: "M6 6l12 12M18 6L6 18", send: "M12 19V5M5.5 11.5 12 5l6.5 6.5", copy: "M9 9h11v11H9zM5 15H4V4h11v1",
+  close: "M6 6l12 12M18 6L6 18", user: "M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4.5 21a7.5 7.5 0 0 1 15 0", send: "M12 19V5M5.5 11.5 12 5l6.5 6.5", copy: "M9 9h11v11H9zM5 15H4V4h11v1",
   eye: "M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12zM12 14.8a2.8 2.8 0 1 0 0-5.6 2.8 2.8 0 0 0 0 5.6z", layers: "M12 3l9 5-9 5-9-5 9-5zM3 12l9 5 9-5M3 16.5l9 5 9-5", arrowLeft: "M19 12H5m6-6-6 6 6 6",
   shield: "M12 3l8 3v6c0 4.6-3.4 8.1-8 9-4.6-.9-8-4.4-8-9V6l8-3zm-3.5 9 2.5 2.5 4.5-4.5",
   // course cover icons

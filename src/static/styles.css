@@ -937,3 +937,30 @@ a.po-ctest:hover { background: var(--surface); color: var(--blue); }
 .coach-drawer .btn { margin-top: 16px; }
 @keyframes coach-fade { from { opacity: 0; } }
 @keyframes coach-slide { from { transform: translateX(24px); opacity: 0; } }
+
+/* Account (optional sign-in with Google) */
+.account { position: relative; display: flex; align-items: center; }
+.account-btn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); padding: 0; overflow: hidden; cursor: pointer;
+  background: var(--tint-2); display: grid; place-items: center; }
+.account-btn img { width: 100%; height: 100%; object-fit: cover; }
+.account-btn .initial { font-weight: 700; color: var(--blue); }
+.account-signin { display: inline-flex; align-items: center; gap: 6px; }
+.account-signin svg { width: 16px; height: 16px; }
+@media (max-width: 600px) { .account-signin span { display: none; } .account-signin { padding-left: 10px; padding-right: 10px; } }
+.account-menu { position: absolute; top: calc(100% + 10px); right: 0; width: min(300px, calc(100vw - 32px)); z-index: 50; background: var(--surface);
+  border: 1px solid var(--line-soft); border-radius: 16px; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14); padding: 16px; }
+.account-menu .acc-title { font-weight: 700; margin: 0 0 6px; }
+.account-menu .acc-name { font-weight: 700; margin: 0; overflow-wrap: anywhere; }
+.account-menu .acc-email { font-size: 13px; color: var(--muted); margin: 2px 0 0; overflow-wrap: anywhere; }
+.account-menu .acc-note { font-size: 13px; color: var(--muted); line-height: 1.5; margin: 8px 0 14px; }
+.acc-delete { display: block; margin: 12px auto 0; border: 0; background: none; color: var(--red-text); font: inherit; font-size: 13px; cursor: pointer; }
+.acc-danger { background: var(--red-text); color: #fff; border: 0; }
+.btn-google { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; border: 1px solid #dadce0; border-radius: 999px;
+  padding: 10px 14px; background: #fff; color: #1f1f1f; font-weight: 500; font-size: 14px; text-decoration: none; }
+.btn-google:hover { background: #f8f9fa; }
+.btn-google svg { width: 18px; height: 18px; }
+.guest-bar { background: var(--tint); border-bottom: 1px solid var(--line-soft); font-size: 14px; color: var(--ink-2); }
+.guest-bar .container { display: flex; align-items: center; gap: 8px; min-height: 40px; padding-top: 6px; padding-bottom: 6px; }
+.guest-bar svg { width: 16px; height: 16px; color: var(--blue); flex: none; }
+.guest-bar a { font-weight: 500; }
+.guest-bar-x { margin-left: auto; border: 0; background: none; cursor: pointer; color: var(--muted); display: grid; place-items: center; padding: 4px; }
