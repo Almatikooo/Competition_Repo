@@ -1012,3 +1012,6 @@ a.po-ctest:hover { background: var(--surface); color: var(--blue); }
 .have-profile { margin-bottom: 24px; text-align: left; }
 .have-profile p { margin: 0; }
 .have-profile p + p { margin-top: 4px; }
+.btn-apple { background: #000; border-color: #000; color: #fff; }
+.btn-apple:hover { background: #1d1d1f; }
+.btn-apple svg { color: #fff; }

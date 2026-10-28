@@ -1,9 +1,11 @@
-"""Optional accounts: sign in with Google or GitHub to keep your progress.
+"""Optional accounts: sign in with Google, GitHub or Apple to keep your progress.
 
 Guests need no account: their browser keeps the profile, plans, courses and AI Chat for the current tab only
 (sessionStorage), so everything is gone when the tab is closed. A person who signs in with Google gets the same data
 saved to their account here, and loaded again on any device. GitHub works the same way (OAuth app; the profile
-and, when it is private, the primary verified email come from GitHub's API with the one-time access token).
+and, when it is private, the primary verified email come from GitHub's API with the one-time access token). Apple
+answers with a form POST from its own site (so its state cookie is SameSite=None), wants a short-lived ES256 JWT as the
+client secret, and sends the person's name only the first time, so a later sign-in keeps the stored name.
 
 * Sign-in is Google's OAuth 2.0 authorization-code flow with PKCE. A signed, short-lived cookie carries the state and
   the code verifier, and the ID token comes straight from Google's token endpoint over TLS, so its claims (issuer,
@@ -26,7 +28,7 @@ from urllib.parse import urlencode
 
 import httpx
 from fastapi import APIRouter, HTTPException, Request
-from fastapi.responses import JSONResponse, RedirectResponse
+from fastapi.responses import JSONResponse, PlainTextResponse, RedirectResponse
 from pydantic import BaseModel, Field
 
 from . import config
@@ -46,6 +48,9 @@ GOOGLE_ISSUERS = {"accounts.google.com", "https://accounts.google.com"}
 GITHUB_AUTH = "https://github.com/login/oauth/authorize"
 GITHUB_TOKEN = "https://github.com/login/oauth/access_token"
 GITHUB_API = "https://api.github.com"
+APPLE_AUTH = "https://appleid.apple.com/auth/authorize"
+APPLE_TOKEN = "https://appleid.apple.com/auth/token"
+APPLE_ISSUER = "https://appleid.apple.com"
 
 
 def google_ready() -> bool:
@@ -54,6 +59,30 @@ def google_ready() -> bool:
 
 def github_ready() -> bool:
     return bool(config.GITHUB_CLIENT_ID and config.GITHUB_CLIENT_SECRET)
+
+
+def _apple_key() -> str:
+    if config.APPLE_PRIVATE_KEY:
+        return config.APPLE_PRIVATE_KEY.replace("\\n", "\n")
+    return config.APPLE_PRIVATE_KEY_FILE.read_text() if config.APPLE_PRIVATE_KEY_FILE.is_file() else ""
+
+
+def apple_ready() -> bool:
+    return bool(config.APPLE_CLIENT_ID and config.APPLE_TEAM_ID and config.APPLE_KEY_ID and _apple_key())
+
+
+def apple_client_secret(now: float | None = None) -> str:
+    """Apple's client secret: a JWT signed with the team's Sign in with Apple key (ES256), valid for ten minutes."""
+    from cryptography.hazmat.primitives import hashes, serialization
+    from cryptography.hazmat.primitives.asymmetric import ec
+    from cryptography.hazmat.primitives.asymmetric.utils import decode_dss_signature
+    now = int(now or time.time())
+    part = lambda d: _b64url(json.dumps(d, separators=(",", ":")).encode())
+    signing_input = (f'{part({"alg": "ES256", "kid": config.APPLE_KEY_ID})}.'
+                     f'{part({"iss": config.APPLE_TEAM_ID, "iat": now, "exp": now + 600, "aud": APPLE_ISSUER, "sub": config.APPLE_CLIENT_ID})}')
+    key = serialization.load_pem_private_key(_apple_key().encode(), password=None)
+    r, s = decode_dss_signature(key.sign(signing_input.encode(), ec.ECDSA(hashes.SHA256())))
+    return f"{signing_input}.{_b64url(r.to_bytes(32, 'big') + s.to_bytes(32, 'big'))}"
 
 
 # ---------------------------------------------------------------- storage
@@ -80,7 +109,8 @@ def upsert_user(provider: str, subject: str, email: str | None, name: str | None
     with closing(_db()) as con, con:
         con.execute("""INSERT INTO users (provider, subject, email, name, picture, session_epoch, created_at, last_login)
                        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-                       ON CONFLICT(provider, subject) DO UPDATE SET email=excluded.email, name=excluded.name, picture=excluded.picture,
+                       ON CONFLICT(provider, subject) DO UPDATE SET email=COALESCE(excluded.email, users.email),
+                       name=COALESCE(excluded.name, users.name), picture=COALESCE(excluded.picture, users.picture),
                        session_epoch=COALESCE(users.session_epoch, excluded.session_epoch), last_login=excluded.last_login""",
                     (provider, subject, email, name, picture, secrets.token_urlsafe(16), _now(), _now()))
         return con.execute("SELECT id, session_epoch FROM users WHERE provider=? AND subject=?", (provider, subject)).fetchone()
@@ -134,13 +164,18 @@ def _claims(id_token: str) -> dict:
     return json.loads(base64.urlsafe_b64decode(payload + "=" * (-len(payload) % 4)))
 
 
-def _begin(request: Request, provider: str, auth_url: str, params: dict, next_path: str) -> RedirectResponse:
-    """Off to the provider: a fresh state and PKCE verifier ride in a signed, short-lived cookie."""
+def _begin(request: Request, provider: str, auth_url: str, params: dict, next_path: str, pkce: bool = True,
+           samesite: str = "lax") -> RedirectResponse:
+    """Off to the provider: a fresh state (also Apple's nonce) and PKCE verifier ride in a signed, short-lived cookie."""
     nonce, verifier = secrets.token_urlsafe(16), secrets.token_urlsafe(48)
-    query = {**params, "state": nonce, "code_challenge": _b64url(hashlib.sha256(verifier.encode()).digest()), "code_challenge_method": "S256"}
+    query = {**params, "state": nonce}
+    if pkce:
+        query.update(code_challenge=_b64url(hashlib.sha256(verifier.encode()).digest()), code_challenge_method="S256")
+    else:
+        query["nonce"] = nonce                            # Apple: echoed in the ID token
     resp = RedirectResponse(f"{auth_url}?{urlencode(query)}", status_code=303)
     resp.set_cookie(STATE_COOKIE, sign("oauth", {"p": provider, "n": nonce, "v": verifier, "r": _safe_next(next_path), "t": int(time.time())}),
-                    max_age=STATE_TTL, httponly=True, secure=_secure(request), samesite="lax", path="/auth")
+                    max_age=STATE_TTL, httponly=True, secure=samesite == "none" or _secure(request), samesite=samesite, path="/auth")
     return resp
 
 
@@ -220,6 +255,50 @@ async def github_callback(request: Request, code: str = "", state: str = "", err
     return _signed_in(request, back, "github", str(user["id"]), email, user.get("name") or user.get("login"), user.get("avatar_url"))
 
 
+@router.get("/auth/apple")
+def apple_start(request: Request, next: str = "/"):
+    if not apple_ready():
+        raise HTTPException(404, "Sign-in with Apple is not set up on this server.")
+    return _begin(request, "apple", APPLE_AUTH, {"client_id": config.APPLE_CLIENT_ID, "redirect_uri": str(request.url_for("apple_callback")),
+                                                   "response_type": "code", "scope": "name email", "response_mode": "form_post"},
+                  next, pkce=False, samesite="none")       # Apple posts back from its own site
+
+
+@router.post("/auth/apple/callback", name="apple_callback")
+async def apple_callback(request: Request):
+    form = await request.form()
+    data = _check_state(request, "apple", str(form.get("state") or ""))
+    back = data.get("r", "/")
+    code = str(form.get("code") or "")
+    if form.get("error") or not code:                     # the person cancelled at Apple
+        return RedirectResponse(back, status_code=303)
+    async with httpx.AsyncClient(timeout=15, transport=transport) as client:
+        resp = await client.post(APPLE_TOKEN, data={"client_id": config.APPLE_CLIENT_ID, "client_secret": apple_client_secret(), "code": code,
+                                                     "grant_type": "authorization_code", "redirect_uri": str(request.url_for("apple_callback"))})
+    if resp.status_code != 200 or "id_token" not in resp.json():
+        raise HTTPException(400, "Apple did not confirm the sign-in. Please try again.")
+    claims = _claims(resp.json()["id_token"])
+    if (claims.get("iss") != APPLE_ISSUER or claims.get("aud") != config.APPLE_CLIENT_ID or claims.get("exp", 0) < time.time()
+            or not claims.get("sub") or not secrets.compare_digest(str(claims.get("nonce", "")), str(data.get("n")))):
+        raise HTTPException(400, "Apple's answer did not check out. Please try again.")
+    name = None
+    try:                                                  # only on the first sign-in: {"name": {"firstName", "lastName"}}
+        given = (json.loads(str(form.get("user") or "{}")).get("name") or {})
+        name = " ".join(x for x in (given.get("firstName"), given.get("lastName")) if x) or None
+    except (ValueError, AttributeError):
+        pass
+    return _signed_in(request, back, "apple", claims["sub"], claims.get("email"), name, None)
+
+
+@router.get("/.well-known/apple-developer-domain-association.txt", include_in_schema=False)
+def apple_domain_file():
+    """Apple may ask to verify the domain with a file it gives; drop it in data/cache and it is served here."""
+    path = config.CACHE_DIR / "apple-developer-domain-association.txt"
+    if not path.is_file():
+        raise HTTPException(404, "Not found")
+    return PlainTextResponse(path.read_text())
+
+
 @router.post("/auth/logout")
 def logout(request: Request):
     user_id = session_user(request)
@@ -239,7 +318,7 @@ class StateUpdate(BaseModel):
 @router.get("/api/me")
 def me(request: Request) -> dict:
     user_id = session_user(request)
-    providers = {"google": google_ready(), "github": github_ready()}
+    providers = {"google": google_ready(), "github": github_ready(), "apple": apple_ready()}
     if user_id is None:
         return {"user": None, "state": {}, "providers": providers}
     return {"user": _user(user_id), "state": _state(user_id), "providers": providers}

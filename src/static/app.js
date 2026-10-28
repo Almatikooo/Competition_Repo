@@ -813,7 +813,7 @@ function viewHow() {
         card("Your data",
           h("ul", { class: "small" },
             h("li", {}, "No sign-up needed: as a guest, your profile, plans, course progress and AI Chat stay in this browser tab and are gone when you close it."),
-            h("li", {}, "Sign in with Google or GitHub to keep them on any device. We then store the name, email and picture from that account with your progress, and nothing else. No password is ever stored."),
+            h("li", {}, "Sign in with Google, GitHub or Apple to keep them on any device. We then store the name, email and picture from that account with your progress, and nothing else. No password is ever stored."),
             h("li", {}, "You can delete your account and everything saved with it from the account menu at any time."))),
         card("Jobs & universities",
           h("ul", { class: "small" },

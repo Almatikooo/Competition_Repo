@@ -163,3 +163,68 @@ def test_a_state_from_one_provider_does_not_work_for_another(github, google):
     start = client.get("/auth/google", follow_redirects=False)                # the state was made for Google...
     state = parse_qs(urlparse(start.headers["location"]).query)["state"][0]
     assert client.get("/auth/github/callback", params={"code": "c", "state": state}, follow_redirects=False).status_code == 400
+
+
+@pytest.fixture
+def apple(tmp_path, monkeypatch):
+    from cryptography.hazmat.primitives import serialization
+    from cryptography.hazmat.primitives.asymmetric import ec
+    key = ec.generate_private_key(ec.SECP256R1())
+    (tmp_path / "key.p8").write_bytes(key.private_bytes(serialization.Encoding.PEM, serialization.PrivateFormat.PKCS8, serialization.NoEncryption()))
+    for name, value in (("APPLE_CLIENT_ID", "lol.pathai.signin"), ("APPLE_TEAM_ID", "TEAM123456"), ("APPLE_KEY_ID", "KEY1234567"),
+                        ("APPLE_PRIVATE_KEY", ""), ("APPLE_PRIVATE_KEY_FILE", tmp_path / "key.p8"), ("ACCOUNTS_DB", tmp_path / "accounts.sqlite3")):
+        monkeypatch.setattr(config, name, value)
+    seen = {"public": key.public_key()}
+
+    def token_endpoint(request: httpx.Request) -> httpx.Response:
+        seen["secret"] = parse_qs(request.content.decode())["client_secret"][0]
+        return httpx.Response(200, json={"id_token": fake_id_token(iss="https://appleid.apple.com", aud="lol.pathai.signin", sub="001234.apple",
+                                                                    email="x@privaterelay.appleid.com", exp=time.time() + 600, nonce=seen.get("nonce", ""))})
+
+    monkeypatch.setattr(accounts, "transport", httpx.MockTransport(token_endpoint))
+    return seen
+
+
+def verify_es256(token: str, public_key) -> tuple[dict, dict]:
+    from cryptography.hazmat.primitives import hashes
+    from cryptography.hazmat.primitives.asymmetric import ec
+    from cryptography.hazmat.primitives.asymmetric.utils import encode_dss_signature
+    pad = lambda x: x + "=" * (-len(x) % 4)
+    head, body, sig = token.split(".")
+    raw = base64.urlsafe_b64decode(pad(sig))
+    public_key.verify(encode_dss_signature(int.from_bytes(raw[:32], "big"), int.from_bytes(raw[32:], "big")), f"{head}.{body}".encode(),
+                      ec.ECDSA(hashes.SHA256()))                                  # raises if the signature is wrong
+    return json.loads(base64.urlsafe_b64decode(pad(head))), json.loads(base64.urlsafe_b64decode(pad(body)))
+
+
+def apple_sign_in(client: TestClient, seen: dict, user: dict | None = None):
+    start = client.get("/auth/apple", params={"next": "/#/me"}, follow_redirects=False)
+    q = parse_qs(urlparse(start.headers["location"]).query)
+    assert q["response_mode"] == ["form_post"] and q["scope"] == ["name email"] and "code_challenge" not in q
+    cookie = start.headers["set-cookie"].lower()
+    assert "samesite=none" in cookie and "secure" in cookie                      # Apple posts back from its own site
+    seen["nonce"] = q["nonce"][0]
+    form = {"code": "c0de", "state": q["state"][0], **({"user": json.dumps(user)} if user else {})}
+    return client.post("/auth/apple/callback", data=form, follow_redirects=False)
+
+
+def test_sign_in_with_apple_keeps_the_name_it_sends_once(apple):
+    client = TestClient(app, base_url="https://testserver")
+    back = apple_sign_in(client, apple, user={"name": {"firstName": "Aisyah", "lastName": "Rahman"}})
+    assert back.status_code == 303 and back.headers["location"] == "/#/me"
+    head, body = verify_es256(apple["secret"], apple["public"])
+    assert head == {"alg": "ES256", "kid": "KEY1234567"}
+    assert (body["iss"], body["sub"], body["aud"]) == ("TEAM123456", "lol.pathai.signin", "https://appleid.apple.com") and body["exp"] - body["iat"] <= 600
+    user = client.get("/api/me").json()["user"]
+    assert (user["name"], user["email"], user["provider"]) == ("Aisyah Rahman", "x@privaterelay.appleid.com", "apple")
+    again = TestClient(app, base_url="https://testserver")
+    apple_sign_in(again, apple)                                                    # no name this time
+    assert again.get("/api/me").json()["user"]["name"] == "Aisyah Rahman"
+
+
+def test_an_apple_answer_for_another_nonce_is_refused(apple):
+    client = TestClient(app, base_url="https://testserver")
+    start = client.get("/auth/apple", follow_redirects=False)
+    state = parse_qs(urlparse(start.headers["location"]).query)["state"][0]
+    apple["nonce"] = "someone-elses-nonce"
+    assert client.post("/auth/apple/callback", data={"code": "c", "state": state}, follow_redirects=False).status_code == 400

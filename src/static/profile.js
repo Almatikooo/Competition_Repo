@@ -17,7 +17,7 @@ function identity() {
       h("div", { class: "me-id-text" }, h("h2", {}, t("me_guest")), h("p", { class: "muted" }, t("acc_guest_note")),
         canSignIn() ? h("div", { class: "acc-buttons me-signin" }, signInButtons()) : null));
   }
-  const provider = { google: "Google", github: "GitHub" }[u.provider] || u.provider;
+  const provider = { google: "Google", github: "GitHub", apple: "Apple" }[u.provider] || u.provider;
   return h("section", { class: "card me-id" }, avatar(u, "me-avatar"),
     h("div", { class: "me-id-text" }, h("h2", {}, u.name || u.email),
       u.name && u.email ? h("p", { class: "muted" }, u.email) : null,

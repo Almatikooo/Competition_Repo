@@ -223,11 +223,11 @@ No API key is needed. Without one, the app runs in rule-based mode, and the save
 - **Our own GPU on RunPod.** Put your RunPod API key in `RUNPOD_API_KEY` and run `python -m scripts.gpu create`. It creates the pod and fills in `LLM_BASE_URL`, `LLM_API_KEY` and `LLM_MODEL`. Switch the GPU with `python -m scripts.gpu start`, `stop` and `status`.
 - **The hosted backup.** Put a Groq API key in `LLM_BACKUP_API_KEY`.
 
-**Turn on sign-in (optional).** Put `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` (a Google OAuth web client) and/or `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` (a GitHub OAuth app) in `.env`. Without them the site is guest-only.
+**Turn on sign-in (optional).** Put `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` (a Google OAuth web client) and/or `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` (a GitHub OAuth app), and/or `APPLE_CLIENT_ID`, `APPLE_TEAM_ID` and `APPLE_KEY_ID` with the key file at `data/cache/apple_signin_key.p8` in `.env`. Without them the site is guest-only.
 
 **On Replit.** Import the GitHub repository into Replit and press **Run**: `.replit` installs the requirements and starts `uvicorn app.main:app --app-dir src`.
 
-**Tests:** `python -m pytest -q` (148 tests).
+**Tests:** `python -m pytest -q` (150 tests).
 
 **Refreshing the data (optional):**
 
@@ -282,7 +282,7 @@ src/                   the source code of the app
     engine/            forecast.py · matching.py · pathway.py · explain.py · profile.py
     llm/               OpenAI-compatible client (our GPU, Groq backup) + guarded tasks
     advisor.py         fact sheets for the AI review and the AI Chat
-    accounts.py        optional sign-in with Google or GitHub; saved progress in SQLite
+    accounts.py        optional sign-in with Google, GitHub or Apple; saved progress in SQLite
     learn.py           full courses, lessons, chapter and final tests graded on the server, signed passes and certificates
     opportunities.py   jobs matched to a profile by country / remote, universities by country, job-site and study links
   static/              the frontend: vanilla-JS single-page app (no build step): app.js · coach.js (AI Chat) · profile.js (My profile) · account.js (sign-in) · learn.js · next.js · core.js · charts.js · i18n.js · styles.css · brand/ (logo, icons) · flags/ (country flags, MIT)
@@ -358,13 +358,13 @@ docs/RUNPOD.md         model + GPU choice and deployment guide
 | **Wikidata** (through QLever SPARQL), **Hipo university-domains-list**, **GeoNames** | Universities by country; mapping job locations to countries | CC0, MIT, CC BY 4.0 |
 | Cited documents: **WEF** *Future of Jobs Report 2025* (including the Malaysia profile) and *2023*, **ILO** Working Paper 140, a **Hays** 2025 press release, **O\*NET**, **UN SDGs** | Facts shown with their source. Each citation opens the PDF at the cited page | ILO and O\*NET are CC BY 4.0. The WEF and Hays texts are cited, not reproduced |
 | Lesson texts (OpenStax, Microsoft *for Beginners* and other open courses) and **flag-icons** | Learn courses and quizzes; country flags | Open licences only, shown on every lesson (`data/learn/LICENSE.md`); MIT |
-| **Google Sign-In** (OAuth 2.0 with PKCE, OpenID Connect) and **GitHub OAuth** | Optional sign-in that keeps a person's progress across devices | Google scopes: openid, email, profile; GitHub: read:user, user:email. Access tokens are used once and never stored. The session is an HMAC-signed, HttpOnly cookie, revoked on sign-out |
+| **Google Sign-In** (OAuth 2.0 with PKCE, OpenID Connect), **GitHub OAuth** and **Sign in with Apple** | Optional sign-in that keeps a person's progress across devices | Google scopes: openid, email, profile; GitHub: read:user, user:email; Apple: name, email (form_post, an ES256 client-secret JWT). Access tokens are used once and never stored. The session is an HMAC-signed, HttpOnly cookie, revoked on sign-out |
 | **DigitalOcean** VPS (Singapore), **Caddy**, **Let's Encrypt**, domain **pathai.lol** | Hosting https://pathai.lol | Ubuntu 24.04 with uvicorn under systemd (`deploy/server/`) |
 
 Job sites without a public API (JobStreet, SEEK, Indeed, LinkedIn, Naukri) are only linked, with a search filled in. They are never fetched or scraped.
 
 ### Data
-- **Personal data.** Public or open data and fictional example people only. No real CVs are stored. Signing in is optional: with Google or GitHub sign-in we store the account's name, email and picture with the person's progress (profile, plans, course progress, certificates, AI Chat) in a small SQLite database on our server, and the account menu deletes all of it.
+- **Personal data.** Public or open data and fictional example people only. No real CVs are stored. Signing in is optional: with Google, GitHub or Apple sign-in we store the account's name, email and picture with the person's progress (profile, plans, course progress, certificates, AI Chat) in a small SQLite database on our server, and the account menu deletes all of it.
 - **Guests.** Without signing in, the profile, course progress and AI Chat history stay in the browser tab (sessionStorage) and are gone when it is closed. They are sent only with the request that needs them.
 - **Job postings.** The Opportunities snapshot keeps each posting's facts (title, company, link, place, date, detected skills) but not its description. Sources and terms: `data/opportunities/LICENSE.md`.
 - **Trend posts.** Kept as aggregate counts only.

@@ -28,11 +28,22 @@ export function githubMark() {      // GitHub's mark
   svg.append(path);
   return svg;
 }
+export function appleMark() {      // Apple's logo, as its sign-in buttons show it
+  const svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("viewBox", "0 0 24 24");
+  svg.setAttribute("aria-hidden", "true");
+  const path = document.createElementNS(NS, "path");
+  path.setAttribute("fill", "currentColor");
+  path.setAttribute("d", "M16.37 12.63c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.76 2.28-1.6 2.78-.41 6.9 1.15 9.16.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.4-.92-2.42-3.65zM14.1 5.86c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.6-2.66 1.37-.58.67-1.09 1.75-.95 2.79 1.01.08 2.04-.51 2.67-1.27z");
+  svg.append(path);
+  return svg;
+}
 export const signInHref = (provider) => `/auth/${provider}?next=${encodeURIComponent(`/${location.hash || "#/"}`)}`;
 export const signInButtons = () => [
   account.providers.google ? h("a", { class: "btn-google", href: signInHref("google") }, googleMark(), h("span", {}, t("acc_google"))) : null,
-  account.providers.github ? h("a", { class: "btn-google btn-github", href: signInHref("github") }, githubMark(), h("span", {}, t("acc_github"))) : null];
-export const canSignIn = () => !!(account.providers.google || account.providers.github);
+  account.providers.github ? h("a", { class: "btn-google btn-github", href: signInHref("github") }, githubMark(), h("span", {}, t("acc_github"))) : null,
+  account.providers.apple ? h("a", { class: "btn-google btn-apple", href: signInHref("apple") }, appleMark(), h("span", {}, t("acc_apple"))) : null];
+export const canSignIn = () => !!(account.providers.google || account.providers.github || account.providers.apple);
 
 
 // The person's picture from Google or GitHub, or their initial.

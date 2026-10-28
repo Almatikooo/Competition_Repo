@@ -44,12 +44,18 @@ LLM_BACKUP_MODEL = os.getenv("LLM_BACKUP_MODEL", "qwen/qwen3.8-27b")
 LLM_CACHE_DIR = CACHE_DIR / "llm"
 LLM_SAVED_ANSWERS = DATA / "ai" / "answers.jsonl"
 
-# Accounts (optional): sign in with Google or GitHub to keep progress across devices. Without these, the site runs guest-only.
+# Accounts (optional): sign in with Google, GitHub or Apple to keep progress across devices. Without these, the site runs guest-only.
 GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID", "")
 GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET", "")
 GITHUB_CLIENT_ID = os.getenv("GITHUB_CLIENT_ID", "")
 GITHUB_CLIENT_SECRET = os.getenv("GITHUB_CLIENT_SECRET", "")
 ACCOUNTS_DB = Path(os.getenv("ACCOUNTS_DB", str(CACHE_DIR / "accounts.sqlite3")))
+# Sign in with Apple: the Services ID (client id), team id, the key id and its .p8 private key (a file, or the PEM text).
+APPLE_CLIENT_ID = os.getenv("APPLE_CLIENT_ID", "")
+APPLE_TEAM_ID = os.getenv("APPLE_TEAM_ID", "")
+APPLE_KEY_ID = os.getenv("APPLE_KEY_ID", "")
+APPLE_PRIVATE_KEY = os.getenv("APPLE_PRIVATE_KEY", "")
+APPLE_PRIVATE_KEY_FILE = Path(os.getenv("APPLE_PRIVATE_KEY_FILE", str(CACHE_DIR / "apple_signin_key.p8")))
 
 # Certificates: HMAC key that signs Path.AI certificates. Set it in production; changing it invalidates old links.
 CERT_SECRET = os.getenv("CERT_SECRET", "")
