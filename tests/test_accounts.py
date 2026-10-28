@@ -55,7 +55,9 @@ def test_sign_in_keeps_progress_in_the_account(google):
     assert back.status_code == 303 and back.headers["location"] == "/#/learn"
     assert google["form"]["code_verifier"][0] and google["form"]["grant_type"] == ["authorization_code"]
     me = client.get("/api/me").json()
-    assert me["user"] == {"name": "Aisyah", "email": "aisyah@example.com", "picture": "https://example.com/a.png"}
+    assert {k: me["user"][k] for k in ("name", "email", "picture", "provider")} == {
+        "name": "Aisyah", "email": "aisyah@example.com", "picture": "https://example.com/a.png", "provider": "google"}
+    assert len(me["user"]["since"]) == 10                       # the day the account was made
     progress = {"data_analyst": {"sql": True}}
     assert client.put("/api/me/state", json={"state": {"progress": progress, "lang": "ms"}}).status_code == 422   # only progress keys
     assert client.put("/api/me/state", json={"state": {"progress": progress}}).json() == {"saved": 1}
@@ -152,7 +154,8 @@ def test_sign_in_with_github_finds_a_private_email(github):
     assert q["scope"] == ["read:user user:email"] and q["code_challenge_method"] == ["S256"]
     back = client.get("/auth/github/callback", params={"code": "c0de", "state": q["state"][0]}, follow_redirects=False)
     assert back.status_code == 303 and back.headers["location"] == "/#/chat" and github["form"]["code_verifier"][0]
-    assert client.get("/api/me").json()["user"] == {"name": "aisyah-dev", "email": "aisyah@users.example", "picture": "https://avatars.example/a.png"}
+    user = client.get("/api/me").json()["user"]
+    assert (user["name"], user["email"], user["picture"], user["provider"]) == ("aisyah-dev", "aisyah@users.example", "https://avatars.example/a.png", "github")
 
 
 def test_a_state_from_one_provider_does_not_work_for_another(github, google):

@@ -94,8 +94,8 @@ def _revoke_sessions(user_id: int) -> None:
 
 def _user(user_id: int) -> dict | None:
     with closing(_db()) as con:
-        row = con.execute("SELECT name, email, picture FROM users WHERE id=?", (user_id,)).fetchone()
-    return {"name": row[0], "email": row[1], "picture": row[2]} if row else None
+        row = con.execute("SELECT name, email, picture, provider, created_at FROM users WHERE id=?", (user_id,)).fetchone()
+    return {"name": row[0], "email": row[1], "picture": row[2], "provider": row[3], "since": (row[4] or "")[:10]} if row else None
 
 
 def _state(user_id: int) -> dict:

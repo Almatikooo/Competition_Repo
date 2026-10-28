@@ -969,3 +969,43 @@ a.po-ctest:hover { background: var(--surface); color: var(--blue); }
 .btn-github:hover { background: #32383f; }
 .btn-github svg { color: #fff; }
 .link-btn { border: 0; background: none; padding: 0; font: inherit; color: var(--blue); font-weight: 500; text-decoration: underline; cursor: pointer; }
+
+/* My profile (#/me) */
+.me-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; max-width: 1040px; }
+@media (max-width: 860px) { .me-grid { grid-template-columns: 1fr; } }
+.me-id { grid-column: 1 / -1; display: flex; gap: 20px; align-items: center; }
+@media (max-width: 600px) { .me-id { flex-direction: column; align-items: flex-start; } }
+.me-avatar { width: 72px; height: 72px; border-radius: 50%; overflow: hidden; flex: none; display: grid; place-items: center;
+  background: var(--tint-2); color: var(--blue); font-size: 30px; font-weight: 700; }
+.me-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.me-avatar.guest svg { width: 34px; height: 34px; }
+.me-id-text h2 { margin: 0 0 2px; font-size: 24px; }
+.me-id-text p { margin: 2px 0 0; }
+.me-signin { margin-top: 14px; max-width: 320px; }
+.me-card h2 { font-size: 18px; margin: 0 0 12px; }
+.me-card .k, .me-row .k { font-size: 13px; color: var(--muted); }
+.me-row { display: grid; gap: 4px; padding: 10px 0; border-bottom: 1px solid var(--line-soft); }
+.me-row .v { font-size: 15px; }
+.me-card .about-you { margin: 10px 0 4px; }
+.me-link { display: inline-block; margin-top: 12px; font-size: 14px; font-weight: 500; }
+.me-skill-group + .me-skill-group { margin-top: 12px; }
+.me-skill-group .k { margin: 0 0 6px; }
+.chip-sm.static { cursor: default; }
+.me-roles { margin: 6px 0 4px; padding-left: 20px; }
+.me-roles li + li { margin-top: 4px; }
+.me-course { display: grid; grid-template-columns: minmax(0, 1fr) 120px auto; gap: 10px; align-items: center; padding: 8px 0;
+  border-bottom: 1px solid var(--line-soft); color: var(--ink); text-decoration: none; }
+@media (max-width: 600px) { .me-course { grid-template-columns: 1fr; gap: 4px; } }
+.me-bar { height: 6px; border-radius: 999px; background: var(--line-soft); overflow: hidden; }
+.me-bar span { display: block; height: 100%; background: var(--blue); }
+.me-certs { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.me-certs .k { width: 100%; margin: 0; }
+.chip-sm.cert { display: inline-flex; gap: 6px; align-items: center; text-decoration: none; }
+.chip-sm.cert svg { width: 14px; height: 14px; color: var(--blue); }
+.me-empty { grid-column: 1 / -1; text-align: center; }
+.acc-profile { display: inline-flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 8px; }
+.acc-profile svg { width: 16px; height: 16px; }
+.acc-plain { color: var(--blue); text-decoration: none; }
+.me-card .acc-delete { display: inline; margin: 0; }
+.header-cta .btn { white-space: nowrap; }
+@media (max-width: 480px) { .header-cta.signed-in #cta { display: none; } }

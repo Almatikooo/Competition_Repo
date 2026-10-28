@@ -89,7 +89,7 @@ const EXPERIENCE = [[0, 0, 0, "nx_exp_0"], [2, 1, 2, "nx_exp_2"], [4, 3, 5, "nx_
 const MAIN_LANGS = ["en", "ms", "zh", "ta"];
 const MORE_LANGS = ["de", "fr", "es", "ja", "ko", "ar", "hi", "id", "th", "vi", "nl", "pt"];
 const myLanguages = () => state.profile.languages || DEFAULT_LANGUAGES;
-function aboutYou() {
+export function aboutYou() {        // also on My profile
   const p = state.profile;
   const years = p.years_experience ?? null;
   const langs = myLanguages();

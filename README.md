@@ -285,7 +285,7 @@ src/                   the source code of the app
     accounts.py        optional sign-in with Google or GitHub; saved progress in SQLite
     learn.py           full courses, lessons, chapter and final tests graded on the server, signed passes and certificates
     opportunities.py   jobs matched to a profile by country / remote, universities by country, job-site and study links
-  static/              the frontend: vanilla-JS single-page app (no build step): app.js · coach.js (AI Chat) · learn.js · next.js · core.js · charts.js · i18n.js · styles.css · brand/ (logo, icons) · flags/ (country flags, MIT)
+  static/              the frontend: vanilla-JS single-page app (no build step): app.js · coach.js (AI Chat) · profile.js (My profile) · account.js (sign-in) · learn.js · next.js · core.js · charts.js · i18n.js · styles.css · brand/ (logo, icons) · flags/ (country flags, MIT)
 data/
   catalog/             skills · roles (+ interest tiles, study fields) · resources · sdgs · capabilities · sources
   signals/             cached, dated trend data (refreshable)

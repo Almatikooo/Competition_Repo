@@ -5,6 +5,8 @@ import { state, store, EMPTY_PROFILE, t, setLang, $, api, skillById, roleById, l
 import { ensureLearn, viewLearn, viewCourse, viewLesson, viewTest, viewCertificate, certificatePrintStyle, hoursLabel, testPart } from "./learn.js";
 import { ensureNext, viewNext, nextCta } from "./next.js";
 import { viewCoach, coachEntry } from "./coach.js";
+import { signInButtons, canSignIn, avatar } from "./account.js";
+import { viewProfile } from "./profile.js";
 
 const POPULAR_JOBS = ["accounting_clerk", "admin_assistant", "customer_service_rep", "factory_operator", "cashier", "teacher", "graphic_designer", "telemarketer"];
 const POPULAR_SKILLS = ["prompt_eng", "data_analysis", "communication", "excel", "project_mgmt", "digital_literacy", "leadership", "python", "customer_service", "teaching_training"];
@@ -88,38 +90,6 @@ function originLabel() {
 const NAV = [["results", "nav_path"], ["chat", "nav_coach"], ["learn", "nav_learn"], ["next", "nav_next"], ["trends", "nav_trends"], ["teams", "nav_teams"], ["how", "nav_how"]];
 
 // ---------------------------------------------------------------- account (optional sign-in with Google)
-const NS = "http://www.w3.org/2000/svg";
-function googleMark() {      // Google's "G", as its sign-in buttons show it
-  const svg = document.createElementNS(NS, "svg");
-  svg.setAttribute("viewBox", "0 0 48 48");
-  svg.setAttribute("aria-hidden", "true");
-  for (const [fill, d] of [["#EA4335", "M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"],
-    ["#4285F4", "M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"],
-    ["#FBBC05", "M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"],
-    ["#34A853", "M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"]]) {
-    const path = document.createElementNS(NS, "path");
-    path.setAttribute("fill", fill);
-    path.setAttribute("d", d);
-    svg.append(path);
-  }
-  return svg;
-}
-function githubMark() {      // GitHub's mark
-  const svg = document.createElementNS(NS, "svg");
-  svg.setAttribute("viewBox", "0 0 24 24");
-  svg.setAttribute("aria-hidden", "true");
-  const path = document.createElementNS(NS, "path");
-  path.setAttribute("fill", "currentColor");
-  path.setAttribute("d", "M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.6.3 2.8.1 3.2.8.8 1.3 1.9 1.3 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3");
-  svg.append(path);
-  return svg;
-}
-const signInHref = (provider) => `/auth/${provider}?next=${encodeURIComponent(`/${location.hash || "#/"}`)}`;
-const signInButtons = () => [
-  account.providers.google ? h("a", { class: "btn-google", href: signInHref("google") }, googleMark(), h("span", {}, t("acc_google"))) : null,
-  account.providers.github ? h("a", { class: "btn-google btn-github", href: signInHref("github") }, githubMark(), h("span", {}, t("acc_github"))) : null];
-const canSignIn = () => !!(account.providers.google || account.providers.github);
-
 function renderAccount() {
   const box = $("account");
   const u = account.user;
@@ -139,14 +109,17 @@ function renderAccount() {
   } else if (state.accountOpen && u) {
     body = [h("p", { class: "acc-name" }, u.name || u.email), u.name && u.email ? h("p", { class: "acc-email" }, u.email) : null,
       h("p", { class: "acc-note" }, t("acc_saved")),
+      h("a", { class: "btn btn-primary btn-sm btn-block acc-profile", href: "#/me", onclick: () => { state.accountOpen = false; } }, icon("user"), t("acc_profile")),
       h("button", { type: "button", class: "btn btn-secondary btn-sm btn-block", onclick: () => signOut().catch((e) => toast(String(e.message || e))) }, t("acc_signout")),
       h("button", { type: "button", class: "acc-delete", onclick: (e) => { e.stopPropagation(); state.accountDeleting = true; renderAccount(); } }, t("acc_delete"))];
   } else if (state.accountOpen) {
     body = [h("p", { class: "acc-title" }, t("acc_title")), h("p", { class: "acc-note" }, t("acc_guest_note")),
-      h("div", { class: "acc-buttons" }, signInButtons())];
+      h("div", { class: "acc-buttons" }, signInButtons()),
+      h("a", { class: "acc-delete acc-plain", href: "#/me", onclick: () => { state.accountOpen = false; } }, t("acc_profile"))];
   }
   const menu = body ? h("div", { class: "account-menu", role: "dialog", "aria-label": t("acc_menu"), onclick: (e) => e.stopPropagation() }, body) : null;
   box.replaceChildren(...[button, menu].filter(Boolean));      // replaceChildren would print a null
+  box.parentElement.classList.toggle("signed-in", !!u);         // on a phone, the avatar takes the place of "Get started"
 }
 document.addEventListener("click", () => { if (state.accountOpen) { state.accountOpen = false; renderAccount(); } });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && state.accountOpen) { state.accountOpen = false; renderAccount(); } });
@@ -156,7 +129,7 @@ function renderGuestBar(routeName) {
   const bar = $("guestBar");
   let hidden = false;
   try { hidden = sessionStorage.getItem("pathai-ui:guestbar") === "hidden"; } catch { /* storage blocked */ }
-  if (account.user || !canSignIn() || !hasProfile() || hidden || ["chat", "coach", "certificate"].includes(routeName)) {
+  if (account.user || !canSignIn() || !hasProfile() || hidden || ["chat", "coach", "certificate", "me"].includes(routeName)) {
     bar.replaceChildren();
     return;
   }
@@ -888,10 +861,11 @@ async function render() {
     if (["results", "chat", "coach"].includes(r.name) && hasProfile()) await ensureMatches();
     if (r.name === "plan" && hasProfile() && roleById()[r.arg]) await ensurePathway(r.arg);
     if (r.name === "teams") await ensureTeam();
+    if (r.name === "me") { if (hasProfile()) await ensureMatches(); await ensureCourses(); }
     if (r.name === "learn" || r.name === "certificate") await ensureLearn(r);
     if (r.name === "next") await ensureNext();
     if (r.name === "plan" && roleById()[r.arg]) store.set("focusRole", r.arg); // the direction Opportunities searches first
-    const views = { home: viewHome, start: viewStart, results: viewResults, plan: () => viewPlan(r.arg), next: viewNext, chat: viewCoach, coach: viewCoach, trends: viewTrends, teams: viewTeams, how: viewHow,
+    const views = { home: viewHome, start: viewStart, results: viewResults, plan: () => viewPlan(r.arg), next: viewNext, me: viewProfile, chat: viewCoach, coach: viewCoach, trends: viewTrends, teams: viewTeams, how: viewHow,
       learn: () => (!r.arg ? viewLearn() : testPart(r.sub) !== null ? viewTest() : r.sub ? viewLesson() : viewCourse()), certificate: () => viewCertificate(r.arg) };
     main.replaceChildren((views[r.name] || viewHome)());
   } catch (e) {
