@@ -566,7 +566,8 @@ function viewResults() {
       h("h1", {}, t("res_title")), h("p", {}, t(state.goal ? "res_sub" : "res_choose")),
       h("div", { class: "summary-bar" },
         h("span", { class: "based" }, t("based_on", { label: originLabel(), n: Object.keys(state.profile.skills).length }), " · ",
-          h("a", { href: "#/start?step=2" }, t("edit")))))),
+          h("a", { href: "#/start?step=2" }, t("edit"))),
+        h("span", { class: "spacer" }), paceSwitch()))),          // the roles' order and demand change with AI's pace
     h("section", { class: "band", style: { paddingTop: "28px" } }, h("div", { class: "container", style: { maxWidth: "920px" } },
       notice ? h("div", { style: { marginBottom: "20px" } }, notice) : null,
       aiReviewCard(),
