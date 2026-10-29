@@ -4,7 +4,7 @@
 // The page is laid out like a modern chat app: a centred conversation column, plain assistant turns, the person's
 // turns in bubbles, and a rounded composer that stays at the bottom of the screen.
 import { h } from "./charts.js";
-import { state, store, t, api, skillName, skillShort, roleTitle, hasProfile, icon, rerender, go, toast, DEFAULT_LANGUAGES } from "./core.js";
+import { state, store, t, api, skillName, skillShort, roleTitle, hasProfile, icon, rerender, go, toast, bump, DEFAULT_LANGUAGES } from "./core.js";
 import { countryName } from "./next.js";
 
 const KEEP = 30;               // messages kept in this browser
@@ -36,6 +36,7 @@ async function send(text) {
   text = (text || "").trim().slice(0, 600);
   if (!text || c.busy) return;
   c.messages.push({ role: "user", content: text });
+  bump("chat");                                            // for the achievements
   c.busy = true;
   c.draft = "";
   c.focus = true;

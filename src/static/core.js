@@ -4,9 +4,10 @@ import { makeT } from "./i18n.js";
 
 // Guests keep their progress in this tab only, so it is gone when the tab is closed (sessionStorage). A person signed
 // in with Google also has the same keys saved to their account (see `account`), and they come back on any device.
-// The interface language is a preference of the device and is kept across visits (localStorage).
-const DEVICE_KEYS = new Set(["lang"]);
-const SYNCED = new Set(["profile", "origin", "tiles", "progress", "learned", "certs", "certName", "coach", "next", "focusRole", "activity", "goal", "path"]);
+// The interface language and the achievement sound are preferences of the device, kept across visits (localStorage).
+const DEVICE_KEYS = new Set(["lang", "sound"]);
+const SYNCED = new Set(["profile", "origin", "tiles", "progress", "learned", "certs", "certName", "coach", "next", "focusRole", "activity", "goal", "path",
+  "badges", "tally"]);
 const area = (key) => (DEVICE_KEYS.has(key) ? localStorage : sessionStorage);
 // The answers a guest just gave in the wizard. Signing in from its last step ("save your results") keeps them.
 const ANSWERS = ["profile", "origin", "tiles"];
@@ -70,6 +71,8 @@ export const state = {
   next: store.get("next", { mode: null, country: null }), nextMeta: null, nextJobs: null, nextJobsKey: "", nextStudy: null, nextStudyKey: "",
   // My path: the job worked towards, its steps and readiness by day, and what was done each day (visits, lessons, tests)
   goal: store.get("goal", null), path: store.get("path", {}), activity: store.get("activity", {}), pathCourse: null, streakOpen: false,
+  // Achievements: when each was unlocked, and what was done along the way that they count (see badges.js)
+  badges: store.get("badges", {}), tally: store.get("tally", {}), badgeSel: null, scrollTo: null,
   nextUi: { editing: false, q: "", tab: "local", level: "any", role: "all", field: null, allFields: false, uniQ: "", uniShown: 20 },
 };
 
@@ -80,6 +83,7 @@ export function hydrate() {
   Object.assign(state, { profile: store.get("profile", structuredClone(EMPTY_PROFILE)), origin: store.get("origin", null), tiles: store.get("tiles", []),
     progress: store.get("progress", {}), learned: store.get("learned", {}), certs: store.get("certs", {}), next: store.get("next", { mode: null, country: null }),
     goal: store.get("goal", null), path: store.get("path", {}), activity: store.get("activity", {}),
+    badges: store.get("badges", {}), tally: store.get("tally", {}),
     coach: null, matchesKey: "", pathwayKey: "", nextJobsKey: "", nextStudyKey: "" });
 }
 
@@ -222,6 +226,21 @@ export function streak(activity = state.activity, today = dayKey()) {
     ended: alive && last.count === 1 && before ? before.count : 0 };
 }
 
+// ---------------------------------------------------------------- what the achievements count
+// Numbers add up (questions asked in the AI chat…) or keep the highest value seen (steps of the path done…); lists keep
+// distinct values (pages opened, languages used, countries searched…).
+function setTally(key, value) {
+  state.tally = { ...state.tally, [key]: value };
+  store.set("tally", state.tally);
+}
+export const bump = (key, n = 1) => setTally(key, (state.tally[key] || 0) + n);
+export function noteMax(key, value) { if (value > (state.tally[key] || 0)) setTally(key, value); }
+export function remember(key, value) {
+  const list = state.tally[key] || [];
+  if (value === null || value === undefined || list.includes(value)) return;
+  setTally(key, [...list, value].slice(-100));
+}
+
 export function saveProfile() {
   store.set("profile", state.profile);
   store.set("origin", state.origin);
@@ -248,7 +267,7 @@ export function sdgBadge(goal, small = true, title, ctx = null) {
   const g = goalOf(goal);
   return h("button", { type: "button", class: `sdg-badge ${small ? "sm" : ""}`, style: { background: g.color }, title: title || `SDG ${goal}: ${loc(g.name)}`,
     "aria-label": t("sdg_open", { n: goal, name: loc(g.name) }), "aria-haspopup": "dialog",
-    onclick: (e) => { e.preventDefault(); e.stopPropagation(); openGoal(goal, ctx, e.currentTarget); } }, String(goal));
+    onclick: (e) => { e.preventDefault(); e.stopPropagation(); remember("sdgs", goal); openGoal(goal, ctx, e.currentTarget); } }, String(goal));
 }
 
 const targetOrder = (id) => { const [a, b] = id.split("."); return Number(a) * 1000 + (/^\d+$/.test(b) ? Number(b) : 500 + b.charCodeAt(0)); };
@@ -329,6 +348,12 @@ const ICONS = {
   grad: "M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5M22 9v6", calc: "M6 3h12v18H6zM9 7h6M9 11h.01M12 11h.01M15 11h.01M9 15h.01M12 15h.01M15 15h.01M9 18h6",
   keyboard: "M3 7h18v10H3zM7 10h.01M11 10h.01M15 10h.01M7 14h10", palette: "M12 21a9 9 0 1 1 9-9c0 2-1.5 3-3 3h-2a2 2 0 0 0-1 3.7A2 2 0 0 1 12 21zM7.5 11h.01M10.5 7h.01M15 7.5h.01",
   bookOpen: "M12 6c-2-2-5-2-9-1v14c4-1 7-1 9 1 2-2 5-2 9-1V5c-4-1-7-1-9 1zM12 6v14",
+  // achievements
+  star: "M12 2.6l2.93 5.94 6.55.95-4.74 4.62 1.12 6.53L12 17.56l-5.86 3.08 1.12-6.53L2.52 9.49l6.55-.95z",
+  moon: "M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z", calendar: "M4 6h16v14H4zM4 10h16M8 3v4M16 3v4",
+  trophy: "M7 4h10v5a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3.5 4M17 6h3a3 3 0 0 1-3.5 4M12 14v4M8 21h8M9.5 18h5",
+  crown: "M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5zM5 19h14", volume: "M4 9h4l5-4v14l-5-4H4zM16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12",
+  mute: "M4 9h4l5-4v14l-5-4H4zM17 9.5l5 5M22 9.5l-5 5", menu: "M4 6h16M4 12h16M4 18h16",
 };
 export function icon(name) {
   const NS = "http://www.w3.org/2000/svg";

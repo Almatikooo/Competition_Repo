@@ -1,10 +1,11 @@
 // My profile (#/me): who the person is on Path.AI: their account, experience and languages (editable here), skills,
-// and courses and certificates. Their goal and progress live on My path. A guest sees the same from this tab, with a
-// nudge to sign in.
+// achievements, and courses and certificates. Their goal and progress live on My path. A guest sees the same from this
+// tab, with a nudge to sign in.
 import { h } from "./charts.js";
 import { state, t, account, signOut, deleteAccount, hasProfile, roleTitle, skillName, icon, rerender, sdgBadge, loc, monthLabel, toast } from "./core.js";
 import { aboutYou } from "./next.js";
 import { signInButtons, canSignIn, avatar } from "./account.js";
+import { achievementsSection } from "./badges.js";
 
 const card = (title, ...body) => h("section", { class: "card me-card" }, h("h2", {}, title), ...body);
 const row = (label, value) => h("div", { class: "me-row" }, h("span", { class: "k" }, label), h("span", { class: "v" }, value));
@@ -83,6 +84,7 @@ export function viewProfile() {
       h("h1", {}, t("me_title")), h("p", {}, t(signedIn ? "me_sub_saved" : "me_sub_guest")))),
     h("section", { class: "band", style: { paddingTop: "28px" } }, h("div", { class: "container me-grid" },
       identity(),
+      achievementsSection(),
       hasProfile() ? [about(), skills(), learning()]
         : h("section", { class: "card me-card me-empty" }, h("p", {}, t("me_no_profile")), h("a", { class: "btn btn-primary", href: "#/start?step=1" }, t("hero_start"))),
       signedIn ? accountCard() : null)));

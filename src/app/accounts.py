@@ -40,7 +40,8 @@ transport: httpx.AsyncBaseTransport | None = None    # tests put a fake Google h
 SESSION_COOKIE, STATE_COOKIE = "pathai_session", "pathai_oauth"
 SESSION_DAYS = 30
 STATE_TTL = 600                                       # seconds to finish signing in at Google
-SYNCED_KEYS = {"profile", "origin", "tiles", "progress", "learned", "certs", "certName", "coach", "next", "focusRole", "activity", "goal", "path"}
+SYNCED_KEYS = {"profile", "origin", "tiles", "progress", "learned", "certs", "certName", "coach", "next", "focusRole", "activity", "goal", "path",
+               "badges", "tally"}
 MAX_VALUE = 200_000                                   # characters of JSON per key
 GOOGLE_AUTH = "https://accounts.google.com/o/oauth2/v2/auth"
 GOOGLE_TOKEN = "https://oauth2.googleapis.com/token"
@@ -337,6 +338,35 @@ def merge_days(old, new) -> dict:
     return dict(sorted(out.items())[-400:])
 
 
+def merge_badges(old, new) -> dict:
+    """Achievements from two devices: every medal earned on either, with the earlier time it was earned."""
+    out: dict = {}
+    for src in (old, new):
+        for badge, at in (src.items() if isinstance(src, dict) else ()):
+            if isinstance(badge, str) and isinstance(at, str) and len(at) <= 40:
+                out[badge] = min(out.get(badge, at), at)
+    return out
+
+
+def merge_tally(old, new) -> dict:
+    """What the achievements count, from two devices: the larger of two numbers, every distinct value of two lists."""
+    out: dict = {}
+    for src in (old, new):
+        for key, value in (src.items() if isinstance(src, dict) else ()):
+            have = out.get(key)
+            if isinstance(value, (int, float)) and not isinstance(value, bool):
+                out[key] = max(have, value) if isinstance(have, (int, float)) else value
+            elif isinstance(value, list):
+                seen = list(have) if isinstance(have, list) else []
+                seen += [x for x in value if isinstance(x, (str, int)) and not isinstance(x, bool) and x not in seen]
+                out[key] = seen[-100:]
+    return out
+
+
+# Keys that another device may have added to since this one loaded them: merged with what is stored, not replaced.
+MERGED = {"activity": merge_days, "badges": merge_badges, "tally": merge_tally}
+
+
 @router.put("/api/me/state")
 def save_state(request: Request, body: StateUpdate) -> dict:
     user_id = session_user(request)
@@ -350,10 +380,11 @@ def save_state(request: Request, body: StateUpdate) -> dict:
         rows.append((user_id, key, text, _now()))
     with closing(_db()) as con, con:
         for i, (uid, key, text, at) in enumerate(rows):
-            if key == "activity":                         # another device may have logged other days
+            if key in MERGED:                             # another device may have logged other days or earned other medals
                 old = con.execute("SELECT value FROM user_state WHERE user_id=? AND key=?", (uid, key)).fetchone()
                 if old:
-                    rows[i] = (uid, key, json.dumps(merge_days(json.loads(old[0]), json.loads(text)), separators=(",", ":")), at)
+                    merged = MERGED[key](json.loads(old[0]), json.loads(text))
+                    rows[i] = (uid, key, json.dumps(merged, ensure_ascii=False, separators=(",", ":")), at)
         con.executemany("""INSERT INTO user_state (user_id, key, value, updated_at) VALUES (?, ?, ?, ?)
                            ON CONFLICT(user_id, key) DO UPDATE SET value=excluded.value, updated_at=excluded.updated_at""", rows)
     return {"saved": len(rows)}

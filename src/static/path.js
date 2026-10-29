@@ -1,11 +1,12 @@
 // My path (#/path): the job the person works towards and everything done on the way. Readiness for that job grows
 // as skills grow (a passed final test makes a skill Advanced). The roadmap follows real course progress, the next
-// lesson is one tap away, and an activity calendar, the week's goal and milestones keep the habit going. The star
-// in the header is the visit streak, shown to signed-in people.
+// lesson is one tap away, and an activity calendar, the week's goal and the next achievements keep the habit going.
+// The star in the header is the visit streak, shown to signed-in people.
 import { h, s } from "./charts.js";
 import { state, store, t, api, $, account, hasProfile, roleById, roleTitle, skillName, icon, go, rerender, dateLabel,
-  ensureMatches, ensureCourses, ensurePathway, dayKey, shiftDay, streak } from "./core.js";
+  ensureMatches, ensureCourses, ensurePathway, dayKey, shiftDay, streak, noteMax } from "./core.js";
 import { nextStep, testHref, hoursLabel } from "./learn.js";
+import { badgesCard } from "./badges.js";
 
 const STAR = "M12 2.6l2.93 5.94 6.55.95-4.74 4.62 1.12 6.53L12 17.56l-5.86 3.08 1.12-6.53L2.52 9.49l6.55-.95z";
 export const star = (cls = "star") => s("svg", { viewBox: "0 0 24 24", class: cls, "aria-hidden": "true" }, s("path", { d: STAR }));
@@ -32,7 +33,10 @@ export async function ensurePath() {
   if (!goal) return;
   await ensurePathway(goal);
   track(goal);
-  const next = roadmap(goal).find((x) => !x.done);
+  const steps = roadmap(goal);
+  noteMax("steps", steps.filter((x) => x.done).length);         // for the achievements
+  if (steps.length) noteMax("path", share(steps));
+  const next = steps.find((x) => !x.done);
   if (next?.course && state.pathCourse?.skill !== next.skill) state.pathCourse = await api(`/api/learn/course/${encodeURIComponent(next.skill)}`);
 }
 
@@ -113,7 +117,7 @@ function dashboard(goal) {
       readiness(p.fit_now, fits.map(([, v]) => v)))),
     h("section", { class: "band", style: { paddingTop: "28px" } }, h("div", { class: "container grid-main" },
       h("div", { class: "stack" }, nextCard(goal, steps), roadmapCard(goal, steps)),
-      h("div", { class: "stack" }, statsCard(steps), weekCard(), activityCard(), milestonesCard(steps, pct)))));
+      h("div", { class: "stack" }, statsCard(steps), weekCard(), activityCard(), badgesCard()))));
 }
 
 // Readiness for the goal, with how it moved since the goal was set.
@@ -235,23 +239,6 @@ function activityCard() {
       t("path_less"), [0, 1, 2, 3, 4].map((l) => h("span", { class: `hm l${l}` })), t("path_more")),
     st ? h("p", { class: "streak-line" }, star(), h("b", {}, t("streak_n", { n: st.count })), h("span", { class: "muted" }, ` · ${t("streak_best", { n: st.best })}`))
       : h("p", { class: "small muted", style: { marginTop: "10px" } }, t("path_guest")));
-}
-
-function milestonesCard(steps, pct) {
-  const learned = Object.values(state.learned || {});
-  const best = account.user ? streak().best : 0;
-  const list = [
-    ["bookOpen", "ms_lesson", learned.some((x) => (x.done || []).length)],
-    ["check", "ms_test", learned.some((x) => Object.keys(x.chapters || {}).length || x.final)],
-    ["award", "ms_cert", Object.keys(state.certs || {}).length > 0],
-    ["route", "ms_half", pct >= 50],
-    ["grad", "ms_done", steps.length > 0 && steps.every((x) => x.done)],
-    [null, "ms_s7", best >= 7],
-    [null, "ms_s30", best >= 30],
-  ];
-  return h("section", { class: "card" }, h("h3", {}, t("path_milestones")),
-    h("div", { class: "milestones" }, list.map(([ic, key, got]) => h("div", { class: `ms${got ? " got" : ""}` },
-      h("span", { class: "ms-ico" }, ic ? icon(ic) : star()), h("span", {}, t(key))))));
 }
 
 // ---------------------------------------------------------------- the streak star in the header

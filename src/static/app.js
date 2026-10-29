@@ -2,7 +2,8 @@ import { h, radar, divergingBars, miniBar, magnitudeBars, sparkline, heatColor, 
 import { state, store, EMPTY_PROFILE, t, setLang, $, api, skillById, roleById, loc, skillName, skillShort, roleTitle, goalOf,
   hasProfile, dateLabel, timeLabel, monthLabel, setRenderer, go, toast, saveProfile, sdgBadge, costTag, icon,
   ensureRadar, ensureMatches, ensureCourses, ensurePathway, account, startAccount, signOut, deleteAccount, keepAnswersOnSignIn,
-  logActivity, masterSkill } from "./core.js";
+  logActivity, masterSkill, bump, remember } from "./core.js";
+import { checkBadges } from "./badges.js";
 import { ensureLearn, viewLearn, viewCourse, viewLesson, viewTest, viewCertificate, certificatePrintStyle, hoursLabel, testPart } from "./learn.js";
 import { ensureNext, viewNext } from "./next.js";
 import { viewCoach } from "./coach.js";
@@ -139,7 +140,8 @@ function renderChrome(routeName) {
   $("cta").setAttribute("href", "#/start?step=1");
   $("cta").style.display = hasProfile() || routeName === "start" ? "none" : "";
   $("footer").style.display = routeName === "chat" || routeName === "coach" ? "none" : "";   // the AI chat is full-screen
-  $("menuBtn").textContent = t("menu");
+  $("menuBtn").replaceChildren(icon("menu"), h("span", { class: "menu-label" }, t("menu")));    // just the icon on a small phone
+  $("menuBtn").setAttribute("aria-label", t("menu"));
   $("menuBtn").onclick = () => { const open = nav.classList.toggle("open"); $("menuBtn").setAttribute("aria-expanded", String(open)); };
   const llm = state.meta.llm || {};
   const langs = [["en", "English"], ["ms", "Bahasa Melayu"], ["zh", "中文"]];
@@ -479,7 +481,7 @@ function matchCard(r) {
       h("a", { class: "btn btn-primary", href: `#/plan/${r.id}` }, t("see_plan")),
       state.goal === r.id ? h("a", { class: "btn btn-link goal-chip", href: "#/path" }, star(), t("goal_badge"))
         : h("button", { type: "button", class: "btn btn-secondary", onclick: () => setGoal(r.id) }, t("path_set_goal")),
-      h("button", { type: "button", class: "btn btn-link", "aria-expanded": String(open), onclick: () => { state.expanded[r.id] = !open; render(); } }, open ? t("hide") : t("why"))),
+      h("button", { type: "button", class: "btn btn-link", "aria-expanded": String(open), onclick: () => { state.expanded[r.id] = !open; if (!open) bump("why"); render(); } }, open ? t("hide") : t("why"))),
     open ? matchDetails(r, role) : null);
 }
 
@@ -903,6 +905,18 @@ function applyParams(params) {
   if ([1, 2, 3].includes(step)) state.wizard = { ...state.wizard, step, student: false, searchOpen: false, skillQuery: "" };
 }
 
+// What the achievements count on the way: pages seen, languages and AI paces used, plans opened, and where
+// opportunities were looked for.
+function countVisit(r) {
+  const page = r.name === "path" && !roleById()[state.goal] ? "results" : r.name;
+  if (["me", "trends", "how", "teams"].includes(page) || (page === "results" && hasProfile()) || (page === "learn" && !r.arg)) remember("pages", page);
+  if (page === "plan" && roleById()[r.arg]) remember("plans", r.arg);
+  remember("langs", state.lang);
+  remember("paces", state.scenario);
+  const { mode, country } = state.next;
+  if (page === "next" && mode && country && !state.nextUi.editing) { remember("modes", mode); remember("countries", country); }
+}
+
 let lastRoute = "";
 async function render() {
   const r = parseRoute();
@@ -921,6 +935,8 @@ async function render() {
     if (r.name === "learn" || r.name === "certificate") await ensureLearn(r);
     if (r.name === "next") await ensureNext();
     if (r.name === "plan" && roleById()[r.arg]) store.set("focusRole", r.arg); // the direction Opportunities searches first
+    countVisit(r);
+    checkBadges();                                     // before drawing, so My profile shows what was just earned
     const views = { home: viewHome, start: viewStart, results: viewResults, path: () => (state.goal && roleById()[state.goal] ? viewPath() : viewResults()), plan: () => viewPlan(r.arg), next: viewNext, me: viewProfile, chat: viewCoach, coach: viewCoach, trends: viewTrends, teams: viewTeams, how: viewHow,
       learn: () => (!r.arg ? viewLearn() : testPart(r.sub) !== null ? viewTest() : r.sub ? viewLesson() : viewCourse()), certificate: () => viewCertificate(r.arg) };
     main.replaceChildren((views[r.name] || viewHome)());
@@ -933,6 +949,10 @@ async function render() {
     window.scrollTo({ top: 0 });
     main.focus({ preventScroll: true });
     lastRoute = routeKey;
+  }
+  if (state.scrollTo) {                                // e.g. a tap on an achievement notification
+    document.getElementById(state.scrollTo)?.scrollIntoView({ block: "start" });
+    state.scrollTo = null;
   }
 }
 setRenderer(render);
@@ -952,6 +972,6 @@ async function boot() {
 }
 
 // A tab left open overnight: the first look the next day counts as that day's visit.
-document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && logActivity("v")) renderStreak(); });
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && logActivity("v")) { renderStreak(); checkBadges(); } });
 
 boot().catch((e) => { $("main").replaceChildren(h("div", { class: "container" }, h("p", { class: "notice", style: { marginTop: "32px" } }, `Failed to load: ${e.message || e}`))); });

@@ -86,6 +86,28 @@ def test_merging_activity_keeps_400_days_and_ignores_junk():
     assert len(merged) == 400 and min(merged) == "2025-01-22" and merged["2026-04-01"] == {}     # 421 days, the oldest 21 dropped
 
 
+def test_achievements_from_two_devices_are_merged_not_overwritten(google):
+    phone, laptop = TestClient(app), TestClient(app)
+    sign_in(phone)
+    sign_in(laptop)
+    phone.put("/api/me/state", json={"state": {"badges": {"hello": "2026-10-28T09:00:00Z", "l1": "2026-10-28T10:00:00Z"},
+                                               "tally": {"chat": 3, "langs": ["en"], "steps": 1}}})
+    laptop.put("/api/me/state", json={"state": {"badges": {"hello": "2026-10-29T08:00:00Z", "trends": "2026-10-29T08:01:00Z"},
+                                                "tally": {"chat": 1, "langs": ["en", "ms"], "pages": ["trends"]}}})
+    state = phone.get("/api/me").json()["state"]
+    assert state["badges"] == {"hello": "2026-10-28T09:00:00Z", "l1": "2026-10-28T10:00:00Z", "trends": "2026-10-29T08:01:00Z"}  # the first time counts
+    assert state["tally"] == {"chat": 3, "langs": ["en", "ms"], "steps": 1, "pages": ["trends"]}
+
+
+def test_merging_achievement_counts_ignores_junk_and_keeps_lists_short():
+    old = {"chat": 5, "pages": [f"p{i}" for i in range(90)], "why": True}
+    new = {"chat": "9", "pages": [f"p{i}" for i in range(80, 120)] + [None, {"x": 1}], "path": 40}
+    merged = accounts.merge_tally(old, new)
+    assert merged["chat"] == 5 and merged["path"] == 40 and "why" not in merged
+    assert len(merged["pages"]) == 100 and merged["pages"][-1] == "p119"           # the newest hundred
+    assert accounts.merge_badges({"a": "2026-10-29"}, {"a": "2026-10-28", "b": 3, "c": "x" * 50}) == {"a": "2026-10-28"}
+
+
 def test_deleting_the_account_deletes_its_data(google):
     client = TestClient(app)
     sign_in(client)

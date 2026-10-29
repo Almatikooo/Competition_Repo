@@ -2,7 +2,7 @@
 import { h, s, trendSpan } from "./charts.js";
 import { BRAND } from "./brand.js";
 import { state, store, t, api, loc, skillName, roleTitle, hasProfile, sdgBadge, icon, rerender, go, toast,
-  ensureRadar, ensureMatches, ensureCourses, dateLabel, goalOf, logActivity, masterSkill } from "./core.js";
+  ensureRadar, ensureMatches, ensureCourses, dateLabel, goalOf, logActivity, masterSkill, remember } from "./core.js";
 
 const CATS = ["all", "ai_data", "digital", "green", "human"];
 const CAT_ICON = { ai_data: "cpu", digital: "code", green: "leaf", human: "users" };
@@ -37,6 +37,8 @@ function markDone(sid, lid) {
   saveProgress(sid, { done: [...p.done, lid] });
   const lesson = state.course?.skill === sid ? state.course.syllabus.flatMap((m) => m.lessons).find((l) => l.id === lid) : null;
   logActivity("l", 1, lesson?.minutes || 0);                  // for My path: the day's lessons and minutes
+  const hour = new Date().getHours();                         // night owl, early bird, lunch break
+  remember("times", hour < 5 ? "night" : hour < 8 ? "early" : hour >= 12 && hour < 14 ? "lunch" : null);
 }
 
 const pctDone = (sid, total) => (total ? Math.round((Math.min(progressOf(sid).done.length, total) / total) * 100) : 0);
@@ -533,7 +535,7 @@ async function submitTest(c) {
       else saveProgress(c.skill, { final: record });
       logActivity("t");
       if (r.kind !== "chapter" && masterSkill(c.skill)) toast(t("skill_raised", { skill: skillName(c.skill) }));
-    }
+    } else remember("failed", `${c.skill}/${Q.part}`);       // passing it later earns "Never give up"
     window.scrollTo({ top: 0 });
   } catch (e) { toast(String(e.message || e)); }
   Q.busy = false;
