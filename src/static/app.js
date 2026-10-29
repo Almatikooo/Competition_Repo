@@ -4,8 +4,8 @@ import { state, store, EMPTY_PROFILE, t, setLang, $, api, skillById, roleById, l
   ensureRadar, ensureMatches, ensureCourses, ensurePathway, account, startAccount, signOut, deleteAccount, keepAnswersOnSignIn,
   logActivity, masterSkill } from "./core.js";
 import { ensureLearn, viewLearn, viewCourse, viewLesson, viewTest, viewCertificate, certificatePrintStyle, hoursLabel, testPart } from "./learn.js";
-import { ensureNext, viewNext, nextCta } from "./next.js";
-import { viewCoach, coachEntry } from "./coach.js";
+import { ensureNext, viewNext } from "./next.js";
+import { viewCoach } from "./coach.js";
 import { signInButtons, canSignIn, avatar } from "./account.js";
 import { viewProfile } from "./profile.js";
 import { ensurePath, viewPath, setGoal, renderStreak, star } from "./path.js";
@@ -89,7 +89,8 @@ function originLabel() {
 }
 
 // ---------------------------------------------------------------- header & footer
-const NAV = [["path", "nav_path"], ["chat", "nav_coach"], ["learn", "nav_learn"], ["next", "nav_next"], ["trends", "nav_trends"], ["teams", "nav_teams"], ["how", "nav_how"]];
+const NAV = [["path", "nav_path"], ["learn", "nav_learn"], ["next", "nav_next"], ["trends", "nav_trends"], ["chat", "nav_coach"]];
+const MORE = [["teams", "nav_teams"], ["how", "nav_how"]];          // in the footer only
 
 // ---------------------------------------------------------------- account (optional sign-in with Google)
 function renderAccount() {
@@ -126,36 +127,17 @@ function renderAccount() {
 document.addEventListener("click", () => { if (state.accountOpen) { state.accountOpen = false; renderAccount(); } });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && state.accountOpen) { state.accountOpen = false; renderAccount(); } });
 
-// A thin bar for guests who have started: their progress lasts until the tab is closed, unless they sign in.
-function renderGuestBar(routeName) {
-  const bar = $("guestBar");
-  let hidden = false;
-  try { hidden = sessionStorage.getItem("pathai-ui:guestbar") === "hidden"; } catch { /* storage blocked */ }
-  if (account.user || !canSignIn() || !hasProfile() || hidden || ["chat", "coach", "certificate", "me"].includes(routeName)
-      || (routeName === "start" && state.wizard.step === 4)) {        // the save step says the same
-    bar.replaceChildren();
-    return;
-  }
-  const hide = () => { try { sessionStorage.setItem("pathai-ui:guestbar", "hidden"); } catch { /* storage blocked */ } renderGuestBar(routeName); };
-  const open = (e) => { e.stopPropagation(); state.accountOpen = true; state.accountDeleting = false; renderAccount(); window.scrollTo({ top: 0 }); };
-  bar.replaceChildren(h("div", { class: "guest-bar" }, h("div", { class: "container" }, icon("clock"), h("span", {}, t("acc_banner"), " ",
-    h("button", { type: "button", class: "link-btn", onclick: open }, t("acc_banner_cta"))),
-    h("button", { type: "button", class: "guest-bar-x", "aria-label": t("coach_close"), onclick: hide }, icon("close")))));
-}
-
 function renderChrome(routeName) {
   document.documentElement.lang = state.lang === "zh" ? "zh-CN" : state.lang;
   renderAccount();
   renderStreak();
-  renderGuestBar(routeName);
   const nav = $("nav");
   const active = (r) => routeName === r || (r === "path" && ["results", "plan", "start"].includes(routeName)) || (r === "learn" && routeName === "certificate") || (r === "chat" && routeName === "coach");
   nav.replaceChildren(...NAV.map(([r, key]) => h("a", { href: `#/${r}`, "aria-current": active(r) ? "page" : null,
     onclick: () => { nav.classList.remove("open"); $("menuBtn").setAttribute("aria-expanded", "false"); } }, t(key))));
-  const returning = hasProfile();            // someone with a profile goes back to their results, not into the wizard again
-  $("cta").textContent = t(returning ? "cta_results" : "cta_start");
-  $("cta").setAttribute("href", returning ? "#/results" : "#/start?step=1");
-  $("cta").style.display = routeName === "start" || (returning && routeName === "results") ? "none" : "";
+  $("cta").textContent = t("cta_start");                 // only for newcomers: "My path" leads everyone else back
+  $("cta").setAttribute("href", "#/start?step=1");
+  $("cta").style.display = hasProfile() || routeName === "start" ? "none" : "";
   $("footer").style.display = routeName === "chat" || routeName === "coach" ? "none" : "";   // the AI chat is full-screen
   $("menuBtn").textContent = t("menu");
   $("menuBtn").onclick = () => { const open = nav.classList.toggle("open"); $("menuBtn").setAttribute("aria-expanded", String(open)); };
@@ -166,7 +148,7 @@ function renderChrome(routeName) {
       h("div", {}, h("div", { class: "footer-brand" }, h("img", { src: "/static/brand/mark.svg", alt: "" }),
         h("img", { src: "/static/brand/wordmark-light.svg", alt: "Path.AI" })), h("p", {}, t("ft_about")),
         h("p", { class: "tiny", style: { marginTop: "10px", color: "#b2b2b2" } }, llm.online ? t("ft_ai_on", { model: llm.model }) : t("ft_ai_off"))),
-      h("div", {}, h("h4", {}, t("ft_explore")), NAV.map(([r, key]) => h("a", { href: `#/${r}` }, t(key)))),
+      h("div", {}, h("h4", {}, t("ft_explore")), [...NAV, ...MORE].map(([r, key]) => h("a", { href: `#/${r}` }, t(key)))),
       h("div", {}, h("h4", {}, t("ft_lang")), h("div", { class: "lang-switch" }, langs.map(([code, label]) =>
         h("button", { type: "button", "aria-pressed": String(code === state.lang), onclick: () => { setLang(code); render(); } }, label))))),
     h("p", { class: "fine" }, t("ft_fine"))));
@@ -201,7 +183,7 @@ function viewHome() {
   const heroCard = hasProfile() ? h("div", { class: "hero-card" },
     h("h3", {}, first ? t("hero_back_title_name", { name: first }) : t("hero_back_title")),
     h("p", { class: "small muted" }, t("hero_back_sub", { n: Object.keys(state.profile.skills).length })),
-    h("a", { class: "btn btn-primary btn-lg btn-block", href: "#/results", style: { marginTop: "20px" } }, t("hero_back_results")),
+    h("a", { class: "btn btn-primary btn-lg btn-block", href: "#/path", style: { marginTop: "20px" } }, t("hero_back_path")),
     h("a", { class: "btn btn-secondary btn-block", href: "#/start?step=2", style: { marginTop: "10px" } }, icon("pen"), t("hero_back_edit")),
     h("p", { style: { textAlign: "center", marginTop: "14px" } }, h("a", { class: "btn-link", href: "#/start?step=1" }, t("hero_back_over"))))
   : h("div", { class: "hero-card" },
@@ -288,7 +270,7 @@ function wizardStep1() {
     hasProfile() ? h("div", { class: "notice info have-profile" }, h("div", {},
       h("p", {}, h("b", {}, t("s1_have_profile", { n: Object.keys(state.profile.skills).length }))), h("p", { class: "small" }, t("s1_have_hint")),
       h("div", { class: "row", style: { gap: "8px", marginTop: "10px", flexWrap: "wrap" } },
-        h("a", { class: "btn btn-primary btn-sm", href: "#/results" }, t("hero_back_results")),
+        h("a", { class: "btn btn-primary btn-sm", href: "#/path" }, t("hero_back_path")),
         h("a", { class: "btn btn-secondary btn-sm", href: "#/start?step=2" }, t("hero_back_edit"))))) : null,
     h("h1", {}, t("s1_title")), h("p", { class: "sub" }, t("s1_sub")),
     h("div", { class: "search" }, icon("search"), input), list,
@@ -365,7 +347,7 @@ function wizardStep3() {
     state.profile.sdg_priorities = [...new Set(chosen.flatMap((x) => x.sdgs))];
     saveProfile();
     if (saveStepNeeded()) { state.wizard.step = 4; render(); window.scrollTo({ top: 0 }); }
-    else go("#/results");
+    else go("#/path");
   };
   const tiles = state.meta.interest_tiles.map((tile) => {
     const on = state.tiles.includes(tile.id);
@@ -389,12 +371,12 @@ function wizardStep4() {
   const asGuest = () => {
     try { sessionStorage.setItem(GUEST_OK, "1"); } catch { /* storage blocked */ }
     state.wizard.step = 1;
-    go("#/results");
+    go("#/path");
   };
   return [
     h("h1", {}, t("s4_title")), h("p", { class: "sub" }, t("s4_sub")),
     h("div", { class: "save-step" },
-      h("div", { class: "acc-buttons" }, signInButtons("#/results", keepAnswersOnSignIn)),
+      h("div", { class: "acc-buttons" }, signInButtons("#/path", keepAnswersOnSignIn)),
       h("div", { class: "divider" }, t("or")),
       h("button", { type: "button", class: "btn btn-secondary btn-block", onclick: asGuest }, t("s4_guest")),
       h("p", { class: "small muted" }, t("s4_guest_note"))),
@@ -464,6 +446,7 @@ function matchDetails(r, role) {
   const learn = r.items.filter((i) => i.status !== "have").sort((a, b) => b.weight - a.weight);
   const engine = exp?.engine === "llm" ? t("engine_llm", { model: exp.model }) : exp?.guardrail?.rejected ? t("guard_rejected") : t("engine_template");
   return h("div", { class: "details" },
+    r.robust ? h("p", { style: { margin: "0 0 12px" } }, h("span", { class: "badge robust" }, `◆ ${t("robust")}`)) : null,
     h("h4", {}, t("d_explain")),
     h("div", { class: "explain" }, h("p", {}, citedText(exp?.text || r.explanation, sources, r.id)), h("p", { class: "engine-note" }, engine),
       state.meta.llm?.online || state.meta.llm?.saved ? h("button", { type: "button", class: "btn btn-secondary btn-sm", style: { marginTop: "8px" }, onclick: (e) => explainWithAI(r.id, e.currentTarget) }, t("explain_ai")) : null),
@@ -484,11 +467,8 @@ function matchCard(r) {
   const role = roleById()[r.id];
   const o = r.outlook[state.scenario];
   const open = !!state.expanded[r.id];
-  const goals = [...new Set(role.sdgs.map((x) => x.goal))];
   return h("article", { class: "match-card", style: { "--fam": `var(--fam-${role.family})` } },
-    (r.rank === 1 || r.robust) ? h("div", { class: "match-head", style: { marginBottom: "8px" } },
-      r.rank === 1 ? h("span", { class: "badge best" }, t("best")) : null,
-      r.robust ? h("span", { class: "badge robust" }, `◆ ${t("robust")}`) : null) : null,
+    r.rank === 1 ? h("div", { class: "match-head", style: { marginBottom: "8px" } }, h("span", { class: "badge best" }, t("best"))) : null,
     h("div", { class: "match-head" }, h("h3", {}, roleTitle(r.id))),
     h("p", { class: "match-sub" }, role.summary),
     h("div", { class: "stats" },
@@ -499,10 +479,7 @@ function matchCard(r) {
       h("a", { class: "btn btn-primary", href: `#/plan/${r.id}` }, t("see_plan")),
       state.goal === r.id ? h("a", { class: "btn btn-link goal-chip", href: "#/path" }, star(), t("goal_badge"))
         : h("button", { type: "button", class: "btn btn-secondary", onclick: () => setGoal(r.id) }, t("path_set_goal")),
-      h("button", { type: "button", class: "btn btn-link", "aria-expanded": String(open), onclick: () => { state.expanded[r.id] = !open; render(); } }, open ? t("hide") : t("why")),
-      h("span", { class: "spacer" }),
-      h("span", { class: "row", style: { gap: "4px" } }, goals.map((goal) =>
-        sdgBadge(goal, true, role.sdgs.filter((x) => x.goal === goal).map((x) => `${x.target}: ${x.why}`).join("\n"), { role: r.id })))),
+      h("button", { type: "button", class: "btn btn-link", "aria-expanded": String(open), onclick: () => { state.expanded[r.id] = !open; render(); } }, open ? t("hide") : t("why"))),
     open ? matchDetails(r, role) : null);
 }
 
@@ -586,11 +563,10 @@ function viewResults() {
     trendSpan(r.outlook[state.scenario].pct, ` ${t("per_year")}`), h("a", { class: "btn btn-secondary btn-sm", href: `#/plan/${r.id}` }, t("see_plan")))));
   return h("div", {},
     h("section", { class: "page-head" }, h("div", { class: "container" },
-      h("h1", {}, t("res_title")), h("p", {}, t("res_sub")),
+      h("h1", {}, t("res_title")), h("p", {}, t(state.goal ? "res_sub" : "res_choose")),
       h("div", { class: "summary-bar" },
         h("span", { class: "based" }, t("based_on", { label: originLabel(), n: Object.keys(state.profile.skills).length }), " · ",
-          h("a", { href: "#/start?step=2" }, t("edit"))),
-        h("span", { class: "spacer" }), paceSwitch()))),
+          h("a", { href: "#/start?step=2" }, t("edit")))))),
     h("section", { class: "band", style: { paddingTop: "28px" } }, h("div", { class: "container", style: { maxWidth: "920px" } },
       notice ? h("div", { style: { marginBottom: "20px" } }, notice) : null,
       aiReviewCard(),
@@ -601,8 +577,6 @@ function viewResults() {
         h("button", { type: "button", class: "btn btn-secondary", onclick: () => { state.showMore = !state.showMore; render(); } },
           state.showMore ? t("fewer_roles") : t("more_roles", { n: rest.length }))) : null,
       state.showMore ? moreList : null,
-      nextCta(),
-      coachEntry(),
       h("details", { class: "card", style: { marginTop: "24px" } }, h("summary", { style: { cursor: "pointer", fontWeight: "700" } }, t("adjust")),
         h("div", { class: "grid-3", style: { marginTop: "16px", gap: "20px" } }, weightSlider("fit", t("w_fit")), weightSlider("outlook", t("w_outlook")), weightSlider("preference", t("w_pref")))),
       h("p", { class: "source-line", style: { textAlign: "center", marginTop: "24px" } },
@@ -619,7 +593,7 @@ function planStep(rid, st, progress) {
   const res = st.resource;
   const ours = state.courses?.find((x) => x.skill === st.skill);
   const started = !!state.learned[st.skill]?.done?.length;
-  const hasMore = st.alternatives.length || st.credential || st.practice;
+  const hasMore = st.alternatives.length || st.credential || st.practice || (ours && res);
   const external = (r, primary) => h("a", { class: `btn ${primary ? "btn-primary" : "btn-secondary"} btn-sm`, href: r.url, target: "_blank", rel: "noopener" },
     `${t("open_course")} ↗`);
   let main;
@@ -650,6 +624,7 @@ function planStep(rid, st, progress) {
     main = h("div", { class: "course" }, h("span", { class: "small" }, t("no_resource")));
   }
   const options = openOpts ? h("div", { class: "details small" },
+    alt,
     st.alternatives.length ? [h("h4", {}, t("alts")), h("ul", { class: "sources" }, st.alternatives.map((a) => h("li", {}, h("a", { href: a.url, target: "_blank", rel: "noopener" }, a.title), ` · ${a.provider} · `, costTag(a.cost))))] : null,
     st.credential ? [h("h4", {}, t("cred")), h("p", {}, h("a", { href: st.credential.url, target: "_blank", rel: "noopener" }, st.credential.title), " · ", costTag(st.credential.cost))] : null,
     st.practice ? [h("h4", {}, t("practice")), h("p", {}, st.practice)] : null,
@@ -661,9 +636,8 @@ function planStep(rid, st, progress) {
       h("h3", {}, skillName(st.skill)),
       h("div", { class: "step-meta" }, t("step_meta", { h: st.hours, a: st.week_start, b: st.week_end })),
       main,
-      alt,
       h("div", { class: "step-foot" },
-        cert ? null : h("label", { class: "check" }, h("input", { type: "checkbox", checked: isDone,
+        cert || ours ? null : h("label", { class: "check" }, h("input", { type: "checkbox", checked: isDone,
           onchange: (e) => { state.progress[rid] = { ...progress, [st.skill]: e.target.checked }; store.set("progress", state.progress); render(); } }), t("mark_done")),
         hasMore ? h("button", { type: "button", class: "btn btn-link", onclick: () => { state.openOpts[st.skill] = !openOpts; render(); } }, openOpts ? t("fewer_opts") : t("more_opts")) : null),
       options));
@@ -946,7 +920,7 @@ async function render() {
     if (r.name === "learn" || r.name === "certificate") await ensureLearn(r);
     if (r.name === "next") await ensureNext();
     if (r.name === "plan" && roleById()[r.arg]) store.set("focusRole", r.arg); // the direction Opportunities searches first
-    const views = { home: viewHome, start: viewStart, results: viewResults, path: viewPath, plan: () => viewPlan(r.arg), next: viewNext, me: viewProfile, chat: viewCoach, coach: viewCoach, trends: viewTrends, teams: viewTeams, how: viewHow,
+    const views = { home: viewHome, start: viewStart, results: viewResults, path: () => (state.goal && roleById()[state.goal] ? viewPath() : viewResults()), plan: () => viewPlan(r.arg), next: viewNext, me: viewProfile, chat: viewCoach, coach: viewCoach, trends: viewTrends, teams: viewTeams, how: viewHow,
       learn: () => (!r.arg ? viewLearn() : testPart(r.sub) !== null ? viewTest() : r.sub ? viewLesson() : viewCourse()), certificate: () => viewCertificate(r.arg) };
     main.replaceChildren((views[r.name] || viewHome)());
   } catch (e) {

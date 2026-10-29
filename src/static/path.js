@@ -88,21 +88,7 @@ export function viewPath() {
       h("div", { class: "wizard-actions", style: { justifyContent: "center" } }, h("a", { class: "btn btn-primary btn-lg", href: "#/start?step=1" }, t("hero_start")))));
   }
   const goal = currentGoal();
-  return goal ? dashboard(goal) : chooser();
-}
-
-function chooser() {
-  const roles = (state.matches?.roles || []).slice(0, 3);
-  return h("div", {},
-    h("section", { class: "page-head" }, h("div", { class: "container" }, h("h1", {}, t("path_choose_t")), h("p", {}, t("path_choose_d")))),
-    h("section", { class: "band", style: { paddingTop: "28px" } }, h("div", { class: "container" },
-      h("div", { class: "goal-pick" }, roles.map((r) => h("article", { class: "card goal-card" },
-        h("h3", {}, roleTitle(r.id)),
-        h("div", { class: "goal-fit" }, h("b", {}, `${r.fit}%`), h("span", { class: "small muted" }, t("stat_fit"))),
-        h("div", { class: "row", style: { gap: "8px", marginTop: "14px", flexWrap: "wrap" } },
-          h("button", { type: "button", class: "btn btn-primary btn-sm", onclick: () => setGoal(r.id) }, star(), t("path_set_goal")),
-          h("a", { class: "btn btn-link btn-sm", href: `#/plan/${r.id}` }, t("see_plan")))))),
-      h("p", { style: { marginTop: "18px" } }, h("a", { class: "me-link", href: "#/results" }, t("path_all_roles"), " →")))));
+  return goal ? dashboard(goal) : h("div");
 }
 
 function dashboard(goal) {
@@ -123,7 +109,7 @@ function dashboard(goal) {
           h("p", { class: "small muted" }, t("path_progress", { p: pct, done, n: steps.length }))),
         h("div", { class: "row", style: { gap: "8px", marginTop: "16px", flexWrap: "wrap" } },
           h("a", { class: "btn btn-secondary btn-sm", href: `#/plan/${goal}` }, t("path_open_plan")),
-          h("a", { class: "btn btn-link btn-sm", href: "#/results" }, t("path_change")))),
+          h("a", { class: "btn btn-link btn-sm", href: "#/results" }, t("path_all_roles")))),
       readiness(p.fit_now, fits.map(([, v]) => v)))),
     h("section", { class: "band", style: { paddingTop: "28px" } }, h("div", { class: "container grid-main" },
       h("div", { class: "stack" }, nextCard(goal, steps), roadmapCard(goal, steps)),

@@ -123,7 +123,6 @@ main:focus { outline: none; }
 .hero-card .divider, .save-step .divider { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 13px; margin: 14px 0; }
 .hero-card .divider::before, .hero-card .divider::after, .save-step .divider::before, .save-step .divider::after { content: ""; flex: 1; border-top: 1px solid var(--line); }
 .card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px; }
-.card-top { border-top: 6px solid var(--blue); }
 .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .grid-main { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 24px; align-items: start; }
@@ -212,7 +211,7 @@ main:focus { outline: none; }
 .page-head p { color: var(--ink-2); margin-top: 6px; }
 .summary-bar { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; margin-top: 18px; }
 .summary-bar .based { color: var(--ink-2); font-size: 15px; }
-.match-card { position: relative; background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px 28px; border-top: 6px solid var(--fam, var(--blue)); }
+.match-card { position: relative; background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px 28px; }
 .match-card + .match-card { margin-top: 20px; }
 .match-head { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: baseline; }
 .match-head h3 { font-size: 24px; font-weight: 500; }
@@ -959,11 +958,6 @@ a.po-ctest:hover { background: var(--surface); color: var(--blue); }
   padding: 10px 14px; background: #fff; color: #1f1f1f; font-weight: 500; font-size: 14px; text-decoration: none; }
 .btn-google:hover { background: #f8f9fa; }
 .btn-google svg { width: 18px; height: 18px; }
-.guest-bar { background: var(--tint); border-bottom: 1px solid var(--line-soft); font-size: 14px; color: var(--ink-2); }
-.guest-bar .container { display: flex; align-items: center; gap: 8px; min-height: 40px; padding-top: 6px; padding-bottom: 6px; }
-.guest-bar svg { width: 16px; height: 16px; color: var(--blue); flex: none; }
-.guest-bar a { font-weight: 500; }
-.guest-bar-x { margin-left: auto; border: 0; background: none; cursor: pointer; color: var(--muted); display: grid; place-items: center; padding: 4px; }
 .acc-buttons { display: grid; gap: 8px; }
 .btn-github { background: #24292f; border-color: #24292f; color: #fff; }
 .btn-github:hover { background: #32383f; }
@@ -1069,11 +1063,9 @@ a.po-ctest:hover { background: var(--surface); color: var(--blue); }
 .ready-trend { display: grid; justify-items: center; gap: 2px; }
 .ready-trend svg { width: 120px; height: 30px; }
 .ready-trend polyline { fill: none; stroke: var(--green); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
-.next-card { border-top: 6px solid var(--blue); }
 .next-card h2 { margin: 2px 0 10px; font-size: 26px; }
 .next-line { margin: 0 0 14px; line-height: 1.55; }
 .next-card .pbar { margin-bottom: 16px; max-width: 420px; }
-.next-card.complete { border-top-color: var(--green); }
 .roadmap { list-style: none; margin: 8px 0 0; padding: 0; }
 .rm-phase { font-size: 11px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; color: var(--muted); background: var(--line-soft); border-radius: 999px; padding: 1px 8px; }
 .rm-step { display: grid; grid-template-columns: 32px 1fr auto; gap: 12px; align-items: start; padding: 12px 0; }
@@ -1116,3 +1108,11 @@ a.po-ctest:hover { background: var(--surface); color: var(--blue); }
 .goal-fit { display: flex; align-items: baseline; gap: 8px; margin-top: 8px; }
 .goal-fit b { font-size: 28px; }
 @media (max-width: 600px) { .ready { margin: 0 auto; } }
+
+/* Learn's figures, in the plain page head every page now shares */
+.page-head .hero-stats { margin-top: 22px; }
+.page-head .hero-stats > div { background: var(--bg, #f6f7f9); border: 1px solid var(--line-soft); backdrop-filter: none; padding: 10px 18px; }
+.page-head .hero-stats b { color: var(--navy, var(--ink)); }
+.page-head .hero-stats span { color: var(--muted); }
+/* My profile: the experience and languages chips sit in the card itself, not in a box inside it */
+.me-card .about-you { background: none; border: 0; box-shadow: none; padding: 4px 0 0; margin: 0; }

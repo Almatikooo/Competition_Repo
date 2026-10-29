@@ -185,10 +185,9 @@ export function viewLearn() {
     oninput: (e) => { f.q = e.target.value; fillGrid(); } });
 
   return h("div", {},
-    h("section", { class: "learn-hero" }, h("div", { class: "container" },
-      h("span", { class: "eyebrow" }, t("learn_eyebrow")),
+    h("section", { class: "page-head" }, h("div", { class: "container" },
       h("h1", {}, t("learn_title")),
-      h("p", { class: "lead" }, t("learn_sub")),
+      h("p", {}, t("learn_sub")),
       h("div", { class: "hero-stats" },
         h("div", {}, h("b", {}, String(all.length)), h("span", {}, t("stat_courses"))),
         h("div", {}, h("b", {}, String(totals.lessons)), h("span", {}, t("stat_lessons"))),

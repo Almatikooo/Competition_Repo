@@ -1,7 +1,7 @@
 // UI strings. English is the main language; Bahasa Malaysia and Chinese are available from the footer.
 export const STRINGS = {
   en: {
-    nav_path: "My path", nav_trends: "Explore trends", nav_teams: "For teams", nav_how: "How it works", cta_start: "Get started", menu: "Menu",
+    nav_path: "My path", nav_trends: "Trends", nav_teams: "For teams", nav_how: "How it works", cta_start: "Get started", menu: "Menu",
     hero_title: "Find your path in the AI era",
     hero_lead: "See which jobs are growing, how close you already are, and a free learning plan to get there. It takes about a minute.",
     hero_card_title: "Start with 3 quick questions", hero_card_sub: "No sign-up needed. Sign in to keep your progress on any device.",
@@ -62,7 +62,7 @@ export const STRINGS = {
     me_hours: "Learning time", me_hours_v: "{n} hours a week", me_interests: "Interests", me_goals: "UN goals you care about", me_edit: "Edit",
     me_skills: "Your skills", me_lvl_3: "Advanced", me_lvl_2: "Working", me_lvl_1: "Basic", me_no_skills: "No skills yet.",
     path_choose_t: "Choose your goal", path_choose_d: "Pick the job you want to grow into. Path.AI then tracks every lesson, test and skill on the way.",
-    path_set_goal: "Set as my goal", path_all_roles: "Compare all roles", goal_badge: "My goal", plan_is_goal: "Your goal · track your progress",
+    path_set_goal: "Set as my goal", path_all_roles: "Compare all roles", res_choose: "Pick one as your goal: you get a step-by-step plan and can track your progress.", hero_back_path: "Go to my path", goal_badge: "My goal", plan_is_goal: "Your goal · track your progress",
     path_kicker: "My goal", path_change: "Change goal", path_open_plan: "Full plan", path_readiness: "ready", path_title: "My path",
     path_since: "{d} since {date}", path_since_flat: "Tracking since {date}", path_eta: "about {weeks} weeks to go at {h} h a week",
     path_ready: "you have every skill this job asks for", path_progress: "{p}% of your path · {done} of {n} steps done",
@@ -148,7 +148,7 @@ export const STRINGS = {
     ft_fine: "Estimates, not predictions — AI supports, people decide. Example people are fictional. Guests leave no data; if you sign in, we keep only your name, email and progress.",
   },
   ms: {
-    nav_path: "Laluan saya", nav_trends: "Terokai trend", nav_teams: "Untuk pasukan", nav_how: "Cara ia berfungsi", cta_start: "Mula", menu: "Menu",
+    nav_path: "Laluan saya", nav_trends: "Trend", nav_teams: "Untuk pasukan", nav_how: "Cara ia berfungsi", cta_start: "Mula", menu: "Menu",
     hero_title: "Cari laluan anda dalam era AI",
     hero_lead: "Lihat pekerjaan yang berkembang, sejauh mana anda sudah bersedia, dan pelan pembelajaran percuma untuk ke sana. Hanya kira-kira satu minit.",
     hero_card_title: "Mula dengan 3 soalan pantas", hero_card_sub: "Tiada pendaftaran diperlukan. Log masuk untuk menyimpan kemajuan anda di mana-mana peranti.",
@@ -209,7 +209,7 @@ export const STRINGS = {
     me_hours: "Masa belajar", me_hours_v: "{n} jam seminggu", me_interests: "Minat", me_goals: "Matlamat PBB yang anda pentingkan", me_edit: "Ubah",
     me_skills: "Kemahiran anda", me_lvl_3: "Mahir", me_lvl_2: "Boleh bekerja", me_lvl_1: "Asas", me_no_skills: "Belum ada kemahiran.",
     path_choose_t: "Pilih matlamat anda", path_choose_d: "Pilih kerjaya yang anda mahu capai. Path.AI kemudian menjejak setiap pelajaran, ujian dan kemahiran sepanjang jalan.",
-    path_set_goal: "Jadikan matlamat saya", path_all_roles: "Bandingkan semua peranan", goal_badge: "Matlamat saya", plan_is_goal: "Matlamat anda · jejak kemajuan anda",
+    path_set_goal: "Jadikan matlamat saya", path_all_roles: "Bandingkan semua peranan", res_choose: "Pilih satu sebagai matlamat anda: anda mendapat pelan langkah demi langkah dan boleh menjejak kemajuan anda.", hero_back_path: "Pergi ke laluan saya", goal_badge: "Matlamat saya", plan_is_goal: "Matlamat anda · jejak kemajuan anda",
     path_kicker: "Matlamat saya", path_change: "Tukar matlamat", path_open_plan: "Pelan penuh", path_readiness: "sedia", path_title: "Laluan saya",
     path_since: "{d} sejak {date}", path_since_flat: "Dijejak sejak {date}", path_eta: "kira-kira {weeks} minggu lagi pada {h} jam seminggu",
     path_ready: "anda ada setiap kemahiran yang diperlukan kerja ini", path_progress: "{p}% daripada laluan anda · {done} daripada {n} langkah selesai",
@@ -295,7 +295,7 @@ export const STRINGS = {
     ft_fine: "Anggaran, bukan ramalan — AI menyokong, manusia memutuskan. Watak contoh adalah rekaan. Tetamu tidak meninggalkan data; jika anda log masuk, kami hanya menyimpan nama, e-mel dan kemajuan anda.",
   },
   zh: {
-    nav_path: "我的路径", nav_trends: "趋势探索", nav_teams: "团队版", nav_how: "工作原理", cta_start: "开始", menu: "菜单",
+    nav_path: "我的路径", nav_trends: "趋势", nav_teams: "团队版", nav_how: "工作原理", cta_start: "开始", menu: "菜单",
     hero_title: "在 AI 时代找到你的职业路径",
     hero_lead: "看看哪些工作正在增长、你已经具备多少能力，以及一份免费的学习计划。大约只需一分钟。",
     hero_card_title: "回答 3 个简单问题即可开始", hero_card_sub: "无需注册。登录后可在任何设备上保留你的进度。",
@@ -356,7 +356,7 @@ export const STRINGS = {
     me_hours: "学习时间", me_hours_v: "每周 {n} 小时", me_interests: "兴趣", me_goals: "你关心的联合国目标", me_edit: "编辑",
     me_skills: "你的技能", me_lvl_3: "高级", me_lvl_2: "熟练", me_lvl_1: "基础", me_no_skills: "还没有技能。",
     path_choose_t: "选择你的目标", path_choose_d: "选一个你想成长进入的职业。Path.AI 会记录你一路上的每节课、每次测试和每项技能。",
-    path_set_goal: "设为我的目标", path_all_roles: "比较所有职业", goal_badge: "我的目标", plan_is_goal: "你的目标 · 跟踪你的进度",
+    path_set_goal: "设为我的目标", path_all_roles: "比较所有职业", res_choose: "选一个作为你的目标：你会得到分步计划，并可以跟踪你的进度。", hero_back_path: "前往我的路径", goal_badge: "我的目标", plan_is_goal: "你的目标 · 跟踪你的进度",
     path_kicker: "我的目标", path_change: "更换目标", path_open_plan: "完整计划", path_readiness: "就绪", path_title: "我的路径",
     path_since: "自 {date} 以来 {d}", path_since_flat: "自 {date} 开始跟踪", path_eta: "按每周 {h} 小时，大约还需 {weeks} 周",
     path_ready: "你已具备这个职业要求的所有技能", path_progress: "已完成路径的 {p}% · {n} 步中完成 {done} 步",
@@ -592,7 +592,7 @@ for (const [lang, strings] of Object.entries(LEARN)) Object.assign(STRINGS[lang]
 // ---------------------------------------------------------------- Opportunities: jobs & universities
 const NEXT = {
   en: {
-    nav_next: "Opportunities",
+    nav_next: "Jobs & study",
     nx_q1: "What's your next step?", nx_q1_sub: "Two quick questions, then we show open jobs or universities — anywhere in the world.",
     nx_study: "Study", nx_study_d: "Get into university or college — the usual next step after school.",
     nx_work: "Work", nx_work_d: "Find a job in the country you choose, or work remotely.",
@@ -658,7 +658,7 @@ const NEXT = {
     nx_cert_cta: "Put it to work: find jobs that ask for {skill}",
   },
   ms: {
-    nav_next: "Peluang",
+    nav_next: "Kerja & pengajian",
     nx_q1: "Apakah langkah seterusnya?", nx_q1_sub: "Dua soalan ringkas, kemudian kami tunjukkan kerja kosong atau universiti — di mana-mana di dunia.",
     nx_study: "Belajar", nx_study_d: "Masuk universiti atau kolej — langkah biasa selepas sekolah.",
     nx_work: "Bekerja", nx_work_d: "Cari kerja di negara pilihan anda, atau bekerja dari jauh.",
@@ -724,7 +724,7 @@ const NEXT = {
     nx_cert_cta: "Gunakannya: cari kerja yang memerlukan {skill}",
   },
   zh: {
-    nav_next: "机会",
+    nav_next: "工作与升学",
     nx_q1: "你的下一步是什么？", nx_q1_sub: "回答两个简单问题，我们就为你展示全球范围内的在招职位或大学。",
     nx_study: "升学", nx_study_d: "进入大学或学院——中学毕业后的常见下一步。",
     nx_work: "工作", nx_work_d: "在你选择的国家找工作，或远程工作。",

@@ -1,9 +1,9 @@
-// My profile (#/me): who the person is on Path.AI and where they stand. It shows their account, experience and
-// languages (editable here), skills, best roles and plan, courses and certificates, and where they look for work or
-// study. A guest sees the same from this tab, with a nudge to sign in.
+// My profile (#/me): who the person is on Path.AI: their account, experience and languages (editable here), skills,
+// and courses and certificates. Their goal and progress live on My path. A guest sees the same from this tab, with a
+// nudge to sign in.
 import { h } from "./charts.js";
-import { state, store, t, account, signOut, deleteAccount, hasProfile, roleById, roleTitle, skillName, icon, rerender, sdgBadge, loc, monthLabel, toast } from "./core.js";
-import { aboutYou, countryName } from "./next.js";
+import { state, t, account, signOut, deleteAccount, hasProfile, roleTitle, skillName, icon, rerender, sdgBadge, loc, monthLabel, toast } from "./core.js";
+import { aboutYou } from "./next.js";
 import { signInButtons, canSignIn, avatar } from "./account.js";
 
 const card = (title, ...body) => h("section", { class: "card me-card" }, h("h2", {}, title), ...body);
@@ -47,16 +47,6 @@ function skills() {
     link("#/start?step=2", t("me_edit")));
 }
 
-function path() {
-  const top = (state.matches?.roles || []).slice(0, 3);
-  const goal = state.goal && roleById()[state.goal] ? state.goal : null;
-  return card(t("me_path"),
-    top.length ? h("div", {}, h("p", { class: "k" }, t("me_best")),
-      h("ol", { class: "me-roles" }, top.map((r) => h("li", {}, h("a", { href: `#/plan/${r.id}` }, roleTitle(r.id)), h("span", { class: "muted" }, ` · ${r.fit}%`))))) : null,
-    row(t("goal_badge"), h("a", { href: "#/path" }, goal ? roleTitle(goal) : t("path_choose_t"))),
-    link("#/results", t("me_open")));
-}
-
 function learning() {
   const courses = Object.fromEntries((state.courses || []).map((c) => [c.skill, c]));
   const started = Object.entries(state.learned || {}).filter(([, x]) => (x.done || []).length);
@@ -72,15 +62,6 @@ function learning() {
     certs.length ? h("div", { class: "me-certs" }, h("p", { class: "k" }, t("me_certs")),
       certs.map(([sid, c]) => h("a", { class: "chip-sm cert", href: `#/certificate/${c?.token || c}` }, icon("award"), skillName(sid)))) : null,
     link("#/learn", t("me_browse")));
-}
-
-function elsewhere() {
-  const n = state.next || {};
-  const chat = store.get("coach", []).length;
-  return card(t("me_more"),
-    row(t("me_where"), n.mode && n.country ? h("a", { href: "#/next" }, t("me_where_v", { mode: t(n.mode === "study" ? "me_study" : "me_work"), country: countryName(n.country) }))
-      : h("a", { href: "#/next" }, t("me_where_none"))),
-    row(t("nav_coach"), h("a", { href: "#/chat" }, chat ? t("me_chat_v", { n: chat }) : t("me_chat_none"))));
 }
 
 function accountCard() {
@@ -102,7 +83,7 @@ export function viewProfile() {
       h("h1", {}, t("me_title")), h("p", {}, t(signedIn ? "me_sub_saved" : "me_sub_guest")))),
     h("section", { class: "band", style: { paddingTop: "28px" } }, h("div", { class: "container me-grid" },
       identity(),
-      hasProfile() ? [about(), skills(), path(), learning(), elsewhere()]
+      hasProfile() ? [about(), skills(), learning()]
         : h("section", { class: "card me-card me-empty" }, h("p", {}, t("me_no_profile")), h("a", { class: "btn btn-primary", href: "#/start?step=1" }, t("hero_start"))),
       signedIn ? accountCard() : null)));
 }
