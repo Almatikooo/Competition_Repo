@@ -3,7 +3,8 @@ import { state, store, EMPTY_PROFILE, t, setLang, $, api, skillById, roleById, l
   hasProfile, dateLabel, timeLabel, monthLabel, setRenderer, go, toast, saveProfile, sdgBadge, costTag, icon,
   ensureRadar, ensureMatches, ensureCourses, ensurePathway, account, startAccount, signOut, deleteAccount, keepAnswersOnSignIn,
   logActivity, masterSkill, bump, remember } from "./core.js";
-import { checkBadges } from "./badges.js";
+import { checkBadges, renderPoints } from "./badges.js";
+import { viewRewards } from "./rewards.js";
 import { ensureLearn, viewLearn, viewCourse, viewLesson, viewTest, viewCertificate, certificatePrintStyle, hoursLabel, testPart } from "./learn.js";
 import { ensureNext, viewNext } from "./next.js";
 import { viewCoach } from "./coach.js";
@@ -91,7 +92,7 @@ function originLabel() {
 
 // ---------------------------------------------------------------- header & footer
 const NAV = [["path", "nav_path"], ["learn", "nav_learn"], ["next", "nav_next"], ["trends", "nav_trends"], ["chat", "nav_coach"]];
-const MORE = [["teams", "nav_teams"], ["how", "nav_how"]];          // in the footer only
+const MORE = [["rewards", "nav_rewards"], ["teams", "nav_teams"], ["how", "nav_how"]];          // in the footer only
 
 // ---------------------------------------------------------------- account (optional sign-in with Google)
 function renderAccount() {
@@ -114,6 +115,7 @@ function renderAccount() {
     body = [h("p", { class: "acc-name" }, u.name || u.email), u.name && u.email ? h("p", { class: "acc-email" }, u.email) : null,
       h("p", { class: "acc-note" }, t("acc_saved")),
       h("a", { class: "btn btn-primary btn-sm btn-block acc-profile", href: "#/me", onclick: () => { state.accountOpen = false; } }, icon("user"), t("acc_profile")),
+      h("a", { class: "btn btn-secondary btn-sm btn-block acc-profile", href: "#/rewards", onclick: () => { state.accountOpen = false; } }, icon("gift"), t("nav_rewards")),
       h("button", { type: "button", class: "btn btn-secondary btn-sm btn-block", onclick: () => signOut().catch((e) => toast(String(e.message || e))) }, t("acc_signout")),
       h("button", { type: "button", class: "acc-delete", onclick: (e) => { e.stopPropagation(); state.accountDeleting = true; renderAccount(); } }, t("acc_delete"))];
   } else if (state.accountOpen) {
@@ -132,6 +134,7 @@ function renderChrome(routeName) {
   document.documentElement.lang = state.lang === "zh" ? "zh-CN" : state.lang;
   renderAccount();
   renderStreak();
+  renderPoints();
   const nav = $("nav");
   const active = (r) => routeName === r || (r === "path" && ["results", "plan", "start"].includes(routeName)) || (r === "learn" && routeName === "certificate") || (r === "chat" && routeName === "coach");
   nav.replaceChildren(...NAV.map(([r, key]) => h("a", { href: `#/${r}`, "aria-current": active(r) ? "page" : null,
@@ -937,7 +940,7 @@ async function render() {
     if (r.name === "plan" && roleById()[r.arg]) store.set("focusRole", r.arg); // the direction Opportunities searches first
     countVisit(r);
     checkBadges();                                     // before drawing, so My profile shows what was just earned
-    const views = { home: viewHome, start: viewStart, results: viewResults, path: () => (state.goal && roleById()[state.goal] ? viewPath() : viewResults()), plan: () => viewPlan(r.arg), next: viewNext, me: viewProfile, chat: viewCoach, coach: viewCoach, trends: viewTrends, teams: viewTeams, how: viewHow,
+    const views = { home: viewHome, start: viewStart, results: viewResults, path: () => (state.goal && roleById()[state.goal] ? viewPath() : viewResults()), plan: () => viewPlan(r.arg), next: viewNext, me: viewProfile, rewards: viewRewards, chat: viewCoach, coach: viewCoach, trends: viewTrends, teams: viewTeams, how: viewHow,
       learn: () => (!r.arg ? viewLearn() : testPart(r.sub) !== null ? viewTest() : r.sub ? viewLesson() : viewCourse()), certificate: () => viewCertificate(r.arg) };
     main.replaceChildren((views[r.name] || viewHome)());
   } catch (e) {

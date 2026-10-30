@@ -4,7 +4,7 @@
 // A new medal slides in at the top of the page with a chime, and is kept like the rest of the progress: in this tab
 // for a guest, in the account for someone signed in.
 import { h } from "./charts.js";
-import { state, store, t, loc, account, hasProfile, skillById, dayKey, shiftDay, streak, icon, go, dateLabel } from "./core.js";
+import { state, store, t, loc, account, hasProfile, skillById, dayKey, shiftDay, streak, icon, go, dateLabel, $ } from "./core.js";
 
 // id, tier (1 bronze, 2 silver, 3 gold), group, icon, the number to reach, and how far the person is. Options: `d` a
 // description shared by a ladder ("Complete {n} lessons."), `unit` "h" (minutes shown as hours) or "%", `href` where
@@ -122,6 +122,25 @@ export const BADGES = [
   B("all", 3, "meta", "crown", 99, (c) => c.earned),
 ];
 const BY = Object.fromEntries(BADGES.map((b) => [b.id, b]));
+
+// ---------------------------------------------------------------- points
+// Every medal earns points to spend in Rewards (rewards.js), where 1 point is worth about RM 1. All 100 medals give
+// 2,950 points: enough for half the price of the top reward only for a near-complete collection.
+export const POINTS = { 1: 10, 2: 50, 3: 200 };
+export const earnedPoints = () => BADGES.reduce((sum, b) => sum + (state.badges?.[b.id] ? POINTS[b.tier] : 0), 0);
+export const spentPoints = () => (state.rewards || []).reduce((sum, r) => sum + (Number(r?.points) || 0), 0);
+export const pointsBalance = () => Math.max(0, earnedPoints() - spentPoints());
+export const fmtPoints = (n) => Math.round(n).toLocaleString("en-MY");
+
+// The points in the header, next to the streak star (signed-in people, like the streak).
+export function renderPoints() {
+  const box = $("points");
+  if (!box) return;
+  if (!account.user) { box.replaceChildren(); return; }
+  const n = pointsBalance();
+  box.replaceChildren(h("a", { class: "points-btn", href: "#/rewards", title: t("nav_rewards"), "aria-label": t("rw_chip", { n: fmtPoints(n) }) },
+    icon("gift"), h("b", {}, fmtPoints(n))));
+}
 const TIERS = [3, 2, 1];
 
 export const badgeTitle = (b) => t(`bt_${b.id}`);
@@ -234,6 +253,7 @@ export function checkBadges() {
   if (!fresh.length) return fresh;
   state.badges = got;
   store.set("badges", got);
+  renderPoints();
   announce(fresh);
   return fresh;
 }
@@ -325,11 +345,12 @@ function announce(list) {
     document.body.append(box);
   }
   shown.forEach((b, i) => setTimeout(() => push(b), i * 280));
-  if (top.length > shown.length) setTimeout(() => push(null, top.length - shown.length), shown.length * 280);
+  const rest = top.slice(shown.length);
+  if (rest.length) setTimeout(() => push(null, rest.length, rest.reduce((sum, b) => sum + POINTS[b.tier], 0)), shown.length * 280);
   chime(top[0].tier);
 }
 
-function push(b, more = 0) {
+function push(b, more = 0, morePoints = 0) {
   const tier = b ? b.tier : 1;
   let gone = false;
   const close = () => {
@@ -346,6 +367,7 @@ function push(b, more = 0) {
         h("span", { class: "push-kicker" }, b ? `${t("ach_unlocked")} · ${t(`ach_tier_${tier}`)}` : t("ach_unlocked_many")),
         h("b", {}, b ? badgeTitle(b) : t("ach_and_more", { n: more })),
         h("span", { class: "push-desc" }, b ? badgeText(b) : t("ach_tap_all")))),
+    h("span", { class: "push-pts" }, t("ach_plus", { n: fmtPoints(b ? POINTS[tier] : morePoints) })),
     h("button", { type: "button", class: "push-x", "aria-label": t("close"), onclick: close }, icon("close")),
     tier === 3 ? Array.from({ length: 10 }, (_, i) => h("span", { class: "spark", style: { "--a": `${i * 36}deg` } })) : null);
   box.append(el);
@@ -371,7 +393,7 @@ function detail(b, c, got) {
   return h("div", { class: `ach-detail${when ? " got" : ""}` },
     medal(b, !!when, "lg"),
     h("div", { class: "ach-detail-text" },
-      h("p", { class: `ach-kicker t${b.tier}` }, `${t(`ach_tier_${b.tier}`)} · ${t(`ach_group_${b.group}`)}`),
+      h("p", { class: `ach-kicker t${b.tier}` }, `${t(`ach_tier_${b.tier}`)} · ${t(`ach_group_${b.group}`)} · ${t("ach_plus", { n: POINTS[b.tier] })}`),
       h("h3", {}, badgeTitle(b)),
       h("p", {}, badgeText(b)),
       when ? h("p", { class: "ach-when" }, icon("check"), t("ach_got", { date: dateLabel(when) }))
@@ -414,6 +436,8 @@ export function achievementsSection() {
         const [n, all] = tierCount(tier, got);
         return h("span", {}, h("i", { class: `dot t${tier}` }), `${t(`ach_tier_${tier}`)} ${n}/${all}`);
       }))),
+    h("a", { class: "ach-points", href: "#/rewards" }, icon("gift"), h("b", {}, t("ach_balance", { n: fmtPoints(pointsBalance()) })),
+      h("span", {}, t("ach_spend")), " →"),
     h("div", { class: "ach-top" },
       detail(sel, c, got),
       next.length ? h("div", { class: "ach-next" }, h("p", { class: "k" }, t("ach_next")), next.map(({ b }) => nextRow(b, c, () => pick(b))))

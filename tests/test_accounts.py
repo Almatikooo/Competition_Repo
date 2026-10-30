@@ -99,6 +99,17 @@ def test_achievements_from_two_devices_are_merged_not_overwritten(google):
     assert state["tally"] == {"chat": 3, "langs": ["en", "ms"], "steps": 1, "pages": ["trends"]}
 
 
+def test_gifts_claimed_on_two_devices_are_all_kept(google):
+    phone, laptop = TestClient(app), TestClient(app)
+    sign_in(phone)
+    sign_in(laptop)
+    mug = {"id": "PAI-AAAA-1111", "item": "mug", "price": 35, "points": 17, "cash": 18, "at": "2026-10-30T09:00:00Z"}
+    tee = {"id": "PAI-BBBB-2222", "item": "tshirt", "price": 59, "points": 29, "cash": 30, "at": "2026-10-30T10:00:00Z"}
+    phone.put("/api/me/state", json={"state": {"rewards": [mug]}})
+    laptop.put("/api/me/state", json={"state": {"rewards": [tee, mug, "junk"]}})
+    assert [c["id"] for c in phone.get("/api/me").json()["state"]["rewards"]] == ["PAI-AAAA-1111", "PAI-BBBB-2222"]
+
+
 def test_merging_achievement_counts_ignores_junk_and_keeps_lists_short():
     old = {"chat": 5, "pages": [f"p{i}" for i in range(90)], "why": True}
     new = {"chat": "9", "pages": [f"p{i}" for i in range(80, 120)] + [None, {"x": 1}], "path": 40}

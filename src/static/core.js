@@ -7,7 +7,7 @@ import { makeT } from "./i18n.js";
 // The interface language and the achievement sound are preferences of the device, kept across visits (localStorage).
 const DEVICE_KEYS = new Set(["lang", "sound"]);
 const SYNCED = new Set(["profile", "origin", "tiles", "progress", "learned", "certs", "certName", "coach", "next", "focusRole", "activity", "goal", "path",
-  "badges", "tally"]);
+  "badges", "tally", "rewards"]);
 const area = (key) => (DEVICE_KEYS.has(key) ? localStorage : sessionStorage);
 // The answers a guest just gave in the wizard. Signing in from its last step ("save your results") keeps them.
 const ANSWERS = ["profile", "origin", "tiles"];
@@ -73,6 +73,8 @@ export const state = {
   goal: store.get("goal", null), path: store.get("path", {}), activity: store.get("activity", {}), pathCourse: null, streakOpen: false,
   // Achievements: when each was unlocked, and what was done along the way that they count (see badges.js)
   badges: store.get("badges", {}), tally: store.get("tally", {}), badgeSel: null, scrollTo: null,
+  // Rewards: gifts claimed with the points the achievements earn (see rewards.js)
+  rewards: store.get("rewards", []), rewardsUi: { cat: "all", reach: false },
   nextUi: { editing: false, q: "", tab: "local", level: "any", role: "all", field: null, allFields: false, uniQ: "", uniShown: 20 },
 };
 
@@ -83,7 +85,7 @@ export function hydrate() {
   Object.assign(state, { profile: store.get("profile", structuredClone(EMPTY_PROFILE)), origin: store.get("origin", null), tiles: store.get("tiles", []),
     progress: store.get("progress", {}), learned: store.get("learned", {}), certs: store.get("certs", {}), next: store.get("next", { mode: null, country: null }),
     goal: store.get("goal", null), path: store.get("path", {}), activity: store.get("activity", {}),
-    badges: store.get("badges", {}), tally: store.get("tally", {}),
+    badges: store.get("badges", {}), tally: store.get("tally", {}), rewards: store.get("rewards", []),
     coach: null, matchesKey: "", pathwayKey: "", nextJobsKey: "", nextStudyKey: "" });
 }
 
@@ -354,6 +356,19 @@ const ICONS = {
   trophy: "M7 4h10v5a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3.5 4M17 6h3a3 3 0 0 1-3.5 4M12 14v4M8 21h8M9.5 18h5",
   crown: "M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5zM5 19h14", volume: "M4 9h4l5-4v14l-5-4H4zM16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12",
   mute: "M4 9h4l5-4v14l-5-4H4zM17 9.5l5 5M22 9.5l-5 5", menu: "M4 6h16M4 12h16M4 18h16",
+  // rewards
+  gift: "M4 11h16v9H4zM3 7h18v4H3zM12 7v13M12 7C10.5 4 7 3.5 7 5.8 7 7 9.5 7 12 7zm0 0c1.5-3 5-3.5 5-1.2C17 7 14.5 7 12 7z",
+  sticker: "M4 4h16v9l-7 7H4zM20 13h-5a2 2 0 0 0-2 2v5", notebook: "M6 3h12v18H6zM9 3v18M12.5 8h3M12.5 12h3",
+  coffee: "M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM17 10.5h1.5a2.5 2.5 0 0 1 0 5H17M8 3c-.8 1 .8 2 0 3M12 3c-.8 1 .8 2 0 3",
+  cup: "M6 8h12M7 8l1.5 13h7L17 8M12 8l2.5-5H17M10 17h.01M12 18.5h.01M14 17h.01", mug: "M5 6h11v11a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3zM16 9h2a2 2 0 0 1 0 4h-2",
+  bag: "M5 8h14l-1 13H6zM9 8V6a3 3 0 0 1 6 0v2", shirt: "M8 3 3 6l2 4 3-1v12h8V9l3 1 2-4-5-3a4 4 0 0 1-8 0z",
+  mouse: "M12 3a6 6 0 0 1 6 6v6a6 6 0 0 1-12 0V9a6 6 0 0 1 6-6zM12 7v4", battery: "M3 7h16v10H3zM21 10.5v3M7 10v4M11 10v4",
+  wallet: "M3 7h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H3zM3 7l12-4v4M16.5 13.5h.01", stand: "M6 4h12v8H6zM4 15h16M8 15l-1.5 5M16 15l1.5 5",
+  camera: "M12 3a6 6 0 1 1 0 12 6 6 0 0 1 0-12zM12 7.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM8 21h8M12 15v6",
+  backpack: "M7 9a5 5 0 0 1 10 0v12H7zM10 4V3h4v1M9 14h6v4H9z", speaker: "M7 3h10v18H7zM12 17.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM12 7h.01",
+  earbuds: "M10 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM7 11v8M20 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM17 11v8", ereader: "M6 3h12v18H6zM9 7h6M9 10h6M9 13h4",
+  monitor: "M3 4h18v12H3zM9 20h6M12 16v4", watch: "M8 7h8v10H8zM9 7l1-4h4l1 4M9 17l1 4h4l1-4M12 10v2l1.5 1",
+  tablet: "M5 3h14v18H5zM11 18h2", phone: "M7 2h10v20H7zM11 18h2", laptop: "M5 5h14v10H5zM3 19h18l-2-4H5z",
 };
 export function icon(name) {
   const NS = "http://www.w3.org/2000/svg";

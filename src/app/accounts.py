@@ -41,7 +41,7 @@ SESSION_COOKIE, STATE_COOKIE = "pathai_session", "pathai_oauth"
 SESSION_DAYS = 30
 STATE_TTL = 600                                       # seconds to finish signing in at Google
 SYNCED_KEYS = {"profile", "origin", "tiles", "progress", "learned", "certs", "certName", "coach", "next", "focusRole", "activity", "goal", "path",
-               "badges", "tally"}
+               "badges", "tally", "rewards"}
 MAX_VALUE = 200_000                                   # characters of JSON per key
 GOOGLE_AUTH = "https://accounts.google.com/o/oauth2/v2/auth"
 GOOGLE_TOKEN = "https://oauth2.googleapis.com/token"
@@ -363,8 +363,18 @@ def merge_tally(old, new) -> dict:
     return out
 
 
+def merge_claims(old, new) -> list:
+    """Gifts claimed with points, from two devices: every claim once (by its code), oldest first, the latest 200."""
+    seen: dict = {}
+    for src in (old, new):
+        for claim in (src if isinstance(src, list) else ()):
+            if isinstance(claim, dict) and isinstance(claim.get("id"), str) and claim["id"] not in seen:
+                seen[claim["id"]] = claim
+    return sorted(seen.values(), key=lambda c: str(c.get("at", "")))[-200:]
+
+
 # Keys that another device may have added to since this one loaded them: merged with what is stored, not replaced.
-MERGED = {"activity": merge_days, "badges": merge_badges, "tally": merge_tally}
+MERGED = {"activity": merge_days, "badges": merge_badges, "tally": merge_tally, "rewards": merge_claims}
 
 
 @router.put("/api/me/state")
