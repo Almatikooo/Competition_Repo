@@ -1,10 +1,12 @@
 // Rewards (#/rewards): achievements earn points (bronze 10, silver 50, gold 200; see badges.js), 1 point is worth about
 // RM 1, and points pay at most half the price of a gift: the rest is paid in money. Thirty gifts, from a sticker pack
-// to a MacBook. A claim is a demo: it keeps a code and the points it used, but no order is placed and nothing is charged.
+// to a MacBook, each with an openly licensed photo (credited at the bottom of the page). A claim is a demo: it keeps a
+// code and the points it used, but no order is placed and nothing is charged.
 import { h } from "./charts.js";
 import { state, store, t, account, icon, rerender } from "./core.js";
 import { POINTS, earnedPoints, spentPoints, pointsBalance, fmtPoints, renderPoints, openBadge } from "./badges.js";
 import { signInButtons, canSignIn } from "./account.js";
+import { PHOTOS } from "./reward-photos.js";
 
 // id, group, icon and price in ringgit (indicative), cheapest first
 const G = (id, cat, ic, price) => ({ id, cat, icon: ic, price });
@@ -46,9 +48,24 @@ export const maxPoints = (price) => Math.floor(price * MAX_SHARE);
 const rm = (n) => t("rw_price", { n: fmtPoints(n) });
 const giftName = (g) => t(`rw_i_${g.id}`);
 
+const photo = (g, lazy = true) => (PHOTOS[g.id] ? h("img", { src: `/static/rewards/${g.id}.jpg`, alt: "", loading: lazy ? "lazy" : "eager", decoding: "async" }) : icon(g.icon));
+
 function tile(g, top = false) {
-  return h("div", { class: `rw-tile rw-${top ? "top" : g.cat}` },
-    h("span", { class: "rw-cat" }, t(`rw_cat_${g.cat}`)), h("span", { class: "rw-ico" }, icon(g.icon)));
+  return h("div", { class: `rw-tile rw-${top ? "top" : g.cat}${PHOTOS[g.id] ? " photo" : ""}` },
+    PHOTOS[g.id] ? photo(g, !top) : h("span", { class: "rw-ico" }, icon(g.icon)),
+    h("span", { class: "rw-cat" }, t(`rw_cat_${g.cat}`)));
+}
+const mini = (g) => h("span", { class: `rw-mini rw-${g.cat}${PHOTOS[g.id] ? " photo" : ""}` }, photo(g, false));
+
+// Who took each photo, under which licence, and where the original is.
+function credits() {
+  return h("details", { class: "rw-credits small" }, h("summary", {}, t("rw_credits")),
+    h("p", { class: "muted" }, t("rw_credits_note")),
+    h("ul", {}, CATALOG.filter((g) => PHOTOS[g.id]).map((g) => {
+      const p = PHOTOS[g.id];
+      return h("li", {}, h("b", {}, giftName(g)), ": ", h("a", { href: p.source, target: "_blank", rel: "noopener" }, p.title), ` · ${p.author} · `,
+        p.license_url ? h("a", { href: p.license_url, target: "_blank", rel: "noopener" }, p.license) : p.license);
+    })));
 }
 
 // How much of the most points this gift takes the person already has, and what is left to pay.
@@ -90,7 +107,7 @@ function mine() {
   const by = Object.fromEntries(CATALOG.map((g) => [g.id, g]));
   return h("section", { class: "card rw-mine" }, h("h2", {}, t("rw_mine")),
     claims.map((c) => h("div", { class: "rw-claim" },
-      by[c.item] ? h("span", { class: `rw-mini rw-${by[c.item].cat}` }, icon(by[c.item].icon)) : null,
+      by[c.item] ? mini(by[c.item]) : null,
       h("div", {}, h("b", {}, by[c.item] ? giftName(by[c.item]) : c.item),
         h("p", { class: "small muted" }, t("rw_mine_row", { date: new Date(c.at).toLocaleDateString("en-MY", { day: "numeric", month: "short", year: "numeric" }),
           points: fmtPoints(c.points), cash: fmtPoints(c.cash) }))),
@@ -126,7 +143,8 @@ export function viewRewards() {
           icon("check"), t("rw_reach"))),
       shown.length ? h("div", { class: "rw-grid" }, shown.map((g) => card(g, balance))) : h("p", { class: "muted rw-empty" }, t("rw_empty")),
       mine(),
-      h("p", { class: "small muted rw-note" }, `${t("rw_indicative")} ${t("rw_demo")}`))));
+      h("p", { class: "small muted rw-note" }, `${t("rw_indicative")} ${t("rw_demo")}`),
+      credits())));
 }
 
 // ---------------------------------------------------------------- claiming a gift
@@ -142,7 +160,7 @@ function openRedeem(g, opener) {
   const close = () => dlg.close();
   const body = h("div", { class: "rw-dlg-body" });
   const line = (k, v, cls = "") => h("div", { class: `rw-line ${cls}` }, h("span", {}, k), h("b", {}, v));
-  const head = () => h("div", { class: "rw-dlg-gift" }, h("span", { class: `rw-mini rw-${g.cat}` }, icon(g.icon)),
+  const head = () => h("div", { class: "rw-dlg-gift" }, mini(g),
     h("div", {}, h("h2", { id: "rw-dlg-title" }, giftName(g)), h("p", { class: "muted" }, rm(g.price))));
 
   function claim() {

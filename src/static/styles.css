@@ -1273,6 +1273,17 @@ a.po-ctest:hover { background: var(--surface); color: var(--blue); }
 
 .rw-tile { position: relative; display: grid; place-items: center; height: 130px; color: #fff; background: var(--rw-bg); }
 .rw-tile .rw-ico svg { width: 58px; height: 58px; stroke-width: 1.5; filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.18)); }
+.rw-tile.photo { height: 160px; overflow: hidden; }
+.rw-tile.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.rw-tile.photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 0, 0, 0.32), transparent 45%); pointer-events: none; }
+.rw-tile.photo .rw-cat { z-index: 1; background: rgba(0, 0, 0, 0.38); backdrop-filter: blur(4px); }
+.rw-card:hover .rw-tile.photo img { transform: scale(1.04); }
+.rw-mini.photo { overflow: hidden; }
+.rw-mini.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.rw-credits { margin-top: 12px; color: var(--ink-2); }
+.rw-credits summary { cursor: pointer; color: var(--blue); font-weight: 500; }
+.rw-credits ul { margin: 8px 0 0; padding-left: 18px; display: grid; gap: 4px; }
+.rw-credits li { overflow-wrap: anywhere; }
 .rw-cat { position: absolute; top: 10px; left: 12px; padding: 3px 9px; border-radius: 999px; background: rgba(255, 255, 255, 0.2);
   font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
 .rw-learn { --rw-bg: linear-gradient(135deg, #6b83e3, #192764); }
@@ -1282,7 +1293,7 @@ a.po-ctest:hover { background: var(--surface); color: var(--blue); }
 .rw-top { --rw-bg: radial-gradient(circle at 30% 20%, rgba(255, 214, 102, 0.35), transparent 50%), linear-gradient(135deg, #4a505c, #121419); }
 
 .rw-featured { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 28px; align-items: stretch; padding: 0; overflow: hidden; }
-.rw-featured .rw-tile { height: auto; min-height: 240px; }
+.rw-featured .rw-tile { height: auto; min-height: 260px; }
 .rw-featured .rw-tile .rw-ico svg { width: 110px; height: 110px; stroke-width: 1.1; color: #f4f4f6; }
 .rw-featured .kicker svg { width: 16px; height: 16px; }
 .rw-featured-body { padding: 26px 28px 26px 0; display: grid; gap: 8px; align-content: center; }

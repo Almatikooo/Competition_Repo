@@ -1,5 +1,6 @@
 """Rewards (src/static/rewards.js): 30 gifts from cheap to a MacBook, points from achievements pay at most half a price,
 and every gift is named and described in every interface language."""
+import json
 import re
 from pathlib import Path
 
@@ -46,3 +47,13 @@ def test_every_gift_has_words_in_every_language_and_an_icon():
         for key in (f"rw_i_{g['id']}", f"rw_d_{g['id']}", f"rw_cat_{g['cat']}"):
             assert len(re.findall(rf"\b{key}: ", words)) == 3, key
         assert re.search(rf"\b{g['icon']}: \"", icons), g["icon"]
+
+
+def test_every_gift_has_a_photo_with_its_credit():
+    photos = (STATIC / "reward-photos.js").read_text(encoding="utf-8")
+    for g in gifts():
+        assert (STATIC / "rewards" / f"{g['id']}.jpg").stat().st_size > 5_000, g["id"]
+        entry = re.search(rf'^  {g["id"]}: (\{{.*\}}),?$', photos, re.M)
+        assert entry, g["id"]
+        credit = json.loads(entry[1])
+        assert credit["author"] and credit["license"] and credit["source"].startswith("https://commons.wikimedia.org/"), g["id"]
