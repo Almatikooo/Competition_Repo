@@ -438,7 +438,7 @@ Job sites without a public API (JobStreet, SEEK, Indeed, LinkedIn, Naukri) are o
 - **Estimates.** All forecasts are estimates, not predictions. People decide.
 
 ### AI tools used to build Path.AI
-- **Code.** Written with the help of **Claude Code** (Anthropic); commits it co-wrote are marked "Co-Authored-By: Claude".
+- **Code.** Written with the help of **Claude Code** (Anthropic).
 - **Research.** **Replit Agent** helped find company job boards and check the wording of cited claims. Every board, quote and page was re-checked against the original source before use.
 
 ## License
