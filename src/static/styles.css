@@ -1273,13 +1273,16 @@ a.po-ctest:hover { background: var(--surface); color: var(--blue); }
 
 .rw-tile { position: relative; display: grid; place-items: center; height: 130px; color: #fff; background: var(--rw-bg); }
 .rw-tile .rw-ico svg { width: 58px; height: 58px; stroke-width: 1.5; filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.18)); }
-.rw-tile.photo { height: 160px; overflow: hidden; }
-.rw-tile.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-.rw-tile.photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 0, 0, 0.32), transparent 45%); pointer-events: none; }
-.rw-tile.photo .rw-cat { z-index: 1; background: rgba(0, 0, 0, 0.38); backdrop-filter: blur(4px); }
-.rw-card:hover .rw-tile.photo img { transform: scale(1.04); }
-.rw-mini.photo { overflow: hidden; }
-.rw-mini.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* product shots on white, like a shop */
+.rw-tile.photo { height: auto; aspect-ratio: 4 / 3; overflow: hidden; background: #fff; border-bottom: 1px solid var(--line-soft); }
+.rw-tile.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transition: transform 0.4s ease; }
+.rw-tile.photo .rw-cat { z-index: 1; background: var(--tint); color: var(--ink-2); }
+.rw-card:hover .rw-tile.photo img { transform: scale(1.05); }
+.rw-featured .rw-tile.photo { aspect-ratio: auto; border-bottom: 0; border-right: 1px solid var(--line-soft); }
+.rw-featured .rw-tile.photo img { padding: 12px; }
+@media (max-width: 720px) { .rw-featured .rw-tile.photo { aspect-ratio: 4 / 3; border-right: 0; border-bottom: 1px solid var(--line-soft); } }
+.rw-mini.photo { overflow: hidden; background: #fff; box-shadow: inset 0 0 0 1px var(--line-soft); }
+.rw-mini.photo img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .rw-credits { margin-top: 12px; color: var(--ink-2); }
 .rw-credits summary { cursor: pointer; color: var(--blue); font-weight: 500; }
 .rw-credits ul { margin: 8px 0 0; padding-left: 18px; display: grid; gap: 4px; }
