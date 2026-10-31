@@ -12,7 +12,7 @@
 | **Number of members** | 4 |
 | **Pitch video** | https://www.youtube.com/watch?v=9sNNIqK_iYc |
 | **Live demo** | https://pathai.lol |
-| **Final round** | [Final report](Submission/SDC2026_ASEA_Final.pdf) · [presentation](Submission/SDC2026_ASEA_Final_Presentation_v2.pptx) · [technology declaration](Submission/SDC2026_ASEA_TechDeclaration_Final.pdf) |
+| **Final round** | [Final report](Submission/SDC2026_ASEA_Final.pdf) · [presentation (.pptx, downloads)](Submission/SDC2026_ASEA_Final_Presentation_v2.pptx?raw=true) · [technology declaration](Submission/SDC2026_ASEA_TechDeclaration_Final.pdf) |
 | **Preliminary round** | [Proposal](Submission/SDC2026_ASEA_Preliminary.pdf) · [pitch deck](Submission/Pitch%20Deck%20ASEA.pdf) · [technology declaration](Submission/SDC2026_ASEA_TechDeclaration.pdf) · proofs of use: [RunPod](Submission/RunPod%20Proof%20of%20Use.pdf), [Replit](Submission/Replit%20Proof%20of%20Use.pdf) |
 
 **Jump to:** [How to run the project](#how-to-run-the-project) · [Overall project structure](#overall-project-structure) · [How we used Replit and RunPod](#how-we-used-replit-and-runpod)
