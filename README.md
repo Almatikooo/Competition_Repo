@@ -6,15 +6,20 @@
 |---|---|
 | **Team name** | ASEA |
 | **Team domain** | Domain 1: Aiversecity Future-Ready Workforce |
+| **SDG track** | SDG 1–17. Main targets: **4.4** (primary), 4.3, 8.2 and 8.5 |
+| **University** | Xiamen University Malaysia |
+| **Team leader** | Almat Sakiidulla |
+| **Number of members** | 4 |
 | **Pitch video** | https://www.youtube.com/watch?v=9sNNIqK_iYc |
 | **Live demo** | https://pathai.lol |
-| **Submission files** | [Submission/](Submission/): the preliminary-round document, the [pitch deck](Submission/Pitch%20Deck%20ASEA.pdf), the [technology declaration](Submission/SDC2026_ASEA_TechDeclaration.pdf), and the RunPod and Replit proofs of use |
+| **Final round** | [Final report](Submission/SDC2026_ASEA_Final.pdf) · [presentation](Submission/SDC2026_ASEA_Final_Presentation_v2.pptx) · [technology declaration](Submission/SDC2026_ASEA_TechDeclaration_Final.pdf) |
+| **Preliminary round** | [Proposal](Submission/SDC2026_ASEA_Preliminary.pdf) · [pitch deck](Submission/Pitch%20Deck%20ASEA.pdf) · [technology declaration](Submission/SDC2026_ASEA_TechDeclaration.pdf) · proofs of use: [RunPod](Submission/RunPod%20Proof%20of%20Use.pdf), [Replit](Submission/Replit%20Proof%20of%20Use.pdf) |
 
 **Jump to:** [How to run the project](#how-to-run-the-project) · [Overall project structure](#overall-project-structure) · [How we used Replit and RunPod](#how-we-used-replit-and-runpod)
 
 Path.AI takes a person from **"who I am today"** to **"where I can be in the AI era"**. A first result takes one tap with an example, or about four taps on your own profile. It reads live job-market and AI-research signals, estimates which skills are rising or declining under three AI-disruption scenarios, ranks future roles with an explainable match, and builds a free or low-cost learning plan. Each skill in the plan has a **free, full course** built from real chapters of open curricula (Microsoft *for Beginners*, The Carpentries, OpenStax, BCcampus, GOV.UK, NIST, EIA, EPA and more), studied chapter by chapter: a short test after every chapter unlocks the next one, and passing the final test earns a **verifiable Path.AI certificate**. The last step, **Opportunities**, asks two questions: *study or work?* and *where?* It then lists open jobs anywhere in the world, ranked by the same explainable match, or the universities of the chosen country with how to apply and how to fund it. Every role and skill is linked to concrete UN SDG targets.
 
-> SDC XMUM Hackathon 2026, Domain 1 (Aiversecity Future-Ready Workforce). Working prototype. Every example person is fictional.
+> SDC XMUM Hackathon 2026, final round, Domain 1 (Aiversecity Future-Ready Workforce). Working prototype. Every example person is fictional.
 
 ![Path.AI home](docs/img/home.png)
 
@@ -182,7 +187,8 @@ This is the last step of the journey. It is linked from the results, the plan, y
 - **Model.** `Qwen/Qwen3.8-27B-FP8`: open weights (Apache-2.0, Aug 2026), multilingual (EN/BM/ZH), vision-capable, fits one 48 GB GPU.
 - **GPU.** 1× **RTX A6000 48 GB** on RunPod: $0.59/h Secure, $0.33/h Community, about 40 hours for $25.
 - **What it does.** It reads CVs, rewrites the *Why this role?* explanations, and reads every job posting once (≈19.5k postings, ≈3 GPU hours): skills required or nice to have, years of experience, degree, languages, pay, work mode and visa sponsorship, shown on each job card and used for matching.
-- **GPU only when needed.** `python -m scripts.gpu create | start | stop | status` switches the RunPod pod on and off, and a watchdog inside the pod stops it after 20 minutes without requests. Answers the model gave are kept, so the demo people and repeated requests need no GPU.
+- **GPU only when needed.** `python -m scripts.gpu create | start | stop | status` switches the RunPod pod on and off, and a watchdog inside the pod stops it after 20 minutes without requests.
+- **Live first.** While our GPU is on, every AI answer is written live, also for the example people. While it is off, the example people get their saved model answers and other requests go to the backup model. Each answer carries a label: *Live · our GPU*, *Live · backup model* or *Saved answer · our GPU is off*.
 - **AI chat** (`#/chat`, the career coach). A chat that sees the person's profile, top five roles, course progress, certificates,
   plan steps and open jobs where they look. It answers from those facts only, checks every number, and adds up to three
   links to Path.AI pages it was offered (the decoder can only pick from that list). The conversation stays in the browser.
