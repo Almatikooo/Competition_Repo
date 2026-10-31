@@ -2,30 +2,69 @@
 
 # Path.AI: find your path in the AI era
 
-| | |
-|---|---|
-| **Team name** | ASEA |
-| **Team domain** | Domain 1: Aiversecity Future-Ready Workforce |
-| **SDG track** | SDG 1–17. Main targets: **4.4** (primary), 4.3, 8.2 and 8.5 |
-| **University** | Xiamen University Malaysia |
-| **Team leader** | Almat Sakiidulla |
-| **Number of members** | 4 |
-| **Pitch video** | https://www.youtube.com/watch?v=9sNNIqK_iYc |
-| **Live demo** | https://pathai.lol |
-| **Final round** | [Final report](Submission/SDC2026_ASEA_Final.pdf) · [presentation (.pptx, downloads)](Submission/SDC2026_ASEA_Final_Presentation_v2.pptx?raw=true) · [technology declaration](Submission/SDC2026_ASEA_TechDeclaration_Final.pdf) |
-| **Preliminary round** | [Proposal](Submission/SDC2026_ASEA_Preliminary.pdf) · [pitch deck](Submission/Pitch%20Deck%20ASEA.pdf) · [technology declaration](Submission/SDC2026_ASEA_TechDeclaration.pdf) · proofs of use: [RunPod](Submission/RunPod%20Proof%20of%20Use.pdf), [Replit](Submission/Replit%20Proof%20of%20Use.pdf) |
+> Path.AI shows people whose jobs are changing with AI which future roles fit their skills, teaches the missing skills for free with full courses and certificates, and finds real jobs or university places. It is built for Malaysian workers, students and fresh graduates.
 
-**Jump to:** [How to run the project](#how-to-run-the-project) · [Overall project structure](#overall-project-structure) · [How we used Replit and RunPod](#how-we-used-replit-and-runpod)
+## Team information
+
+| Field | Details |
+|---|---|
+| **Team Name** | ASEA |
+| **Team Domain** | Domain 1: Aiversecity Future-Ready Workforce |
+| **SDG Track (1–17)** | SDG 4 — Quality Education (primary target 4.4). Also SDG 8 — Decent Work and Economic Growth (targets 8.2 and 8.5) |
+| **Team Leader** | Almat Sakiidulla |
+| **University** | Xiamen University Malaysia |
+| **Number of Members** | 4 |
+
+## Links
+
+| Resource | Link |
+|---|---|
+| GitHub Repository | https://github.com/Almatikooo/Competition_Repo |
+| Live Demo | https://pathai.lol |
+| RunPod Endpoint | Our own RunPod GPU pod running vLLM (OpenAI-compatible API). It is not a public endpoint: the app's server calls it, and it runs only when needed. See [How we used RunPod](#runpod-our-own-ai-model-on-a-gpu) |
+| Slide Deck | [Final presentation (.pptx, downloads)](submission/SDC2026_ASEA_Final_Presentation_v2.pptx?raw=true) · [preliminary pitch deck (PDF)](submission/Pitch%20Deck%20ASEA.pdf) |
+| Demo Video | https://www.youtube.com/watch?v=9sNNIqK_iYc |
+| Submission files | **Final round:** [report](submission/SDC2026_ASEA_Final.pdf) · [technology declaration](submission/SDC2026_ASEA_TechDeclaration_Final.pdf). **Preliminary round:** [proposal](submission/SDC2026_ASEA_Preliminary.pdf) · [technology declaration](submission/SDC2026_ASEA_TechDeclaration.pdf). **Proofs of use:** [Replit](submission/SDC2026_ASEA_Replit_POU.pdf) · [RunPod](submission/SDC2026_ASEA_Runpod_POU.pdf) |
+
+**Jump to:** [Overview](#overview) · [How to run the project](#how-to-run-the-project) · [Overall project structure](#overall-project-structure) · [How we used Replit and RunPod](#how-we-used-replit-and-runpod) · [Challenges and learnings](#challenges-and-learnings)
+
+## Overview
+
+> SDC XMUM Hackathon 2026, final round, Domain 1 (Aiversecity Future-Ready Workforce). Working prototype. Every example person is fictional.
+
+### Problem
+
+AI reaches jobs such as accounts clerk, admin assistant, cashier, customer-service agent, graphic designer and production operator first. MOSTI estimates that 600,000+ workers need reskilling within 3–5 years. Hays (2025) reports that 56% of Malaysian professionals use AI at work but only 26% have been trained. A person in such a job needs to know which of their skills still count, which new role fits them, and where to learn it for free.
+
+### Solution
 
 Path.AI takes a person from **"who I am today"** to **"where I can be in the AI era"**. A first result takes one tap with an example, or about four taps on your own profile. It reads live job-market and AI-research signals, estimates which skills are rising or declining under three AI-disruption scenarios, ranks future roles with an explainable match, and builds a free or low-cost learning plan. Each skill in the plan has a **free, full course** built from real chapters of open curricula (Microsoft *for Beginners*, The Carpentries, OpenStax, BCcampus, GOV.UK, NIST, EIA, EPA and more), studied chapter by chapter: a short test after every chapter unlocks the next one, and passing the final test earns a **verifiable Path.AI certificate**. The last step, **Opportunities**, asks two questions: *study or work?* and *where?* It then lists open jobs anywhere in the world, ranked by the same explainable match, or the universities of the chosen country with how to apply and how to fund it. Every role and skill is linked to concrete UN SDG targets.
 
-> SDC XMUM Hackathon 2026, final round, Domain 1 (Aiversecity Future-Ready Workforce). Working prototype. Every example person is fictional.
+### Key features
+
+- **Skills profile in about four taps.** Pick a job or a field of study, or upload a CV. The skills are filled in for you and stay editable.
+- **Live AI-trend signals.** 11,583 job posts from 36 monthly Hacker News *Who is hiring?* threads and AI-research volume from OpenAlex show which skills are rising or falling, under three AI scenarios.
+- **Explainable role matching.** 43 future roles ranked by skills fit, outlook and what matters to you, each with *Why this role?*.
+- **Free learning plan with full courses.** 53 courses with 755 lessons, a test after every chapter, a final test and a verifiable certificate.
+- **Opportunities.** Open jobs anywhere in the world matched to your skills, or the universities of any of 219 countries with how to apply and how to fund it.
+- **AI on our own GPU.** Qwen3.8-27B on RunPod reads CVs and job posts and writes the AI career review and the AI Chat answers. It may only use numbers the engine computed.
+- **Motivation.** My path with a daily streak, 100 achievements and a rewards catalogue where points pay up to half of a gift.
+
+### Tech stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | HTML, CSS and vanilla JavaScript: a single-page app with no build step, in English, Bahasa Melayu and 中文 |
+| Backend | Python 3.12, FastAPI, uvicorn |
+| Database | SQLite for optional accounts and saved progress; JSON files in the repository for the catalogues, courses, jobs and trend data |
+| AI / Compute | RunPod GPU (RTX A6000) running vLLM with Qwen3.8-27B-FP8; Groq (the same open model) as a backup |
+| Hosting / Dev | DigitalOcean VPS in Singapore (Ubuntu 24.04, Caddy, systemd) at pathai.lol; Replit workspace and Replit Agent |
 
 ![Path.AI home](docs/img/home.png)
 
 ## Who it is for
 
-**Primary user.** A Malaysian working adult in a high-AI-exposure job, such as an accounts clerk, admin assistant, cashier, customer-service agent, graphic designer or production operator, at the moment their employer starts automating with AI. MOSTI estimates that 600,000+ workers need reskilling within 3–5 years. Hays (2025) reports that 56% of Malaysian professionals use AI at work but only 26% have been trained.
+**Primary user.** A Malaysian working adult in a high-AI-exposure job, such as an accounts clerk, admin assistant, cashier, customer-service agent, graphic designer or production operator, at the moment their employer starts automating with AI.
 
 **Also serves:**
 - students and fresh graduates;
@@ -303,7 +342,7 @@ scripts/opportunities/ job and university snapshots: jobs.py · universities.py 
 scripts/gpu.py         switch the RunPod GPU on and off: create · start · stop · status · wait · recreate
 deploy/runpod/         the pod's start command (start.sh: vLLM) and watchdog.py (stops the pod when the model sits idle)
 deploy/server/         the live server: setup.sh · update.sh · push_env.sh · pathai.service (systemd)
-Submission/            the preliminary-round document, the pitch deck, the technology declaration (PDFs), and the RunPod and Replit proofs of use
+submission/            the final report, presentation and technology declaration; the preliminary proposal, pitch deck and technology declaration; the Replit and RunPod proofs of use
 scripts/brand_assets.py  rebuilds src/static/brand/ (vector logo, favicons, link preview) from the master logo
 tests/                 catalog, engine, guardrail, learn/certificate, opportunities and API tests
 docs/RUNPOD.md         model + GPU choice and deployment guide
@@ -326,7 +365,7 @@ docs/RUNPOD.md         model + GPU choice and deployment guide
   - **Writes the guarded AI answers:** "Why this role?" explanations, job advice, the market check, the personal AI review and the AI Chat.
   - **Saved answers.** It also wrote the answers for the example people (`data/ai/answers.jsonl`), so the demo shows real model output while the GPU is off.
 - **Budget.** We had $25 of credit and have spent about $4.50 so far, storage included. The rest is kept for the live demo.
-- **Proof:** [Submission/RunPod Proof of Use.pdf](Submission/RunPod%20Proof%20of%20Use.pdf).
+- **Proof:** [submission/SDC2026_ASEA_Runpod_POU.pdf](submission/SDC2026_ASEA_Runpod_POU.pdf).
 
 ### Replit: research assistant and one-click workspace
 - **Replit Agent as a research team.** We gave Replit Agent a written brief: find open labour-market data for Malaysia under strict rules (open licences only, no scraping, exact quotes with page numbers, nothing invented). From its results:
@@ -335,9 +374,17 @@ docs/RUNPOD.md         model + GPU choice and deployment guide
   - **Re-checked before use.** We re-checked every result ourselves: boards were re-fetched with our own importer, PDF hashes compared, and each quote found on its page.
 - **Building with Replit Agent.** Team members also built and previewed parts of Path.AI in a Replit workspace with Replit Agent, for example the course converter that turns open curricula into lessons.
 - **Replit workspace.** `.replit` lets anyone import the repository into Replit and run the app with one click.
-- **Proof:** [Submission/Replit Proof of Use.pdf](Submission/Replit%20Proof%20of%20Use.pdf).
+- **Proof:** [submission/SDC2026_ASEA_Replit_POU.pdf](submission/SDC2026_ASEA_Replit_POU.pdf).
 
-## Limitations and roadmap
+## Challenges and learnings
+
+- **Numbers the model cannot invent.** A language model writes fluent text but can make up statistics. The engine computes every number, the model only explains them, and a guard rejects any answer with a number it was not given.
+- **A GPU on a student budget.** A GPU costs money every hour, so ours runs only when needed: a watchdog stops it after 20 idle minutes, answers are saved, and a hosted copy of the same open model covers the rest.
+- **Free courses we may legally reuse.** Full courses need open texts. We used only openly licensed curricula (MIT, CC BY, CC BY-SA, public domain) and no non-commercial material, and every question we wrote quotes its lesson word for word.
+- **Live data that can fail during a demo.** Trend data is cached with dates, a refresh keeps the last good data, and the app works fully in rule-based mode without the model.
+- **What we learned.** People trust a recommendation when they can see why it was made, so every match, forecast and AI answer shows its sources and numbers. A working fallback for every outside service matters more than one more feature.
+
+## Limitations and future improvements
 
 - Malaysian job-posting feeds (e.g. MYFutureJobs / MyMahir partnerships), DOSM labour statistics and HRD Corp programme data, so that non-tech skills also get live market signals.
 - Research attention is a proxy for AI progress, not a measure of real-world adoption. Adoption signals could be added.
@@ -384,3 +431,7 @@ Job sites without a public API (JobStreet, SEEK, Indeed, LinkedIn, Naukri) are o
 ### AI tools used to build Path.AI
 - **Code.** Written with the help of **Claude Code** (Anthropic); commits it co-wrote are marked "Co-Authored-By: Claude".
 - **Research.** **Replit Agent** helped find company job boards and check the wording of cited claims. Every board, quote and page was re-checked against the original source before use.
+
+## License
+
+The code is licensed under the [Apache License 2.0](LICENSE). Course texts, data and photos keep their own open licences, listed in [Data and AI disclosure](#data-and-ai-disclosure), `data/learn/LICENSE.md` and `data/opportunities/LICENSE.md`.
