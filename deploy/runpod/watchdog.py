@@ -55,8 +55,8 @@ def stop_pod() -> None:
 
 def main() -> None:
     env = os.environ.get
-    dog = Watchdog(float(env("IDLE_MINUTES", "20")), float(env("STARTUP_MINUTES", "40")), float(env("MAX_HOURS", "10")), time.time())
-    print(f"[watchdog] on: stops the pod after {env('IDLE_MINUTES', '20')} idle minutes or {env('MAX_HOURS', '10')} h", flush=True)
+    dog = Watchdog(float(env("IDLE_MINUTES", "600")), float(env("STARTUP_MINUTES", "40")), float(env("MAX_HOURS", "10")), time.time())
+    print(f"[watchdog] on: stops the pod after {env('IDLE_MINUTES', '600')} idle minutes or {env('MAX_HOURS', '10')} h", flush=True)
     while True:
         time.sleep(CHECK_EVERY)
         try:

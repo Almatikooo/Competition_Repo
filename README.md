@@ -22,11 +22,11 @@
 | GitHub Repository | https://github.com/Almatikooo/Competition_Repo |
 | Live Demo | https://pathai.lol |
 | RunPod Endpoint | Our own RunPod GPU pod running vLLM (OpenAI-compatible API). It is not a public endpoint: the app's server calls it, and it runs only when needed. See [How we used RunPod](#runpod-our-own-ai-model-on-a-gpu) |
-| Slide Deck | [Final presentation (.pptx, downloads)](submission/SDC2026_ASEA_Final_Presentation_v2.pptx?raw=true) · [preliminary pitch deck (PDF)](submission/Pitch%20Deck%20ASEA.pdf) |
-| Demo Video | https://www.youtube.com/watch?v=9sNNIqK_iYc |
+| Slide Deck | [Final presentation (PDF)](submission/SDC2026_ASEA_Final_Presentation_v2.pdf) · [the same as .pptx (downloads)](submission/SDC2026_ASEA_Final_Presentation_v2.pptx?raw=true) · [preliminary pitch deck (PDF)](submission/Pitch%20Deck%20ASEA.pdf) |
+| Demo Video | Pitch video from the preliminary round: https://www.youtube.com/watch?v=9sNNIqK_iYc |
 | Submission files | **Final round:** [report](submission/SDC2026_ASEA_Final.pdf) · [technology declaration](submission/SDC2026_ASEA_TechDeclaration_Final.pdf). **Preliminary round:** [proposal](submission/SDC2026_ASEA_Preliminary.pdf) · [technology declaration](submission/SDC2026_ASEA_TechDeclaration.pdf). **Proofs of use:** [Replit](submission/SDC2026_ASEA_Replit_POU.pdf) · [RunPod](submission/SDC2026_ASEA_Runpod_POU.pdf) |
 
-**Jump to:** [Overview](#overview) · [How to run the project](#how-to-run-the-project) · [Overall project structure](#overall-project-structure) · [How we used Replit and RunPod](#how-we-used-replit-and-runpod) · [Challenges and learnings](#challenges-and-learnings)
+**Jump to:** [Overview](#overview) · [How to run the project](#how-to-run-the-project) · [Overall project structure](#overall-project-structure) · [How we used Replit and RunPod](#how-we-used-replit-and-runpod) · [Challenges and learnings](#challenges-and-learnings) · [Team](#team)
 
 ## Overview
 
@@ -226,7 +226,7 @@ This is the last step of the journey. It is linked from the results, the plan, y
 - **Model.** `Qwen/Qwen3.8-27B-FP8`: open weights (Apache-2.0, Aug 2026), multilingual (EN/BM/ZH), vision-capable, fits one 48 GB GPU.
 - **GPU.** 1× **RTX A6000 48 GB** on RunPod: $0.59/h Secure, $0.33/h Community, about 40 hours for $25.
 - **What it does.** It reads CVs, rewrites the *Why this role?* explanations, and reads every job posting once (≈19.5k postings, ≈3 GPU hours): skills required or nice to have, years of experience, degree, languages, pay, work mode and visa sponsorship, shown on each job card and used for matching.
-- **GPU only when needed.** `python -m scripts.gpu create | start | stop | status` switches the RunPod pod on and off, and a watchdog inside the pod stops it after 20 minutes without requests.
+- **GPU only when needed.** `python -m scripts.gpu create | start | stop | status` switches the RunPod pod on and off, and a watchdog inside the pod stops it after 10 hours without requests, and after 10 hours at most.
 - **Live first.** While our GPU is on, every AI answer is written live, also for the example people. While it is off, the example people get their saved model answers and other requests go to the backup model. Each answer carries a label: *Live · our GPU*, *Live · backup model* or *Saved answer · our GPU is off*.
 - **AI chat** (`#/chat`, the career coach). A chat that sees the person's profile, top five roles, course progress, certificates,
   plan steps and open jobs where they look. It answers from those facts only, checks every number, and adds up to three
@@ -245,7 +245,7 @@ This is the last step of the journey. It is linked from the results, the plan, y
 | AI inventing jobs, courses or statistics | Catalog-only ids, evidence and number guardrails, and tests. |
 | Matching quality | Transparent components, transferable-skill credit, editable skills and weights, and robustness across scenarios. |
 | GPU or LLM down | Full rule-based mode. The UI states which engine wrote each explanation. Kept answers and the facts read from postings still show. |
-| GPU budget ($25 ≈ 42 h) runs out | The GPU runs only for checks, the one-off reading of postings and the demo; the in-pod watchdog stops it after 20 idle minutes. |
+| GPU budget ($25 ≈ 42 h) runs out | The GPU runs only for checks, the one-off reading of postings and the demo; we stop it by hand after use, and the in-pod watchdog stops a forgotten pod after 10 hours. |
 | Representativeness (HN is US/tech-centric) | Used for tech skills only, with confidence labels. Malaysian feeds are on the roadmap. |
 | Few open postings for a country in the job snapshot | Every country also gets one-tap searches on its main job sites, official portals first, and remote jobs open worldwide. |
 
@@ -356,7 +356,7 @@ docs/RUNPOD.md         model + GPU choice and deployment guide
   - The weights sit on a 40 GB volume, so a stopped pod starts again in a few minutes without downloading them again.
   - Files: `deploy/runpod/`.
 - **On only when needed.** `python -m scripts.gpu create | start | stop | status | wait | recreate` drives the RunPod REST API. The key stays in the local `.env` and is never on the server.
-  - A watchdog inside the pod stops it after 20 idle minutes and after 10 hours at most, so a forgotten GPU cannot burn the budget.
+  - A watchdog inside the pod stops it after 10 hours without requests, and after 10 hours at most, so a forgotten GPU cannot burn the budget.
 - **What the GPU did for Path.AI:**
   - **Read every job posting once:** 19,424 postings in about 3 GPU hours.
     - It extracted the skills required or nice to have, years of experience, degree, languages, pay, work mode and visa sponsorship.
@@ -379,7 +379,7 @@ docs/RUNPOD.md         model + GPU choice and deployment guide
 ## Challenges and learnings
 
 - **Numbers the model cannot invent.** A language model writes fluent text but can make up statistics. The engine computes every number, the model only explains them, and a guard rejects any answer with a number it was not given.
-- **A GPU on a student budget.** A GPU costs money every hour, so ours runs only when needed: a watchdog stops it after 20 idle minutes, answers are saved, and a hosted copy of the same open model covers the rest.
+- **A GPU on a student budget.** A GPU costs money every hour, so ours runs only when needed: we switch it off after use, a watchdog stops a forgotten pod after 10 hours, answers are saved, and a hosted copy of the same open model covers the rest.
 - **Free courses we may legally reuse.** Full courses need open texts. We used only openly licensed curricula (MIT, CC BY, CC BY-SA, public domain) and no non-commercial material, and every question we wrote quotes its lesson word for word.
 - **Live data that can fail during a demo.** Trend data is cached with dates, a refresh keeps the last good data, and the app works fully in rule-based mode without the model.
 - **What we learned.** People trust a recommendation when they can see why it was made, so every match, forecast and AI answer shows its sources and numbers. A working fallback for every outside service matters more than one more feature.
@@ -394,6 +394,15 @@ docs/RUNPOD.md         model + GPU choice and deployment guide
 - The job snapshot leans towards tech and international employers. Malaysia has 166 on-site postings plus remote ones, so one-tap searches on local job sites carry much of the load. A Malaysian feed would fill the gap, for example MYFutureJobs through a partnership.
 - Roles are recognised from posting titles with patterns. Postings whose titles match no catalogue role are scored on their skills alone, at a discount.
 - Universities are ordered by how widely they are known, which is not a measure of quality or fit. Programme-level data, such as courses, fees and entry grades, would need each country's official sources.
+
+## Team
+
+| Name | Role | GitHub |
+|---|---|---|
+| Almat Sakiidulla | Team Lead / Programmer | [@Almatikooo](https://github.com/Almatikooo) |
+| Serik Kurmashev | Programmer | [@skb014](https://github.com/skb014) |
+| Ismail Yerkhan | Documentation | — |
+| Shauganov Adilzhan | Mathematical Solution | — |
 
 ## Data and AI disclosure
 

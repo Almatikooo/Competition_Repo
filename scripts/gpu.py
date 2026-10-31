@@ -28,7 +28,7 @@ DEPLOY = ROOT / "deploy/runpod"
 API = "https://rest.runpod.io/v1"
 GRAPHQL = "https://api.runpod.io/graphql"
 DEFAULTS = {"VLLM_IMAGE": "vllm/vllm-openai:v0.31.0", "GPU_TYPE": "NVIDIA RTX A6000", "LLM_MODEL": "Qwen/Qwen3.8-27B-FP8",
-            "GPU_CLOUD": "SECURE", "IDLE_MINUTES": "20", "MAX_HOURS": "10", "MAX_MODEL_LEN": "16384"}
+            "GPU_CLOUD": "SECURE", "IDLE_MINUTES": "600", "MAX_HOURS": "10", "MAX_MODEL_LEN": "16384"}
 PRICE_HINT = {"SECURE": 0.59, "COMMUNITY": 0.33}    # RTX A6000 $/h on runpod.io/pricing, checked 2026-10-20
 VOLUME_GB = 40                                      # Qwen3.8-27B-FP8 is 30.9 GB
 
@@ -276,7 +276,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("command", choices=["create", "start", "stop", "status", "wait", "recreate", "update", "logs"])
     ap.add_argument("--yes", action="store_true", help="do not ask for confirmation")
     ap.add_argument("--cloud", choices=["SECURE", "COMMUNITY"], help="for create/recreate (default SECURE)")
-    ap.add_argument("--idle", type=int, help="minutes without requests before the pod stops itself (default 20)")
+    ap.add_argument("--idle", type=int, help="minutes without requests before the pod stops itself (default 600, i.e. 10 h)")
     ap.add_argument("--minutes", type=float, default=30, help="how long `wait` waits")
     args = ap.parse_args(argv)
     env = read_env()

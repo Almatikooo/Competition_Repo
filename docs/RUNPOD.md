@@ -66,7 +66,7 @@ The model needs 30.9 GB of weights plus KV cache plus activations, so at least a
 | Reading every job posting once (≈19.5k, `scripts/opportunities/enrich.py`) | ≈3 (estimate; the 300-posting pilot measures it) |
 | Later features, demo rehearsals, video and the final round | the rest |
 
-- **Stop the pod whenever it is idle** (`python -m scripts.gpu stop`). GPU billing stops; the 40 GB volume with the weights costs ≈$0.27/day while stopped. The watchdog stops a forgotten pod after 20 minutes without requests.
+- **Stop the pod whenever it is idle** (`python -m scripts.gpu stop`). GPU billing stops; the 40 GB volume with the weights costs ≈$0.27/day while stopped. The watchdog stops a forgotten pod after 10 hours without requests.
 - **Community Cloud** is about 45% cheaper, but has fewer free GPUs. Use Secure Cloud for the live demo.
 - **Serverless** charges per second ($1.22/h in the A6000/A40 class) but cold-starts by loading 31 GB, so it does not suit a demo.
 
@@ -86,7 +86,7 @@ The model needs 30.9 GB of weights plus KV cache plus activations, so at least a
 6. Changed `deploy/runpod/` or a setting? `python -m scripts.gpu update` sends it to the pod (it restarts; the weights stay). If vLLM ever stops, `python -m scripts.gpu logs` prints the end of its log.
 7. Reading every job posting: `caffeinate -is python -m scripts.opportunities.enrich --concurrency 64 --then-stop` keeps the laptop awake, continues after a dropped connection and switches the GPU off at the end. Measured: ≈100 postings a minute at 32 in parallel.
 
-**The watchdog** (`deploy/runpod/watchdog.py`) runs inside the pod. It stops the pod after `IDLE_MINUTES` (20) without a request to the model, when the model does not come up within 40 minutes, or after 10 hours in all. It uses the pod-scoped `RUNPOD_API_KEY` and `RUNPOD_POD_ID` that RunPod sets in every pod, so your account key never leaves your laptop.
+**The watchdog** (`deploy/runpod/watchdog.py`) runs inside the pod. It stops the pod after `IDLE_MINUTES` (600, that is 10 hours) without a request to the model, when the model does not come up within 40 minutes, or after 10 hours in all. It uses the pod-scoped `RUNPOD_API_KEY` and `RUNPOD_POD_ID` that RunPod sets in every pod, so your account key never leaves your laptop.
 
 **Manual setup in the console (option A).**
 
