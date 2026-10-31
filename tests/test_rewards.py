@@ -49,11 +49,15 @@ def test_every_gift_has_words_in_every_language_and_an_icon():
         assert re.search(rf"\b{g['icon']}: \"", icons), g["icon"]
 
 
-def test_every_gift_has_a_photo_with_its_credit():
+def test_every_gift_has_a_photo_and_borrowed_photos_have_their_credit():
     photos = (STATIC / "reward-photos.js").read_text(encoding="utf-8")
+    own = set(json.loads(re.search(r"export const OWN = (\[.*\]);", photos)[1]))
+    assert {g["id"] for g in gifts() if g["cat"] == "merch"} | {"macbook"} == own    # the team made these photos
     for g in gifts():
         assert (STATIC / "rewards" / f"{g['id']}.jpg").stat().st_size > 5_000, g["id"]
         entry = re.search(rf'^  {g["id"]}: (\{{.*\}}),?$', photos, re.M)
-        assert entry, g["id"]
+        if g["id"] in own:
+            assert not entry, g["id"]
+            continue
         credit = json.loads(entry[1])
         assert credit["author"] and credit["license"] and credit["source"].startswith("https://commons.wikimedia.org/"), g["id"]

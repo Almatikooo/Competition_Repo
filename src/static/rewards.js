@@ -1,7 +1,8 @@
 // Rewards (#/rewards): achievements earn points (bronze 10, silver 50, gold 200; see badges.js), 1 point is worth about
 // RM 1, and points pay at most half the price of a gift: the rest is paid in money. Thirty gifts, from a sticker pack
-// to a MacBook, each with an openly licensed photo (credited at the bottom of the page). A claim is a demo: it keeps a
-// code and the points it used, but no order is placed and nothing is charged.
+// to a MacBook, each with a product photo on white (the merch is our own; the others are openly licensed and credited
+// at the bottom of the page). A claim is a demo: it keeps a code and the points it used, but no order is placed and
+// nothing is charged.
 import { h } from "./charts.js";
 import { state, store, t, account, icon, rerender } from "./core.js";
 import { POINTS, earnedPoints, spentPoints, pointsBalance, fmtPoints, renderPoints, openBadge } from "./badges.js";
@@ -48,14 +49,13 @@ export const maxPoints = (price) => Math.floor(price * MAX_SHARE);
 const rm = (n) => t("rw_price", { n: fmtPoints(n) });
 const giftName = (g) => t(`rw_i_${g.id}`);
 
-const photo = (g, lazy = true) => (PHOTOS[g.id] ? h("img", { src: `/static/rewards/${g.id}.jpg`, alt: "", loading: lazy ? "lazy" : "eager", decoding: "async" }) : icon(g.icon));
+// Every gift has its photo, /static/rewards/<id>.jpg.
+const photo = (g, lazy = true) => h("img", { src: `/static/rewards/${g.id}.jpg`, alt: "", loading: lazy ? "lazy" : "eager", decoding: "async" });
 
 function tile(g, top = false) {
-  return h("div", { class: `rw-tile rw-${top ? "top" : g.cat}${PHOTOS[g.id] ? " photo" : ""}` },
-    PHOTOS[g.id] ? photo(g, !top) : h("span", { class: "rw-ico" }, icon(g.icon)),
-    h("span", { class: "rw-cat" }, t(`rw_cat_${g.cat}`)));
+  return h("div", { class: `rw-tile rw-${top ? "top" : g.cat} photo` }, photo(g, !top), h("span", { class: "rw-cat" }, t(`rw_cat_${g.cat}`)));
 }
-const mini = (g) => h("span", { class: `rw-mini rw-${g.cat}${PHOTOS[g.id] ? " photo" : ""}` }, photo(g, false));
+const mini = (g) => h("span", { class: `rw-mini rw-${g.cat} photo` }, photo(g, false));
 
 // Who took each photo, under which licence, and where the original is.
 function credits() {
