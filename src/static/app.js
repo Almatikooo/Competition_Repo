@@ -2,7 +2,7 @@ import { h, radar, divergingBars, miniBar, magnitudeBars, sparkline, heatColor, 
 import { state, store, EMPTY_PROFILE, t, setLang, $, api, skillById, roleById, loc, skillName, skillShort, roleTitle, goalOf,
   hasProfile, dateLabel, timeLabel, monthLabel, setRenderer, go, toast, saveProfile, sdgBadge, costTag, icon,
   ensureRadar, ensureMatches, ensureCourses, ensurePathway, account, startAccount, signOut, deleteAccount, keepAnswersOnSignIn,
-  logActivity, masterSkill, bump, remember } from "./core.js";
+  logActivity, masterSkill, bump, remember, keepOpen } from "./core.js";
 import { checkBadges, renderPoints } from "./badges.js";
 import { viewRewards } from "./rewards.js";
 import { ensureLearn, viewLearn, viewCourse, viewLesson, viewTest, viewCertificate, certificatePrintStyle, hoursLabel, testPart } from "./learn.js";
@@ -583,7 +583,7 @@ function viewResults() {
         h("button", { type: "button", class: "btn btn-secondary", onclick: () => { state.showMore = !state.showMore; render(); } },
           state.showMore ? t("fewer_roles") : t("more_roles", { n: rest.length }))) : null,
       state.showMore ? moreList : null,
-      h("details", { class: "card", style: { marginTop: "24px" } }, h("summary", { style: { cursor: "pointer", fontWeight: "700" } }, t("adjust")),
+      h("details", { class: "card", style: { marginTop: "24px" }, ...keepOpen("adjust") }, h("summary", { style: { cursor: "pointer", fontWeight: "700" } }, t("adjust")),
         h("div", { class: "grid-3", style: { marginTop: "16px", gap: "20px" } }, weightSlider("fit", t("w_fit")), weightSlider("outlook", t("w_outlook")), weightSlider("preference", t("w_pref")))),
       h("p", { class: "source-line", style: { textAlign: "center", marginTop: "24px" } },
         t("res_foot", { date: dateLabel(state.meta.signals.hn.fetched_at) }), " ", h("a", { href: "#/how" }, t("how_link"))))));
@@ -735,7 +735,7 @@ function changeCard() {
     failed.some(limit) ? h("p", { class: "small" }, t("tr_ch_budget")) : null,
     down.length ? h("p", { class: "small" }, t("tr_ch_failed", { names: down.join(", ") })) : null,
     h("p", { class: "small muted" }, t("tr_ch_note")),
-    c.log.length ? h("details", { class: "small" }, h("summary", {}, t("tr_ch_log")), h("pre", { class: "refresh-log" }, c.log.join("\n"))) : null);
+    c.log.length ? h("details", { class: "small", ...keepOpen("refreshLog") }, h("summary", {}, t("tr_ch_log")), h("pre", { class: "refresh-log" }, c.log.join("\n"))) : null);
 }
 
 async function selectSkill(id) {

@@ -4,7 +4,7 @@
 // at the bottom of the page). A claim is a demo: it keeps a code and the points it used, but no order is placed and
 // nothing is charged.
 import { h } from "./charts.js";
-import { state, store, t, account, icon, rerender } from "./core.js";
+import { state, store, t, account, icon, rerender, keepOpen } from "./core.js";
 import { POINTS, earnedPoints, spentPoints, pointsBalance, fmtPoints, renderPoints, openBadge } from "./badges.js";
 import { signInButtons, canSignIn } from "./account.js";
 import { PHOTOS } from "./reward-photos.js";
@@ -59,7 +59,7 @@ const mini = (g) => h("span", { class: `rw-mini rw-${g.cat} photo` }, photo(g, f
 
 // Who took each photo, under which licence, and where the original is.
 function credits() {
-  return h("details", { class: "rw-credits small" }, h("summary", {}, t("rw_credits")),
+  return h("details", { class: "rw-credits small", ...keepOpen("rwCredits") }, h("summary", {}, t("rw_credits")),
     h("p", { class: "muted" }, t("rw_credits_note")),
     h("ul", {}, CATALOG.filter((g) => PHOTOS[g.id]).map((g) => {
       const p = PHOTOS[g.id];

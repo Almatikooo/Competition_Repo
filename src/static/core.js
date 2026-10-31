@@ -72,7 +72,7 @@ export const state = {
   // My path: the job worked towards, its steps and readiness by day, and what was done each day (visits, lessons, tests)
   goal: store.get("goal", null), path: store.get("path", {}), activity: store.get("activity", {}), pathCourse: null, streakOpen: false,
   // Achievements: when each was unlocked, and what was done along the way that they count (see badges.js)
-  badges: store.get("badges", {}), tally: store.get("tally", {}), badgeSel: null, scrollTo: null,
+  badges: store.get("badges", {}), tally: store.get("tally", {}), badgeSel: null, scrollTo: null, openDetails: {},
   // Rewards: gifts claimed with the points the achievements earn (see rewards.js)
   rewards: store.get("rewards", []), rewardsUi: { cat: "all", reach: false },
   nextUi: { editing: false, q: "", tab: "local", level: "any", role: "all", field: null, allFields: false, uniQ: "", uniShown: 20 },
@@ -178,6 +178,11 @@ let renderFn = () => {};
 export function setRenderer(fn) { renderFn = fn; }
 export function rerender() { return renderFn(); }
 export const go = (hash) => { if (location.hash === hash) rerender(); else location.hash = hash; };
+
+// A <details> that stays the way the person left it when the page is drawn again (e.g. after a slider moves): open
+// until they close it themselves.
+export const keepOpen = (key) => ({ open: !!state.openDetails[key],
+  ontoggle: (e) => { state.openDetails = { ...state.openDetails, [key]: e.currentTarget.open }; } });
 
 export function toast(msg) {
   const el = h("div", { class: "toast", role: "status" }, msg);
