@@ -6,7 +6,9 @@ or a local Ollama / LM Studio server. When nothing is configured the app runs in
 
 The GPU is switched on only when needed, so the client
 * answers a request it has seen before from its answer cache, without the GPU (data/cache/llm, plus the committed
-  saved answers in data/ai/answers.jsonl);
+  saved answers in data/ai/answers.jsonl). The web app's client (`live_first=True`) does this only while our GPU is
+  off: when it is on, every answer is written live, so a demo shows the model at work; the saved answers (the six
+  example people's script) stand in when it is off, or when a live draft fails its fact check;
 * fails fast while the model is offline, so callers fall back to the rule-based path at once;
 * sends at most `max_parallel` requests at a time to the single GPU;
 * while the GPU is off, the web app's client (`backup=True`) asks a hosted copy of the same open model instead
@@ -33,16 +35,20 @@ class LLMUnavailable(RuntimeError):
 
 # The model that wrote the answer to the current request (our GPU's or the backup's), for the reply's "model" field.
 ANSWERED_BY: contextvars.ContextVar[str | None] = contextvars.ContextVar("llm_answered_by", default=None)
+# How the current request was answered: "gpu" (our model, live), "backup" (the hosted copy, live) or "saved" (an
+# answer kept from before, e.g. the example people's script while our GPU is off), for the reply's "source" field.
+ANSWER_SOURCE: contextvars.ContextVar[str | None] = contextvars.ContextVar("llm_answer_source", default=None)
 
 
 class LLMClient:
     def __init__(self, transport: httpx.AsyncBaseTransport | None = None, max_parallel: int | None = None,
                  cache_dir: Path | None = config.LLM_CACHE_DIR, saved: Path | None = config.LLM_SAVED_ANSWERS,
-                 backup: bool = False) -> None:
+                 backup: bool = False, live_first: bool = False) -> None:
         self.base_url = config.LLM_BASE_URL
         self.model = config.LLM_MODEL
         self.backup_url = config.LLM_BACKUP_BASE_URL if backup else ""
         self.backup_model = config.LLM_BACKUP_MODEL
+        self.live_first = live_first
         self.transport = transport  # tests inject httpx.MockTransport here
         self.max_parallel = max_parallel or config.LLM_MAX_PARALLEL
         self.timeout = config.LLM_TIMEOUT
@@ -155,26 +161,48 @@ class LLMClient:
     async def chat(self, messages: list[dict], *, json_schema: dict | None = None, max_tokens: int = 700,
                    temperature: float = 0.2, cache: bool = True, accept: Callable[[str], bool] | None = None,
                    backup: bool = True) -> str:
-        """The model's answer. With `cache`, a request seen before is answered from the cache, and a new answer is
+        """The model's answer. With `cache`, a request seen before can be answered from the cache, and a new answer is
         kept when `accept` (e.g. a guardrail) passes it: a rejected answer is never replayed, the next try asks again.
-        Our GPU answers when it is on; otherwise the hosted backup, unless `backup=False`."""
+        Live-first (the web app): our GPU answers whenever it is on; while it is off, an answer kept from before, else
+        the hosted backup (unless `backup=False`). Otherwise (batch scripts): the cache first, then our GPU."""
         payload = self.payload(messages, json_schema=json_schema, max_tokens=max_tokens, temperature=temperature)
-        if cache and (hit := self.cached(payload)) is not None:
-            ANSWERED_BY.set(self.model)
-            return hit
-        own = await self._status_now(30.0)
-        if own.get("online"):
-            url, key, body, model, which = self.base_url, config.LLM_API_KEY, payload, self.model, "gpu"
-        elif backup and self.backup_configured:
+        if self.live_first:
+            if (await self._status_now(30.0)).get("online"):
+                try:
+                    content = await self._ask("gpu", payload)
+                except LLMUnavailable:
+                    content = None                      # it went away just now: answer as if it were off
+                if content is not None:
+                    if cache and not _passes(accept, content) and (kept := self.cached(payload)) is not None:
+                        return self._answered(kept, self.model, "saved")    # the live draft failed its check
+                    if cache and _passes(accept, content):
+                        self._remember(payload, content)
+                    return self._answered(content, self.model, "gpu")
+            if cache and (hit := self.cached(payload)) is not None:
+                return self._answered(hit, self.model, "saved")
+        else:
+            if cache and (hit := self.cached(payload)) is not None:
+                return self._answered(hit, self.model, "saved")
+            if (await self._status_now(30.0)).get("online"):
+                content = await self._ask("gpu", payload)
+                if cache and _passes(accept, content):
+                    self._remember(payload, content)
+                return self._answered(content, self.model, "gpu")
+        if backup and self.backup_configured:
             body = self._backup_payload(payload)
             if cache and (hit := self.cached(body)) is not None:
-                ANSWERED_BY.set(self.backup_model)
-                return hit
-            url, key, model, which = self.backup_url, config.LLM_BACKUP_API_KEY, self.backup_model, "backup"
-        elif not self.configured:
+                return self._answered(hit, self.backup_model, "saved")
+            content = await self._ask("backup", body)
+            if cache and _passes(accept, content):
+                self._remember(body, content)
+            return self._answered(content, self.backup_model, "backup")
+        if not self.configured:
             raise LLMUnavailable("LLM_BASE_URL is not set")
-        else:
-            raise LLMUnavailable(f"the model is offline ({own.get('error', 'no answer')})")
+        raise LLMUnavailable(f"the model is offline ({self._status.get('error', 'no answer')})")
+
+    async def _ask(self, which: str, body: dict) -> str:
+        """One request to our GPU ("gpu") or the hosted backup ("backup")."""
+        url, key = (self.base_url, config.LLM_API_KEY) if which == "gpu" else (self.backup_url, config.LLM_BACKUP_API_KEY)
         try:
             async with self._semaphore(which):
                 async with self._client(self.timeout) as client:
@@ -183,14 +211,16 @@ class LLMClient:
                     if resp.status_code == 429:
                         raise LLMUnavailable("busy: too many requests to the model; try again in a minute")
                     resp.raise_for_status()
-                    content = resp.json()["choices"][0]["message"]["content"] or ""
+                    return resp.json()["choices"][0]["message"]["content"] or ""
         except (httpx.HTTPError, KeyError, ValueError) as exc:
             if which == "gpu":
-                self._status = {}
+                self._status = {}                       # look again next time: it may have been switched off
             raise LLMUnavailable(f"{type(exc).__name__}: {exc}") from exc
-        if cache and _passes(accept, content):
-            self._remember(body, content)
+
+    @staticmethod
+    def _answered(content: str, model: str, source: str) -> str:
         ANSWERED_BY.set(model)
+        ANSWER_SOURCE.set(source)
         return content
 
 
@@ -203,4 +233,4 @@ def _passes(accept: Callable[[str], bool] | None, content: str) -> bool:
         return False
 
 
-llm = LLMClient(backup=True)     # the web app's client; batch scripts make their own, without the backup
+llm = LLMClient(backup=True, live_first=True)    # the web app's client; batch scripts make their own, without the backup

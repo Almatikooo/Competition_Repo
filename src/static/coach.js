@@ -4,7 +4,7 @@
 // The page is laid out like a modern chat app: a centred conversation column, plain assistant turns, the person's
 // turns in bubbles, and a rounded composer that stays at the bottom of the screen.
 import { h } from "./charts.js";
-import { state, store, t, api, skillName, skillShort, roleTitle, hasProfile, icon, rerender, go, toast, bump, DEFAULT_LANGUAGES } from "./core.js";
+import { state, store, t, api, skillName, skillShort, roleTitle, hasProfile, icon, rerender, go, toast, bump, aiSource, DEFAULT_LANGUAGES } from "./core.js";
 import { countryName } from "./next.js";
 
 const KEEP = 30;               // messages kept in this browser
@@ -46,7 +46,7 @@ async function send(text) {
   try {
     const res = await api("/api/chat", { as_of: state.asOf, scenario: state.scenario, lang: state.lang, weights: state.weights, country: where(),
       profile: { ...state.profile, languages: state.profile.languages || DEFAULT_LANGUAGES }, messages: history, context: context() });
-    if (res.engine === "llm") c.messages.push({ role: "assistant", content: res.text, links: res.links || [] });
+    if (res.engine === "llm") c.messages.push({ role: "assistant", content: res.text, links: res.links || [], source: res.source });
     else c.messages.push({ role: "assistant", note: true,
       content: t(res.guardrail?.rejected ? "chat_cant" : /busy/.test(res.error || "") ? "coach_busy" : "coach_off") });
   } catch (e) {
@@ -107,7 +107,7 @@ function turn(m) {
   return h("div", { class: "coach-turn assistant" },
     h("div", { class: "coach-answer" }, answerText(m.content)),
     m.links?.length ? h("div", { class: "coach-chips" }, m.links.map(linkChip)) : null,
-    h("div", { class: "coach-actions" }, copyButton(m.content)));
+    h("div", { class: "coach-actions" }, copyButton(m.content), aiSource(m.source)));
 }
 
 function personName() {

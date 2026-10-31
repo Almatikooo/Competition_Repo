@@ -184,6 +184,12 @@ export const go = (hash) => { if (location.hash === hash) rerender(); else locat
 export const keepOpen = (key) => ({ open: !!state.openDetails[key],
   ontoggle: (e) => { state.openDetails = { ...state.openDetails, [key]: e.currentTarget.open }; } });
 
+// Where an AI answer came from: written just now by our model on our GPU (RunPod), by the hosted backup copy of the
+// same model, or saved earlier (the example people's answers, shown while our GPU is off).
+export function aiSource(src) {
+  return ["gpu", "backup", "saved"].includes(src) ? h("span", { class: `ai-src ${src}` }, h("i"), t(`ai_src_${src}`)) : null;
+}
+
 export function toast(msg) {
   const el = h("div", { class: "toast", role: "status" }, msg);
   document.body.append(el);

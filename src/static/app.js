@@ -2,7 +2,7 @@ import { h, radar, divergingBars, miniBar, magnitudeBars, sparkline, heatColor, 
 import { state, store, EMPTY_PROFILE, t, setLang, $, api, skillById, roleById, loc, skillName, skillShort, roleTitle, goalOf,
   hasProfile, dateLabel, timeLabel, monthLabel, setRenderer, go, toast, saveProfile, sdgBadge, costTag, icon,
   ensureRadar, ensureMatches, ensureCourses, ensurePathway, account, startAccount, signOut, deleteAccount, keepAnswersOnSignIn,
-  logActivity, masterSkill, bump, remember, keepOpen } from "./core.js";
+  logActivity, masterSkill, bump, remember, keepOpen, aiSource } from "./core.js";
 import { checkBadges, renderPoints } from "./badges.js";
 import { viewRewards } from "./rewards.js";
 import { ensureLearn, viewLearn, viewCourse, viewLesson, viewTest, viewCertificate, certificatePrintStyle, hoursLabel, testPart } from "./learn.js";
@@ -453,7 +453,8 @@ function matchDetails(r, role) {
   return h("div", { class: "details" },
     r.robust ? h("p", { style: { margin: "0 0 12px" } }, h("span", { class: "badge robust" }, `◆ ${t("robust")}`)) : null,
     h("h4", {}, t("d_explain")),
-    h("div", { class: "explain" }, h("p", {}, citedText(exp?.text || r.explanation, sources, r.id)), h("p", { class: "engine-note" }, engine),
+    h("div", { class: "explain" }, h("p", {}, citedText(exp?.text || r.explanation, sources, r.id)),
+      h("p", { class: "engine-note" }, engine, exp?.engine === "llm" ? aiSource(exp.source) : null),
       state.meta.llm?.online || state.meta.llm?.saved ? h("button", { type: "button", class: "btn btn-secondary btn-sm", style: { marginTop: "8px" }, onclick: (e) => explainWithAI(r.id, e.currentTarget) }, t("explain_ai")) : null),
     have.length ? [h("h4", {}, t("d_have")), h("div", { class: "row" }, have.map((i) => h("span", { class: "pill have" }, "✓ ", skillShort(i.id))))] : null,
     learn.length ? [h("h4", {}, t("d_learn")), h("div", { class: "row" }, learn.map((i) => h("a", { class: "pill learn", href: `#/learn/${i.id}` }, `${skillShort(i.id)} · ${i.gap_hours} h`)))] : null,
@@ -526,7 +527,7 @@ function aiReviewCard() {
   const r = state.review?.key === key ? state.review : null;
   return h("section", { class: "card ai-review" },
     h("div", { class: "ai-head" }, icon("sparkles"), h("h2", {}, t("rv_title"))),
-    r?.text ? [h("p", { class: "ai-review-text" }, r.text), h("p", { class: "tiny muted" }, t("rv_note", { model: r.model }))]
+    r?.text ? [h("p", { class: "ai-review-text" }, r.text), h("p", { class: "tiny muted" }, t("rv_note", { model: r.model }), aiSource(r.source))]
       : r?.off ? h("p", { class: "small muted" }, t("rv_off"))
         : [h("p", { class: "small muted" }, t("rv_sub")),
           h("button", { type: "button", class: "btn btn-primary btn-sm", style: { marginTop: "10px" }, onclick: (e) => askReview(e.currentTarget) }, icon("sparkles"), t("rv_button"))]);
@@ -539,7 +540,7 @@ async function askReview(btn) {
   const key = JSON.stringify(body);
   try {
     const res = await api("/api/review", body);
-    if (res.engine === "llm") state.review = { key, text: res.text, model: res.model };
+    if (res.engine === "llm") state.review = { key, text: res.text, model: res.model, source: res.source };
     else if (res.guardrail?.rejected) toast(t("nx_ai_rejected"));
     else state.review = { key, off: true };
   } catch (e) { toast(String(e.message || e)); }

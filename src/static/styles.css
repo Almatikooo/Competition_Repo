@@ -1360,3 +1360,15 @@ a.po-ctest:hover { background: var(--surface); color: var(--blue); }
 .rw-done-ico svg { width: 32px; height: 32px; }
 .rw-done .btn { margin-top: 6px; }
 @media (max-width: 720px) { .rw-balance { flex: 1 1 100%; } .rw-filters { justify-content: flex-start; } }
+
+/* where an AI answer came from: live on our GPU, live on the backup, or saved earlier */
+.ai-src { display: inline-flex; align-items: center; gap: 6px; margin-left: 8px; padding: 2px 9px; border-radius: 999px; font-size: 11.5px;
+  font-weight: 600; line-height: 1.6; vertical-align: middle; white-space: nowrap; }
+.ai-src i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.ai-src.gpu { background: #e3f4e8; color: var(--green-text); }
+.ai-src.gpu i { animation: ai-live 1.6s ease-in-out infinite; }
+.ai-src.backup { background: var(--tint-2); color: var(--blue); }
+.ai-src.saved { background: var(--line-soft); color: var(--ink-2); }
+.coach-actions .ai-src { margin-left: 4px; }
+@keyframes ai-live { 50% { opacity: 0.3; } }
+@media (prefers-reduced-motion: reduce) { .ai-src.gpu i { animation: none; } }

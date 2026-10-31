@@ -18,7 +18,7 @@ from .learn import TEST_RULES, LearnError, get_learn, verify_certificate
 from . import accounts, advisor
 from . import opportunities as opp
 from .llm import tasks
-from .llm.client import ANSWERED_BY, LLMUnavailable, llm
+from .llm.client import ANSWER_SOURCE, ANSWERED_BY, LLMUnavailable, llm
 from .signals.refresh import refresh as refresh_signals
 
 app = FastAPI(title="Path.AI — career paths for the AI era", version="0.3.0")
@@ -324,7 +324,7 @@ async def explain(q: RoleQuery) -> dict:
         if problems:
             result["guardrail"] = {"rejected": True, "problems": problems, "draft": text}
         else:
-            result.update(engine="llm", text=text, model=ANSWERED_BY.get() or llm.model, guardrail={"rejected": False})
+            result.update(engine="llm", text=text, model=ANSWERED_BY.get() or llm.model, source=ANSWER_SOURCE.get(), guardrail={"rejected": False})
     except (LLMUnavailable, ValueError, KeyError) as exc:
         result["guardrail"] = {"rejected": False, "error": str(exc)[:200]}
     return result
@@ -345,7 +345,7 @@ async def ai_review(q: ReviewQuery) -> dict:
         return {"engine": None, "text": None, "error": str(exc)[:200]}
     if problems:
         return {"engine": None, "text": None, "guardrail": {"rejected": True, "problems": problems}}
-    return {"engine": "llm", "text": text, "model": ANSWERED_BY.get() or llm.model}
+    return {"engine": "llm", "text": text, "model": ANSWERED_BY.get() or llm.model, "source": ANSWER_SOURCE.get()}
 
 
 @app.post("/api/chat")
@@ -363,7 +363,8 @@ async def career_chat(q: ChatQuery) -> dict:
         return {"engine": None, "text": None, "error": str(exc)[:200]}
     if problems:
         return {"engine": None, "text": None, "guardrail": {"rejected": True, "problems": problems}}
-    return {"engine": "llm", "text": text, "links": [_coach_link(x, q.country) for x in link_ids], "model": ANSWERED_BY.get() or llm.model}
+    return {"engine": "llm", "text": text, "links": [_coach_link(x, q.country) for x in link_ids], "model": ANSWERED_BY.get() or llm.model,
+            "source": ANSWER_SOURCE.get()}
 
 
 def _coach_link(link_id: str, country: str) -> dict:
@@ -501,7 +502,7 @@ async def next_why(q: NextWhyQuery) -> dict:
         return {"engine": None, "text": None, "error": str(exc)[:200]}
     if problems:
         return {"engine": None, "text": None, "guardrail": {"rejected": True, "problems": problems}}
-    return {"engine": "llm", "text": text, "model": ANSWERED_BY.get() or llm.model}
+    return {"engine": "llm", "text": text, "model": ANSWERED_BY.get() or llm.model, "source": ANSWER_SOURCE.get()}
 
 
 def _market(q: NextMarketQuery) -> dict:
@@ -536,7 +537,7 @@ async def next_market_ai(q: NextMarketQuery) -> dict:
         return {"engine": None, "text": None, "error": str(exc)[:200]}
     if problems:
         return {"engine": None, "text": None, "guardrail": {"rejected": True, "problems": problems}}
-    return {"engine": "llm", "text": text, "model": ANSWERED_BY.get() or llm.model}
+    return {"engine": "llm", "text": text, "model": ANSWERED_BY.get() or llm.model, "source": ANSWER_SOURCE.get()}
 
 
 @app.post("/api/next/study")

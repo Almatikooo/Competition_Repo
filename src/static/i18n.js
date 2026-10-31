@@ -979,7 +979,7 @@ for (const [lang, strings] of Object.entries(ACHIEVEMENTS)) Object.assign(STRING
 // ---------------------------------------------------------------- rewards: points from achievements, the gift catalog
 const REWARDS = {
   en: {
-    nav_rewards: "Rewards", ach_plus: "+{n} pts", ach_balance: "{n} points", ach_spend: "Spend them in Rewards", rw_chip: "{n} points: open Rewards",
+    nav_rewards: "Rewards", ai_src_gpu: "Live · our GPU", ai_src_backup: "Live · backup model", ai_src_saved: "Saved answer · our GPU is off", ach_plus: "+{n} pts", ach_balance: "{n} points", ach_spend: "Spend them in Rewards", rw_chip: "{n} points: open Rewards",
     rw_title: "Rewards", rw_sub: "Every achievement earns points. Spend them on gifts: points pay up to half the price.",
     rw_how_1: "Unlock achievements: bronze +{b}, silver +{s}, gold +{g} points.", rw_how_2: "1 point is worth RM 1.",
     rw_how_3: "Points pay up to 50% of a gift; you pay the rest.", rw_balance: "Your points", rw_worth: "≈ RM {n} to spend",
@@ -1025,7 +1025,7 @@ const REWARDS = {
     rw_i_macbook: "MacBook Air 13-inch", rw_d_macbook: "The top reward, for Path.AI legends.",
   },
   ms: {
-    nav_rewards: "Ganjaran", ach_plus: "+{n} mata", ach_balance: "{n} mata", ach_spend: "Belanjakan di Ganjaran", rw_chip: "{n} mata: buka Ganjaran",
+    nav_rewards: "Ganjaran", ai_src_gpu: "Langsung · GPU kami", ai_src_backup: "Langsung · model sandaran", ai_src_saved: "Jawapan tersimpan · GPU kami dimatikan", ach_plus: "+{n} mata", ach_balance: "{n} mata", ach_spend: "Belanjakan di Ganjaran", rw_chip: "{n} mata: buka Ganjaran",
     rw_title: "Ganjaran", rw_sub: "Setiap pencapaian memberi mata. Tebus hadiah: mata membayar sehingga separuh harga.",
     rw_how_1: "Buka pencapaian: gangsa +{b}, perak +{s}, emas +{g} mata.", rw_how_2: "1 mata bernilai RM 1.",
     rw_how_3: "Mata membayar sehingga 50% harga hadiah; anda bayar bakinya.", rw_balance: "Mata anda", rw_worth: "≈ RM {n} untuk dibelanjakan",
@@ -1071,7 +1071,7 @@ const REWARDS = {
     rw_i_macbook: "MacBook Air 13 inci", rw_d_macbook: "Ganjaran tertinggi, untuk legenda Path.AI.",
   },
   zh: {
-    nav_rewards: "奖励", ach_plus: "+{n} 积分", ach_balance: "{n} 积分", ach_spend: "去“奖励”中使用", rw_chip: "{n} 积分：打开奖励",
+    nav_rewards: "奖励", ai_src_gpu: "实时 · 我们的 GPU", ai_src_backup: "实时 · 备用模型", ai_src_saved: "已保存的回答 · 我们的 GPU 已关闭", ach_plus: "+{n} 积分", ach_balance: "{n} 积分", ach_spend: "去“奖励”中使用", rw_chip: "{n} 积分：打开奖励",
     rw_title: "奖励", rw_sub: "每个成就都能赚取积分。用积分兑换礼品：积分最多可支付一半价格。",
     rw_how_1: "解锁成就：铜牌 +{b}、银牌 +{s}、金牌 +{g} 积分。", rw_how_2: "1 积分价值 1 令吉。",
     rw_how_3: "积分最多支付礼品价格的 50%，其余由你支付。", rw_balance: "你的积分", rw_worth: "≈ 可用 {n} 令吉",

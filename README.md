@@ -227,7 +227,7 @@ No API key is needed. Without one, the app runs in rule-based mode, and the save
 
 **On Replit.** Import the GitHub repository into Replit and press **Run**: `.replit` installs the requirements and starts `uvicorn app.main:app --app-dir src`.
 
-**Tests:** `python -m pytest -q` (162 tests).
+**Tests:** `python -m pytest -q` (167 tests).
 
 **Refreshing the data (optional):**
 

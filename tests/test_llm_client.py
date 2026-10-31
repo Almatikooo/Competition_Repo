@@ -85,3 +85,59 @@ def test_saved_answers_work_without_any_model_configured(tmp_path):
         asyncio.run(clone.chat([{"role": "user", "content": "new"}]))
     (tmp_path / "saved.jsonl").write_text('{"k": "a", "v": "x"}\n{"k": "b", "v": "y"}\n')
     assert asyncio.run(clone.status())["saved"] == 2
+
+
+# ---------------------------------------------------------------- the web app's client: live first
+def saved_answer(c: LLMClient, tmp_path, text: str) -> None:
+    (tmp_path / "saved.jsonl").write_text(json.dumps({"k": c._key(c.payload(ASK)), "v": text}) + "\n")
+
+
+def answer_and_source(c: LLMClient, **kw) -> tuple[str, str | None]:
+    from app.llm.client import ANSWER_SOURCE
+
+    async def ask():
+        text = await c.chat(ASK, **kw)
+        return text, ANSWER_SOURCE.get()
+    return asyncio.run(ask())
+
+
+def test_with_our_gpu_on_the_web_app_always_answers_live(tmp_path):
+    transport, log = fake_vllm(["live answer", "another live answer"])
+    c = client(tmp_path, transport, live_first=True)
+    saved_answer(c, tmp_path, "the example person's saved answer")
+    assert answer_and_source(c) == ("live answer", "gpu")
+    assert answer_and_source(c) == ("another live answer", "gpu")       # asked again, not replayed
+    assert log["chat"] == 2
+
+
+def test_with_our_gpu_off_the_example_peoples_saved_answers_are_shown(tmp_path):
+    offline, log = fake_vllm(online=False)
+    c = client(tmp_path, offline, live_first=True)
+    saved_answer(c, tmp_path, "the example person's saved answer")
+    assert answer_and_source(c) == ("the example person's saved answer", "saved") and log["chat"] == 0
+
+
+def test_a_live_draft_that_fails_its_check_gives_way_to_the_checked_saved_answer(tmp_path):
+    transport, log = fake_vllm(["invented 42%"])
+    c = client(tmp_path, transport, live_first=True)
+    saved_answer(c, tmp_path, "checked answer")
+    assert answer_and_source(c, accept=lambda raw: "%" not in raw) == ("checked answer", "saved") and log["chat"] == 1
+    fresh = client(tmp_path / "other", fake_vllm(["invented 42%"])[0], live_first=True)     # nothing saved: the draft
+    assert answer_and_source(fresh, accept=lambda raw: "%" not in raw) == ("invented 42%", "gpu")  # goes to the guardrail
+
+
+def test_if_our_gpu_drops_mid_request_the_saved_answer_is_shown(tmp_path):
+    async def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path.endswith("/models"):
+            return httpx.Response(200, json={"data": [{"id": "fake-qwen"}]})
+        return httpx.Response(503, json={"error": "pod stopping"})
+    c = client(tmp_path, httpx.MockTransport(handler), live_first=True)
+    saved_answer(c, tmp_path, "saved answer")
+    assert answer_and_source(c) == ("saved answer", "saved")
+
+
+def test_batch_scripts_still_use_kept_answers_first(tmp_path):
+    transport, log = fake_vllm(["new"])
+    c = client(tmp_path, transport)                                     # live_first is off
+    saved_answer(c, tmp_path, "kept")
+    assert answer_and_source(c) == ("kept", "saved") and log["chat"] == 0

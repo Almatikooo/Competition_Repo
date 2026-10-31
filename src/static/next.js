@@ -3,7 +3,7 @@
 // and how to fund it. The answers stay in this browser; the profile is sent with each request, as on the matches page.
 import { h } from "./charts.js";
 import { state, saveProfile, DEFAULT_LANGUAGES, toast, store, t, api, loc, skillShort, roleTitle, roleById, hasProfile, icon, rerender, dateLabel,
-  ensureMatches, ensureCourses } from "./core.js";
+  ensureMatches, ensureCourses, aiSource} from "./core.js";
 import { hoursLabel } from "./learn.js";
 
 const POPULAR = {
@@ -141,7 +141,7 @@ function marketPanel() {
     asks.length ? h("p", { class: "small" }, h("b", {}, `${t("mk_asks")}: `), asks.join(" · ")) : null,
     h("p", { class: "small" }, b.pay ? t(m.basis === "world" ? "mk_pay_world" : "mk_pay", { range: payText([roundPay(b.pay.low), roundPay(b.pay.high), b.pay.currency, b.pay.per]), n: b.pay.n }) : t("mk_pay_none")),
     ai?.off ? h("div", { class: "job-ai off" }, h("p", {}, t("mk_ai_off")))
-      : ai ? h("div", { class: "job-ai" }, h("p", {}, ai.text), h("p", { class: "tiny muted" }, t("nx_ai_note", { model: ai.model })))
+      : ai ? h("div", { class: "job-ai" }, h("p", {}, ai.text), h("p", { class: "tiny muted" }, t("nx_ai_note", { model: ai.model }), aiSource(ai.source)))
         : h("div", {}, h("button", { type: "button", class: "btn btn-secondary btn-sm", onclick: (e) => askMarket(e.currentTarget) }, icon("sparkles"), t("mk_ai"))));
 }
 
@@ -368,7 +368,7 @@ function jobCard(j) {
         : h("span", { class: "pill" }, `${skillShort(m.id)} · ${m.hours} h`)))) : null,
     state.jobAdvice?.[j.id]?.off ? h("div", { class: "job-ai off" }, h("p", {}, t("nx_ai_off_job")))
       : state.jobAdvice?.[j.id] ? h("div", { class: "job-ai" }, h("p", {}, state.jobAdvice[j.id].text),
-        h("p", { class: "tiny muted" }, t("nx_ai_note", { model: state.jobAdvice[j.id].model }))) : null,
+        h("p", { class: "tiny muted" }, t("nx_ai_note", { model: state.jobAdvice[j.id].model }), aiSource(state.jobAdvice[j.id].source))) : null,
     h("div", { class: "job-actions" },
       h("a", { class: "btn btn-primary btn-sm", href: j.url, target: "_blank", rel: "noopener" }, `${t("nx_apply")} ↗`),
       j.fit != null && !state.jobAdvice?.[j.id]                 // always offered; answered live, from a saved answer, or "AI is off"

@@ -127,4 +127,4 @@ def test_postings_with_a_saved_ai_answer_are_marked_while_the_gpu_is_off(tmp_pat
     marks = {j["id"]: j.get("advice_saved") for j in res["local"][:12]}
     assert marks[first["id"]] is True and sum(1 for v in marks.values() if v) == 1
     why = client.post("/api/next/why", json={"profile": profile, "job_id": first["id"], "lang": "en"}).json()
-    assert why == {"engine": "llm", "text": "A saved answer.", "model": llm.model}      # no GPU needed
+    assert why == {"engine": "llm", "text": "A saved answer.", "model": llm.model, "source": "saved"}   # no GPU needed
